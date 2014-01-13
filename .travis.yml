@@ -1,0 +1,14 @@
+language: node_js
+
+node_js:
+  - '0.10'
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+before_script:
+  - 'gem install compass oily_png'
+  - 'npm install -g bower grunt-cli'
+  - 'bower install'
