@@ -14,8 +14,8 @@ angular.module('volusionApp', [
 
       $routeProvider
         .when('/', {
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl'
+          templateUrl: 'views/home.html',
+          controller: 'HomeCtrl'
         })
         .otherwise({
           redirectTo: '/'

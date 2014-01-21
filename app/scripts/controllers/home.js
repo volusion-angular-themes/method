@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('volusionApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('HomeCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
