@@ -4,7 +4,8 @@ angular.module('volusionApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'seo'
   ])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {

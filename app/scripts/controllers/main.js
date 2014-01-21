@@ -7,4 +7,5 @@ angular.module('volusionApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.htmlReady();
   });
