@@ -9,10 +9,20 @@
     "angular-cookies": "1.2.9",
     "angular-sanitize": "1.2.9",
     "angular-route": "1.2.9",
-    "angular-seo": "*"
+    "angular-seo": "*",
+    "angular-translate": "~1.1.1",
+    "angular-translate-storage-local": "~0.1.6",
+    "angular-translate-loader-partial": "~0.2.0",
+    "angular-translate-interpolation-messageformat": "~0.1.5",
+    "angular-translate-handler-log": "~1.1.0",
+    "angular-i18n": "~1.2.9"
   },
   "devDependencies": {
     "angular-mocks": "1.2.9",
     "angular-scenario": "1.2.9"
+  },
+  "resolutions": {
+    "angular": "1.2.9",
+    "angular-cookies": "1.2.9"
   }
 }

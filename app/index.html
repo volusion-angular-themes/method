@@ -1,13 +1,13 @@
 ﻿<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="volusionApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="volusionApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="volusionApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="volusionApp"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!" />
-    <title></title>
+    <title translate="HEAD.TITLE"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,18 +19,18 @@
     <link rel="stylesheet" href="styles/home.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="volusionApp">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="/">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+        <li class="active"><a ng-href="/" translate="INDEX.HOME"></a></li>
+        <li><a ng-href="#" translate="INDEX.ABOUT"></a></li>
+        <li><a ng-href="#" translate="INDEX.CONTACT"></a></li>
       </ul>
-      <h3 class="text-muted">angular seed</h3>
+      <h3 class="text-muted" translate="HEAD.TITLE"></h3>
     </div>
 
     <!-- Add your site or application content here -->
@@ -60,7 +60,15 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-seo/angular-seo.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
     <!-- endbower -->
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
