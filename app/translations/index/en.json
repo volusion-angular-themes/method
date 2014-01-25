@@ -1,0 +1,10 @@
+﻿{
+  "HEAD": {
+    "TITLE": "Volusion AngularJS Seed Project"
+  },
+  "INDEX": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "CONTACT": "Contact"
+  }
+}
