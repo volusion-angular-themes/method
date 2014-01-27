@@ -1,6 +1,6 @@
-# Volusion-AngularJS Theme Seed
+# Volusion-AngularJS Seed
 
-> Volusion theme seed for the AngularJS Framework
+> Volusion seed for the AngularJS Framework
 
 [![Build Status][]](https://travis-ci.org/jedmao/angular-seed)
 [![Dependency Status][]](https://gemnasium.com/jedmao/angular-seed)
