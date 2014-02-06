@@ -31,8 +31,8 @@ angular.module('volusionApp', [
           redirectTo: getI18NPath
         })
         .when('/:region/:language-:country', {
-          templateUrl: '/views/home.html',
-          controller: 'HomeCtrl'
+          templateUrl: '/views/theme.html',
+          controller: 'ThemeCtrl'
         })
         .otherwise({
           redirectTo: '/'
