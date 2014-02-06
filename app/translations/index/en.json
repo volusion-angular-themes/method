@@ -1,10 +1,19 @@
 ﻿{
-  "HEAD": {
-    "TITLE": "Volusion AngularJS Seed Project"
+  "head": {
+    "title": "Volusion AngularJS Bootstrap Theme"
   },
-  "INDEX": {
-    "HOME": "Home",
-    "ABOUT": "About",
-    "CONTACT": "Contact"
+  "index": {
+    "toggleNav": "Toggle Navigation",
+    "bootstrapTheme": "Bootstrap theme",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "dropdown": "Dropdown",
+    "action": "Action",
+    "anotherAction": "Another action",
+    "somethingElseHere": "Something else here",
+    "navHeader": "Nav header",
+    "separatedLink": "Separated Link",
+    "oneMoreSeparatedLink": "One more separated link"
   }
 }
