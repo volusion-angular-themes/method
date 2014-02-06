@@ -1,0 +1,9 @@
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  @include respond-to(medium-and-up) {
+    border-bottom: 0;
+  }
+}
