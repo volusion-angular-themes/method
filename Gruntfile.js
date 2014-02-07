@@ -14,6 +14,8 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  
+  var rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -52,7 +54,8 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/translations/{,*/}*.json'
         ]
       }
     },
@@ -65,13 +68,38 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      rules: [
+        { from: '^/(bower_components|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(.*)$', to: '/index.html' }
+      ],
       livereload: {
         options: {
           open: true,
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ]
+          ],
+          middleware: function (connect, options) {
+            var middlewares = [];
+
+            // RewriteRules support
+            middlewares.push(rewriteRulesSnippet);
+
+            if (!Array.isArray(options.base)) {
+              options.base = [options.base];
+            }
+
+            var directory = options.directory || options.base[options.base.length - 1];
+            options.base.forEach(function (base) {
+              // Serve static files.
+              middlewares.push(connect.static(base));
+            });
+
+            // Make directory browse-able.
+            middlewares.push(connect.directory(directory));
+
+            return middlewares;
+          }
         }
       },
       test: {
@@ -142,13 +170,19 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
-        html: '<%= yeoman.app %>/index.html',
-        ignorePath: '<%= yeoman.app %>/'
+        src: '<%= yeoman.app %>/index.html',
+        ignorePath: '<%= yeoman.app %>/',
+        exclude: ['bootstrap.js'],
+        fileTypes: {
+          html: {
+            replace: {
+              js: '<script src="/{{filePath}}"></script>',
+              css: '<link rel="stylesheet" href="/{{filePath}}" />'
+            }
+          }
+        }
       }
     },
-
-
-
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -159,7 +193,10 @@ module.exports = function (grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
+        importPath: [
+          '<%= yeoman.app %>/bower_components',
+          '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
+        ],
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
@@ -223,6 +260,7 @@ module.exports = function (grunt) {
         }]
       }
     },
+    
     svgmin: {
       dist: {
         files: [{
@@ -233,6 +271,7 @@ module.exports = function (grunt) {
         }]
       }
     },
+    
     htmlmin: {
       dist: {
         options: {
@@ -352,7 +391,6 @@ module.exports = function (grunt) {
     }
   });
 
-
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -363,6 +401,7 @@ module.exports = function (grunt) {
       'bower-install',
       'concurrent:server',
       'autoprefixer',
+      'configureRewriteRules',
       'connect:livereload',
       'watch'
     ]);

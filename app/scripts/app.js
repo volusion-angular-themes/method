@@ -1,5 +1,17 @@
 ﻿'use strict';
 
+function getI18NPath() {
+  if (localStorage && localStorage.getItem) {
+    var i18n = JSON.parse(localStorage.getItem('VOLUSION_I18N')) || {};
+    i18n.region = i18n.region || 'us';
+    i18n.lang = localStorage.getItem('NG_TRANSLATE_LANG_KEY') || i18n.lang || 'en';
+    i18n.country = i18n.country || 'us';
+    localStorage.setItem('VOLUSION_I18N', JSON.stringify(i18n));
+    return i18n.region + '/' + i18n.lang + '-' + i18n.country;
+  }
+  return '/us/en-us';
+}
+
 angular.module('volusionApp', [
     'ngCookies',
     'ngResource',
@@ -19,8 +31,8 @@ angular.module('volusionApp', [
           redirectTo: getI18NPath
         })
         .when('/:region/:language-:country', {
-          templateUrl: '../views/home.html',
-          controller: 'HomeCtrl'
+          templateUrl: '/views/theme.html',
+          controller: 'ThemeCtrl'
         })
         .otherwise({
           redirectTo: '/'
@@ -45,15 +57,3 @@ angular.module('volusionApp', [
       });
     }
   ]);
-
-function getI18NPath() {
-  if (localStorage && localStorage.getItem) {
-    var i18n = JSON.parse(localStorage.getItem('VOLUSION_I18N')) || {};
-    i18n.region = i18n.region || 'us';
-    i18n.lang = localStorage.getItem('NG_TRANSLATE_LANG_KEY') || i18n.lang || 'en';
-    i18n.country = i18n.country || 'us';
-    localStorage.setItem('VOLUSION_I18N', JSON.stringify(i18n));
-    return i18n.region + '/' + i18n.lang + '-' + i18n.country;
-  }
-  return '/us/en-us';
-}
