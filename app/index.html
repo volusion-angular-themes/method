@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!" />
-    <title data-translate="HEAD.TITLE"></title>
+    <title data-translate="head.title"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,64 +16,91 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/app.css -->
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="/styles/theme.css">
     <!-- endbuild -->
   </head>
-  <body>
+  <body role="document">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li class="active"><a data-ng-href="/" data-translate="INDEX.HOME"></a></li>
-        <li><a data-ng-href="#" data-translate="INDEX.ABOUT"></a></li>
-        <li><a data-ng-href="#" data-translate="INDEX.CONTACT"></a></li>
-      </ul>
-      <h3 class="text-muted" data-translate="HEAD.TITLE"></h3>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only" data-translate="index.toggleNav"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" data-translate="index.bootstrapTheme"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/" data-translate="index.home"></a></li>
+            <li><a href="#about" data-translate="index.about"></a></li>
+            <li><a href="#contact" data-translate="index.contact"></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-translate="index.dropdown"></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-translate="index.action"></a></li>
+                <li><a href="#" data-translate="index.anotherAction"></a></li>
+                <li><a href="#" data-translate="index.somethingElseHere"></a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header" data-translate="index.navHeader"></li>
+                <li><a href="#" data-translate="index.separatedLink"></a></li>
+                <li><a href="#" data-translate="index.oneMoreSeparatedLink"></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
 
     <!-- Add your site or application content here -->
-    <div class="container" data-ng-view=""></div>
+    <div class="container theme-showcase" role="main" data-ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-seo/angular-seo.js"></script>
-    <script src="bower_components/angular-translate/angular-translate.js"></script>
-    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
-    <script src="bower_components/messageformat/messageformat.js"></script>
-    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-seo/angular-seo.js"></script>
+    <script src="/bower_components/angular-translate/angular-translate.js"></script>
+    <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="/bower_components/messageformat/messageformat.js"></script>
+    <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+    <script src="/bower_components/json3/lib/json3.min.js"></script>
     <!-- endbower -->
-    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-    <script src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
+    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/home.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/theme.js"></script>
     <!-- endbuild -->
 </body>
 </html>
