@@ -54,7 +54,8 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/translations/{,*/}*.json'
         ]
       }
     },
@@ -171,6 +172,7 @@ module.exports = function (grunt) {
       app: {
         src: '<%= yeoman.app %>/index.html',
         ignorePath: '<%= yeoman.app %>/',
+        exclude: ['bootstrap.js'],
         fileTypes: {
           html: {
             replace: {
@@ -191,7 +193,10 @@ module.exports = function (grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
+        importPath: [
+          '<%= yeoman.app %>/bower_components',
+          '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
+        ],
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
