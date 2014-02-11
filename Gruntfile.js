@@ -44,6 +44,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
+      templates: {
+        files: ['<%= yeoman.app %>/templates/*.html'],
+        tasks: ['ngtemplates']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -69,7 +73,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|images|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
       livereload: {
@@ -271,15 +275,21 @@ module.exports = function (grunt) {
         }]
       }
     },
-    
+
     htmlmin: {
+      options: {
+        collapseBooleanAttributes: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        removeComments: true, // Only if you don't use comment directives!
+        removeCommentsFromCDATA: true,
+        removeEmptyAttributes: false,
+        removeOptionalTags: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true
+      },
       dist: {
-        options: {
-          collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
@@ -347,13 +357,27 @@ module.exports = function (grunt) {
         'compass:server'
       ],
       test: [
-        'compass'
+        'compass',
+        'ngtemplates'
       ],
       dist: [
         'compass:dist',
         'imagemin',
         'svgmin'
       ]
+    },
+
+    ngtemplates: {
+      options: {
+        htmlmin: '<%= htmlmin.options %>',
+        url: function(path) {
+          return path.replace(/^app\//, '');
+        }
+      },
+      volusionAppDirectives: {
+        src: '<%= yeoman.app %>/templates/{,*/}*.html',
+        dest: '.tmp/templates.js'
+      }
     },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -426,6 +450,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'ngtemplates',
     'concat',
     'ngmin',
     'copy:dist',

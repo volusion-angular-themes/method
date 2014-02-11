@@ -27,10 +27,10 @@ module.exports = function(config) {
       'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
       'app/bower_components/messageformat/locale/en.js',
       'app/bower_components/angular-i18n/angular-locale_en-us.js',
-      'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      '.tmp/templates.js'
     ],
 
     // list of files / patterns to exclude
