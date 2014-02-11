@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: ThemeCtrl', function () {
+xdescribe('Controller: ThemeCtrl', function () {
 
   // load the controller's module
   beforeEach(module('volusionApp'));
@@ -17,6 +17,4 @@ describe('Controller: ThemeCtrl', function () {
     });
   }));
 
-  it('', function() {
-  });
 });

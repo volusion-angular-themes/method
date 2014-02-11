@@ -18,7 +18,8 @@ angular.module('volusionApp', [
     'ngSanitize',
     'ngRoute',
     'seo',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'vnDirectives'
   ])
   .config([
     '$routeProvider', '$locationProvider', '$translateProvider', '$translatePartialLoaderProvider',
