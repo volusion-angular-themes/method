@@ -34,6 +34,10 @@ angular.module('volusionApp', [
           templateUrl: '/views/theme.html',
           controller: 'ThemeCtrl'
         })
+        .when('/:region/:language-:country/testproduct', {
+          templateUrl: '/views/testproduct.html',
+          controller: 'TestproductCtrl'
+        })
         .otherwise({
           redirectTo: '/'
         });
