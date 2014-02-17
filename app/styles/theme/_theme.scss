@@ -1,16 +1,12 @@
-@import 'bootstrap/theme';
+// Base
+@import 'vars-mixins';
+@import 'core/type';
 
-body {
-  padding-top: 70px;
-  padding-bottom: 30px;
-}
+// Layout
+@import 'blocks/footer';
 
-.theme-dropdown .dropdown-menu {
-  display: block;
-  position: static;
-  margin-bottom: 20px;
-}
+// Blocks
+@import 'blocks/newsletter';
+@import 'blocks/search';
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
-}
+

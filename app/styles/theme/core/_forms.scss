@@ -1,1 +1,16 @@
 @import 'bootstrap/forms';
+
+/* ============= BUTTONS OVERRIDE ============= */
+.form-control {
+    font-family: "Roboto Condensed";
+    color: #333;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+/* ============= FORM OVERRIDES ============= */
+// FORM INPUT FOCUS
+.form-control:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.0), 0 0 8px rgba(0, 0, 0, 0);
+}

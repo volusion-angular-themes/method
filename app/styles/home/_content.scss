@@ -1,0 +1,209 @@
+/* HOMEPAGE */
+.v-home-content {
+
+    .img-responsive {
+        margin: 0 auto;
+    }
+
+    .row {
+        margin-bottom: 15px;
+    }
+
+    .row.v-last {
+        margin-bottom: 0;
+    }
+
+    .v-p-pad {
+        padding: 0 2px;
+    }
+
+    .v-promo {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .v-p1-sm {
+        background: url(../images/homepage/p1-sm.jpg) no-repeat top center;
+        min-height: 236px;
+        text-indent: -9999px;
+    }
+
+    .v-p2 {
+        min-height: 495px;
+        text-align: center;
+        background: url(../images/homepage/p2-sm.jpg) no-repeat top center;
+        
+        .v-title {
+            display: block;
+            max-width: 290px;
+            margin: 0 auto 2.8%;
+            text-transform: uppercase;
+            font-family: "antonioregular";
+            font-size: 1.9em;
+            line-height: 1.1em;
+            border-bottom: 1px solid #d9d9d9;
+            padding: .5em 0;
+        }
+
+        .v-text {
+            display: block;
+            max-width: 290px;
+            margin: 0 auto;
+            font-family: "Crimson Text";
+            font-size: 1.1em;
+            line-height: 1.5em;
+        }
+
+        .v-link {
+            color: #dc1703;
+            display: block;
+        }
+    }
+
+    .v-p3-sm {
+        background: url(../images/homepage/p3-sm.jpg) no-repeat top center;
+        min-height: 236px;
+        text-indent: -9999px;
+    }
+
+    .v-b1 {
+        min-height: 182px;
+        background: url(../images/homepage/b1-sm.jpg) no-repeat top center;
+        display: block;
+        margin-bottom: 2px;
+    }
+    .v-b2 {
+        min-height: 182px;
+        background: url(../images/homepage/b2-sm.jpg) no-repeat top center;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+    /* HOMEPAGE */
+    .v-home-content {
+
+        .v-p1 {
+            background: url(../images/homepage/p1.jpg) no-repeat top center;
+            min-height: 553px;
+            text-indent: -9999px;
+        }
+
+        .v-p2 {
+            min-height: 553px;
+            text-align: center;
+            background: url(../images/homepage/p2.jpg) no-repeat top center;
+        }
+
+        .v-p3 {
+            background: url(../images/homepage/p3.jpg) no-repeat top center;
+            min-height: 553px;
+            text-indent: -9999px;
+        }
+
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+
+    .v-home-content {
+
+        .row {
+            margin-bottom: 30px;
+        }
+
+        .v-category {
+            font-family: "Crimson Text";
+            font-style: italic;
+            font-size: 1.4em;
+            float: right;
+            margin: 54% 5% 0 0;
+
+        }
+
+        .v-p1, .v-p3, .v-b1, .v-b2, .v-b3 {
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .v-p2 {
+            min-height: 553px;
+            background: url(../images/homepage/p2.jpg) no-repeat top center;
+            
+            .v-title {
+                display: block;
+                max-width: 370px;
+                margin: 0 auto 2.8%;
+                font-size: 2.0em;
+            }
+
+            .v-text {
+                max-width: 370px;
+                font-size: 1.33em;
+                line-height: 1.6em;
+            }
+
+            .v-link {
+                display: inline;
+            }
+        }
+
+        .v-b1 {
+            min-height: 185px;
+            background: url(../images/homepage/b1-sm.jpg) no-repeat top center;
+            margin-bottom: 0;
+        }
+        .v-b2 {
+            min-height: 185px;
+            background: url(../images/homepage/b2-sm.jpg) no-repeat top center;
+            margin-bottom: 0;
+        }
+
+
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+    .v-home-content {
+
+        .v-category {
+            font-size: 1.8em;
+            margin: 53% 5% 0 0;
+
+        }
+
+        .v-p2 {
+            
+            .v-title {
+                font-size: 2.6em;
+            }
+
+            .v-text {
+                max-width: 370px;
+                font-size: 1.33em;
+                line-height: 1.6em;
+            }
+
+            .v-link {
+                display: inline;
+            }
+        }
+
+        .v-b1 {
+            min-height: 227px;
+            background: url(../images/homepage/b1.jpg) no-repeat top center;
+        }
+        .v-b2 {
+            min-height: 227px;
+            background: url(../images/homepage/b2.jpg) no-repeat top center;
+        }
+
+    }
+}

@@ -1,0 +1,89 @@
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+
+    /* SEARCH */
+    .v-search {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+
+        .form-group {
+            width: 0;
+        }
+
+        .form-control {
+            display: none;
+            margin: 0;
+        }
+
+        .btn {
+            background: #fff;
+            border-color: #fff;
+            color: #939393;
+            width: 30px;
+            padding:0;
+            font-size: 1.6em;
+
+            &:hover {
+                background: none;
+                color: #000;
+            }
+        }
+
+        &:hover {
+            .form-group {
+                width: 145px;
+            }
+
+            .form-control {
+                display: inline-block;
+            }
+        }
+        
+    }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+
+    .v-search {
+
+        .form-group {
+            width: 0;
+            height: 31px;
+        }
+
+        .form-control {
+            display: none;
+            margin: 0;
+        }
+
+        .btn {
+            background: #fff;
+            border-color: #fff;
+            color: #939393;
+            width: 30px;
+            padding:0;
+            font-size: 1.6em;
+
+            &:hover {
+                background: none;
+                color: #000;
+            }
+        }
+
+        &:hover {
+            .form-group {
+                width: 205px;
+            }
+
+            .form-control {
+                display: inline-block;
+            }
+        }
+        
+    }
+
+}

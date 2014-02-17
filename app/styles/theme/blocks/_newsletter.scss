@@ -1,0 +1,101 @@
+.v-newsletter {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 1.3em 0;
+
+    .v-news-form {
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .v-title {
+        display: inline-block;
+        margin: 0;
+        font-weight: normal;
+        margin-right: 1em;
+        display: none;
+    }
+
+    .v-news-goup {
+        width: 230px;
+        display: inline-block;
+        margin: 0;
+    }
+    .v-news-input {
+        border-color: #d9d9d9;
+        display: inline-block;
+    }
+    .v-news-input:focus {
+        border-color: #000;
+    }
+
+    .v-news-submit {
+        display: inline-block;
+        font-size: 15px;
+        padding: 5px 10px;
+        color: #fff;
+        background: #313131;
+        border: 0;
+    }
+
+    .v-news-submit:hover {
+        background: #000;
+        border: 0;
+    }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+
+    .v-newsletter {
+
+        .v-title {
+            display: inline-block;
+        }
+
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+    
+    .v-newsletter {
+        border-bottom: 0;
+        padding: 0 0 25px 35px;
+
+        .v-news-form {
+            display: block;
+        }
+
+        .v-title {
+            display: block;
+            margin: 10px 0 0 0;
+            font-weight: bold;
+        }
+
+        .v-news-input {
+            margin-top: 5px;
+            border-color: #fff;
+        }
+
+        .v-news-submit {
+            margin-top: 5px;
+        }
+
+        .v-news-submit:hover {
+            background: #000;
+            border: 0;
+        }
+    }
+
+}
+
+
+
+
