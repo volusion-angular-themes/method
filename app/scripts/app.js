@@ -20,40 +20,34 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate'
   ])
-  .config([
-    '$routeProvider', '$locationProvider', '$translateProvider', '$translatePartialLoaderProvider',
-    function($routeProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider) {
+  .config(function($routeProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider) {
 
-      $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
-      $routeProvider
-        .when('/', {
-          redirectTo: getI18NPath
-        })
-        .when('/:region/:language-:country', {
-          templateUrl: '/views/theme.html',
-          controller: 'ThemeCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-
-      // i18n
-      $translatePartialLoaderProvider.addPart('index');
-      $translateProvider.useLoader('$translatePartialLoader', {
-        urlTemplate: '/translations/{part}/{lang}.json'
+    $routeProvider
+      .when('/', {
+        redirectTo: getI18NPath
+      })
+      .when('/:region/:language-:country', {
+        templateUrl: '/views/theme.html',
+        controller: 'ThemeCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
       });
-      $translateProvider.useMessageFormatInterpolation();
-      $translateProvider.useMissingTranslationHandlerLog();
-      $translateProvider.preferredLanguage('en');
-      $translateProvider.useLocalStorage();
-    }
-  ])
-  .run([
-    '$rootScope', '$translate',
-    function($rootScope, $translate) {
-      $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
-        $translate.refresh();
-      });
-    }
-  ]);
+
+    // i18n
+    $translatePartialLoaderProvider.addPart('index');
+    $translateProvider.useLoader('$translatePartialLoader', {
+      urlTemplate: '/translations/{part}/{lang}.json'
+    });
+    $translateProvider.useMessageFormatInterpolation();
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.useLocalStorage();
+  })
+  .run(function($rootScope, $translate) {
+    $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
+      $translate.refresh();
+    });
+  });
