@@ -5,7 +5,7 @@
 // ========== CUSTOM THEME VARIABLES ========== //
 
 // COLORS //
-$color-alpha: 		#333333; 
+$color-alpha: 		#333333;
 $color-beta: 		#666666;
 $color-gamma: 		#999999;
 
@@ -18,11 +18,11 @@ $unit-delta: 		1.5em;
 
 // ========== BOOTSTRAP OVERRIDES ========== //
 // COLORS //
-$brand-primary: 							#000;
-$brand-success: 							#5cb85c;
-$brand-info:    							#5bc0de;
-$brand-warning: 							#f0ad4e;
-$brand-danger:  							#d9534f;
+$brand-primary:         					#000 !default;
+$brand-success:         					#5cb85c !default;
+$brand-info:            					#5bc0de !default;
+$brand-warning:         					#f0ad4e !default;
+$brand-danger:          					#d9534f !default;
 
 // SCAFFOLDING //
 $body-bg: 									#fff;
@@ -61,7 +61,7 @@ $btn-primary-border: 						#000;
 $input-bg: 									#fff;
 $input-border:  							#cdcdcd;
 $input-border-radius: 						0;
-$input-border-focus: 						#000;		
+$input-border-focus: 						#000;
 
 // DROPDOWNS //
 $dropdown-bg: 								#fff;
@@ -83,7 +83,7 @@ $screen-sm-min: 							$screen-sm;
 $screen-tablet: 							$screen-sm-min;
 
 $screen-md: 								992px;
-$screen-md-min: 							$screen-md;			
+$screen-md-min: 							$screen-md;
 $screen-desktop: 							$screen-md-min;
 
 $screen-lg: 								1200px;
