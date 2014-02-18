@@ -73,7 +73,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|images|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|fonts|images|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
       livereload: {
@@ -196,7 +196,7 @@ module.exports = function (grunt) {
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        fontsDir: '<%= yeoman.app %>/fonts',
         importPath: [
           '<%= yeoman.app %>/bower_components',
           '<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
