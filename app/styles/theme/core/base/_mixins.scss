@@ -1,4 +1,5 @@
 @import 'bootstrap/mixins';
+@import 'compass/css3/font-face';
 
 @mixin respond-to($viewport-size) {
   @if $viewport-size == xs {
@@ -31,4 +32,17 @@
       @content;
     }
   }
+}
+
+@mixin app-font($name, $weight: normal, $style: normal)
+{
+    $font-files:
+        inline-font-files(
+            '#{$name}.woff', woff
+        ),
+        font-files(
+            '#{$name}.ttf', truetype,
+            '#{$name}.svg#font', svg
+        );
+    @include font-face($name, $font-files, '#{$name}.eot', $weight, $style);
 }
