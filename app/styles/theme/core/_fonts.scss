@@ -13,13 +13,13 @@
     @include font-face($name, $font-files, '#{$name}.eot', $weight, $style);
 }
 
-@include app-font('Roboto');
-@include app-font('Roboto');
-@include app-font('Roboto');
-@include app-font('Roboto');
+@include app-font('Roboto-Regular');
+@include app-font('Roboto-italic');
+@include app-font('Roboto-Bold');
+@include app-font('Roboto-Bolditalic');
 
-@include app-font('RobotoCondensed');
-@include app-font('RobotoCondensed', bold);
+@include app-font('RobotoCondensed-Regular');
+@include app-font('RobotoCondensed-Bold');
 
 @include app-font('antonio-regular');
 @include app-font('antonio-bold');
