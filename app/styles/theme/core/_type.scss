@@ -1,1 +1,81 @@
+<<<<<<< HEAD
 @import 'bootstrap/type';
+=======
+@import 'bootstrap/type';
+
+// ROBOTO
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Roboto Italic'), local('Roboto-Italic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/1pO9eUAp8pSF8VnRTP3xnnYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/t6Nd4cfPRhZP44Q5QAjcC7rIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+
+// ROBOTO CONDENSED
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(http://themes.googleusercontent.com/static/fonts/robotocondensed/v9/Zd2E9abXLFGSr9G3YK2MsNxB8OB85xaNTJvVSB9YUjQ.woff) format('woff');
+}
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(http://themes.googleusercontent.com/static/fonts/robotocondensed/v9/b9QBgL0iMZfDSpmcXcE8nPZRQUbYfRc-1FWT9T9EE8M.woff) format('woff');
+}
+
+// ANTONIO
+@font-face {
+    font-family: 'antonioregular';
+    src: url('../fonts/antonio/antonio-regular-webfont.eot');
+    src: url('../fonts/antonio/antonio-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/antonio/antonio-regular-webfont.woff') format('woff'),
+         url('../fonts/antonio/antonio-regular-webfont.ttf') format('truetype'),
+         url('../fonts/antonio/antonio-regular-webfont.svg#antonioregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'antoniobold';
+    src: url('../fonts/antonio/antonio-bold-webfont.eot');
+    src: url('../fonts/antonio/antonio-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/antonio/antonio-bold-webfont.woff') format('woff'),
+         url('../fonts/antonio/antonio-bold-webfont.ttf') format('truetype'),
+         url('../fonts/antonio/antonio-bold-webfont.svg#antoniobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'antoniolight';
+    src: url('../fonts/antonio/antonio-light-webfont.eot');
+    src: url('../fonts/antonio/antonio-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/antonio/antonio-light-webfont.woff') format('woff'),
+         url('../fonts/antonio/antonio-light-webfont.ttf') format('truetype'),
+         url('../fonts/antonio/antonio-light-webfont.svg#antoniolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+>>>>>>> 6e218df320dda2200ff9b7ee4cf085e9071a3197
