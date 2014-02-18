@@ -12,16 +12,19 @@
         );
     @include font-face($name, $font-files, '#{$name}.eot', $weight, $style);
 }
+ 
+@include app-font('roboto-regular');
+@include app-font('roboto-italic');
+@include app-font('roboto-bold');
+@include app-font('roboto-bolditalic');
 
-@include app-font('Roboto-Regular');
-@include app-font('Roboto-italic');
-@include app-font('Roboto-Bold');
-@include app-font('Roboto-Bolditalic');
-
-@include app-font('RobotoCondensed-Regular');
-@include app-font('RobotoCondensed-Bold');
+@include app-font('robotocondensed-regular');
+@include app-font('robotocondensed-bold');
 
 @include app-font('antonio-regular');
 @include app-font('antonio-bold');
 @include app-font('antonio-light');
+
+@include app-font('crimsontext');
+@include app-font('crimsontext-italic');
 

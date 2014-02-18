@@ -31,10 +31,12 @@ $link-color: 								$brand-primary;
 $link-hover-color: 							#e4312d;
 
 // TYPOGRAPHY //
-$font-family-sans-serif: 					"Roboto-Regular", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: 					"roboto-regular", Helvetica, Arial, sans-serif;
 $font-size-base: 							12px;
-$headings-font-family:      				"antonio-regular", "RobotoCondensed-Regular", sans-serif;
+$headings-font-family:      				"antonio-regular", "robotocondensed-regular", sans-serif;
 $headings-font-weight: 						400;
+$font-family-base:        					$font-family-sans-serif !default;
+
 
 // ICONS //
 $icon-font-path:          					"../fonts/";
