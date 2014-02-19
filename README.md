@@ -2,9 +2,9 @@
 
 > Volusion seed for the AngularJS Framework
 
-[![Build Status][]](https://travis-ci.org/jedmao/angular-seed)
-[![Dependency Status][]](https://gemnasium.com/jedmao/angular-seed)
-[![Views][]](https://sourcegraph.com/github.com/jedmao/angular-seed)
+[![Build Status][]](https://travis-ci.org/volusion-angular/seed)
+[![Dependency Status][]](https://gemnasium.com/volusion-angular/seed)
+[![Views][]](https://sourcegraph.com/github.com/volusion-angular/seed)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 
@@ -67,13 +67,13 @@ Switched to branch 'my-theme'
 
 TBD © [Volusion, Inc.](http://www.volusion.com/)
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jedmao/angular-seed/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/volusion-angular/seed/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
 
-[Build Status]: https://travis-ci.org/jedmao/angular-seed.png?branch=master
-[Dependency Status]: https://gemnasium.com/jedmao/angular-seed.png
-[Views]: https://sourcegraph.com/api/repos/github.com/jedmao/angular-seed/counters/views-24h.png
+[Build Status]: https://travis-ci.org/volusion-angular/seed.png?branch=master
+[Dependency Status]: https://gemnasium.com/volusion-angular/seed.png
+[Views]: https://sourcegraph.com/api/repos/github.com/volusion-angular/seed/counters/views-24h.png
 [AngularJS]: http://angularjs.org/
 [Volusion]: http://www.volusion.com/
 [GitHub]: https://github.com/
