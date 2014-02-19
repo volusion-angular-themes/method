@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 function getI18NPath() {
   if (localStorage && localStorage.getItem) {
@@ -35,6 +35,14 @@ angular.module('volusionApp', [
       .when('/product', {
         templateUrl: 'views/product.html',
         controller: 'ProductCtrl'
+      })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/category', {
+        templateUrl: 'views/category.html',
+        controller: 'CategoryCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,297 @@
+// Core variables and mixins
+@import 'vars-mixins';
+
+/* CATEGORY PRODUCTS */
+.v-products-wrap {
+    .v-product {
+        position: relative;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 25px;
+
+        .v-new-item,
+        .v-sale-item {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1;
+        }
+
+        .v-quick-options {
+            position: absolute;
+            bottom: 7px;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            overflow: hidden;
+            line-height: 30px;
+            height: 0px;
+            width: 100%;
+
+            .v-quick-view {
+                text-transform: uppercase;
+                color: #fff;
+                text-indent: 14px;
+                width: 85%;
+                float: left;
+                text-align: left;
+                font-family: "robotocondensed-regular";
+                background-color: rgba(1, 1, 1, 0.5);
+            }
+
+            .v-quick-view:hover {
+                background-color: rgba(1, 1, 1, 0.6);
+            }
+
+            .v-add-to-cart {
+                float: left;
+                height: 30px;
+                width: 15%;
+                background: #f6271b url(../../images/template/cart-bag.png) no-repeat center center;
+
+                &:hover {
+                    background-color: #d92319;
+                }
+            }
+        }
+
+        .v-product-image:hover .v-quick-options {
+            @include transition(all, 0.2s, ease-in-out);
+            height: 30px;
+        }
+
+        &.v-details {
+            text-align: left;
+            font-size: 1.4em;
+            margin: 0 auto;
+        }
+
+        .v-product-image {
+            position: relative;
+            padding: 7px 0;
+        }
+
+        .v-product-image .img-responsive {
+            margin: 0 auto;
+        }
+
+        .v-product-name {
+            font-family: "robotocondensed-regular";
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 2px 0;
+            line-height: 1.22em;
+            text-align: center;
+        }
+
+        .v-price-box {
+            padding: 5px 0;
+            margin: 0 auto;
+            font-size: 1.333em;
+            line-height: 1.333em;
+            font-family: "robotocondensed-regular";
+            text-transform: uppercase;
+            color: #313131;
+
+            span {
+                vertical-align: text-top;
+                display: inline-block;
+            }
+
+            .v-price {
+                padding: 0 10px 0 4px;
+                font-weight: bold;
+            }
+
+            .v-price:first-child {
+                border-right: 1px solid #ccc;
+            }
+
+            .v-now-price {
+                color: #e3280f;
+            }
+
+            .v-price span {
+                font-size: 0.71em;
+                color: #333;
+                font-weight: normal;
+            }
+
+            .strike {
+                text-decoration: line-through;
+            }
+
+        }
+
+        .v-colors-sm .img-responsive {
+            display: inline-block;
+        }
+
+    }
+}
+
+/* FEATURED PRODUCTS */
+.row.v-featured-wrap {
+    margin: 20px 0 0;
+
+    ul.nav-tabs {
+        border-bottom: 1px solid #d9d9d9;
+        border-top: 0;
+        margin-bottom: 19px;
+        text-align: center;
+
+        > li {
+            font-family: "robotocondensed-regular";
+            font-size: 13px;
+            float: none;
+            margin: 0;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        > li.active > a {
+            border-top: 0;
+            border-bottom: 1px solid #fff;
+            margin-bottom: 0;
+            color: #000;
+            border-left: 0;
+            border-right: 0;
+
+        }
+
+        > li > a {
+            border: 0;
+            padding: 10px 13px 7px;
+            color: #9d9d9d;
+            margin: 0;
+        }
+
+        > li > a.active:hover {
+
+        }
+
+        > li > a:hover {
+            margin: 0;
+            color: #000;
+        }
+
+    }
+
+}
+
+.row.v-related-wrap {
+    margin: 0 -15px 20px;
+
+    .v-product {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .v-product-name {
+        margin-top: 12px;
+    }
+
+    .v-product-image {
+        float: left;
+        padding-right: 15px;
+
+        img {
+            max-width: 90px;
+        }
+    }
+
+    .v-product-name {
+        text-align: left;
+    }
+
+    .v-price-box {
+        text-align: left;
+    }
+
+    .v-colors-sm {
+        text-align: left;
+    }
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+    /* FEATURED */
+    .row.v-featured-wrap {
+        margin: 20px 0 0;
+
+        ul.nav-tabs {
+            text-align: left;
+            border-top: 1px solid #d9d9d9;
+
+            > li {
+                font-size: 14px;
+                margin: 0;
+                float: left;
+            }
+
+            > li.active > a {
+                border-left: 1px solid #d9d9d9;
+                border-right: 1px solid #d9d9d9;
+                margin-bottom: -1px;
+                border-bottom: 1px solid #fff;
+
+            }
+
+            > li > a {
+                padding: 10px 13px;
+            }
+
+        }
+
+    }
+
+    .row.v-related-wrap {
+        margin:20px -15px 0;
+
+        .v-product {
+            padding-top: 15px;
+            padding-bottom: 25px;
+        }
+
+        .v-product-name {
+            margin-top: 0;
+        }
+
+        .v-product-image {
+            float: none;
+            padding-right: 0;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .v-product-name {
+            text-align: center;
+        }
+
+        .v-price-box {
+            text-align: center;
+        }
+
+        .v-colors-sm {
+            text-align: center;
+        }
+
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+    .row.v-related-wrap {
+        margin:20px -15px 0;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+
+
+}

@@ -19,8 +19,11 @@ body {
         border: 0;
         padding: 8px 10px;
 
+        // &:hover .icon-bar, &:focus .icon-bar {
+        //     background-color: #fff;
+        // }
+
         .icon-bar {
-            background-color: #000;
             height: 4px;
         }
     }
@@ -110,7 +113,7 @@ body {
 
     $navbar-height: 93px;
 
-    body { 
+    body {
         padding-top: 152px;
     }
 
@@ -143,9 +146,9 @@ body {
         }
 
         .navbar-nav > li > a {
-            font-family: "Roboto Condensed";
+            font-family: "robotocondensed-regular";
             text-transform: uppercase;
-            font-size: 1.333em;
+            font-size: 16px;
         }
 
         .navbar-nav > li > a {
@@ -185,7 +188,7 @@ body {
 
     $navbar-height: 93px;
 
-    body { 
+    body {
         padding-top: 152px;
     }
 

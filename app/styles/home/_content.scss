@@ -24,7 +24,7 @@
     }
 
     .v-p1-sm {
-        background: url(../images/homepage/p1-sm.jpg) no-repeat top center;
+        background: url(../../images/homepage/p1-sm.jpg) no-repeat top center;
         min-height: 236px;
         text-indent: -9999px;
     }
@@ -32,8 +32,8 @@
     .v-p2 {
         min-height: 495px;
         text-align: center;
-        background: url(../images/homepage/p2-sm.jpg) no-repeat top center;
-        
+        background: url(../../images/homepage/p2-sm.jpg) no-repeat top center;
+
         .v-title {
             display: block;
             max-width: 290px;
@@ -62,20 +62,20 @@
     }
 
     .v-p3-sm {
-        background: url(../images/homepage/p3-sm.jpg) no-repeat top center;
+        background: url(../../images/homepage/p3-sm.jpg) no-repeat top center;
         min-height: 236px;
         text-indent: -9999px;
     }
 
     .v-b1 {
         min-height: 182px;
-        background: url(../images/homepage/b1-sm.jpg) no-repeat top center;
+        background: url(../../images/homepage/b1-sm.jpg) no-repeat top center;
         display: block;
         margin-bottom: 2px;
     }
     .v-b2 {
         min-height: 182px;
-        background: url(../images/homepage/b2-sm.jpg) no-repeat top center;
+        background: url(../../images/homepage/b2-sm.jpg) no-repeat top center;
         display: block;
         margin-bottom: 2px;
     }
@@ -88,7 +88,7 @@
     .v-home-content {
 
         .v-p1 {
-            background: url(../images/homepage/p1.jpg) no-repeat top center;
+            background: url(../../images/homepage/p1.jpg) no-repeat top center;
             min-height: 553px;
             text-indent: -9999px;
         }
@@ -96,11 +96,11 @@
         .v-p2 {
             min-height: 553px;
             text-align: center;
-            background: url(../images/homepage/p2.jpg) no-repeat top center;
+            background: url(../../images/homepage/p2.jpg) no-repeat top center;
         }
 
         .v-p3 {
-            background: url(../images/homepage/p3.jpg) no-repeat top center;
+            background: url(../../images/homepage/p3.jpg) no-repeat top center;
             min-height: 553px;
             text-indent: -9999px;
         }
@@ -119,7 +119,6 @@
 
         .v-category {
             font-family: "crimsontext-italic";
-            font-style: italic;
             font-size: 1.4em;
             float: right;
             margin: 54% 5% 0 0;
@@ -134,8 +133,8 @@
 
         .v-p2 {
             min-height: 553px;
-            background: url(../images/homepage/p2.jpg) no-repeat top center;
-            
+            background: url(../../images/homepage/p2.jpg) no-repeat top center;
+
             .v-title {
                 display: block;
                 max-width: 370px;
@@ -156,12 +155,12 @@
 
         .v-b1 {
             min-height: 185px;
-            background: url(../images/homepage/b1-sm.jpg) no-repeat top center;
+            background: url(../../images/homepage/b1-sm.jpg) no-repeat top center;
             margin-bottom: 0;
         }
         .v-b2 {
             min-height: 185px;
-            background: url(../images/homepage/b2-sm.jpg) no-repeat top center;
+            background: url(../../images/homepage/b2-sm.jpg) no-repeat top center;
             margin-bottom: 0;
         }
 
@@ -180,7 +179,7 @@
         }
 
         .v-p2 {
-            
+
             .v-title {
                 font-size: 2.6em;
             }
@@ -198,11 +197,11 @@
 
         .v-b1 {
             min-height: 227px;
-            background: url(../images/homepage/b1.jpg) no-repeat top center;
+            background: url(../../images/homepage/b1.jpg) no-repeat top center;
         }
         .v-b2 {
             min-height: 227px;
-            background: url(../images/homepage/b2.jpg) no-repeat top center;
+            background: url(../../images/homepage/b2.jpg) no-repeat top center;
         }
 
     }

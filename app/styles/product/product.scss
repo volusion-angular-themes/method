@@ -1,0 +1,369 @@
+// Core variables and mixins
+@import 'vars-mixins';
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* ============= PRODUCT SLIDER ============= */
+.v-product {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  .img-responsive {
+    margin: 0 auto;
+  }
+}
+
+.v-product-name {
+  text-transform: uppercase;
+  font-family: "robotocondensed-regular";
+  font-size: 19px;
+  text-align: left;
+  line-height: 22px;
+  padding: 2px 0;
+}
+
+.v-product-name-lg {
+  text-transform: uppercase;
+  font-family: "robotocondensed-regular";
+}
+
+.v-product-view {
+  .v-product-image {
+    position: relative;
+    z-index: 1;
+  }
+
+  .v-product-zoom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -38px 0 0 -38px;
+    display: none;
+  }
+
+  .v-product-image:hover .v-product-zoom {
+    display: block;
+  }
+
+  .v-product-zoom:hover {
+    opacity: 0.7;
+  }
+}
+
+.v-product-details {
+
+  .v-options-wrap {
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .v-options {
+      overflow: hidden;
+      margin: 0 -3px;
+    }
+
+    .v-options-title {
+      text-align: center;
+      letter-spacing: 0.07em;
+      padding: 8px 0;
+      font-family: "robotocondensed-bold";
+      text-transform: uppercase;
+      clear: both;
+    }
+  }
+
+
+
+  .v-qty.img-responsive {
+    margin: 0 auto;
+  }
+
+  .v-price-box {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 0;
+        margin: 0 auto;
+        font-size: 22px;
+        line-height: 1.333em;
+        font-family: "robotocondensed-regular";
+        text-transform: uppercase;
+        color: #313131;
+
+        span {
+            vertical-align: text-top;
+            display: inline-block;
+        }
+
+        .v-price {
+            padding: 0 10px 0 4px;
+            font-weight: bold;
+        }
+
+        .v-price:first-child {
+            border-right: 1px solid #ccc;
+        }
+
+        .v-now-price {
+            color: #e3280f;
+        }
+
+        .v-price span {
+            font-size: 14px;
+            line-height: 16px;
+            margin-left: 5px;
+            vertical-align: middle;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .strike {
+            text-decoration: line-through;
+        }
+
+    }
+
+  .v-col-sm {
+    padding: 3px;
+  }
+
+  .sw1 {
+    background-image: url(../../images/template/sw-1-lg.png);
+  }
+  .sw2 {
+    background-image: url(../../images/template/sw-2-lg.png);
+  }
+  .sw3 {
+    background-image: url(../../images/template/sw-3-lg.png);
+  }
+  .sw4 {
+    background-image: url(../../images/template/sw-4-lg.png);
+  }
+  .sw5 {
+    background-image: url(../../images/template/sw-5-lg.png);
+  }
+  .sw6 {
+    background-image: url(../../images/template/sw-6-lg.png);
+  }
+
+  .v-swatch {
+    width: 100%;
+    display: block;
+    min-height: 27px;
+    background-repeat: repeat;
+    background-position: top left;
+  }
+
+  .v-qty-group {
+    margin: 0 auto;
+    display: block;
+    font-size: 1.44em;
+  }
+
+  .v-qty-wrap {
+    padding: 13px 0;
+  }
+
+  .v-add-to-cart {
+    padding: 4px 15px;
+  }
+
+}
+
+.v-social-icons {
+  text-align: center;
+  padding: 26px 0 20px;
+
+  .v-social-icon {
+    margin: 0 5px;
+
+    img {
+      max-width: 23px;
+    }
+  }
+
+  .v-social-icon:hover {
+    opacity: 0.7;
+  }
+}
+
+.v-product-info {
+  .panel-heading {
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+.panel-group .panel + .panel {
+  margin: 0;
+  border-top: 0;
+}
+
+
+.v-customer-reviews {
+  font-size: 13px;
+  color: #707070;
+  line-height: 22px;
+
+  a {
+    color: #707070;
+    margin: 0 4px;
+  }
+
+  .v-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #424242;
+    overflow: hidden;
+    font-family: "robotocondensed-regular";
+  }
+
+  .v-total-review {
+    border: 1px solid #cdcdcd;
+    padding: 17px 30px 17px 10px;
+    margin: 20px 15px;
+    overflow: hidden;
+  }
+
+  .v-totals-right {
+    margin-top: 10px;
+  }
+
+  .v-rating {
+    padding: 10px 0;
+  }
+
+  .v-rating-title {
+    font-weight: bold;
+  }
+
+  .v-helpful {
+    padding: 10px 0 0;
+  }
+
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+
+  .v-product-wrap {
+
+    .v-product-name-lg {
+      font-size: 32px;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .v-product-details {
+
+      .v-price-box {
+            font-size: 30px;
+            line-height: 34px;
+
+            .v-price span {
+                font-size: 14px;
+            }
+
+        }
+
+        .v-options-wrap {
+          .v-swatch {
+          max-height: 13px;
+          min-height: 13px;
+        }
+        .v-options {
+          margin: 0 0 10px 0;
+          overflow: hidden;
+          padding: 10px;
+          border: 1px solid #cdcdcd;
+        }
+        }
+
+      .v-write-review {
+        padding: 10px 0;
+      }
+
+      .v-write-review a {
+        font-size: 14px;
+        padding: 5px 0;
+        display: block;
+        text-decoration: underline;
+      }
+
+      .v-write-review a:hover {
+        text-decoration: none;
+      }
+
+      .v-add-favorite a {
+        color: #929292;
+        font-size: 14px;
+
+        &:hover {
+          color: #000;
+        }
+      }
+
+      .v-qty-wrap {
+        padding: 4px 0;
+      }
+
+    }
+
+  }
+
+  .v-customer-reviews {
+    .v-totals-left {
+      float: left;
+    }
+
+    .v-totals-right {
+      float: right;
+    }
+  }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+
+  .v-product-wrap {
+
+    .v-product-details {
+      .v-product-name {
+        font-size: 31px;
+        line-height: 34px;
+        padding-left: 15px;
+        text-align: left;
+      }
+
+      .v-options-wrap {
+          .v-swatch {
+          min-height: 19px;
+          max-height: 19px;
+        }
+        }
+
+      .v-product-info-left {
+        padding: 15px 0;
+      }
+
+      .v-social-icons {
+        text-align: left;
+        margin: 0 3px;
+
+        img {
+          max-width: 27px;
+        }
+      }
+    }
+
+  }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+
+}

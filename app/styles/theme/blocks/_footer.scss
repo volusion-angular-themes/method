@@ -1,126 +1,126 @@
 footer {
-    text-align: center;
-    margin-top: 20px;
-    background-color: #fff;
-    line-height: 2em;
-    border-top: 1px solid #d9d9d9;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #fff;
+  line-height: 2em;
+  border-top: 1px solid #d9d9d9;
 
-    .v-title {
-        font-size: 1.167em;
-        margin-top: 10px;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-family: "Roboto Condensed";
-    }
+  .v-title {
+    font-size: 1.167em;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "robotocondensed-regular";
+  }
 
 }
 
 .v-footer-bottom {
-    padding: 1.5em 0;
+  padding: 1.5em 0;
 
-    .v-copyright {
-        margin-right: 15px;
+  .v-copyright {
+    margin-right: 15px;
+  }
+
+  .v-footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      border-left: 1px solid #313131;
+      line-height: 13px;
+      padding-left: 10px;
+      margin-right: 9px;
     }
 
-    .v-footer-nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-            display: inline-block;
-            border-left: 1px solid #313131;
-            line-height: 13px;
-            padding-left: 10px;
-            margin-right: 9px;
-        }
-
-        li:first-child {
-            border: 0;
-        }
+    li:first-child {
+      border: 0;
     }
+  }
 
-    .v-back-top {
-        span {
-            font-size: 1.3em;
-            font-weight: normal;
-            vertical-align: text-top;
-        }
+  .v-back-top {
+    span {
+      font-size: 1.3em;
+      font-weight: normal;
+      vertical-align: text-top;
     }
+  }
 
 }
 
 @media (min-width: $screen-lg-min) {
 
-    footer {
-        min-height: 422px;
-        border-top: 0;
-        text-align: left;
-        background-color: #f0f0f0;
+  footer {
+    min-height: 422px;
+    border-top: 0;
+    text-align: left;
+    background-color: #f0f0f0;
+  }
+
+  .v-footer-top {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #cecece;
+
+    .v-footer-left {
+      border-right: 1px solid #cecece;
+      margin-top: 25px;
     }
 
-    .v-footer-top {
-       padding-bottom: 25px;
-       border-bottom: 1px solid #cecece;
-
-       .v-footer-left {
-            border-right: 1px solid #cecece;
-            margin-top: 25px;
-        }
-
-        .v-footer-right {
-            margin-top: 25px;
-        }
-
-        ul.nav {
-            margin: 0 0 35px;
-        }
-
-        ul.nav > li > a {
-            padding: 0;
-        }
+    .v-footer-right {
+      margin-top: 25px;
     }
 
-
-    .v-info-box {
-        padding-left: 35px;
+    ul.nav {
+      margin: 0 0 35px;
     }
 
-
-    .v-footer-bottom {
-        padding-top: 1.5em;
-
-        .v-copyright {
-            float: left;
-            margin-right: 15px;
-        }
-
-        .v-footer-nav {
-            float: left; 
-            list-style: none;
-            padding: 0;
-            margin: 0;
-
-            li {
-                display: inline-block;
-                border-left: 1px solid #313131;
-                line-height: 13px;
-                padding-left: 10px;
-                margin-right: 9px;
-            }
-
-            li:first-child {
-                border: 0;
-            }
-        }
-
-        .v-back-top {
-            span {
-                font-size: 1.3em;
-                font-weight: normal;
-                vertical-align: text-top;
-            }
-        }
+    ul.nav > li > a {
+      padding: 0;
     }
+  }
+
+
+  .v-info-box {
+    padding-left: 35px;
+  }
+
+
+  .v-footer-bottom {
+    padding-top: 1.5em;
+
+    .v-copyright {
+      float: left;
+      margin-right: 15px;
+    }
+
+    .v-footer-nav {
+      float: left;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        border-left: 1px solid #313131;
+        line-height: 13px;
+        padding-left: 10px;
+        margin-right: 9px;
+      }
+
+      li:first-child {
+        border: 0;
+      }
+    }
+
+    .v-back-top {
+      span {
+        font-size: 1.3em;
+        font-weight: normal;
+        vertical-align: text-top;
+      }
+    }
+  }
 
 }
