@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata></metadata>
 <defs>
-<font id="crimson_textitalic" horiz-adv-x="820" >
+<font id="font" horiz-adv-x="820" >
 <font-face units-per-em="2048" ascent="1434" descent="-614" />
 <missing-glyph horiz-adv-x="456" />
 <glyph horiz-adv-x="2048" />
@@ -271,4 +271,4 @@
 <hkern u1="y" u2="n" k="-68" />
 <hkern u1="&#xa3;" u2="&#x31;" k="22" />
 </font>
-</defs></svg> 
+</defs></svg>

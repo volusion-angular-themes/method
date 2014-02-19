@@ -21,7 +21,7 @@
     }
     .v-search-top {
         text-transform: uppercase;
-        font-family: "Roboto Condensed";
+        font-family: "robotocondensed-regular";
         font-size: 14px;
         color: #000;
         float: left;
@@ -60,7 +60,7 @@
 }
 .navbar-default .navbar-nav > li > a {
     text-transform: uppercase;
-    font-family: "Roboto Condensed";
+    font-family: "robotocondensed-regular";
     font-size: 14px;
 }
 
@@ -83,7 +83,7 @@
             li.v-site-map-header {
                 text-transform: uppercase;
                 font-weight: bold;
-                font-family: "Roboto Condensed";
+                font-family: "robotocondensed-regular";
             }
         }
     }
@@ -108,7 +108,7 @@
     }
 
     /* MEGA MENU STYLE
-    ********************************/ 
+    ********************************/
     .dropdown.active-mega-tab a.dropdown-toggle {
         position: relative !important;
         z-index: 9999;
@@ -160,7 +160,7 @@
         font-size: 14px;
         display: block;
         text-transform: uppercase;
-        font-family: "Roboto Condensed";
+        font-family: "robotocondensed-regular";
         border-bottom: 1px solid #ddd;
     }
 
@@ -186,15 +186,15 @@
     /* Disable Toggle style
     ********************************/
     /* Dropdown Toggle on style */
-    .v-navbar .nav li.dropdown.open > .dropdown-toggle, 
-    .v-navbar .nav li.dropdown.active > .dropdown-toggle, 
+    .v-navbar .nav li.dropdown.open > .dropdown-toggle,
+    .v-navbar .nav li.dropdown.active > .dropdown-toggle,
     .v-navbar .nav li.dropdown.open.active > .dropdown-toggle {
         background: inherit; /* Set to inherit when using mouse hover to open dropdown */
         color: inherit;
-    }   
+    }
     /* Toggle off style */
     .v-navbar .nav li.dropdown.open.active > .dropdown-toggle,
-    .v-navbar .nav > li.dropdown > a:focus { 
+    .v-navbar .nav > li.dropdown > a:focus {
         background: inherit;
         color: inherit;
     }
@@ -203,22 +203,22 @@
     .v-navbar .nav li.dropdown.open > .dropdown-toggle:hover {
         background-color: #fff;
     }
-                
-                
+
+
     /* Toggle caret*/
     .v-navbar .nav li.dropdown > .dropdown-toggle .caret {
         border-bottom-color:;
         border-top-color:;
     }
     /* Toggle caret hover */
-    .v-navbar .nav li.dropdown > a:hover .caret, 
+    .v-navbar .nav li.dropdown > a:hover .caret,
     .v-navbar .nav li.dropdown > a:focus .caret {
         border-bottom-color: #333;
         border-top-color: #333;
     }
     /* Toggle caret active */
-    .v-navbar .nav li.dropdown.open > .dropdown-toggle .caret, 
-    .v-navbar .nav li.dropdown.active > .dropdown-toggle .caret, 
+    .v-navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+    .v-navbar .nav li.dropdown.active > .dropdown-toggle .caret,
     .v-navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
         border-bottom-color:#333;
         border-top-color: #333;
@@ -227,16 +227,16 @@
 
 
     /* Hover style
-    ********************************/ 
+    ********************************/
     .v-navbar .nav > li > a, .v-mega-menu a
-     { 
+     {
       -webkit-transition: all 200ms ease;
          -moz-transition: all 200ms ease;
           -ms-transition: all 200ms ease;
            -o-transition: all 200ms ease;
-              transition: all 200ms ease; 
-        
-             /* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
+              transition: all 200ms ease;
+
+             /* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/
              -webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
              -webkit-transform: translateZ(0);
     }

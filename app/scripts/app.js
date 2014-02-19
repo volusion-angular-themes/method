@@ -32,6 +32,10 @@ angular.module('volusionApp', [
         templateUrl: '/views/theme.html',
         controller: 'ThemeCtrl'
       })
+      .when('/product', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
