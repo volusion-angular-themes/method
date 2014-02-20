@@ -1,6 +1,7 @@
 // Base
 @import 'vars-mixins';
 
-// Modules
-@import 'slider';
-@import 'content';
+// Blocks
+@import '../theme/blocks/home-slider';
+@import '../theme/blocks/home-content';
+@import '../theme/blocks/featured';

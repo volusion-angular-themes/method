@@ -1,10 +1,5 @@
 @import 'bootstrap/navbar';
 
-body {
-    margin: 0;
-    padding-top: 47px;
-}
-
 .v-navbar {
 
     .v-container-header {
@@ -18,10 +13,6 @@ body {
         border: 0;
         padding: 8px 10px;
 
-        // &:hover .icon-bar, &:focus .icon-bar {
-        //     background-color: #fff;
-        // }
-
         .icon-bar {
             height: 4px;
         }
@@ -33,7 +24,7 @@ body {
 
     .navbar-brand {
         text-indent: -9999px;
-        background: url(../images/template/logo.png) no-repeat 0 0;
+        background: url(../../images/template/logo.png) no-repeat 0 0;
         background-size: 76px 36px;
         width: 76px;
         height: 36px;
@@ -78,10 +69,6 @@ body {
 
     $navbar-height: 65px;
 
-    body {
-        padding-top: 75px;
-    }
-
     .v-navbar {
 
         .navbar-toggle {
@@ -111,10 +98,6 @@ body {
 @media (min-width: $screen-md-min) {
 
     $navbar-height: 93px;
-
-    body {
-        padding-top: 152px;
-    }
 
     .v-navbar {
 
@@ -186,10 +169,6 @@ body {
 @media (min-width: $screen-lg-min) {
 
     $navbar-height: 93px;
-
-    body {
-        padding-top: 152px;
-    }
 
     .v-navbar {
         .navbar-nav {

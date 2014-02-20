@@ -110,7 +110,6 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
-
     .v-home-content {
 
         .row {
@@ -127,7 +126,8 @@
 
         .v-p1, .v-p3, .v-b1, .v-b2, .v-b3 {
             &:hover {
-                opacity: 0.8;
+              @include transition(all, 0.2s, ease-in-out);
+              opacity: 0.8;
             }
         }
 

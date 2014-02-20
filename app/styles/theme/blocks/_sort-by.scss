@@ -1,0 +1,31 @@
+.v-sort-by {
+  overflow: hidden;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #828282;
+  font-size: 0.917em;
+
+  .v-sort-left {
+    margin-top: 3px;
+  }
+
+  a {
+    color: #000;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .v-sort-by {
+      .v-sort-left {
+        margin-top: 0px;
+        border-top: 1px solid #cbcbcb;
+        border-bottom: 1px solid #cbcbcb;
+        margin-top: 18px;
+      }
+    }
+  }
+}
