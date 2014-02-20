@@ -1,7 +1,7 @@
 <div class="v-product-wrap clearfix">
   <!-- PRODUCT TITLE/NAME FOR TABLET -->
   <div class="col-sm-12 visible-sm v-product-name-lg">
-    Method Limited Edition Screen printed Tee
+    {{product.name}}
   </div>
 
   <div class="row v-product-top">
@@ -27,26 +27,26 @@
     <div class="col-sm-6 col-md-7 v-product-details v-details-right">
       <div class="row">
         <div class="col-xs-12 v-product-name visible-md visible-lg">
-          <a href="#">Method Limited Edition Screen printed Tee</a>
+          <a href="#">{{product.name}}</a>
         </div><!-- .product name -->
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="v-product-info-left">
             <div class="v-product-name visible-xs">
-              <a href="#">Method Limited Edition Screen printed Tee</a>
+              <a href="#">{{product.name}}</a>
             </div>
             <div class="v-price-box">
-              <span class="v-reg-price v-price strike">$48<span>Reg</span></span>
-              <span class="v-now-price v-price">$36<span>Now</span></span>
+              <span class="v-reg-price v-price strike">{{product.msrp | currency}}<span>Reg</span></span>
+              <span class="v-now-price v-price">{{product.price | currency}}<span>Now</span></span>
             </div>
             <div class="hidden-xs">
               <div class="v-write-review">
-                <img src="images/template/stars-4.png" height="13" width="84" class="img-responsive" alt="">
-                <a href="#">Write A Review ></a>
+                <img src="images/template/stars-{{product.avgReview}}.png" height="13" width="84" class="img-responsive" alt="">
+                <a href="#">{{language.writeReview}}></a>
               </div>
               <div class="v-add-favorite">
-                <a href="#"><img src="images/template/heart-icon.png" alt=""> Add to Favorites ></a>
+                <a href="#"><img src="images/template/heart-icon.png" alt="">{{language.addToFavorites}} ></a>
               </div>
             </div>
           </div>
@@ -60,25 +60,13 @@
             <div class="col-xs-4 col-sm-2 v-col-sm"><a href="#" class="v-swatch sw4">&nbsp;</a></div>
             <div class="col-xs-4 col-sm-2 v-col-sm"><a href="#" class="v-swatch sw5">&nbsp;</a></div>
             <div class="col-xs-4 col-sm-2 v-col-sm"><a href="#" class="v-swatch sw6">&nbsp;</a></div>
-
-            <div class="v-options-title">Choose a size</div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">Small</button>
-            </div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">Medium</button>
-            </div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">Large</button>
-            </div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">X-Large</button>
-            </div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">XX-Large</button>
-            </div>
-            <div class="col-xs-4 v-col-sm">
-              <button class="btn btn-default btn-block">Small</button>
+          </div><!-- .v-options -->
+          <div class="v-options" ng-repeat="option in product.options">
+            <div class="v-options-title">{{option.label}}</div>
+            <div ng-repeat="choice in option.choices">
+              <div class="col-xs-4 v-col-sm">
+                <button class="btn btn-default btn-block">{{choice.label}}</button>
+              </div>
             </div>
           </div><!-- .v-options -->
           <div class="row">
@@ -91,7 +79,7 @@
               </div>
             </div>
             <div class="col-xs-12 col-sm-8 v-add-to-cart">
-              <button class="btn btn-primary btn-lg btn-block">Add to Bag</button>
+              <button class="btn btn-primary btn-lg btn-block">{{language.addToCart}}</button>
             </div>
           </div>
         </div><!-- .v-options-wrap -->
@@ -101,13 +89,13 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#productInfo" href="#prodPanel1">
-                  Description
+                  {{language.description}}
                 </a>
               </h4>
             </div>
             <div id="prodPanel1" class="panel-collapse collapse in">
               <div class="panel-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.
+                {{product.description}}
               </div>
             </div>
           </div><!-- .panel -->
@@ -343,7 +331,7 @@
   </div>
 
   <div class="row v-customer-reviews">
-    <div class="col-md-12 v-title">Customer Reviews</div>
+    <div class="col-md-12 v-title">{{language.reviews}}</div>
     <div class="col-md-12 v-total-review">
       <div class="v-totals-left">
         <div class="v-review-count">This product has recieved 4.3 out of 5 stars based on 58 customer reviews</div>
