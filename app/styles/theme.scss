@@ -1,51 +1,116 @@
-// Core variables and mixins
-@import 'vars-mixins';
-
-// Reset
+//Do the resetting for both us & them
 @import 'theme/reset/normalize';
 @import 'theme/reset/print';
 
-// Core CSS
-@import 'theme/core/scaffolding';
-@import 'theme/core/type';
-@import 'theme/core/code';
-@import 'theme/core/grid';
-@import 'theme/core/tables';
-@import 'theme/core/forms';
-@import 'theme/core/buttons';
+.admin {
 
-// Components
-@import 'theme/components/animations';
-@import 'theme/components/glyphicons';
-@import 'theme/components/dropdowns';
-@import 'theme/components/button-groups';
-@import 'theme/components/input-groups';
-@import 'theme/components/navs';
-@import 'theme/components/navbar';
-@import 'theme/components/breadcrumbs';
-@import 'theme/components/pagination';
-@import 'theme/components/pager';
-@import 'theme/components/labels';
-@import 'theme/components/badges';
-@import 'theme/components/jumbotron';
-@import 'theme/components/thumbnails';
-@import 'theme/components/alerts';
-@import 'theme/components/progress-bars';
-@import 'theme/components/media';
-@import 'theme/components/list-group';
-@import 'theme/components/panels';
-@import 'theme/components/wells';
-@import 'theme/components/close';
+    //+ fix namespaced body
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+    background-color: white;
 
-// Components w/ JavaScript
-@import 'theme/components/js/modals';
-@import 'theme/components/js/tooltip';
-@import 'theme/components/js/popovers';
-@import 'theme/components/js/carousel';
+    @import 'bootstrap';
 
-// Utility classes
-@import 'theme/utilities/base';
-@import 'theme/utilities/responsive';
+    //stylize right bar
+    .rightbar {
+      position: fixed;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      padding: 20px;
+      background-color: black;
+      color: #999;
+    }
+}
 
-// Theme
-@import 'theme/theme';
+
+// Core variables and mixins
+@import 'vars-mixins';
+
+// Fonts (can't be namespaced)
+@include app-font('roboto-regular');
+@include app-font('roboto-italic');
+@include app-font('roboto-bold');
+@include app-font('roboto-bolditalic');
+
+@include app-font('robotocondensed-regular');
+@include app-font('robotocondensed-bold');
+
+@include app-font('antonio-regular');
+@include app-font('antonio-bold');
+@include app-font('antonio-light');
+
+@include app-font('crimsontext');
+@include app-font('crimsontext-italic');
+
+.storefront {
+
+    // Core CSS
+    @import 'theme/core/scaffolding';
+    @import 'theme/core/type';
+    @import 'theme/core/code';
+    @import 'theme/core/grid';
+    @import 'theme/core/tables';
+    @import 'theme/core/forms';
+    @import 'theme/core/buttons';
+
+    // Components
+    @import 'theme/components/animations';
+    @import 'theme/components/glyphicons';
+    @import 'theme/components/dropdowns';
+    @import 'theme/components/button-groups';
+    @import 'theme/components/input-groups';
+    @import 'theme/components/navs';
+    @import 'theme/components/navbar';
+    @import 'theme/components/breadcrumbs';
+    @import 'theme/components/pagination';
+    @import 'theme/components/pager';
+    @import 'theme/components/labels';
+    @import 'theme/components/badges';
+    @import 'theme/components/jumbotron';
+    @import 'theme/components/thumbnails';
+    @import 'theme/components/alerts';
+    @import 'theme/components/progress-bars';
+    @import 'theme/components/media';
+    @import 'theme/components/list-group';
+    @import 'theme/components/panels';
+    @import 'theme/components/wells';
+    @import 'theme/components/close';
+
+    // Components w/ JavaScript
+    @import 'theme/components/js/modals';
+    @import 'theme/components/js/tooltip';
+    @import 'theme/components/js/popovers';
+    @import 'theme/components/js/carousel';
+
+    // Utility classes
+    @import 'theme/utilities/base';
+    @import 'theme/utilities/responsive';
+
+    // Theme
+    @import 'theme/theme';
+
+    // Body Scaffolding (since we're namespacing)
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text-color;
+    background-color: $body-bg;
+
+}
+
+// push storefront over to make room for admin rightbar
+body {
+  margin-right: 250px;
+}
+.storefront {
+  margin-right: 250px;
+
+  //temporary hack
+  .v-product-wrap {margin-top: 200px}
+
+}
