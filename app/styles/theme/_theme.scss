@@ -1,6 +1,21 @@
-// Blocks
+// Blocks - Template
 @import 'blocks/mega-menu';
 @import 'blocks/footer';
+
+// Blocks
 @import 'blocks/newsletter';
 @import 'blocks/search';
 @import 'blocks/quickview';
+@import 'blocks/sort-by';
+@import 'blocks/search-refinement';
+
+// Blocks - Home Page
+@import 'blocks/home-slider';
+@import 'blocks/home-content';
+@import 'blocks/featured';
+
+// Blocks - Product Page
+@import 'blocks/product-details';
+
+// Blocks - Category Page
+@import 'blocks/category';
