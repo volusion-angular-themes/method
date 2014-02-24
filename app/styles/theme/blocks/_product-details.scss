@@ -220,7 +220,6 @@
   .v-total-review {
     border: 1px solid #cdcdcd;
     padding: 17px 30px 17px 10px;
-    margin: 20px 15px;
     overflow: hidden;
   }
 
@@ -292,6 +291,10 @@
 
       .v-write-review a:hover {
         text-decoration: none;
+      }
+
+      .v-add-favorite img {
+        margin-right: 5px;
       }
 
       .v-add-favorite a {

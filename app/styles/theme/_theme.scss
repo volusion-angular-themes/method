@@ -1,13 +1,22 @@
 // Blocks - Template
+@import 'blocks/fonts';
 @import 'blocks/mega-menu';
 @import 'blocks/footer';
 
 // Blocks
+@import 'blocks/page-headings';
+@import 'blocks/navbar';
+@import 'blocks/forms';
+@import 'blocks/buttons';
+@import 'blocks/scaffolding';
+@import 'blocks/grid';
 @import 'blocks/newsletter';
+@import 'blocks/panels';
 @import 'blocks/search';
 @import 'blocks/quickview';
 @import 'blocks/sort-by';
 @import 'blocks/search-refinement';
+@import 'blocks/breadcrumbs';
 
 // Blocks - Home Page
 @import 'blocks/home-slider';

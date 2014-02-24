@@ -1,26 +1,29 @@
+<style>
+  body {
+    margin-right: 250px;
+  }
+</style>
 
-
-  <div class="admin">
-    <div class="rightbar">
-      <br><br><br><br><br>
-      <h1>Product</h1>
-      <form class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" ng-model="product.name">
-      <label>Price</label>
-      <input type="number" class="form-control" ng-model="product.price">
-      <label>Description</label>
-      <input type="description" class="form-control" ng-model="product.description">
-      </form>
-
-      <button type="button" class="btn btn-success">Save</button>
-    </div>
+<div class="admin">
+  <div class="rightbar">
+    <h1>Product</h1>
+    <form role="form">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="product.name">
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" ng-model="product.price">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" ng-model="product.description"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg">Save</button>
+    </form>
   </div>
-
-
-
-
-
+</div>
 
 
 <div class="v-product-wrap clearfix">

@@ -1,5 +1,3 @@
-@import 'bootstrap/buttons';
-
 .btn {
 	text-transform: uppercase;
 	font-family: "robotocondensed-regular";
@@ -37,11 +35,4 @@
 
 .btn:hover {
 	opacity: 0.8;
-}
-
-.add-to-cart {
-	@extend .btn;
-	@extend .btn-primary;
-	@extend .btn-lg;
-	@extend .btn-block;
 }
