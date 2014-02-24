@@ -29,7 +29,7 @@ module.exports = function(config) {
       'app/bower_components/angular-i18n/angular-locale_en-us.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'app/bower_components/jquery/jquery.js',
+      'app/bower_components/jquery/dist/jquery.js',
       'test/spec/**/*.js',
       '.tmp/templates.js'
     ],
