@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  
+
   var rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
 
   // Define the configuration for all the tasks
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:all', 'browserify:test'],
         options: {
           livereload: true
         }
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|fonts|images|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
       livereload: {
@@ -264,7 +264,7 @@ module.exports = function (grunt) {
         }]
       }
     },
-    
+
     svgmin: {
       dist: {
         files: [{
@@ -305,9 +305,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: '.tmp/scripts',
           src: '*.js',
-          dest: '.tmp/concat/scripts'
+          dest: '.tmp/scripts'
         }]
       }
     },
@@ -374,7 +374,7 @@ module.exports = function (grunt) {
           return path.replace(/^app\//, '');
         }
       },
-      volusionAppDirectives: {
+      vnDirectives: {
         src: '<%= yeoman.app %>/templates/{,*/}*.html',
         dest: '.tmp/templates.js'
       }
@@ -393,17 +393,24 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            '.tmp/scripts/scripts.js'
+          ]
+        }
+      }
+    },
     // concat: {
-    //   dist: {}
+    //   dist: {
+    //     dest: '.tmp/concat/scripts/scripts.js',
+    //     src: [
+    //       '{.tmp,app}/scripts/{,*/}*.js',
+    //       '!app/scripts/app.js',
+    //       '.tmp/scripts/browserified.js'
+    //     ]
+    //   }
     // },
 
     // Test settings
@@ -411,6 +418,21 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      }
+    },
+    browserify: {
+      dist: {
+        files: {
+          '.tmp/scripts/scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+        }
+      },
+      test: {
+        options: {
+          debug: true
+        },
+        files: {
+          '.tmp/scripts/scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+        }
       }
     }
   });
@@ -425,6 +447,7 @@ module.exports = function (grunt) {
       'bower-install',
       'concurrent:server',
       'autoprefixer',
+      'browserify:test',
       'configureRewriteRules',
       'connect:livereload',
       'watch'
@@ -440,6 +463,7 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
+    'browserify:test',
     'connect:test',
     'karma'
   ]);
@@ -451,7 +475,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'ngtemplates',
-    'concat',
+    'browserify:dist',
     'ngmin',
     'copy:dist',
     'cdnify',

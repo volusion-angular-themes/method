@@ -1,5 +1,6 @@
-﻿'use strict';
-
+/*global angular: true*/
+'use strict';
+var angular = require('angular');
 function getI18NPath() {
   if (localStorage && localStorage.getItem) {
     var i18n = JSON.parse(localStorage.getItem('VOLUSION_I18N')) || {};
@@ -50,4 +51,5 @@ angular.module('volusionApp', [
     $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
       $translate.refresh();
     });
-  });
+  })
+  .controller('ThemeCtrl', require('./controllers/theme'));
