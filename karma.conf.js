@@ -30,8 +30,7 @@ module.exports = function(config) {
       '.tmp/scripts/scripts.js',
       'test/mock/**/*.js',
       'app/bower_components/jquery/dist/jquery.js',
-      'test/spec/**/*.js',
-      '.tmp/templates.js'
+      'test/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude

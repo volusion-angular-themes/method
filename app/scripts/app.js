@@ -33,9 +33,9 @@ angular.module('volusionApp', [
     $urlRouterProvider.otherwise(getI18NPath);
 
     $stateProvider
-      .state('root', {
+      .state('i18n', {
         url: '/:region/:language-:country',
-        templateUrl: '/views/theme.html',
+        template: require('./views/theme.html'),
         controller: 'ThemeCtrl'
       });
 
