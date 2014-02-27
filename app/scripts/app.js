@@ -17,24 +17,26 @@ angular.module('volusionApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute',
+    'ui.router',
     'seo',
     'pascalprecht.translate'
   ])
-  .config(function($routeProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider) {
+  .config(function(
+    $stateProvider,
+    $urlRouterProvider,
+    $locationProvider,
+    $translateProvider,
+    $translatePartialLoaderProvider) {
 
     $locationProvider.html5Mode(true);
 
-    $routeProvider
-      .when('/', {
-        redirectTo: getI18NPath
-      })
-      .when('/:region/:language-:country', {
-        templateUrl: '/views/theme.html',
+    $urlRouterProvider.otherwise(getI18NPath);
+
+    $stateProvider
+      .state('i18n', {
+        url: '/:region/:language-:country',
+        template: require('./views/theme.html'),
         controller: 'ThemeCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
 
     // i18n
