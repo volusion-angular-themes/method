@@ -45,12 +45,12 @@ angular.module('volusionApp', [
         controller: 'HomeCtrl'
       })
       .state('category', {
-        url: i18NPrefix + '/c/:categoryId',
+        url: i18NPrefix + '/:categoryName/c/:categoryId',
         template: require('./views/category.html'),
         controller: 'CategoryCtrl'
       })
       .state('product', {
-        url: i18NPrefix + '/p/:productCode',
+        url: i18NPrefix + '/:productTitle/p/:productCode',
         template: require('./views/product.html'),
         controller: 'ProductCtrl'
       });
