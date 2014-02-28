@@ -32,11 +32,17 @@ angular.module('volusionApp', [
 
     $urlRouterProvider.otherwise(getI18NPath);
 
+    var i18NPrefix = '/:region/:language-:country';
     $stateProvider
-      .state('i18n', {
-        url: '/:region/:language-:country',
-        template: require('./views/theme.html'),
-        controller: 'ThemeCtrl'
+      .state('home', {
+        url: i18NPrefix,
+        template: require('./views/home.html'),
+        controller: 'HomeCtrl'
+      })
+      .state('style-guide', {
+        url: i18NPrefix + '/style-guide',
+        template: require('./views/style-guide.html'),
+        controller: 'StyleGuideCtrl'
       });
 
     // i18n
@@ -54,4 +60,5 @@ angular.module('volusionApp', [
       $translate.refresh();
     });
   })
-  .controller('ThemeCtrl', require('./controllers/theme'));
+  .controller('HomeCtrl', require('./controllers/home'))
+  .controller('StyleGuideCtrl', require('./controllers/style-guide'));
