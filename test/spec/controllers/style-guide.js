@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Controller: ThemeCtrl', function () {
+describe('Controller: StyleGuideCtrl', function () {
 
   // load the controller's module
   beforeEach(module('volusionApp'));
 
   // ReSharper disable once InconsistentNaming
-  var ThemeCtrl;
+  var controller;
   var scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ThemeCtrl = $controller('ThemeCtrl', {
+    controller = $controller('StyleGuideCtrl', {
       $scope: scope
     });
   }));

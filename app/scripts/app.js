@@ -34,15 +34,15 @@ angular.module('volusionApp', [
 
     var i18NPrefix = '/:region/:language-:country';
     $stateProvider
-      .state('theme', {
-        url: i18NPrefix + '/theme',
-        template: require('./views/theme.html'),
-        controller: 'ThemeCtrl'
-      })
       .state('home', {
         url: i18NPrefix,
         template: require('./views/home.html'),
         controller: 'HomeCtrl'
+      })
+      .state('style-guide', {
+        url: i18NPrefix + '/style-guide',
+        template: require('./views/style-guide.html'),
+        controller: 'StyleGuideCtrl'
       })
       .state('category', {
         url: i18NPrefix + '/:categoryName/c/:categoryId',
@@ -70,7 +70,7 @@ angular.module('volusionApp', [
       $translate.refresh();
     });
   })
-  .controller('ThemeCtrl', require('./controllers/theme'))
   .controller('HomeCtrl', require('./controllers/home'))
+  .controller('StyleGuideCtrl', require('./controllers/style-guide'))
   .controller('CategoryCtrl', require('./controllers/category'))
   .controller('ProductCtrl', require('./controllers/product'));

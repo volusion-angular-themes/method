@@ -5,7 +5,7 @@ module.exports = [
   '$translatePartialLoader',
 
   function($scope, $translatePartialLoader) {
-    $translatePartialLoader.addPart('theme');
+    $translatePartialLoader.addPart('style-guide');
     $scope.htmlReady();
   }
 ];
