@@ -34,6 +34,11 @@ angular.module('volusionApp', [
 
     var i18NPrefix = '/:region/:language-:country';
     $stateProvider
+      .state('home', {
+        url: i18NPrefix,
+        template: require('./views/home.html'),
+        controller: 'HomeCtrl'
+      })
       .state('style-guide', {
         url: i18NPrefix + '/style-guide',
         template: require('./views/style-guide.html'),
@@ -55,4 +60,5 @@ angular.module('volusionApp', [
       $translate.refresh();
     });
   })
+  .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'));
