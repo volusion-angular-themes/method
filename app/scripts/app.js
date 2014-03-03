@@ -36,12 +36,12 @@ angular.module('volusionApp', [
     $stateProvider
       .state('home', {
         url: i18NPrefix,
-        template: require('./views/home.html'),
+        templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
       .state('style-guide', {
         url: i18NPrefix + '/style-guide',
-        template: require('./views/style-guide.html'),
+        templateUrl: 'views/style-guide.html',
         controller: 'StyleGuideCtrl'
       });
 
@@ -55,10 +55,12 @@ angular.module('volusionApp', [
     $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
   })
-  .run(function($rootScope, $translate) {
+  .run(function($rootScope, $translate, $templateCache) {
     $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
       $translate.refresh();
     });
+    $templateCache.put('views/home.html', require('./views/home.html'));
+    $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
   })
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'));
