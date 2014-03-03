@@ -19,7 +19,12 @@ angular.module('volusionApp', [
     'ngSanitize',
     'ui.router',
     'seo',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ui.bootstrap.carousel',
+    'ui.bootstrap.dropdownToggle',
+    'ui.bootstrap.transition',
+    'ui.bootstrap.accordion',
+    'ui.bootstrap.collapse'
   ])
   .config(function(
     $stateProvider,
@@ -77,4 +82,5 @@ angular.module('volusionApp', [
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
   .controller('CategoryCtrl', require('./controllers/category'))
-  .controller('ProductCtrl', require('./controllers/product'));
+  .controller('ProductCtrl', require('./controllers/product'))
+  .controller('IndexCtrl', require('./controllers/index'));

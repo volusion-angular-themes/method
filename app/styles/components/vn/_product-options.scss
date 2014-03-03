@@ -1,0 +1,84 @@
+.vn-options-wrap {
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .vn-options {
+    overflow: hidden;
+    margin: 0 -3px;
+  }
+
+  .vn-options-title {
+    text-align: center;
+    letter-spacing: 0.07em;
+    padding: 8px 0;
+    font-family: $font-family-condensed-bold;
+    text-transform: uppercase;
+    clear: both;
+  }
+
+  .vn-col-sm {
+    padding: 3px;
+  }
+
+  .sw1 {
+    background-image: url(../../images/theme/sw-1-lg.png);
+  }
+  .sw2 {
+    background-image: url(../../images/theme/sw-2-lg.png);
+  }
+  .sw3 {
+    background-image: url(../../images/theme/sw-3-lg.png);
+  }
+  .sw4 {
+    background-image: url(../../images/theme/sw-4-lg.png);
+  }
+  .sw5 {
+    background-image: url(../../images/theme/sw-5-lg.png);
+  }
+  .sw6 {
+    background-image: url(../../images/theme/sw-6-lg.png);
+  }
+
+  .vn-swatch {
+    width: 100%;
+    display: block;
+    min-height: 27px;
+    background-repeat: repeat;
+    background-position: top left;
+  }
+
+}
+
+@include respond-to(sm-and-up) {
+
+  .vn-options-wrap {
+
+    .vn-swatch {
+      max-height: 13px;
+      min-height: 13px;
+    }
+    .vn-options {
+      margin: 0 0 10px 0;
+      overflow: hidden;
+      padding: 10px;
+      border: 1px solid #cdcdcd;
+    }
+
+  }
+
+}
+
+@include respond-to(md-and-up) {
+
+  .vn-options-wrap {
+
+    .vn-swatch {
+      min-height: 19px;
+      max-height: 19px;
+    }
+
+  }
+
+}
+

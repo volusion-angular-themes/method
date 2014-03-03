@@ -10,9 +10,6 @@
     <title data-translate="head.title"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Crimson+Text:400,400italic' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -22,131 +19,130 @@
     <link rel="stylesheet" href="/styles/theme.css">
     <!-- endbuild -->
   </head>
-  <body role="document" id="vn-theme">
+  <body role="document" data-ng-controller="IndexCtrl">
 
     <!--[if lt IE 7]>
     <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top v-navbar" role="navigation">
-      <div class="v-header visible-md visible-lg">
+    <nav class="navbar navbar-default navbar-fixed-top vn-navbar" role="navigation">
+      <div class="vn-header">
         <div class="container">
-          <div class="v-header-left pull-left">
+          <div class="vn-header__shipping-text">
             <a href="#" class="free-shipping">Free shipping on all orders over $99!</a>
           </div>
-          <div class="v-header-right pull-right">
+          <div class="vn-header__account-menu">
             <ul class="nav nav-pills">
               <li><a href="#">Sign-In</a></li>
-              <li><a href="#">Create Account</a></li>
+                <li><a href="#">Create Account</a></li>
               <li><a href="#">My Favorites</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="container v-container-header">
+      <div class="container vn-menu-container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".v-main-menu">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".vn-main-menu">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand visible-md visible-lg" href="#"><img src="{{config.logoUrl}}" /></a>
+        <a class="navbar-brand visible-xs visible-sm" href="#"><img src="{{config.mobileLogoUrl}}" /></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse v-main-menu v-mega-menu-wrap">
-        <div class="v-search-small visible-xs visible-sm">
+      <div class="collapse navbar-collapse">
+        <div class="vn-search--small">
           <form class="navbar-form" role="search">
-            <div class="form-group">
-              <input type="text" class="v-search-top" placeholder="Search">
-              <button type="submit" class="v-btn-submit btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            <div class="form-group vn-search--small__group">
+              <input type="text" class="vn-search--small__input" placeholder="Search">
+              <button type="submit" class="vn-btn-submit btn btn-default vn-search--small__btn"><span class="glyphicon glyphicon-search"></span></button>
             </div>
           </form>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="#">Men</a></li>
 
-          <li class="dropdown v-mega-drop">
+          <li class="dropdown vn-mega-drop">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menu</a>
-            <div class="hidden-xs hidden-sm">
-              <ul class="row dropdown-menu v-mega-menu">
-                <li class="v-mega-menu-column col-md-2">
-                  <ul>
-                    <li class="v-nav-header">Collections</li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Web Exclusives</a></li>
-                    <li><a href="#">Looks to Live in</a></li>
-                    <li><a href="#">Jean Guide</a></li>
-                    <li><a href="#">Web Exclusives</a></li>
-                    <li><a href="#">Jean Guide</a></li>
-                    <li><a href="#">Looks to Live in</a></li>
-                  </ul>
-                </li>
+            <ul class="row dropdown-menu vn-mega-menu">
+              <li class="col-md-2 vn-mega-menu-column">
+                <ul>
+                  <li class="vn-nav-header">Collections</li>
+                  <li><a href="#">New Arrivals</a></li>
+                  <li><a href="#">Web Exclusives</a></li>
+                  <li><a href="#">Looks to Live in</a></li>
+                  <li><a href="#">Jean Guide</a></li>
+                  <li><a href="#">Web Exclusives</a></li>
+                  <li><a href="#">Jean Guide</a></li>
+                  <li><a href="#">Looks to Live in</a></li>
+                </ul>
+              </li>
 
-                <li class="v-mega-menu-column col-md-2">
-                  <ul>
-                    <li class="v-nav-header">Main Shopping</li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Web Exclusives</a></li>
-                    <li><a href="#">Looks to Live in</a></li>
-                    <li><a href="#">Jean Guide</a></li>
-                    <li><a href="#">Web Exclusives</a></li>
-                    <li><a href="#">Jean Guide</a></li>
-                    <li><a href="#">Looks to Live in</a></li>
-                  </ul>
-                </li>
+              <li class="col-md-2 vn-mega-menu-column">
+                <ul>
+                  <li class="vn-nav-header">Main Shopping</li>
+                  <li><a href="#">New Arrivals</a></li>
+                  <li><a href="#">Web Exclusives</a></li>
+                  <li><a href="#">Looks to Live in</a></li>
+                  <li><a href="#">Jean Guide</a></li>
+                  <li><a href="#">Web Exclusives</a></li>
+                  <li><a href="#">Jean Guide</a></li>
+                  <li><a href="#">Looks to Live in</a></li>
+                </ul>
+              </li>
 
-                <li class="v-mega-menu-column col-md-2">
-                  <ul>
-                    <li class="v-nav-header">Tops</li>
-                    <li><a href="#">Sweaters</a></li>
-                    <li><a href="#">Hoodies</a></li>
-                    <li><a href="#">Shirts</a></li>
-                    <li><a href="#">Tank Tops</a></li>
-                  </ul>
-                  <ul>
-                    <li class="v-nav-header">Bottoms</li>
-                    <li><a href="#">Jeans</a></li>
-                    <li><a href="#">Pants</a></li>
-                  </ul>
-                </li>
+              <li class="col-md-2 vn-mega-menu-column">
+                <ul>
+                  <li class="vn-nav-header">Tops</li>
+                  <li><a href="#">Sweaters</a></li>
+                  <li><a href="#">Hoodies</a></li>
+                  <li><a href="#">Shirts</a></li>
+                  <li><a href="#">Tank Tops</a></li>
+                </ul>
+                <ul>
+                  <li class="vn-nav-header">Bottoms</li>
+                  <li><a href="#">Jeans</a></li>
+                  <li><a href="#">Pants</a></li>
+                </ul>
+              </li>
 
-                <li class="v-mega-menu-column col-md-2">
-                  <ul>
-                    <li class="v-nav-header">Tops</li>
-                    <li><a href="#">Sweaters</a></li>
-                    <li><a href="#">Hoodies</a></li>
-                    <li><a href="#">Shirts</a></li>
-                    <li><a href="#">Tank Tops</a></li>
-                  </ul>
-                  <ul>
-                    <li class="v-nav-header">Bottoms</li>
-                    <li><a href="#">Jeans</a></li>
-                    <li><a href="#">Pants</a></li>
-                  </ul>
-                </li>
+              <li class="col-md-2 vn-mega-menu-column">
+                <ul>
+                  <li class="vn-nav-header">Tops</li>
+                  <li><a href="#">Sweaters</a></li>
+                  <li><a href="#">Hoodies</a></li>
+                  <li><a href="#">Shirts</a></li>
+                  <li><a href="#">Tank Tops</a></li>
+                </ul>
+                <ul>
+                  <li class="vn-nav-header">Bottoms</li>
+                  <li><a href="#">Jeans</a></li>
+                  <li><a href="#">Pants</a></li>
+                </ul>
+              </li>
 
-                <li class="v-mega-menu-column col-md-4">
-                  <div class="v-menu-img">
-                    <img src="images/demo/menu-img.png" class="img-responsive" alt="">
-                  </div>
-                  <ul>
-                    <li><a href="#">Get this look</a></li>
-                    <li><a href="#">Shop All Women</a></li>
-                  </ul>
-                </li>
+              <li class="col-md-4 vn-mega-menu-column">
+                <div class="vn-menu-img">
+                  <img src="/images/demo/menu-img.png" class="img-responsive" alt="">
+                </div>
+                <ul>
+                  <li><a href="#">Get this look</a></li>
+                  <li><a href="#">Shop All Women</a></li>
+                </ul>
+              </li>
 
-              </ul><!-- dropdown-menu -->
-            </div>
+            </ul><!-- dropdown-menu -->
           </li><!-- /.dropdown -->
 
           <li><a href="t-shirts.html">T-shirts</a></li>
           <li><a href="#">Apartment</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle v-dropdown-toggle" data-toggle="dropdown">Brands</a>
+            <a href="#" class="dropdown-toggle vn-dropdown-toggle" data-toggle="dropdown">Brands</a>
             <ul class="dropdown-menu">
               <li><a href="#">Dropdown Menu Item</a></li>
               <li><a href="#">Dropdown Menu Item</a></li>
@@ -159,49 +155,49 @@
           <li class="active"><a href="#">Sale</a></li>
         </ul>
 
-          <div class="v-menu-site-map visible-sm">
-            <ul>
-              <li class="v-site-map-header">Company Info</li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">Excetera</a></li>
-            </ul>
+        <div class="vn-menu-site-map">
+          <ul>
+            <li class="vn-site-map-header">Company Info</li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Excetera</a></li>
+          </ul>
 
-            <ul>
-              <li class="v-site-map-header">Help &amp; Support</li>
-              <li><a href="#">Customer Service</a></li>
-              <li><a href="#">Shopping Bag</a></li>
-              <li><a href="#">Order Status</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Size Charts</a></li>
-              <li><a href="#">Favorites</a></li>
-              <li><a href="#">Site Map</a></li>
-            </ul>
+          <ul>
+            <li class="vn-site-map-header">Help &amp; Support</li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">Shopping Bag</a></li>
+            <li><a href="#">Order Status</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Size Charts</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
 
-            <ul>
-              <li class="v-site-map-header">Programs &amp; Services</li>
-              <li><a href="#">Affiliate Program</a></li>
-              <li><a href="#">Gift Certificates</a></li>
-              <li><a href="#">Gift Cards</a></li>
-            </ul>
+          <ul>
+            <li class="vn-site-map-header">Programs &amp; Services</li>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="#">Gift Certificates</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
 
-          </div>
+        </div>
       </div><!-- /.navbar-collapse -->
 
-      <div class="nav-right pull-right v-nav-tools">
-        <form class="navbar-form navbar-left v-search visible-md visible-lg" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+      <div class="vn-cart-summary">
+        <form class="navbar-form vn-search" role="search">
+          <div class="form-group vn-search__group">
+            <input type="text" class="form-control vn-search__input" placeholder="Search">
           </div>
-          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+          <button type="submit" class="btn btn-default vn-search__btn"><span class="glyphicon glyphicon-search"></span></button>
         </form>
-        <span class="v-my-cart pull-right">
-          <a href="#" class="my-cart-link">
-            <span class="my-cart-text">My Bag</span>
-            <span class="my-cart-number">1</span>
+        <span class="vn-my-cart">
+          <a href="#" class="vn-my-cart__link">
+            <span class="vn-my-cart__text">My Bag</span>
+            <span class="vn-my-cart__number">1</span>
           </a>
         </span>
       </div><!-- .nav-tools -->
@@ -210,109 +206,115 @@
   </nav>
 
   <!-- Add your site or application content here -->
-  <div class="container theme-showcase" role="main" data-ui-view=""></div>
+  <div class="theme-showcase" role="main" data-ui-view=""></div>
 
 
-  <footer>
-    <div class="search-small hidden-lg">
-      <div class="v-newsletter">
-        <div class="v-title">Sign-up for our Newsletter</div>
-        <form class="form-inline v-news-form" role="form" name="MailingList" method="post" action="">
-          <div class="form-group v-news-goup">
-            <input type="email" name="emailaddress" class="form-control v-news-input" value="" placeholder="Sign-up for promotions">
+  <footer class="vn-footer">
+    <div class="vn-newsbar">
+      <div class="vn-elist">
+        <div class="vn-elist__title">Sign-up for our Newsletter</div>
+        <form class="form-inline vn-elist__form" role="form" name="MailingList" method="post" action="">
+          <div class="form-group vn-elist__group">
+            <input type="email" name="emailaddress" class="form-control vn-elist__input" value="" placeholder="Sign-up for promotions">
           </div>
-          <button type="submit" class="btn btn-default v-news-submit">GO</button>
+          <button type="submit" class="btn btn-default vn-elist__submit">GO</button>
         </form>
       </div><!-- .v-newsletter -->
     </div>
-    <div class="container visible-lg v-footer-top">
+    <div class="container vn-footer__top">
       <div class="row">
-        <div class="col-md-8 v-footer-left">
-          <div class="col-md-4">
-            <ul class="nav">
-              <li class="v-title">Help &amp; Support</li>
-              <li><a href="#">Customer Service</a></li>
-              <li><a href="#">Shopping Bag</a></li>
-              <li><a href="#">Order sStatus</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Size Charts</a></li>
-              <li><a href="#">Favorites</a></li>
-              <li><a href="#">Site Map</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="nav">
-              <li class="v-title">Company Info</li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">Excetera</a></li>
-            </ul>
-            <ul class="nav">
-              <li class="v-title">Programs &amp; Services</li>
-              <li><a href="#">Affiliate Program</a></li>
-              <li><a href="#">Gift Certificates</a></li>
-              <li><a href="#">Gift Cards</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="nav">
-              <li class="v-title">Shopping</li>
-              <li><a href="#">Men's Jackets</a></li>
-              <li><a href="#">Men's Down Jackets</a></li>
-              <li><a href="#">Men's Casual Pants</a></li>
-              <li><a href="#">Men's Dress Pants</a></li>
-              <li><a href="#">Men's Khakis</a></li>
-              <li><a href="#">Men's Loose Fit Jeans</a></li>
-              <li><a href="#">&nbsp;</a></li>
-              <li><a href="#">Down Comforters</a></li>
-              <li><a href="#">Down Comforters</a></li>
-              <li><a href="#">Down Blankets &amp; Throws</a></li>
-            </ul>
+        <div class="col-md-8">
+          <div class="vn-footer__site-links">
+            <div class="col-md-4">
+              <ul class="nav">
+                <li class="vn-footer__title">Help &amp; Support</li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Shopping Bag</a></li>
+                <li><a href="#">Order sStatus</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Size Charts</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">Site Map</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul class="nav">
+                <li class="vn-footer__title">Company Info</li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Excetera</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="vn-footer__title">Programs &amp; Services</li>
+                <li><a href="#">Affiliate Program</a></li>
+                <li><a href="#">Gift Certificates</a></li>
+                <li><a href="#">Gift Cards</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul class="nav">
+                <li class="vn-footer__title">Shopping</li>
+                <li><a href="#">Men's Jackets</a></li>
+                <li><a href="#">Men's Down Jackets</a></li>
+                <li><a href="#">Men's Casual Pants</a></li>
+                <li><a href="#">Men's Dress Pants</a></li>
+                <li><a href="#">Men's Khakis</a></li>
+                <li><a href="#">Men's Loose Fit Jeans</a></li>
+                <li><a href="#">&nbsp;</a></li>
+                <li><a href="#">Down Comforters</a></li>
+                <li><a href="#">Down Comforters</a></li>
+                <li><a href="#">Down Blankets &amp; Throws</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="col-md-4 v-footer-right">
-          <div class="v-newsletter">
-            <div class="v-title">Sign-up for our Newsletter</div>
-            <div class="v-news-text">Get our latest news and exclusive offers</div>
-            <form class="form-inline" role="form" name="MailingList" method="post" action="">
-              <div class="form-group v-news-goup">
-                <input type="email" name="emailaddress" class="form-control v-news-input" value="" placeholder="Sign-up for promotions">
-              </div>
-              <button type="submit" class="btn btn-default v-news-submit">GO</button>
-            </form>
-          </div><!-- .v-newsletter -->
-          <div class="v-info-box">
-            <div class="v-title">Extraneous Information here</div>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+        <div class="col-md-4">
+          <div class="vn-footer__more-info">
+            <div class="vn-elist">
+              <div class="vn-elist__title">Sign-up for our Newsletter</div>
+              <div class="vn-elist__text">Get our latest news and exclusive offers</div>
+              <form class="form-inline" role="form" name="MailingList" method="post" action="">
+                <div class="form-group vn-elist__group">
+                  <input type="email" name="emailaddress" class="form-control vn-elist__input" value="" placeholder="Sign-up for promotions">
+                </div>
+                <button type="submit" class="btn btn-default vn-elist__submit">GO</button>
+              </form>
+            </div><!-- .vn-elist -->
+            <div class="vn-info-box">
+              <div class="vn-footer__title">Extraneous Information here</div>
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+            </div>
           </div>
         </div>
       </div><!-- .row -->
     </div>
 
-    <div class="container v-footer-bottom">
-      <div class="v-copyright visible-lg">
-        Copyright Method 2014. All Rights Reserved. Powered by
-        <a href="http://www.volusion.com">Volusion</a>.
-      </div>
+    <div class="container">
+      <div class="vn-footer__bottom">
+        <div class="vn-footer__copyright visible-lg">
+          Copyright Method 2014. All Rights Reserved. Powered by
+          <a href="http://www.volusion.com">Volusion</a>.
+        </div>
 
-      <ul class="v-footer-nav">
-        <li><a href="#">1-800-555-5432</a></li>
-        <li>24 hours a day 7 days a week</li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
+        <ul class="vn-footer__contact">
+          <li><a href="#">1-800-555-5432</a></li>
+          <li>24 hours a day 7 days a week</li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
 
-      <div class="v-copyright hidden-lg">
-        Copyright Method 2014. All Rights Reserved. Powered by
-        <a href="http://www.volusion.com">Volusion</a>.
-      </div>
-      <div class="pull-right visible-lg">
-        <a href="#" class="v-back-top" id="toTop">Back to Top <span>^</span></a>
-      </div>
-    </div> <!-- .v-footer-bottom -->
+        <div class="vn-copyright hidden-lg">
+          Copyright Method 2014. All Rights Reserved. Powered by
+          <a href="http://www.volusion.com">Volusion</a>.
+        </div>
+        <div class="pull-right visible-lg">
+          <a href="#" class="vn-back-top" id="toTop">Back to Top <span>^</span></a>
+        </div>
+      </div><!-- .vn-footer__bottom -->
+    </div>
   </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -333,6 +335,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/es5-shim/es5-shim.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
@@ -342,22 +345,23 @@
     <script src="/bower_components/angular-translate/angular-translate.js"></script>
     <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
     <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
     <script src="/bower_components/messageformat/messageformat.js"></script>
     <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
     <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/json3/lib/json3.min.js"></script>
     <!-- endbower -->
-    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
     <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
     <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
     <script src="/bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/accordian/accordian.js"></script>
+    <script src="/bower_components/angular-ui-bootstrap/src/accordion/accordion.js"></script>
     <script src="/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js"></script>
     <script src="/bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
     <script src="/bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
     <!-- endbuild -->
 
+    <script src="/scripts/theme.js"></script>
     <script src="/scripts/scripts.js"></script>
 </body>
 </html>

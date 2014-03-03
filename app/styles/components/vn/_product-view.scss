@@ -1,0 +1,34 @@
+.vn-product-view__image {
+  position: relative;
+  z-index: 1;
+
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.vn-product-view__zoom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -38px 0 0 -38px;
+  display: none;
+}
+
+.vn-product-view__image:hover .vn-product-view__zoom {
+  display: block;
+}
+
+.vn-product-view__zoom:hover {
+  @extend %opacity-80;
+}
+
+.vn-product-view__alts {
+  text-align: center;
+
+  img {
+    @extend %inline-block;
+  }
+}
+

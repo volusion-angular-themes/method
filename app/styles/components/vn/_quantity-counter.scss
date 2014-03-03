@@ -1,0 +1,33 @@
+.vn-qty-wrap {
+  padding: 4px 15px 4px 15px;
+}
+
+.vn-qty-counter__input {
+  padding: 19px 12px 19px;
+  text-align: center;
+}
+
+.vn-qty-counter__btn {
+  padding: 10px 8px 11px;
+  min-width: 35px;
+  border-color: #cdcdcd;
+}
+
+@include respond-to(sm-and-up) {
+
+  .vn-qty-wrap{
+    padding: 4px 0 4px 15px;
+  }
+
+  .vn-qty-counter__input {
+    padding: 19px 6px 19px;
+  }
+
+  .vn-qty-counter__btn {
+    padding: 10px 3px 11px;
+    min-width: 25px;
+  }
+
+}
+
+

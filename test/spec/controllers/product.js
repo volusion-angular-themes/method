@@ -18,8 +18,12 @@ describe('Controller: ProductCtrl', function() {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function() {
-    expect(scope.awesomeThings).to.have.length(3);
+  it('should attach a list of oneAtATime to the scope', function() {
+    expect(scope.oneAtATime).to.exist;
+  });
+
+  it('should attach a list of groups to the scope', function() {
+    expect(scope.groups).to.have.length(2);
   });
 
 });

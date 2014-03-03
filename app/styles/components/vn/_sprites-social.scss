@@ -1,0 +1,58 @@
+@import "sprites/social/*.png";
+@include all-social-sprites;
+
+.vn-social__facebook {
+  @include social-sprite(facebook);
+  @extend .vn-social__icon;
+  height: social-sprite-height(facebook);
+  width: social-sprite-width(facebook);
+}
+
+.vn-social__twitter {
+  @include social-sprite(twitter);
+  @extend .vn-social__icon;
+  height: social-sprite-height(twitter);
+  width: social-sprite-width(twitter);
+}
+
+.vn-social__instagram {
+  @include social-sprite(instagram);
+  @extend .vn-social__icon;
+  height: social-sprite-height(instagram);
+  width: social-sprite-width(instagram);
+}
+
+.vn-social__tumblr {
+  @include social-sprite(tumblr);
+  @extend .vn-social__icon;
+  height: social-sprite-height(tumblr);
+  width: social-sprite-width(tumblr);
+}
+
+.vn-social__pinterest {
+  @include social-sprite(pinterest);
+  @extend .vn-social__icon;
+  height: social-sprite-height(pinterest);
+  width: social-sprite-width(pinterest);
+}
+
+.vn-social__google {
+  @include social-sprite(google);
+  @extend .vn-social__icon;
+  height: social-sprite-height(google);
+  width: social-sprite-width(google);
+}
+
+.vn-social__vimeo {
+  @include social-sprite(vimeo);
+  @extend .vn-social__icon;
+  height: social-sprite-height(vimeo);
+  width: social-sprite-width(vimeo);
+}
+
+.vn-social__youtube {
+  @include social-sprite(youtube);
+  @extend .vn-social__icon;
+  height: social-sprite-height(youtube);
+  width: social-sprite-width(youtube);
+}

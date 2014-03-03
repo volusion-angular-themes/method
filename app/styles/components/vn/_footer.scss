@@ -1,0 +1,144 @@
+.vn-footer {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #fff;
+  line-height: 2em;
+  border-top: 1px solid #d9d9d9;
+
+  a:hover {
+    @extend %animate-all-default;
+  }
+
+}
+
+.vn-footer__top {
+  display: none;
+}
+
+.vn-footer__title {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: $font-family-condensed-reg;
+}
+
+.vn-footer__bottom {
+  padding: 1.5em 0;
+}
+
+.vn-footer__copyright {
+  margin-right: 15px;
+}
+
+.vn-footer__contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    @include inline-block;
+    border-left: 1px solid #313131;
+    line-height: 13px;
+    padding-left: 10px;
+    margin-right: 9px;
+  }
+
+  li:first-child {
+    border: 0;
+  }
+}
+
+.vn-back-top {
+  span {
+    font-size: 1.2rem;
+    font-weight: normal;
+    vertical-align: text-top;
+  }
+}
+
+@include respond-to(sm-and-up) {
+
+  .vn-footer__top {
+    display: none;
+  }
+
+}
+
+@include respond-to(lg) {
+
+  .vn-newsbar {
+    display: none;
+  }
+
+  .vn-footer {
+    min-height: 422px;
+    border-top: 0;
+    text-align: left;
+    background-color: #f0f0f0;
+  }
+
+  .vn-footer__title {
+    display: block;
+  }
+
+  .vn-footer__top {
+    display: block;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #cecece;
+    ul.nav {
+      margin: 0 0 35px;
+    }
+
+    ul.nav > li > a {
+      padding: 0;
+    }
+  }
+
+  .vn-footer__site-links {
+    border-right: 1px solid #cecece;
+    margin-top: 25px;
+    overflow: hidden;
+  }
+
+  .vn-footer__more-info {
+    margin-top: 35px;
+  }
+
+  .vn-info-box {
+    padding-left: 35px;
+  }
+
+  .vn-back-top {
+    span {
+      font-size: 1.2rem;
+      font-weight: normal;
+      vertical-align: text-top;
+    }
+  }
+
+  .vn-footer__contact {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      @include inline-block;
+      border-left: 1px solid #313131;
+      line-height: 13px;
+      padding-left: 10px;
+      margin-right: 9px;
+    }
+
+    li:first-child {
+      border: 0;
+    }
+  }
+
+  .vn-footer__copyright {
+    float: left;
+    margin-right: 15px;
+  }
+
+}

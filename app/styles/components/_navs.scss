@@ -1,0 +1,78 @@
+@import "bootstrap/navs";
+
+.vn-related-wrap {
+  clear: both;
+}
+
+ul.nav-tabs {
+  clear: both;
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 0;
+  margin-bottom: 19px;
+  text-align: center;
+
+  > li {
+    @extend %inline-block;
+    font-family: $font-family-condensed-reg;
+    font-size: 1.3rem;
+    float: none;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  > li > a {
+    border: 0;
+    padding: 10px 13px 7px;
+    color: #9d9d9d;
+    margin: 0;
+
+    &:hover {
+      margin: 0;
+      color: #000;
+      border-top: 0;
+    }
+  }
+
+  > li.active > a {
+    border-top: 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0;
+    color: #000;
+    border-left: 0;
+    border-right: 0;
+
+    &:hover {
+      color: #000;
+      border-top: 0;
+    }
+  }
+
+}
+
+@include respond-to(sm-and-up) {
+
+  ul.nav-tabs {
+    text-align: left;
+    border-top: 1px solid #d9d9d9;
+
+    > li {
+      font-size: 1.4rem;
+      margin: 0;
+      float: left;
+    }
+
+    > li > a {
+      padding: 10px 13px;
+    }
+
+    > li.active > a {
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      margin-bottom: -1px;
+      border-bottom: 1px solid #fff;
+    }
+
+  }
+
+
+}

@@ -1,0 +1,11 @@
+%inline-block {
+  @include inline-block;
+}
+
+%opacity-80 {
+  @include opacity(0.8);
+}
+
+%animate-all-default {
+  @include transition(all, 0.2s, ease-in-out);
+}

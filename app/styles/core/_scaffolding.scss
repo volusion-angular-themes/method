@@ -1,0 +1,35 @@
+@import "bootstrap/scaffolding";
+
+body {
+  font-size: 1.2rem;
+}
+
+a:hover, a:active {
+  text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding-top: 47px;
+    -webkit-font-smoothing: antialiased;
+}
+
+@include respond-to(sm-and-up) {
+  body {
+    padding-top: 75px;
+  }
+}
+
+@include respond-to(md-and-up) {
+  body {
+    padding-top: 152px;
+  }
+}
+
+@include respond-to(lg) {
+  body {
+    padding-top: 152px;
+  }
+}
+
+

@@ -1,0 +1,52 @@
+.vn-quick-options {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  overflow: hidden;
+  line-height: 30px;
+  height: 0px;
+  width: 100%;
+
+  .vn-quick-view {
+    text-transform: uppercase;
+    color: #fff;
+    text-indent: 14px;
+    width: 85%;
+    float: left;
+    text-align: left;
+    font-family: $font-family-condensed-reg;
+    background-color: rgba(1, 1, 1, 0.5);
+
+    &:hover {
+      background-color: rgba(1, 1, 1, 0.6);
+    }
+
+  }
+
+  .vn-add-to-cart {
+      float: left;
+      height: 30px;
+      width: 15%;
+      background-color: #f6271b;
+
+      span {
+        @extend %inline-block;
+        @include icons-sprite(cart-bag);
+        height: icons-sprite-height(cart-bag);
+        width: icons-sprite-width(cart-bag);
+        margin: -5px auto 0;
+      }
+
+    &:hover {
+      background-color: #d92319;
+    }
+  }
+}
+
+.vn-product:hover .vn-quick-options {
+  @extend %animate-all-default;
+  height: 30px;
+}
+

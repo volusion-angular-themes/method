@@ -1,0 +1,143 @@
+@import "bootstrap/navbar";
+
+.vn-navbar {
+
+    .vn-menu-container {
+        position: relative;
+    }
+
+    .navbar-toggle {
+        float: left;
+        margin-right: 0;
+        margin-left: 15px;
+        border: 0;
+        padding: 8px 10px;
+
+        .icon-bar {
+            height: 4px;
+        }
+    }
+
+    .vn-header {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    
+}
+
+@include respond-to(sm-and-down) {
+	.vn-navbar {
+		.navbar-brand {
+        padding: 0;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -38px;
+        display: block;
+    }
+	}
+}
+
+@include respond-to(sm) {
+	.vn-navbar {
+		.navbar-brand {
+			padding-top: 10px;
+		}
+	}
+}
+
+
+@include respond-to(sm-and-up) {
+
+    $navbar-height: 65px;
+
+    .vn-navbar {
+        .navbar-toggle {
+            margin: 19px 10px;
+        }
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@include respond-to(md-and-up) {
+
+    $navbar-height: 93px;
+
+    .vn-navbar {
+
+        .vn-main {
+            float: left;
+        }
+
+        .free-shipping {
+            display: block;
+            text-transform: uppercase;
+            padding: 10px 15px;
+        }
+
+        .navbar-nav {
+            margin-left: 14px;
+        }
+
+        > .container .navbar-brand {
+            /*position: static;
+            float: left;
+            margin: 16px 0 0 11px;*/
+        }
+
+        .navbar-toggle {
+            float: right;
+            margin-right: 15px;
+            margin-left: 0;
+        }
+
+        .navbar-nav > li > a {
+            font-family: $font-family-condensed-reg;
+            text-transform: uppercase;
+            font-size: 1.6rem;
+        }
+
+        .navbar-nav > li > a {
+            border-left: 1px solid #c2c2c2;
+            padding-left: 0.9em;
+            padding-right: 0.9em;
+        }
+
+        .navbar-nav > li:first-child > a {
+            border: 0;
+        }
+
+        .navbar-nav > li {
+            padding-top: 38px;
+            padding-bottom: 38px;
+            position: relative;
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+
+    }
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@include respond-to(lg) {
+
+    $navbar-height: 93px;
+
+    .vn-navbar {
+        .navbar-nav {
+            margin-left: 34px;
+        }
+
+        .navbar-nav > li > a {
+            padding-left: 1.33em;
+            padding-right: 1.33em;
+        }
+    }
+
+}

@@ -1,0 +1,55 @@
+.vn-reviews {
+  font-size: 1.3rem;
+  color: #707070;
+  line-height: 22px;
+  border-top: 1px solid #cdcdcd;
+
+  a {
+    color: #707070;
+    margin: 0 4px;
+  }
+
+}
+
+.vn-totals-right {
+  margin-top: 10px;
+}
+
+.vn-rating-title {
+  font-weight: bold;
+}
+
+.vn-reviews__title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  color: #424242;
+  padding: 20px 0;
+  overflow: hidden;
+  font-family: $font-family-condensed-reg;
+}
+
+.vn-reviews__totals {
+  border: 1px solid #eeeeee;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.vn-review__rating {
+  padding: 10px 0;
+}
+
+.vn-review__helpful {
+  padding: 10px 0 0;
+}
+
+@include respond-to(sm-and-up) {
+
+  .vn-totals-left {
+    float: left;
+  }
+
+  .vn-totals-right {
+    float: right;
+  }
+
+}

@@ -1,0 +1,17 @@
+.vn-product-info {
+  clear: both;
+  padding-top: 15px;
+
+  .panel-heading {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+}
+
+.panel-group .panel + .panel {
+  margin: 0;
+  border-top: 0;
+}

@@ -1,0 +1,38 @@
+.vn-slider {
+
+  .carousel-indicators li {
+    width: 13px;
+    margin: 0 3px;
+    height: 13px;
+    background-color: #ffffff;
+    border: 0;
+  }
+
+  .carousel-indicators .active {
+    width: 13px;
+    height: 13px;
+    border: 0;
+    background-color: #f63e34;
+  }
+
+
+}
+
+@include respond-to(sm-and-up) {
+
+	.vn-content-slider {
+    margin-bottom: 30px;
+  }
+
+}
+
+@include respond-to(md-and-up) {
+
+  .vn-content-slider {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+}
+
+

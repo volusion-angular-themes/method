@@ -1,0 +1,13 @@
+@import "bootstrap/breadcrumbs";
+
+@include respond-to(md-and-up) {
+  .breadcrumb {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom: 1px solid #cbcbcb;
+
+    a:hover {
+      @include transition(all, 0.2s, ease-in-out);
+    }
+  }
+}

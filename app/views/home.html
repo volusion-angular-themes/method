@@ -1,236 +1,187 @@
-<div class="container-fluid visible-xs v-content-slider">
-  <div class="carousel slide v-slider" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target=".carousel" data-slide-to="0" class="active"></li>
-      <li data-target=".carousel" data-slide-to="1"></li>
-      <li data-target=".carousel" data-slide-to="2"></li>
-      <li data-target=".carousel" data-slide-to="3"></li>
-      <li data-target=".carousel" data-slide-to="4"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="images/homepage/slider/slide1-sm.jpg" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1-sm.jpg" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1-sm.jpg" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1-sm.jpg" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1-sm.jpg" alt="slide1">
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href=".carousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href=".carousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-  </div>
-</div><!-- /.container-fluid carousel MOBILE/TABLET SLIDESHOW -->
-
-<div class="container v-content-slider hidden-xs">
-  <div class="carousel slide v-slider" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target=".carousel" data-slide-to="0" class="active"></li>
-      <li data-target=".carousel" data-slide-to="1"></li>
-      <li data-target=".carousel" data-slide-to="2"></li>
-      <li data-target=".carousel" data-slide-to="3"></li>
-      <li data-target=".carousel" data-slide-to="4"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="images/homepage/slider/slide1.jpg" height="486" width="1170" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1.jpg" height="486" width="1170" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1.jpg" height="486" width="1170" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1.jpg" height="486" width="1170" alt="slide1">
-      </div>
-      <div class="item">
-        <img src="images/homepage/slider/slide1.jpg" height="486" width="1170" alt="slide1">
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href=".carousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href=".carousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
+<div class="container vn-content-slider">
+  <div class="vn-slider">
+    <carousel>
+      <slide ng-repeat="slide in slider" active="slide.active">
+        <a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}"><img ng-src="{{slide.imageUrl}}" alt="{{slide.headline}} - {{slide.subHeadline}}" style="margin:auto;"></a>
+      </slide>
+    </carousel>
   </div>
 </div><!-- /.container carousel -->
 
-<div class="container v-content-area v-home-content">
+<div class="container vn-home-content">
 
   <!-- MOBILE & TABLET CONTENT -->
-  <div class="row visible-xs visible-sm">
+  <div class="visible-xs visible-sm">
+    <div class="row">
     <div class="col-sm-6 hidden-xs">
-      <a href="#" class="v-promo v-p1">&nbsp;</a>
+        <a href="#" class="vn-promo vn-p1">&nbsp;</a>
     </div>
     <div class="col-sm-6">
-      <a href="#" class="v-promo v-p2">
-        <span class="v-title">Now Stocking Herschel Bags.</span>
-        <span class="v-text">
+        <a href="#" class="vn-promo vn-p2">
+          <span class="vn-title">Now Stocking Herschel Bags.</span>
+          <span class="vn-text">
           Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-          <span class="v-link">Shop Now ></span>
+            <span class="vn-link">Shop Now ></span>
         </span>
       </a>
     </div>
-  </div><!-- row visible-xs -->
+    </div><!-- .row -->
+  </div><!-- visible-xs -->
 
   <!-- MOBILE ONLY CONTENT -->
-  <div class="row visible-xs">
-    <div class="col-xs-6 v-p-pad">
-      <a href="#" class="v-promo v-p1-sm">&nbsp;</a>
+  <div class="visible-xs">
+    <div class="row">
+      <div class="col-xs-6 vn-p-pad">
+        <a href="#" class="vn-promo vn-p1-sm">&nbsp;</a>
+      </div>
+      <div class="col-xs-6 vn-p-pad">
+        <a href="#" class="vn-promo vn-p3-sm">&nbsp;</a>
     </div>
-    <div class="col-xs-6 v-p-pad">
-      <a href="#" class="v-promo v-p3-sm">&nbsp;</a>
     </div>
   </div>
 
   <!-- MOBILE & TABLET CONTENT -->
-  <div class="row v-last visible-xs visible-sm">
+  <div class="visible-xs visible-sm">
+    <div class="vn-last">
+      <div class="row">
     <div class="col-sm-6 hidden-xs">
-      <a href="#" class="v-promo v-p3">&nbsp;</a>
+          <a href="#" class="vn-promo vn-p3">&nbsp;</a>
+        </div>
+        <div class="col-sm-6 vn-p-pad">
+          <a href="#" class="vn-promo vn-b1">&nbsp;</a>
+          <a href="#" class="vn-promo vn-b2">&nbsp;</a>
+          <a href="#" class="vn-promo vn-b3 vn-video"><img src="/images/homepage/video-sm.jpg" class="img-responsive" alt=""></a>
+        </div>
     </div>
-    <div class="col-sm-6 v-p-pad">
-      <a href="#" class="v-promo v-b1">&nbsp;</a>
-      <a href="#" class="v-promo v-b2">&nbsp;</a>
-      <a href="#" class="v-promo v-b3 v-video"><img src="images/homepage/video-sm.jpg" class="img-responsive" alt=""></a>
     </div>
   </div>
 
   <!-- DESKTOP CONTENT -->
-  <div class="row visible-md visible-lg">
+  <div class="visible-md visible-lg">
+    <div class="row">
     <div class="col-md-4">
-      <a href="#" class="v-promo v-p1">&nbsp;</a>
+        <a href="#" class="vn-promo vn-p1">&nbsp;</a>
     </div>
     <div class="col-md-4">
-      <a href="#" class="v-promo v-p2">
-        <span class="v-title">Now Stocking Herschel Bags.</span>
-        <span class="v-text">
+        <a href="#" class="vn-promo vn-p2">
+          <span class="vn-title">Now Stocking Herschel Bags.</span>
+          <span class="vn-text">
           Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-          <span class="v-link">Shop Now ></span>
+            <span class="vn-link">Shop Now ></span>
         </span>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="#" class="v-promo v-p3">&nbsp;</a>
+        <a href="#" class="vn-promo vn-p3">&nbsp;</a>
+      </div>
     </div>
   </div>
 
   <!-- DESKTOP CONTENT -->
-  <div class="row v-last visible-md visible-lg">
+  <div class="visible-md visible-lg">
+    <div class="vn-last">
+      <div class="row">
     <div class="col-md-4">
-      <a href="#" class="v-promo v-b1"><span class="v-category">New Sunglasses ></span></a>
+          <a href="#" class="vn-promo vn-b1"><span class="vn-category">New Sunglasses ></span></a>
     </div>
     <div class="col-md-4">
-      <a href="#" class="v-promo v-b2"><span class="v-category">Townsend Shoes ></span></a>
+          <a href="#" class="vn-promo vn-b2"><span class="vn-category">Townsend Shoes ></span></a>
     </div>
     <div class="col-md-4">
-      <a href="#" class="v-promo v-b3 v-video"><img src="images/homepage/video.jpg" class="img-responsive" alt=""></a>
+          <a href="#" class="vn-promo vn-b3 vn-video"><img src="/images/homepage/video.jpg" class="img-responsive" alt=""></a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row visible-lg v-featured-wrap">
+  <div class="visible-lg">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#">Featured</a></li>
       <li><a href="#">Best Sellers</a></li>
       <li><a href="#">On Sale</a></li>
     </ul>
-    <div class="v-products-wrap clearfix">
+    <div class="vn-products-wrap clearfix">
       <!-- PRODUCT 1 -->
-      <div class="col-xs-12 col-sm-6 col-md-3 v-product">
-        <div class="v-sale-item"><img src="images/template/sale-tag.png" alt=""></div>
-        <div class="v-product-image">
-          <a href="#"><img src="images/demo/shirt1.jpg" class="img-responsive" alt=""></a>
-          <div class="v-quick-options visible-lg">
-            <a href="#" class="v-quick-view">Quick View</a>
-            <a href="#" class="v-add-to-cart"></a>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="vn-product">
+          <span class="vn-product__sale"></span>
+          <div class="vn-product__image">
+            <a href="#"><img src="/images/demo/shirt1.jpg" class="img-responsive" alt=""></a>
+            <div class="vn-quick-options visible-lg">
+              <a href="#" class="vn-quick-view">Quick View</a>
+              <a href="#" class="vn-add-to-cart"><span></span></a>
           </div>
         </div>
-        <div class="v-product-name">
+          <div class="vn-product__name">
           <a href="#">Method Limited Screen printed Tee</a>
         </div>
-        <div class="v-price-box">
-          <span class="v-reg-price v-price strike">$48 <span>Reg</span></span>
-          <span class="v-now-price v-price">$36 <span>Now</span></span>
+          <div class="vn-product__price">
+            <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
+              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+          </div>
         </div>
       </div>
 
       <!-- PRODUCT 2 -->
-      <div class="col-xs-12 col-sm-6 col-md-3 v-product">
-        <div class="v-product-image">
-          <a href="#"><img src="images/demo/shirt2.jpg" class="img-responsive" alt=""></a>
-          <div class="v-quick-options visible-lg">
-            <a href="#" class="v-quick-view">Quick View</a>
-            <a href="#" class="v-add-to-cart"></a>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="vn-product">
+          <div class="vn-product__image">
+            <a href="#"><img src="/images/demo/shirt2.jpg" class="img-responsive" alt=""></a>
+            <div class="vn-quick-options visible-lg">
+              <a href="#" class="vn-quick-view">Quick View</a>
+              <a href="#" class="vn-add-to-cart"><span></span></a>
           </div>
         </div>
-        <div class="v-product-name">
+          <div class="vn-product__name">
           <a href="#">Method LImited Screen printed Tee</a>
         </div>
-        <div class="v-price-box">
-          <span class="v-reg-price v-price strike">$48 <span>Reg</span></span>
-          <span class="v-now-price v-price">$36 <span>Now</span></span>
+          <div class="vn-product__price">
+            <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
+              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+          </div>
         </div>
       </div>
 
       <!-- PRODUCT 3 -->
-      <div class="col-xs-12 col-sm-6 col-md-3 v-product">
-        <div class="v-new-item"><img src="images/template/new-tag.png" alt=""></div>
-        <div class="v-product-image">
-          <a href="#"><img src="images/demo/shirt3.jpg" class="img-responsive" alt=""></a>
-          <div class="v-quick-options visible-lg">
-            <a href="#" class="v-quick-view">Quick View</a>
-            <a href="#" class="v-add-to-cart"></a>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="vn-product">
+          <span class="vn-product__new"></span>
+          <div class="vn-product__image">
+            <a href="#"><img src="/images/demo/shirt3.jpg" class="img-responsive" alt=""></a>
+            <div class="vn-quick-options visible-lg">
+              <a href="#" class="vn-quick-view">Quick View</a>
+              <a href="#" class="vn-add-to-cart"><span></span></a>
           </div>
         </div>
-        <div class="v-product-name">
+          <div class="vn-product__name">
           <a href="#">Method LImited Screen printed Tee</a>
         </div>
-        <div class="v-price-box">
-          <span class="v-reg-price v-price strike">$48 <span>Reg</span></span>
-          <span class="v-now-price v-price">$36 <span>Now</span></span>
+          <div class="vn-product__price">
+            <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
+              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+          </div>
         </div>
       </div>
 
       <!-- PRODUCT 4 -->
-      <div class="col-xs-12 col-sm-6 col-md-3 v-product">
-        <div class="v-product-image">
-          <a href="screen-print.html"><img src="images/demo/shirt4.jpg" class="img-responsive" alt=""></a>
-          <div class="v-quick-options visible-lg">
-            <a href="#" class="v-quick-view">Quick View</a>
-            <a href="#" class="v-add-to-cart"></a>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="vn-product">
+          <div class="vn-product__image">
+            <a href="screen-print.html"><img src="/images/demo/shirt4.jpg" class="img-responsive" alt=""></a>
+            <div class="vn-quick-options visible-lg">
+              <a href="#" class="vn-quick-view">Quick View</a>
+              <a href="#" class="vn-add-to-cart"><span></span></a>
           </div>
         </div>
-        <div class="v-product-name">
+          <div class="vn-product__name">
           <a href="#">Method LImited Screen printed Tee</a>
         </div>
-        <div class="v-price-box">
-          <span class="v-reg-price v-price strike">$48 <span>Reg</span></span>
-          <span class="v-now-price v-price">$36 <span>Now</span></span>
+          <div class="vn-product__price">
+            <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
+              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-      </div>
+</div>

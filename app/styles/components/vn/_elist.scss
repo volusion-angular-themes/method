@@ -1,0 +1,98 @@
+.vn-elist {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 1.3em 0;
+}
+
+.vn-elist__form {
+  @include inline-block;
+  white-space: nowrap;
+}
+
+.vn-elist__title {
+  @include inline-block;
+  margin: 0;
+  font-weight: normal;
+  margin-right: 1em;
+  display: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-family: $font-family-condensed-reg;
+}
+
+.vn-elist__group {
+  @include inline-block;
+  margin: 0;
+}
+.vn-elist__input {
+  @include inline-block;
+  border-color: #d9d9d9;
+  width: 100%;
+  height: 31px;
+}
+.vn-elist__input:focus {
+  border-color: #000;
+}
+
+.vn-elist__submit {
+  @include inline-block;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  color: #fff;
+  background: #313131;
+  border: 0;
+
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+}
+
+
+
+/* Small devices (tablets, 768px and up) */
+@include respond-to(sm-and-up) {
+
+  .vn-elist__title {
+    @include inline-block;
+  }
+
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@include respond-to(lg) {
+
+  .vn-elist {
+    border-bottom: 0;
+    padding: 0 0 25px 35px;
+  }
+
+  .vn-elist__form {
+    display: block;
+  }
+
+  .vn-elist__title {
+    display: block;
+    margin: 10px 0 0 0;
+    font-weight: bold;
+  }
+
+  .vn-elist__input {
+    margin-top: 5px;
+    border-color: #fff;
+  }
+
+  .vn-elist__submit {
+    margin-top: 5px;
+  }
+
+  .vn-elist__submit:hover {
+    background: #000;
+    border: 0;
+  }
+
+}
+
+
+
+
