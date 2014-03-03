@@ -1,22 +1,25 @@
 'use strict';
 
-describe('Controller: CategoryCtrl', function () {
+// ReSharper disable WrongExpressionStatement
+describe('Controller: CategoryCtrl', function() {
 
   // load the controller's module
   beforeEach(module('volusionApp'));
 
-  var CategoryCtrl,
-    scope;
+  // ReSharper disable once InconsistentNaming
+  var controller;
+  var scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    CategoryCtrl = $controller('CategoryCtrl', {
+    controller = $controller('CategoryCtrl', {
       $scope: scope
     });
   }));
 
-  xit('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should attach a list of awesomeThings to the scope', function() {
+    expect(scope.awesomeThings).to.have.length(3);
   });
+
 });

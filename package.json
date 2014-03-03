@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
+    "browserify": "~3.30.2",
+    "browserify-shim": "~3.2.2",
     "grunt": "~0.4.2",
-    "grunt-angular-templates": "~0.5.1",
     "grunt-autoprefixer": "~0.6.5",
     "grunt-bower-install": "~0.8.0",
+    "grunt-browserify": "~1.3.1",
     "grunt-concurrent": "~0.4.3",
     "grunt-connect-rewrite": "~0.2.1",
     "grunt-contrib-clean": "~0.5.0",
@@ -28,16 +30,20 @@
     "grunt-svgmin": "~0.3.1",
     "grunt-usemin": "~2.0.2",
     "jshint-stylish": "~0.1.5",
+    "karma": "~0.10.9",
+    "karma-chai-jquery": "~0.1.0",
+    "karma-mocha": "~0.1.1",
     "karma-ng-scenario": "~0.1.0",
+    "karma-sinon-chai": "~0.1.4",
     "load-grunt-tasks": "~0.3.0",
-    "time-grunt": "~0.2.9",
-    "browserify-shim": "~3.2.2",
-    "grunt-browserify": "~1.3.1",
-    "browserify": "~3.30.2"
+    "mocha": "~1.17.1",
+    "partialify": "~3.0.0",
+    "time-grunt": "~0.2.9"
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "partialify"
     ]
   },
   "browser": {

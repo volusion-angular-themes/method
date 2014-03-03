@@ -17,36 +17,42 @@ angular.module('volusionApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute',
+    'ui.router',
     'seo',
     'pascalprecht.translate'
   ])
-  .config(function($routeProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider) {
+  .config(function(
+    $stateProvider,
+    $urlRouterProvider,
+    $locationProvider,
+    $translateProvider,
+    $translatePartialLoaderProvider) {
 
     $locationProvider.html5Mode(true);
 
-    $routeProvider
-      .when('/', {
-        redirectTo: getI18NPath
-      })
-      .when('/:region/:language-:country', {
-        templateUrl: '/views/theme.html',
-        controller: 'ThemeCtrl'
-      })
-      .when('/product', {
-        templateUrl: 'views/product.html',
-        controller: 'ProductCtrl'
-      })
-      .when('/home', {
+    $urlRouterProvider.otherwise(getI18NPath);
+
+    var i18NPrefix = '/:region/:language-:country';
+    $stateProvider
+      .state('home', {
+        url: i18NPrefix,
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
-      .when('/category', {
+      .state('style-guide', {
+        url: i18NPrefix + '/style-guide',
+        templateUrl: 'views/style-guide.html',
+        controller: 'StyleGuideCtrl'
+      })
+      .state('category', {
+        url: i18NPrefix + '/:categoryName/c/:categoryId',
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('product', {
+        url: i18NPrefix + '/:productTitle/p/:productCode',
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
       });
 
     // i18n
@@ -59,9 +65,16 @@ angular.module('volusionApp', [
     $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
   })
-  .run(function($rootScope, $translate) {
+  .run(function($rootScope, $translate, $templateCache) {
     $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
       $translate.refresh();
     });
+    $templateCache.put('views/home.html', require('./views/home.html'));
+    $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
+    $templateCache.put('views/category.html', require('./views/category.html'));
+    $templateCache.put('views/product.html', require('./views/product.html'));
   })
-  .controller('ThemeCtrl', require('./controllers/theme'));
+  .controller('HomeCtrl', require('./controllers/home'))
+  .controller('StyleGuideCtrl', require('./controllers/style-guide'))
+  .controller('CategoryCtrl', require('./controllers/category'))
+  .controller('ProductCtrl', require('./controllers/product'));

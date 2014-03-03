@@ -5,12 +5,7 @@ module.exports = [
   '$translatePartialLoader',
 
   function($scope, $translatePartialLoader) {
-    $translatePartialLoader.addPart('category');
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $translatePartialLoader.addPart('style-guide');
     $scope.htmlReady();
   }
 ];

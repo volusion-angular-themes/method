@@ -1,7 +1,11 @@
 'use strict';
 
-angular.module('volusionApp')
-  .controller('ProductCtrl', function ($scope) {
+module.exports = [
+  '$scope',
+  '$translatePartialLoader',
+
+  function($scope, $translatePartialLoader) {
+    $translatePartialLoader.addPart('product');
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -68,4 +72,6 @@ angular.module('volusionApp')
       'readAllReviews': 'Read All Reviews'
     };
 
-  });
+    $scope.htmlReady();
+
+];

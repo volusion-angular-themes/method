@@ -1,22 +1,22 @@
 'use strict';
 
-describe('Controller: HomeCtrl', function () {
+// ReSharper disable WrongExpressionStatement
+describe('Controller: HomeCtrl', function() {
 
-  // load the controller's module
   beforeEach(module('volusionApp'));
 
-  var HomeCtrl,
-    scope;
+  var controller;
+  var scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    HomeCtrl = $controller('HomeCtrl', {
+    controller = $controller('HomeCtrl', {
       $scope: scope
     });
   }));
 
-  xit('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should attach a list of awesomeThings to the scope', function() {
+    expect(scope.awesomeThings).to.have.length(3);
   });
+
 });

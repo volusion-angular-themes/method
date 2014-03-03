@@ -44,10 +44,6 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
-      templates: {
-        files: ['<%= yeoman.app %>/templates/*.html'],
-        tasks: ['ngtemplates']
-      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -73,7 +69,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|templates|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
       livereload: {
@@ -292,12 +288,12 @@ module.exports = function (grunt) {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true
       },
-      dist: {
+      views: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
+          cwd: '<%= yeoman.app %>',
+          src: 'views/{,*/}*.html',
+          dest: '.tmp/scripts'
         }]
       }
     },
@@ -334,7 +330,6 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*'
@@ -351,6 +346,12 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      scripts: {
+        expand: true,
+        cwd: '<%= yeoman.app %>',
+        src: 'scripts/{,*/}*.js',
+        dest: '.tmp'
       }
     },
 
@@ -360,8 +361,7 @@ module.exports = function (grunt) {
         'compass:server'
       ],
       test: [
-        'compass',
-        'ngtemplates'
+        'compass'
       ],
       dist: [
         'compass:dist',
@@ -370,51 +370,13 @@ module.exports = function (grunt) {
       ]
     },
 
-    ngtemplates: {
-      options: {
-        htmlmin: '<%= htmlmin.options %>',
-        url: function(path) {
-          return path.replace(/^app\//, '');
-        }
-      },
-      vnDirectives: {
-        src: '<%= yeoman.app %>/templates/{,*/}*.html',
-        dest: '.tmp/templates.js'
-      }
-    },
-
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/home.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
     uglify: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
-            '.tmp/scripts/scripts.js'
-          ]
+          '<%= yeoman.dist %>/scripts/scripts.js': ['.tmp/scripts/scripts.js']
         }
       }
     },
-    // concat: {
-    //   dist: {
-    //     dest: '.tmp/concat/scripts/scripts.js',
-    //     src: [
-    //       '{.tmp,app}/scripts/{,*/}*.js',
-    //       '!app/scripts/app.js',
-    //       '.tmp/scripts/browserified.js'
-    //     ]
-    //   }
-    // },
 
     // Test settings
     karma: {
@@ -423,10 +385,11 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
+
     browserify: {
       dist: {
         files: {
-          '.tmp/scripts/scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+          '.tmp/scripts/scripts.js': ['.tmp/scripts/app.js']
         }
       },
       test: {
@@ -434,7 +397,7 @@ module.exports = function (grunt) {
           debug: true
         },
         files: {
-          '.tmp/scripts/scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+          '.tmp/scripts/scripts.js': ['.tmp/scripts/app.js']
         }
       }
     }
@@ -450,6 +413,8 @@ module.exports = function (grunt) {
       'bower-install',
       'concurrent:server',
       'autoprefixer',
+      'copy:scripts',
+      'htmlmin',
       'browserify:test',
       'configureRewriteRules',
       'connect:livereload',
@@ -466,6 +431,8 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
+    'copy:scripts',
+    'htmlmin',
     'browserify:test',
     'connect:test',
     'karma'
@@ -477,16 +444,16 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'ngtemplates',
-    'browserify:dist',
+    'copy:scripts',
+    'htmlmin',
     'ngmin',
+    'browserify:dist',
     'copy:dist',
     'cdnify',
     'cssmin',
     'uglify',
     'rev',
-    'usemin',
-    'htmlmin'
+    'usemin'
   ]);
 
   grunt.registerTask('default', [

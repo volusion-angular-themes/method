@@ -7,7 +7,7 @@ module.exports = function(config) {
     basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai-jquery', 'sinon-chai'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -16,7 +16,7 @@ module.exports = function(config) {
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/angular-seo/angular-seo.js',
       'app/bower_components/angular-translate/angular-translate.js',
       'app/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
@@ -30,8 +30,7 @@ module.exports = function(config) {
       '.tmp/scripts/scripts.js',
       'test/mock/**/*.js',
       'app/bower_components/jquery/dist/jquery.js',
-      'test/spec/**/*.js',
-      '.tmp/templates.js'
+      'test/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
