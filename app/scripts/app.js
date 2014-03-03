@@ -46,12 +46,12 @@ angular.module('volusionApp', [
       })
       .state('category', {
         url: i18NPrefix + '/:categoryName/c/:categoryId',
-        template: require('./views/category.html'),
+        templateUrl: 'views/category.html',
         controller: 'CategoryCtrl'
       })
       .state('product', {
         url: i18NPrefix + '/:productTitle/p/:productCode',
-        template: require('./views/product.html'),
+        templateUrl: 'views/product.html',
         controller: 'ProductCtrl'
       });
 
@@ -71,6 +71,8 @@ angular.module('volusionApp', [
     });
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
+    $templateCache.put('views/category.html', require('./views/category.html'));
+    $templateCache.put('views/product.html', require('./views/product.html'));
   })
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
