@@ -1,5 +1,6 @@
 'use strict';
 
+// ReSharper disable WrongExpressionStatement
 describe('Controller: CategoryCtrl', function() {
 
   // load the controller's module
@@ -18,7 +19,7 @@ describe('Controller: CategoryCtrl', function() {
   }));
 
   it('should attach a list of awesomeThings to the scope', function() {
-    expect(scope.awesomeThings.length).toBe(3);
+    expect(scope.awesomeThings).to.have.length(3);
   });
 
 });
