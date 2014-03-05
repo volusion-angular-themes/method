@@ -29,9 +29,16 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      views: {
+        files: ['<%= yeoman.app %>/{,*/}*.html'],
+        tasks: ['htmlmin', 'browserify:test'],
+        options: {
+          livereload: true
+        }
+      },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'browserify:test'],
+        tasks: ['newer:jshint:all', 'copy:scripts', 'browserify:test'],
         options: {
           livereload: true
         }
@@ -52,7 +59,6 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.app %>/translations/{,*/}*.json'
