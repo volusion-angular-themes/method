@@ -1,6 +1,7 @@
 /*global angular: true*/
 'use strict';
 var angular = require('angular');
+
 function getI18NPath() {
   if (localStorage && localStorage.getItem) {
     var i18n = JSON.parse(localStorage.getItem('VOLUSION_I18N')) || {};
@@ -21,15 +22,17 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate'
   ])
+  .provider('api', require('./services/api-provider'))
   .config(function(
     $stateProvider,
     $urlRouterProvider,
     $locationProvider,
     $translateProvider,
-    $translatePartialLoaderProvider) {
+    $translatePartialLoaderProvider,
+    apiProvider) {
 
     $locationProvider.html5Mode(true);
-
+    apiProvider.setBaseRoute('http://www.v65.com/api/v1/');
     $urlRouterProvider.otherwise(getI18NPath);
 
     var i18NPrefix = '/:region/:language-:country';
