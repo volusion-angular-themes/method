@@ -20,7 +20,6 @@ module.exports = [
         console.log('Error: ' + data);
       });
 
-
     $scope.htmlReady();
   }
 ];

@@ -1,6 +1,8 @@
 /*global angular: true*/
 'use strict';
 var angular = require('angular');
+require('./theme');
+
 function getI18NPath() {
   if (localStorage && localStorage.getItem) {
     var i18n = JSON.parse(localStorage.getItem('VOLUSION_I18N')) || {};

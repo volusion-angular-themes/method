@@ -87,7 +87,7 @@ describe('View: style-guide', function() {
   it('has navbars', function() {
     function validateNavbar($navbar) {
       expect($navbar).to.exist;
-      expect($navbar).to.have('.container');
+      expect($navbar).to.have('.container,.container-fluid');
       var $navbarHeader = $navbar.find('.navbar-header');
       expect($navbarHeader).to.exist;
       expect($navbarHeader).to.have('button.navbar-toggle[type=button][data-toggle=collapse][data-target]');

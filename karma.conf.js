@@ -27,6 +27,12 @@ module.exports = function(config) {
       'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
       'app/bower_components/messageformat/locale/en.js',
       'app/bower_components/angular-i18n/angular-locale_en-us.js',
+      'app/bower_components/angular-ui-bootstrap/src/tabs/tabs.js',
+      'app/bower_components/angular-ui-bootstrap/src/carousel/carousel.js',
+      'app/bower_components/angular-ui-bootstrap/src/accordion/accordion.js',
+      'app/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js',
+      'app/bower_components/angular-ui-bootstrap/src/transition/transition.js',
+      'app/bower_components/angular-ui-bootstrap/src/collapse/collapse.js',
       '.tmp/scripts/scripts.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

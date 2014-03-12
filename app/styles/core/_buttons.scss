@@ -1,31 +1,33 @@
 @import "bootstrap/buttons";
 
 // LOAD MORE BUTTONS
-.btn.vn-load-more {
-  border: 0;
-  color: #6b6b6b;
-  background-color: #d4d4d4;
-  font-weight: bold;
-  padding-top: 12px;
-  width: 70%;
-  display: block;
-  text-align: center;
-  padding-bottom: 12px;
-  margin: 10px auto 0;
-}
+.btn {
 
-// BUTTON HOVER
-.btn:hover {
-  @extend %animate-all-default;
-  @extend %opacity-80;
-}
+  &.vn-load-more {
+    border: 0;
+    color: #6b6b6b;
+    background-color: #d4d4d4;
+    font-weight: bold;
+    padding-top: 12px;
+    width: 70%;
+    display: block;
+    text-align: center;
+    padding-bottom: 12px;
+    margin: 10px auto 0;
+  }
 
-.btn.btn-grey-sm {
-  background: #eeeeee;
-  color: #424242;
-  font-family: $font-family-sans-serif;
-  border: 0;
-  text-transform: none;
+  &:hover {
+    @extend %animate-all-default;
+    @extend %opacity-80;
+  }
+
+  &.btn-grey-sm {
+    background: #eeeeee;
+    color: #424242;
+    font-family: $font-family-sans-serif;
+    border: 0;
+    text-transform: none;
+  }
 }
 
 // Add to Cart - Product Details
@@ -38,33 +40,33 @@
 // Write a review
 .vn-write-review {
   padding: 10px 0;
-}
 
-.vn-write-review a {
-  font-size: 1.4rem;
-  padding: 5px 0;
-  display: block;
-  text-decoration: underline;
-}
+  a {
+    font-size: 1.4rem;
+    padding: 5px 0;
+    display: block;
+    text-decoration: underline;
 
-.vn-write-review a:hover {
-  text-decoration: none;
-}
-
-
-// Add to Favorites
-.vn-add-favorite img {
-  margin-right: 5px;
-}
-
-.vn-add-favorite a {
-  color: #929292;
-  font-size: 1.4rem;
-
-  &:hover {
-    color: #000;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
 
+// Add to Favorites
+.vn-add-favorite {
 
+  img {
+    margin-right: 5px;
+  }
+
+  a {
+    color: #929292;
+    font-size: 1.4rem;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
