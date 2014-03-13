@@ -20,7 +20,8 @@ angular.module('volusionApp', [
     'ngSanitize',
     'ui.router',
     'seo',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    require('./services/config').name
   ])
   .provider('api', require('./services/api-provider'))
   .config(function(
@@ -29,10 +30,11 @@ angular.module('volusionApp', [
     $locationProvider,
     $translateProvider,
     $translatePartialLoaderProvider,
-    apiProvider) {
+    apiProvider,
+    config) {
 
     $locationProvider.html5Mode(true);
-    apiProvider.setBaseRoute('http://www.v65.com/api/v1/');
+    apiProvider.setBaseRoute(config.API_URL);
     $urlRouterProvider.otherwise(getI18NPath);
 
     var i18NPrefix = '/:region/:language-:country';
