@@ -1,4 +1,4 @@
-.vn-product-view__image {
+.th-product-view__image {
   position: relative;
   z-index: 1;
 
@@ -8,7 +8,7 @@
   }
 }
 
-.vn-product-view__zoom {
+.th-product-view__zoom {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,15 +16,15 @@
   display: none;
 }
 
-.vn-product-view__image:hover .vn-product-view__zoom {
+.th-product-view__image:hover .th-product-view__zoom {
   display: block;
 }
 
-.vn-product-view__zoom:hover {
+.th-product-view__zoom:hover {
   @extend %opacity-80;
 }
 
-.vn-product-view__alts {
+.th-product-view__alts {
   text-align: center;
 
   img {

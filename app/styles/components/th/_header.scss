@@ -1,4 +1,4 @@
-.vn-header {
+.th-header {
   display: none;
   border: 1px solid #d9d9d9;
 
@@ -7,17 +7,17 @@
   }
 }
 
-.vn-header__shipping-text {
+.th-header__shipping-text {
   float: left;
 }
 
-.vn-header__account-menu {
+.th-header__account-menu {
   float: right;
 }
 
 @include respond-to(md-and-up) {
 
-  .vn-header {
+  .th-header {
     display: block
   }
 

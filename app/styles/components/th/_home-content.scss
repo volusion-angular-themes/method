@@ -1,5 +1,5 @@
 /* HOMEPAGE */
-.vn-home-content {
+.th-home-content {
 
   .img-responsive {
       margin: 0 auto;
@@ -9,32 +9,33 @@
       margin-bottom: 15px;
   }
 
-  .row.vn-last {
+  .row.th-last {
       margin-bottom: 0;
   }
 
-  .vn-p-pad {
+  .th-p-pad {
       padding: 0 2px;
   }
 
-  .vn-promo {
+  .th-promo {
       width: 100%;
       margin: 0 auto;
       display: block;
+      text-align: right;
   }
 
-  .vn-p1-sm {
+  .th-p1-sm {
       background: image-url("homepage/p1-sm.jpg") no-repeat top center;
       min-height: 236px;
       text-indent: -9999px;
   }
 
-  .vn-p2 {
+  .th-p2 {
       min-height: 495px;
       text-align: center;
       background: image-url("homepage/p2-sm.jpg") no-repeat top center;
 
-      .vn-title {
+      .th-title {
         display: block;
         max-width: 300px;
         margin: 0 auto 2.8%;
@@ -46,7 +47,7 @@
         padding: .5em 0;
       }
 
-      .vn-text {
+      .th-text {
         display: block;
         max-width: 290px;
         margin: 0 auto;
@@ -55,25 +56,25 @@
         line-height: 1.5em;
       }
 
-      .vn-link {
+      .th-link {
         color: #dc1703;
         display: block;
       }
   }
 
-  .vn-p3-sm {
+  .th-p3-sm {
     background: image-url("homepage/p3-sm.jpg") no-repeat top center;
     min-height: 236px;
     text-indent: -9999px;
   }
 
-  .vn-b1 {
+  .th-b1 {
     min-height: 182px;
     background: image-url("homepage/b1-sm.jpg") no-repeat top center;
     display: block;
     margin-bottom: 2px;
   }
-  .vn-b2 {
+  .th-b2 {
     min-height: 182px;
     background: image-url("homepage/b2-sm.jpg") no-repeat top center;
     display: block;
@@ -84,21 +85,21 @@
 /* Small devices (tablets, 768px and up) */
 @include respond-to(sm-and-up) {
   /* HOMEPAGE */
-  .vn-home-content {
+  .th-home-content {
 
-    .vn-p1 {
+    .th-p1 {
       background: image-url("homepage/p1.jpg") no-repeat top center;
       min-height: 553px;
       text-indent: -9999px;
     }
 
-    .vn-p2 {
+    .th-p2 {
       min-height: 553px;
       text-align: center;
       background: image-url("homepage/p2.jpg") no-repeat top center;
     }
 
-    .vn-p3 {
+    .th-p3 {
       background: image-url("homepage/p3.jpg") no-repeat top center;
       min-height: 553px;
       text-indent: -9999px;
@@ -109,55 +110,54 @@
 
 /* Medium devices (desktops, 992px and up) */
 @include respond-to(md-and-up) {
-  .vn-home-content {
+  .th-home-content {
 
     .row {
       margin-bottom: 30px;
     }
 
-    .vn-category {
+    .th-category {
+      @include inline-block;
       font-family: $font-family-serif-italic;
-      font-size: 3.0rem;
-      float: right;
-      margin: 54% 5% 0 0;
-
+      font-size: 2.0rem;
+      margin: 53% 5% 0 0;
     }
 
-    .vn-p1, .vn-p3, .vn-b1, .vn-b2, .vn-b3 {
+    .th-p1, .th-p3, .th-b1, .th-b2, .th-b3 {
       &:hover {
         @include transition(all, 0.2s, ease-in-out);
         @include opacity(0.8);
       }
     }
 
-    .vn-p2 {
+    .th-p2 {
       min-height: 553px;
       background: image-url("homepage/p2.jpg") no-repeat top center;
 
-      .vn-title {
+      .th-title {
         display: block;
         max-width: 370px;
         margin: 0 auto 2.8%;
         font-size: 3.0rem;
       }
 
-      .vn-text {
+      .th-text {
         max-width: 370px;
         font-size: 1.5rem;
-        line-height: 1.6em;
+        line-height: 1.9rem;
       }
 
-      .vn-link {
+      .th-link {
         display: inline;
       }
     }
 
-    .vn-b1 {
+    .th-b1 {
       min-height: 185px;
       background: image-url("homepage/b1-sm.jpg") no-repeat top center;
       margin-bottom: 0;
     }
-    .vn-b2 {
+    .th-b2 {
       min-height: 185px;
       background: image-url("homepage/b2-sm.jpg") no-repeat top center;
       margin-bottom: 0;
@@ -167,36 +167,30 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @include respond-to(lg) {
-  .vn-home-content {
+  .th-home-content {
 
-    .vn-category {
-      font-size: 1.8rem;
-      margin: 53% 5% 0 0;
+    .th-p2 {
 
-    }
-
-    .vn-p2 {
-
-      .vn-title {
-        font-size: 2.6em;
+      .th-title {
+        font-size: 3.0rem;
       }
 
-      .vn-text {
+      .th-text {
         max-width: 370px;
         font-size: 1.6rem;
         line-height: 1.6em;
       }
 
-      .vn-link {
+      .th-link {
         display: inline;
       }
     }
 
-    .vn-b1 {
+    .th-b1 {
       min-height: 227px;
       background: image-url("homepage/b1.jpg") no-repeat top center;
     }
-    .vn-b2 {
+    .th-b2 {
       min-height: 227px;
       background: image-url("homepage/b2.jpg") no-repeat top center;
     }

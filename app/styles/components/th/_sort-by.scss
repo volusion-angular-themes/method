@@ -1,0 +1,33 @@
+.th-sort-by {
+  display: none;
+
+  a {
+    color: #000;
+
+    &:hover {
+      @extend %animate-all-default;
+      color: $link-hover-color;
+    }
+  }
+
+}
+
+.th-sort-left {
+  margin-top: 3px;
+}
+
+@include respond-to(md-and-up) {
+  .th-sort-by {
+    display: block;
+    overflow: hidden;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #828282;
+    font-size: 1.2rem;
+  }
+
+  .th-sort-left {
+    margin-top: 0px;
+  }
+}

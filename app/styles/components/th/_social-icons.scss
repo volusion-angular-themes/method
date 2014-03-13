@@ -1,10 +1,10 @@
-.vn-social {
+.th-social {
   text-align: center;
   padding: 26px 0 20px;
   clear: both;
 }
 
-.vn-social__icon {
+.th-social__icon {
   margin: 0 2px;
   @extend %inline-block;
 
@@ -16,12 +16,12 @@
 
 @include respond-to(md-and-up) {
 
-  .vn-social {
+  .th-social {
     text-align: left;
     padding-left: 12px;
   }
 
-  .vn-social__icon {
+  .th-social__icon {
     margin: 0 6px;
   }
 

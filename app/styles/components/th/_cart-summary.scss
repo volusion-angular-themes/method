@@ -1,22 +1,22 @@
-.vn-cart-summary {
+.th-cart-summary {
   position: absolute;
   top: 8px;
   right: 0;
 }
 
-.vn-my-cart {
+.th-my-cart {
   @include inline-block;
   padding: 6px 15px 6px 5px;
 
-  .vn-my-cart__number {
+  .th-my-cart__number {
     color: #e32311;
   }
 
-  .vn-my-cart__number:before {
+  .th-my-cart__number:before {
     content: "(";
   }
 
-  .vn-my-cart__number:after {
+  .th-my-cart__number:after {
     content: ")";
   }
 
@@ -24,14 +24,14 @@
 
 @include respond-to(sm-and-up) {
 
-    .vn-cart-summary {
+    .th-cart-summary {
       top: 22px;
     }
 
 }
 
 @include respond-to(md-and-up) {
-    .vn-cart-summary {
+    .th-cart-summary {
       position: absolute;
       top: 30px;
       right: 13px;
