@@ -31,14 +31,14 @@ module.exports = function (grunt) {
     watch: {
       views: {
         files: ['<%= yeoman.app %>/{,*/}*.html'],
-        tasks: ['htmlmin', 'browserify:test'],
+        tasks: ['htmlmin', 'browserify:test', 'karma'],
         options: {
           livereload: true
         }
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'copy:scripts', 'browserify:test'],
+        tasks: ['newer:jshint:all', 'replace:dev', 'copy:scripts', 'browserify:test', 'karma'],
         options: {
           livereload: true
         }
@@ -387,6 +387,35 @@ module.exports = function (grunt) {
       }
     },
 
+    replace: {
+      dev: {
+        options: {
+          patterns: [{
+            json: grunt.file.readJSON('./config/env/dev.json')
+          }]
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['./config/config.js'],
+          dest: '.tmp/scripts/services/'
+        }]
+      },
+      prod: {
+        options: {
+          patterns: [{
+            json: grunt.file.readJSON('./config/env/prod.json')
+          }]
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['./config/config.js'],
+          dest: '.tmp/scripts/services/'
+        }]
+      }
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -419,6 +448,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'replace:dev',
       'bower-install',
       'concurrent:server',
       'autoprefixer',
@@ -438,6 +468,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'replace:dev',
     'concurrent:test',
     'autoprefixer',
     'copy:scripts',
@@ -447,8 +478,18 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('build:dev', [
     'clean:dist',
+    'replace:dev',
+    'build'
+  ]);
+
+  grunt.registerTask('build:prod', [
+    'replace:prod',
+    'build'
+  ]);
+
+  grunt.registerTask('build', [
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
@@ -468,6 +509,6 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build:dev'
   ]);
 };
