@@ -1,4 +1,4 @@
-.vn-slider {
+.th-slider {
 
   .carousel-indicators li {
     width: 13px;
@@ -20,7 +20,7 @@
 
 @include respond-to(sm-and-up) {
 
-	.vn-content-slider {
+	.th-content-slider {
     margin-bottom: 30px;
   }
 
@@ -28,7 +28,7 @@
 
 @include respond-to(md-and-up) {
 
-  .vn-content-slider {
+  .th-content-slider {
     padding-left: 15px;
     padding-right: 15px;
   }

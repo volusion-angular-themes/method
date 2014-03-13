@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="vn-product-wrap clearfix">
+  <div class="th-product-wrap clearfix">
     <!-- PRODUCT TITLE/NAME FOR TABLET -->
     <div class="row">
       <div class="col-sm-12 visible-sm">
-        <div class="vn-product-name-lg">
+        <div class="th-product-name-lg">
           {{product.name}}
         </div>
       </div>
@@ -12,105 +12,105 @@
       <!-- PRODUCT IMAGE AND ALT VIEWS -->
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-5">
-        <div class="visible-xs vn-product">
-          <div class="vn-product__image">
+        <div class="visible-xs th-product">
+          <div class="th-product__image">
             <a href="#"><img src="/images/demo/product-slider.jpg" class="img-responsive" alt=""></a>
           </div>
         </div>
         <div class="hidden-xs">
-          <div class="clearfix vn-product-view">
-            <div class="vn-product-view__image">
+          <div class="clearfix th-product-view">
+            <div class="th-product-view__image">
             <a href="#"><img src="{{product.mainImageUrl}}" height="585" width="356" class="img-responsive" alt=""></a>
-              <a href="#" class="vn-product-view__zoom"></a>
+              <a href="#" class="th-product-view__zoom"></a>
             </div>
-            <div class="vn-product-view__alts">
+            <div class="th-product-view__alts">
             <a href="#" ng-repeat="altImage in product.altImages" class="col-xs-3"><img src="{{altImage.medium}}" class="img-responsive" alt=""></a>
             </div>
           </div>
-        </div><!-- .vn-product -->
+        </div><!-- .th-product -->
       </div>
 
       <!-- PRODUCT DETAILS RIGHT -->
       <div class="col-sm-6 col-md-7">
-        <div class="vn-product-details">
+        <div class="th-product-details">
           <div class="row">
             <div class="col-xs-12 visible-md visible-lg">
-              <div class="vn-product-details__title">
+              <div class="th-product-details__title">
                 <a href="#">{{product.name}}</a>
               </div>
             </div><!-- .product name -->
           </div>
           <div class="row">
             <div class="col-xs-12 col-md-6">
-              <div class="vn-product__name visible-xs">
+              <div class="th-product__name visible-xs">
                 <a href="#">{{product.name}}</a>
               </div>
-              <div class="vn-product__price--large">
-                <span class="vn-reg-price"><span class="vn-price strike">{{product.pricing.listPrice | currency}}</span><span class="vn-price-text vn-text-left">Reg</span></span>
-                <span class="vn-now-price"><span class="vn-price">{{product.pricing.salePrice | currency}}</span><span class="vn-price-text">Now</span></span>
+              <div class="th-product__price--large">
+                <span class="th-reg-price"><span class="th-price strike">{{product.pricing.listPrice | currency}}</span><span class="th-price-text th-text-left">Reg</span></span>
+                <span class="th-now-price"><span class="th-price">{{product.pricing.salePrice | currency}}</span><span class="th-price-text">Now</span></span>
               </div>
               <div class="hidden-xs">
-                <div class="vn-write-review">
+                <div class="th-write-review">
                 <img ng-src="/images/theme/stars-{{product.avgReview}}.png" height="13" width="84" class="img-responsive" alt="" />
                 <a href="#">{{language.writeReview}} &gt;</a>
                 </div>
-                <div class="vn-add-favorite">
-                  <a href="#"><span class="vn-favorite-icon"></span> {{language.addToFavorites}} ></a>
+                <div class="th-add-favorite">
+                  <a href="#"><span class="th-favorite-icon"></span> {{language.addToFavorites}} ></a>
                 </div>
               </div>
             </div><!-- end left product column -->
             <div class="col-xs-12 col-md-6">
-              <div class="vn-options-wrap">
-                <div class="vn-options">
-                  <div class="vn-options-title">Choose a color</div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw1">&nbsp;</a></div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw2">&nbsp;</a></div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw3">&nbsp;</a></div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw4">&nbsp;</a></div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw5">&nbsp;</a></div>
-                  <div class="col-xs-4 col-sm-2 vn-col-sm"><a href="#" class="vn-swatch sw6">&nbsp;</a></div>
-                </div><!-- .vn-options -->
-                <!-- <div class="vn-options" data-ng-repeat="option in product.options">
-                  <div class="vn-options-title">{{option.label}}</div>
+              <div class="th-options-wrap">
+                <div class="th-options">
+                  <div class="th-options-title">Choose a color</div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw1">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw2">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw3">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw4">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw5">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw6">&nbsp;</a></div>
+                </div><!-- .th-options -->
+                <!-- <div class="th-options" data-ng-repeat="option in product.options">
+                  <div class="th-options-title">{{option.label}}</div>
                   <div data-ng-repeat="choice in option.choices">
-                    <div class="col-xs-4 vn-col-sm">
+                    <div class="col-xs-4 th-col-sm">
                       <button class="btn btn-default btn-block">{{choice.label}}</button>
                     </div>
                   </div>
-                </div> --><!-- .vn-options -->
-              </div><!-- .vn-options-wrap -->
+                </div> --><!-- .th-options -->
+              </div><!-- .th-options-wrap -->
               <div class="row">
-                <div class="col-xs-12 col-sm-4 vn-qty-wrap">
+                <div class="col-xs-12 col-sm-4 th-qty-wrap">
                   <div class="visible-xs">
-                    <div class="input-group vn-qty-counter">
+                    <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default vn-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control vn-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default vn-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
                       </span>
                     </div>
                   </div>
                   <div class="hidden-xs">
-                    <div class="input-group vn-qty-counter">
+                    <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default vn-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control vn-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default vn-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
                       </span>
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-8 vn-add-to-cart">
+                <div class="col-xs-12 col-sm-8 th-add-to-cart">
                   <button class="btn btn-primary btn-lg btn-block">{{language.addToCart}}</button>
                 </div>
               </div>
             </div>
 
-            <div class="vn-product-info visible-lg">
+            <div class="th-product-info visible-lg">
               <accordion close-others="oneAtATime">
                 <accordion-group is-open="isopen" ng-repeat="panel in panels">
                   <accordion-heading>
@@ -119,26 +119,26 @@
                   {{panel.content}}
                 </accordion-group>
               </accordion>
-            </div><!-- .vn-product-info -->
+            </div><!-- .th-product-info -->
 
             <div class="visible-sm visible-md visible-lg">
-              <div class="vn-social">
-                <a href="#" class="vn-social__icon vn-social__icon--facebook"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--twitter"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--instagram"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--tumblr"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--pinterest"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--google"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--vimeo"></a>
-                <a href="#" class="vn-social__icon vn-social__icon--youtube"></a>
+              <div class="th-social">
+                <a href="#" class="th-social__icon th-social__icon--facebook"></a>
+                <a href="#" class="th-social__icon th-social__icon--twitter"></a>
+                <a href="#" class="th-social__icon th-social__icon--instagram"></a>
+                <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
+                <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
+                <a href="#" class="th-social__icon th-social__icon--google"></a>
+                <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
+                <a href="#" class="th-social__icon th-social__icon--youtube"></a>
               </div>
-            </div><!-- .vn-social-icons -->
+            </div><!-- .th-social-icons -->
           </div>
         </div>
-      </div><!-- .vn-product-details -->
+      </div><!-- .th-product-details -->
     </div><!-- .row -->
 
-    <div class="hidden-lg vn-product-info">
+    <div class="hidden-lg th-product-info">
       <accordion close-others="oneAtATime">
         <accordion-group is-open="isopen" ng-repeat="panel in panels">
           <accordion-heading>
@@ -151,46 +151,46 @@
 
     <!-- MOBILE SOCIAL ICONS -->
     <div class="visible-xs">
-      <div class="vn-social">
-        <a href="#" class="vn-social__icon vn-social__icon--facebook"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--twitter"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--instagram"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--tumblr"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--pinterest"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--google"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--vimeo"></a>
-        <a href="#" class="vn-social__icon vn-social__icon--youtube"></a>
+      <div class="th-social">
+        <a href="#" class="th-social__icon th-social__icon--facebook"></a>
+        <a href="#" class="th-social__icon th-social__icon--twitter"></a>
+        <a href="#" class="th-social__icon th-social__icon--instagram"></a>
+        <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
+        <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
+        <a href="#" class="th-social__icon th-social__icon--google"></a>
+        <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
+        <a href="#" class="th-social__icon th-social__icon--youtube"></a>
       </div>
     </div>
 
     <!-- RELATED PRODUCTS -->
-    <div class="vn-related-wrap">
+    <div class="th-related-wrap">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#">Similar Items</a></li>
         <li><a href="#">Best Sellers</a></li>
         <li><a href="#">On Sale</a></li>
       </ul>
-      <div class="vn-products-wrap clearfix">
+      <div class="th-products-wrap clearfix">
         <!-- PRODUCT 1 -->
         <div class="col-xs-12 col-sm-3 col-md-3">
-          <div class="vn-product">
-            <span class="vn-product__sale hidden-xs"></span>
-            <div class="vn-product__image">
+          <div class="th-product">
+            <span class="th-product__sale hidden-xs"></span>
+            <div class="th-product__image">
               <a href="#"><img src="/images/demo/shirt1.jpg" class="img-responsive" alt=""></a>
-              <div class="vn-quick-options visible-md visible-lg">
-                <a href="#" class="vn-quick-view">Quick View</a>
-                <a href="#" class="vn-add-to-cart"><span></span></a>
+              <div class="th-quick-options visible-md visible-lg">
+                <a href="#" class="th-quick-view">Quick View</a>
+                <a href="#" class="th-add-to-cart"><span></span></a>
               </div>
             </div>
-            <div class="vn-product__name">
+            <div class="th-product__name">
               <a href="#">Method Limited Screen printed Tee</a>
             </div>
-            <div class="vn-product__price">
-              <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
-              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+            <div class="th-product__price">
+              <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
+              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
             </div>
 
-            <div class="vn-colors-sm visible-xs">
+            <div class="th-colors-sm visible-xs">
               <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
@@ -202,23 +202,23 @@
 
         <!-- PRODUCT 2 -->
         <div class="col-xs-12 col-sm-3 col-md-3">
-          <div class="vn-product">
-            <div class="vn-product__image">
+          <div class="th-product">
+            <div class="th-product__image">
               <a href="#"><img src="/images/demo/shirt2.jpg" class="img-responsive" alt=""></a>
-              <div class="vn-quick-options visible-md visible-lg">
-                <a href="#" class="vn-quick-view">Quick View</a>
-                <a href="#" class="vn-add-to-cart"><span></span></a>
+              <div class="th-quick-options visible-md visible-lg">
+                <a href="#" class="th-quick-view">Quick View</a>
+                <a href="#" class="th-add-to-cart"><span></span></a>
               </div>
             </div>
-            <div class="vn-product__name">
+            <div class="th-product__name">
               <a href="#">Method Limited Screen printed Tee</a>
             </div>
-            <div class="vn-product__price">
-              <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
-              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+            <div class="th-product__price">
+              <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
+              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
             </div>
 
-            <div class="vn-colors-sm visible-xs">
+            <div class="th-colors-sm visible-xs">
               <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
@@ -230,24 +230,24 @@
 
         <!-- PRODUCT 3 -->
         <div class="col-xs-12 col-sm-3 col-md-3">
-          <div class="vn-product">
-            <span class="vn-product__new hidden-xs"></span>
-            <div class="vn-product__image">
+          <div class="th-product">
+            <span class="th-product__new hidden-xs"></span>
+            <div class="th-product__image">
               <a href="#"><img src="/images/demo/shirt3.jpg" class="img-responsive" alt=""></a>
-              <div class="vn-quick-options visible-md visible-lg">
-                <a href="#" class="vn-quick-view">Quick View</a>
-                <a href="#" class="vn-add-to-cart"><span></span></a>
+              <div class="th-quick-options visible-md visible-lg">
+                <a href="#" class="th-quick-view">Quick View</a>
+                <a href="#" class="th-add-to-cart"><span></span></a>
               </div>
             </div>
-            <div class="vn-product__name">
+            <div class="th-product__name">
               <a href="#">Method Limited Screen printed Tee</a>
             </div>
-            <div class="vn-product__price">
-              <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
-              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+            <div class="th-product__price">
+              <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
+              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
             </div>
 
-            <div class="vn-colors-sm visible-xs">
+            <div class="th-colors-sm visible-xs">
               <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
@@ -259,23 +259,23 @@
 
         <!-- PRODUCT 4 -->
         <div class="col-xs-12 col-sm-3 col-md-3">
-          <div class="vn-product">
-            <div class="vn-product__image">
+          <div class="th-product">
+            <div class="th-product__image">
               <a href="screen-print.html"><img src="/images/demo/shirt4.jpg" class="img-responsive" alt=""></a>
-              <div class="vn-quick-options visible-md visible-lg">
-                <a href="#" class="vn-quick-view">Quick View</a>
-                <a href="#" class="vn-add-to-cart"><span></span></a>
+              <div class="th-quick-options visible-md visible-lg">
+                <a href="#" class="th-quick-view">Quick View</a>
+                <a href="#" class="th-add-to-cart"><span></span></a>
               </div>
             </div>
-            <div class="vn-product__name">
+            <div class="th-product__name">
               <a href="#">Method Limited Screen printed Tee</a>
             </div>
-            <div class="vn-product__price">
-              <span class="vn-reg-price"><span class="vn-price strike">$48</span><span class="vn-price-text vn-text-left">Reg</span></span>
-              <span class="vn-now-price"><span class="vn-price">$36</span><span class="vn-price-text">Now</span></span>
+            <div class="th-product__price">
+              <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
+              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
             </div>
 
-            <div class="vn-colors-sm visible-xs">
+            <div class="th-colors-sm visible-xs">
               <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
               <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
@@ -287,39 +287,39 @@
       </div>
 
       <!-- LOAD MORE BUTTON -->
-      <div class="vn-load-more visible-xs">
-        <button class="btn btn-default vn-load-more">Load More</button>
+      <div class="th-load-more visible-xs">
+        <button class="btn btn-default th-load-more">Load More</button>
       </div>
     </div>
 
-    <div class="vn-reviews">
-      <div class="vn-reviews__title">{{language.reviews}}</div>
-      <div class="vn-reviews__totals">
-        <div class="vn-totals-left">
-          <div class="vn-reviews__count">This product has recieved 4.3 out of 5 stars based on 58 customer reviews</div>
-          <div class="vn-reviews__avg"><img src="/images/demo/star-avg.png" alt=""></div>
+    <div class="th-reviews">
+      <div class="th-reviews__title">{{language.reviews}}</div>
+      <div class="th-reviews__totals">
+        <div class="th-totals-left">
+          <div class="th-reviews__count">This product has recieved 4.3 out of 5 stars based on 58 customer reviews</div>
+          <div class="th-reviews__avg"><img src="/images/demo/star-avg.png" alt=""></div>
         </div>
-        <div class="vn-totals-right">
-          <a href="#" class="vn-read-all">Read All Reviews ></a>
+        <div class="th-totals-right">
+          <a href="#" class="th-read-all">Read All Reviews ></a>
           <button class="btn btn-default btn-grey-sm">Write a Review</button>
         </div>
       </div>
-      <div class="vn-review">
-        <div class="vn-review__helpful">16 people found the following review helpful</div>
-        <div class="vn-review__rating">
-          <img src="/images/demo/stars.png" alt=""> <span class="vn-rating-text">4.5 out of 5</span> By <span class="vn-review__rating__author">A. Hansen</span>
-          <div class="vn-rateing-date hidden-xs pull-right">February 12, 2012</div>
+      <div class="th-review">
+        <div class="th-review__helpful">16 people found the following review helpful</div>
+        <div class="th-review__rating">
+          <img src="/images/demo/stars.png" alt=""> <span class="th-rating-text">4.5 out of 5</span> By <span class="th-review__rating__author">A. Hansen</span>
+          <div class="th-rateing-date hidden-xs pull-right">February 12, 2012</div>
         </div>
-        <div class="vn-rating-title">Lots of Torque and and Awesome Setup!</div>
-        <div class="vn-rating-description">
+        <div class="th-rating-title">Lots of Torque and and Awesome Setup!</div>
+        <div class="th-rating-description">
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen."
         </div>
-        <div class="vn-review__helpful">
+        <div class="th-review__helpful">
           Was this review helpful to you?
           <button class="btn btn-default btn-grey-sm">Yes</button>
           <button class="btn btn-default btn-grey-sm">No</button>
         </div>
       </div>
     </div>
-  </div><!-- .vn-product-wrap -->
+  </div><!-- .th-product-wrap -->
 </div><!-- .container -->

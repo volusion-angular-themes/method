@@ -15,13 +15,13 @@ $(function() {
   });
 
   // Dropdown Menu Fade
-  $('.dropdown.vn-mega-drop').hover(
+  $('.dropdown.th-mega-drop').hover(
     function() {
       $('.dropdown-menu', this).fadeIn('fast');
-      $('.dropdown.vn-mega-drop').addClass('active-mega-tab');
+      $('.dropdown.th-mega-drop').addClass('active-mega-tab');
     },
     function() {
       $('.dropdown-menu', this).fadeOut('fast');
-      $('.dropdown.vn-mega-drop').removeClass('active-mega-tab');
+      $('.dropdown.th-mega-drop').removeClass('active-mega-tab');
     });
 });

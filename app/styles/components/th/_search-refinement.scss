@@ -1,14 +1,14 @@
-.vn-refine-exp {
+.th-refine-exp {
   display: none;
 }
 
 @include respond-to(md-and-up) {
-  .vn-refine-exp {
+  .th-refine-exp {
     display: block;
     background: #f4f3f0;
     padding: 11px 10px;
 
-    .vn-filter-text {
+    .th-filter-text {
       font-size: 1.4rem;
       padding-right: 15px;
       font-weight: bold;
@@ -23,7 +23,7 @@
 }
 
 @include respond-to(lg) {
-  .vn-refine-exp {
+  .th-refine-exp {
     select {
       min-width: 233px;
       margin-right: 15px;

@@ -1,49 +1,49 @@
 @import "sprites/social/*.png";
 @include all-social-sprites;
 
-.vn-social__icon--facebook {
+.th-social__icon--facebook {
   @include social-sprite(facebook);
   height: social-sprite-height(facebook);
   width: social-sprite-width(facebook);
 }
 
-.vn-social__icon--twitter {
+.th-social__icon--twitter {
   @include social-sprite(twitter);
   height: social-sprite-height(twitter);
   width: social-sprite-width(twitter);
 }
 
-.vn-social__icon--instagram {
+.th-social__icon--instagram {
   @include social-sprite(instagram);
   height: social-sprite-height(instagram);
   width: social-sprite-width(instagram);
 }
 
-.vn-social__icon--tumblr {
+.th-social__icon--tumblr {
   @include social-sprite(tumblr);
   height: social-sprite-height(tumblr);
   width: social-sprite-width(tumblr);
 }
 
-.vn-social__icon--pinterest {
+.th-social__icon--pinterest {
   @include social-sprite(pinterest);
   height: social-sprite-height(pinterest);
   width: social-sprite-width(pinterest);
 }
 
-.vn-social__icon--google {
+.th-social__icon--google {
   @include social-sprite(google);
   height: social-sprite-height(google);
   width: social-sprite-width(google);
 }
 
-.vn-social__icon--vimeo {
+.th-social__icon--vimeo {
   @include social-sprite(vimeo);
   height: social-sprite-height(vimeo);
   width: social-sprite-width(vimeo);
 }
 
-.vn-social__icon--youtube {
+.th-social__icon--youtube {
   @include social-sprite(youtube);
   height: social-sprite-height(youtube);
   width: social-sprite-width(youtube);

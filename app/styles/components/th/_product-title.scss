@@ -1,4 +1,4 @@
-.vn-product-details__title {
+.th-product-details__title {
   text-transform: uppercase;
   font-family: $font-family-condensed-reg;
   font-size: 1.9rem;
@@ -11,14 +11,14 @@
   }
 }
 
-.vn-product-name-lg {
+.th-product-name-lg {
   text-transform: uppercase;
   font-family: $font-family-condensed-reg;
 }
 
 @include respond-to(sm-and-up) {
 
-  .vn-product-name-lg {
+  .th-product-name-lg {
     font-size: 3.2rem;
     text-align: center;
     padding: 30px 0;
@@ -28,7 +28,7 @@
 
 @include respond-to(md-and-up) {
 
-  .vn-product-details__title {
+  .th-product-details__title {
     font-size: 3.1rem;
     line-height: 34px;
     padding-left: 0;

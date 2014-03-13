@@ -1,4 +1,4 @@
-.vn-quick-options {
+.th-quick-options {
   position: absolute;
   bottom: 7px;
   left: 0;
@@ -9,7 +9,7 @@
   height: 0px;
   width: 100%;
 
-  .vn-quick-view {
+  .th-quick-view {
     text-transform: uppercase;
     color: #fff;
     text-indent: 14px;
@@ -25,7 +25,7 @@
 
   }
 
-  .vn-add-to-cart {
+  .th-add-to-cart {
       float: left;
       height: 30px;
       width: 15%;
@@ -45,7 +45,7 @@
   }
 }
 
-.vn-product:hover .vn-quick-options {
+.th-product:hover .th-quick-options {
   @extend %animate-all-default;
   height: 30px;
 }

@@ -1,14 +1,14 @@
-.vn-options-wrap {
+.th-options-wrap {
   margin-top: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
 
-  .vn-options {
+  .th-options {
     overflow: hidden;
     margin: 0 -3px;
   }
 
-  .vn-options-title {
+  .th-options-title {
     text-align: center;
     letter-spacing: 0.07em;
     padding: 8px 0;
@@ -17,7 +17,7 @@
     clear: both;
   }
 
-  .vn-col-sm {
+  .th-col-sm {
     padding: 3px;
   }
 
@@ -40,7 +40,7 @@
     background-image: url(../../images/theme/sw-6-lg.png);
   }
 
-  .vn-swatch {
+  .th-swatch {
     width: 100%;
     display: block;
     min-height: 27px;
@@ -52,13 +52,13 @@
 
 @include respond-to(sm-and-up) {
 
-  .vn-options-wrap {
+  .th-options-wrap {
 
-    .vn-swatch {
+    .th-swatch {
       max-height: 13px;
       min-height: 13px;
     }
-    .vn-options {
+    .th-options {
       margin: 0 0 10px 0;
       overflow: hidden;
       padding: 10px;
@@ -71,9 +71,9 @@
 
 @include respond-to(md-and-up) {
 
-  .vn-options-wrap {
+  .th-options-wrap {
 
-    .vn-swatch {
+    .th-swatch {
       min-height: 19px;
       max-height: 19px;
     }

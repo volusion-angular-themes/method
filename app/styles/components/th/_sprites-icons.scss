@@ -1,26 +1,26 @@
 @import "sprites/icons/*.png";
 @include all-icons-sprites;
 
-.vn-product__new {
+.th-product__new {
   @include icons-sprite(new);
   height: icons-sprite-height(new);
   width: icons-sprite-width(new);
 }
 
-.vn-product__sale {
+.th-product__sale {
   @include icons-sprite(sale);
   height: icons-sprite-height(sale);
   width: icons-sprite-width(sale);
 }
 
-.vn-favorite-icon {
+.th-favorite-icon {
   @include icons-sprite(heart);
   @extend %inline-block;
   height: icons-sprite-height(heart);
   width: icons-sprite-width(heart);
 }
 
-.vn-product-view__zoom {
+.th-product-view__zoom {
   @include icons-sprite(zoom);
   @extend %inline-block;
   height: icons-sprite-height(zoom);

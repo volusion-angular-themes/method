@@ -1,8 +1,8 @@
 @import "bootstrap/navbar";
 
-.vn-navbar {
+.th-navbar {
 
-    .vn-menu-container {
+    .th-menu-container {
         position: relative;
     }
 
@@ -18,7 +18,7 @@
         }
     }
 
-    .vn-header {
+    .th-header {
         border-bottom: 1px solid #f0f0f0;
     }
 
@@ -26,7 +26,7 @@
 }
 
 @include respond-to(sm-and-down) {
-	.vn-navbar {
+	.th-navbar {
 		.navbar-brand {
         padding: 0;
         position: absolute;
@@ -39,7 +39,7 @@
 }
 
 @include respond-to(sm) {
-	.vn-navbar {
+	.th-navbar {
 		.navbar-brand {
 			padding-top: 10px;
 		}
@@ -51,7 +51,7 @@
 
     $navbar-height: 65px;
 
-    .vn-navbar {
+    .th-navbar {
         .navbar-toggle {
             margin: 19px 10px;
         }
@@ -63,9 +63,9 @@
 
     $navbar-height: 93px;
 
-    .vn-navbar {
+    .th-navbar {
 
-        .vn-main {
+        .th-main {
             float: left;
         }
 
@@ -129,7 +129,7 @@
 
     $navbar-height: 93px;
 
-    .vn-navbar {
+    .th-navbar {
         .navbar-nav {
             margin-left: 34px;
         }

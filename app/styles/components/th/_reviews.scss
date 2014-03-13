@@ -1,4 +1,4 @@
-.vn-reviews {
+.th-reviews {
   font-size: 1.3rem;
   color: #707070;
   line-height: 22px;
@@ -11,15 +11,15 @@
 
 }
 
-.vn-totals-right {
+.th-totals-right {
   margin-top: 10px;
 }
 
-.vn-rating-title {
+.th-rating-title {
   font-weight: bold;
 }
 
-.vn-reviews__title {
+.th-reviews__title {
   text-transform: uppercase;
   font-size: 1.8rem;
   color: #424242;
@@ -28,27 +28,27 @@
   font-family: $font-family-condensed-reg;
 }
 
-.vn-reviews__totals {
+.th-reviews__totals {
   border: 1px solid #eeeeee;
   padding: 15px;
   overflow: hidden;
 }
 
-.vn-review__rating {
+.th-review__rating {
   padding: 10px 0;
 }
 
-.vn-review__helpful {
+.th-review__helpful {
   padding: 10px 0 0;
 }
 
 @include respond-to(sm-and-up) {
 
-  .vn-totals-left {
+  .th-totals-left {
     float: left;
   }
 
-  .vn-totals-right {
+  .th-totals-right {
     float: right;
   }
 
