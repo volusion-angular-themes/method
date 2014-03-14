@@ -1,6 +1,7 @@
 {
   "name": "volusion",
   "version": "0.1.0",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "browserify": "~3.30.2",
