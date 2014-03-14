@@ -2,10 +2,8 @@
 
 module.exports = [
   '$scope',
-  '$translatePartialLoader',
-
-  function($scope, $translatePartialLoader) {
-    $translatePartialLoader.addPart('style-guide');
+  function(
+    $scope) {
     $scope.htmlReady();
   }
 ];

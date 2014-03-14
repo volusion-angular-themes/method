@@ -16,7 +16,7 @@
       @content;
     }
   }
-	@else if ($viewport-size == sm-and-down) {
+  @else if ($viewport-size == sm-and-down) {
     @media only screen and (max-width: $screen-sm-max) {
       @content;
     }

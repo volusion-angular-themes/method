@@ -2,10 +2,7 @@
 
 module.exports = [
   '$scope',
-  '$translatePartialLoader',
-
-  function($scope, $translatePartialLoader) {
-    $translatePartialLoader.addPart('category');
+  function($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
