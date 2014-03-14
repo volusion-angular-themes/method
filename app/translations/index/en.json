@@ -1,19 +1,15 @@
 ﻿{
   "head": {
-    "title": "Volusion AngularJS Bootstrap Theme"
+    "title": "Volusion AngularJS Method Theme"
   },
   "index": {
-    "toggleNav": "Toggle Navigation",
-    "bootstrapTheme": "Bootstrap theme",
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact",
-    "dropdown": "Dropdown",
-    "action": "Action",
-    "anotherAction": "Another action",
-    "somethingElseHere": "Something else here",
-    "navHeader": "Nav header",
-    "separatedLink": "Separated Link",
-    "oneMoreSeparatedLink": "One more separated link"
+    "toggleNavigation": "Toggle Navigation",
+    "promo": "Free shipping on all orders over $99!",
+    "myCart": "My Bag",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "myFavorites": "My Favorites",
+    "signUpForNewsletter": "Sign-Up for Our Newsletter",
+    "newsletterSignUpButton": "Go"
   }
 }

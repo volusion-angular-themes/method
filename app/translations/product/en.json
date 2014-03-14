@@ -1,0 +1,18 @@
+﻿{
+  "product": {
+    "writeReview": "Write Review &gt;",
+    "addToFavorites": "Add to Favorites &gt;",
+    "regularPriceLabel": "Reg",
+    "nowPriceLabel": "Now",
+    "addToCart": "Add to Cart",
+    "loadMore": "Load More",
+    "reviews": "Reviews",
+    "quickView": "Quick View",
+    "readAllReviews": "Read All Reviews &gt;",
+    "writeAReview": "Write a Review &gt;",
+    "wasThisReviewHelpfulToYou": "Was this review helpful for you?",
+    "similarItems": "Similar Items",
+    "bestSellers": "Best Sellers",
+    "onSale": "On Sale"
+  }
+}
