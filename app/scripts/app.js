@@ -34,7 +34,10 @@ angular.module('volusionApp', [
     config) {
 
     $locationProvider.html5Mode(true);
-    apiProvider.setBaseRoute(config.API_URL);
+    apiProvider.setBaseRoute(config.ENV.API_URL);
+    apiProvider.endpoint('products').
+      route('/products/:id');
+
     $urlRouterProvider.otherwise(getI18NPath);
 
     var i18NPrefix = '/:region/:language-:country';
@@ -76,6 +79,9 @@ angular.module('volusionApp', [
         resolve: {
           translations: function(requireTranslations) {
             return requireTranslations('product');
+          },
+          product: function(api, $q, $stateParams) {
+            return api.products.get({id: $stateParams.productCode});
           }
         }
       });
