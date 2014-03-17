@@ -14,17 +14,20 @@ var ApiEndpointConfig = function() {
 
   /** The default actions defined for every endpoint. */
   var defaultActions = {
-    'GET': 'get',
-    'PUT': 'update',
-    'POST': 'save',
-    'PATCH': 'patch',
-    'DELETE': 'remove'
+    'delete': {method:'DELETE'},
+    'get':    {method:'GET'},
+    'patch':  {method:'PATCH'},
+    'query':  {method:'GET', isArray:true},
+    'remove': {method:'DELETE'},
+    'save':   {method:'POST'},
+    'update': {method:'PUT'}
   };
+
 
   // Add the default actions to this endpoint.
   var self = this;
-  angular.forEach(defaultActions, function(alias, method) {
-    self.addHttpAction(method, alias);
+  angular.forEach(defaultActions, function(value, key) {
+    self.addHttpAction(value.method, key, value.isArray);
   });
 };
 
@@ -54,8 +57,8 @@ ApiEndpointConfig.prototype.model = function(model) {
  * @param {string} name The name of the action.
  * @param {Object=} params The default parameters for the action.
  */
-ApiEndpointConfig.prototype.addHttpAction = function(method, name, params) {
-  this.actions[name] = {method: method.toUpperCase(), params: params};
+ApiEndpointConfig.prototype.addHttpAction = function(method, name, isArray, params) {
+  this.actions[name] = {method: method.toUpperCase(), isArray: isArray, params: params};
 };
 
 /******************************************************************************/
