@@ -44,6 +44,10 @@ angular.module('volusionApp', [
     apiProvider.setBaseRoute(config.ENV.API_URL);
     apiProvider.endpoint('products').
       route('/products/:id');
+    apiProvider.endpoint('categories').
+      route('/categories/:id');
+    apiProvider.endpoint('config').
+      route('/config');
 
     $urlRouterProvider.otherwise(getI18NPath);
 
@@ -87,8 +91,8 @@ angular.module('volusionApp', [
           translations: function(requireTranslations) {
             return requireTranslations('product');
           },
-          product: function(api, $q, $stateParams) {
-            return api.products.get({id: $stateParams.productCode});
+          product: function(api, $stateParams) {
+            return api.products.get({code: $stateParams.productCode});
           }
         }
       });
