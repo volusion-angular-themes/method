@@ -9,21 +9,22 @@ describe('Controller: ProductCtrl', function() {
   // ReSharper disable once InconsistentNaming
   var controller;
   var scope;
+  var product = {
+      name: 'Product Name',
+      code: 'PC123'
+    };
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     controller = $controller('ProductCtrl', {
-      $scope: scope
+      $scope: scope,
+      product: product
     });
   }));
 
-  it('should attach a list of oneAtATime to the scope', function() {
-    expect(scope.oneAtATime).to.exist;
-  });
-
-  it('should attach a list of groups to the scope', function() {
-    expect(scope.groups).to.have.length(2);
+  it('should attach the product data to the scope', function() {
+    expect(scope.product).to.deep.equal(product);
   });
 
 });
