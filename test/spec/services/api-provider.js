@@ -47,6 +47,7 @@ describe('Service: apiProvider', function() {
         expect(api.test.config.route).to.eq('cart');
         expect(api.test).to.respondTo('get');
         expect(api.test).to.respondTo('save');
+        expect(api.test).to.respondTo('query');
         expect(api.test).to.respondTo('update');
         expect(api.test).to.respondTo('patch');
         expect(api.test).to.respondTo('remove');
