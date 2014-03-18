@@ -1,14 +1,17 @@
+rvm:
+  - 2.1.1
+
+bundler_args: --without development
+
 language: node_js
 
 node_js:
-  - '0.10'
+  - 0.10
 
 notifications:
   email:
     on_success: change
     on_failure: always
 
-before_script:
-  - 'gem install compass oily_png'
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+before_install:
+  - npm install -g grunt-cli bower
