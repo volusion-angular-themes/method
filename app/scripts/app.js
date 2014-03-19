@@ -74,6 +74,7 @@ angular.module('volusionApp', [
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
   })
+  .factory('storage', require('./services/storage'))
   .factory('requireTranslations', require('./services/require-translations'))
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'));
