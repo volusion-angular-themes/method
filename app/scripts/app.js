@@ -106,6 +106,7 @@ angular.module('volusionApp', [
     $templateCache.put('views/category.html', require('./views/category.html'));
     $templateCache.put('views/product.html', require('./views/product.html'));
   })
+  .factory('storage', require('./services/storage'))
   .factory('requireTranslations', require('./services/require-translations'))
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
