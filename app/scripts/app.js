@@ -43,7 +43,7 @@ angular.module('volusionApp', [
     $locationProvider.html5Mode(true);
     apiProvider.setBaseRoute(config.ENV.API_URL);
     apiProvider.endpoint('products').
-      route('/products/:id');
+      route('/products/:code');
     apiProvider.endpoint('categories').
       route('/categories/:id');
     apiProvider.endpoint('config').
