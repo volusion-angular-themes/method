@@ -73,9 +73,9 @@ angular.module('volusionApp')
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl',
         resolve: {
-          translations: function(requireTranslations) {
+          translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('category');
-          }
+          }]
         }
       })
       .state('product', {
@@ -83,12 +83,12 @@ angular.module('volusionApp')
         templateUrl: 'views/product.html',
         controller: 'ProductCtrl',
         resolve: {
-          translations: function(requireTranslations) {
+          translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('product');
-          },
-          product: function(api, $stateParams) {
+          }],
+          product: ['api', '$stateParams', function(api, $stateParams) {
             return api.products.get({code: $stateParams.productCode});
-          }
+          }]
         }
       });
 
