@@ -338,11 +338,12 @@ module.exports = function(grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '.htaccess',
+            'web.config',
             '*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'translations/{,*/}*.json'
           ]
         }, {
           expand: true,
@@ -350,12 +351,6 @@ module.exports = function(grunt) {
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
         }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
       },
       scripts: {
         expand: true,
@@ -381,7 +376,12 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      dist: {
+      vendor: {
+        files: {
+          '<%= yeoman.dist %>/scripts/vendor.js': ['.tmp/concat/scripts/vendor.js']
+        }
+      },
+      scripts: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': ['.tmp/scripts/scripts.js']
         }
@@ -495,6 +495,7 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'concat',
     'copy:scripts',
     'htmlmin',
     'ngmin',

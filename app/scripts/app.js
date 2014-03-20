@@ -30,7 +30,9 @@ angular.module('volusionApp', [
     'ui.bootstrap.accordion',
     'ui.bootstrap.collapse'
   ])
-  .provider('api', require('./services/api-provider'))
+  .provider('api', require('./services/api-provider'));
+
+angular.module('volusionApp')
   .config(function(
     $stateProvider,
     $urlRouterProvider,
@@ -58,9 +60,9 @@ angular.module('volusionApp', [
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         resolve: {
-          translations: function(requireTranslations) {
+          translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('home');
-          }
+          }]
         }
       })
       .state('style-guide', {
@@ -68,9 +70,9 @@ angular.module('volusionApp', [
         templateUrl: 'views/style-guide.html',
         controller: 'StyleGuideCtrl',
         resolve: {
-          translations: function(requireTranslations) {
+          translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('style-guide');
-          }
+          }]
         }
       })
       .state('category', {
@@ -107,7 +109,7 @@ angular.module('volusionApp', [
     $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
   })
-  .run(function($rootScope, $translate, $templateCache) {
+  .run(function($templateCache) {
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
