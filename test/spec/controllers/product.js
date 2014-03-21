@@ -1,7 +1,7 @@
 'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Controller: ProductCtrl', function () {
+describe('Controller: ProductCtrl', function() {
 
   // load the controller's module
   beforeEach(module('volusionApp'));
@@ -12,12 +12,18 @@ describe('Controller: ProductCtrl', function () {
   var product = {
     data: {
       name: 'Product Name',
-      code: 'PC123'
+      code: 'PC123',
+      descriptions: {
+        detail: 'Detail here...',
+        features: 'Features here...',
+        techSpecs: 'Tech Specs here...',
+        extendedInfo: 'Extended Info here...'
+      }
     }
   };
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     controller = $controller('ProductCtrl', {
       $scope: scope,
@@ -25,7 +31,7 @@ describe('Controller: ProductCtrl', function () {
     });
   }));
 
-  it('should attach the product data to the scope', function () {
+  it('should attach the product data to the scope', function() {
     expect(scope.product).to.deep.equal(product.data);
   });
 

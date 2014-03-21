@@ -46,6 +46,11 @@
 @import 'components/js/carousel';
 
 // Volusion Components
+@import 'components/vn/dropzone';
+@import 'components/vn/showcase';
+@import 'components/vn/slider';
+
+// Theme Components
 @import 'components/th/helpers';
 @import 'components/th/sprites-social';
 @import 'components/th/sprites-icons';
@@ -57,7 +62,6 @@
 @import 'components/th/quickview';
 @import 'components/th/sort-by';
 @import 'components/th/search-refinement';
-@import 'components/th/home-slider';
 @import 'components/th/home-content';
 @import 'components/th/product-options';
 @import 'components/th/product-view';

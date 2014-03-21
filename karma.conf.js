@@ -28,6 +28,9 @@ module.exports = function(config) {
       'app/bower_components/messageformat/locale/en.js',
       'app/bower_components/angular-i18n/angular-locale_en-us.js',
       'app/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+      'app/bower_components/snapjs/snap.js',
+      'app/bower_components/angular-snap/angular-snap.js',
+      'app/bower_components/enquire/dist/enquire.js',
       '.tmp/scripts/scripts.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

@@ -218,7 +218,7 @@ module.exports = function(grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/fonts/*'
           ]
         }
@@ -246,7 +246,7 @@ module.exports = function(grunt) {
           css: [
             [
               /(?:src=|url\(\s*)['"]?(?:\.\.)?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
-              'Update template js to reference revved images, accomodate for ../'
+              'Update template css to reference revved images, accomodate for ../'
             ]
           ]
         }

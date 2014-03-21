@@ -1,6 +1,7 @@
 /*global angular: true*/
 'use strict';
 var angular = require('angular');
+var enquire = require('enquire');
 require('./theme');
 
 angular.module('volusionApp', [
@@ -11,13 +12,15 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate',
     require('./services/config').name,
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'snap'
   ])
   .provider('api', require('./services/api-provider'))
   .provider('translate', require('./services/translate-provider'));
 
 angular.module('volusionApp')
-  .config(function(
+  .config(function (
+    snapRemoteProvider,
     $stateProvider,
     $urlRouterProvider,
     $locationProvider,
@@ -26,21 +29,23 @@ angular.module('volusionApp')
     translateProvider,
     config) {
 
+    snapRemoteProvider.globalOptions.touchToDrag = false;
+
     apiProvider.setBaseRoute(config.ENV.API_URL);
     apiProvider.endpoint('products').
       route('/products/:code');
-    apiProvider.endpoint('relatedproducts').
-      route('/products/?');
     apiProvider.endpoint('reviews').
       route('/products/:code/reviews');
     apiProvider.endpoint('categories').
       route('/categories/:id');
     apiProvider.endpoint('config').
       route('/config');
-    apiProvider.endpoint('cart').
-      route('/cart');
-    apiProvider.endpoint('slider').
-      route('/slider');
+    apiProvider.endpoint('relatedProducts').
+      route('/products/:code/relatedProducts');
+    apiProvider.endpoint('navs').
+      route('/navs/:navId');
+    apiProvider.endpoint('carts').
+      route('/carts/current');
 
 
     $locationProvider.html5Mode(true);
@@ -138,7 +143,18 @@ angular.module('volusionApp')
         }
       });
   })
-  .run(function($templateCache) {
+  .run(function ($templateCache, snapRemote, $rootScope) {
+
+    enquire.register('screen and (max-width: 991px)', {
+      unmatch: function () {
+        snapRemote.close();
+      }
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function() {
+      snapRemote.close();
+    });
+
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
@@ -146,6 +162,7 @@ angular.module('volusionApp')
     $templateCache.put('views/contact.html', require('./views/contact.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
     $templateCache.put('views/product.html', require('./views/product.html'));
+    $templateCache.put('views/partials/product-tile.html', require('./views/partials/product-tile.html'));
   })
   .factory('storage', require('./services/storage'))
   .directive('legacyLink', require('./directives/legacy-link'))

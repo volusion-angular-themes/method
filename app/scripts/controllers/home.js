@@ -8,35 +8,21 @@ module.exports = [
     $scope,
     api) {
 
-    api.slider.get().then(function(response){
-        $scope.slider = response.data;
-      });
+    //TODO: Implement "Add to Cart" button on Featured Products below
 
+    // TODO: REPLACE SLIDER WITH COMPONENT DATA
     $scope.interval = 4000;
+    $scope.slider = [
+      { imageUrl: 'http://www.volusioninnovationlab.com/snippets/images/slide1.jpg', headline: 'New Year Saleathon', subHeadline: 'Save 20% off storewide with coupon code NEWYEAR', linksTo: 'product1/p/123', htmlContent: '<a href=\"http:\/\/www.google.com\/\">Click here<\/a>' },
+      { imageUrl: 'http://www.volusioninnovationlab.com/snippets/images/slide2.jpg', headline: 'New Sunrise Collection', subHeadline: 'Wake up to something good', linksTo: 'category1/c/123' },
+      { imageUrl: 'http://www.volusioninnovationlab.com/snippets/images/slide3.jpg', headline: 'Miami Fashion', subHeadline: null, linksTo: 'product2/p/2' }
+    ];
 
-    $scope.featuredHomeItems = {
-      product1: {
-        linkTo: 'product1/p/1'
-      },
-      product2: {
-        linkTo: 'product2/p/2'
-      },
-      category1: {
-        linkTo: 'category1/c/1'
-      },
-      category2: {
-        linkTo: 'category2/c/2'
-      },
-      category3: {
-        linkTo: 'category3/c/3'
-      },
-      category4: {
-        linkTo: 'category4/c/4'
-      }
-    };
+    // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
 
-    api.relatedproducts.get({ productCode: 123, filter: 'relatedProducts', pageNumber: 1, pageSize: 10 }).then(function (response) {
-      $scope.relatedProducts = response.data;
+    // Featured Products
+    api.products.get({ filter: 'featured', pageSize: 4}).then(function (response) {
+      $scope.featuredProducts = response.data;
     });
   }
 ];

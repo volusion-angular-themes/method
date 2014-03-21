@@ -1,5 +1,5 @@
 .th-cart-summary {
-  position: absolute;
+  position: relative;
   top: 8px;
   right: 0;
 }
@@ -32,7 +32,7 @@
 
 @include respond-to(md-and-up) {
     .th-cart-summary {
-      position: absolute;
+      position: relative;
       top: 30px;
       right: 13px;
     }

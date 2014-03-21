@@ -1,10 +1,10 @@
-.th-slider {
+.vn-slider {
 
   .carousel-indicators li {
     width: 13px;
     margin: 0 3px;
     height: 13px;
-    background-color: #ffffff;
+    background-color: map-get($colors, body-bg);
     border: 0;
   }
 
@@ -12,12 +12,18 @@
     width: 13px;
     height: 13px;
     border: 0;
-    background-color: #f63e34;
+    background-color: map-get($colors, control-bg-active);
   }
 
   &__slide {
     height: 237px;
     background-size: cover;
+  }
+
+  &--product {
+    .vn-slider__slide{
+      height: auto;
+    }
   }
 
   @include respond-to(sm-and-up) {
@@ -56,5 +62,3 @@
   }
 
 }
-
-
