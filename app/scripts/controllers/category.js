@@ -2,12 +2,8 @@
 
 module.exports = [
   '$scope',
-  function($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $scope.htmlReady();
+  'category',
+  function ($scope, category) {
+    $scope.category = category;
   }
 ];

@@ -1,1 +1,45 @@
-<p>This is the category view.</p>
+<div class="container">
+  <section class="category">
+    <h1>Category</h1>
+    <dl>
+      <dt>Id</dt>
+      <dd>{{category.id}}</dd>
+      <dt>Name</dt>
+      <dd>{{category.name}}</dd>
+    </dl>
+  </section>
+  <section class="category-subcategories">
+    <h2>Sub-Categories</h2>
+    <dl data-ng-repeat="subCategory in category.subCategories">
+      <dt>Id</dt>
+      <dd>{{subCategory.id}}</dd>
+      <dt>Name</dt>
+      <dd>{{subCategory.name}}</dd>
+    </dl>
+  </section>
+  <section class="category-products">
+    <h2>Products</h2>
+    <dl data-ng-repeat="product in category.products">
+      <dt>Id</dt>
+      <dd>{{product.id}}</dd>
+      <dt>Name</dt>
+      <dd>{{product.name}}</dd>
+      <dt>Url</dt>
+      <dd>{{product.url}}</dd>
+      <dt>Main Image Url</dt>
+      <dd>{{product.mainImageUrl}}</dd>
+      <dt>Code</dt>
+      <dd>{{product.code}}</dd>
+      <dt>Is On Sale</dt>
+      <dd>{{product.isOnSale}}</dd>
+      <dt>Is New</dt>
+      <dd>{{product.isNew}}</dd>
+      <dt>Regular Price</dt>
+      <dd>{{product.pricing.regularPrice}}</dd>
+      <dt>Sale Price</dt>
+      <dd>{{product.pricing.salePrice}}</dd>
+      <dt>List Price</dt>
+      <dd>{{product.pricing.listPrice}}</dd>
+    </dl>
+  </section>
+</div>

@@ -1,1 +1,193 @@
-<p>This is the product view.</p>
+<div class="container">
+  <section class="product">
+    <header>
+      <hgroup>
+        <h1>Product</h1>
+        <h2>General Information</h2>
+      </hgroup>
+    </header>
+    <dl>
+      <dt>Id</dt>
+      <dd>{{product.id}}</dd>
+      <dt>Average Review</dt>
+      <dd>{{product.avgReview}}</dd>
+      <dt>Code</dt>
+      <dd>{{product.code}}</dd>
+      <dt>Is Gift Wrap Available</dt>
+      <dd>{{product.isGitfWrapAvailable}}</dd>
+      <dt>Main Image Url</dt>
+      <dd>{{product.mainImageUrl}}</dd>
+      <dt>Name</dt>
+      <dd>{{product.name}}</dd>
+      <dt>Product Url</dt>
+      <dd>{{product.productUrl}}</dd>
+      <dt>Taxable</dt>
+      <dd>{{product.taxable}}</dd>
+    </dl>
+  </section>
+  <section class="product-alt-images">
+    <header>
+      <h2>Alternative Images</h2>
+    </header>
+    <dl data-ng-repeat="altImage in product.altImages">
+      <dt>Id</dt>
+      <dd>{{altImage.id}}</dd>
+      <dt>Position</dt>
+      <dd>{{altImage.position}}</dd>
+      <dt>Type</dt>
+      <dd>{{altImage.type}}</dd>
+      <dt>Small</dt>
+      <dd>{{altImage.small}}</dd>
+      <dt>Medium</dt>
+      <dd>{{altImage.medium}}</dd>
+      <dt>Large</dt>
+      <dd>{{altImage.large}}</dd>
+    </dl>
+  </section>
+  <section class="product-availability">
+    <header>
+      <h2>Availability</h2>
+    </header>
+    <dl>
+      <dt>Stock</dt>
+      <dd>{{product.availability.stock}}</dd>
+      <dt>Allow Backorders</dt>
+      <dd>{{product.availability.allowBackorders}}</dd>
+      <dt>Description</dt>
+      <dd>{{product.availability.description}}</dd>
+    </dl>
+  </section>
+  <section class="product-categories">
+    <header>
+      <h2>Categories</h2>
+    </header>
+    <dl data-ng-repeat="category in product.categories">
+      <dt>Id</dt>
+      <dd>{{category.id}}</dd>
+      <dt>Name</dt>
+      <dd>{{category.name}}</dd>
+      <dt>Url</dt>
+      <dd>{{category.url}}</dd>
+      <dt><h3>Sub Categories</h3></dt>
+      <dl data-ng-repeat="subCategory in category.sub">
+        <dt>Id</dt>
+        <dd>{{subCategory.id}}</dd>
+        <dt>Name</dt>
+        <dd>{{subCategory.name}}</dd>
+        <dt>Url</dt>
+        <dd>{{subCategory.url}}</dd>
+      </dl>
+    </dl>
+  </section>
+  <section class="product-descriptions">
+    <header>
+      <h2>Descriptions</h2>
+    </header>
+    <dl>
+      <dt>Detail</dt>
+      <dd>{{product.descriptions.detail}}</dd>
+      <dt>Short</dt>
+      <dd>{{product.descriptions.short}}</dd>
+      <dt>Features</dt>
+      <dd>{{product.descriptions.features}}</dd>
+      <dt>Tech Specs</dt>
+      <dd>{{product.descriptions.techSpecs}}</dd>
+      <dt>Extended Info</dt>
+      <dd>{{product.descriptions.extendedInfo}}</dd>
+      <dt>Photo Caption Text</dt>
+      <dd>{{product.descriptions.photoCaptionText}}</dd>
+    </dl>
+  </section>
+  <section class="product-gift-wrap">
+    <header>
+      <h2>Gift Wrap</h2>
+    </header>
+    <dl>
+      <dt>Price</dt>
+      <dd>{{product.giftWrap.price}}</dd>
+    </dl>
+  </section>
+  <section class="product-options">
+    <header>
+      <h2>Options</h2>
+    </header>
+    <dl>
+      <dt>Id</dt>
+      <dd>{{product.options.id}}</dd>
+      <dt>Label</dt>
+      <dd>{{product.options.label}}</dd>
+    </dl>
+    <h3>Display Types</h3>
+    <dl data-ng-repeat="displayType in product.options.displayTypes">
+      <dt>Display Type</dt>
+      <dd>{{displayType}}</dd>
+    </dl>
+    <dl>
+      <dt>Can Select Multiple</dt>
+      <dd>{{product.options.canSelectMultiple}}</dd>
+    </dl>
+    <h3>Items</h3>
+    <dl data-ng-repeat="item in product.options.items">
+      <dt>Name</dt>
+      <dd>{{item.name}}</dd>
+      <dt>Value</dt>
+      <dd>{{item.value}}</dd>
+      <dt>Background Color</dt>
+      <dd>{{item.bgColor}}</dd>
+    </dl>
+  </section>
+  <section class="product-pricing">
+    <header>
+      <h2>Pricing</h2>
+    </header>
+    <dl>
+      <dt>Regular Price</dt>
+      <dd>{{product.pricing.regularPrice}}</dd>
+      <dt>Sale Price</dt>
+      <dd>{{product.pricing.salePrice}}</dd>
+      <dt>List Price</dt>
+      <dd>{{product.pricing.listPrice}}</dd>
+      <dt>Require Action For Sale Price</dt>
+      <dd>{{product.pricing.requireActionForSalePrice}}</dd>
+    </dl>
+    <h3>Recurring Price</h3>
+    <dl>
+      <dt>Price</dt>
+      <dd>{{product.pricing.recurringPrice.price}}</dd>
+      <dt>Start Price</dt>
+      <dd>{{product.pricing.recurringPrice.startPrice}}</dd>
+      <dt>Then X Months</dt>
+      <dd>{{product.pricing.recurringPrice.thenXMonths}}</dd>
+      <dt>Every X Months</dt>
+      <dd>{{product.pricing.recurringPrice.everyXMonths}}</dd>
+      <dt>Start X Months</dt>
+      <dd>{{product.pricing.recurringPrice.startXMonths}}</dd>
+    </dl>
+  </section>
+  <section class="product-seo">
+    <header>
+      <h2>SEO</h2>
+    </header>
+    <dl>
+      <dt>Photo Alt Text</dt>
+      <dd>{{product.seo.photoAltText}}</dd>
+      <dt>Meta Tag Title</dt>
+      <dd>{{product.seo.metaTagTitle}}</dd>
+      <dt>Meta Tag Description</dt>
+      <dd>{{product.seo.metaTagDescription}}</dd>
+      <dt>Meta Tag Keywords</dt>
+      <dd>{{product.seo.metaTagKeywords}}</dd>
+      <dt>Meta Tags Override</dt>
+      <dd>{{product.seo.metaTagOverride}}</dd>
+    </dl>
+  </section>
+  <section class="product-shipping">
+    <header>
+      <h2>Shipping</h2>
+    </header>
+    <dl>
+      <dt>Weight</dt>
+      <dd>{{product.shipping.weight}}</dd>
+    </dl>
+  </section>
+</div>
