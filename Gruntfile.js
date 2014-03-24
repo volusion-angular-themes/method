@@ -240,8 +240,12 @@ module.exports = function(grunt) {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>']
-      }
+        assetsDirs: ['<%= yeoman.dist %>'],
+        patterns: {
+          js: [[/src=([^ >]+)/g, 'Update template js to reference revved images']]
+        }
+      },
+      js: ['<%= yeoman.dist %>/scripts/*.scripts.js']
     },
 
     // The following *-min tasks produce minified files in the dist folder
