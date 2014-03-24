@@ -49,7 +49,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer'],
+        tasks: ['compass:server'],
         options: {
           livereload: true
         }
@@ -159,21 +159,6 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
-    },
-
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
     },
 
     // Automatically inject Bower components into the app
@@ -440,7 +425,6 @@ module.exports = function (grunt) {
       'replace:dev',
       'bower-install',
       'compass:server',
-      'autoprefixer',
       'copy:scripts',
       'htmlmin',
       'browserify:test',
@@ -459,7 +443,6 @@ module.exports = function (grunt) {
     'clean:server',
     'replace:dev',
     'compass:server',
-    'autoprefixer',
     'copy:scripts',
     'htmlmin',
     'browserify:test',
@@ -473,7 +456,6 @@ module.exports = function (grunt) {
     'bower-install',
     'useminPrepare',
     'concurrent',
-    'autoprefixer',
     'concat',
     'copy:scripts',
     'htmlmin',
