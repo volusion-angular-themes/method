@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer'],
+        tasks: ['compass:server'],
         options: {
           livereload: true
         }
@@ -162,21 +162,6 @@ module.exports = function(grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
@@ -234,7 +219,7 @@ module.exports = function(grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/fonts/*'
           ]
         }
       }
@@ -263,7 +248,7 @@ module.exports = function(grunt) {
     imagemin: {
       dist: {
         options: {
-          cache: false
+          cache: true
         },
         files: [{
           expand: true,
@@ -362,12 +347,6 @@ module.exports = function(grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
-        'compass:server'
-      ],
-      test: [
-        'compass'
-      ],
       dist: [
         'compass:dist',
         'imagemin',
@@ -395,12 +374,9 @@ module.exports = function(grunt) {
             json: grunt.file.readJSON('./config/env/dev.json')
           }]
         },
-        files: [{
-          expand: true,
-          flatten: true,
-          src: ['./config/config.js'],
-          dest: '.tmp/scripts/services/'
-        }]
+        files: {
+          '.tmp/scripts/services/config.js': ['./config/config.js']
+        }
       },
       prod: {
         options: {
@@ -408,12 +384,9 @@ module.exports = function(grunt) {
             json: grunt.file.readJSON('./config/env/prod.json')
           }]
         },
-        files: [{
-          expand: true,
-          flatten: true,
-          src: ['./config/config.js'],
-          dest: '.tmp/scripts/services/'
-        }]
+        files: {
+          '.tmp/scripts/services/config.js': ['./config/config.js']
+        }
       }
     },
 
@@ -448,11 +421,11 @@ module.exports = function(grunt) {
     }
 
     grunt.task.run([
+      'newer:jshint',
       'clean:server',
       'replace:dev',
       'bower-install',
-      'concurrent:server',
-      'autoprefixer',
+      'compass:server',
       'copy:scripts',
       'htmlmin',
       'browserify:test',
@@ -470,8 +443,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'replace:dev',
-    'concurrent:test',
-    'autoprefixer',
+    'compass:server',
     'copy:scripts',
     'htmlmin',
     'browserify:test',
@@ -479,22 +451,12 @@ module.exports = function(grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build:dev', [
-    'clean:dist',
-    'replace:dev',
-    'build'
-  ]);
-
-  grunt.registerTask('build:prod', [
-    'replace:prod',
-    'build'
-  ]);
-
   grunt.registerTask('build', [
+    'clean:dist',
+    'replace:prod',
     'bower-install',
     'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
+    'concurrent',
     'concat',
     'copy:scripts',
     'htmlmin',
@@ -509,8 +471,6 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
-    'build:dev'
+    'serve'
   ]);
 };
