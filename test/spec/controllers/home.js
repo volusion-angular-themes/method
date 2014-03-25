@@ -7,16 +7,35 @@ describe('Controller: HomeCtrl', function() {
 
   var controller;
   var scope;
+  var api;
+  var mockData = [
+    { foo: 'foo' },
+    { bar: 'bar' },
+    { baz: 'baz' }
+  ];
 
-  beforeEach(inject(function($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope, _api_) {
+    api = _api_;
+    sinon.stub(api.slider, 'query', function() {
+      return {
+        then : function(cb) {
+          cb(mockData);
+        }
+      };
+    });
+
     scope = $rootScope.$new();
     controller = $controller('HomeCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of slides to the scope', function() {
-    expect(scope.slides).to.have.length(5);
+  afterEach(function(){
+    api.slider.query.restore();
+  });
+
+  it('calls slider API and populates slides', function(){
+    expect(scope.slider).to.deep.equal(mockData);
   });
 
 });
