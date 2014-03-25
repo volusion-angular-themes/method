@@ -2,24 +2,13 @@
 
 module.exports = [
   '$scope',
-  '$translatePartialLoader',
-  '$http',
-
-  function ($scope, $translatePartialLoader, $http) {
-    $translatePartialLoader.addPart('home');
-
+  'api',
+  function ($scope, api) {
     // Slider
-    $http.get('http://volusion.apiary.io/slider')
-      .success(function (data) {
+    api.slider.query().then(function(data){
         $scope.slider = data;
-
-        // TODO: REMOVE
-        console.log(data);
-      })
-      .error(function (data) {
-        console.log('Error: ' + data);
       });
 
-    $scope.htmlReady();
+    $scope.interval = 4000;
   }
 ];

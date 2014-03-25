@@ -50,6 +50,8 @@ angular.module('volusionApp')
       route('/categories/:id');
     apiProvider.endpoint('config').
       route('/config');
+    apiProvider.endpoint('slider').
+      route('/slider');
 
     $urlRouterProvider.otherwise(getI18NPath);
 

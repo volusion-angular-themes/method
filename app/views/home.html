@@ -1,8 +1,16 @@
 <div class="container th-content-slider">
   <div class="th-slider">
-    <carousel>
-      <slide ng-repeat="slide in slider" active="slide.active">
-        <a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}"><img ng-src="{{slide.imageUrl}}" alt="{{slide.headline}} - {{slide.subHeadline}}" style="margin:auto;"></a>
+    <carousel data-interval="interval">
+      <slide data-ng-repeat="slide in slider" data-active="slide.active">
+        <a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}">
+          <div class="th-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }" >
+            <div class="carousel-caption">
+              <h4 data-ng-show="slide.headline">{{slide.headline}}</h4>
+              <p data-ng-show="slide.subHeadline">{{slide.subHeadline}}</p>
+              <span data-ng-show="slide.htmlContent" data-ng-bind-html="slide.htmlContent" />
+            </div>
+          </div>
+        </a>
       </slide>
     </carousel>
   </div>

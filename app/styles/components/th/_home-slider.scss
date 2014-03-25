@@ -15,12 +15,34 @@
     background-color: #f63e34;
   }
 
+  &__slide {
+    height: 237px;
+    background-size: cover;
+  }
+
+  @include respond-to(sm-and-up) {
+
+    &__slide {
+      height: 405px;
+      background-size: cover;
+    }
+
+  }
+
+  @include respond-to(md-and-up) {
+
+    &__slide {
+      height: 485px;
+      background-size: cover;
+    }
+
+  }
 
 }
 
 @include respond-to(sm-and-up) {
 
-	.th-content-slider {
+  .th-content-slider {
     margin-bottom: 30px;
   }
 
