@@ -2,43 +2,44 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="volusionApp"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="volusionApp"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="volusionApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" data-ng-app="volusionApp"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="fragment" content="!" />
-    <title data-translate="head.title"></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css({.tmp,app}) /styles/app.css -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- endbuild -->
-    <base data-ng-href="{{base}}" />
-  </head>
-  <body role="document" data-ng-controller="IndexCtrl">
+<!--[if gt IE 8]><!-->
+<html class="no-js" data-ng-app="volusionApp">
+ <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="fragment" content="!" />
+  <title data-translate="head.title"></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css({.tmp,app}) /styles/app.css -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- endbuild -->
+  <base data-ng-href="{{base}}" />
+</head>
+<body role="document" data-ng-controller="IndexCtrl">
 
-    <!--[if lt IE 7]>
-    <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation">
-      <div class="th-header">
-        <div class="container">
-          <div class="th-header__shipping-text">
-            <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
-          </div>
-          <div class="th-header__account-menu">
-            <ul class="nav nav-pills">
+  <!--[if lt IE 7]>
+  <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation">
+    <div class="th-header">
+      <div class="container">
+        <div class="th-header__shipping-text">
+          <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
+        </div>
+        <div class="th-header__account-menu">
+          <ul class="nav nav-pills">
             <li><a href="#" data-translate="index.signIn">Sign In</a></li>
             <li><a href="#" data-translate="index.createAccount">Create Account</a></li>
             <li><a href="#" data-translate="index.myFavorites">My Favorites</a></li>
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
-      <div class="container th-menu-container">
+    </div>
+    <div class="container th-menu-container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#th-main-menu">
@@ -233,51 +234,52 @@
     </div>
   </footer>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
 
-    <!--[if lt IE 9]>
-    <script src="/bower_components/es5-shim/es5-shim.js"></script>
-    <script src="/bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+  <!--[if lt IE 9]>
+  <script src="/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- build:js /scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-seo/angular-seo.js"></script>
+  <script src="/bower_components/angular-translate/angular-translate.js"></script>
+  <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+  <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+  <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+  <script src="/bower_components/messageformat/messageformat.js"></script>
+  <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+  <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/json3/lib/json3.min.js"></script>
+  <!-- endbower -->
+  <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/accordion/accordion.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js /scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/es5-shim/es5-shim.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-seo/angular-seo.js"></script>
-    <script src="/bower_components/angular-translate/angular-translate.js"></script>
-    <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
-    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-    <script src="/bower_components/messageformat/messageformat.js"></script>
-    <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-    <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/json3/lib/json3.min.js"></script>
-    <!-- endbower -->
-    <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/accordion/accordion.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
-    <!-- endbuild -->
-
-    <script src="/scripts/scripts.js"></script>
+  <script src="/scripts/scripts.js"></script>
 </body>
 </html>
