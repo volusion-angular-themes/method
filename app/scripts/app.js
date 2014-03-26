@@ -30,7 +30,7 @@ angular.module('volusionApp', [
     'ui.bootstrap.accordion',
     'ui.bootstrap.collapse',
     'ui.bootstrap.tabs'
-  ])
+])
   .provider('api', require('./services/api-provider'));
 
 angular.module('volusionApp')

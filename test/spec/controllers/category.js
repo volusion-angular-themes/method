@@ -1,7 +1,7 @@
 'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Controller: CategoryCtrl', function() {
+describe('Controller: CategoryCtrl', function () {
 
   // load the controller's module
   beforeEach(module('volusionApp'));
@@ -17,7 +17,7 @@ describe('Controller: CategoryCtrl', function() {
   };
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     controller = $controller('CategoryCtrl', {
       $scope: scope,
