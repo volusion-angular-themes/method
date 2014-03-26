@@ -22,7 +22,7 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate',
     require('./services/config').name
-  ])
+])
   .provider('api', require('./services/api-provider'));
 
 angular.module('volusionApp')
@@ -75,6 +75,9 @@ angular.module('volusionApp')
         resolve: {
           translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('category');
+          }],
+          category: ['api', '$stateParams', function (api, $stateParams) {
+            return api.categories.get({ id: $stateParams.categoryId });
           }]
         }
       })
@@ -113,4 +116,5 @@ angular.module('volusionApp')
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
   .controller('CategoryCtrl', require('./controllers/category'))
-  .controller('ProductCtrl', require('./controllers/product'));
+  .controller('ProductCtrl', require('./controllers/product'))
+  .controller('IndexCtrl', require('./controllers/index'));
