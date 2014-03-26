@@ -4,22 +4,7 @@ module.exports = [
   '$scope',
   '$http',
 
-  function($scope, $http) {
-
-    $scope.headingMenus = [
-      {
-        title: 'Sign-In',
-        url: '#'
-      },
-      {
-        title: 'Create Account',
-        url: '#'
-      },
-      {
-        title: 'My Favorites',
-        url: '#'
-      }
-    ];
+  function ($scope, $http) {
 
     $scope.global = {
       cart: {
@@ -27,13 +12,37 @@ module.exports = [
       }
     };
 
+    // Cart
+    $http.get('http://volusion.apiary.io/cart')
+      .success(function (data) {
+        $scope.cart = data;
+
+        // TODO: REMOVE
+        console.log('Cart: ' + data);
+      })
+      .error(function (data) {
+        console.log('Error: ' + data);
+      });
+
+    // Categories
+    $http.get('http://volusion.apiary.io/categories')
+      .success(function (data) {
+        $scope.categories = data;
+
+        // TODO: REMOVE
+        console.log('Categories: ' + data);
+      })
+      .error(function (data) {
+        console.log('Error: ' + data);
+      });
+
     // Config
     $http.get('http://volusion.apiary.io/config')
       .success(function (data) {
         $scope.config = data;
 
         // TODO: REMOVE
-        console.log(data);
+        console.log('Config: ' + data);
       })
       .error(function (data) {
         console.log('Error: ' + data);

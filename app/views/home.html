@@ -3,7 +3,7 @@
     <carousel data-interval="interval">
       <slide data-ng-repeat="slide in slider" data-active="slide.active">
         <a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}">
-          <div class="th-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }" >
+          <div class="th-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }">
             <div class="carousel-caption">
               <h4 data-ng-show="slide.headline">{{slide.headline}}</h4>
               <p data-ng-show="slide.subHeadline">{{slide.subHeadline}}</p>
@@ -21,30 +21,29 @@
   <!-- MOBILE & TABLET CONTENT -->
   <div class="visible-xs visible-sm">
     <div class="row">
-    <div class="col-sm-6 hidden-xs">
-        <a href="#" class="th-promo th-p1">&nbsp;</a>
-    </div>
-    <div class="col-sm-6">
-        <a href="#" class="th-promo th-p2">
-          <span class="th-title">Now Stocking Herschel Bags.</span>
-          <span class="th-text">
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-            <span class="th-link">Shop Now ></span>
-        </span>
-      </a>
-    </div>
+      <div class="col-sm-6 hidden-xs">
+        <a data-ng-href="{{featuredHomeItems.product1.linkTo}}" class="th-promo th-p1">&nbsp;</a>
+      </div>
+      <div class="col-sm-6">
+        <a data-ng-href="{{featuredHomeItems.category1.linkTo}}" class="th-promo th-p2">
+          <span class="th-title" data-translate="home.promoCategoryHeading">Now Stocking Herschel Bags.</span>
+          <span class="th-text" data-translate="home.promoCategoryDescription">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+            <span class="th-link" data-translate="home.shopNow">Shop Now &gt;</span>
+          </span>
+        </a>
+      </div>
     </div><!-- .row -->
   </div><!-- visible-xs -->
-
   <!-- MOBILE ONLY CONTENT -->
   <div class="visible-xs">
     <div class="row">
       <div class="col-xs-6 th-p-pad">
-        <a href="#" class="th-promo th-p1-sm">&nbsp;</a>
+        <a data-ng-href="{{featuredHomeItems.product1.linkTo}}" class="th-promo th-p1-sm">&nbsp;</a>
       </div>
       <div class="col-xs-6 th-p-pad">
-        <a href="#" class="th-promo th-p3-sm">&nbsp;</a>
-    </div>
+        <a data-ng-href="{{featuredHomeItems.product2.linkTo}}" class="th-promo th-p3-sm">&nbsp;</a>
+      </div>
     </div>
   </div>
 
@@ -52,35 +51,35 @@
   <div class="visible-xs visible-sm">
     <div class="th-last">
       <div class="row">
-    <div class="col-sm-6 hidden-xs">
-          <a href="#" class="th-promo th-p3">&nbsp;</a>
+        <div class="col-sm-6 hidden-xs">
+          <a data-ng-href="{{featuredHomeItems.product2.linkTo}}" class="th-promo th-p3">&nbsp;</a>
         </div>
         <div class="col-sm-6 th-p-pad">
-          <a href="#" class="th-promo th-b1">&nbsp;</a>
-          <a href="#" class="th-promo th-b2">&nbsp;</a>
-          <a href="#" class="th-promo th-b3 th-video"><img src="/images/homepage/video-sm.jpg" class="img-responsive" alt=""></a>
+          <a data-ng-href="{{featuredHomeItems.category2.linkTo}}" class="th-promo th-b1">&nbsp;</a>
+          <a data-ng-href="{{featuredHomeItems.category3.linkTo}}" class="th-promo th-b2">&nbsp;</a>
+          <a data-ng-href="{{featuredHomeItems.category4.linkTo}}" class="th-promo th-b3 th-video"><img src="/images/homepage/video-sm.jpg" class="img-responsive" alt=""></a>
         </div>
-    </div>
+      </div>
     </div>
   </div>
 
   <!-- DESKTOP CONTENT -->
   <div class="visible-md visible-lg">
     <div class="row">
-    <div class="col-md-4">
-        <a href="#" class="th-promo th-p1">&nbsp;</a>
-    </div>
-    <div class="col-md-4">
-        <a href="#" class="th-promo th-p2">
+      <div class="col-md-4">
+        <a data-ng-href="{{featuredHomeItems.product1.linkTo}}" class="th-promo th-p1">&nbsp;</a>
+      </div>
+      <div class="col-md-4">
+        <a data-ng-href="{{featuredHomeItems.category1.linkTo}}" class="th-promo th-p2">
           <span class="th-title">Now Stocking Herschel Bags.</span>
           <span class="th-text">
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-            <span class="th-link">Shop Now ></span>
-        </span>
-      </a>
-    </div>
-    <div class="col-md-4">
-        <a href="#" class="th-promo th-p3">&nbsp;</a>
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+            <span class="th-link" data-translate="home.shopNow">Shop Now &gt;</span>
+          </span>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a data-ng-href="{{featuredHomeItems.product2.linkTo}}" class="th-promo th-p3">&nbsp;</a>
       </div>
     </div>
   </div>
@@ -89,104 +88,100 @@
   <div class="visible-md visible-lg">
     <div class="th-last">
       <div class="row">
-    <div class="col-md-4">
-          <a href="#" class="th-promo th-b1"><span class="th-category">New Sunglasses ></span></a>
-    </div>
-    <div class="col-md-4">
-          <a href="#" class="th-promo th-b2"><span class="th-category">Townsend Shoes ></span></a>
-    </div>
-    <div class="col-md-4">
-          <a href="#" class="th-promo th-b3 th-video"><img src="/images/homepage/video.jpg" class="img-responsive" alt=""></a>
+        <div class="col-md-4">
+          <a data-ng-href="{{featuredHomeItems.category2.linkTo}}" class="th-promo th-b1"><span class="th-category">New Sunglasses ></span></a>
+        </div>
+        <div class="col-md-4">
+          <a data-ng-href="{{featuredHomeItems.category3.linkTo}}" class="th-promo th-b2"><span class="th-category">Townsend Shoes ></span></a>
+        </div>
+        <div class="col-md-4">
+          <a data-ng-href="{{featuredHomeItems.category4.linkTo}}" class="th-promo th-b3 th-video"><img src="/images/homepage/video.jpg" class="img-responsive" alt=""></a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="visible-lg">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Featured</a></li>
-      <li><a href="#">Best Sellers</a></li>
-      <li><a href="#">On Sale</a></li>
-    </ul>
-    <div class="th-products-wrap clearfix">
-      <!-- PRODUCT 1 -->
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="th-product">
-          <span class="th-product__sale"></span>
-          <div class="th-product__image">
-            <a href="#"><img src="/images/demo/shirt1.jpg" class="img-responsive" alt=""></a>
-            <div class="th-quick-options visible-lg">
-              <a href="#" class="th-quick-view">Quick View</a>
-              <a href="#" class="th-add-to-cart"><span></span></a>
-          </div>
+
+    <div data-tabset>
+      <div data-tab>
+        <div data-tab-heading data-translate="home.featured">
+          Featured
         </div>
-          <div class="th-product__name">
-          <a href="#">Method Limited Screen printed Tee</a>
-        </div>
-          <div class="th-product__price">
-            <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
-              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
+        <div class="th-products-wrap clearfix">
+          <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
+            <div class="th-product">
+              <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
+              <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
+              <div class="th-product__image">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
+                <div class="th-quick-options visible-md visible-lg">
+                  <a href="#" class="th-quick-view" data-translate="home.quickView">Quick View</a>
+                  <a href="#" class="th-add-to-cart"><span></span></a>
+                </div>
+              </div>
+              <div class="th-product__name">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}">{{relatedProduct.name}}</a>
+              </div>
+              <div class="th-product__price">
+                <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="home.regularPriceLabel"></span></span>
+                <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="home.nowPriceLabel"></span></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- PRODUCT 2 -->
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="th-product">
-          <div class="th-product__image">
-            <a href="#"><img src="/images/demo/shirt2.jpg" class="img-responsive" alt=""></a>
-            <div class="th-quick-options visible-lg">
-              <a href="#" class="th-quick-view">Quick View</a>
-              <a href="#" class="th-add-to-cart"><span></span></a>
-          </div>
+      <div data-tab>
+        <div data-tab-heading data-translate="home.bestSellers">
+          Best Sellers
         </div>
-          <div class="th-product__name">
-          <a href="#">Method LImited Screen printed Tee</a>
-        </div>
-          <div class="th-product__price">
-            <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
-              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUCT 3 -->
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="th-product">
-          <span class="th-product__new"></span>
-          <div class="th-product__image">
-            <a href="#"><img src="/images/demo/shirt3.jpg" class="img-responsive" alt=""></a>
-            <div class="th-quick-options visible-lg">
-              <a href="#" class="th-quick-view">Quick View</a>
-              <a href="#" class="th-add-to-cart"><span></span></a>
-          </div>
-        </div>
-          <div class="th-product__name">
-          <a href="#">Method LImited Screen printed Tee</a>
-        </div>
-          <div class="th-product__price">
-            <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
-              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
+        <div class="th-products-wrap clearfix">
+          <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
+            <div class="th-product">
+              <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
+              <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
+              <div class="th-product__image">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
+                <div class="th-quick-options visible-md visible-lg">
+                  <a href="#" class="th-quick-view" data-translate="home.quickView">Quick View</a>
+                  <a href="#" class="th-add-to-cart"><span></span></a>
+                </div>
+              </div>
+              <div class="th-product__name">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}">{{relatedProduct.name}}</a>
+              </div>
+              <div class="th-product__price">
+                <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="home.regularPriceLabel"></span></span>
+                <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="home.nowPriceLabel"></span></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- PRODUCT 4 -->
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="th-product">
-          <div class="th-product__image">
-            <a href="screen-print.html"><img src="/images/demo/shirt4.jpg" class="img-responsive" alt=""></a>
-            <div class="th-quick-options visible-lg">
-              <a href="#" class="th-quick-view">Quick View</a>
-              <a href="#" class="th-add-to-cart"><span></span></a>
-          </div>
+      <div data-tab>
+        <div data-tab-heading data-translate="home.onSale">
+          On Sale
         </div>
-          <div class="th-product__name">
-          <a href="#">Method LImited Screen printed Tee</a>
-        </div>
-          <div class="th-product__price">
-            <span class="th-reg-price"><span class="th-price strike">$48</span><span class="th-price-text th-text-left">Reg</span></span>
-              <span class="th-now-price"><span class="th-price">$36</span><span class="th-price-text">Now</span></span>
+        <div class="th-products-wrap clearfix">
+          <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
+            <div class="th-product">
+              <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
+              <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
+              <div class="th-product__image">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
+                <div class="th-quick-options visible-md visible-lg">
+                  <a href="#" class="th-quick-view" data-translate="home.quickView">Quick View</a>
+                  <a href="#" class="th-add-to-cart"><span></span></a>
+                </div>
+              </div>
+              <div class="th-product__name">
+                <a data-ng-href="{{relatedProduct.code}}/p/{{relatedProduct.id}}">{{relatedProduct.name}}</a>
+              </div>
+              <div class="th-product__price">
+                <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="home.regularPriceLabel"></span></span>
+                <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="home.nowPriceLabel"></span></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -2,56 +2,58 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="volusionApp"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="volusionApp"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="volusionApp"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" data-ng-app="volusionApp"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="fragment" content="!" />
-    <title data-translate="head.title"></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css({.tmp,app}) /styles/app.css -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body role="document" data-ng-controller="IndexCtrl">
+<!--[if gt IE 8]><!-->
+<html class="no-js" data-ng-app="volusionApp">
+ <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="fragment" content="!" />
+  <title data-translate="head.title"></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css({.tmp,app}) /styles/app.css -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- endbuild -->
+  <base data-ng-href="{{base}}" />
+</head>
+<body role="document" data-ng-controller="IndexCtrl">
 
-    <!--[if lt IE 7]>
-    <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation">
-      <div class="th-header">
-        <div class="container">
-          <div class="th-header__shipping-text">
-            <a href="#" class="free-shipping">Free shipping on all orders over $99!</a>
-          </div>
-          <div class="th-header__account-menu">
-            <ul class="nav nav-pills">
-              <li><a href="#">Sign-In</a></li>
-                <li><a href="#">Create Account</a></li>
-              <li><a href="#">My Favorites</a></li>
-            </ul>
-          </div>
+  <!--[if lt IE 7]>
+  <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation">
+    <div class="th-header">
+      <div class="container">
+        <div class="th-header__shipping-text">
+          <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
+        </div>
+        <div class="th-header__account-menu">
+          <ul class="nav nav-pills">
+            <li><a href="#" data-translate="index.signIn">Sign In</a></li>
+            <li><a href="#" data-translate="index.createAccount">Create Account</a></li>
+            <li><a href="#" data-translate="index.myFavorites">My Favorites</a></li>
+          </ul>
         </div>
       </div>
-      <div class="container th-menu-container">
+    </div>
+    <div class="container th-menu-container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".th-main-menu">
-          <span class="sr-only">Toggle navigation</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#th-main-menu">
+          <span class="sr-only" data-translate="index.toggleNavigation">Toggle Navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand visible-md visible-lg" href="#"><img src="{{config.logoUrl}}" /></a>
-        <a class="navbar-brand visible-xs visible-sm" href="#"><img src="{{config.mobileLogoUrl}}" /></a>
+        <a class="navbar-brand visible-md visible-lg" href="/"><img src="{{config.logoUrl}}" /></a>
+        <a class="navbar-brand visible-xs visible-sm" href="/"><img src="{{config.mobileLogoUrl}}" /></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="th-main-menu">
         <div class="th-search--small">
           <form class="navbar-form" role="search">
             <div class="form-group th-search--small__group">
@@ -61,94 +63,13 @@
           </form>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="#">Men</a></li>
-
-          <li class="dropdown th-mega-drop">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menu</a>
-            <ul class="row dropdown-menu th-mega-menu">
-              <li class="col-md-2 th-mega-menu-column">
-                <ul>
-                  <li class="th-nav-header">Collections</li>
-                  <li><a href="#">New Arrivals</a></li>
-                  <li><a href="#">Web Exclusives</a></li>
-                  <li><a href="#">Looks to Live in</a></li>
-                  <li><a href="#">Jean Guide</a></li>
-                  <li><a href="#">Web Exclusives</a></li>
-                  <li><a href="#">Jean Guide</a></li>
-                  <li><a href="#">Looks to Live in</a></li>
-                </ul>
-              </li>
-
-              <li class="col-md-2 th-mega-menu-column">
-                <ul>
-                  <li class="th-nav-header">Main Shopping</li>
-                  <li><a href="#">New Arrivals</a></li>
-                  <li><a href="#">Web Exclusives</a></li>
-                  <li><a href="#">Looks to Live in</a></li>
-                  <li><a href="#">Jean Guide</a></li>
-                  <li><a href="#">Web Exclusives</a></li>
-                  <li><a href="#">Jean Guide</a></li>
-                  <li><a href="#">Looks to Live in</a></li>
-                </ul>
-              </li>
-
-              <li class="col-md-2 th-mega-menu-column">
-                <ul>
-                  <li class="th-nav-header">Tops</li>
-                  <li><a href="#">Sweaters</a></li>
-                  <li><a href="#">Hoodies</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Tank Tops</a></li>
-                </ul>
-                <ul>
-                  <li class="th-nav-header">Bottoms</li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Pants</a></li>
-                </ul>
-              </li>
-
-              <li class="col-md-2 th-mega-menu-column">
-                <ul>
-                  <li class="th-nav-header">Tops</li>
-                  <li><a href="#">Sweaters</a></li>
-                  <li><a href="#">Hoodies</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Tank Tops</a></li>
-                </ul>
-                <ul>
-                  <li class="th-nav-header">Bottoms</li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Pants</a></li>
-                </ul>
-              </li>
-
-              <li class="col-md-4 th-mega-menu-column">
-                <div class="th-menu-img">
-                  <img src="/images/demo/menu-img.png" class="img-responsive" alt="">
-                </div>
-                <ul>
-                  <li><a href="#">Get this look</a></li>
-                  <li><a href="#">Shop All Women</a></li>
-                </ul>
-              </li>
-
-            </ul><!-- dropdown-menu -->
-          </li><!-- /.dropdown -->
-
-          <li><a href="t-shirts.html">T-shirts</a></li>
-          <li><a href="#">Apartment</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">Brands</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Dropdown Menu Item</a></li>
-              <li><a href="#">Dropdown Menu Item</a></li>
-              <li><a href="#">Dropdown Menu Item</a></li>
-              <li><a href="#">Dropdown Menu Item</a></li>
-              <li><a href="#">Dropdown Menu Item</a></li>
-              <li><a href="#">Dropdown Menu Item</a></li>
+          <li class="dropdown" data-ng-repeat="category in categories">
+            <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">{{category.name}}</a>
+            <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
+              <li data-ng-repeat="subCategory in category.subCategories"><a data-ng-href="{{subCategory.name}}/c/{{subCategory.id}}">{{subCategory.name}}</a></li>
             </ul>
           </li>
-          <li class="active"><a href="#">Sale</a></li>
+
         </ul>
 
         <div class="th-menu-site-map">
@@ -192,8 +113,8 @@
         </form>
         <span class="th-my-cart">
           <a href="#" class="th-my-cart__link">
-            <span class="th-my-cart__text">My Bag</span>
-            <span class="th-my-cart__number">1</span>
+            <span class="th-my-cart__text" data-translate="index.myCart"></span>
+            <span class="th-my-cart__number">{{cart.itemCount}}</span>
           </a>
         </span>
       </div><!-- .nav-tools -->
@@ -208,12 +129,12 @@
   <footer class="th-footer">
     <div class="th-newsbar">
       <div class="th-elist">
-        <div class="th-elist__title">Sign-up for our Newsletter</div>
+        <div class="th-elist__title" data-translate="index.signUpForNewsletter">Sign-Up for Our Newsletter</div>
         <form class="form-inline th-elist__form" role="form" name="MailingList" method="post" action="">
           <div class="form-group th-elist__group">
             <input type="email" name="emailaddress" class="form-control th-elist__input" value="" placeholder="Sign-up for promotions">
           </div>
-          <button type="submit" class="btn btn-default th-elist__submit">GO</button>
+          <button type="submit" class="btn btn-default th-elist__submit" data-translate="index.newsletterSignUpButton">Go</button>
         </form>
       </div><!-- .v-newsletter -->
     </div>
@@ -313,50 +234,52 @@
     </div>
   </footer>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
 
-    <!--[if lt IE 9]>
-    <script src="/bower_components/es5-shim/es5-shim.js"></script>
-    <script src="/bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+  <!--[if lt IE 9]>
+  <script src="/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- build:js /scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-seo/angular-seo.js"></script>
+  <script src="/bower_components/angular-translate/angular-translate.js"></script>
+  <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+  <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+  <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+  <script src="/bower_components/messageformat/messageformat.js"></script>
+  <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+  <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/json3/lib/json3.min.js"></script>
+  <!-- endbower -->
+  <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/accordion/accordion.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
+  <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js /scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/es5-shim/es5-shim.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-seo/angular-seo.js"></script>
-    <script src="/bower_components/angular-translate/angular-translate.js"></script>
-    <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
-    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-    <script src="/bower_components/messageformat/messageformat.js"></script>
-    <script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-    <script src="/bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/json3/lib/json3.min.js"></script>
-    <!-- endbower -->
-    <script src="/bower_components/angular-i18n/angular-locale_en-us.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/tabs/tabs.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/accordion/accordion.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/dropdownToggle/dropdownToggle.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
-    <script src="/bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
-    <!-- endbuild -->
-
-    <script src="/scripts/scripts.js"></script>
+  <script src="/scripts/scripts.js"></script>
 </body>
 </html>

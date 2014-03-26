@@ -28,7 +28,8 @@ angular.module('volusionApp', [
     'ui.bootstrap.dropdownToggle',
     'ui.bootstrap.transition',
     'ui.bootstrap.accordion',
-    'ui.bootstrap.collapse'
+    'ui.bootstrap.collapse',
+    'ui.bootstrap.tabs'
   ])
   .provider('api', require('./services/api-provider'));
 
@@ -46,6 +47,10 @@ angular.module('volusionApp')
     apiProvider.setBaseRoute(config.ENV.API_URL);
     apiProvider.endpoint('products').
       route('/products/:code');
+    apiProvider.endpoint('relatedproducts').
+      route('/products/?');
+    apiProvider.endpoint('reviews').
+      route('/products/:code/reviews');
     apiProvider.endpoint('categories').
       route('/categories/:id');
     apiProvider.endpoint('config').
@@ -84,6 +89,9 @@ angular.module('volusionApp')
         resolve: {
           translations: ['requireTranslations', function(requireTranslations) {
             return requireTranslations('category');
+          }],
+          category: ['api', '$stateParams', function(api, $stateParams) {
+            return api.categories.get({ id: $stateParams.categoryId });
           }]
         }
       })
@@ -111,7 +119,8 @@ angular.module('volusionApp')
     $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
   })
-  .run(function($templateCache) {
+  .run(function ($rootScope, $templateCache) {
+    $rootScope.base = '/' + getI18NPath() + '/';
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
