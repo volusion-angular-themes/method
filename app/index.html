@@ -25,7 +25,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
             <span class="sr-only" data-translate="index.toggleNav"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -33,7 +33,7 @@
           </button>
           <a class="navbar-brand" href="#" data-translate="index.bootstrapTheme"></a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed=true">
           <ul class="nav navbar-nav">
             <li class="active"><a data-ng-href="{{base}}" data-translate="index.home">Home</a></li>
             <li><a data-ng-href="style-guide" data-translate="index.styleGuide">Style Guide</a></li>
