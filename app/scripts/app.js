@@ -105,7 +105,8 @@ angular.module('volusionApp')
     $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
   })
-  .run(function($templateCache) {
+  .run(function($rootScope, $templateCache) {
+    $rootScope.base = getI18NPath();
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
