@@ -22,7 +22,7 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate',
     require('./services/config').name
-])
+  ])
   .provider('api', require('./services/api-provider'));
 
 angular.module('volusionApp')
