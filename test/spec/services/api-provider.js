@@ -23,17 +23,10 @@ describe('Service: apiProvider', function() {
 
   // ReSharper disable InconsistentNaming
   beforeEach(inject(function(_api_, _$httpBackend_) {
-  // ReSharper restore InconsistentNaming
+    // ReSharper restore InconsistentNaming
     api = _api_;
     $httpBackend = _$httpBackend_;
-    $httpBackend.whenGET(/^\/translations\//).respond('201', '');
   }));
-
-  afterEach(function() {
-    $httpBackend.flush();
-    $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
 
   describe('with api provider', function() {
       it('it sets base route of the provider', function() {
@@ -55,17 +48,17 @@ describe('Service: apiProvider', function() {
 
       it('it makes the HTTP GET call on the get method', function() {
         $httpBackend.whenGET('/local/cart').respond({test: 'test'});
-        $httpBackend.flush();
         api.test.get().then(function(response) {
           expect(response.test).to.eq('test');
+          $httpBackend.flush();
         });
       });
 
       it('it makes the HTTP POST call on the save method', function() {
         $httpBackend.whenPOST('/local/cart').respond('201', '');
-        $httpBackend.flush();
         api.test.save().then(function(response) {
           expect(response.$resolved).to.be.true;
+          $httpBackend.flush();
         });
       });
     }
