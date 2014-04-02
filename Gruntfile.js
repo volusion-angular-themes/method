@@ -78,7 +78,7 @@ module.exports = function(grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/.+/template\/(.*)$', to: '/bower_components/angular-ui-bootstrap/template/$1' },
+        { from: '^/.*/?template\/(.*)$', to: '/bower_components/angular-ui-bootstrap/template/$1' },
         { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
