@@ -8,6 +8,5 @@ module.exports = [
       'AngularJS',
       'Karma'
     ];
-    $scope.htmlReady();
   }
 ];

@@ -79,6 +79,7 @@ module.exports = function (grunt) {
       },
       rules: [
         { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/404.html', to: '/404.html' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
       livereload: {
