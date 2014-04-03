@@ -10,8 +10,10 @@ describe('Controller: ProductCtrl', function () {
   var controller;
   var scope;
   var product = {
-    name: 'Product Name',
-    code: 'PC123'
+    data: {
+      name: 'Product Name',
+      code: 'PC123'
+    }
   };
 
   // Initialize the controller and a mock scope
@@ -24,7 +26,7 @@ describe('Controller: ProductCtrl', function () {
   }));
 
   it('should attach the product data to the scope', function () {
-    expect(scope.product).to.deep.equal(product);
+    expect(scope.product).to.deep.equal(product.data);
   });
 
 });
