@@ -36,9 +36,13 @@ angular.module('volusionApp')
     translateProvider.configure(translateOptions);
 
     $urlRouterProvider.when('/', ['$state', function($state) {
-      $state.go('i18n.home', translateOptions);
+      $state.go('i18n.home', translateOptions, { location: 'replace' });
     }]);
-    $urlRouterProvider.otherwise('/404.html');
+
+    $urlRouterProvider.otherwise(function($injector) {
+      var $window = $injector.get('$window');
+      $window.location.replace('/404.html');
+    });
 
     $stateProvider
       .state('i18n', {
@@ -77,5 +81,6 @@ angular.module('volusionApp')
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
   })
   .factory('storage', require('./services/storage'))
+  .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'));
