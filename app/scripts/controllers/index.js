@@ -2,10 +2,9 @@
 
 module.exports = [
   '$scope',
-  '$http',
   'api',
 
-  function ($scope, $http, api) {
+  function ($scope, api) {
 
     $scope.global = {
       cart: {

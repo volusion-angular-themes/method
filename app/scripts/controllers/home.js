@@ -5,8 +5,8 @@ module.exports = [
   'api',
   function ($scope, api) {
     // Slider
-    api.slider.query().then(function(data){
-        $scope.slider = data;
+    api.slider.get().then(function(response){
+        $scope.slider = response.data;
       });
 
     $scope.interval = 4000;
@@ -32,8 +32,8 @@ module.exports = [
       }
     };
 
-    api.relatedproducts.query({ productCode: 123, filter: 'relatedProducts', pageNumber: 1, pageSize: 10 }).then(function (data) {
-      $scope.relatedProducts = data;
+    api.relatedproducts.get({ productCode: 123, filter: 'relatedProducts', pageNumber: 1, pageSize: 10 }).then(function (response) {
+      $scope.relatedProducts = response.data;
     });
   }
 ];

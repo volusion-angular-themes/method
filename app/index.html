@@ -16,7 +16,6 @@
   <!-- build:css({.tmp,app}) /styles/app.css -->
   <link rel="stylesheet" href="/styles/main.css">
   <!-- endbuild -->
-  <base data-ng-href="{{base}}" />
 </head>
 <body role="document" data-ng-controller="IndexCtrl">
 
@@ -66,7 +65,7 @@
           <li class="dropdown" data-ng-repeat="category in categories">
             <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">{{category.name}}</a>
             <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
-              <li data-ng-repeat="subCategory in category.subCategories"><a data-ng-href="{{subCategory.name}}/c/{{subCategory.id}}">{{subCategory.name}}</a></li>
+              <li data-ng-repeat="subCategory in category.subCategories"><a data-ui-sref="i18n.category({ categoryName: subCategory.name, categoryId: subCategory.id })">{{subCategory.name}}</a></li>
             </ul>
           </li>
 
