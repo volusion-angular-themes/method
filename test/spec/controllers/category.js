@@ -10,10 +10,12 @@ describe('Controller: CategoryCtrl', function () {
   var controller;
   var scope;
   var category = {
-    id: 1,
-    name: 'Category 1',
-    subCategories: [],
-    products: []
+    data: {
+      id: 1,
+      name: 'Category 1',
+      subCategories: [],
+      products: []
+    }
   };
 
   // Initialize the controller and a mock scope
@@ -26,7 +28,7 @@ describe('Controller: CategoryCtrl', function () {
   }));
 
   it('should attach the product data to the scope', function () {
-    expect(scope.category).to.deep.equal(category);
+    expect(scope.category).to.deep.equal(category.data);
   });
 
 });

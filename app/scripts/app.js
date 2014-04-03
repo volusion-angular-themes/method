@@ -30,6 +30,8 @@ angular.module('volusionApp')
       route('/categories/:id');
     apiProvider.endpoint('config').
       route('/config');
+    apiProvider.endpoint('cart').
+      route('/cart');
 
 
     $locationProvider.html5Mode(true);

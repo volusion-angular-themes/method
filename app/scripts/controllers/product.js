@@ -4,6 +4,6 @@ module.exports = [
   '$scope',
   'product',
   function($scope, product) {
-    $scope.product = product;
+    $scope.product = product.data;
   }
 ];

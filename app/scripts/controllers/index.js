@@ -1,10 +1,11 @@
-﻿'use strict';
+'use strict';
 
 module.exports = [
   '$scope',
   '$http',
+  'api',
 
-  function ($scope, $http) {
+  function ($scope, $http, api) {
 
     $scope.global = {
       cart: {
@@ -13,39 +14,30 @@ module.exports = [
     };
 
     // Cart
-    $http.get('http://volusion.apiary.io/cart')
-      .success(function (data) {
-        $scope.cart = data;
-
+    api.cart.get().then(function (response) {
+        $scope.cart = response.data;
         // TODO: REMOVE
-        console.log('Cart: ' + data);
-      })
-      .error(function (data) {
-        console.log('Error: ' + data);
+        console.log('Cart: ', response.data);
+      }, function (error) {
+        console.log('Error: ', error);
       });
 
     // Categories
-    $http.get('http://volusion.apiary.io/categories')
-      .success(function (data) {
-        $scope.categories = data;
-
+    api.categories.get().then(function (response) {
+        $scope.categories = response.data;
         // TODO: REMOVE
-        console.log('Categories: ' + data);
-      })
-      .error(function (data) {
-        console.log('Error: ' + data);
+        console.log('Categories: ', response.data);
+      }, function (error) {
+        console.log('Error: ' + error);
       });
 
     // Config
-    $http.get('http://volusion.apiary.io/config')
-      .success(function (data) {
-        $scope.config = data;
-
+    api.config.get().then(function (response) {
+        $scope.config = response.data;
         // TODO: REMOVE
-        console.log('Config: ' + data);
-      })
-      .error(function (data) {
-        console.log('Error: ' + data);
+        console.log('Config: ', response.data);
+      }, function (error) {
+        console.log('Error: ', error);
       });
 
     $scope.htmlReady();
