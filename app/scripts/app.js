@@ -12,12 +12,7 @@ angular.module('volusionApp', [
     'pascalprecht.translate',
     require('./services/config').name,
     'pascalprecht.translate',
-    'ui.bootstrap.carousel',
-    'ui.bootstrap.dropdownToggle',
-    'ui.bootstrap.transition',
-    'ui.bootstrap.accordion',
-    'ui.bootstrap.collapse',
-    'ui.bootstrap.tabs'
+    'ui.bootstrap'
   ])
   .provider('api', require('./services/api-provider'))
   .provider('translate', require('./services/translate-provider'));
