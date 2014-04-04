@@ -20,7 +20,7 @@
         <div class="hidden-xs">
           <div class="clearfix th-product-view">
             <div class="th-product-view__image">
-              <a href="#"><img src="{{product.mainImageUrl}}" height="585" width="356" class="img-responsive" alt=""></a>
+              <a href="#"><img src="{{product.mainImage.large}}" height="585" width="356" class="img-responsive" alt=""></a>
               <a href="#" class="th-product-view__zoom"></a>
             </div>
             <div class="th-product-view__alts">
@@ -113,7 +113,7 @@
 
             <div class="th-product-info visible-lg">
               <accordion close-others="oneAtATime">
-                <accordion-group is-open="isopen" ng-repeat="panel in panels">
+                <accordion-group is-open="isopen" ng-repeat="panel in product.panels">
                   <accordion-heading>
                     {{panel.heading}}  <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
                   </accordion-heading>
@@ -141,11 +141,11 @@
 
     <div class="hidden-lg th-product-info">
       <accordion close-others="oneAtATime">
-        <accordion-group is-open="isopen" ng-repeat="panel in panels">
+        <accordion-group is-open="isopen" ng-repeat="panel in product.panels">
           <accordion-heading>
             {{panel.heading}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
           </accordion-heading>
-          {{panels.content}}
+          {{panel.content}}
         </accordion-group>
       </accordion>
     </div>
