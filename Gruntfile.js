@@ -257,7 +257,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          src: '**/*.{png,jpg,jpeg,gif}',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -268,7 +268,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
+          src: '**/*.svg',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -330,7 +330,7 @@ module.exports = function (grunt) {
             'web.config',
             '*.html',
             'bower_components/**/*',
-            'images/{,*/}*.{webp}',
+            'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
             'translations/{,*/}*.json'
           ]
@@ -347,15 +347,6 @@ module.exports = function (grunt) {
         src: 'scripts/{,*/}*.js',
         dest: '.tmp'
       }
-    },
-
-    // Run some tasks in parallel to speed up the build process
-    concurrent: {
-      dist: [
-        'compass:dist',
-        'imagemin',
-        'svgmin'
-      ]
     },
 
     uglify: {
@@ -456,11 +447,13 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'clean:dist',
+    'clean',
     'replace:prod',
     'bower-install',
     'useminPrepare',
-    'concurrent',
+    'compass:dist',
+    'imagemin',
+    'svgmin',
     'concat',
     'copy:scripts',
     'htmlmin',
