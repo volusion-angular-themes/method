@@ -11,7 +11,6 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate',
     require('./services/config').name,
-    'pascalprecht.translate',
     'ui.bootstrap'
   ])
   .provider('api', require('./services/api-provider'))
