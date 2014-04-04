@@ -83,6 +83,26 @@ angular.module('volusionApp')
           }]
         }
       })
+      .state('i18n.about', {
+        url: '/about',
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        resolve: {
+          translations: ['translate', function(translate) {
+            return translate.addParts('about');
+          }]
+        }
+      })
+      .state('i18n.contact', {
+        url: '/contact',
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        resolve: {
+          translations: ['translate', function(translate) {
+            return translate.addParts('contact');
+          }]
+        }
+      })
       .state('i18n.category', {
         url: '/:categoryName/c/:categoryId',
         templateUrl: 'views/category.html',
@@ -114,6 +134,8 @@ angular.module('volusionApp')
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
+    $templateCache.put('views/about.html', require('./views/about.html'));
+    $templateCache.put('views/contact.html', require('./views/contact.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
     $templateCache.put('views/product.html', require('./views/product.html'));
   })
@@ -121,6 +143,7 @@ angular.module('volusionApp')
   .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
+  .controller('AboutCtrl', require('./controllers/about'))
+  .controller('ContactCtrl', require('./controllers/contact'))
   .controller('CategoryCtrl', require('./controllers/category'))
-  .controller('ProductCtrl', require('./controllers/product'))
-  .controller('IndexCtrl', require('./controllers/index'));
+  .controller('ProductCtrl', require('./controllers/product'));

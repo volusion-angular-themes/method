@@ -1,19 +1,21 @@
 'use strict';
 
 module.exports = [
-  '$state',
   '$scope',
+  '$state',
   '$http',
   'api',
-
-  function ($state, $scope, $http, api) {
+  function(
+    $scope,
+    $state,
+    $http,
+    api) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
       if (toState.name === 'i18n') {
         $state.go('.home', null, { location: 'replace' });
       }
     });
-
 
     $scope.global = {
       cart: {
