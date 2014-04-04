@@ -7,12 +7,10 @@
  * @param {string} baseRoute The server api's base route.
  * @param {app.ApiEndpointConfig} endpointConfig Configuration object for the
  *     endpoint.
- * @param {!Object} $injector The angular $injector service.
  * @param {!Function} $resource The angular $resource service.
  */
-var ApiEndpoint = function(baseRoute, endpointConfig, $injector, $resource) {
+var ApiEndpoint = function(baseRoute, endpointConfig, $resource) {
   this.config = endpointConfig;
-  this.$injector = $injector;
   this.resource = $resource(baseRoute + endpointConfig.route, {},
     endpointConfig.actions);
 
