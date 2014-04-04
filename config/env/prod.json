@@ -1,5 +1,5 @@
 {
   "config": {
-    "API_URL": "/api/v1"
+    "API_URL": "http://volusion.apiary.io"
   }
 }

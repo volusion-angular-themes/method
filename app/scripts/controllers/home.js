@@ -3,8 +3,11 @@
 module.exports = [
   '$scope',
   'api',
-  function ($scope, api) {
-    // Slider
+
+  function (
+    $scope,
+    api) {
+
     api.slider.get().then(function(response){
         $scope.slider = response.data;
       });

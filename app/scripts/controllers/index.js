@@ -5,7 +5,10 @@ module.exports = [
   '$scope',
   'api',
 
-  function ($state, $scope, api) {
+  function (
+    $state,
+    $scope,
+    api) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
       if (toState.name === 'i18n') {

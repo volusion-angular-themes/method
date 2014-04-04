@@ -3,6 +3,8 @@
     "title": "Volusion AngularJS Method Theme"
   },
   "index": {
+    "about": "About Us",
+    "contact": "Contact Us",
     "toggleNavigation": "Toggle Navigation",
     "promo": "Free shipping on all orders over $99!",
     "myCart": "My Bag",
