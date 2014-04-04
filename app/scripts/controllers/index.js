@@ -1,10 +1,18 @@
 'use strict';
 
 module.exports = [
+  '$state',
   '$scope',
   'api',
 
-  function ($scope, api) {
+  function ($state, $scope, $http, api) {
+
+    $scope.$on('$stateChangeSuccess', function(event, toState) {
+      if (toState.name === 'i18n') {
+        $state.go('.home', null, { location: 'replace' });
+      }
+    });
+
 
     $scope.global = {
       cart: {
@@ -39,6 +47,5 @@ module.exports = [
         console.log('Error: ', error);
       });
 
-    $scope.htmlReady();
   }
 ];
