@@ -40,18 +40,22 @@ ApiProvider.prototype.endpoint = function(name) {
  */
 
 // Method for instantiating
-ApiProvider.prototype.$get = function($injector) {
-  var api = {};
+ApiProvider.prototype.$get = [
+  '$injector',
+  function(
+    $injector) {
+    var api = {};
 
-  var self = this;
-  angular.forEach(self.endpoints, function(endpointConfig, name) {
-    api[name] = $injector.instantiate(ApiEndpoint, {
-      baseRoute: self.baseRoute,
-      endpointConfig: endpointConfig
+    var self = this;
+    angular.forEach(self.endpoints, function(endpointConfig, name) {
+      api[name] = $injector.instantiate(ApiEndpoint, {
+        baseRoute: self.baseRoute,
+        endpointConfig: endpointConfig
+      });
     });
-  });
 
-  return api;
-};
+    return api;
+  }
+];
 
 module.exports = ApiProvider;
