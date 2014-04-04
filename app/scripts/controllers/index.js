@@ -3,12 +3,10 @@
 module.exports = [
   '$scope',
   '$state',
-  '$http',
   'api',
   function(
     $scope,
     $state,
-    $http,
     api) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
