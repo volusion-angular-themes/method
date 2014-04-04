@@ -19,6 +19,7 @@ angular.module('volusionApp')
     $stateProvider,
     $urlRouterProvider,
     $locationProvider,
+    $injector,
     apiProvider,
     translateProvider,
     config) {
@@ -48,7 +49,7 @@ angular.module('volusionApp')
       $state.go('i18n.home', translateOptions, { location: 'replace' });
     }]);
 
-    $urlRouterProvider.otherwise(function($injector) {
+    $urlRouterProvider.otherwise(function() {
       var $window = $injector.get('$window');
       $window.location.replace('/404.html');
     });
