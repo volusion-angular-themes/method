@@ -73,14 +73,38 @@ angular.module('volusionApp')
             return translate.addParts('style-guide');
           }]
         }
+      })
+      .state('i18n.about', {
+        url: '/about',
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        resolve: {
+          translations: ['translate', function(translate) {
+            return translate.addParts('about');
+          }]
+        }
+      })
+      .state('i18n.contact', {
+        url: '/contact',
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        resolve: {
+          translations: ['translate', function(translate) {
+            return translate.addParts('contact');
+          }]
+        }
       });
   })
   .run(function($templateCache) {
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
+    $templateCache.put('views/about.html', require('./views/about.html'));
+    $templateCache.put('views/contact.html', require('./views/contact.html'));
   })
   .factory('storage', require('./services/storage'))
   .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))
-  .controller('StyleGuideCtrl', require('./controllers/style-guide'));
+  .controller('StyleGuideCtrl', require('./controllers/style-guide'))
+  .controller('AboutCtrl', require('./controllers/about'))
+  .controller('ContactCtrl', require('./controllers/contact'));
