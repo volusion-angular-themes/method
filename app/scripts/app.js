@@ -141,6 +141,7 @@ angular.module('volusionApp')
     $templateCache.put('views/product.html', require('./views/product.html'));
   })
   .factory('storage', require('./services/storage'))
+  .filter('seoFriendly', require('./filters/seoFriendly'))
   .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))
   .controller('StyleGuideCtrl', require('./controllers/style-guide'))
