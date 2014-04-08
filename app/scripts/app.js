@@ -19,7 +19,7 @@ angular.module('volusionApp')
     $stateProvider,
     $urlRouterProvider,
     $locationProvider,
-    $injector,
+    $windowProvider,
     apiProvider,
     translateProvider,
     config) {
@@ -50,8 +50,7 @@ angular.module('volusionApp')
     }]);
 
     $urlRouterProvider.otherwise(function() {
-      var $window = $injector.get('$window');
-      $window.location.replace('/404.html');
+      $windowProvider.$get().location.replace('/404.html');
     });
 
     $stateProvider
@@ -141,6 +140,7 @@ angular.module('volusionApp')
     $templateCache.put('views/product.html', require('./views/product.html'));
   })
   .factory('storage', require('./services/storage'))
+  .directive('legacyLink', require('./directives/legacy-link'))
   .filter('seoFriendly', require('./filters/seoFriendly'))
   .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))
