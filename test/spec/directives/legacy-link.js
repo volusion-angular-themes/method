@@ -19,7 +19,7 @@ describe('Directive: legacyLink', function() {
     expect(element.attr('href')).to.eq('/foo');
   });
 
-  it('assigns the value to the href', inject(function($window) {
+  it('goes to the specified location on click', inject(function($window) {
     var assign = sinon.stub($window.location, 'assign');
     element.click();
     expect(assign).to.have.been.calledOnce;
