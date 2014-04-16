@@ -294,6 +294,14 @@ module.exports = function (grunt) {
           src: 'views/{,*/}*.html',
           dest: '.tmp/scripts'
         }]
+      },
+      componentViews: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/scripts',
+          src: 'node_modules/**/*.html',
+          dest: '.tmp/scripts'
+        }]
       }
     },
 
@@ -344,7 +352,16 @@ module.exports = function (grunt) {
       scripts: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: 'scripts/{,*/}*.js',
+        src: ['scripts/{,*/}*.js'],
+        dest: '.tmp'
+      },
+      components: {
+        expand: true,
+        cwd: '<%= yeoman.app %>',
+        src: [
+          'scripts/node_modules/**',
+          '!scripts/node_modules/**/*.html'
+        ],
         dest: '.tmp'
       }
     },
@@ -422,6 +439,7 @@ module.exports = function (grunt) {
       'bower-install',
       'compass:server',
       'copy:scripts',
+      'copy:components',
       'htmlmin',
       'browserify:test',
       'configureRewriteRules',
@@ -440,6 +458,7 @@ module.exports = function (grunt) {
     'replace:dev',
     'compass:server',
     'copy:scripts',
+    'copy:components',
     'htmlmin',
     'browserify:test',
     'connect:test',
@@ -456,6 +475,7 @@ module.exports = function (grunt) {
     'svgmin',
     'concat',
     'copy:scripts',
+    'copy:components',
     'htmlmin',
     'ngmin',
     'browserify:dist',
