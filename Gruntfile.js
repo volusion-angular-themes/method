@@ -246,7 +246,7 @@ module.exports = function (grunt) {
           css: [
             [
               /(?:src=|url\(\s*)['"]?(?:\.\.)?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
-              'Update template js to reference revved images, accomodate for ../'
+              'Update template CSS to reference revved images, accomodate for ../'
             ]
           ]
         }
