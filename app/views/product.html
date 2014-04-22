@@ -11,20 +11,28 @@
 
     <!-- PRODUCT IMAGE AND ALT VIEWS -->
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-5">
+      <div class="col-sm-6 col-md-5">
         <div class="visible-xs th-product">
-          <div class="th-product__image">
-            <a href="#"><img src="/images/demo/product-slider.jpg" class="img-responsive" alt=""></a>
+          <div class="vn-slider vn-slider--product">
+            <carousel data-interval="interval">
+              <slide data-ng-repeat="image in product.images" data-active="image.active">
+                <a href="{{image.url}}">
+                  <div class="vn-slider__slide">
+                    <img data-ng-src="{{image.large}}" class="img-responsive" />
+                  </div>
+                </a>
+              </slide>
+            </carousel>
           </div>
         </div>
         <div class="hidden-xs">
           <div class="clearfix th-product-view">
             <div class="th-product-view__image">
-              <a href="#"><img src="{{product.mainImage.large}}" height="585" width="356" class="img-responsive" alt=""></a>
+              <a href="#"><img data-ng-src="{{product.mainImage.large}}" height="585" width="356" class="img-responsive" alt=""></a>
               <a href="#" class="th-product-view__zoom"></a>
             </div>
             <div class="th-product-view__alts">
-              <a href="#" ng-repeat="altImage in product.altImages" class="col-xs-3"><img src="{{altImage.medium}}" class="img-responsive" alt=""></a>
+              <span data-ng-click="showAltImage(this)" ng-repeat="image in product.images" class="col-xs-3 th-product-view__thumbnail"><img data-ng-src="{{image.medium}}" class="img-responsive" alt=""></span>
             </div>
           </div>
         </div><!-- .th-product -->
@@ -33,8 +41,8 @@
       <!-- PRODUCT DETAILS RIGHT -->
       <div class="col-sm-6 col-md-7">
         <div class="th-product-details">
-          <div class="row">
-            <div class="col-xs-12 visible-md visible-lg">
+          <div class="row visible-md visible-lg">
+            <div class="col-xs-12">
               <div class="th-product-details__title">
                 <a href="#">{{product.name}}</a>
               </div>
@@ -46,12 +54,13 @@
                 <a href="#">{{product.name}}</a>
               </div>
               <div class="th-product__price--large">
-                <span class="th-reg-price"><span class="th-price strike">{{product.pricing.listPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                <span class="th-now-price"><span class="th-price">{{product.pricing.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
+                <span class="th-reg-price" data-ng-show="product.pricing.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">{{product.pricing.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
+                <span class="th-now-price" data-ng-show="product.pricing.salePrice > 0"><span class="th-price">{{product.pricing.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
               </div>
               <div class="hidden-xs">
                 <div class="th-write-review">
-                  <img ng-src="/images/theme/stars-{{product.avgReview}}.png" height="13" width="84" class="img-responsive" alt="" />
+                  <!-- TODO: Replace star with class -->
+                  <img data-ng-src="/images/theme/stars-4.png" height="13" width="84" class="img-responsive" alt="" />
                   <a href="#" data-translate="product.writeReview"></a>
                 </div>
                 <div class="th-add-favorite">
@@ -106,20 +115,38 @@
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 th-add-to-cart">
-                  <button class="btn btn-primary btn-lg btn-block" data-translate="product.addToCart">Add to Cart</button>
+                  <button class="btn btn-primary btn-lg btn-block" data-translate="product.addToCart" data-ng-click="addToCart()" data-ng-disabled="isCartButtonDisabled">Add to Cart</button>
                 </div>
               </div>
             </div>
 
-            <div class="th-product-info visible-lg">
-              <accordion close-others="oneAtATime">
-                <accordion-group is-open="isopen" ng-repeat="panel in product.panels">
-                  <accordion-heading>
-                    {{panel.heading}}  <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
-                  </accordion-heading>
-                  {{panel.content}}
-                </accordion-group>
-              </accordion>
+            <div class="th-product-info visible-lg visible-md">
+              <div data-accordion data-close-others="true">
+                <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
+                  <div data-accordion-heading>
+                    <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+                  </div>
+                  <span data-ng-bind-html="product.descriptions.detail"></span>
+                </div>
+                <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
+                  <div data-accordion-heading>
+                    <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
+                  </div>
+                  <span data-ng-bind-html="product.descriptions.features"></span>
+                </div>
+                <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
+                  <div data-accordion-heading>
+                    <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
+                  </div>
+                  <span data-ng-bind-html="product.descriptions.techSpecs"></span>
+                </div>
+                <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
+                  <div data-accordion-heading>
+                    <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
+                  </div>
+                  <span data-ng-bind-html="product.descriptions.extendedInfo"></span>
+                </div>
+              </div>
             </div><!-- .th-product-info -->
 
             <div class="visible-sm visible-md visible-lg">
@@ -139,15 +166,33 @@
       </div><!-- .th-product-details -->
     </div><!-- .row -->
 
-    <div class="hidden-lg th-product-info">
-      <accordion close-others="oneAtATime">
-        <accordion-group is-open="isopen" ng-repeat="panel in product.panels">
-          <accordion-heading>
-            {{panel.heading}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
-          </accordion-heading>
-          {{panel.content}}
-        </accordion-group>
-      </accordion>
+    <div class="hidden-lg hidden-md th-product-info">
+      <div data-accordion data-close-others="true">
+        <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
+          <div data-accordion-heading>
+            <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+          </div>
+          <span data-ng-bind-html="product.descriptions.detail"></span>
+        </div>
+        <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
+          <div data-accordion-heading>
+            <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
+          </div>
+          <span data-ng-bind-html="product.descriptions.features"></span>
+        </div>
+        <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
+          <div data-accordion-heading>
+            <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
+          </div>
+          <span data-ng-bind-html="product.descriptions.techSpecs"></span>
+        </div>
+        <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
+          <div data-accordion-heading>
+            <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
+          </div>
+          <span data-ng-bind-html="product.descriptions.extendedInfo"></span>
+        </div>
+      </div>
     </div>
 
     <!-- MOBILE SOCIAL ICONS -->
@@ -166,107 +211,29 @@
     <div class="th-related-wrap">
       <div data-tabset>
         <div data-tab>
-          <div data-tab-heading data-translate="home.featured">
+          <div data-tab-heading data-translate="product.featured">
             Featured
           </div>
           <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
-              <div class="th-product">
-                <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
-                <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
-                <div class="th-product__image">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
-                  <div class="th-quick-options visible-md visible-lg">
-                    <a href="#" class="th-quick-view" data-translate="product.quickView">Quick View</a>
-                    <a href="#" class="th-add-to-cart"><span></span></a>
-                  </div>
-                </div>
-                <div class="th-product__name">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })">{{relatedProduct.name}}</a>
-                </div>
-                <div class="th-product__price">
-                  <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                  <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
-                </div>
-
-                <div class="th-colors-sm visible-xs">
-                  <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
-                </div>
-              </div>
+            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
             </div>
           </div>
         </div>
         <div data-tab>
-          <div data-tab-heading data-translate="home.bestSellers">
+          <div data-tab-heading data-translate="product.bestSellers">
             Best Sellers
           </div>
           <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
-              <div class="th-product">
-                <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
-                <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
-                <div class="th-product__image">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
-                  <div class="th-quick-options visible-md visible-lg">
-                    <a href="#" class="th-quick-view" data-translate="product.quickView">Quick View</a>
-                    <a href="#" class="th-add-to-cart"><span></span></a>
-                  </div>
-                </div>
-                <div class="th-product__name">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })">{{relatedProduct.name}}</a>
-                </div>
-                <div class="th-product__price">
-                  <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                  <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
-                </div>
-
-                <div class="th-colors-sm visible-xs">
-                  <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
-                </div>
-              </div>
+            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
             </div>
           </div>
         </div>
         <div data-tab>
-          <div data-tab-heading data-translate="home.onSale">
+          <div data-tab-heading data-translate="product.onSale">
             On Sale
           </div>
           <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="relatedProduct in relatedProducts">
-              <div class="th-product">
-                <span class="th-product__sale hidden-xs" data-ng-show="relatedProduct.isOnSale"></span>
-                <span class="th-product__new hidden-xs" data-ng-show="relatedProduct.isNew"></span>
-                <div class="th-product__image">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })"><img src="{{relatedProduct.mainImageUrl}}" class="img-responsive" alt=""></a>
-                  <div class="th-quick-options visible-md visible-lg">
-                    <a href="#" class="th-quick-view" data-translate="product.quickView">Quick View</a>
-                    <a href="#" class="th-add-to-cart"><span></span></a>
-                  </div>
-                </div>
-                <div class="th-product__name">
-                  <a data-ui-sref="i18n.product({ productTitle: relatedProduct.name, productCode: relatedProduct.code })">{{relatedProduct.name}}</a>
-                </div>
-                <div class="th-product__price">
-                  <span class="th-reg-price"><span class="th-price strike">{{relatedProduct.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                  <span class="th-now-price"><span class="th-price">{{relatedProduct.pricing.salePrice}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
-                </div>
-
-                <div class="th-colors-sm visible-xs">
-                  <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
-                  <a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
-                </div>
-              </div>
+            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
             </div>
           </div>
         </div>

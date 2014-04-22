@@ -1,0 +1,19 @@
+/* SHOWCASE */
+
+.vn-showcase {
+  background-color: $body-bg;
+  padding-top: 47px;
+  padding-bottom: 20px;
+
+  @include respond-to(sm-and-up) {
+    padding-top: 75px;
+  }
+
+  @include respond-to(md-and-up) {
+    padding-top: 152px;
+  }
+
+  @include respond-to(lg) {
+    padding-top: 152px;
+  }
+}

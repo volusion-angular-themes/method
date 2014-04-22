@@ -25,7 +25,7 @@
   }
 
   .th-p1-sm {
-      background: image-url("homepage/p1-sm.jpg") no-repeat top center;
+      background: no-repeat top center;
       min-height: 236px;
       text-indent: -9999px;
   }
@@ -33,7 +33,7 @@
   .th-p2 {
       min-height: 495px;
       text-align: center;
-      background: image-url("homepage/p2-sm.jpg") no-repeat top center;
+      background: no-repeat top center;
 
       .th-title {
         display: block;
@@ -63,20 +63,20 @@
   }
 
   .th-p3-sm {
-    background: image-url("homepage/p3-sm.jpg") no-repeat top center;
+    background: no-repeat top center;
     min-height: 236px;
     text-indent: -9999px;
   }
 
   .th-b1 {
     min-height: 182px;
-    background: image-url("homepage/b1-sm.jpg") no-repeat top center;
+    background: no-repeat top center;
     display: block;
     margin-bottom: 2px;
   }
   .th-b2 {
     min-height: 182px;
-    background: image-url("homepage/b2-sm.jpg") no-repeat top center;
+    background: no-repeat top center;
     display: block;
     margin-bottom: 2px;
   }
@@ -88,7 +88,7 @@
   .th-home-content {
 
     .th-p1 {
-      background: image-url("homepage/p1.jpg") no-repeat top center;
+      background: no-repeat top center;
       min-height: 553px;
       text-indent: -9999px;
     }
@@ -96,11 +96,11 @@
     .th-p2 {
       min-height: 553px;
       text-align: center;
-      background: image-url("homepage/p2.jpg") no-repeat top center;
+      background: no-repeat top center;
     }
 
     .th-p3 {
-      background: image-url("homepage/p3.jpg") no-repeat top center;
+      background: no-repeat top center;
       min-height: 553px;
       text-indent: -9999px;
     }
@@ -132,7 +132,7 @@
 
     .th-p2 {
       min-height: 553px;
-      background: image-url("homepage/p2.jpg") no-repeat top center;
+      background: no-repeat top center;
 
       .th-title {
         display: block;
@@ -154,12 +154,12 @@
 
     .th-b1 {
       min-height: 185px;
-      background: image-url("homepage/b1-sm.jpg") no-repeat top center;
+      background: no-repeat top center;
       margin-bottom: 0;
     }
     .th-b2 {
       min-height: 185px;
-      background: image-url("homepage/b2-sm.jpg") no-repeat top center;
+      background: no-repeat top center;
       margin-bottom: 0;
     }
   }
@@ -188,11 +188,11 @@
 
     .th-b1 {
       min-height: 227px;
-      background: image-url("homepage/b1.jpg") no-repeat top center;
+      background: no-repeat top center;
     }
     .th-b2 {
       min-height: 227px;
-      background: image-url("homepage/b2.jpg") no-repeat top center;
+      background: no-repeat top center;
     }
 
   }

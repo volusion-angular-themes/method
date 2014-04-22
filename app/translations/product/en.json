@@ -11,8 +11,12 @@
     "readAllReviews": "Read All Reviews &gt;",
     "writeAReview": "Write a Review &gt;",
     "wasThisReviewHelpfulToYou": "Was this review helpful for you?",
-    "similarItems": "Similar Items",
+    "featured": "Featured",
     "bestSellers": "Best Sellers",
-    "onSale": "On Sale"
+    "onSale": "On Sale",
+    "description": "Description",
+    "features": "Features",
+    "techSpecs": "Tech Specs",
+    "extendedInfo": "Extended Info"
   }
 }

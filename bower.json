@@ -8,6 +8,7 @@
     "angular-cookies": "1.2.9",
     "angular-sanitize": "1.2.9",
     "angular-seo": "*",
+    "angular-snap": "~1.4.1",
     "angular-i18n": "~1.2.9",
     "angular-translate": "~2.0.1",
     "angular-translate-handler-log": "~2.0.0",
@@ -17,6 +18,7 @@
     "angular-ui-bootstrap-bower": "~0.10.0",
     "angular-ui-router": "~0.2.10",
     "bootstrap-sass-official": "~3.1.0",
+    "enquire": "~2.1.0",
     "es5-shim": "~2.1.0",
     "json3": "~3.2.6",
     "jquery": "~2.1.0"

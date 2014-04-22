@@ -52,7 +52,8 @@
     "angular": "./angular.js"
   },
   "browserify-shim": {
-    "angular": "global:angular"
+    "angular": "global:angular",
+    "enquire": "global:enquire"
   },
   "engines": {
     "node": ">=0.8.0"

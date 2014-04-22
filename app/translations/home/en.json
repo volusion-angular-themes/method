@@ -3,11 +3,13 @@
     "shopNow": "Shop Now &gt;",
     "featured": "Featured",
     "bestSellers": "Best Sellers",
-    "onSale": "On Sale",
-    "regularPriceLabel": "Reg",
     "nowPriceLabel": "Now",
     "quickView": "Quick View",
     "promoCategoryHeading": "Now Stocking Herschel Bags.",
     "promoCategoryDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+  },
+  "product": {
+    "regularPriceLabel": "Reg",
+    "nowPriceLabel": "Now"
   }
 }

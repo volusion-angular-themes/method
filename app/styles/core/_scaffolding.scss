@@ -10,26 +10,5 @@ a:hover, a:active {
 
 body {
     margin: 0;
-    padding-top: 47px;
     -webkit-font-smoothing: antialiased;
 }
-
-@include respond-to(sm-and-up) {
-  body {
-    padding-top: 75px;
-  }
-}
-
-@include respond-to(md-and-up) {
-  body {
-    padding-top: 152px;
-  }
-}
-
-@include respond-to(lg) {
-  body {
-    padding-top: 152px;
-  }
-}
-
-
