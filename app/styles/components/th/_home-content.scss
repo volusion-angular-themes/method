@@ -26,12 +26,10 @@
 
   .th-p1-sm {
       background: no-repeat top center;
-      min-height: 236px;
       text-indent: -9999px;
   }
 
   .th-p2 {
-      min-height: 495px;
       text-align: center;
       background: no-repeat top center;
 
@@ -64,18 +62,15 @@
 
   .th-p3-sm {
     background: no-repeat top center;
-    min-height: 236px;
     text-indent: -9999px;
   }
 
   .th-b1 {
-    min-height: 182px;
     background: no-repeat top center;
     display: block;
     margin-bottom: 2px;
   }
   .th-b2 {
-    min-height: 182px;
     background: no-repeat top center;
     display: block;
     margin-bottom: 2px;
@@ -89,19 +84,16 @@
 
     .th-p1 {
       background: no-repeat top center;
-      min-height: 553px;
       text-indent: -9999px;
     }
 
     .th-p2 {
-      min-height: 553px;
       text-align: center;
       background: no-repeat top center;
     }
 
     .th-p3 {
       background: no-repeat top center;
-      min-height: 553px;
       text-indent: -9999px;
     }
 
@@ -117,7 +109,6 @@
     }
 
     .th-category {
-      @include inline-block;
       font-family: $font-family-serif-italic;
       font-size: 2.0rem;
       margin: 53% 5% 0 0;
@@ -131,7 +122,6 @@
     }
 
     .th-p2 {
-      min-height: 553px;
       background: no-repeat top center;
 
       .th-title {
@@ -153,12 +143,10 @@
     }
 
     .th-b1 {
-      min-height: 185px;
       background: no-repeat top center;
       margin-bottom: 0;
     }
     .th-b2 {
-      min-height: 185px;
       background: no-repeat top center;
       margin-bottom: 0;
     }
@@ -187,11 +175,9 @@
     }
 
     .th-b1 {
-      min-height: 227px;
       background: no-repeat top center;
     }
     .th-b2 {
-      min-height: 227px;
       background: no-repeat top center;
     }
 

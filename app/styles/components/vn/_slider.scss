@@ -18,6 +18,7 @@
   &__slide {
     height: 237px;
     background-size: cover;
+    background-position: center center;
   }
 
   &--product {
@@ -30,20 +31,15 @@
 
     &__slide {
       height: 405px;
-      background-size: cover;
     }
-
   }
 
   @include respond-to(md-and-up) {
 
     &__slide {
       height: 485px;
-      background-size: cover;
     }
-
   }
-
 }
 
 @include respond-to(sm-and-up) {
@@ -51,7 +47,6 @@
   .th-content-slider {
     margin-bottom: 30px;
   }
-
 }
 
 @include respond-to(md-and-up) {
@@ -60,5 +55,4 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-
 }
