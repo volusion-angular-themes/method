@@ -145,9 +145,15 @@ angular.module('volusionApp')
   })
   .run(function ($templateCache, snapRemote, $rootScope) {
 
+    $rootScope.isInDesktopMode = true;
+
     enquire.register('screen and (max-width: 991px)', {
       unmatch: function () {
         snapRemote.close();
+        $rootScope.isInDesktopMode = true;
+      },
+      match: function () {
+        $rootScope.isInDesktopMode = false;
       }
     });
 
@@ -163,9 +169,13 @@ angular.module('volusionApp')
     $templateCache.put('views/category.html', require('./views/category.html'));
     $templateCache.put('views/product.html', require('./views/product.html'));
     $templateCache.put('views/partials/product-tile.html', require('./views/partials/product-tile.html'));
+    $templateCache.put('views/partials/footer.html', require('./views/partials/footer.html'));
+    $templateCache.put('views/partials/header.html', require('./views/partials/header.html'));
+    $templateCache.put('views/partials/mobile-menu.html', require('./views/partials/mobile-menu.html'));
   })
   .factory('storage', require('./services/storage'))
   .directive('legacyLink', require('./directives/legacy-link'))
+  .directive('easyZoom', require('./directives/easy-zoom'))
   .filter('seoFriendly', require('./filters/seoFriendly'))
   .controller('IndexCtrl', require('./controllers/index'))
   .controller('HomeCtrl', require('./controllers/home'))

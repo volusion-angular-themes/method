@@ -27,10 +27,7 @@
         </div>
         <div class="hidden-xs">
           <div class="clearfix th-product-view">
-            <div class="th-product-view__image">
-              <a href="#"><img data-ng-src="{{product.mainImage.large}}" height="585" width="356" class="img-responsive" alt=""></a>
-              <a href="#" class="th-product-view__zoom"></a>
-            </div>
+            <div class="th-product-view__image" data-easy-zoom data-is-desktop="{{isInDesktopMode}}" data-zoom-image-url="{{product.mainImage.large}}" data-image-url="{{product.mainImage.medium}}"></div>
             <div class="th-product-view__alts">
               <span data-ng-click="showAltImage(this)" ng-repeat="image in product.images" class="col-xs-3 th-product-view__thumbnail"><img data-ng-src="{{image.medium}}" class="img-responsive" alt=""></span>
             </div>
@@ -211,26 +208,8 @@
     <div class="th-related-wrap">
       <div data-tabset>
         <div data-tab>
-          <div data-tab-heading data-translate="product.featured">
-            Featured
-          </div>
-          <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
-            </div>
-          </div>
-        </div>
-        <div data-tab>
-          <div data-tab-heading data-translate="product.bestSellers">
-            Best Sellers
-          </div>
-          <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
-            </div>
-          </div>
-        </div>
-        <div data-tab>
-          <div data-tab-heading data-translate="product.onSale">
-            On Sale
+          <div data-tab-heading data-translate="product.related">
+            Related
           </div>
           <div class="th-products-wrap clearfix">
             <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
