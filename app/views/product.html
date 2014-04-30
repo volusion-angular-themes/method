@@ -91,22 +91,22 @@
                   <div class="visible-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
                     </div>
                   </div>
                   <div class="hidden-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
                     </div>
                   </div>

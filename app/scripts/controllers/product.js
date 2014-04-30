@@ -17,6 +17,7 @@ module.exports = [
     ) {
 
     var productData = $scope.product = product.data;
+    $scope.product.quantity = 1;
 
     var descriptions = productData.descriptions;
     angular.forEach(['detail', 'features', 'techSpecs', 'extendedInfo'], function(key) {
@@ -46,6 +47,14 @@ module.exports = [
       var altImage = data.image;
 
       productData.mainImage = altImage;
+    };
+
+    $scope.decrementQty = function () {
+      $scope.product.quantity--;
+    };
+
+    $scope.incrementQty = function () {
+      $scope.product.quantity++;
     };
 
     // Add to Cart
