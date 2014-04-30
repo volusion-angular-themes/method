@@ -14,4 +14,7 @@ notifications:
     on_failure: always
 
 before_install:
+  - npm config set always-auth true
+  - npm config set strict-ssl false
+  - npm config set registry https://volusion.registry.nodejitsu.com
   - npm install -g grunt-cli bower
