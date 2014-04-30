@@ -1,12 +1,13 @@
 .th-cart-summary {
   position: relative;
+  white-space: nowrap;
   top: 8px;
   right: 0;
 }
 
 .th-my-cart {
   @include inline-block;
-  padding: 6px 15px 6px 5px;
+  padding: 6px 0;
 
   .th-my-cart__number {
     color: #e32311;

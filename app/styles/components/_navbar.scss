@@ -3,13 +3,13 @@
 .th-navbar {
 
   .th-menu-container {
+    min-height: 44px;
     position: relative;
   }
 
   .navbar-toggle {
     float: left;
     margin-right: 0;
-    margin-left: 15px;
     border: 0;
     padding: 8px 10px;
 
@@ -19,21 +19,25 @@
   }
 
   .th-header {
+    border-right: none;
     border-bottom: 1px solid #f0f0f0;
   }
 }
 
 @include respond-to(xs) {
   .th-navbar {
+    min-height: 44px;
+
     .th-navbar__logo {
       position: relative;
       top: 3px;
 
       img {
-        max-height: 40px;
+        max-height: 36px;
         margin: auto;
       }
     }
+
   }
 }
 
@@ -44,7 +48,7 @@
       top: 10px;
 
       img {
-        max-height: 50px;
+        max-height: 48px;
         margin: auto;
       }
     }
@@ -53,9 +57,12 @@
 
 @include respond-to(sm-and-up) {
 
-  $navbar-height: 65px;
-
   .th-navbar {
+
+    .th-menu-container {
+      min-height: 74px;
+    }
+
     .navbar-toggle {
       margin: 19px 10px;
     }
@@ -65,9 +72,11 @@
 /* Medium devices (desktops, 992px and up) */
 @include respond-to(md-and-up) {
 
-  $navbar-height: 93px;
-
   .th-navbar {
+
+    .th-menu-container {
+      min-height: 92px;
+    }
 
     .th-main {
       float: left;
@@ -127,13 +136,7 @@
 /* Large devices (large desktops, 1200px and up) */
 @include respond-to(lg) {
 
-  $navbar-height: 93px;
-
   .th-navbar {
-    .navbar-nav {
-      margin-left: 34px;
-    }
-
     .navbar-nav > li > a {
       padding-left: 1.33em;
       padding-right: 1.33em;
