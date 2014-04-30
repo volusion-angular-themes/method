@@ -12,8 +12,8 @@
     <a data-ui-sref="i18n.product({ productTitle: product.name, productCode: product.code })">{{product.name}}</a>
   </div>
   <div class="th-product__price">
-    <span class="th-reg-price" data-ng-show="product.pricing.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">{{product.pricing.regularPrice}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-    <span class="th-now-price" data-ng-show="product.pricing.salePrice > 0"><span class="th-price">{{product.pricing.salePrice}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
+    <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
+    <span class="th-now-price" data-ng-show="product.price.salePrice > 0"><span class="th-price">{{product.price.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
   </div>
 
   <div class="th-colors-sm visible-xs">
