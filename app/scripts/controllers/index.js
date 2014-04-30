@@ -40,7 +40,6 @@ module.exports = [
       });
 
     // Config
-    // TODO: Need mobile url
     api.config.get().then(function (response) {
         $scope.config = response.data;
         // TODO: REMOVE

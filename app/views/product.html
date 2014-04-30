@@ -51,8 +51,8 @@
                 <a href="#">{{product.name}}</a>
               </div>
               <div class="th-product__price--large">
-                <span class="th-reg-price" data-ng-show="product.pricing.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">{{product.pricing.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                <span class="th-now-price" data-ng-show="product.pricing.salePrice > 0"><span class="th-price">{{product.pricing.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
+                <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
+                <span class="th-now-price" data-ng-show="product.price.salePrice > 0"><span class="th-price">{{product.price.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
               </div>
               <div class="hidden-xs">
                 <div class="th-write-review">
@@ -91,22 +91,22 @@
                   <div class="visible-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
                     </div>
                   </div>
                   <div class="hidden-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" type="button">+</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
                     </div>
                   </div>
