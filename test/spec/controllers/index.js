@@ -8,14 +8,39 @@ describe('Controller: IndexCtrl', function() {
   var controller;
   var scope;
   var rootScope;
+  var api;
 
-  beforeEach(inject(function($controller, $rootScope) {
+  var response = {
+    data: {
+      seo: {
+        foo: 'bar',
+        baz: 'qux'
+      }
+    }
+  };
+
+  beforeEach(inject(function($controller, $rootScope, _api_) {
+    api = _api_;
     rootScope = $rootScope;
     scope = $rootScope.$new();
+
+    sinon.stub(api.config, 'get', function() {
+      return {
+        then: function(fn) {
+          return fn(response);
+        }
+      };
+    });
+
     controller = $controller('IndexCtrl', {
       $scope: scope
     });
+
   }));
+
+  afterEach(function() {
+    api.config.get.restore();
+  });
 
   it('should navigate home when no sub-route is defined', function() {
     inject(function($state) {
@@ -27,4 +52,7 @@ describe('Controller: IndexCtrl', function() {
     });
   });
 
+  it('assigns seo data from the config api response to the rootscope', function() {
+    expect(rootScope.seo).to.deep.equal(response.data.seo);
+  });
 });
