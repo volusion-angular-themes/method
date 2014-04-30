@@ -4,6 +4,17 @@
   clear: both;
 }
 
+.nav {
+  .open > a {
+    border-color: #c2c2c2;
+
+    &:hover, &:focus {
+      border-color: #c2c2c2;
+    }
+
+  }
+}
+
 ul.nav-tabs {
   clear: both;
   border-bottom: 1px solid #d9d9d9;
@@ -38,6 +49,7 @@ ul.nav-tabs {
     border-bottom: 1px solid #fff;
     margin-bottom: 0;
     color: #000;
+    border-color: #000;
     border-left: 0;
     border-right: 0;
 

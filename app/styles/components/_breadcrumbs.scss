@@ -7,7 +7,7 @@
     border-bottom: 1px solid #cbcbcb;
 
     a:hover {
-      @include transition(all, 0.2s, ease-in-out);
+      @include single-transition(all, 200ms, ease);
     }
   }
 }

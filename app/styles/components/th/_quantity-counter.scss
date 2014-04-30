@@ -1,15 +1,17 @@
 .th-qty-wrap {
-  padding: 4px 15px 4px 15px;
+  padding: 4px 15px;
 }
 
 .th-qty-counter__input {
-  padding: 19px 12px 19px;
+  padding: 10px 5px;
+  height: 45px;
   text-align: center;
 }
 
 .th-qty-counter__btn {
   padding: 10px 8px 11px;
-  min-width: 35px;
+  min-width: 45px;
+  height: 45px;
   border-color: #cdcdcd;
 }
 
@@ -20,12 +22,13 @@
   }
 
   .th-qty-counter__input {
-    padding: 19px 6px 19px;
+    height: 46px;
   }
 
   .th-qty-counter__btn {
-    padding: 10px 3px 11px;
+    padding: 13px 0px 14px;
     min-width: 25px;
+    height: 46px;
   }
 
 }

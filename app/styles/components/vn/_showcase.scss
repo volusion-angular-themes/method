@@ -2,11 +2,11 @@
 
 .vn-showcase {
   background-color: $body-bg;
-  padding-top: 47px;
+  padding-top: 46px;
   padding-bottom: 20px;
 
   @include respond-to(sm-and-up) {
-    padding-top: 75px;
+    padding-top: 76px;
   }
 
   @include respond-to(md-and-up) {

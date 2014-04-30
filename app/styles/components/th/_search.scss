@@ -73,8 +73,8 @@
 
     &:hover {
       .th-search__group {
-        @include transition(all, 0.2s, ease-in-out);
-        width: 145px;
+        @include single-transition(all, 200ms, ease);
+        width: 205px;
       }
 
       .th-search__input {
@@ -103,16 +103,6 @@
     .th-search__input {
       display: none;
       margin: 0;
-    }
-
-    &:hover {
-      .th-search__group {
-        width: 205px;
-      }
-
-      .th-search__input {
-        @include inline-block;
-      }
     }
 
   }

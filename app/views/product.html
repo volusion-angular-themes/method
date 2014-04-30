@@ -163,65 +163,78 @@
       </div><!-- .th-product-details -->
     </div><!-- .row -->
 
-    <div class="hidden-lg hidden-md th-product-info">
-      <div data-accordion data-close-others="true">
-        <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
-          <div data-accordion-heading>
-            <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+    <div class="hidden-lg hidden-md  row">
+      <div class="col-sm-12">
+        <div class="th-product-info">
+          <div data-accordion data-close-others="true">
+            <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
+              <div data-accordion-heading>
+                <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+              </div>
+              <span data-ng-bind-html="product.descriptions.detail"></span>
+            </div>
+            <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
+              <div data-accordion-heading>
+                <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
+              </div>
+              <span data-ng-bind-html="product.descriptions.features"></span>
+            </div>
+            <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
+              <div data-accordion-heading>
+                <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
+              </div>
+              <span data-ng-bind-html="product.descriptions.techSpecs"></span>
+            </div>
+            <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
+              <div data-accordion-heading>
+                <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
+              </div>
+              <span data-ng-bind-html="product.descriptions.extendedInfo"></span>
+            </div>
           </div>
-          <span data-ng-bind-html="product.descriptions.detail"></span>
-        </div>
-        <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
-          <div data-accordion-heading>
-            <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
-          </div>
-          <span data-ng-bind-html="product.descriptions.features"></span>
-        </div>
-        <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
-          <div data-accordion-heading>
-            <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
-          </div>
-          <span data-ng-bind-html="product.descriptions.techSpecs"></span>
-        </div>
-        <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
-          <div data-accordion-heading>
-            <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
-          </div>
-          <span data-ng-bind-html="product.descriptions.extendedInfo"></span>
         </div>
       </div>
     </div>
 
     <!-- MOBILE SOCIAL ICONS -->
-    <div class="visible-xs">
-      <div class="th-social">
-        <a href="#" class="th-social__icon th-social__icon--facebook"></a>
-        <a href="#" class="th-social__icon th-social__icon--twitter"></a>
-        <a href="#" class="th-social__icon th-social__icon--instagram"></a>
-        <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
-        <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
-        <a href="#" class="th-social__icon th-social__icon--google"></a>
-        <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
-        <a href="#" class="th-social__icon th-social__icon--youtube"></a>
-      </div>
-    </div>
-    <div class="th-related-wrap">
-      <div data-tabset>
-        <div data-tab>
-          <div data-tab-heading data-translate="product.related">
-            Related
-          </div>
-          <div class="th-products-wrap clearfix">
-            <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
-            </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="visible-xs">
+          <div class="th-social">
+            <a href="#" class="th-social__icon th-social__icon--facebook"></a>
+            <a href="#" class="th-social__icon th-social__icon--twitter"></a>
+            <a href="#" class="th-social__icon th-social__icon--instagram"></a>
+            <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
+            <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
+            <a href="#" class="th-social__icon th-social__icon--google"></a>
+            <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
+            <a href="#" class="th-social__icon th-social__icon--youtube"></a>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- LOAD MORE BUTTON -->
-      <div class="th-load-more visible-xs">
-        <button class="btn btn-default th-load-more" data-translate="product.loadMore">Load More</button>
-      </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="th-related-wrap">
+          <div data-tabset>
+            <div data-tab>
+              <div data-tab-heading data-translate="product.related">
+                Related
+              </div>
+              <div class="th-products-wrap clearfix">
+                <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOAD MORE BUTTON -->
+          <div class="th-load-more visible-xs">
+            <button class="btn btn-default th-load-more" data-translate="product.loadMore">Load More</button>
+          </div>
+        </div>
+       </div>
     </div>
     <div class="th-reviews">
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
