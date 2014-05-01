@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="th-product__name">
-            <a data-ui-sref="i18n.product({ productTitle: product.name, productCode: product.code })">{{product.name}}</a>
+            <a data-ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })">{{product.name}}</a>
           </div>
           <div class="th-product__price">
             <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="category.regularPriceLabel"></span></span>
