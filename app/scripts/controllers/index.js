@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 module.exports = [
   '$state',
@@ -42,6 +42,7 @@ module.exports = [
     // Config
     api.config.get().then(function (response) {
         $scope.config = response.data;
+        $rootScope.seo = $scope.config.seo;
         // TODO: REMOVE
         console.log('Config: ', response.data);
       }, function (error) {

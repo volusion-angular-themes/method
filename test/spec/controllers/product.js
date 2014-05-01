@@ -18,12 +18,22 @@ describe('Controller: ProductCtrl', function() {
         features: 'Features here...',
         techSpecs: 'Tech Specs here...',
         extendedInfo: 'Extended Info here...'
+      },
+      seo: {
+        title: 'qux',
+        description: 'quux',
+        keywords: 'garply'
       }
     }
   };
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, $rootScope) {
+    $rootScope.seo = {
+      title: 'foo',
+      description: 'bar',
+      keywords: 'baz'
+    };
     scope = $rootScope.$new();
     controller = $controller('ProductCtrl', {
       $scope: scope,
@@ -33,6 +43,10 @@ describe('Controller: ProductCtrl', function() {
 
   it('should attach the product data to the scope', function() {
     expect(scope.product).to.deep.equal(product.data);
+  });
+
+  it('updates the root scope\'s seo object with the product seo', function() {
+    expect(scope.seo).to.deep.equal(product.data.seo);
   });
 
 });

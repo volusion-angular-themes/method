@@ -13,7 +13,8 @@ angular.module('volusionApp', [
     'pascalprecht.translate',
     require('./services/config').name,
     'ui.bootstrap',
-    'snap'
+    'snap',
+    require('vn-meta-tags').name
   ])
   .provider('api', require('./services/api-provider'))
   .provider('translate', require('./services/translate-provider'));
