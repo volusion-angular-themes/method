@@ -18,6 +18,8 @@ module.exports = [
     $scope.$on('$stateChangeSuccess', function(event, toState) {
       if (toState.name === 'i18n') {
         $state.go('.home', null, { location: 'replace' });
+      } else if (toState.name === 'i18n.home' && $scope.config) {
+        $rootScope.seo = angular.extend($rootScope.seo, $scope.config.seo);
       }
     });
 
@@ -42,7 +44,7 @@ module.exports = [
     // Config
     api.config.get().then(function (response) {
         $scope.config = response.data;
-        $rootScope.seo = $scope.config.seo;
+        $rootScope.seo = angular.extend({}, $scope.config.seo);
         // TODO: REMOVE
         console.log('Config: ', response.data);
       }, function (error) {
