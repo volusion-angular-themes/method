@@ -9,6 +9,7 @@
   },
   "product": {
     "regularPriceLabel": "Reg",
-    "nowPriceLabel": "Now"
+    "nowPriceLabel": "Now",
+    "quickView": "Quick View"
   }
 }
