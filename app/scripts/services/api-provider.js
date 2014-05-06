@@ -28,8 +28,8 @@ ApiProvider.prototype.setBaseRoute = function(route) {
  * @param {string} name The name of the endpoint.
  * @return {app.ApiEndpointConfig} The endpoint configuration object.
  */
-ApiProvider.prototype.endpoint = function(name) {
-  var endpointConfig = new ApiConfig();
+ApiProvider.prototype.endpoint = function(name, customActions) {
+  var endpointConfig = new ApiConfig(customActions);
   this.endpoints[name] = endpointConfig;
   return endpointConfig;
 };
