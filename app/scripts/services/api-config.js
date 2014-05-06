@@ -4,13 +4,7 @@
  * Configuration object for an api endpoint.
  * @constructor
  */
-var ApiEndpointConfig = function() {
-  /**
-   * Map of actions for the endpoint, keyed by action name. An action has a HTTP
-   * method (GET, POST, etc.) as well as an optional set of default parameters.
-   * @type {Object.<string, {method: string, params: Object}>}
-   */
-  this.actions = {};
+var ApiEndpointConfig = function(customActions) {
 
   /** The default actions defined for every endpoint. */
   var defaultActions = {
@@ -23,11 +17,17 @@ var ApiEndpointConfig = function() {
     'update': {method:'PUT'}
   };
 
+  /**
+   * Map of actions for the endpoint, keyed by action name. An action has a HTTP
+   * method (GET, POST, etc.) as well as an optional set of default parameters.
+   * @type {Object.<string, {method: string, params: Object}>}
+   */
+  this.actions = angular.extend(defaultActions, customActions || {});
 
   // Add the default actions to this endpoint.
   var self = this;
-  angular.forEach(defaultActions, function(value, key) {
-    self.addHttpAction(value.method, key, value.isArray);
+  angular.forEach(self.actions, function(value, key) {
+    self.addHttpAction(key, value);
   });
 };
 
@@ -57,8 +57,8 @@ ApiEndpointConfig.prototype.model = function(model) {
  * @param {string} name The name of the action.
  * @param {Object=} params The default parameters for the action.
  */
-ApiEndpointConfig.prototype.addHttpAction = function(method, name, isArray, params) {
-  this.actions[name] = {method: method.toUpperCase(), isArray: isArray, params: params};
+ApiEndpointConfig.prototype.addHttpAction = function(name, action) {
+  this.actions[name] = action;
 };
 
 /******************************************************************************/
