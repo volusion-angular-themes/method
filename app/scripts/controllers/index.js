@@ -5,15 +5,11 @@ module.exports = [
   '$scope',
   'api',
   '$rootScope',
-  '$http',
-  '$timeout',
   function (
     $state,
     $scope,
     api,
-    $rootScope,
-    $http,
-    $timeout) {
+    $rootScope) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
       if (toState.name === 'i18n') {
@@ -23,74 +19,79 @@ module.exports = [
       }
     });
 
-    // Carts
-    api.carts.get().then(function (response) {
-        $scope.cart = response.data;
-        // TODO: REMOVE
-        console.log('Cart: ', response.data);
-      }, function (error) {
-        console.log('Error: ', error);
-      });
+    this.getMenuItems = function() {
+      // Nav
+      api.navs.get({ navId: 1 }).then(function (response) {
+          $scope.categories = response.data;
+          // TODO: REMOVE
+          console.log('Categories: ', response.data);
+        }, function (error) {
+          console.log('Error: ' + error);
+        }
+      );
+    };
 
-    // Nav
-    api.navs.get({ navId: 1 }).then(function (response) {
-        $scope.categories = response.data;
-        // TODO: REMOVE
-        console.log('Categories: ', response.data);
-      }, function (error) {
-        console.log('Error: ' + error);
-      });
+    this.getConfig = function(callbackFn) {
+      // Config
+      api.config.get().then(function (response) {
+          $scope.config = response.data;
+          $rootScope.seo = angular.extend({}, $scope.config.seo);
 
-    // Config
-    api.config.get().then(function (response) {
-        $scope.config = response.data;
-        $rootScope.seo = angular.extend({}, $scope.config.seo);
-        // TODO: REMOVE
-        console.log('Config: ', response.data);
-      }, function (error) {
-        console.log('Error: ', error);
-      });
+          // TODO: REMOVE
+          console.log('Config: ', response.data);
+
+          if (callbackFn) {
+            callbackFn($scope.config.checkout.cartId);
+          }
+
+        }, function (error) {
+
+          console.log('Error: ', error);
+
+        }
+      );
+    };
+
+    this.getCart = function(cartId) {
+      // Carts
+      api.carts.get({ cartId: cartId })
+        .then(function (response) {
+          $scope.cart = response.data;
+          // TODO: REMOVE
+          console.log('Cart: ', response.data);
+        }, function (error) {
+          console.log('Error: ', error);
+        }
+      );
+    };
+
+    this.getMenuItems();
+
+    this.getConfig(this.getCart);
 
     // Add to Cart
     $rootScope.$on('ADD_TO_CART', function (event, args) {
-      console.log(args);
+      var pricing = args.pricing;
+      var cartItem = {
+        id: args.id,
+        code: args.code,
+        name: args.name,
+        options: args.options,
+        quantity: args.qty,
+        pricing: {
+          unitPrice: pricing.salePrice > 0 ? pricing.salePrice : pricing.regularPrice,
+          recurringPrice: pricing.recurringPrice
+        }
+      };
 
-      //var product = {
-      //  id: args.sku,
-      //  code: args.code,
-      //  name: args.name,
-      //  taxable: true,
-      //  qty: 1,
-      //  options: [],
-      //  kits: [],
-      //  pricing: {
-      //    subtotal: args.price,
-      //    unitPrice: args.price
-      //  },
-      //  imgUrl: '',
-      //  productUrl: ''
-      //};
+      api.carts.save({ cartId: $scope.cart.id || $scope.config.checkout.cartId }, cartItem)
+        .then(function(response) {
 
-      //$scope.cart.items.push(product);
+        $scope.cart = response.data;
+        $rootScope.$emit('ITEM_ADDED_TO_CART');
 
-      //$http.put('/api/v1/carts/current', $scope.cart, function (responseText) {
-      //  console.log(responseText);
-      //});
-
-      // SAMPLE URL
-      //   /ProductDetails.asp?ProductCode=' + encodeURIComponent(productCode) + '&btnaddtocart=btnaddtocart&AjaxError=Y&batchadd=Y',
-      //  'ProductCode=' + encodeURIComponent(productCode) + '&QTY.' + encodeURIComponent(productCode) + '=1' + '&' + selectedValues.join('&')
-      var url = '/ProductDetails.asp?ProductCode=' + encodeURIComponent(args.sku) + '&btnaddtocart=btnaddtocart&AjaxError=Y&batchadd=Y';
-      var postData = 'ProductCode=' + encodeURIComponent(args.sku) + '&QTY.' + encodeURIComponent(args.sku) + '=1';
-
-      $http.post(url, postData).success(function (data) {
-        console.log(data);
-        $scope.cart.items.push({});
       });
 
-      $timeout(function() {
-        $rootScope.$emit('ITEM_ADDED_TO_CART');
-      }, 1000);
     });
   }
 ];
