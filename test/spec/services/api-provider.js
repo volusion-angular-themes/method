@@ -8,25 +8,34 @@ describe('Service: apiProvider', function() {
   var baseRoutePath = '/local/';
 
   before(function() {
-    // Initialize volusionApp injector
+    var customActions = {
+      'bar': { method: 'GET', headers: { 'baz': 'qux' } },
+      'update': {method: 'POST', headers: { 'foo': 'bar' } }
+    };
+
     angular.module('volusionApp')
+
+      /*jshint camelcase: false */
       // ReSharper disable once InconsistentNaming
       .config(function(_apiProvider_) {
         apiProvider = _apiProvider_;
         apiProvider.setBaseRoute(baseRoutePath);
-        apiProvider.endpoint('test')
+        apiProvider.endpoint('test', customActions)
           .route('cart');
       });
+      /*jshint camelcase: true */
   });
 
   beforeEach(module('volusionApp'));
 
+  /*jshint camelcase: false */
   // ReSharper disable InconsistentNaming
   beforeEach(inject(function(_api_, _$httpBackend_) {
     // ReSharper restore InconsistentNaming
     api = _api_;
     $httpBackend = _$httpBackend_;
   }));
+  /*jshint camelcase: true */
 
   describe('with api provider', function() {
       it('it sets base route of the provider', function() {
@@ -61,6 +70,44 @@ describe('Service: apiProvider', function() {
           $httpBackend.flush();
         });
       });
-    }
-  );
+    });
+
+  describe('Custom Actions', function () {
+
+    it('adds custom actions with headers to the api', function() {
+      $httpBackend.expectGET('/local/cart',
+        {
+          'baz': 'qux',
+          'Accept': 'application/json, text/plain, */*'
+        })
+        .respond({quux: 'corge'});
+
+      expect(api.test).to.respondTo('bar');
+
+      api.test.bar().then(function(response) {
+        expect(response.quux).to.eq('corge');
+        $httpBackend.flush();
+      });
+
+      $httpBackend.verifyNoOutstandingExpectation();
+    });
+
+    it('overrides default action  with the custom action if the key is the same', function() {
+      $httpBackend.expectPOST('/local/cart', {},
+        {
+          'foo': 'bar',
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json;charset=utf-8'
+        })
+        .respond('200', '');
+
+      api.test.update({}, {}).then(function(response) {
+        expect(response.$resolved).to.be.true;
+        $httpBackend.flush();
+      });
+
+      $httpBackend.verifyNoOutstandingExpectation();
+    });
+
+  });
 });
