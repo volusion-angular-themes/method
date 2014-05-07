@@ -32,6 +32,11 @@ angular.module('volusionApp')
 
     snapRemoteProvider.globalOptions.touchToDrag = false;
 
+    var customActions = {
+      'save': { method: 'POST', headers: { 'vMethod': 'POST'} },
+      'update': { method: 'POST', headers: { 'vMethod': 'PUT'} },
+    };
+
     apiProvider.setBaseRoute(config.ENV.API_URL);
     apiProvider.endpoint('products').
       route('/products/:code');
@@ -45,8 +50,8 @@ angular.module('volusionApp')
       route('/products/:code/relatedProducts');
     apiProvider.endpoint('navs').
       route('/navs/:navId');
-    apiProvider.endpoint('carts').
-      route('/carts/current');
+    apiProvider.endpoint('carts', customActions).
+      route('/carts/:cartId');
 
 
     $locationProvider.html5Mode(true);

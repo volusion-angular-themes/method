@@ -15,7 +15,18 @@ describe('Controller: IndexCtrl', function() {
       seo: {
         foo: 'bar',
         baz: 'qux'
+      },
+      checkout: {
+        cartId: '1234'
       }
+    }
+  };
+
+  var cartResponse = {
+    data: {
+      id: 1,
+      foo: 'bar',
+      baz: 'qux'
     }
   };
 
@@ -32,6 +43,14 @@ describe('Controller: IndexCtrl', function() {
       };
     });
 
+    sinon.stub(api.carts, 'save', function() {
+      return {
+        then: function(fn) {
+          return fn(cartResponse);
+        }
+      };
+    });
+
     controller = $controller('IndexCtrl', {
       $scope: scope
     });
@@ -40,6 +59,7 @@ describe('Controller: IndexCtrl', function() {
 
   afterEach(function() {
     api.config.get.restore();
+    api.carts.save.restore();
   });
 
   it('should navigate home when no sub-route is defined', function() {
@@ -63,6 +83,31 @@ describe('Controller: IndexCtrl', function() {
     };
     rootScope.$broadcast('$stateChangeSuccess', toState);
     expect(rootScope.seo).to.deep.equal(response.data.seo);
+  });
+
+  it('makes the carts.save() call on the ADD_TO_CART event', function (done) {
+
+    scope.cart = {
+      id: 1
+    };
+
+    var eventData = {
+      id: 123,
+      code: 'foo',
+      name: 'bar',
+      qty: 1,
+      options: [],
+      pricing: {
+        regularPrice: 100
+      }
+    };
+
+    rootScope.$on('ITEM_ADDED_TO_CART', function() {
+      done();
+    });
+
+    rootScope.$broadcast('ADD_TO_CART', eventData);
+    expect(api.carts.save).to.have.been.calledOnce;
   });
 
 });

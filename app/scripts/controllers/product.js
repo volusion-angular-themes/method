@@ -61,17 +61,18 @@ module.exports = [
     // Add to Cart
     $scope.isCartButtonDisabled = false;
     $scope.addToCart = function () {
-
+      var currentProduct = $scope.product;
       $scope.isCartButtonDisabled = true;
 
-      var pricing = productData.pricing;
+      var pricing = currentProduct.price;
 
       var cart = {
-        sku: productData.code,
-        name: productData.name,
-        qty: productData.qty,
-        options: productData.options,
-        price: pricing.salePrice > 0 ? pricing.salePrice : pricing.regularPrice
+        id: currentProduct.id,
+        code: currentProduct.code,
+        name: currentProduct.name,
+        qty: currentProduct.quantity,
+        options: currentProduct.options,
+        pricing: pricing
       };
 
       $rootScope.$emit('ADD_TO_CART', cart);
