@@ -2,45 +2,6 @@
   display: none;
 }
 
-.th-mobile-menu {
-  background-color: $gray-lighter;
-}
-
-.th-menu-site-map, .th-mobile-menu-catgories {
-  padding: 0px 15px 0px 0px;
-  margin: 0px -5px;
-  line-height: 2.4;
-
-  ul {
-    padding: 0 0 0 10px;
-    list-style: none;
-    margin: 0 0 20px;
-
-    li {
-      a {
-        padding: 10px 15px;
-        position: relative;
-        display: block;
-        line-height: 17px;
-        border-bottom: 1px solid $gray-light;
-        font-size: 1.4rem;
-
-        &:hover {
-          background-color: #ddd;
-          border-bottom: 1px solid $gray;
-        }
-      }
-    }
-
-    li.th-site-map-header, li.th-mobile-menu-categories-header {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-family: $font-family-condensed-reg;
-      font-size: 1.4rem;
-    }
-  }
-}
-
 /* Small devices (tablets, 768px and up) */
 @include respond-to(sm-and-up) {
 

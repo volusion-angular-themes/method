@@ -1,42 +1,42 @@
 <div data-snap-drawer class="th-mobile-menu">
-  <div class="th-mobile-menu-catgories">
-    <ul class="nav navbar-nav">
-      <li class="th-mobile-menu-categories-header">Categories</li>
-      <li class="dropdown" data-ng-repeat="category in categories">
-        <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">{{category.name}}</a>
-        <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
-          <li data-ng-repeat="subCategory in category.subCategories"><a data-ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a></li>
+  <div class="th-mobile-menu__list">
+    <ul class="nav navbar-nav th-mobile-list">
+      <li class="th-mobile-list__item th-mobile-list__item--header">Categories</li>
+      <li class="th-mobile-list__item dropdown" data-ng-repeat="category in categories">
+        <a href="#" class="dropdown-toggle th-dropdown-toggle th-mobile-list__link" data-toggle="dropdown">{{category.name}}</a>
+        <ul class="dropdown-menu th-mobile-list th-mobile-list--sub" data-ng-if="category.subCategories.length">
+          <li data-ng-repeat="subCategory in category.subCategories"><a class="th-mobile-list__link th-mobile-list__link--sub" data-ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <div class="th-menu-site-map">
-    <ul>
-      <li class="th-site-map-header">Company Info</li>
-      <li><a data-ui-sref="i18n.about" data-translate="index.about">About Us</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Partners</a></li>
-      <li><a href="#">Excetera</a></li>
+  <div class="th-mobile-menu__list">
+    <ul class="th-mobile-sitemap">
+      <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Company Info</li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" data-ui-sref="i18n.about" data-translate="index.about">About Us</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Careers</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Partners</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Excetera</a></li>
     </ul>
 
-    <ul>
-      <li class="th-site-map-header">Help &amp; Support</li>
-      <li><a href="#">Customer Service</a></li>
-      <li><a href="#">Shopping Bag</a></li>
-      <li><a href="#">Order Status</a></li>
-      <li><a data-ui-sref="i18n.contact" data-translate="index.contact">Contact Us</a></li>
-      <li><a href="#">Returns</a></li>
-      <li><a href="#">Shipping</a></li>
-      <li><a href="#">Size Charts</a></li>
-      <li><a href="#">Favorites</a></li>
-      <li><a href="#">Site Map</a></li>
+    <ul class="th-mobile-sitemap">
+      <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Help &amp; Support</li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Customer Service</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Shopping Bag</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Order Status</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" data-ui-sref="i18n.contact" data-translate="index.contact">Contact Us</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Returns</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Shipping</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Size Charts</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Favorites</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Site Map</a></li>
     </ul>
 
-    <ul>
-      <li class="th-site-map-header">Programs &amp; Services</li>
-      <li><a href="#">Affiliate Program</a></li>
-      <li><a href="#">Gift Certificates</a></li>
-      <li><a href="#">Gift Cards</a></li>
+    <ul class="th-mobile-sitemap">
+      <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Programs &amp; Services</li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Affiliate Program</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Gift Certificates</a></li>
+      <li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Gift Cards</a></li>
     </ul>
 
   </div>
