@@ -30,6 +30,8 @@ module.exports = function(config) {
       'app/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
       'app/bower_components/snapjs/snap.js',
       'app/bower_components/angular-snap/angular-snap.js',
+      'app/bower_components/angulartics/src/angulartics.js',
+      'app/bower_components/angulartics/src/angulartics-ga.js',
       'app/bower_components/enquire/dist/enquire.js',
       '.tmp/scripts/scripts.js',
       'test/mock/**/*.js',

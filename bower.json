@@ -17,6 +17,7 @@
     "angular-translate-storage-local": "~2.0.0",
     "angular-ui-bootstrap-bower": "~0.10.0",
     "angular-ui-router": "~0.2.10",
+    "angulartics": "https://github.com/prabinv/angulartics.git#0db9605833cd809f5336c0f981f5164d5aed66d4",
     "bootstrap-sass-official": "~3.1.0",
     "easyzoom": "~2.1.0",
     "enquire": "~2.1.0",
