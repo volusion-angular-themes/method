@@ -62,7 +62,7 @@
       margin: 0 0 10px 0;
       overflow: hidden;
       padding: 10px;
-      border: 1px solid #cdcdcd;
+      border: 1px solid map-get($colors, border);
     }
 
   }

@@ -1,5 +1,5 @@
 .th-elist {
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid map-get($colors, border);
   padding: 12px 0;
 }
 
@@ -25,26 +25,26 @@
 }
 .th-elist__input {
   @include inline-block;
-  border-color: #d9d9d9;
+  border-color: map-get($colors, border);
   width: 100%;
   height: 32px;
   margin: 0;
 }
 .th-elist__input:focus {
-  border-color: #000;
+  border-color: map-get($colors, border--dark);
 }
 
 .th-elist__submit {
   @include inline-block;
   font-size: 1.5rem;
   padding: 5px 10px;
-  color: #fff;
-  background: #313131;
+  color: map-get($colors, text--lightest);
+  background: map-get($colors, btnPrimaryBg);
   border: 0;
 
   &:hover {
-    background: #000;
-    color: #fff;
+    background: map-get($colors, btnPrimaryBg);
+    color: map-get($colors, text--lightest);
   }
 }
 
@@ -80,15 +80,16 @@
   }
 
   .th-elist__input {
+    height: 33px;
     min-width: 220px;
-    border-color: #fff;
+    border-color: map-get($colors, border--lightest);
   }
 
   .th-elist__submit {
   }
 
   .th-elist__submit:hover {
-    background: #000;
+    background: map-get($colors, btnPrimaryBg);
     border: 0;
   }
 

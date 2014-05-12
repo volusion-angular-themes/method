@@ -12,7 +12,7 @@
   padding: 10px 8px 11px;
   min-width: 45px;
   height: 45px;
-  border-color: #cdcdcd;
+  border-color: map-get($colors, border);
 }
 
 @include respond-to(sm-and-up) {

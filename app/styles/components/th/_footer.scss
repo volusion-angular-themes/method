@@ -1,8 +1,8 @@
 .th-footer {
   text-align: center;
-  background-color: #fff;
+  background-color: map-get($colors, component-bg);
   line-height: 2em;
-  border-top: 1px solid #d9d9d9;
+  border-top: 1px solid map-get($colors, border);
 
   a:hover {
     @extend %animate-all-default;
@@ -37,7 +37,7 @@
 
   li {
     @include inline-block;
-    border-left: 1px solid #313131;
+    border-left: 1px solid map-get($colors, border);
     line-height: 13px;
     padding-left: 10px;
     margin-right: 9px;
@@ -74,7 +74,7 @@
     min-height: 422px;
     border-top: 0;
     text-align: left;
-    background-color: #f0f0f0;
+    background-color: map-get($colors, component-bg--darker);
   }
 
   .th-footer__title {
@@ -84,7 +84,7 @@
   .th-footer__top {
     display: block;
     padding-bottom: 25px;
-    border-bottom: 1px solid #cecece;
+    border-bottom: 1px solid map-get($colors, border);
     ul.nav {
       margin: 0 0 35px;
     }
@@ -95,7 +95,7 @@
   }
 
   .th-footer__site-links {
-    border-right: 1px solid #cecece;
+    border-right: 1px solid map-get($colors, border);
     margin-top: 25px;
     overflow: hidden;
   }
@@ -124,7 +124,7 @@
 
     li {
       @include inline-block;
-      border-left: 1px solid #313131;
+      border-left: 1px solid map-get($colors, border);
       line-height: 13px;
       padding-left: 10px;
       margin-right: 9px;

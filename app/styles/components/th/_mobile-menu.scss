@@ -1,6 +1,6 @@
 .th-mobile-menu {
-  border-right: 1px solid #d9d9d9;
-  background-color: #fff;
+  border-right: 1px solid map-get($colors, border);
+  background-color: map-get($colors, component-bg);
 
   &__list {
     padding: 35px 15px 0;
@@ -33,7 +33,7 @@
     text-transform: uppercase;
     display: block;
     line-height: 17px;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid map-get($colors, border);
     font-size: 1.4rem;
   }
 }

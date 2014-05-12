@@ -47,7 +47,7 @@
   line-height: 22px;
   font-family: $font-family-condensed-reg;
   text-transform: uppercase;
-  color: #313131;
+  color: map-get($colors, regular-price);
 
   span {
     @include inline-block;
@@ -60,19 +60,15 @@
     vertical-align: middle;
   }
 
-  .th-reg-price {
-    border-right: 1px solid #ccc;
-    padding-right: 6px;
-    margin-right: 3px;
-  }
-
   .th-now-price {
-    color: #e3280f;
+    color: map-get($colors, sales-price);
+    border-left: 1px solid map-get($colors, border);
+    padding-left: 6px;
+    margin-left: 3px;
   }
 
   .th-price-text {
     font-size: 1.2rem;
-    color: #333;
     font-weight: normal;
     vertical-align: middle;
   }
@@ -91,9 +87,9 @@
     font-size: 3.0rem;
   }
 
-  .th-reg-price {
-    padding-right: 13px;
-    margin-right: 13px;
+  .th-now-price {
+    padding-left: 13px;
+    margin-left: 13px;
   }
 
   .th-price-text {

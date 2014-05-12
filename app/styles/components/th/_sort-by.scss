@@ -2,11 +2,8 @@
   display: none;
 
   a {
-    color: #000;
-
     &:hover {
       @extend %animate-all-default;
-      color: $link-hover-color;
     }
   }
 
@@ -23,7 +20,7 @@
     padding: 8px 15px;
     margin-bottom: 10px;
     text-transform: uppercase;
-    color: #828282;
+    color: map-get($colors, text--light);
     font-size: 1.2rem;
   }
 

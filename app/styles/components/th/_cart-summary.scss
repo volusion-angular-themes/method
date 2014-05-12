@@ -10,7 +10,7 @@
   padding: 6px 0;
 
   .th-my-cart__number {
-    color: #e32311;
+    color: map-get($colors, link-active);
   }
 
   .th-my-cart__number:before {

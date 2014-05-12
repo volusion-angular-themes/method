@@ -5,7 +5,7 @@
 @include respond-to(md-and-up) {
   .th-refine-exp {
     display: block;
-    background: #f4f3f0;
+    background: map-get($colors, component-bg--darker);
     padding: 11px 10px;
 
     .th-filter-text {
