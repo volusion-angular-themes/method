@@ -1,12 +1,12 @@
 .panel-group .panel-default {
   border-left: 0;
   border-right: 0;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 1px 1px rgba(map-get($colors, component-shadow), 0);
+  box-shadow: 0 1px 1px rgba(map-get($colors, component-shadow), 0);
 }
 
 .panel-default > .panel-heading {
-  color: #000;
+  color: map-get($colors, headings);
   border-left: 0;
   border-right: 0;
 
@@ -18,5 +18,5 @@
 }
 
 .panel-default > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #fff;
+  border-top-color: map-get($colors, border--lightest);
 }

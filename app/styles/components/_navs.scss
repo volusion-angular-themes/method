@@ -6,10 +6,10 @@
 
 .nav {
   .open > a {
-    border-color: #c2c2c2;
+    border-color: map-get($colors, border);
 
     &:hover, &:focus {
-      border-color: #c2c2c2;
+      border-color: map-get($colors, border);
     }
 
   }
@@ -17,7 +17,7 @@
 
 ul.nav-tabs {
   clear: both;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid map-get($colors, border);
   border-top: 0;
   margin-bottom: 19px;
   text-align: center;
@@ -34,27 +34,28 @@ ul.nav-tabs {
   > li > a {
     border: 0;
     padding: 10px 13px 7px;
-    color: #9d9d9d;
+    color: map-get($colors, link);
     margin: 0;
 
     &:hover {
       margin: 0;
-      color: #000;
+      color: map-get($colors, link-hover);
       border-top: 0;
+      cursor: pointer;
     }
   }
 
   > li.active > a {
     border-top: 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid map-get($colors, border--lightest);
     margin-bottom: 0;
-    color: #000;
-    border-color: #000;
+    color: map-get($colors, link);
+    border-color: map-get($colors, border--dark);
     border-left: 0;
     border-right: 0;
 
     &:hover {
-      color: #000;
+      color: map-get($colors, link-hover);
       border-top: 0;
     }
   }
@@ -65,7 +66,7 @@ ul.nav-tabs {
 
   ul.nav-tabs {
     text-align: left;
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid map-get($colors, border);
 
     > li {
       font-size: 1.4rem;
@@ -78,10 +79,10 @@ ul.nav-tabs {
     }
 
     > li.active > a {
-      border-left: 1px solid #d9d9d9;
-      border-right: 1px solid #d9d9d9;
+      border-left: 1px solid map-get($colors, border);
+      border-right: 1px solid map-get($colors, border);
       margin-bottom: -1px;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid map-get($colors, border--lightest);
     }
 
   }

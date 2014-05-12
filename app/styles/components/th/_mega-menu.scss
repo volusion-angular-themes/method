@@ -27,7 +27,7 @@
     }
 
     .navbar-default .navbar-nav > li {
-      border-top: 1px solid #c9c9c9;
+      border-top: 1px solid map-get($colors, border--light);
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -84,7 +84,7 @@
     display: block;
     text-transform: uppercase;
     font-family: $font-family-condensed-reg;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid map-get($colors, border);
   }
 
   .th-mega-menu img {
@@ -122,7 +122,7 @@
   /* Toggle hover */
   .th-navbar .nav li.dropdown > .dropdown-toggle:hover,
   .th-navbar .nav li.dropdown.open > .dropdown-toggle:hover {
-    background-color: #fff;
+    background-color: map-get($colors, component-bg);
   }
   /* Toggle caret*/
   .th-navbar .nav li.dropdown > .dropdown-toggle .caret {
@@ -130,15 +130,15 @@
   /* Toggle caret hover */
   .th-navbar .nav li.dropdown > a:hover .caret,
   .th-navbar .nav li.dropdown > a:focus .caret {
-    border-bottom-color: #333;
-    border-top-color: #333;
+    border-bottom-color: map-get($colors, border);
+    border-top-color: map-get($colors, border);
   }
   /* Toggle caret active */
   .th-navbar .nav li.dropdown.open > .dropdown-toggle .caret,
   .th-navbar .nav li.dropdown.active > .dropdown-toggle .caret,
   .th-navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-    border-bottom-color: #333;
-    border-top-color: #333;
+    border-bottom-color: map-get($colors, border);
+    border-top-color: map-get($colors, border);
   }
   /* Hover style
   ********************************/

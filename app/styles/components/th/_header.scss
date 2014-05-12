@@ -1,6 +1,6 @@
 .th-header {
   display: none;
-  border: 1px solid #d9d9d9;
+  border: 1px solid map-get($colors, border);
 
   a:hover {
     @extend %animate-all-default;

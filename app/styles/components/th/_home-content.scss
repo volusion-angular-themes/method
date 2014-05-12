@@ -1,4 +1,3 @@
-/* HOMEPAGE */
 .th-home-content {
 
   .img-responsive {
@@ -35,7 +34,7 @@
       font-family: $font-family-heading-reg;
       font-size: 2.2rem;
       line-height: 1.1em;
-      border-bottom: 1px solid #d9d9d9;
+      border-bottom: 1px solid map-get($colors, border);
       padding: .5em 0;
     }
 
@@ -50,7 +49,7 @@
 
     .th-link {
       @extend %inline-block;
-      color: #dc1703;
+      color: map-get($colors, link-active);
     }
   }
 
@@ -64,10 +63,7 @@
   }
 
 }
-/* Small devices (tablets, 768px and up) */
-@include respond-to(sm-and-up) {}
 
-/* Medium devices (desktops, 992px and up) */
 @include respond-to(md-and-up) {
   .th-home-content {
 

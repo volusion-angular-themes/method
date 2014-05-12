@@ -11,16 +11,16 @@
 
   .th-quick-view {
     text-transform: uppercase;
-    color: #fff;
+    color: map-get($colors, text--lightest);
     text-indent: 14px;
     width: 85%;
     float: left;
     text-align: left;
     font-family: $font-family-condensed-reg;
-    background-color: rgba(1, 1, 1, 0.5);
+    background-color: rgba(map-get($colors, component-bg--darkest), 0.5);
 
     &:hover {
-      background-color: rgba(1, 1, 1, 0.6);
+      background-color: rgba(map-get($colors, component-bg--darkest), 0.6);
     }
 
   }
@@ -29,7 +29,7 @@
       float: left;
       height: 30px;
       width: 15%;
-      background-color: #f6271b;
+      background-color: map-get($colors, component-active-bg);
 
       span {
         @extend %inline-block;
@@ -40,7 +40,7 @@
       }
 
     &:hover {
-      background-color: #d92319;
+      background-color: map-get($colors, component-active-bg);
     }
   }
 }

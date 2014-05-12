@@ -12,7 +12,7 @@
     width: 13px;
     height: 13px;
     border: 0;
-    background-color: map-get($colors, control-bg-active);
+    background-color: map-get($colors, component-active-bg);
   }
 
   &__slide {

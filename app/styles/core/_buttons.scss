@@ -1,13 +1,8 @@
 @import "bootstrap/buttons";
 
-// LOAD MORE BUTTONS
 .btn {
 
   &.th-load-more {
-    border: 0;
-    color: #6b6b6b;
-    background-color: #d4d4d4;
-    font-weight: bold;
     padding-top: 12px;
     width: 70%;
     display: block;
@@ -22,8 +17,8 @@
   }
 
   &.btn-grey-sm {
-    background: #eeeeee;
-    color: #424242;
+    background: map-get($colors, component-bg--darker);
+    color: map-get($colors, btnDefaultColor);
     font-family: $font-family-sans-serif;
     border: 0;
     text-transform: none;
@@ -62,11 +57,11 @@
   }
 
   a {
-    color: #929292;
+    color: map-get($colors, link--light);
     font-size: 1.4rem;
 
     &:hover {
-      color: #000;
+      color: map-get($colors, link-hover--dark);
     }
   }
 }

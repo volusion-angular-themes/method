@@ -4,7 +4,7 @@
   .breadcrumb {
     margin-bottom: 0;
     border-bottom: 0;
-    border-bottom: 1px solid #cbcbcb;
+    border-bottom: 1px solid map-get($colors, border);
 
     a:hover {
       @include single-transition(all, 200ms, ease);

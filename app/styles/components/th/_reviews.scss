@@ -1,11 +1,11 @@
 .th-reviews {
   font-size: 1.3rem;
-  color: #707070;
+  color: map-get($colors, text--light);
   line-height: 22px;
-  border-top: 1px solid #cdcdcd;
+  border-top: 1px solid map-get($colors, border);
 
   a {
-    color: #707070;
+    color: map-get($colors, text--light);
     margin: 0 4px;
   }
 
@@ -22,14 +22,13 @@
 .th-reviews__title {
   text-transform: uppercase;
   font-size: 1.8rem;
-  color: #424242;
   padding: 20px 0;
   overflow: hidden;
   font-family: $font-family-condensed-reg;
 }
 
 .th-reviews__totals {
-  border: 1px solid #eeeeee;
+  border: 1px solid map-get($colors, border--light);
   padding: 15px;
   overflow: hidden;
 }

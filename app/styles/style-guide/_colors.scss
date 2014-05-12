@@ -1,24 +1,37 @@
 
 $userDefined: ( // User Defined Colors
 
-  brand-primary:                      #428bca,
+  brand-primary:                      #000,
   body-bg:                            #fff,
-  text:                               #333,
-  link:                               #333,
-  link-hover:                         #666,
-  link-active:                        #666,
+  text:                               #000,
+  text-emphasized:                    #f63e34,
+  link:                               #000,
+  link-hover:                         #f63e34,
+  link-active:                        #f63e34,
+  regular-price:                      #000,
+  sales-price:                        #f63e34,
   headings:                           #333,
   placeholder:                        #333,
-  border:                             #e5e5e5,
-  control-bg-active:                  #f63e34
+  border:                             #d9d9d9,
+  component-active-bg:                #f63e34,
+  component-bg:                       #fff,
+  component-shadow:                   #000
 );
 
 
 // Custom Modifiers
 $userDefined: map-merge($userDefined, (
 
+  text--lightest:                     lighten(map-get($userDefined, text), 100),
+  text--light:                        lighten(map-get($userDefined, text), 55),
   placeholder--focus:                 lighten(map-get($userDefined, placeholder), 60),
-
+  link--light:                        lighten(map-get($userDefined, link), 40),
+  link-hover--dark:                   darken(map-get($userDefined, link-hover), 100),
+  border--dark:                       darken(map-get($userDefined, border), 40),
+  border--light:                      lighten(map-get($userDefined, border), 10),
+  border--lightest:                   lighten(map-get($userDefined, border), 50),
+  component-bg--darker:               darken(map-get($userDefined, component-bg), 6),
+  component-bg--darkest:            darken(map-get($userDefined, component-bg), 100)
 ));
 
 $bootstrap: ( // Bootstrap Colors
@@ -42,7 +55,7 @@ $bootstrap: ( // Bootstrap Colors
 
   headingsColor:                      map-get($userDefined, headings),
 
-  componentActiveColor:               #fff,
+  componentActiveColor:               map-get($userDefined, control-active-bg),
 
   tableBg:                            transparent,
   tableBgAccent:                      #f9f9f9,
@@ -53,36 +66,41 @@ $bootstrap: ( // Bootstrap Colors
   btnDefaultBg:                       #fff,
   btnDefaultBorder:                   #ccc,
   btnPrimaryColor:                    #fff,
+  btnPrimaryBg:                       map-get($userDefined, brand-primary),
   btnSuccessColor:                    #fff,
   btnInfoColor:                       #fff,
   btnWarningColor:                    #fff,
   btnDangerColor:                     #fff,
 
   inputBg:                            #fff,
-  inputBorder:                        #ccc,
-  inputFocus:                         #66afe9,
+  inputBorder:                        #cdcdcd,
+  inputFocus:                         #000,
 
   legendBorderColor:                  #e5e5e5,
 
   dropdownBg:                         #fff,
-  dropdownBorder:                     rgba(0,0,0,.15),
-  dropdownFallbackBorder:             #ccc,
-  dropdownDividerBg:                  #e5e5e5,
-  dropdownLinkHoverBg:                #464649,
-  dropdownCaretColor:                 #fff,
+  dropdownBorder:                     #d4d4d4,
+  dropdownFallbackBorder:             #d4d4d4,
+  dropdownDividerBg:                  #fff,
+  dropdownLinkColor:                  #000,
+  dropdownLinkHoverColor:             #f63e34,
+  dropdownLinkHoverBg:                #fff,
+  dropdownCaretColor:                 #000,
 
-  navbarDefaultColor:                 #777,
-  navbarDefaultBg:                    #f8f8f8,
-  navbarDefaultLinkColor:             #777,
-  navbarDefaultLinkHoverColor:        #333,
-  navbarDefaultLinkHoverBg:           transparent,
-  navbarDefaultLinkActiveColor:       #555,
+  navbarDefaultColor:                 #000,
+  navbarDefaultBg:                    #fff,
+  navbarDefaultBorder:                #d9d9d9,
+  navbarDefaultLinkColor:             #000,
+  navbarDefaultLinkHoverColor:        #f63e34,
+  navbarDefaultLinkHoverBg:           #fff,
+  navbarDefaultLinkActiveColor:       #f63e34,
+  navbarDefaultLinkActiveBg:          transparent,
   navbarDefaultLinkDisabledColor:     #ccc,
   navbarDefaultLinkDisabledBg:        transparent,
   navbarDefaultBrandHoverBg:          transparent,
-  navbarDefaultToggleHoverBg:         #ddd,
-  navbarDefaultToggleIconBarBg:       #888,
-  navbarDefaultToggleBorderColor:     #ddd,
+  navbarDefaultToggleHoverBg:         transparent,
+  navbarDefaultToggleIconBarBg:       #000,
+  navbarDefaultToggleBorderColor:     transparent,
 
   navbarInverseBg:                    #222,
   navbarInverseLinkColor:             #fff,
@@ -97,14 +115,18 @@ $bootstrap: ( // Bootstrap Colors
   navbarInverseToggleIconBarBg:       #fff,
   navbarInverseToggleBorderColor:     #333,
 
+  navLinkHoverBg:                     transparent,
+  navDisabledLinkColor:               #555,
+  navDisabledLinkHoverColor:          #555,
   navOpenLinkHoverColor:              #fff,
   navTabsBorderColor:                 #ddd,
   navTabsActiveLinkHoverBorderColor:  #ddd,
   navTabsJustifiedLinkBorderColor:    #ddd,
 
   paginationBg:                       #fff,
-  paginationBorder:                   #ddd,
-  paginationHoverBorder:              #ddd,
+  paginationBorder:                   #cdcdcd,
+  paginationHoverBg:                  #000,
+  paginationHoverBorder:              #000,
   paginationActiveColor:              #fff,
   paginationDisabledBg:               #fff,
   paginationDisabledBorder:           #ddd,
@@ -160,7 +182,8 @@ $bootstrap: ( // Bootstrap Colors
   badgeActiveBg:                      #fff,
 
   breadcrumbBg:                       transparent,
-  breadcrumbColor:                    #2c2c2f,
+  breadcrumbColor:                    #000,
+  breadcrumbActiveColor:              #000,
 
   carouselControlColor:               #fff,
   carouselIndicatorActiveBg:          #fff,

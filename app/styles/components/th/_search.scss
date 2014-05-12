@@ -6,17 +6,16 @@
   text-transform: uppercase;
   font-family: $font-family-condensed-reg;
   font-size: 1.4rem;
-  color: #000;
+  color: map-get($colors, text);
   float: left;
   padding: 12px 10px;
   border: 0;
   width: 80%;
-  background: #fff;
+  background: map-get($colors, component-bg);
 }
 
 .th-search--small__btn {
   float: right;
-  color: #969696;
   border: 0;
   font-size: 1.5rem;
   padding-top: 12px;
@@ -34,7 +33,6 @@
   overflow: hidden;
 }
 
-/* Medium devices (desktops, 992px and up) */
 @include respond-to(md-and-up) {
 
 
@@ -58,16 +56,15 @@
     }
 
     .th-search__btn {
-      background: #fff;
-      border-color: #fff;
-      color: #939393;
+      background: map-get($colors, btnDefaultBg);
+      border-color: map-get($colors, border--lightest);
+      color: map-get($colors, text--light);
       width: 30px;
       padding:0;
       font-size: 1.6rem;
 
       &:hover {
           background: none;
-          color: #000;
       }
     }
 
@@ -90,7 +87,6 @@
 
 }
 
-/* Large devices (large desktops, 1200px and up) */
 @include respond-to(lg) {
 
   .th-search {
