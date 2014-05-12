@@ -8,7 +8,7 @@ module.exports = [
     $scope,
     api) {
 
-    // TODO: Replace this with theme settings
+    // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
     $scope.featuredHomeItems = {
       tile1: {
         linkTo: 'Board-Shorts/p/MW-BShorts'
@@ -35,8 +35,6 @@ module.exports = [
       { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide3.jpg', headline: 'Miami Fashion', subHeadline: null, linksTo: 'Peasant-Blouse/p/WT-Peasant' },
       { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide4.jpg', headline: 'Miami Fashion', subHeadline: null, linksTo: 'Snake-Skin-Purse/p/WA-SSPurse' }
     ];
-
-    // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
 
     // Featured Products
     api.products.get({ filter: 'featured', pageSize: 4}).then(function (response) {

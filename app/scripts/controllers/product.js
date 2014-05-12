@@ -7,20 +7,31 @@ module.exports = [
   '$scope',
   '$stateParams',
   '$sce',
+  '$anchorScroll',
+  '$location',
   function (
     api,
     product,
     $rootScope,
     $scope,
     $stateParams,
-    $sce
+    $sce,
+    $anchorScroll,
+    $location
     ) {
+
+    $scope.$on('$stateChangeSuccess', function () {
+      $location.hash('top');
+      $anchorScroll();
+      $location.hash('');
+    });
 
     var productData = $scope.product = product.data;
     $scope.product.quantity = 1;
 
     angular.extend($scope.seo, product.data.seo);
     $scope.sceDescriptions = angular.copy(productData.descriptions);
+
     angular.forEach(['detail', 'features', 'techSpecs', 'extendedInfo'], function(key) {
       $scope.sceDescriptions[key] = $sce.trustAsHtml($scope.sceDescriptions[key]);
     });

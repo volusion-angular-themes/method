@@ -154,10 +154,12 @@ angular.module('volusionApp')
     $rootScope.isInDesktopMode = true;
 
     enquire.register('screen and (max-width: 991px)', {
+      // transitioning to desktop mode
       unmatch: function () {
         snapRemote.close();
         $rootScope.isInDesktopMode = true;
       },
+      // transitioning to mobile mode
       match: function () {
         $rootScope.isInDesktopMode = false;
       }
