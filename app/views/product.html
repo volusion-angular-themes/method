@@ -56,8 +56,23 @@
               </div>
               <div class="hidden-xs">
                 <div class="th-write-review">
-                  <!-- TODO: Replace star with class -->
-                  <img data-ng-src="/images/theme/stars-4.png" height="13" width="84" class="img-responsive" alt="" />
+                  <div class="th-review-stars">
+                    <div class="th-icon th-icon--star th-review-stars__star">
+                      <div class="th-icon__foreground"></div>
+                    </div>
+                    <div class="th-icon th-icon--star th-review-stars__star">
+                      <div class="th-icon__foreground"></div>
+                    </div>
+                    <div class="th-icon th-icon--star th-review-stars__star">
+                      <div class="th-icon__foreground"></div>
+                    </div>
+                    <div class="th-icon th-icon--star-half th-review-stars__star">
+                      <div class="th-icon__foreground"></div>
+                    </div>
+                    <div class="th-icon th-icon--star-inactive th-review-stars__star">
+                      <div class="th-icon__foreground"></div>
+                    </div>
+                  </div>
                   <a href="#" data-translate="product.writeReview"></a>
                 </div>
                 <div class="th-add-favorite">
@@ -241,7 +256,25 @@
       <div class="th-reviews__totals">
         <div class="th-totals-left">
           <div class="th-reviews__count">This product has recieved {{ratingsAndReviews.cumulativeRating}} out of {{ratingsAndReviews.maxRating}} stars based on {{reviews.numberOfReviews}} customer reviews</div>
-          <div class="th-reviews__avg"><img src="/images/demo/star-avg.png" alt=""></div>
+          <div class="th-reviews__avg">
+            <div class="th-review-stars">
+              <div class="th-icon th-icon--star th-review-stars__star">
+                <div class="th-icon__foreground"></div>
+              </div>
+              <div class="th-icon th-icon--star th-review-stars__star">
+                <div class="th-icon__foreground"></div>
+              </div>
+              <div class="th-icon th-icon--star th-review-stars__star">
+                <div class="th-icon__foreground"></div>
+              </div>
+              <div class="th-icon th-icon--star-half th-review-stars__star">
+                <div class="th-icon__foreground"></div>
+              </div>
+              <div class="th-icon th-icon--star-inactive th-review-stars__star">
+                <div class="th-icon__foreground"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="th-totals-right">
           <a href="#" class="th-read-all" data-translate="product.readAllReviews">Read All Reviews &gt;</a>
@@ -251,7 +284,24 @@
       <div class="th-review" data-ng-repeat="review in ratingsAndReviews.reviews">
         <div class="th-review__helpful">{{review.numberOfPeopleWhoFoundReviewHelpful}} people found the following review helpful</div>
         <div class="th-review__rating">
-          <img src="/images/demo/stars.png" alt=""> <span class="th-rating-text">{{review.rating}} out of {{ratingsAndReviews.maxRating}}</span> By <span class="th-review__rating__author">{{review.nameOfReviewer}}</span>
+          <span class="th-review-stars">
+            <div class="th-icon th-icon--star th-review-stars__star">
+              <div class="th-icon__foreground"></div>
+            </div>
+            <div class="th-icon th-icon--star th-review-stars__star">
+              <div class="th-icon__foreground"></div>
+            </div>
+            <div class="th-icon th-icon--star th-review-stars__star">
+              <div class="th-icon__foreground"></div>
+            </div>
+            <div class="th-icon th-icon--star-half th-review-stars__star">
+              <div class="th-icon__foreground"></div>
+            </div>
+            <div class="th-icon th-icon--star-inactive th-review-stars__star">
+              <div class="th-icon__foreground"></div>
+            </div>
+          </span>
+          <span class="th-rating-text">{{review.rating}} out of {{ratingsAndReviews.maxRating}}</span> By <span class="th-review__rating__author">{{review.nameOfReviewer}}</span>
           <div class="th-rateing-date hidden-xs pull-right">{{review.date}}</div>
         </div>
         <div class="th-rating-title">{{review.title}}</div>
