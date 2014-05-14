@@ -162,16 +162,7 @@
             </div><!-- .th-product-info -->
 
             <div class="visible-sm visible-md visible-lg">
-              <div class="th-social">
-                <a href="#" class="th-social__icon th-social__icon--facebook"></a>
-                <a href="#" class="th-social__icon th-social__icon--twitter"></a>
-                <a href="#" class="th-social__icon th-social__icon--instagram"></a>
-                <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
-                <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
-                <a href="#" class="th-social__icon th-social__icon--google"></a>
-                <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
-                <a href="#" class="th-social__icon th-social__icon--youtube"></a>
-              </div>
+              <div class="th-social" data-ng-include=" 'views/partials/social-sharing.html' "></div>
             </div><!-- .th-social-icons -->
           </div>
         </div>
@@ -215,16 +206,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="visible-xs">
-          <div class="th-social">
-            <a href="#" class="th-social__icon th-social__icon--facebook"></a>
-            <a href="#" class="th-social__icon th-social__icon--twitter"></a>
-            <a href="#" class="th-social__icon th-social__icon--instagram"></a>
-            <a href="#" class="th-social__icon th-social__icon--tumblr"></a>
-            <a href="#" class="th-social__icon th-social__icon--pinterest"></a>
-            <a href="#" class="th-social__icon th-social__icon--google"></a>
-            <a href="#" class="th-social__icon th-social__icon--vimeo"></a>
-            <a href="#" class="th-social__icon th-social__icon--youtube"></a>
-          </div>
+          <div class="th-social" data-ng-include=" 'views/partials/social-sharing.html' "></div>
         </div>
       </div>
     </div>
@@ -255,8 +237,9 @@
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
       <div class="th-reviews__totals">
         <div class="th-totals-left">
-          <div class="th-reviews__count">This product has recieved {{ratingsAndReviews.cumulativeRating}} out of {{ratingsAndReviews.maxRating}} stars based on {{reviews.numberOfReviews}} customer reviews</div>
+          <div class="th-reviews__count">This product has recieved {{ratingsAndReviews.data.avgRating}} out of {{ratingsAndReviews.data.maxRating}} stars based on {{ratingsAndReviews.cursor.total}} customer reviews</div>
           <div class="th-reviews__avg">
+            <!-- TODO: Do this -->
             <div class="th-review-stars">
               <div class="th-icon th-icon--star th-review-stars__star">
                 <div class="th-icon__foreground"></div>
@@ -281,10 +264,11 @@
           <button class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</button>
         </div>
       </div>
-      <div class="th-review" data-ng-repeat="review in ratingsAndReviews.reviews">
-        <div class="th-review__helpful">{{review.numberOfPeopleWhoFoundReviewHelpful}} people found the following review helpful</div>
+      <div class="th-review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
+        <div class="th-review__helpful">{{review.helpful}} people found the following review helpful</div>
         <div class="th-review__rating">
-          <span class="th-review-stars">
+          <!-- TODO: Do this -->
+          <div class="th-review-stars">
             <div class="th-icon th-icon--star th-review-stars__star">
               <div class="th-icon__foreground"></div>
             </div>
@@ -300,8 +284,8 @@
             <div class="th-icon th-icon--star-inactive th-review-stars__star">
               <div class="th-icon__foreground"></div>
             </div>
-          </span>
-          <span class="th-rating-text">{{review.rating}} out of {{ratingsAndReviews.maxRating}}</span> By <span class="th-review__rating__author">{{review.nameOfReviewer}}</span>
+          </div>
+          <span class="th-rating-text">{{review.rating}} out of {{ratingsAndReviews.data.maxRating}}</span> By <span class="th-review__rating__author">{{review.nameOfReviewer}}</span>
           <div class="th-rateing-date hidden-xs pull-right">{{review.date}}</div>
         </div>
         <div class="th-rating-title">{{review.title}}</div>

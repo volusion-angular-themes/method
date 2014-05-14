@@ -51,7 +51,7 @@ module.exports = [
     // Reviews
     // TODO: Need to validate that reviews are the correct viewmodel
     api.reviews.get({ code: $stateParams.productCode }).then(function (response) {
-      $scope.ratingsAndReviews = response.data;
+      $scope.ratingsAndReviews = response;
     });
 
     // Alt image swaps with main image
@@ -93,5 +93,16 @@ module.exports = [
       $scope.isCartButtonDisabled = false;
       console.log('Item added to cart');
     });
+
+    var fullUrl = $location.absUrl();
+    var pageTitle = $scope.seo.metaTagTitle;
+
+    // Sharing
+    $scope.product.sharing = {
+      facebook: 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
+      twitter: 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
+      tumblr: 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
+      googlePlus: 'https://plus.google.com/share?url=' + fullUrl
+    };
   }
 ];
