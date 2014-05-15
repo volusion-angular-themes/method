@@ -9,7 +9,8 @@ angular.module('volusionApp', [
     'ui.router',
     'seo',
     'pascalprecht.translate',
-    require('./services/config').name
+    require('./services/config').name,
+    require('vn-bem').name
   ])
   .provider('api', require('./services/api-provider'))
   .provider('translate', require('./services/translate-provider'));
