@@ -2,5 +2,8 @@
   "name": "components",
   "version": "0.0.0",
   "description": "AngularJS components",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "vn-bem": "0.0.3"
+  }
 }
