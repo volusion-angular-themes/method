@@ -25,15 +25,18 @@ angular.module('volusionApp')
     translateProvider,
     config) {
 
-    apiProvider.setBaseRoute(config.API_URL);
+    var env = config.ENV;
+
+    apiProvider.setBaseRoute(env.API_URL);
 
     $locationProvider.html5Mode(true);
 
     var translateOptions = {
-      urlPrefix: '/:region/:lang-:country',
-      region: 'us',
-      lang: 'en',
-      country: 'us'
+      urlPrefix: env.URL_PREFIX || '',
+      region: env.REGION,
+      lang: env.LANG,
+      country: env.COUNTRY,
+      disableTranslations: env.DISABLE_TRANSLATIONS
     };
     translateProvider.configure(translateOptions);
 
@@ -47,7 +50,7 @@ angular.module('volusionApp')
 
     $stateProvider
       .state('i18n', {
-        url: '/:region/:lang-:country',
+        url: translateOptions.urlPrefix,
         templateUrl: 'views/i18n.html',
         resolve: {
           translations: ['translate', function(translate) {
