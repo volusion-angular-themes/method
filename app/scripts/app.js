@@ -13,6 +13,7 @@ angular.module('volusionApp', [
     'seo',
     'pascalprecht.translate',
     require('./services/config').name,
+    require('vn-bem').name,
     'ui.bootstrap',
     'snap',
     require('vn-meta-tags').name,
