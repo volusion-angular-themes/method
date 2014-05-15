@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 // ReSharper disable WrongExpressionStatement
 describe('Provider: translate', function () {
@@ -41,6 +41,30 @@ describe('Provider: translate', function () {
       });
     });
 
+    it('does not initialize the translateProvider when Translations are disabled', function() {
+      var options = {
+        disableTranslations: true
+      };
+
+      config(options, function(translateProvider) {
+        var initTranslateProvider =
+          sinon.spy(translateProvider, 'initTranslateProvider');
+        expect(initTranslateProvider).not.to.have.been.called;
+        translateProvider.initTranslateProvider.restore();
+      });
+    });
+
+  });
+
+  it('returns true when adding parts with translations disabled', function() {
+    var options = {
+      disableTranslations: true
+    };
+    config(options);
+    inject(function(translate) {
+      var result = translate.addParts('foo');
+      expect(result).to.be.true;
+    });
   });
 
   function config(options, callback) {

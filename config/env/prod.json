@@ -1,5 +1,10 @@
 {
   "config": {
-    "API_URL": "http://volusion.apiary.io"
+    "API_URL": "/api/v1",
+    "DISABLE_TRANSLATIONS": true,
+    "URL_PREFIX": "",
+    "REGION": "us",
+    "LANG": "en",
+    "COUNTRY": "us"
   }
 }
