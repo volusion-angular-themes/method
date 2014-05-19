@@ -21,6 +21,5 @@
   },
   "_source": "git://github.com/volusion-angular/vn-meta-tags.git",
   "_target": "~0.0.1",
-  "_originalSource": "vn-meta-tags",
-  "_direct": true
+  "_originalSource": "vn-meta-tags"
 }
