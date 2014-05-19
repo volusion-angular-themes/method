@@ -1,0 +1,113 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	line-height: 1.5;
+	font-family: Arial, sans-serif;
+	color: #111;
+	background: #eee;
+}
+
+h1, h2, h3, h4, header > p {
+	text-align: center;
+	color: #555;
+}
+
+h1 {
+	margin: 0 0 .2em;
+	font-size: 2.5em;
+	letter-spacing: -.075em;
+}
+
+h2, header > p {
+	margin: 0 0 .5em;
+	font-weight: normal;
+	font-size: 1.5em;
+}
+
+h3, h4 {
+	margin: 0 0 .5em;
+	font-size: 1em;
+}
+
+header > h1 {
+	margin-bottom: 0;
+}
+
+header > p {
+	margin-bottom: 1em;
+}
+
+p, dl, ul, ol {
+	margin: 0 0 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 0 1em;
+	font-size: .8125em;
+	color: #555;
+}
+
+ul, ol {
+	padding-left: 1.5em;
+}
+
+button,
+a.button {
+	font-size: 1.2em;
+	line-height: 1;
+	padding: .25em .5em;
+	border: none;
+	text-decoration: none;
+	color: #fff;
+	background: #333;
+	border-radius: 7px;
+}
+
+button:hover,
+a.button:hover {
+	background-color: #111;
+}
+
+a img {
+	border: 0;
+}
+
+figure {
+	margin: 0;
+}
+
+pre, code, var, kbd {
+	font: normal 1em/1 Consolas, "Lucida Console", Monaco, monospace;
+}
+
+pre {
+	overflow: auto;
+	padding: 1em .5em;
+	border: 1px solid #333;
+	text-align: left;
+	border-radius: 5px;
+}
+
+hr {
+	height: 1px;
+	padding: 0;
+	margin: 0 0 1.5em;
+	border: 0;
+	background: #ccc;
+}
+
+.container {
+	width: 640px;
+	margin: 0 auto;
+	padding: 2em 2em 4em;
+	background: #fff;
+	box-shadow: 0 0 5em rgba(0, 0, 0, .1);
+}

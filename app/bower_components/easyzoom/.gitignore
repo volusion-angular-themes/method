@@ -1,0 +1,16 @@
+node_modules/
+
+.DS_Store
+.idea
+.svn
+
+*.gz
+*.db
+*.log
+*.bak
+*.dat
+*.out
+*.pid
+*.seed
+*.sublime-project
+*.sublime-workspace
