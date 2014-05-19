@@ -16,7 +16,7 @@ angular.module('volusionApp', [
     require('../bower_components/vn-bem').name,
     'ui.bootstrap',
     'snap',
-    require('vn-meta-tags').name,
+    require('../bower_components/vn-meta-tags').name,
     'angulartics',
     'volusion.google.tagmanager'
   ])
