@@ -78,7 +78,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|fonts|images|node_modules|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/404.html', to: '/404.html' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
@@ -304,9 +304,9 @@ module.exports = function (grunt) {
       componentViews: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          src: 'node_modules/**/*.html',
-          dest: '.tmp/scripts'
+          cwd: '<%= yeoman.app %>',
+          src: 'bower_components/**/*.html',
+          dest: '.tmp'
         }]
       }
     },
@@ -343,7 +343,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'web.config',
             '*.html',
-            'bower_components/**/*',
+            'bower_components/**',
             'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
             'translations/{,*/}*.json'
@@ -365,8 +365,8 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>',
         src: [
-          'scripts/node_modules/**',
-          '!scripts/node_modules/**/*.html'
+          'bower_components/**',
+          '!bower_components/**/*.html'
         ],
         dest: '.tmp'
       }
