@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 var Translate = require('./translate');
 
@@ -13,21 +13,26 @@ TranslateProvider.prototype.$get = [
   '$translate', '$translatePartialLoader', 'storage',
   function($translate, $translatePartialLoader, storage) {
     var options = this.options;
+
     return new Translate($translate, $translatePartialLoader, storage, {
       region: options.region,
       lang: options.lang,
       country: options.country
-    });
+    }, options.disableTranslations);
   }
 ];
 
 TranslateProvider.prototype.configure = function(options) {
   options = angular.extend({ region: 'us', lang: 'en', country: 'us' }, options);
+
   if (options.lang) {
     this.setPreferredLanguage(options.lang);
   }
   this.options = options;
-  this.initTranslateProvider(options.lang);
+
+  if (!options.disableTranslations) {
+    this.initTranslateProvider(options.lang);
+  }
 };
 
 TranslateProvider.prototype.initTranslateProvider = function(lang) {
