@@ -3,10 +3,11 @@
 var storageKey = 'VN_TRANSLATE';
 
 // ReSharper disable once InconsistentNaming
-function Translate($translate, $translatePartialLoader, storage, options) {
+function Translate($translate, $translatePartialLoader, storage, options, disableTranslations) {
   this.$translate = $translate;
   this.$translatePartialLoader = $translatePartialLoader;
   this.storage = storage;
+  this.disableTranslations = disableTranslations;
   this.configure(angular.extend(options, this.getConfig()));
   this.addPart = $translatePartialLoader.addPart;
 }
@@ -28,6 +29,10 @@ Translate.prototype.configure = function(config) {
 };
 
 Translate.prototype.addParts = function() {
+  if (this.disableTranslations) {
+    return true;
+  }
+
   var loader = this.$translatePartialLoader;
   angular.forEach(arguments, angular.bind(this, function(part) {
     loader.addPart(part);
