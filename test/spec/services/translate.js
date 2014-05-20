@@ -10,8 +10,9 @@ describe('Service: translate', function() {
 
   // instantiate service
   // ReSharper disable once InconsistentNaming
-  beforeEach(inject(function(_translate_) {
+  beforeEach(inject(function(_translate_, _config_) {
     translate = _translate_;
+    _config_.ENV.DISABLE_TRANSLATIONS = false;
   }));
 
   it('exists', function() {
