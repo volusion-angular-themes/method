@@ -3,7 +3,6 @@
 var angular = require('angular');
 var enquire = require('enquire');
 require('./theme');
-require('./services/volusion.google.tagmanager');
 
 angular.module('volusionApp', [
     'ngCookies',
@@ -18,7 +17,8 @@ angular.module('volusionApp', [
     'snap',
     require('../bower_components/vn-meta-tags').name,
     'angulartics',
-    'volusion.google.tagmanager'
+    require('./services/volusion.google.tagmanager').name,
+    require('./decorators/decorators').name
   ])
   .provider('api', require('./services/api-provider'))
   .provider('translate', require('./services/translate-provider'));
