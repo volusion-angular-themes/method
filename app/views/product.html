@@ -211,16 +211,25 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" data-ng-if="relatedProducts || accessories">
       <div class="col-xs-12">
         <div class="th-related-wrap">
           <div data-tabset>
-            <div data-tab>
+            <div data-tab data-ng-if="relatedProducts">
               <div data-tab-heading data-translate="product.related">
                 Related
               </div>
               <div class="th-products-wrap clearfix">
                 <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
+                </div>
+              </div>
+            </div>
+            <div data-tab data-ng-if="accessories">
+              <div data-tab-heading data-translate="product.accessories">
+                Accessories
+              </div>
+              <div class="th-products-wrap clearfix">
+                <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in accessories" data-ng-include="'views/partials/product-tile.html'">
                 </div>
               </div>
             </div>
@@ -231,7 +240,7 @@
             <button class="btn btn-default th-load-more" data-translate="product.loadMore">Load More</button>
           </div>
         </div>
-       </div>
+      </div>
     </div>
     <div class="th-reviews">
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>

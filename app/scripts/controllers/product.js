@@ -43,9 +43,12 @@ module.exports = [
     $scope.isopen1 = true;
 
     // Related Products
-    // TODO: Need to implement "Add to Cart" functionality
     api.relatedProducts.get({ code: $stateParams.productCode, pageNumber: 1, pageSize: 4 }).then(function (response) {
       $scope.relatedProducts = response.data;
+    });
+
+    api.accessories.get({ code: $stateParams.productCode, pageNumber: 1, pageSize: 4 }).then(function (response) {
+      $scope.accessories = response.data;
     });
 
     // Reviews
