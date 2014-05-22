@@ -30,7 +30,7 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       views: {
-        files: ['<%= yeoman.app %>/{,*/}*.html'],
+        files: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/views/{,*/}*.html'],
         tasks: ['htmlmin', 'browserify:test', 'karma'],
         options: {
           livereload: true
