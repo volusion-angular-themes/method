@@ -1,8 +1,8 @@
 {
   "config": {
     "API_URL": "/api/v1",
-    "DISABLE_TRANSLATIONS": true,
-    "URL_PREFIX": "",
+    "DISABLE_TRANSLATIONS": false,
+    "URL_PREFIX": "/:region/:lang-:country",
     "REGION": "us",
     "LANG": "en",
     "COUNTRY": "us"
