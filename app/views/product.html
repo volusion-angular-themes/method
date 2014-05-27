@@ -15,7 +15,7 @@
         <div class="visible-xs th-product">
           <div class="vn-slider vn-slider--product">
             <carousel data-interval="interval">
-              <slide data-ng-repeat="image in product.images" data-active="image.active">
+              <slide data-ng-repeat="image in product.images | filter: '!youtube.com'" data-active="image.active">
                 <a href="{{image.url}}">
                   <div class="vn-slider__slide">
                     <img data-ng-src="{{image.large}}" class="img-responsive" />
@@ -29,7 +29,7 @@
           <div class="clearfix th-product-view vn-zoom">
             <div class="th-product-view__image vn-zoom__image" data-easy-zoom data-is-desktop="{{isInDesktopMode}}" data-zoom-image-url="{{product.mainImage.large}}" data-image-url="{{product.mainImage.medium}}"></div>
             <div class="th-product-view__alts">
-              <span data-ng-click="showAltImage(this)" ng-repeat="image in product.images" class="col-xs-3 th-product-view__thumbnail"><img data-ng-src="{{image.medium}}" class="img-responsive" alt=""></span>
+              <span data-ng-click="showAltImage(this)" ng-repeat="image in product.images | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail"><img data-ng-src="{{image.medium}}" class="img-responsive" alt=""></span>
             </div>
           </div>
         </div><!-- .th-product -->
