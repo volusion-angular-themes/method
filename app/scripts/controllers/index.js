@@ -69,6 +69,14 @@ module.exports = [
 
     this.getConfig(this.getCart);
 
+    $rootScope.viewCart = function () {
+      if ($rootScope.isInDesktopMode) {
+        return '/shoppingcart.asp';
+      } else {
+        return '/checkout.asp';
+      }
+    };
+
     // Add to Cart
     $rootScope.$on('ADD_TO_CART', function (event, args) {
       var pricing = args.pricing;
