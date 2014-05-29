@@ -68,7 +68,7 @@
             <button type="submit" class="btn btn-default th-search__btn"><span class="glyphicon glyphicon-search"></span></button>
           </form>
           <span class="th-my-cart">
-            <a data-legacy-link="/checkout.asp" class="th-my-cart__link">
+            <a data-legacy-link="{{viewCart()}}" class="th-my-cart__link">
               <span class="th-my-cart__text" data-translate="index.myCart">My Bag</span>
               <span class="th-my-cart__number">{{cart.items.length}}</span>
             </a>
