@@ -1,9 +1,6 @@
 'use strict';
 
-module.exports = angular.module('volusionApp.decorators', [
-    'pascalprecht.translate',
-    'services.config'
-  ])
+angular.module('volusion.decorators')
   .config(['$provide', 'config', function ($provide, config) {
     var disableTranslations = config.ENV.DISABLE_TRANSLATIONS;
     $provide.decorator('translateDirective', ['$delegate', function($delegate) {

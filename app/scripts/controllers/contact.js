@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('ContactCtrl', [
   '$scope',
   function(
     $scope) {
@@ -12,4 +12,4 @@ module.exports = [
     ];
 
   }
-];
+]);

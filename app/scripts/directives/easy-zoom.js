@@ -1,6 +1,6 @@
-﻿'use strict';
+'use strict';
 // http://i-like-robots.github.io/EasyZoom/
-module.exports = [function () {
+angular.module('volusion.directives').directive('easyZoom', [function () {
   var imageHash = {};
 
   var swapImages = function (zoomApi) {
@@ -37,4 +37,4 @@ module.exports = [function () {
       });
     }
   };
-}];
+}]);

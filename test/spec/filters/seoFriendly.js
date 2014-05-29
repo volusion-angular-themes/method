@@ -2,7 +2,7 @@
 
 // ReSharper disable WrongExpressionStatement
 describe('Filter: seoFriendly', function() {
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusion.filters'));
 
   it('trims non-alphanumeric characters from the beginning of the input', inject(function(seoFriendlyFilter) {
     expect(seoFriendlyFilter('% % - ( & )foo')).to.eq('foo');

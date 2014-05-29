@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.services').factory('storage', [
   '$window',
   '$cookieStore',
   function(
@@ -51,4 +51,4 @@ module.exports = [
     }
 
   }
-];
+]);

@@ -6,27 +6,17 @@ describe('Service: apiProvider', function() {
   var api;
   var $httpBackend;
   var baseRoutePath = '/local/';
+  var customActions = {
+    'bar': { method: 'GET', headers: { 'baz': 'qux' } },
+    'update': {method: 'POST', headers: { 'foo': 'bar' } }
+  };
 
-  before(function() {
-    var customActions = {
-      'bar': { method: 'GET', headers: { 'baz': 'qux' } },
-      'update': {method: 'POST', headers: { 'foo': 'bar' } }
-    };
-
-    angular.module('volusionApp')
-
-      /*jshint camelcase: false */
-      // ReSharper disable once InconsistentNaming
-      .config(function(_apiProvider_) {
-        apiProvider = _apiProvider_;
-        apiProvider.setBaseRoute(baseRoutePath);
-        apiProvider.endpoint('test', customActions)
-          .route('cart');
-      });
-      /*jshint camelcase: true */
-  });
-
-  beforeEach(module('volusionApp'));
+  beforeEach(module('pascalprecht.translate', 'volusion.services', function(_apiProvider_) {
+      apiProvider = _apiProvider_;
+      apiProvider.setBaseRoute(baseRoutePath);
+      apiProvider.endpoint('test', customActions)
+        .route('cart');
+    }));
 
   /*jshint camelcase: false */
   // ReSharper disable InconsistentNaming

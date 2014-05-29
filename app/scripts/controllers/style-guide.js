@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('StyleGuideCtrl', [
   function() {}
-];
+]);
