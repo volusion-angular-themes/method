@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'replace:dev', 'copy:scripts', 'browserify:test', 'karma'],
+        tasks: ['newer:jshint:all', 'replace:dev', 'browserify:test', 'concat:scripts', 'karma'],
         options: {
           livereload: true
         }
@@ -372,6 +372,18 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      scripts: {
+        dest: '.tmp/scripts/scripts.js',
+        src: [
+          '.tmp/scripts/scripts.js',
+          '.tmp/scripts/**/*.js',
+          '!.tmp/scripts/app.js',
+          '!.tmp/scripts/bower_components'
+        ]
+      }
+    },
+
     uglify: {
       vendor: {
         files: {
@@ -448,6 +460,7 @@ module.exports = function(grunt) {
       'copy:components',
       'htmlmin',
       'browserify:test',
+      'concat:scripts',
       'configureRewriteRules',
       'connect:livereload',
       'watch'
@@ -467,6 +480,7 @@ module.exports = function(grunt) {
     'copy:components',
     'htmlmin',
     'browserify:test',
+    'concat:scripts',
     'connect:test',
     'karma'
   ]);
@@ -479,12 +493,13 @@ module.exports = function(grunt) {
     'compass:dist',
     'imagemin',
     'svgmin',
-    'concat',
+    'concat:generated',
     'copy:scripts',
     'copy:components',
     'htmlmin',
     'ngmin',
     'browserify:dist',
+    'concat:scripts',
     'copy:dist',
     'cdnify',
     'cssmin',

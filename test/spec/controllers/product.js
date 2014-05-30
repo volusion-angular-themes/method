@@ -4,7 +4,7 @@
 describe('Controller: ProductCtrl', function() {
 
   // load the controller's module
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusion.controllers'));
 
   // ReSharper disable once InconsistentNaming
   var controller;

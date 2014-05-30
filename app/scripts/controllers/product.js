@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('ProductCtrl', [
   'api',
   'product',
   '$rootScope',
@@ -108,4 +108,4 @@ module.exports = [
       googlePlus: 'https://plus.google.com/share?url=' + fullUrl
     };
   }
-];
+]);

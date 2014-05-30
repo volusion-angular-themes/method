@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('CategoryCtrl', [
   '$scope',
   'category',
   '$stateParams',
@@ -19,4 +19,4 @@ module.exports = [
 
     });
   }
-];
+]);

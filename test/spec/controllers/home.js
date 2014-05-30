@@ -3,7 +3,7 @@
 // ReSharper disable WrongExpressionStatement
 describe('Controller: HomeCtrl', function() {
 
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusion.controllers'));
 
   // TODO: Implement slider test
 });

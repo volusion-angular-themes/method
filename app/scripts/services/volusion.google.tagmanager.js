@@ -6,7 +6,7 @@
  * Enables analytics support for Google Tag Manager (http://google.com/tagmanager)
  */
 
-module.exports = angular.module('volusion.google.tagmanager', ['angulartics'])
+angular.module('volusion.google.tagmanager', ['angulartics'])
 .config(['$analyticsProvider', function($analyticsProvider){
 
   /**

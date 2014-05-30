@@ -1,9 +1,8 @@
 'use strict';
 
-module.exports = [
+angular.module('volusion.controllers').controller('HomeCtrl', [
   '$scope',
   'api',
-
   function (
     $scope,
     api) {
@@ -41,4 +40,4 @@ module.exports = [
       $scope.featuredProducts = response.data;
     });
   }
-];
+]);

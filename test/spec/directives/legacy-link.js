@@ -4,7 +4,7 @@
 describe('Directive: legacyLink', function() {
 
   // load the directive's module
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusion.directives'));
 
   var element;
   var scope;
@@ -13,6 +13,7 @@ describe('Directive: legacyLink', function() {
     scope = $rootScope.$new();
     element = angular.element('<a data-legacy-link="/foo"></a>');
     element = $compile(element)(scope);
+    scope.$digest();
   }));
 
   it('assigns the value to the href', function() {

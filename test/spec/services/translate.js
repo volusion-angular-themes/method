@@ -6,7 +6,7 @@ describe('Service: translate', function() {
   var translate;
 
   // load the service's module
-  beforeEach(module('volusionApp'));
+  beforeEach(module('volusionApp', 'volusion.services'));
 
   // instantiate service
   // ReSharper disable once InconsistentNaming

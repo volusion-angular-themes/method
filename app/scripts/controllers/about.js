@@ -1,15 +1,10 @@
 'use strict';
 
-module.exports = [
-  '$scope',
-  function(
-    $scope) {
-
+angular.module('volusion.controllers').controller('AboutCtrl', ['$scope', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-
   }
-];
+]);

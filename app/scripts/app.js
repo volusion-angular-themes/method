@@ -4,24 +4,32 @@ var angular = require('angular');
 var enquire = require('enquire');
 require('./theme');
 
+angular.module('volusion.directives', []);
+angular.module('volusion.filters', []);
+angular.module('volusion.services', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'services.config']);
+angular.module('volusion.decorators', ['pascalprecht.translate', 'services.config']);
+angular.module('volusion.controllers', ['ui.router', 'volusion.services']);
+
 angular.module('volusionApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ui.router',
     'seo',
-    'pascalprecht.translate',
-    require('./services/config').name,
+    'services.config',
     require('../bower_components/vn-bem').name,
     'ui.bootstrap',
     'snap',
     require('../bower_components/vn-meta-tags').name,
     'angulartics',
-    require('./services/volusion.google.tagmanager').name,
-    require('./decorators/decorators').name
-  ])
-  .provider('api', require('./services/api-provider'))
-  .provider('translate', require('./services/translate-provider'));
+    // volusion modules
+    'volusion.controllers',
+    'volusion.decorators',
+    'volusion.directives',
+    'volusion.filters',
+    'volusion.services',
+    'volusion.google.tagmanager'
+  ]);
 
 angular.module('volusionApp')
   .config(function (
@@ -30,36 +38,12 @@ angular.module('volusionApp')
     $urlRouterProvider,
     $locationProvider,
     $windowProvider,
-    apiProvider,
     translateProvider,
     config) {
 
     snapRemoteProvider.globalOptions.touchToDrag = false;
 
-    var customActions = {
-      'save': { method: 'POST', headers: { 'vMethod': 'POST'} },
-      'update': { method: 'POST', headers: { 'vMethod': 'PUT'} },
-    };
-
     var env = config.ENV;
-    apiProvider.setBaseRoute(config.ENV.API_URL);
-
-    apiProvider.endpoint('products').
-      route('/products/:code');
-    apiProvider.endpoint('reviews').
-      route('/products/:code/reviews');
-    apiProvider.endpoint('categories').
-      route('/categories/:id');
-    apiProvider.endpoint('config').
-      route('/config');
-    apiProvider.endpoint('relatedProducts').
-      route('/products/:code/relatedProducts');
-    apiProvider.endpoint('accessories').
-      route('/products/:code/accessories');
-    apiProvider.endpoint('navs').
-      route('/navs/:navId');
-    apiProvider.endpoint('carts', customActions).
-      route('/carts/:cartId');
 
     $locationProvider.html5Mode(true);
 
@@ -70,6 +54,7 @@ angular.module('volusionApp')
       country: env.COUNTRY,
       disableTranslations: env.DISABLE_TRANSLATIONS
     };
+
     translateProvider.configure(translateOptions);
 
     $urlRouterProvider.when('/', ['$state', function($state) {
@@ -189,15 +174,4 @@ angular.module('volusionApp')
     $templateCache.put('views/partials/header.html', require('./views/partials/header.html'));
     $templateCache.put('views/partials/mobile-menu.html', require('./views/partials/mobile-menu.html'));
     $templateCache.put('views/partials/social-sharing.html', require('./views/partials/social-sharing.html'));
-  })
-  .factory('storage', require('./services/storage'))
-  .directive('legacyLink', require('./directives/legacy-link'))
-  .directive('easyZoom', require('./directives/easy-zoom'))
-  .filter('seoFriendly', require('./filters/seoFriendly'))
-  .controller('IndexCtrl', require('./controllers/index'))
-  .controller('HomeCtrl', require('./controllers/home'))
-  .controller('StyleGuideCtrl', require('./controllers/style-guide'))
-  .controller('AboutCtrl', require('./controllers/about'))
-  .controller('ContactCtrl', require('./controllers/contact'))
-  .controller('CategoryCtrl', require('./controllers/category'))
-  .controller('ProductCtrl', require('./controllers/product'));
+  });
