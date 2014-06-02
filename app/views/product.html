@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" itemscope itemtype="http://schema.org/Product">
   <div class="th-product-wrap clearfix">
     <!-- PRODUCT TITLE/NAME FOR TABLET -->
     <div class="row">
       <div class="col-sm-12 visible-sm">
         <div class="th-product-name-lg">
-          {{product.name}}
+          <span itemprop="name" data-ng-bind="product.name"></span>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
               <slide data-ng-repeat="image in product.images | filter: '!youtube.com'" data-active="image.active">
                 <a href="{{image.url}}">
                   <div class="vn-slider__slide">
-                    <img data-ng-src="{{image.large}}" class="img-responsive" />
+                    <img itemprop="image" data-ng-src="{{image.large}}" class="img-responsive" />
                   </div>
                 </a>
               </slide>
@@ -41,18 +41,18 @@
           <div class="row visible-md visible-lg">
             <div class="col-xs-12">
               <div class="th-product-details__title">
-                <a href="#">{{product.name}}</a>
+                <a href="#"><span itemprop="name" data-ng-bind="product.name"></span></a>
               </div>
             </div><!-- .product name -->
           </div>
           <div class="row">
             <div class="col-xs-12 col-md-6">
               <div class="th-product__name visible-xs">
-                <a href="#">{{product.name}}</a>
+                <a href="#"><span itemprop="name" data-ng-bind="product.name"></span></a>
               </div>
               <div class="th-product__price--large">
-                <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
-                <span class="th-now-price" data-ng-show="product.price.salePrice > 0"><span class="th-price">{{product.price.salePrice | currency}}</span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
+                <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}"><span itemprop="price" data-ng-bind="product.price.regularPrice | currency"></span></span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
+                <span class="th-now-price" itemscope itemtype="http://schema.org/Offer" data-ng-show="product.price.salePrice > 0"><span class="th-price"><span itemprop="price" data-ng-bind="product.price.salePrice | currency"></span></span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
               </div>
               <div class="hidden-xs">
                 <div class="th-write-review">
@@ -138,7 +138,7 @@
                   <div data-accordion-heading>
                     <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
                   </div>
-                  <span data-ng-bind-html="product.sceDescriptions.detail"></span>
+                  <span itemprop="description" data-ng-bind-html="product.sceDescriptions.detail"></span>
                 </div>
                 <div data-accordion-group data-is-open="isopen2" data-ng-show="product.sceDescriptions.features">
                   <div data-accordion-heading>
@@ -177,7 +177,7 @@
               <div data-accordion-heading>
                 <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
               </div>
-              <span data-ng-bind-html="product.sceDescriptions.detail"></span>
+              <span itemprop="description" data-ng-bind-html="product.sceDescriptions.detail"></span>
             </div>
             <div data-accordion-group data-is-open="isopen2" data-ng-show="product.sceDescriptions.features">
               <div data-accordion-heading>
@@ -246,7 +246,7 @@
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
       <div class="th-reviews__totals">
         <div class="th-totals-left">
-          <div class="th-reviews__count">This product has recieved {{ratingsAndReviews.data.avgRating}} out of {{ratingsAndReviews.data.maxRating}} stars based on {{ratingsAndReviews.cursor.total}} customer reviews</div>
+          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content = "1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
           <div class="th-reviews__avg">
             <!-- TODO: Do this -->
             <div class="th-review-stars">
@@ -273,8 +273,8 @@
           <button class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</button>
         </div>
       </div>
-      <div class="th-review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
-        <div class="th-review__helpful">{{review.helpful}} people found the following review helpful</div>
+      <div class="th-review" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
+        <div class="th-review__helpful"><span data-ng-bind="review.helpful"></span> people found the following review helpful</div>
         <div class="th-review__rating">
           <!-- TODO: Do this -->
           <div class="th-review-stars">
@@ -294,12 +294,11 @@
               <div class="th-icon__foreground"></div>
             </div>
           </div>
-          <span class="th-rating-text">{{review.rating}} out of {{ratingsAndReviews.data.maxRating}}</span> By <span class="th-review__rating__author">{{review.nameOfReviewer}}</span>
-          <div class="th-rateing-date hidden-xs pull-right">{{review.date}}</div>
+          <span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
+          <div itemprop="datePublished" class="th-rateing-date hidden-xs pull-right" data-ng-bind="review.date"></div>
         </div>
-        <div class="th-rating-title">{{review.title}}</div>
-        <div class="th-rating-description">
-          "{{review.body}}"
+        <div itemprop="name" class="th-rating-title" data-ng-bind="review.title"></div>
+        <div itemprop="description" class="th-rating-description" data-ng-bind="review.body">
         </div>
         <div class="th-review__helpful">
           <span data-translate="product.wasThisReviewHelpfulToYou">Was this review helpful for you?</span>
