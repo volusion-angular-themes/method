@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     watch: {
       views: {
         files: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/views/{,*/}*.html'],
-        tasks: ['htmlmin', 'browserify:test', 'karma'],
+        tasks: ['htmlmin', 'browserify:test', 'concat:scripts', 'karma'],
         options: {
           livereload: true
         }
