@@ -9,6 +9,7 @@ describe('Controller: IndexCtrl', function() {
   var scope;
   var rootScope;
   var api;
+  var tokenGenerator;
 
   var response = {
     data: {
@@ -30,10 +31,17 @@ describe('Controller: IndexCtrl', function() {
     }
   };
 
-  beforeEach(inject(function($controller, $rootScope, _api_) {
+  var cacheBustingToken = { 'foo': 'bar' };
+
+  beforeEach(inject(function($controller, $rootScope, _api_, _tokenGenerator_) {
     api = _api_;
     rootScope = $rootScope;
     scope = $rootScope.$new();
+    tokenGenerator = _tokenGenerator_;
+
+    sinon.stub(tokenGenerator, 'getCacheBustingToken', function() {
+      return cacheBustingToken;
+    });
 
     sinon.stub(api.config, 'get', function() {
       return {
@@ -60,6 +68,7 @@ describe('Controller: IndexCtrl', function() {
   afterEach(function() {
     api.config.get.restore();
     api.carts.save.restore();
+    tokenGenerator.getCacheBustingToken.restore();
   });
 
   it('should navigate home when no sub-route is defined', function() {
@@ -70,6 +79,10 @@ describe('Controller: IndexCtrl', function() {
       expect(go).to.have.been.calledWithExactly('.home', null, { location: 'replace' });
       $state.go.restore();
     });
+  });
+
+  it('sends the cachebusting token to the config api call', function () {
+    expect(api.config.get).to.have.been.calledWithExactly(cacheBustingToken);
   });
 
   it('assigns seo data from the config api response to the rootscope', function() {
