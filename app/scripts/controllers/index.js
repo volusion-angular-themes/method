@@ -5,11 +5,13 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   '$scope',
   'api',
   '$rootScope',
+  'tokenGenerator',
   function (
     $state,
     $scope,
     api,
-    $rootScope) {
+    $rootScope,
+    tokenGenerator) {
 
     $rootScope.seo = {};
 
@@ -35,7 +37,7 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
 
     this.getConfig = function (callbackFn) {
       // Config
-      api.config.get().then(function (response) {
+      api.config.get(tokenGenerator.getCacheBustingToken()).then(function (response) {
         $scope.config = response.data;
         angular.extend($rootScope.seo, $scope.config.seo);
 
