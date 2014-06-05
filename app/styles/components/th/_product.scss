@@ -49,15 +49,17 @@
   text-transform: uppercase;
   color: map-get($colors, regular-price);
 
-  span {
-    @include inline-block;
-  }
-
   .th-price {
+    @include inline-block;
+    margin-right: 1px;
     font-size: 1.6rem;
     padding: 0 4px 0 0;
     font-weight: bold;
-    vertical-align: middle;
+  }
+
+  .th-reg-price {
+    @include inline-block;
+    white-space: nowrap;
   }
 
   .th-now-price {
@@ -65,12 +67,13 @@
     border-left: 1px solid map-get($colors, border);
     padding-left: 6px;
     margin-left: 3px;
+    white-space: nowrap;
   }
 
   .th-price-text {
+    @include inline-block;
     font-size: 1.2rem;
     font-weight: normal;
-    vertical-align: middle;
   }
 
   .strike {
