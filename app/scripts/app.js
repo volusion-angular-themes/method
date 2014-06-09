@@ -5,7 +5,7 @@ var enquire = require('enquire');
 require('./theme');
 
 angular.module('volusion.directives', []);
-angular.module('volusion.filters', []);
+angular.module('volusion.filters', ['volusion.services']);
 angular.module('volusion.services', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'services.config']);
 angular.module('volusion.decorators', ['pascalprecht.translate', 'services.config']);
 angular.module('volusion.controllers', ['ui.router', 'volusion.services']);
@@ -142,7 +142,7 @@ angular.module('volusionApp')
         }
       });
   })
-  .run(function ($templateCache, snapRemote, $rootScope) {
+  .run(function ($templateCache, snapRemote, $rootScope, cacheBustFilter) {
 
     $rootScope.isInDesktopMode = true;
 
@@ -174,4 +174,5 @@ angular.module('volusionApp')
     $templateCache.put('views/partials/header.html', require('./views/partials/header.html'));
     $templateCache.put('views/partials/mobile-menu.html', require('./views/partials/mobile-menu.html'));
     $templateCache.put('views/partials/social-sharing.html', require('./views/partials/social-sharing.html'));
+    $rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
   });
