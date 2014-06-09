@@ -218,6 +218,7 @@ module.exports = function(grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
+            '!<%= yeoman.dist %>/styles/overrides.css',
             '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/fonts/*'
           ]
@@ -346,7 +347,8 @@ module.exports = function(grunt) {
             'bower_components/**',
             'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
-            'translations/{,*/}*.json'
+            'translations/{,*/}*.json',
+            'styles/overrides.css'
           ]
         }, {
           expand: true,
@@ -369,6 +371,14 @@ module.exports = function(grunt) {
           '!bower_components/**/*.html'
         ],
         dest: '.tmp'
+      },
+      overrides: {
+        expand: true,
+        cwd: '<%= yeoman.app %>',
+        src: [
+          'styles/overrides.css'
+        ],
+        dest: '.tmp/styles'
       }
     },
 
@@ -457,6 +467,7 @@ module.exports = function(grunt) {
       'bower-install',
       'compass:server',
       'copy:scripts',
+      'copy:overrides',
       'copy:components',
       'htmlmin',
       'browserify:test',
@@ -495,6 +506,7 @@ module.exports = function(grunt) {
     'svgmin',
     'concat:generated',
     'copy:scripts',
+    'copy:overrides',
     'copy:components',
     'htmlmin',
     'ngmin',
