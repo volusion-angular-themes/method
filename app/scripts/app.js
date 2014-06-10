@@ -142,7 +142,7 @@ angular.module('volusionApp')
         }
       });
   })
-  .run(function ($templateCache, snapRemote, $rootScope, cacheBustFilter) {
+  .run(function ($templateCache, snapRemote, $rootScope, cacheBustFilter, $window) {
 
     $rootScope.isInDesktopMode = true;
 
@@ -160,6 +160,13 @@ angular.module('volusionApp')
 
     $rootScope.$on('$stateChangeSuccess', function() {
       snapRemote.close();
+    });
+
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+      event.preventDefault();
+      if (error.status === 404) {
+        $window.location.replace('/404.html');
+      }
     });
 
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
