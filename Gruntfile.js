@@ -64,7 +64,8 @@ module.exports = function(grunt) {
         files: [
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.app %>/translations/{,*/}*.json'
+          '<%= yeoman.app %>/translations/{,*/}*.json',
+          '<%= yeoman.app %>/scripts/themeSettings.json'
         ]
       }
     },
@@ -348,6 +349,7 @@ module.exports = function(grunt) {
             'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
             'translations/{,*/}*.json',
+            'scripts/themeSettings.json',
             'styles/overrides.css'
           ]
         }, {

@@ -95,6 +95,16 @@ angular.module('volusionApp')
           }]
         }
       })
+      .state('i18n.theme-settings', {
+        url: '/theme-settings',
+        templateUrl: 'views/theme-settings.html',
+        controller: 'ThemeSettingsCtrl',
+        resolve: {
+          translations: ['translate', function(translate) {
+            return translate.addParts('theme-settings');
+          }]
+        }
+      })
       .state('i18n.about', {
         url: '/about',
         templateUrl: 'views/about.html',
@@ -172,6 +182,7 @@ angular.module('volusionApp')
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
+    $templateCache.put('views/theme-settings.html', require('./views/theme-settings.html'));
     $templateCache.put('views/about.html', require('./views/about.html'));
     $templateCache.put('views/contact.html', require('./views/contact.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));

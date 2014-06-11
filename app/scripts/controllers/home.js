@@ -2,9 +2,11 @@
 
 angular.module('volusion.controllers').controller('HomeCtrl', [
   '$scope',
+  '$rootScope',
   'api',
   function (
     $scope,
+    $rootScope,
     api) {
 
     // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
@@ -28,12 +30,7 @@ angular.module('volusion.controllers').controller('HomeCtrl', [
 
     // TODO: REPLACE SLIDER WITH COMPONENT DATA
     $scope.interval = 4000;
-    $scope.slider = [
-      { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide1.jpg', headline: 'New Year Saleathon', subHeadline: 'Save 20% off storewide with coupon code NEWYEAR', linksTo: 'Board-Shorts/p/MW-BShorts', htmlContent: '<a href=\"http:\/\/www.google.com\/\">Click here<\/a>' },
-      { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide2.jpg', headline: 'New Sunrise Collection', subHeadline: 'Wake up to something good', linksTo: 'Patent-Dress-Shoe/p/ms-patent%20leather%20shoe' },
-      { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide3.jpg', headline: 'Miami Fashion', subHeadline: null, linksTo: 'Peasant-Blouse/p/WT-Peasant' },
-      { imageUrl: 'http://design16.volusion.com/v/theme-engine/method/slide4.jpg', headline: 'Miami Fashion', subHeadline: null, linksTo: 'Snake-Skin-Purse/p/WA-SSPurse' }
-    ];
+    $scope.slider = $rootScope.themeSettings.slider.slides;
 
     // Featured Products
     api.products.get({ filter: 'featured', pageSize: 4}).then(function (response) {
