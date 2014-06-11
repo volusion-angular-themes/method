@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('volusion.controllers')
-  .controller('ThemeSettingsCtrl', function ($scope, $http, $location) {
+  .controller('ThemeSettingsCtrl', function ($scope, $http, $location, config) {
 
     /*
     Welcome to the main theme settings controller.
@@ -14,9 +14,8 @@ angular.module('volusion.controllers')
     //load data on initial page load
     var apiUrl;
     var environment;
-    if ($location.absUrl().indexOf('127.0.0.1') >= 0 || $location.absUrl().indexOf('localhost') >= 0) {
+    if (config.ENV.LOCALHOST) {
       //in local development environment (i.e. grunt serve)
-      environment = 'dev';
       apiUrl = '/scripts/themeSettings.json';
       $scope.debug = true;
     } else {
@@ -26,13 +25,11 @@ angular.module('volusion.controllers')
     }
     $http.get(apiUrl)
     .success(function(data) {
-        if (environment === 'dev') {
+        if (config.ENV.LOCALHOST) {
           console.log(data);
           $scope.settings = data;
         } else {
-          //API in production has a "data{}" wrapper
-          console.log(data.data);
-          $scope.settings = data.data;
+          $scope.settings = data.data; //API in production has a "data{}" wrapper
         }
       });
 
@@ -48,7 +45,7 @@ angular.module('volusion.controllers')
 
     //handle save button
     $scope.save = function () {
-        if (environment === 'dev') {
+        if (config.ENV.LOCALHOST) {
           //don't save it since we don't have a way to override the themeSettings.json
           console.log('would be saved if you were in production');
           window.alert('would be saved if you were in production, but since you\'re not:=, simply copy the debug output to your themeSettings.json file manually.');

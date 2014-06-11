@@ -1,5 +1,6 @@
 {
   "config": {
+    "LOCALHOST": false,
     "API_URL": "/api/v1",
     "DISABLE_TRANSLATIONS": false,
     "URL_PREFIX": "/:region/:lang-:country",
