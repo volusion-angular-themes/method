@@ -5,7 +5,7 @@ var enquire = require('enquire');
 require('./theme');
 
 angular.module('volusion.directives', []);
-angular.module('volusion.filters', []);
+angular.module('volusion.filters', ['volusion.services']);
 angular.module('volusion.services', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'services.config']);
 angular.module('volusion.decorators', ['pascalprecht.translate', 'services.config']);
 angular.module('volusion.controllers', ['ui.router', 'volusion.services']);
@@ -142,7 +142,7 @@ angular.module('volusionApp')
         }
       });
   })
-  .run(function ($templateCache, snapRemote, $rootScope) {
+  .run(function ($templateCache, snapRemote, $rootScope, cacheBustFilter, $window) {
 
     $rootScope.isInDesktopMode = true;
 
@@ -162,6 +162,13 @@ angular.module('volusionApp')
       snapRemote.close();
     });
 
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+      event.preventDefault();
+      if (error.status === 404) {
+        $window.location.replace('/404.html');
+      }
+    });
+
     $templateCache.put('views/i18n.html', require('./views/i18n.html'));
     $templateCache.put('views/home.html', require('./views/home.html'));
     $templateCache.put('views/style-guide.html', require('./views/style-guide.html'));
@@ -174,4 +181,5 @@ angular.module('volusionApp')
     $templateCache.put('views/partials/header.html', require('./views/partials/header.html'));
     $templateCache.put('views/partials/mobile-menu.html', require('./views/partials/mobile-menu.html'));
     $templateCache.put('views/partials/social-sharing.html', require('./views/partials/social-sharing.html'));
+    $rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
   });
