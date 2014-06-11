@@ -1,0 +1,98 @@
+<!-- Remove the main stylesheet of the theme -->
+<script>$('link[rel=stylesheet][href~="/styles/main.css').remove();</script>
+<!-- Use the Volusion Admin Bootstrap -->
+<link href="https://cdn.rawgit.com/volusion/vol-admin-bootstrap/master/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- apply some styles to this page -->
+<style>
+.tab-content {
+  padding-top:10px;
+}
+</style>
+
+<!-- Theme Settings -->
+<section class="container">
+<div>
+    <form>
+        <h1>Theme Settings</h1>
+
+        <h3>General Settings</h3>
+        <div class="form-group">
+            <label class="control-label" for="one">One</label>
+            <input class="form-control" type="text" name="one" data-ng-model="settings.general.one" id="one" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="two">Two</label>
+            <input class="form-control" type="text" name="two" data-ng-model="settings.general.two" id="two" />
+        </div>
+
+        <h3>Home Page Slideshow</h3>
+        <div data-tabset>
+          <button type="button" class="btn btn-info" data-ng-click="addSlide()">Add Slide</button>
+          <div data-tab data-ng-repeat="slide in settings.slider.slides">
+            <div data-tab-heading>
+              Slide {{$index + 1}}
+              &nbsp;&nbsp;
+              <span class="glyphicon glyphicon-remove" data-ng-click="settings.slider.slides.splice($index, 1)"></span>
+            </div>
+            <div>
+              <div class="form-group">
+                  <label class="control-label" for="two">Headline</label>
+                  <input class="form-control" type="text" name="two" data-ng-model="slide.headline" id="two" />
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="one">Image Url</label>
+                  <input class="form-control" type="text" name="one" data-ng-model="slide.imageUrl" id="one" />
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="one">Sub Headline</label>
+                  <input class="form-control" type="text" name="one" data-ng-model="slide.subHeadline" id="one" />
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="one">Links To</label>
+                  <input class="form-control" type="text" name="one" data-ng-model="slide.linksTo" id="one" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Save Button -->
+        <hr>
+        <div class="form-group">
+            <button class="btn btn-primary" data-ng-click="save()">Save</button>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+<!-- Debug Panel -->
+<style>
+    .debugPanel {
+        position:absolute;
+        right:0;
+        top:0;
+        width:500px;
+        padding:10px;
+        background-color:#ff7e47;
+    }
+    body {
+        margin-right:500px;
+    }
+</style>
+<div class="debugPanel" data-ng-show="debug">
+    <h1>Debug</h1>
+    <span class="pull-right glyphicon glyphicon-remove" data-ng-click="debug = false"></span>
+    <p>We've detected you're running locally, so only you see this debug window. Watch your theme settings json model change in real time.</p>
+    <div>
+        <textarea style="width:100%" rows=50>{{settings | json}}</textarea>
+    </div>
+</div>
+<div data-ng-hide="debug">
+    <span class="pull-right glyphicon glyphicon-add" data-ng-click="debug = false"></span>
+</div>
+
+
+</section>
