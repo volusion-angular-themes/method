@@ -16,6 +16,7 @@
   // Done to address specificity issue
   > li > a {
     padding-left: 0;
+    display: inline-block;
   }
 
   &__item {
@@ -31,7 +32,7 @@
     padding: 10px 10px 10px 0;
     position: relative;
     text-transform: uppercase;
-    display: block;
+    display: inline-block;
     line-height: 17px;
     border-bottom: 1px solid map-get($colors, border);
     font-size: 1.4rem;
