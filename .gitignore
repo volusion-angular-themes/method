@@ -1,6 +1,6 @@
 # Angular Generator ignores
 node_modules
-dist
+#dist
 !app/bower_components/**/dist
 .tmp
 .sass-cache

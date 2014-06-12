@@ -1,0 +1,25 @@
+{
+  "name": "vnMetaTags",
+  "version": "0.0.1",
+  "homepage": "https://github.com/volusion-angular/vn-meta-tags.git",
+  "keywords": [
+    "angularjs",
+    "volusion",
+    "component",
+    "metatags",
+    "meta tags"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.16",
+    "angular-mocks": "~1.2.16"
+  },
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "d35d52852584aaf564f24736b16f6aefae17dd6c"
+  },
+  "_source": "git://github.com/volusion-angular/vn-meta-tags.git",
+  "_target": "~0.0.1",
+  "_originalSource": "vn-meta-tags"
+}
