@@ -1,0 +1,16 @@
+{
+  "name": "vn-bem",
+  "version": "0.0.1",
+  "homepage": "https://github.com/volusion-angular/vn-bem.git",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "node_modules",
+    "test"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.16",
+    "angular-mocks": "~1.2.16"
+  }
+}

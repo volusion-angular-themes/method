@@ -1,0 +1,38 @@
+{
+  "name": "vnProductOption",
+  "version": "1.0.1",
+  "description": "AngularJS product option component for the Volusion platform.",
+  "homepage": "https://github.com/volusion-angular/vnProductOption.git",
+  "keywords": [
+    "angularjs",
+    "component",
+    "volusion",
+    "product",
+    "option"
+  ],
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "node_modules",
+    "test"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.16",
+    "angular-mocks": "~1.2.16"
+  },
+  "dependencies": {
+    "vn-bem": "~0.0.1",
+    "vn-labeled-radio": "~0.1.0"
+  },
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "712d96fd827de08f6d417625f0b3962d72ad4166"
+  },
+  "_source": "git://github.com/volusion-angular/vn-product-option.git",
+  "_target": "~1.0.1",
+  "_originalSource": "vn-product-option",
+  "_direct": true
+}

@@ -1,0 +1,18 @@
+﻿<div data-vn-block="vn-product-option">
+
+  <label data-vn-element="label" data-ng-if="option.label" data-ng-bind="option.label"></label>
+
+  <div data-ng-repeat="displayType in option.displayTypes">
+    <div data-vn-element="group"
+      data-vn-modifiers="{{displayType.type}} {{displayType.orientation}}"
+      data-ng-include=" displayType.type + '.html' ">
+    </div>
+  </div>
+
+  <div data-ng-if="option.selected">
+    <div data-ng-repeat="option in option.options"
+      data-ng-include=" 'product-option.html' ">
+    </div>
+  </div>
+
+</div>
