@@ -14,11 +14,11 @@
   }
 
   &__zoom {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -38px 0 0 -38px;
-    display: block;
+    cursor: crosshair;
+    @include absolute-center(
+      $width: icons-sprite-width(zoom),
+      $height: icons-sprite-height(zoom)
+    );
 
     &:hover {
       @extend %opacity-80;
