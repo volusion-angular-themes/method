@@ -1,0 +1,38 @@
+{
+    "general": {
+        "one": "myfirstnewsetting",
+        "two": "myseconddifferent"
+    },
+    "slider": {
+        "slides": [
+            {
+                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
+                "headline": "NewYearSaleathon",
+                "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
+                "linksTo": "product1/p/123"
+            },
+            {
+                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
+                "headline": "NewSunriseCollection",
+                "subHeadline": "Wakeuptosomethinggood",
+                "linksTo": "category1/c/123"
+            },
+            {
+                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
+                "headline": "MiamiFashion",
+                "subHeadline": null,
+                "linksTo": "product2/p/2"
+            },
+            {
+                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
+                "headline": "MiamiFashion",
+                "subHeadline": null,
+                "linksTo": "product2/p/2"
+            }
+        ],
+        "settings": {
+            "enableArrows": true,
+            "enableDots": true
+        }
+    }
+}

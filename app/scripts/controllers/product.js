@@ -27,14 +27,12 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
     });
 
     var productData = $scope.product = product.data;
+
     $scope.product.quantity = 1;
 
-    angular.extend($scope.seo, product.data.seo);
-    $scope.sceDescriptions = angular.copy(productData.descriptions);
-
-    angular.forEach(['detail', 'features', 'techSpecs', 'extendedInfo'], function(key) {
-      $scope.sceDescriptions[key] = $sce.trustAsHtml($scope.sceDescriptions[key]);
-    });
+    $scope.toTrusted = function(htmlCode) {
+      return $sce.trustAsHtml(htmlCode);
+    };
 
     // Carousel
     $scope.interval = 4000;
