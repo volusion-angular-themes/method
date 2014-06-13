@@ -15,27 +15,21 @@
         <div class="visible-xs th-product">
           <div class="vn-slider vn-slider--product">
             <carousel data-interval="interval">
-              <slide data-ng-repeat="image in product.images[product.selection.images] | filter: '!youtube.com'" data-active="image.active">
-                <div class="vn-slider__slide">
-                  <img itemprop="image" data-ng-src="{{image.large}}" class="img-responsive" />
-                </div>
+              <slide data-ng-repeat="image in product.images | filter: '!youtube.com'" data-active="image.active">
+                <a href="{{image.url}}">
+                  <div class="vn-slider__slide">
+                    <img itemprop="image" data-ng-src="{{image.large}}" class="img-responsive" />
+                  </div>
+                </a>
               </slide>
             </carousel>
           </div>
         </div>
         <div class="hidden-xs">
           <div class="clearfix th-product-view vn-zoom">
-            <img data-easy-zoom
-              class="th-product-view__image vn-zoom__image"
-              data-ng-src="product.image.medium"
-              data-ez-zoom-src="product.image.large"
-              data-ez-adjacent="isInDesktopMode"
-              data-ez-overlay="!isInDesktopMode"
-              alt="{{product.name}}">
+            <div class="th-product-view__image vn-zoom__image" data-easy-zoom data-is-desktop="{{isInDesktopMode}}" data-zoom-image-url="{{product.mainImage.large}}" data-image-url="{{product.mainImage.medium}}"></div>
             <div class="th-product-view__alts">
-              <span data-ng-click="product.image=image" ng-repeat="image in product.images[product.selection.images] | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail">
-                <img data-ng-src="{{image.medium}}" class="img-responsive" alt="">
-              </span>
+              <span data-ng-click="showAltImage(this)" ng-repeat="image in product.images | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail"><img data-ng-src="{{image.medium}}" class="img-responsive" alt=""></span>
             </div>
           </div>
         </div><!-- .th-product -->
@@ -56,7 +50,7 @@
               <div class="th-product__name visible-xs">
                 <a href="#"><span itemprop="name" data-ng-bind="product.name"></span></a>
               </div>
-              <div class="th-product__price--large">
+              <div class="th-product__price--large clearfix">
                 <span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}"><span itemprop="price" data-ng-bind="product.price.regularPrice | currency"></span></span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
                 <span class="th-now-price" itemscope itemtype="http://schema.org/Offer" data-ng-show="product.price.salePrice > 0"><span class="th-price"><span itemprop="price" data-ng-bind="product.price.salePrice | currency"></span></span><span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
               </div>
@@ -87,25 +81,34 @@
               </div>
             </div><!-- end left product column -->
             <div class="col-xs-12 col-md-6">
-              <div class="th-product-details__options">
-                <div data-vn-product-option
-                  data-ng-repeat="option in product.options"
-                  data-option="option"
-                  data-product="product"
-                  data-cart-item="cartItem">
-                </div>
-              </div>
-              <div class="row">
-                <p class="th-product-details__availability" data-ng-show="availabilityMessage" ng-bind="availabilityMessage"></p>
-              </div>
+              <div class="th-options-wrap">
+                <div class="th-options">
+                  <div class="th-options-title">Choose a color</div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw1">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw2">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw3">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw4">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw5">&nbsp;</a></div>
+                  <div class="col-xs-4 col-sm-2 th-col-sm"><a href="#" class="th-swatch sw6">&nbsp;</a></div>
+                </div><!-- .th-options -->
+                <!-- <div class="th-options" data-ng-repeat="option in product.options">
+                       <div class="th-options-title">{{option.label}}</div>
+                       <div data-ng-repeat="choice in option.choices">
+                         <div class="col-xs-4 th-col-sm">
+                           <button class="btn btn-default btn-block">{{choice.label}}</button>
+                         </div>
+                       </div>
+                     </div> -->
+                <!-- .th-options -->
+              </div><!-- .th-options-wrap -->
               <div class="row">
                 <div class="col-xs-12 col-sm-4 th-qty-wrap">
                   <div class="visible-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="cartItem.quantity === 1" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="cartItem.quantity" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
                         <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
@@ -114,9 +117,9 @@
                   <div class="hidden-xs">
                     <div class="input-group th-qty-counter">
                       <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="cartItem.quantity === 1" type="button">-</button>
+                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="product.quantity === 1" type="button">-</button>
                       </span>
-                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="cartItem.quantity" placeholder="1">
+                      <input type="text" class="form-control th-qty-counter__input" data-ng-model="product.quantity" placeholder="1">
                       <span class="input-group-btn">
                         <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
                       </span>
@@ -124,16 +127,7 @@
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 th-add-to-cart">
-                  <button class="btn btn-primary btn-lg btn-block"
-                    data-translate="product.addToCart"
-                    data-ng-click="addToCart()"
-                    data-ng-disabled="!isAddToCartEnabled"
-                    data-analytics-category="element click"
-                    data-analytics-label="Add to Cart"
-                    data-analytics-location="body-product"
-                    data-analytics-description="Add to Cart Button">
-                    Add to Cart
-                  </button>
+                  <button class="btn btn-primary btn-lg btn-block" data-translate="product.addToCart" data-ng-click="addToCart()" data-ng-disabled="isCartButtonDisabled" data-analytics-category="element click" data-analytics-label="Add to Cart" data-analytics-location="body-product" data-analytics-description="Add to Cart Button">Add to Cart</button>
                 </div>
               </div>
             </div>

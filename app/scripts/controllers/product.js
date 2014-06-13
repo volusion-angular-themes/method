@@ -26,43 +26,13 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
       $location.hash('');
     });
 
-    $scope.product = product = product.data;
-    var cartItem = $scope.cartItem = product.cartItem;
+    var productData = $scope.product = product.data;
 
-    angular.extend($scope.seo, product.seo);
-    $scope.sceDescriptions = angular.copy(product.descriptions);
+    $scope.product.quantity = 1;
+
     $scope.toTrusted = function(htmlCode) {
       return $sce.trustAsHtml(htmlCode);
     };
-
-    $scope.$watch('product.selection', function(selection, oldSelection) {
-      function setSKU(sku) {
-        if (typeof sku !== 'undefined') {
-          cartItem.sku = sku;
-        } else {
-          delete cartItem.sku;
-        }
-      }
-      function setAvailabilityMessage(message, available) {
-        if (message) {
-          $scope.availabilityMessage = message.replace('{{available}}', available);
-        } else {
-          delete $scope.availabilityMessage;
-        }
-      }
-      function setImage() {
-        if (selection.images !== oldSelection.images) {
-          product.image = product.images[selection.images][0];
-        }
-      }
-      setSKU(selection.sku);
-      setAvailabilityMessage(product.availabilityMessages[selection.state], selection.available);
-      setImage();
-    });
-
-    angular.forEach(['detail', 'features', 'techSpecs', 'extendedInfo'], function(key) {
-      $scope.sceDescriptions[key] = $sce.trustAsHtml($scope.sceDescriptions[key]);
-    });
 
     // Carousel
     $scope.interval = 4000;
@@ -85,27 +55,44 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
       $scope.ratingsAndReviews = response;
     });
 
+    // Alt image swaps with main image
+    $scope.showAltImage = function (data) {
+      var altImage = data.image;
+
+      productData.mainImage = altImage;
+    };
+
     $scope.decrementQty = function () {
-      cartItem.quantity--;
+      $scope.product.quantity--;
     };
 
     $scope.incrementQty = function () {
-      cartItem.quantity++;
+      $scope.product.quantity++;
     };
 
     // Add to Cart
-    $scope.isAddToCartEnabled = false;
-    $scope.$watch('cartItem.sku', function(sku) {
-      $scope.isAddToCartEnabled = !!sku;
-    });
-
+    $scope.isCartButtonDisabled = false;
     $scope.addToCart = function () {
-      $scope.isAddToCartEnabled = false;
-      $rootScope.$emit('ADD_TO_CART', cartItem);
+      var currentProduct = $scope.product;
+      $scope.isCartButtonDisabled = true;
+
+      var pricing = currentProduct.price;
+
+      var cart = {
+        id: currentProduct.id,
+        code: currentProduct.code,
+        name: currentProduct.name,
+        qty: currentProduct.quantity,
+        options: currentProduct.options,
+        pricing: pricing
+      };
+
+      $rootScope.$emit('ADD_TO_CART', cart);
     };
 
-    $rootScope.$on('ITEM_ADDED_TO_CART', function() {
-      $scope.isAddToCartEnabled = true;
+    $rootScope.$on('ITEM_ADDED_TO_CART', function () {
+      $scope.isCartButtonDisabled = false;
+      console.log('Item added to cart');
     });
 
     var fullUrl = $location.absUrl();
