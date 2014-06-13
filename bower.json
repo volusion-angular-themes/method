@@ -25,7 +25,8 @@
     "json3": "~3.2.6",
     "jquery": "~2.1.0",
     "vn-bem": "~0.0.1",
-    "vn-meta-tags": "~0.0.1"
+    "vn-meta-tags": "~0.0.1",
+    "vn-product-option": "~1.0.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.9",
