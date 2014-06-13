@@ -2,6 +2,7 @@
 @import 'compass';
 @import 'style-guide/theme-vars'; // Custom Theme Variables & Configuration
 @import 'core/base/mixins';
+@import 'core/base/helpers';
 
 // Reset
 @import 'reset/normalize';
@@ -47,12 +48,13 @@
 
 // Volusion Components
 @import 'components/vn/dropzone';
+@import 'components/vn/labeled-radio';
+@import 'components/vn/product-option';
 @import 'components/vn/showcase';
 @import 'components/vn/slider';
 @import 'components/vn/zoom';
 
 // Theme Components
-@import 'components/th/helpers';
 @import 'components/th/sprites-social';
 @import 'components/th/sprites-icons';
 @import 'components/th/sprites-stars';
@@ -66,10 +68,10 @@
 @import 'components/th/sort-by';
 @import 'components/th/search-refinement';
 @import 'components/th/home-content';
-@import 'components/th/product-options';
 @import 'components/th/product-view';
 @import 'components/th/product-description';
 @import 'components/th/product';
+@import 'components/th/product-details';
 @import 'components/th/product-title';
 @import 'components/th/reviews';
 @import 'components/th/review-stars';

@@ -1,40 +1,49 @@
 'use strict';
 // http://i-like-robots.github.io/EasyZoom/
 angular.module('volusion.directives').directive('easyZoom', [function () {
+
   var imageHash = {};
 
-  var swapImages = function (zoomApi) {
-    if (imageHash.mainImage && imageHash.zoomImage) {
-
-
-      zoomApi.swap(imageHash.mainImage, imageHash.zoomImage);
+  function swapImages(zoomApi) {
+    if (imageHash.standardSrc && imageHash.zoomSrc) {
+      zoomApi.swap(imageHash.standardSrc, imageHash.zoomSrc);
       imageHash = {};
     }
-  };
+  }
 
   return {
     restrict: 'A',
-    template: '<a class="zoomImage"><img class="img-responsive" alt=""></a><a href="#" class="th-product-view__zoom"></a>',
-    link: function (scope, element, attrs) {
-      element.addClass('easyzoom');
+    replace: true,
+    template: [
+      '<div class="easyzoom" data-ng-class="{ \'easyzoom--adjacent\': ezAdjacent, \'easyzoom--overlay\': ezOverlay }">',
+      '<a data-ng-href="{{ezZoomSrc}}">',
+      '<img class="img-responsive" data-ng-src="{{ngSrc}}" alt="{{alt}}">',
+      '<div class="th-product-view__zoom"></div>',
+      '</a>',
+      '</div>'
+    ].join(''),
+    scope: {
+      ngSrc: '=',
+      ezAdjacent: '=',
+      ezOverlay: '=',
+      ezZoomSrc: '=',
+      alt: '@'
+    },
+    link: function (scope, element) {
       var easyzoom = element.easyZoom();
       var api = easyzoom.data('easyZoom');
 
-      attrs.$observe('isDesktop', function (newValue) {
-        var isDesktop = JSON.parse(newValue);
-        element.toggleClass('easyzoom--adjacent', isDesktop);
-        element.toggleClass('easyzoom--overlay', !isDesktop);
-      });
-
-      attrs.$observe('zoomImageUrl', function (newValue) {
-        imageHash.zoomImage = newValue;
+      scope.$watch('ngSrc', function(newValue) {
+        imageHash.standardSrc = newValue;
         swapImages(api);
       });
 
-      attrs.$observe('imageUrl', function (newValue) {
-        imageHash.mainImage = newValue;
+      scope.$watch('ezZoomSrc', function(newValue) {
+        imageHash.zoomSrc = newValue;
         swapImages(api);
       });
+
+      scope.$on('$destroy', api.teardown);
     }
   };
 }]);
