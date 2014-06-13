@@ -1,0 +1,14 @@
+﻿<label data-vn-block="vn-labeled-radio"
+  data-vn-modifiers="{{option.class}}"
+  data-ng-repeat="itemKey in option.items"
+  data-ng-init="item=product.optionItems[itemKey]">
+
+  <input type="radio" name="{{option.id}}"
+    data-vn-element="radio"
+    data-ng-value="itemKey"
+    data-ng-model="option.selected"
+    data-ng-click="onOptionChanged(option, item)">
+
+  <div data-vn-element="content" data-ng-include=" 'content.html' "></div>
+
+</label>
