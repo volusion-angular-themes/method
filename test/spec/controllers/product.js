@@ -1,52 +1,22 @@
 'use strict';
 
-// ReSharper disable WrongExpressionStatement
-describe('Controller: ProductCtrl', function() {
+describe('Controller: ProductCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('volusion.controllers'));
+  beforeEach(module('methodApp'));
 
-  // ReSharper disable once InconsistentNaming
-  var controller;
-  var scope;
-  var product = {
-    data: {
-      name: 'Product Name',
-      code: 'PC123',
-      descriptions: {
-        detail: 'Detail here...',
-        features: 'Features here...',
-        techSpecs: 'Tech Specs here...',
-        extendedInfo: 'Extended Info here...'
-      },
-      seo: {
-        title: 'qux',
-        description: 'quux',
-        keywords: 'garply'
-      }
-    }
-  };
+  var ProductCtrl,
+    scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller, $rootScope) {
-    $rootScope.seo = {
-      title: 'foo',
-      description: 'bar',
-      keywords: 'baz'
-    };
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    controller = $controller('ProductCtrl', {
-      $scope: scope,
-      product: product
+    ProductCtrl = $controller('ProductCtrl', {
+      $scope: scope
     });
   }));
 
-  it('should attach the product data to the scope', function() {
-    expect(scope.product).to.deep.equal(product.data);
+  it('should attach a list of awesomeThings to the scope', function () {
+    expect(scope.awesomeThings.length).toBe(3);
   });
-
-  it('updates the root scope\'s seo object with the product seo', function() {
-    expect(scope.seo).to.deep.equal(product.data.seo);
-  });
-
 });

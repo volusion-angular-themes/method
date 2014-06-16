@@ -3,10 +3,9 @@
   "browser": true,
   "esnext": true,
   "bitwise": true,
-  "camelcase": false,
+  "camelcase": true,
   "curly": true,
   "eqeqeq": true,
-  "expr": true,
   "immed": true,
   "indent": 2,
   "latedef": true,
@@ -17,11 +16,9 @@
   "undef": true,
   "unused": true,
   "strict": true,
-  "validthis": true,
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "$": false,
     "after": false,
     "afterEach": false,
     "angular": false,
@@ -33,9 +30,7 @@
     "inject": false,
     "it": false,
     "jasmine": false,
-    "sinon": false,
-    "spyOn": false,
-    "xdescribe": false,
-    "xit": false
+    "spyOn": false
   }
 }
+

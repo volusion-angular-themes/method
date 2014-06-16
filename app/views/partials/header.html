@@ -1,79 +1,80 @@
-<nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation" data-ng-hide="hideWrapper">
+<nav class="navbar navbar-default navbar-fixed-top th-navbar" role="navigation">
 
-  <div class="th-header">
-    <div class="container">
-      <div class="th-header__shipping-text">
-        <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
-      </div>
-      <div class="th-header__account-menu">
-        <ul class="nav nav-pills">
-          <li><a href="#" data-translate="index.signIn">Sign In</a></li>
-          <li><a href="#" data-translate="index.createAccount">Create Account</a></li>
-          <li><a href="#" data-translate="index.myFavorites">My Favorites</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container th-menu-container">
-    <div class="row">
-      <!-- Desktop Logo -->
-      <div class="col-md-2 hidden-xs hidden-sm">
-        <a class="navbar-brand" data-ui-sref="i18n.home"><img data-ng-src="{{config.general.logoUrl}}" class="img-responsive" /></a>
-      </div>
-
-      <!-- Sandwich Button -->
-      <div class="col-xs-3 hidden-md hidden-lg">
-        <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" snap-toggle="left">
-          <span class="sr-only" data-translate="index.toggleNavigation">Toggle Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Mobile Logo -->
-      <div class="col-xs-6 hidden-md hidden-lg"><a class="th-navbar__logo" data-ui-sref="i18n.home"><img data-ng-src="{{config.general.logoUrl}}" class="img-responsive" /></a></div>
-
-      <div class="col-md-7 hidden-xs hidden-sm">
-        <div class="collapse navbar-collapse " id="th-main-menu" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed=true">
-
-          <!-- Categories -->
-          <ul class="nav navbar-nav">
-            <li class="dropdown" data-ng-repeat="category in categories">
-              <a data-ui-sref="i18n.category({ categoryName: category.slug, categoryId: category.id })" class="navbar-link">{{category.name}}</a>
-              <span>
-                <a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
-                  <li data-ng-repeat="subCategory in category.subCategories"><a data-ui-sref="i18n.category({ categoryName: subCategory.slug, categoryId: subCategory.id })">{{subCategory.name}}</a></li>
+    <div class="th-header">
+        <div class="container">
+            <div class="th-header__shipping-text">
+                <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
+            </div>
+            <div class="th-header__account-menu">
+                <ul class="nav nav-pills">
+                    <li><a href="#" data-translate="index.signIn">Sign In</a></li>
+                    <li><a href="#" data-translate="index.createAccount">Create Account</a></li>
+                    <li><a href="#" data-translate="index.myFavorites">My Favorites</a></li>
                 </ul>
-              </span>
-            </li>
-          </ul>
+            </div>
         </div>
-      </div>
+    </div>
+    <div class="container th-menu-container">
+        <div class="row">
+            <!-- Desktop Logo -->
+            <div class="col-md-2 hidden-xs hidden-sm">
+                <a class="navbar-brand" data-ui-sref="i18n.home"><img data-ng-src="{{config.general.logoUrl}}"
+                                                                      class="img-responsive"/></a>
+            </div>
 
-      <div class="col-xs-3 col-md-3">
-        <div class="th-cart-summary pull-right">
-          <div class="th-search hidden-xs hidden-sm">
-              <form class="th-search__form">
-                  <input type="text" class="th-search__input" placeholder="Search...">
-                  <button type="submit" class="th-search__submit">
-                      <span class="glyphicon glyphicon-search th-search__icon"></span>
-                  </button>
-              </form>
-          </div>
+            <!-- Sandwich Button -->
+            <div class="col-xs-3 hidden-md hidden-lg">
+                <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" snap-toggle="left">
+                    <span class="sr-only" data-translate="index.toggleNavigation">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Logo -->
+            <div class="col-xs-6 hidden-md hidden-lg"><a class="th-navbar__logo" data-ui-sref="i18n.home"><img
+                    data-ng-src="{{config.general.logoUrl}}" class="img-responsive"/></a></div>
+
+            <div class="col-md-7 hidden-xs hidden-sm">
+                <div class="collapse navbar-collapse " id="th-main-menu" data-ng-class="!navCollapsed && 'in'"
+                     data-ng-click="navCollapsed=true">
+
+                    <!-- Categories -->
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown" data-ng-repeat="category in categories">
+                            <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">{{category.name}}</a>
+                            <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
+                                <li data-ng-repeat="subCategory in category.subCategories"><a
+                                        data-ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-3 col-md-3">
+                <div class="th-cart-summary pull-right">
+                    <div class="th-search hidden-xs hidden-sm">
+                        <form class="th-search__form">
+                            <input type="text" class="th-search__input" placeholder="Search...">
+                            <button type="submit" class="th-search__submit">
+                                <span class="glyphicon glyphicon-search th-search__icon"></span>
+                            </button>
+                        </form>
+                    </div>
           <span class="th-my-cart">
             <a data-legacy-link="{{viewCart()}}" class="th-my-cart__link">
-              <span class="th-my-cart__text" data-translate="index.myCart">My Bag</span>
-              <span class="th-my-cart__number">{{cart.items.length}}</span>
+                <span class="th-my-cart__text" data-translate="index.myCart">My Bag</span>
+                <span class="th-my-cart__number">{{cart.items.length}}</span>
             </a>
           </span>
+                </div>
+            </div>
+
         </div>
-      </div>
 
     </div>
-
-  </div><!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 </nav>

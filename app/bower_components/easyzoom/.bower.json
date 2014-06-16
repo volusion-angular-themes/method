@@ -1,6 +1,6 @@
 {
   "name": "easyzoom",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "EasyZoom is an elegant, highly optimised jQuery image zoom and panning plugin based on the original work by Alen Grakalic. EasyZoom supports touch-enabled devices and is easily customisable with CSS.",
   "keywords": [
     "zoom",
@@ -31,11 +31,11 @@
     "index.html"
   ],
   "homepage": "https://github.com/i-like-robots/EasyZoom",
-  "_release": "2.1.0",
+  "_release": "2.1.1",
   "_resolution": {
     "type": "version",
-    "tag": "2.1.0",
-    "commit": "e0a6472bb3b2c9370e7a95c80d4c336e6ae491a9"
+    "tag": "2.1.1",
+    "commit": "16e072b95196299586e0cae02cd88ba6279a2aef"
   },
   "_source": "git://github.com/i-like-robots/EasyZoom.git",
   "_target": "~2.1.0",

@@ -7,7 +7,7 @@ module.exports = function(config) {
     basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['mocha', 'chai-jquery', 'sinon-chai', 'jquery-1.8.3'],
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -16,24 +16,9 @@ module.exports = function(config) {
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
-      'app/bower_components/angular-seo/angular-seo.js',
-      'app/bower_components/angular-translate/angular-translate.js',
-      'app/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
-      'app/bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
-      'app/bower_components/messageformat/messageformat.js',
-      'app/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js',
-      'app/bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
-      'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
-      'app/bower_components/messageformat/locale/en.js',
-      'app/bower_components/angular-i18n/angular-locale_en-us.js',
-      'app/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
-      'app/bower_components/snapjs/snap.js',
-      'app/bower_components/angular-snap/angular-snap.js',
-      'app/bower_components/angulartics/src/angulartics.js',
-      'app/bower_components/angulartics/src/angulartics-ga.js',
-      'app/bower_components/enquire/dist/enquire.js',
-      '.tmp/scripts/scripts.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/scripts/*.js',
+      'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
@@ -61,7 +46,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

@@ -1,4 +1,6 @@
-﻿(function ($) {
+(function ($) {
+
+    'use strict';
 
     var dw, dh, rw, rh, lx, ly;
 
@@ -31,6 +33,7 @@
 
         this.$target = $(target);
         this.opts = $.extend({}, defaults, options);
+        this.mouseOver = false;
 
         if ( this.isOpen === undefined ) {
             this._init();
@@ -54,6 +57,7 @@
 
         this.$target
             .on('mouseenter.easyzoom touchstart.easyzoom', function(e) {
+                self.mouseOver = true;
                 if ( ! e.originalEvent.touches || e.originalEvent.touches.length === 1) {
                     e.preventDefault();
                     self.show(e);
@@ -66,6 +70,7 @@
                 }
             })
             .on('mouseleave.easyzoom touchend.easyzoom', function() {
+                self.mouseOver = false;
                 if (self.isOpen) {
                     self.hide();
                 }
@@ -88,7 +93,9 @@
 
         if (! this.isReady) {
             this._load(this.$link.attr('href'), function() {
-                self.show(e);
+                if (self.mouseOver) {
+                    self.show(e);
+                }
             });
 
             return;
