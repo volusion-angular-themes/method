@@ -41,26 +41,42 @@ angular.module('methodApp', [
                 templateUrl: 'views/main.html',
                 controller : 'MainCtrl'
             })
-            .when('/:productTitle/p/:productCode', {
+
+            // Second pass at routes
+            .when('/p/:slug', {
                 temnplateUrl: 'views/product.html',
                 controller: 'ProductCtrl'
             })
-            .when('/:categoryName/c/:categoryId', {
+            .when('/c/:slug', {
                 templateUrl: 'views/category.html',
                 controller: 'CategoryCtrl'
             })
-            .when('/style-guide', {
-                templateUrl: 'views/style-guide.html',
-                controller: 'PageCtrl'
+            .when('/:slug', {
+                templateUrl: 'views/article.html',
+                controller: 'ArticlesCtrl'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'PageCtrl'
-            })
-            .when('/contact', {
-                templateUrl: 'views/contact.html',
-                controller: 'PageCtrl'
-            })
+
+                // First pass at routes
+//            .when('/:productTitle/p/:productCode', {
+//                temnplateUrl: 'views/product.html',
+//                controller: 'ProductCtrl'
+//            })
+//            .when('/:categoryName/c/:categoryId', {
+//                templateUrl: 'views/category.html',
+//                controller: 'CategoryCtrl'
+//            })
+//            .when('/style-guide', {
+//                templateUrl: 'views/style-guide.html',
+//                controller: 'PageCtrl'
+//            })
+//            .when('/about', {
+//                templateUrl: 'views/about.html',
+//                controller: 'PageCtrl'
+//            })
+//            .when('/contact', {
+//                templateUrl: 'views/contact.html',
+//                controller: 'PageCtrl'
+//            })
             .otherwise({
                 redirectTo: '/'
             });

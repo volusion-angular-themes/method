@@ -7,6 +7,11 @@ angular.module('methodApp')
 
             $rootScope.seo = {};
 
+            $scope.createSubCategoryURI = function(subcat) {
+                console.log(subcat);
+                return "cats1/c/cats2";
+            }
+
 // TODO: refactor the seo state into a directive.
 //            $scope.$on('$stateChangeSuccess', function (event, toState) {
 //                if (toState.name === 'i18n') {

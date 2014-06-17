@@ -1,10 +1,9 @@
-'use strict';
-
 angular.module('methodApp')
     .controller('CategoryCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
         'use strict';
 
         $rootScope.seo = {};
+        $scope.test = 'The CategoryCtrl Test';
 
 //        $scope.$on('$stateChangeSuccess', function (event, toState) {
 //            if (toState.name === 'i18n') {

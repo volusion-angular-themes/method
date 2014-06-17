@@ -18,6 +18,7 @@
         <div class="row">
             <!-- Desktop Logo -->
             <div class="col-md-2 hidden-xs hidden-sm">
+                <!--TODO: cleanup html-->
                 <!--<a class="navbar-brand" ui-sref="i18n.home">-->
                 <a class="navbar-brand" href="/">
                     <img ng-src="{{config.general.logoUrl}}" class="img-responsive"/>
@@ -48,11 +49,12 @@
                     <!-- Categories -->
                     <ul class="nav navbar-nav">
                         <li class="dropdown" ng-repeat="category in categories">
-                            <a href="#" class="dropdown-toggle th-dropdown-toggle"
-                               toggle="dropdown">{{category.name}}</a>
+                            <a class="dropdown-toggle th-dropdown-toggle"
+                               data-toggle="dropdown">{{category.name}}</a>
                             <ul class="dropdown-menu" ng-if="category.subCategories.length">
                                 <li ng-repeat="subCategory in category.subCategories">
-                                    <a ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
+                                    <!--<a ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>-->
+                                    <a href="c/{{ subCategory.name }}">{{subCategory.name}}</a>
                                 </li>
                             </ul>
                         </li>
