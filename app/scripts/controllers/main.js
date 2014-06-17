@@ -6,7 +6,8 @@ angular.module('methodApp')
 //            console.log('vnApi', vnApi.Configuration().get());
 
             $rootScope.seo = {};
-//
+
+// TODO: refactor the seo state into a directive.
 //            $scope.$on('$stateChangeSuccess', function (event, toState) {
 //                if (toState.name === 'i18n') {
 //                    $state.go('.home', null, { location: 'replace' });
@@ -14,13 +15,14 @@ angular.module('methodApp')
 //                    $rootScope.seo = angular.extend($rootScope.seo, $scope.config.seo);
 //                }
 //            });
+            //this.getMenuItems(); // Is a call to get the categories.Was at bottom but can be prunned
 //
 //            console.log('getNav', vnApi.getNav());
             vnApi.Nav({navId: '1'})
                 .then(function(response) {
                     $scope.categories = response.data;
-                    console.log('category / navs', $scope.categories );
                 });
+            // TODO: Remove commented out legacy code
 //            this.getMenuItems = function () {
 //                // Nav
 //                api.navs.get({ navId: 1 }).then(function (response) {
@@ -39,20 +41,17 @@ angular.module('methodApp')
                 .then(function (response) {
                     $scope.config = response.data;
                     angular.extend($rootScope.seo, $scope.config.seo);
-//                    console.log('Configuration', $scope.config);
                 });
 
 //            console.log('getCart obj', vnApi.getCart().get());
             vnApi.getCart()
                 .then(function(response) {
                     $scope.cart = response.data;
-                    console.log('cart data', $scope.cart);
                 });
-
-//            this.getMenuItems();
 //
-//            this.getConfig(this.getCart);
+//            this.getConfig(this.getCart);  //TODO Prune this code
 //
+            // TODO add function for ng-click that does this.
 //            $rootScope.viewCart = function () {
 //                if ($rootScope.isInDesktopMode) {
 //                    return '/shoppingcart.asp';
@@ -61,6 +60,7 @@ angular.module('methodApp')
 //                }
 //            };
 //
+              // TODO: Refactor the add to cart flow
 //            // Add to Cart
 //            $rootScope.$on('ADD_TO_CART', function (event, args) {
 //                var pricing = args.pricing;
@@ -81,7 +81,6 @@ angular.module('methodApp')
 //
 //                        $scope.cart = response.data;
 //                        $rootScope.$emit('ITEM_ADDED_TO_CART');
-//
 //                    });
 //
 //            });
