@@ -3,13 +3,13 @@
     <div class="th-header">
         <div class="container">
             <div class="th-header__shipping-text">
-                <a href="#" class="free-shipping" data-translate="index.promo">Free shipping on all orders over $99!</a>
+                <a href="#" class="free-shipping" translate="index.promo">Free shipping on all orders over $99!</a>
             </div>
             <div class="th-header__account-menu">
                 <ul class="nav nav-pills">
-                    <li><a href="#" data-translate="index.signIn">Sign In</a></li>
-                    <li><a href="#" data-translate="index.createAccount">Create Account</a></li>
-                    <li><a href="#" data-translate="index.myFavorites">My Favorites</a></li>
+                    <li><a href="#" translate="index.signIn">Sign In</a></li>
+                    <li><a href="#" translate="index.createAccount">Create Account</a></li>
+                    <li><a href="#" translate="index.myFavorites">My Favorites</a></li>
                 </ul>
             </div>
         </div>
@@ -18,14 +18,15 @@
         <div class="row">
             <!-- Desktop Logo -->
             <div class="col-md-2 hidden-xs hidden-sm">
-                <a class="navbar-brand" data-ui-sref="i18n.home"><img data-ng-src="{{config.general.logoUrl}}"
-                                                                      class="img-responsive"/></a>
+                <a class="navbar-brand" ui-sref="i18n.home">
+                    <img ng-src="{{config.general.logoUrl}}" class="img-responsive"/>
+                </a>
             </div>
 
             <!-- Sandwich Button -->
             <div class="col-xs-3 hidden-md hidden-lg">
-                <button type="button" class="navbar-toggle" data-ng-init="navCollapsed = true" snap-toggle="left">
-                    <span class="sr-only" data-translate="index.toggleNavigation">Toggle Navigation</span>
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" snap-toggle="left">
+                    <span class="sr-only" translate="index.toggleNavigation">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -33,20 +34,23 @@
             </div>
 
             <!-- Mobile Logo -->
-            <div class="col-xs-6 hidden-md hidden-lg"><a class="th-navbar__logo" data-ui-sref="i18n.home"><img
-                    data-ng-src="{{config.general.logoUrl}}" class="img-responsive"/></a></div>
+            <div class="col-xs-6 hidden-md hidden-lg">
+                <a class="th-navbar__logo" ui-sref="i18n.home">
+                    <img ng-src="{{config.general.logoUrl}}" class="img-responsive"/>
+                </a>
+            </div>
 
             <div class="col-md-7 hidden-xs hidden-sm">
-                <div class="collapse navbar-collapse " id="th-main-menu" data-ng-class="!navCollapsed && 'in'"
-                     data-ng-click="navCollapsed=true">
+                <div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'"
+                     ng-click="navCollapsed=true">
 
                     <!-- Categories -->
                     <ul class="nav navbar-nav">
-                        <li class="dropdown" data-ng-repeat="category in categories">
-                            <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">{{category.name}}</a>
-                            <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
-                                <li data-ng-repeat="subCategory in category.subCategories"><a
-                                        data-ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
+                        <li class="dropdown" ng-repeat="category in categories">
+                            <a href="#" class="dropdown-toggle th-dropdown-toggle" toggle="dropdown">{{category.name}}</a>
+                            <ul class="dropdown-menu" ng-if="category.subCategories.length">
+                                <li ng-repeat="subCategory in category.subCategories">
+                                    <a ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -65,8 +69,8 @@
                         </form>
                     </div>
           <span class="th-my-cart">
-            <a data-legacy-link="{{viewCart()}}" class="th-my-cart__link">
-                <span class="th-my-cart__text" data-translate="index.myCart">My Bag</span>
+            <a legacy-link="{{viewCart()}}" class="th-my-cart__link">
+                <span class="th-my-cart__text" translate="index.myCart">My Bag</span>
                 <span class="th-my-cart__number">{{cart.items.length}}</span>
             </a>
           </span>
