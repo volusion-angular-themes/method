@@ -17,7 +17,7 @@ angular.module('methodApp', [
         // Volusion Modules
         'snap',
         'seo',
-        'services.config', // Todo: Refactor this
+//        'services.config', // Todo: Refactor this
         'angulartics',
 
         // Volusion modules
@@ -26,10 +26,13 @@ angular.module('methodApp', [
         'Volusion.decorators',
         'Volusion.directives',
         'Volusion.filters',
-        'Volusion.services',
-        'Volusion.google.tagmanager'
+        'Volusion.services'
+//        'Volusion.google.tagmanager'
     ])
-    .config(function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+//        console.log($route);
+//        console.log(config);
 
         $locationProvider.html5Mode(true);
 
@@ -61,4 +64,4 @@ angular.module('methodApp', [
             .otherwise({
                 redirectTo: '/'
             });
-    });
+    }]);
