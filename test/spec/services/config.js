@@ -1,6 +1,5 @@
-'use strict';
-
 describe('Service: config', function () {
+    'use strict';
 
     // load the service's module
     beforeEach(module('methodApp'));
