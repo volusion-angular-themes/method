@@ -2,6 +2,7 @@
   "category": {
     "quickView": "Quick View",
     "regularPriceLabel": "Reg",
-    "nowPriceLabel": "Now"
+    "nowPriceLabel": "Now",
+    "category": "Category"
   }
 }

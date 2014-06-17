@@ -86,6 +86,7 @@ describe('Controller: IndexCtrl', function() {
   });
 
   it('assigns seo data from the config api response to the rootscope', function() {
+    rootScope.$broadcast('$stateChangeSuccess', { name: 'i18n.home' });
     expect(rootScope.seo).to.deep.equal(response.data.seo);
   });
 

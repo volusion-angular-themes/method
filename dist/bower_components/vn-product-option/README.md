@@ -25,19 +25,21 @@ vn-product-option
   - label.vn-product-option__label
   - div.vn-product-option\__group modifiers="__{{displayType.type}}__"
     - label.vn-labeled-radio modifiers="__{{option.class}}__"
-      - input.vn-labeled-radio\__radio
+      - div.vn-labeled-radio\__radio
       - div.vn-labeled-radio\__content
-        - div.vn-labeled-radio\__color
-        - img.vn-labeled-radio\__image
+        - div.vn-labeled-radio\__color-image
+          - div.vn-labeled-radio\__color
+          - img.vn-labeled-radio\__image
         - div.vn-labeled-radio\__text
         - div.vn-labeled-radio\__border
     - label.vn-labeled-checkbox modifiers="__{{option.class}}__"
-      - input.vn-labeled-checkbox\__checkbox
+      - div.vn-labeled-checkbox\__checkbox
       - vn-labeled-checkbox\__content
-        - div.vn-labeled-radio\__color
-        - img.vn-labeled-radio\__image
-        - div.vn-labeled-radio\__text
-        - div.vn-labeled-radio\__border
+        - div.vn-labeled-checkbox\__color-image
+          - div.vn-labeled-checkbox\__color
+          - img.vn-labeled-checkbox\__image
+        - div.vn-labeled-checkbox\__text
+        - div.vn-labeled-checkbox\__border
     - select.vn-product-option\__select modifiers="__{{option.class}}__"
     - input.vn-product-option\__text modifiers="__{{option.class}}__"
   - div.vn-product-option (recursive)
