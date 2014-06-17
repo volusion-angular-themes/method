@@ -16,7 +16,7 @@ Translate.prototype.getConfig = function() {
   var storage = this.storage;
   var config = JSON.parse(storage.get(storageKey)) || {};
   var lang = storage.get('NG_TRANSLATE_LANG_KEY');
-  if (lang) {
+  if (!this.disableTranslations && lang && lang !== 'undefined') {
     config.lang = lang;
   }
   return config;

@@ -46,6 +46,8 @@ describe('Controller: ProductCtrl', function() {
   });
 
   it('updates the root scope\'s seo object with the product seo', function() {
+    console.log('product.data.seo ' , product.data.seo);
+    console.log('scope.seo ' , scope.seo);
     expect(scope.seo).to.deep.equal(product.data.seo);
   });
 

@@ -8,7 +8,6 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   'api',
   '$rootScope',
   'tokenGenerator',
-  'cacheBustFilter',
   function (
     $state,
     $location,
@@ -16,8 +15,7 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
     $http,
     api,
     $rootScope,
-    tokenGenerator,
-    cacheBustFilter) {
+    tokenGenerator) {
 
     //hide header & footer when viewing theme-settings
     if ($location.path().indexOf('/theme-settings') >= 0) {
@@ -33,14 +31,6 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
         $rootScope.seo = angular.extend($rootScope.seo, $scope.config.seo);
       }
     });
-
-    this.getThemeSettings = function () {
-      $http.get(cacheBustFilter('/scripts/themeSettings.json'))
-      .success(function(data) {
-          console.log('themeSettings: ', data);
-          $rootScope.themeSettings = data;
-        });
-    };
 
     this.getMenuItems = function () {
       // Nav
@@ -85,8 +75,6 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
           console.log('Error: ', error);
         });
     };
-
-    this.getThemeSettings();
 
     this.getMenuItems();
 

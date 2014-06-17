@@ -32,6 +32,8 @@ describe('Service: translate', function() {
 
   it('gets and sets configuration', function() {
     translate.configure(config);
+
+
     expect(translate.getConfig()).to.deep.eq(config);
   });
 

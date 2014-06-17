@@ -28,6 +28,8 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
 
     var productData = $scope.product = product.data;
 
+    angular.extend($scope.seo, productData.seo);
+
     $scope.product.quantity = 1;
 
     $scope.toTrusted = function(htmlCode) {
