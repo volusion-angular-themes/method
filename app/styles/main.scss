@@ -1,51 +1,33 @@
+<<<<<<< HEAD
 // Core variables and mixins
 @import 'compass';
 @import 'style-guide/theme-vars'; // Custom Theme Variables & Configuration
 @import 'core/base/mixins';
 @import 'core/base/helpers';
+=======
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+>>>>>>> c0f11aa00f33841334e21400a7a35e803ebf291b
 
-// Reset
-@import 'reset/normalize';
-@import 'reset/print';
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
-// Core CSS
-@import 'core/scaffolding';
-@import 'core/type';
-@import 'core/code';
-@import 'core/grid';
-@import 'core/tables';
-@import 'core/forms';
-@import 'core/buttons';
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
 
-// Components
-@import 'components/component-animations';
-@import 'components/glyphicons';
-@import 'components/dropdowns';
-@import 'components/button-groups';
-@import 'components/input-groups';
-@import 'components/navs';
-@import 'components/navbar';
-@import 'components/breadcrumbs';
-@import 'components/pagination';
-@import 'components/pager';
-@import 'components/labels';
-@import 'components/badges';
-@import 'components/jumbotron';
-@import 'components/thumbnails';
-@import 'components/alerts';
-@import 'components/progress-bars';
-@import 'components/media';
-@import 'components/list-group';
-@import 'components/panels';
-@import 'components/wells';
-@import 'components/close';
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
 
-// Components w/ Javascript
-@import 'components/js/modals';
-@import 'components/js/tooltip';
-@import 'components/js/popovers';
-@import 'components/js/carousel';
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
+<<<<<<< HEAD
 // Volusion Components
 @import 'components/vn/dropzone';
 @import 'components/vn/labeled-radio';
@@ -78,10 +60,79 @@
 @import 'components/th/social-icons';
 @import 'components/th/cart-summary';
 @import 'components/th/quantity-counter';
+=======
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
-// Utility classes
-@import 'utilities/utilities';
-@import 'utilities/responsive-utilities';
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+>>>>>>> c0f11aa00f33841334e21400a7a35e803ebf291b
 
-// Theme - Method
-@import 'style-guide/style-guide';
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
