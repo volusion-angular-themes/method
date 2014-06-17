@@ -6,90 +6,90 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
+// Core variables and mixins
+@import 'compass';
+@import 'style-guide/theme-vars'; // Custom Theme Variables &
+@import 'core/base/mixins';
+@import 'core/base/helpers';
 
-/* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+// Reset
+@import 'reset/normalize';
+@import 'reset/print';
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+// Core CSS
+@import 'core/scaffolding';
+@import 'core/type';
+@import 'core/code';
+@import 'core/grid';
+@import 'core/tables';
+@import 'core/forms';
+@import 'core/buttons';
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-}
+// Components
+@import 'components/component-animations';
+@import 'components/glyphicons';
+@import 'components/dropdowns';
+@import 'components/button-groups';
+@import 'components/input-groups';
+@import 'components/navs';
+@import 'components/navbar';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/pager';
+@import 'components/labels';
+@import 'components/badges';
+@import 'components/jumbotron';
+@import 'components/thumbnails';
+@import 'components/alerts';
+@import 'components/progress-bars';
+@import 'components/media';
+@import 'components/list-group';
+@import 'components/panels';
+@import 'components/wells';
+@import 'components/close';
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-}
+// Components w/ Javascript
+@import 'components/js/modals';
+@import 'components/js/tooltip';
+@import 'components/js/popovers';
+@import 'components/js/carousel';
 
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-}
+// Volusion Components
+@import 'components/vn/dropzone';
+@import 'components/vn/labeled-radio';
+@import 'components/vn/product-option';
+@import 'components/vn/showcase';
+@import 'components/vn/slider';
+@import 'components/vn/zoom';
 
-.container-narrow > hr {
-    margin: 30px 0;
-}
+// Theme Components
+@import 'components/th/sprites-social';
+@import 'components/th/sprites-icons';
+@import 'components/th/sprites-stars';
+@import 'components/th/header';
+@import 'components/th/mobile-menu';
+@import 'components/th/mobile-sitemap';
+@import 'components/th/footer';
+@import 'components/th/elist';
+@import 'components/th/search';
+@import 'components/th/quickview';
+@import 'components/th/sort-by';
+@import 'components/th/search-refinement';
+@import 'components/th/home-content';
+@import 'components/th/product-view';
+@import 'components/th/product-description';
+@import 'components/th/product';
+@import 'components/th/product-details';
+@import 'components/th/product-title';
+@import 'components/th/reviews';
+@import 'components/th/review-stars';
+@import 'components/th/social-icons';
+@import 'components/th/cart-summary';
+@import 'components/th/quantity-counter';
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-}
+// Utility classes
+@import 'utilities/utilities';
+@import 'utilities/responsive-utilities';
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-}
-
-.marketing p + h4 {
-    margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-}
+// Theme - Method
+@import 'style-guide/style-guide';

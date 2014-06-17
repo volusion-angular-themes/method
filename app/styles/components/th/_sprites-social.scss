@@ -1,0 +1,50 @@
+@import "sprites/social/*.png";
+@include all-social-sprites;
+
+.th-social__icon--facebook {
+  @include social-sprite(facebook);
+  height: social-sprite-height(facebook);
+  width: social-sprite-width(facebook);
+}
+
+.th-social__icon--twitter {
+  @include social-sprite(twitter);
+  height: social-sprite-height(twitter);
+  width: social-sprite-width(twitter);
+}
+
+.th-social__icon--instagram {
+  @include social-sprite(instagram);
+  height: social-sprite-height(instagram);
+  width: social-sprite-width(instagram);
+}
+
+.th-social__icon--tumblr {
+  @include social-sprite(tumblr);
+  height: social-sprite-height(tumblr);
+  width: social-sprite-width(tumblr);
+}
+
+.th-social__icon--pinterest {
+  @include social-sprite(pinterest);
+  height: social-sprite-height(pinterest);
+  width: social-sprite-width(pinterest);
+}
+
+.th-social__icon--google {
+  @include social-sprite(google);
+  height: social-sprite-height(google);
+  width: social-sprite-width(google);
+}
+
+.th-social__icon--vimeo {
+  @include social-sprite(vimeo);
+  height: social-sprite-height(vimeo);
+  width: social-sprite-width(vimeo);
+}
+
+.th-social__icon--youtube {
+  @include social-sprite(youtube);
+  height: social-sprite-height(youtube);
+  width: social-sprite-width(youtube);
+}

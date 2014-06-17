@@ -1,0 +1,36 @@
+.th-qty-wrap {
+  padding: 4px 15px;
+}
+
+.th-qty-counter__input {
+  padding: 10px 5px;
+  height: 45px;
+  text-align: center;
+}
+
+.th-qty-counter__btn {
+  padding: 10px 8px 11px;
+  min-width: 45px;
+  height: 45px;
+  border-color: map-get($colors, border);
+}
+
+@include respond-to(sm-and-up) {
+
+  .th-qty-wrap{
+    padding: 4px 0 4px 15px;
+  }
+
+  .th-qty-counter__input {
+    height: 46px;
+  }
+
+  .th-qty-counter__btn {
+    padding: 13px 0px 14px;
+    min-width: 25px;
+    height: 46px;
+  }
+
+}
+
+

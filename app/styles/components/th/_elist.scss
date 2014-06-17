@@ -1,0 +1,100 @@
+.th-elist {
+  border-bottom: 1px solid map-get($colors, border);
+  padding: 12px 0;
+}
+
+.th-elist__form {
+  @include inline-block;
+  white-space: nowrap;
+}
+
+.th-elist__title {
+  @include inline-block;
+  margin: 0;
+  font-weight: normal;
+  margin-right: 13px;
+  display: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-family: $font-family-condensed-reg;
+}
+
+.th-elist__group {
+  @include inline-block;
+  margin: 0;
+}
+.th-elist__input {
+  @include inline-block;
+  border-color: map-get($colors, border);
+  width: 100%;
+  height: 32px;
+  margin: 0;
+}
+.th-elist__input:focus {
+  border-color: map-get($colors, border--dark);
+}
+
+.th-elist__submit {
+  @include inline-block;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  color: map-get($colors, text--lightest);
+  background: map-get($colors, btnPrimaryBg);
+  border: 0;
+
+  &:hover {
+    background: map-get($colors, btnPrimaryBg);
+    color: map-get($colors, text--lightest);
+  }
+}
+
+
+
+/* Small devices (tablets, 768px and up) */
+@include respond-to(sm-and-up) {
+
+  .th-elist__title {
+    @include inline-block;
+  }
+
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@include respond-to(lg) {
+
+  .th-elist {
+    border-bottom: 0;
+    padding: 0 0 25px 35px;
+  }
+
+  .th-elist__form {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .th-elist__title {
+    display: block;
+    margin: 10px 0 0 0;
+    font-weight: bold;
+  }
+
+  .th-elist__input {
+    height: 33px;
+    min-width: 220px;
+    border-color: map-get($colors, border--lightest);
+  }
+
+  .th-elist__submit {
+  }
+
+  .th-elist__submit:hover {
+    background: map-get($colors, btnPrimaryBg);
+    border: 0;
+  }
+
+}
+
+
+
+

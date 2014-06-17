@@ -1,0 +1,12 @@
+//@import "bootstrap/scaffolding";
+
+body {
+  @extend %font-smoothing;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+a:hover, a:active {
+  outline: none;
+  text-decoration: none;
+}

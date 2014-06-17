@@ -1,0 +1,40 @@
+.th-mobile-menu {
+  border-right: 1px solid map-get($colors, border);
+  background-color: map-get($colors, component-bg);
+
+  &__list {
+    padding: 35px 15px 0;
+  }
+
+}
+
+.th-mobile-list {
+  margin: 0 0 20px;
+  list-style: none;
+  padding: 0;
+
+  // Done to address specificity issue
+  > li > a {
+    padding-left: 0;
+    display: inline-block;
+  }
+
+  &__item {
+    &--header {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: $font-family-condensed-bold;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__link {
+    padding: 10px 10px 10px 0;
+    position: relative;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 17px;
+    border-bottom: 1px solid map-get($colors, border);
+    font-size: 1.4rem;
+  }
+}
