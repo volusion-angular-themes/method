@@ -1,16 +1,11 @@
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', 'vnApi',
-        function ($scope, $rootScope, vnApi) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
+        function ($scope, $rootScope, $location, vnApi) {
             'use strict';
 
 //            console.log('vnApi', vnApi.Configuration().get());
 
             $rootScope.seo = {};
-
-            $scope.createSubCategoryURI = function(subcat) {
-                console.log(subcat);
-                return "cats1/c/cats2";
-            }
 
 // TODO: refactor the seo state into a directive.
 //            $scope.$on('$stateChangeSuccess', function (event, toState) {

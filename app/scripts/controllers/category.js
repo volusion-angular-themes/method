@@ -1,9 +1,22 @@
 angular.module('methodApp')
-    .controller('CategoryCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-        'use strict';
+    .controller('CategoryCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
+        function ($scope, $rootScope, $location, vnApi) {
+            'use strict';
 
-        $rootScope.seo = {};
-        $scope.test = 'The CategoryCtrl Test';
+            $rootScope.seo = {};
+
+//            console.log('category api info: ', vnApi.Category().query());
+//            console.log('category api info: ', $location.path().split('/')[2]);
+
+            vnApi.Category().query(function(response) {
+                console.log(response);
+            });
+
+//            $scope.category = vnApi.getCategoryById(
+//                // inline parsing of the location path for category id
+//                $location.path().split('/')[2]
+//            );
+
 
 //        $scope.$on('$stateChangeSuccess', function (event, toState) {
 //            if (toState.name === 'i18n') {
@@ -69,7 +82,7 @@ angular.module('methodApp')
 //            }
 //        };
 
-        // Add to Cart
+            // Add to Cart
 //        $rootScope.$on('ADD_TO_CART', function (event, args) {
 //            var pricing = args.pricing;
 //            var cartItem = {
@@ -93,4 +106,4 @@ angular.module('methodApp')
 //                });
 //
 //        });
-    }]);
+        }]);

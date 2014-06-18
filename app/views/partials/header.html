@@ -54,7 +54,7 @@
                             <ul class="dropdown-menu" ng-if="category.subCategories.length">
                                 <li ng-repeat="subCategory in category.subCategories">
                                     <!--<a ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>-->
-                                    <a href="c/{{ subCategory.name }}">{{subCategory.name}}</a>
+                                    <a href="c/{{ subCategory.id }}">{{subCategory.name}}</a>
                                 </li>
                             </ul>
                         </li>
