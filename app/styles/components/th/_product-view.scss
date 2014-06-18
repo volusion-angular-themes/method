@@ -1,40 +1,38 @@
 .th-product-view {
+    &__image {
+        position : relative;
 
-  &__image {
-    position: relative;
+        img {
+            margin  : 0 auto;
+            display : block;
+        }
 
-    img {
-      margin: 0 auto;
-      display: block;
+        &:hover {
+            display : block;
+        }
     }
 
-    &:hover {
-      display: block;
+    &__zoom {
+        cursor : crosshair;
+        @include absolute-center(
+        $width : icons-sprite-width(zoom),
+        $height : icons-sprite-height(zoom)
+        );
+
+        &:hover {
+            @extend %opacity-80;
+        }
     }
-  }
 
-  &__zoom {
-    cursor: crosshair;
-    @include absolute-center(
-      $width: icons-sprite-width(zoom),
-      $height: icons-sprite-height(zoom)
-    );
-
-    &:hover {
-      @extend %opacity-80;
+    &__thumbnail {
+        cursor : pointer;
     }
-  }
 
-  &__thumbnail {
-    cursor: pointer;
-  }
+    &__alts {
+        text-align : center;
 
-  &__alts {
-    text-align: center;
-
-    img {
-      @extend %inline-block;
+        img {
+            @extend %inline-block;
+        }
     }
-  }
-
 }

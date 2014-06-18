@@ -1,16 +1,14 @@
 .vn-product-option {
+    &__label {
+        display        : block;
+        margin-top     : 10px;
+        color          : #050505;
+        font-family    : $font-family-condensed-bold;
+        text-transform : uppercase;
+        letter-spacing : 0.07em;
+    }
 
-  &__label {
-    display: block;
-    margin-top: 10px;
-    color: #050505;
-    font-family: $font-family-condensed-bold;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-  }
-
-  &__group {
-    text-align: center;
-  }
-
+    &__group {
+        text-align : center;
+    }
 }

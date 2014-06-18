@@ -1,40 +1,37 @@
 .th-cart-summary {
-  position: relative;
-  white-space: nowrap;
-  top: 8px;
-  right: 0;
+    position    : relative;
+    white-space : nowrap;
+    top         : 8px;
+    right       : 0;
 }
 
 .th-my-cart {
-  @include inline-block;
-  padding: 6px 0;
+    @include inline-block;
+    padding : 6px 0;
 
-  .th-my-cart__number {
-    color: map-get($colors, link-active);
-  }
+    &__number {
+        color : map-get($colors, link-active);
 
-  .th-my-cart__number:before {
-    content: "(";
-  }
+        &:before {
+            content : "(";
+        }
 
-  .th-my-cart__number:after {
-    content: ")";
-  }
-
+        &:after {
+            content : ")";
+        }
+    }
 }
 
 @include respond-to(sm-and-up) {
-
     .th-cart-summary {
-      top: 22px;
+        top : 22px;
     }
-
 }
 
 @include respond-to(md-and-up) {
     .th-cart-summary {
-      position: relative;
-      right: 13px;
+        position : relative;
+        right    : 13px;
     }
 }
 
