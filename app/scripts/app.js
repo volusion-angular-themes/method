@@ -27,7 +27,7 @@ angular.module('methodApp', [
         'Volusion.directives',
         'Volusion.filters',
         'Volusion.services'
-//        'Volusion.google.tagmanager'
+//        'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
@@ -55,28 +55,6 @@ angular.module('methodApp', [
                 templateUrl: 'views/article.html',
                 controller: 'ArticlesCtrl'
             })
-
-                // First pass at routes
-//            .when('/:productTitle/p/:productCode', {
-//                temnplateUrl: 'views/product.html',
-//                controller: 'ProductCtrl'
-//            })
-//            .when('/:categoryName/c/:categoryId', {
-//                templateUrl: 'views/category.html',
-//                controller: 'CategoryCtrl'
-//            })
-//            .when('/style-guide', {
-//                templateUrl: 'views/style-guide.html',
-//                controller: 'PageCtrl'
-//            })
-//            .when('/about', {
-//                templateUrl: 'views/about.html',
-//                controller: 'PageCtrl'
-//            })
-//            .when('/contact', {
-//                templateUrl: 'views/contact.html',
-//                controller: 'PageCtrl'
-//            })
             .otherwise({
                 redirectTo: '/'
             });
