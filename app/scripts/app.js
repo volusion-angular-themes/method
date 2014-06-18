@@ -21,6 +21,7 @@ angular.module('volusionApp', [
     'ui.bootstrap',
     'snap',
     require('../bower_components/vn-meta-tags').name,
+    require('../bower_components/vn-product-option').name,
     'angulartics',
     // volusion modules
     'volusion.controllers',
@@ -146,7 +147,7 @@ angular.module('volusionApp')
           translations: ['translate', function(translate) {
             return translate.addParts('product');
           }],
-          product: ['api', '$stateParams', function(api, $stateParams) {
+          productResponse: ['api', '$stateParams', function(api, $stateParams) {
             return api.products.get({code: $stateParams.productCode});
           }]
         }

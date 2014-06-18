@@ -9,7 +9,7 @@ describe('Controller: ProductCtrl', function() {
   // ReSharper disable once InconsistentNaming
   var controller;
   var scope;
-  var product = {
+  var productResponse = {
     data: {
       name: 'Product Name',
       code: 'PC123',
@@ -23,7 +23,9 @@ describe('Controller: ProductCtrl', function() {
         title: 'qux',
         description: 'quux',
         keywords: 'garply'
-      }
+      },
+      images: { 'default': [] },
+      cartItem: {}
     }
   };
 
@@ -37,18 +39,18 @@ describe('Controller: ProductCtrl', function() {
     scope = $rootScope.$new();
     controller = $controller('ProductCtrl', {
       $scope: scope,
-      product: product
+      productResponse: productResponse
     });
   }));
 
   it('should attach the product data to the scope', function() {
-    expect(scope.product).to.deep.equal(product.data);
+    expect(scope.product).to.deep.equal(productResponse.data);
   });
 
   it('updates the root scope\'s seo object with the product seo', function() {
-    console.log('product.data.seo ' , product.data.seo);
+    console.log('product.data.seo ' , productResponse.data.seo);
     console.log('scope.seo ' , scope.seo);
-    expect(scope.seo).to.deep.equal(product.data.seo);
+    expect(scope.seo).to.deep.equal(productResponse.data.seo);
   });
 
 });
