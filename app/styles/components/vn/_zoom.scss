@@ -1,5 +1,6 @@
 .vn-zoom {
-  .vn-zoom__image { // nested to trump easyzoom specificity
-    display: block;
-  }
+    &__image {
+        // nested to trump easyzoom specificity
+        display : block;
+    }
 }

@@ -8,43 +8,42 @@
         @extend %animate-all-default;
     }
 
-}
-
-.th-footer__top {
-    display : none;
-}
-
-.th-footer__title {
-    font-size      : 1.4rem;
-    margin-top     : 10px;
-    text-transform : uppercase;
-    font-weight    : bold;
-    font-family    : $font-family-condensed-reg;
-}
-
-.th-footer__bottom {
-    padding : 1.5em 0;
-}
-
-.th-footer__copyright {
-    margin-right : 15px;
-}
-
-.th-footer__contact {
-    list-style : none;
-    padding    : 0;
-    margin     : 0;
-
-    li {
-        @include inline-block;
-        border-left  : 1px solid map-get($colors, border);
-        line-height  : 13px;
-        padding-left : 10px;
-        margin-right : 9px;
+    &__top {
+        display : none;
     }
 
-    li:first-child {
-        border : 0;
+    &__title {
+        font-size      : 1.4rem;
+        margin-top     : 10px;
+        text-transform : uppercase;
+        font-weight    : bold;
+        font-family    : $font-family-condensed-reg;
+    }
+
+    &__bottom {
+        padding : 1.5em 0;
+    }
+
+    &__copyright {
+        margin-right : 15px;
+    }
+
+    &__contact {
+        list-style : none;
+        padding    : 0;
+        margin     : 0;
+
+        li {
+            @include inline-block;
+            border-left  : 1px solid map-get($colors, border);
+            line-height  : 13px;
+            padding-left : 10px;
+            margin-right : 9px;
+
+            &:first-child {
+                border : 0;
+            }
+        }
     }
 }
 
@@ -57,15 +56,12 @@
 }
 
 @include respond-to(sm-and-up) {
-
     .th-footer__top {
         display : none;
     }
-
 }
 
 @include respond-to(lg) {
-
     .th-newsbar {
         display : none;
     }
@@ -75,33 +71,60 @@
         border-top       : 0;
         text-align       : left;
         background-color : map-get($colors, component-bg--darker);
-    }
 
-    .th-footer__title {
-        display : block;
-    }
-
-    .th-footer__top {
-        display        : block;
-        padding-bottom : 25px;
-        border-bottom  : 1px solid map-get($colors, border);
-        ul.nav {
-            margin : 0 0 35px;
+        &__title {
+            display : block;
         }
 
-        ul.nav > li > a {
-            padding : 0;
+        &__top {
+            display        : block;
+            padding-bottom : 25px;
+            border-bottom  : 1px solid map-get($colors, border);
+
+            ul.nav {
+                margin : 0 0 35px;
+
+                > li {
+                    > a {
+                        padding : 0;
+                    }
+                }
+            }
         }
-    }
 
-    .th-footer__site-links {
-        border-right : 1px solid map-get($colors, border);
-        margin-top   : 25px;
-        overflow     : hidden;
-    }
+        &__site-links {
+            border-right : 1px solid map-get($colors, border);
+            margin-top   : 25px;
+            overflow     : hidden;
+        }
 
-    .th-footer__more-info {
-        margin-top : 35px;
+        &__more-info {
+            margin-top : 35px;
+        }
+
+        &__contact {
+            float      : left;
+            list-style : none;
+            padding    : 0;
+            margin     : 0;
+
+            li {
+                @include inline-block;
+                border-left  : 1px solid map-get($colors, border);
+                line-height  : 13px;
+                padding-left : 10px;
+                margin-right : 9px;
+
+                &:first-child {
+                    border : 0;
+                }
+            }
+        }
+
+        &__copyright {
+            float        : left;
+            margin-right : 15px;
+        }
     }
 
     .th-info-box {
@@ -115,29 +138,4 @@
             vertical-align : text-top;
         }
     }
-
-    .th-footer__contact {
-        float      : left;
-        list-style : none;
-        padding    : 0;
-        margin     : 0;
-
-        li {
-            @include inline-block;
-            border-left  : 1px solid map-get($colors, border);
-            line-height  : 13px;
-            padding-left : 10px;
-            margin-right : 9px;
-        }
-
-        li:first-child {
-            border : 0;
-        }
-    }
-
-    .th-footer__copyright {
-        float        : left;
-        margin-right : 15px;
-    }
-
 }

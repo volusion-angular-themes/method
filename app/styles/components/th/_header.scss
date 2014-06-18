@@ -1,24 +1,22 @@
 .th-header {
-  display: none;
-  border: 1px solid map-get($colors, border);
+    display : none;
+    border  : 1px solid map-get($colors, border);
 
-  a:hover {
-    @extend %animate-all-default;
-  }
-}
+    a:hover {
+        @extend %animate-all-default;
+    }
 
-.th-header__shipping-text {
-  float: left;
-}
+    &__shipping-text {
+        float : left;
+    }
 
-.th-header__account-menu {
-  float: right;
+    &__account-menu {
+        float : right;
+    }
 }
 
 @include respond-to(md-and-up) {
-
-  .th-header {
-    display: block
-  }
-
+    .th-header {
+        display : block
+    }
 }

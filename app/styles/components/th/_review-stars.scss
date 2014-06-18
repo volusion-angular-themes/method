@@ -1,9 +1,8 @@
 .th-review-stars {
-  margin-right: 10px;
+    margin-right : 10px;
 
-  &__star {
-    margin-right: 1px;
-    @extend %inline-block;
-  }
-
+    &__star {
+        margin-right : 1px;
+        @extend %inline-block;
+    }
 }
