@@ -21,7 +21,6 @@ angular.module('volusionApp', [
     'ui.bootstrap',
     'snap',
     require('../bower_components/vn-meta-tags').name,
-    require('../bower_components/vn-product-option').name,
     'angulartics',
     // volusion modules
     'volusion.controllers',

@@ -1,49 +1,40 @@
 'use strict';
 // http://i-like-robots.github.io/EasyZoom/
 angular.module('volusion.directives').directive('easyZoom', [function () {
-
   var imageHash = {};
 
-  function swapImages(zoomApi) {
-    if (imageHash.standardSrc && imageHash.zoomSrc) {
-      zoomApi.swap(imageHash.standardSrc, imageHash.zoomSrc);
+  var swapImages = function (zoomApi) {
+    if (imageHash.mainImage && imageHash.zoomImage) {
+
+
+      zoomApi.swap(imageHash.mainImage, imageHash.zoomImage);
       imageHash = {};
     }
-  }
+  };
 
   return {
     restrict: 'A',
-    replace: true,
-    template: [
-      '<div class="easyzoom" data-ng-class="{ \'easyzoom--adjacent\': ezAdjacent, \'easyzoom--overlay\': ezOverlay }">',
-      '<a data-ng-href="{{ezZoomSrc}}">',
-      '<img class="img-responsive" data-ng-src="{{ngSrc}}" alt="{{alt}}">',
-      '<div class="th-product-view__zoom"></div>',
-      '</a>',
-      '</div>'
-    ].join(''),
-    scope: {
-      ngSrc: '=',
-      ezAdjacent: '=',
-      ezOverlay: '=',
-      ezZoomSrc: '=',
-      alt: '@'
-    },
-    link: function (scope, element) {
+    template: '<a class="zoomImage"><img class="img-responsive" alt=""></a><a href="#" class="th-product-view__zoom"></a>',
+    link: function (scope, element, attrs) {
+      element.addClass('easyzoom');
       var easyzoom = element.easyZoom();
       var api = easyzoom.data('easyZoom');
 
-      scope.$watch('ngSrc', function(newValue) {
-        imageHash.standardSrc = newValue;
+      attrs.$observe('isDesktop', function (newValue) {
+        var isDesktop = JSON.parse(newValue);
+        element.toggleClass('easyzoom--adjacent', isDesktop);
+        element.toggleClass('easyzoom--overlay', !isDesktop);
+      });
+
+      attrs.$observe('zoomImageUrl', function (newValue) {
+        imageHash.zoomImage = newValue;
         swapImages(api);
       });
 
-      scope.$watch('ezZoomSrc', function(newValue) {
-        imageHash.zoomSrc = newValue;
+      attrs.$observe('imageUrl', function (newValue) {
+        imageHash.mainImage = newValue;
         swapImages(api);
       });
-
-      scope.$on('$destroy', api.teardown);
     }
   };
 }]);

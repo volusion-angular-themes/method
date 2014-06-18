@@ -65,7 +65,7 @@ module.exports = function(grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.app %>/translations/{,*/}*.json',
-          '<%= yeoman.app %>/scripts/themeSettings.json'
+          '<%= yeoman.app %>/settings/themeSettings.json'
         ]
       }
     },
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         livereload: 35729
       },
       rules: [
-        { from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+        { from: '^/(bower_components|fonts|images|scripts|styles|settings|translations|views)(/.*)$', to: '/$1$2' },
         { from: '^/404.html', to: '/404.html' },
         { from: '^/(.*)$', to: '/index.html' }
       ],
@@ -349,7 +349,7 @@ module.exports = function(grunt) {
             'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
             'translations/{,*/}*.json',
-            'scripts/themeSettings.json',
+            'settings/themeSettings.json',
             'styles/overrides.css'
           ]
         }, {
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
       scripts: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: ['scripts/{,*/}*.js'],
+        src: ['settings/themeSettings.json', 'scripts/{,*/}*.js'],
         dest: '.tmp'
       },
       components: {

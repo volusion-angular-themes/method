@@ -2,10 +2,10 @@
   "config": {
     "LOCALHOST": true,
     "API_URL": "http://www.samplestore.io/api/v1",
-    "DISABLE_TRANSLATIONS": false,
-    "URL_PREFIX": "/:region/:lang-:country",
-    "REGION": "us",
-    "LANG": "en",
-    "COUNTRY": "us"
+    "DISABLE_TRANSLATIONS": true,
+    "URL_PREFIX": "",
+    "REGION": "",
+    "LANG": "",
+    "COUNTRY": ""
   }
 }

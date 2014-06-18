@@ -4,10 +4,25 @@ angular.module('volusion.controllers').controller('HomeCtrl', [
   '$scope',
   '$rootScope',
   'api',
+  '$http',
+  'cacheBustFilter',
   function (
     $scope,
     $rootScope,
-    api) {
+    api,
+    $http,
+    cacheBustFilter) {
+
+    $http.get(cacheBustFilter('/settings/themeSettings.json'))
+    .success(function(data) {
+        console.log('themeSettings: ', data);
+        $rootScope.themeSettings = data;
+
+        // TODO: REPLACE SLIDER WITH COMPONENT DATA
+        $scope.interval = 4000;
+        $scope.slider = $rootScope.themeSettings.slider.slides;
+
+      });
 
     // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
     $scope.featuredHomeItems = {
@@ -27,10 +42,6 @@ angular.module('volusion.controllers').controller('HomeCtrl', [
         linkTo: 'Furniture/c/1516'
       }
     };
-
-    // TODO: REPLACE SLIDER WITH COMPONENT DATA
-    $scope.interval = 4000;
-    $scope.slider = $rootScope.themeSettings.slider.slides;
 
     // Featured Products
     api.products.get({ filter: 'featured', pageSize: 4}).then(function (response) {

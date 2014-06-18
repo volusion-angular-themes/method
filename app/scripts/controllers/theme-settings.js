@@ -16,7 +16,7 @@ angular.module('volusion.controllers')
     var environment;
     if (config.ENV.LOCALHOST) {
       //in local development environment (i.e. grunt serve)
-      apiUrl = '/scripts/themeSettings.json';
+      apiUrl = '/settings/themeSettings.json';
       $scope.debug = true;
     } else {
       //in production
