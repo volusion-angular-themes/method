@@ -5,6 +5,7 @@ angular.module('methodApp')
 
             $rootScope.seo = {};
 
+//            TODO: Change this to use $routeParams and couple that to the :id or :slug as it may be
 //            console.log('category api info: ', vnApi.getCategory());
             console.log('category api info: ', $location.path().split('/')[2]);
 
