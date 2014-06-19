@@ -17,37 +17,14 @@ angular.module('methodApp')
 //            });
             //this.getMenuItems(); // Is a call to get the categories.Was at bottom but can be prunned
 //
-//            console.log('getNav', vnApi.getNav());
-            vnApi.Nav({navId: '1'})
-                .then(function(response) {
-                    $scope.categories = response.data;
-                });
-            // TODO: Remove commented out legacy code
-//            this.getMenuItems = function () {
-//                // Nav
-//                api.navs.get({ navId: 1 }).then(function (response) {
-//                    $scope.categories = response.data;
-//
-//                    // TODO: REMOVE
-//                    console.log('Categories: ', response.data);
-//                }, function (error) {
-//                    console.log('Error: ' + error);
-//                });
-//            };
-//
+//          // Handle Navigation
+            $scope.mainNav = vnApi.Nav().get({navId: 1});
 
             // Handle the configuration data
-            vnApi.getConfiguration()
-                .then(function (response) {
-                    $scope.config = response.data;
-                    angular.extend($rootScope.seo, $scope.config.seo);
-                });
+            $scope.config = vnApi.Configuration().get();
 
 //            console.log('getCart obj', vnApi.getCart().get());
-            vnApi.Cart()
-                .then(function(response) {
-                    $scope.cart = response.data;
-                });
+            $scope.cart = vnApi.Cart().get();
 //
 //            this.getConfig(this.getCart);  //TODO Prune this code
 //

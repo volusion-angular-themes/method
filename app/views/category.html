@@ -61,8 +61,7 @@
                 <div class="form-group">
                     <select class="form-control">
                         <option value="">Category</option>
-                        <option value="">Men</option>
-                        <option value="">Women</option>
+                        <option value="" ng-repeat="sc in subCategories">{{ sc.name }}</option>
                     </select>
                 </div>
                 <div class="form-group">

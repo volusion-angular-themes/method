@@ -21,7 +21,7 @@
                 <!--TODO: cleanup html-->
                 <!--<a class="navbar-brand" ui-sref="i18n.home">-->
                 <a class="navbar-brand" href="/">
-                    <img ng-src="{{config.general.logoUrl}}" class="img-responsive"/>
+                    <img ng-src="{{config.data.general.logoUrl}}" class="img-responsive"/>
                 </a>
             </div>
 
@@ -41,27 +41,25 @@
                     <img ng-src="{{config.general.logoUrl}}" class="img-responsive"/>
                 </a>
             </div>
-
             <div class="col-md-7 hidden-xs hidden-sm">
                 <div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'"
                      ng-click="navCollapsed=true">
 
-                    <!-- Categories -->
+                    <!-- Navigation -->
                     <ul class="nav navbar-nav">
-                        <li class="dropdown" ng-repeat="category in categories">
-                            <a class="dropdown-toggle th-dropdown-toggle"
-                               href="c/{{ category.id }}">{{category.name}}</a>
+                        <li class="dropdown" ng-repeat="item in mainNav.data">
+                            <a class="th-dropdown-toggle"
+                               href="c/{{ item.slug }}">{{item.name}}</a>
                             <span>
-                                <a ng-if="category.subCategories" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
+                                <a href="" ng-if="item.subCategories" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu" ng-if="category.subCategories.length">
-                                    <li ng-repeat="subCategory in category.subCategories">
-                                        <a href="c/{{ subCategory.id }}">{{subCategory.name}}</a>
+                                <ul class="dropdown-menu" ng-if="item.subCategories.length">
+                                    <li ng-repeat="subCategory in item.subCategories">
+                                        <a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>
                                     </li>
                                 </ul>
                             </span>
-
                         </li>
                     </ul>
                 </div>

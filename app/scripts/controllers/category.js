@@ -9,10 +9,15 @@ angular.module('methodApp')
 //            console.log('category api info: ', vnApi.getCategory());
             console.log('category api info: ', $location.path().split('/')[2]);
 
-            vnApi.getCategory( {id: $location.path().split('/')[2]}).then(function(response) {
+            vnApi.getCategory( {slug: $location.path().split('/')[2]}).then(function(response) {
                 $scope.category = response.data;
-                console.log('category data: ', $scope.category);
+                console.log('response: ', response);
+                console.log('categoy: ', $scope.category);
+
+                $scope.subCategories = $scope.category.subCategories;
             });
+
+            console.log(vnApi.Product());
 
 //            vnApi.getCategory()
 
