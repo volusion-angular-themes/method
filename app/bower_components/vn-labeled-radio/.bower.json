@@ -1,7 +1,7 @@
 {
   "name": "vn-labeled-radio",
   "description": "An AngularJS component that generates an input text box wrapped in a label.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/volusion-angular/vn-labeled-radio.git",
   "keywords": [
     "angularjs",
@@ -24,13 +24,13 @@
   "dependencies": {
     "vn-bem": "~0.0.1"
   },
-  "_release": "0.1.0",
+  "_release": "0.1.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.0",
-    "commit": "c20f8fb14bd17a21bc477096fba74c28aabdcd87"
+    "tag": "v0.1.1",
+    "commit": "360ee6074233a7d0eff193669a7f45310616a5a6"
   },
   "_source": "git://github.com/volusion-angular/vn-labeled-radio.git",
-  "_target": "~0.1.0",
+  "_target": "~0.1.1",
   "_originalSource": "vn-labeled-radio"
 }

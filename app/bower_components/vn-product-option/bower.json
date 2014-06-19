@@ -1,6 +1,6 @@
 {
   "name": "vnProductOption",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AngularJS product option component for the Volusion platform.",
   "homepage": "https://github.com/volusion-angular/vnProductOption.git",
   "keywords": [
@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "vn-bem": "~0.0.1",
-    "vn-labeled-radio": "~0.1.0"
+    "vn-labeled-radio": "~0.1.1"
   }
 }

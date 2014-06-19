@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($scope) {
+module.exports = ['$scope', function($scope) {
 
   $scope.onOptionChanged = function(option, item) {
     $scope.cartItem.options[option.id] = item.id;
@@ -55,4 +55,4 @@ module.exports = function($scope) {
     }
   };
 
-};
+}];
