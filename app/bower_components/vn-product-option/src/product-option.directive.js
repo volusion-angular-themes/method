@@ -10,8 +10,7 @@ module.exports = [
       scope: {
         option: '=',
         product: '=',
-        cartItem: '=',
-        change: '&ngChange'
+        cartItem: '='
       }
     };
   }
