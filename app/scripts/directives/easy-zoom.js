@@ -43,7 +43,9 @@ angular.module('volusion.directives').directive('easyZoom', [function () {
         swapImages(api);
       });
 
-      scope.$on('$destroy', api.teardown);
+      scope.$on('$destroy', function() {
+        api.teardown();
+      });
     }
   };
 }]);
