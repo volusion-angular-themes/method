@@ -9,6 +9,7 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
   '$sce',
   '$anchorScroll',
   '$location',
+  '$compile',
   function (
     api,
     productResponse,
@@ -17,7 +18,8 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
     $stateParams,
     $sce,
     $anchorScroll,
-    $location
+    $location,
+    $compile
     ) {
 
     $scope.$on('$stateChangeSuccess', function () {
@@ -34,8 +36,10 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
 
     $scope.product.quantity = 1;
 
-    $scope.toTrusted = function(htmlCode) {
-      return $sce.trustAsHtml(htmlCode);
+    $scope.html = function(html) {
+      var $p = angular.element('<p/>').html(html);
+      $compile($p)($scope);
+      return $sce.trustAsHtml($p.html());
     };
 
     function setDefaults() {
