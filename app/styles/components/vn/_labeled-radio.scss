@@ -2,9 +2,14 @@
 
   &--tiles {
 
+    min-width: percentage(1/3);
     padding: 0 2.5px;
     margin-bottom: 5px;
     cursor: pointer;
+
+    &__radio {
+      display: none;
+    }
 
     &__content {
       display: block;
@@ -25,6 +30,14 @@
       border: 2px solid white;
     }
 
+    &__text {
+      position: relative;
+      padding: 5px 10px;
+      font-family: $font-family-condensed-bold;
+      text-transform: uppercase;
+      color: #444;
+    }
+
     &__border {
       position: absolute;
       top: 0;
@@ -42,30 +55,13 @@
 
   }
 
-  &--color {
+  &--swatch {
 
-    width: percentage(1/6);
-
-    &__radio, &__text {
-      display: none;
-    }
-
-  }
-
-  &--size {
-
-    width: percentage(1/3);
-
-    &__radio {
-      display: none;
-    }
+    min-width: percentage(1/6);
+    max-width: percentage(1/6);
 
     &__text {
-      padding: 5px;
-      font-family: $font-family-condensed-bold;
-      text-transform: uppercase;
-      white-space: nowrap;
-      color: #444;
+      display: none;
     }
 
   }
