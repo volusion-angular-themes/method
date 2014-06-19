@@ -44,7 +44,7 @@ angular.module('methodApp')
                 });
 
 //            console.log('getCart obj', vnApi.getCart().get());
-            vnApi.getCart()
+            vnApi.Cart()
                 .then(function(response) {
                     $scope.cart = response.data;
                 });

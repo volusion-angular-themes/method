@@ -5,12 +5,15 @@ angular.module('methodApp')
 
             $rootScope.seo = {};
 
-//            console.log('category api info: ', vnApi.Category().query());
-//            console.log('category api info: ', $location.path().split('/')[2]);
+//            console.log('category api info: ', vnApi.getCategory());
+            console.log('category api info: ', $location.path().split('/')[2]);
 
-            vnApi.Category().query(function(response) {
-                console.log(response);
+            vnApi.getCategory( {id: $location.path().split('/')[2]}).then(function(response) {
+                $scope.category = response.data;
+                console.log('category data: ', $scope.category);
             });
+
+//            vnApi.getCategory()
 
 //            $scope.category = vnApi.getCategoryById(
 //                // inline parsing of the location path for category id
