@@ -14,37 +14,45 @@ angular.module('volusion.controllers').controller('HomeCtrl', [
     cacheBustFilter) {
 
     $http.get(cacheBustFilter('/settings/themeSettings.json'))
-    .success(function(data) {
-        console.log('themeSettings: ', data);
-        $rootScope.themeSettings = data;
+    .success(function (data) {
+      console.log('themeSettings: ', data);
+      $rootScope.themeSettings = data;
 
-        // TODO: REPLACE SLIDER WITH COMPONENT DATA
-        $scope.interval = 4000;
-        $scope.slider = $rootScope.themeSettings.slider.slides;
+      $scope.slider = {
+        interval: $rootScope.themeSettings.slider.interval,
+        slides: $rootScope.themeSettings.slider.slides
+      };
 
-      });
-
-    // TODO: REPLACE FEATURED HOME ITEMS WITH THEME PAGE SETTINGS
-    $scope.featuredHomeItems = {
-      tile1: {
-        linkTo: 'Board-Shorts/p/MW-BShorts'
-      },
-      tile2: {
-        linkTo: 'Men/c/1816'
-      },
-      tile3: {
-        linkTo: 'Peasant-Blouse/p/WT-Peasant'
-      },
-      tile4: {
-        linkTo: 'Women/c/1815'
-      },
-      tile5: {
-        linkTo: 'Furniture/c/1516'
-      }
-    };
+      $scope.tiles = {
+        tile1: {
+          imageUrl: $rootScope.themeSettings.tiles.tile1.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile1.linkTo
+        },
+        tile2: {
+          imageUrl: $rootScope.themeSettings.tiles.tile2.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile2.linkTo
+        },
+        tile3: {
+          imageUrl: $rootScope.themeSettings.tiles.tile3.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile3.linkTo
+        },
+        tile4: {
+          imageUrl: $rootScope.themeSettings.tiles.tile4.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile4.linkTo
+        },
+        tile5: {
+          imageUrl: $rootScope.themeSettings.tiles.tile5.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile5.linkTo
+        },
+        tile6: {
+          imageUrl: $rootScope.themeSettings.tiles.tile6.imageUrl,
+          linkTo: $rootScope.themeSettings.tiles.tile6.linkTo
+        }
+      };
+    });
 
     // Featured Products
-    api.products.get({ filter: 'featured', pageSize: 4}).then(function (response) {
+    api.products.get({ filter: 'featured', pageSize: 4 }).then(function (response) {
       $scope.featuredProducts = response.data;
     });
   }
