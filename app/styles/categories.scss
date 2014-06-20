@@ -1,0 +1,23 @@
+.categories {
+    .content-top {
+        .-filter-form {
+            form {
+                .form-group {
+                    .-colors {
+                        max-width: 250px;
+
+                        > * {
+                            float: left;
+                            padding: 0 5px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .-colors {
+
+    }
+}
