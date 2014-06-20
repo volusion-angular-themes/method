@@ -1,14 +1,50 @@
+/*global angular, console */
+
 angular.module('Volusion.controllers')
-    .controller('ProductCtrl', ['$scope', 'vnApi',
-        function ($scope, vnApi) {
+    .controller('ProductCtrl', ['$scope', 'vnApi', '$sce', '$location', '$routeParams',
+        function ($scope, vnApi, $sce, $location, $routeParams) {
+
             'use strict';
 
-            $scope.test = false;
+            var product = {},
+                cartItem = {};
 
-            vnApi.getProduct({code: 'GF-honey'}).then(function (response) {
-                $scope.product = response.data;
-                console.log('product data: ', $scope.product);
-            });
+            // Carousel
+            $scope.interval = 4000;
+
+            // Accordion panels
+            $scope.isopen1 = true;
+
+            function setDefaults() {
+                product.optionSelection = { images: 'default' };
+                product.image = product.images.default[0];
+                cartItem.options = cartItem.options || {};
+            }
+
+            vnApi.Product().get({code: 'ah-chairbamboo'}).$promise
+                .then(function (response) {
+                    $scope.product = response.data;
+
+                    var fullUrl = $location.absUrl(),
+                        pageTitle = $scope.seo.metaTagTitle;
+
+                    // Sharing
+                    $scope.product.sharing = {
+                        facebook: 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
+                        twitter: 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
+                        tumblr: 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
+                        googlePlus: 'https://plus.google.com/share?url=' + fullUrl
+                    };
+
+                    product = $scope.product;
+                    cartItem = $scope.cartItem = product.cartItem;
+
+                    angular.extend($scope.seo, product.seo);
+
+                    setDefaults();
+
+                    console.log('route params: ', $routeParams);
+                });
 
 //        $scope.$on('$stateChangeSuccess', function () {
 //            $location.hash('top');
@@ -16,17 +52,18 @@ angular.module('Volusion.controllers')
 //            $location.hash('');
 //        });
 //
-//        var product = $scope.product = productResponse.data;
-//        var cartItem = $scope.cartItem = product.cartItem;
+
+//            var product = $scope.product = productResponse.data;
+//            var cartItem = $scope.cartItem = product.cartItem;
 //
 //        angular.extend($scope.seo, product.seo);
 //        $scope.sceDescriptions = angular.copy(product.descriptions);
 //
-//        $scope.product.quantity = 1;
-//
-//        $scope.toTrusted = function(htmlCode) {
-//            return $sce.trustAsHtml(htmlCode);
-//        };
+//            $scope.product.quantity = 1;
+
+            $scope.toTrusted = function (htmlCode) {
+                return $sce.trustAsHtml(htmlCode);
+            };
 //
 //        function setDefaults() {
 //            product.optionSelection = { images: 'default' };
@@ -81,13 +118,13 @@ angular.module('Volusion.controllers')
 //            $scope.ratingsAndReviews = response;
 //        });
 //
-//        $scope.decrementQty = function () {
-//            cartItem.quantity--;
-//        };
-//
-//        $scope.incrementQty = function () {
-//            cartItem.quantity++;
-//        };
+            $scope.decrementQty = function () {
+                cartItem.quantity--;
+            };
+
+            $scope.incrementQty = function () {
+                cartItem.quantity++;
+            };
 //
 //        // Add to Cart
 //        $scope.isAddToCartEnabled = false;
@@ -104,8 +141,8 @@ angular.module('Volusion.controllers')
 //            $scope.isAddToCartEnabled = true;
 //        });
 //
-//        var fullUrl = $location.absUrl();
-//        var pageTitle = $scope.seo.metaTagTitle;
+//        var fullUrl = $location.absUrl(),
+//            pageTitle = $scope.seo.metaTagTitle;
 //
 //        // Sharing
 //        $scope.product.sharing = {
