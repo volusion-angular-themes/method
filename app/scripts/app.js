@@ -1,4 +1,4 @@
-'use strict';
+/*global angular */
 
 // TODO move the dependency's injected to the place it is needed/used
 angular.module('Volusion.directives', []);
@@ -35,6 +35,8 @@ angular.module('methodApp', [
     .config(['$routeProvider', '$locationProvider', 'translateProvider',
         function ($routeProvider, $locationProvider, translateProvider) {
 
+            'use strict';
+
 //            console.log($route);
 //            console.log(config);
 
@@ -61,7 +63,7 @@ angular.module('methodApp', [
                     templateUrl: 'views/product.html',
                     controller : 'ProductCtrl',
                     resolve: {
-                        translations: ['translate', function(translate) {
+                        translations: ['translate', function (translate) {
                             return translate.addParts('home');
                         }]
                     }

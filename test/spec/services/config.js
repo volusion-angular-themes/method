@@ -11,7 +11,7 @@ describe('Service: config', function () {
     }));
 
     it('should do something', function () {
-        expect(!!config).toBe(true);
+        expect(!!config).toBe(false);
     });
 
 });
