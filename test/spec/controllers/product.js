@@ -26,7 +26,9 @@ describe('Controller: ProductCtrl', function() {
       },
       images: { 'default': [] },
       cartItem: {}
-    }
+    },
+    categories: [],
+    facets: []
   };
 
   // Initialize the controller and a mock scope

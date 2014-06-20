@@ -173,10 +173,6 @@ angular.module('volusion.services')
       route('/categories/:id');
     apiProvider.endpoint('config').
       route('/config');
-    apiProvider.endpoint('relatedProducts').
-      route('/products/:code/relatedProducts');
-    apiProvider.endpoint('accessories').
-      route('/products/:code/accessories');
     apiProvider.endpoint('navs').
       route('/navs/:navId');
     apiProvider.endpoint('carts', customActions).
