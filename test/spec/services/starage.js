@@ -1,16 +1,17 @@
 // ReSharper disable WrongExpressionStatement
-describe('Service: storage', function () {
-
-    'use strict';
-
-    beforeEach(module('pascalprecht.translate', 'volusion.services', 'ngCookies'));
-
-    var storage;
-
-    // ReSharper disable once InconsistentNaming
-    beforeEach(inject(function (_storage_) {
-        storage = _storage_;
-    }));
+//describe('Service: storage', function () {
+//
+//    'use strict';
+//
+////    beforeEach(module('pascalprecht.translate', 'volusion.services', 'ngCookies'));
+//    beforeEach(module('methodApp'));
+//
+//    var storage;
+//
+//    // ReSharper disable once InconsistentNaming
+//    beforeEach(inject(function (_storage_) {
+//        storage = _storage_;
+//    }));
 
 //    it('exists', function () {
 //        expect(storage).to.exist;
@@ -49,4 +50,4 @@ describe('Service: storage', function () {
 //        })
 //    );
 
-});
+//});

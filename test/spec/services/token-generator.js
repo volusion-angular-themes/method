@@ -1,5 +1,5 @@
-describe('Service: tokenGenerator', function () {
-    'use strict';
+//describe('Service: tokenGenerator', function () {
+//    'use strict';
 
     // load the service's module
 //    beforeEach(module('methodApp'));
@@ -14,4 +14,4 @@ describe('Service: tokenGenerator', function () {
 //        expect(!!tokenGenerator).toBe(true);
 //    });
 
-});
+//});

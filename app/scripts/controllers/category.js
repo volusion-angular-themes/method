@@ -1,3 +1,5 @@
+/*global angular, console  */
+
 angular.module('methodApp')
     .controller('CategoryCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
         function ($scope, $rootScope, $location, vnApi) {
@@ -44,15 +46,17 @@ angular.module('methodApp')
 //            console.log('category api info: ', vnApi.getCategory());
 
             var slug = {
-                slug: $location.path().split('/')[2]
-            };
-            var categoryRequest = vnApi.Category().get(slug);
-            categoryRequest.$promise.then(function(response) {
+                    slug: $location.path().split('/')[2]
+                },
+                categoryRequest = vnApi.Category().get(slug);
+
+            categoryRequest.$promise.then(function (response) {
                 // Handle the category data
 //                console.log('response: ', response);
                 $scope.category = response.data;
                 $scope.subCategories = $scope.category.subCategories;
-            }).then(function() {
+
+            }).then(function () {
                 // Handle the products for this category
                 // TODO: shuffle this so the promises are more intuative and flow logically.
                 var productRequest = vnApi.Product().query({categoryIds: $scope.category.id});
