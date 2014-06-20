@@ -45,9 +45,6 @@ angular.module('Volusion.controllers')
 
                     setDefaults();
 
-                    var easyzoom = angular.element(document.querySelector('.easyzoom')).easyZoom(),
-                        api = easyzoom.data('easyZoom');
-
                     console.log('route params: ', $routeParams);
                 });
 

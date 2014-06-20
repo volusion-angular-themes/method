@@ -1,4 +1,4 @@
-/*global angular */
+/*global angular, enquire */
 
 // TODO move the dependency's injected to the place it is needed/used
 angular.module('Volusion.directives', []);
@@ -86,17 +86,17 @@ angular.module('methodApp', [
 
         $rootScope.isInDesktopMode = true;
 
-//        enquire.register('screen and (max-width: 991px)', {
-//            // transitioning to desktop mode
-//            unmatch: function () {
-//                snapRemote.close();
-//                $rootScope.isInDesktopMode = true;
-//            },
-//            // transitioning to mobile mode
-//            match  : function () {
-//                $rootScope.isInDesktopMode = false;
-//            }
-//        });
+        enquire.register('screen and (max-width: 991px)', {
+            // transitioning to desktop mode
+            unmatch: function () {
+                snapRemote.close();
+                $rootScope.isInDesktopMode = true;
+            },
+            // transitioning to mobile mode
+            match  : function () {
+                $rootScope.isInDesktopMode = false;
+            }
+        });
 
         $rootScope.$on('$routeChangeSuccess', function () {
             snapRemote.close();
