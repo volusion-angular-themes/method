@@ -248,13 +248,13 @@
         </div>
       </div>
     </div>
-    <div class="th-reviews">
+    <div class="th-reviews" data-ng-if="ratingsAndReviews">
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
       <div class="th-reviews__totals">
         <div class="th-totals-left">
-          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content = "1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
+          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content="1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
           <div class="th-reviews__avg">
-            <!-- TODO: Do this -->
+            <!-- TODO: Fix rating and review stars -->
             <div class="th-review-stars">
               <div class="th-icon th-icon--star th-review-stars__star">
                 <div class="th-icon__foreground"></div>
@@ -300,7 +300,7 @@
               <div class="th-icon__foreground"></div>
             </div>
           </div>
-          <span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
+          <span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
           <div itemprop="datePublished" class="th-rating-date hidden-xs pull-right" data-ng-bind="review.date"></div>
         </div>
         <div itemprop="name" class="th-rating-title" data-ng-bind="review.title"></div>
