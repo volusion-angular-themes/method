@@ -2,7 +2,7 @@ describe('Service: apiProvider', function () {
     'use strict';
 
     // load the service's module
-    beforeEach(module('volusionMethodThemeApp'));
+    beforeEach(module('methodApp'));
 
     // instantiate service
     var apiProvider;

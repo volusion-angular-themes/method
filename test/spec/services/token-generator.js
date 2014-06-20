@@ -2,7 +2,7 @@ describe('Service: tokenGenerator', function () {
     'use strict';
 
     // load the service's module
-//    beforeEach(module('volusionMethodThemeApp'));
+//    beforeEach(module('methodApp'));
 //
 //    // instantiate service
 //    var tokenGenerator;
