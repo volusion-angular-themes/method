@@ -82,7 +82,7 @@ angular.module('Volusion.directives')
             '<div class="easyzoom easyzoom--adjacent" data-ng-class="{ \'easyzoom--adjacent\': ezAdjacent, \'easyzoom--overlay\': ezOverlay }">' +
                 '<a data-ng-href="{{ezZoomSrc}}">' +
                     '<img class="img-responsive" data-ng-src="{{ngSrc}}" alt="{{alt}}">' +
-                    //'<div class="th-product-view__zoom"></div>' +
+                    '<div class="th-product-view__zoom"></div>' +
                 '</a>' +
             '</div>'
         );
