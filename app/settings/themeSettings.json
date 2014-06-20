@@ -3,7 +3,7 @@
         "one": "myfirstnewsetting",
         "two": "myseconddifferent"
     },
-    "tiles": {
+    "homeTiles": {
       "tile1": {
         "imageUrl": "/images/homepage/tile1.jpg",
         "linkTo": "category-name/c/category-id-1"
