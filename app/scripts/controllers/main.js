@@ -25,6 +25,7 @@ angular.module('methodApp')
 
 //            console.log('getCart obj', vnApi.getCart().get());
             $scope.cart = vnApi.Cart().get();
+
 //
 //            this.getConfig(this.getCart);  //TODO Prune this code
 //

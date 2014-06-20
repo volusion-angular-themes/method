@@ -8,9 +8,10 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css /styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
-    <link rel="stylesheet" href="bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css" />
-    <link rel="stylesheet" href="bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm-styles.css" />
+    <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap.css" />
+    <link rel="stylesheet" href="/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css" />
+    <link rel="stylesheet" href="/bower_components/angular-carousel/dist/angular-carousel.css" />
+    <link rel="stylesheet" href="/bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm-styles.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) /styles/main.css -->
@@ -61,11 +62,6 @@
     ga('send', 'pageview');
 </script>
 
-<!--[if lt IE 9]>
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/json3/lib/json3.min.js"></script>
-<![endif]-->
-
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -95,24 +91,34 @@
 <script src="bower_components/easyzoom/dist/easyzoom.js"></script>
 <script src="bower_components/enquire/dist/enquire.js"></script>
 <script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+<script src="bower_components/messageformat/messageformat.js"></script>
+<script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
 <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
 <script src="bower_components/angularfire/angularfire.js"></script>
 <script src="bower_components/vn-toolbox-common/dist/vn-toolbox-common.js"></script>
+<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
 <script src="bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) /scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/category.js"></script>
 <script src="scripts/controllers/product.js"></script>
+<script src="scripts/controllers/page.js"></script>
+
 <script src="scripts/services/config.js"></script>
 <script src="scripts/services/api-provider.js"></script>
 <script src="scripts/services/token-generator.js"></script>
-<script src="scripts/controllers/page.js"></script>
+<script src="scripts/services/translate-provider.js"></script>
+<script src="scripts/services/storage.js"></script>
 <!-- endbuild -->
 </body>
 </html>

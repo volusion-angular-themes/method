@@ -1,22 +1,63 @@
-angular.module('methodApp')
-    .controller('ProductCtrl', function ($scope) {
-        'use strict';
+angular.module('Volusion.controllers')
+    .controller('ProductCtrl', ['$scope', 'vnApi',
+        function ($scope, vnApi) {
+            'use strict';
 
-        $scope.test = false;
+            $scope.test = false;
+
+            vnApi.getProduct({code: 'GF-honey'}).then(function (response) {
+                $scope.product = response.data;
+                console.log('product data: ', $scope.product);
+            });
+
 //        $scope.$on('$stateChangeSuccess', function () {
 //            $location.hash('top');
 //            $anchorScroll();
 //            $location.hash('');
 //        });
 //
-//        var productData = $scope.product = product.data;
+//        var product = $scope.product = productResponse.data;
+//        var cartItem = $scope.cartItem = product.cartItem;
+//
+//        angular.extend($scope.seo, product.seo);
+//        $scope.sceDescriptions = angular.copy(product.descriptions);
+//
 //        $scope.product.quantity = 1;
 //
-//        angular.extend($scope.seo, product.data.seo);
-//        $scope.sceDescriptions = angular.copy(productData.descriptions);
+//        $scope.toTrusted = function(htmlCode) {
+//            return $sce.trustAsHtml(htmlCode);
+//        };
 //
-//        angular.forEach(['detail', 'features', 'techSpecs', 'extendedInfo'], function (key) {
-//            $scope.sceDescriptions[key] = $sce.trustAsHtml($scope.sceDescriptions[key]);
+//        function setDefaults() {
+//            product.optionSelection = { images: 'default' };
+//            product.image = product.images.default[0];
+//            cartItem.options = cartItem.options || {};
+//        }
+//        setDefaults();
+//
+//        $scope.$watch('product.optionSelection', function(selection, oldSelection) {
+//            function setSKU(sku) {
+//                if (typeof sku !== 'undefined') {
+//                    cartItem.sku = sku;
+//                } else {
+//                    delete cartItem.sku;
+//                }
+//            }
+//            function setAvailabilityMessage(message, available) {
+//                if (message) {
+//                    $scope.availabilityMessage = message.replace('{{available}}', available);
+//                } else {
+//                    delete $scope.availabilityMessage;
+//                }
+//            }
+//            function setImage() {
+//                if (selection.images !== oldSelection.images) {
+//                    product.image = product.images[selection.images][0];
+//                }
+//            }
+//            setSKU(selection.sku);
+//            setAvailabilityMessage(product.optionAvailabilityMessages[selection.state], selection.available);
+//            setImage();
 //        });
 //
 //        // Carousel
@@ -40,44 +81,27 @@ angular.module('methodApp')
 //            $scope.ratingsAndReviews = response;
 //        });
 //
-//        // Alt image swaps with main image
-//        $scope.showAltImage = function (data) {
-//            var altImage = data.image;
-//
-//            productData.mainImage = altImage;
-//        };
-//
 //        $scope.decrementQty = function () {
-//            $scope.product.quantity--;
+//            cartItem.quantity--;
 //        };
 //
 //        $scope.incrementQty = function () {
-//            $scope.product.quantity++;
+//            cartItem.quantity++;
 //        };
 //
 //        // Add to Cart
-//        $scope.isCartButtonDisabled = false;
+//        $scope.isAddToCartEnabled = false;
+//        $scope.$watch('cartItem.sku', function(sku) {
+//            $scope.isAddToCartEnabled = !!sku;
+//        });
+//
 //        $scope.addToCart = function () {
-//            var currentProduct = $scope.product;
-//            $scope.isCartButtonDisabled = true;
-//
-//            var pricing = currentProduct.price;
-//
-//            var cart = {
-//                id     : currentProduct.id,
-//                code   : currentProduct.code,
-//                name   : currentProduct.name,
-//                qty    : currentProduct.quantity,
-//                options: currentProduct.options,
-//                pricing: pricing
-//            };
-//
-//            $rootScope.$emit('ADD_TO_CART', cart);
+//            $scope.isAddToCartEnabled = false;
+//            $rootScope.$emit('ADD_TO_CART', cartItem);
 //        };
 //
-//        $rootScope.$on('ITEM_ADDED_TO_CART', function () {
-//            $scope.isCartButtonDisabled = false;
-//            console.log('Item added to cart');
+//        $rootScope.$on('ITEM_ADDED_TO_CART', function() {
+//            $scope.isAddToCartEnabled = true;
 //        });
 //
 //        var fullUrl = $location.absUrl();
@@ -85,9 +109,9 @@ angular.module('methodApp')
 //
 //        // Sharing
 //        $scope.product.sharing = {
-//            facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
-//            twitter   : 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
-//            tumblr    : 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
+//            facebook: 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
+//            twitter: 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
+//            tumblr: 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
 //            googlePlus: 'https://plus.google.com/share?url=' + fullUrl
 //        };
-    });
+        }]);

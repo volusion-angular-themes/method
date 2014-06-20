@@ -8,54 +8,73 @@ angular.module('Volusion.decorators', []);
 angular.module('Volusion.controllers', []);
 
 angular.module('methodApp', [
-        'ngCookies',
-        'ngResource',
-        'ngSanitize',
-        'ngRoute',
-        'ngTouch',
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ngRoute',
+    'ngTouch',
 
-        // Volusion Modules
-        'snap',
-        'seo',
+    // Third party modules
+    'pascalprecht.translate',
+
+    // Volusion Modules
+    'snap',
+    'seo',
 //        'services.config', // Todo: Refactor this
-        'angulartics',
+    'angulartics',
 
-        // Volusion modules
-        'Volusion.toolboxCommon',
-        'Volusion.controllers',
-        'Volusion.decorators',
-        'Volusion.directives',
-        'Volusion.filters',
-        'Volusion.services'
+    // Volusion modules
+    'Volusion.toolboxCommon',
+    'Volusion.controllers',
+    'Volusion.decorators',
+    'Volusion.directives',
+    'Volusion.filters',
+    'Volusion.services'
 //        'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
-    ])
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+])
+    .config(['$routeProvider', '$locationProvider', 'translateProvider',
+        function ($routeProvider, $locationProvider, translateProvider) {
 
-//        console.log($route);
-//        console.log(config);
+//            console.log($route);
+//            console.log(config);
 
-        $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(true);
 
-        $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller : 'MainCtrl'
-            })
+            var translateOptions = {
+//                urlPrefix          : env.URL_PREFIX || '',
+//                region             : env.REGION,
+//                lang               : env.LANG,
+//                country            : env.COUNTRY,
+//                disableTranslations: env.DISABLE_TRANSLATIONS
+            };
 
-            // Second pass at routes
-            .when('/p/:slug', {
-                temnplateUrl: 'views/product.html',
-                controller: 'ProductCtrl'
-            })
-            .when('/c/:slug', {
-                templateUrl: 'views/category.html',
-                controller: 'CategoryCtrl'
-            })
-            .when('/:slug', {
-                templateUrl: 'views/article.html',
-                controller: 'ArticlesCtrl'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-    }]);
+            translateProvider.configure(translateOptions);
+
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'views/main.html',
+                    controller : 'MainCtrl'
+                })
+
+                // Second pass at routes
+                .when('/p/:slug', {
+                    templateUrl: 'views/product.html',
+                    controller : 'ProductCtrl',
+                    resolve: {
+                        translations: ['translate', function(translate) {
+                            return translate.addParts('home');
+                        }]
+                    }
+                })
+                .when('/c/:slug', {
+                    templateUrl: 'views/category.html',
+                    controller : 'CategoryCtrl'
+                })
+                .when('/:slug', {
+                    templateUrl: 'views/article.html',
+                    controller : 'ArticlesCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+        }]);
