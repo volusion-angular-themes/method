@@ -62,7 +62,7 @@ angular.module('methodApp', [
                 .when('/p/:slug', {
                     templateUrl: 'views/product.html',
                     controller : 'ProductCtrl',
-                    resolve: {
+                    resolve    : {
                         translations: ['translate', function (translate) {
                             return translate.addParts('product');
                         }]
@@ -79,4 +79,33 @@ angular.module('methodApp', [
                 .otherwise({
                     redirectTo: '/'
                 });
-        }]);
+        }])
+    .run(function (snapRemote, $rootScope, $window) {
+
+        'use strict';
+
+        $rootScope.isInDesktopMode = true;
+
+//        enquire.register('screen and (max-width: 991px)', {
+//            // transitioning to desktop mode
+//            unmatch: function () {
+//                snapRemote.close();
+//                $rootScope.isInDesktopMode = true;
+//            },
+//            // transitioning to mobile mode
+//            match  : function () {
+//                $rootScope.isInDesktopMode = false;
+//            }
+//        });
+
+        $rootScope.$on('$routeChangeSuccess', function () {
+            snapRemote.close();
+        });
+
+        $rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            event.preventDefault();
+            if (error.status === 404) {
+                $window.location.replace('/404.html');
+            }
+        });
+    });

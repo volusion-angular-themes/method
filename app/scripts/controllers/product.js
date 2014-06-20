@@ -1,8 +1,8 @@
 /*global angular, console */
 
 angular.module('Volusion.controllers')
-    .controller('ProductCtrl', ['$scope', 'vnApi', '$sce', '$location', '$routeParams',
-        function ($scope, vnApi, $sce, $location, $routeParams) {
+    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$sce', '$location', '$routeParams',
+        function ($rootScope, $scope, vnApi, $sce, $location, $routeParams) {
 
             'use strict';
 
@@ -39,9 +39,14 @@ angular.module('Volusion.controllers')
                     product = $scope.product;
                     cartItem = $scope.cartItem = product.cartItem;
 
+                    $scope.isInDesktopMode = $rootScope.isInDesktopMode;
+
                     angular.extend($scope.seo, product.seo);
 
                     setDefaults();
+
+                    var easyzoom = angular.element(document.querySelector('.easyzoom')).easyZoom(),
+                        api = easyzoom.data('easyZoom');
 
                     console.log('route params: ', $routeParams);
                 });
