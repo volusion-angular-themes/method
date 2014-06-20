@@ -15,15 +15,15 @@ angular.module('methodApp', [
     'ngTouch',
 
     // Third party modules
+    'ui.bootstrap',
     'pascalprecht.translate',
-
-    // Volusion Modules
     'snap',
-    'seo',
-//        'services.config', // Todo: Refactor this
-    'angulartics',
 
     // Volusion modules
+    'seo',
+    //'services.config', // Todo: Refactor this
+    'angulartics',
+
     'Volusion.toolboxCommon',
     'Volusion.controllers',
     'Volusion.decorators',
@@ -64,7 +64,7 @@ angular.module('methodApp', [
                     controller : 'ProductCtrl',
                     resolve: {
                         translations: ['translate', function (translate) {
-                            return translate.addParts('home');
+                            return translate.addParts('product');
                         }]
                     }
                 })

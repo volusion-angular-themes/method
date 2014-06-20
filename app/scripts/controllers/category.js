@@ -1,4 +1,4 @@
-/*global angular, console  */
+/*global angular */
 
 angular.module('methodApp')
     .controller('CategoryCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
