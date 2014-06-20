@@ -1,7 +1,7 @@
 <div class="container th-content-slider">
   <div class="vn-slider">
     <carousel data-interval="interval">
-      <slide data-ng-repeat="slide in slider" data-active="slide.active">
+      <slide data-ng-repeat="slide in slider.slides" data-active="slide.active">
         <a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}">
           <div class="vn-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }"></div>
         </a>
@@ -16,16 +16,16 @@
   <div class="visible-xs visible-sm">
     <div class="row">
       <div class="col-sm-6 hidden-xs">
-        <a data-ng-href="{{featuredHomeItems.tile1.linkTo}}" class="th-promo th-p1"><img src="/images/homepage/p1.jpg" class="img-responsive" alt="" /></a>
+        <a data-ng-href="{{homeTiles.tile1.linkTo}}" class="th-promo th-p1"><img ng-src="{{homeTiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
       </div>
       <div class="col-sm-6">
-        <a data-ng-href="{{featuredHomeItems.tile2.linkTo}}" class="th-promo th-p2">
+        <a data-ng-href="{{homeTiles.tile2.linkTo}}" class="th-promo th-p2">
           <span class="th-title" data-translate="home.promoCategoryHeading">Now Stocking Herschel Bags.</span>
           <span class="th-text" data-translate="home.promoCategoryDescription">
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
             <span class="th-link" data-translate="home.shopNow">Shop Now &gt;</span>
           </span>
-          <img src="/images/homepage/p2-sm.jpg" class="img-responsive" alt="" />
+          <img ng-src="{{homeTiles.tile2.imageUrl}}" class="img-responsive" alt="" />
         </a>
       </div>
     </div><!-- .row -->
@@ -34,10 +34,10 @@
   <div class="visible-xs">
     <div class="row">
       <div class="col-xs-6 th-p-pad">
-        <a data-ng-href="{{featuredHomeItems.tile1.linkTo}}" class="th-promo th-p1-sm"><img src="/images/homepage/p1.jpg" class="img-responsive" alt="" /></a>
+        <a data-ng-href="{{homeTiles.tile1.linkTo}}" class="th-promo th-p1-sm"><img ng-src="{{homeTiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
       </div>
       <div class="col-xs-6 th-p-pad">
-        <a data-ng-href="{{featuredHomeItems.tile3.linkTo}}" class="th-promo th-p3-sm"><img src="/images/homepage/p3.jpg" class="img-responsive" alt="" /></a>
+        <a data-ng-href="{{homeTiles.tile3.linkTo}}" class="th-promo th-p3-sm"><img ng-src="{{homeTiles.tile3.imageUrl}}" class="img-responsive" alt="" /></a>
       </div>
     </div>
   </div>
@@ -47,12 +47,12 @@
     <div class="th-last">
       <div class="row">
         <div class="col-sm-6 hidden-xs">
-          <a data-ng-href="{{featuredHomeItems.tile3.linkTo}}" class="th-promo th-p3" style="background-image: url(/images/homepage/p3.jpg)"><img src="/images/homepage/p3.jpg" class="img-responsive" /></a>
+          <a data-ng-href="{{homeTiles.tile3.linkTo}}" class="th-promo th-p3"><img ng-src="{{homeTiles.tile3.imageUrl}}" class="img-responsive" /></a>
         </div>
         <div class="col-sm-6 th-p-pad">
-          <a data-ng-href="{{featuredHomeItems.tile2.linkTo}}" class="th-promo th-b1"><img src="/images/homepage/b1-sm.jpg" class="img-responsive" alt="" /></a>
-          <a data-ng-href="{{featuredHomeItems.tile4.linkTo}}" class="th-promo th-b2"><img src="/images/homepage/b2-sm.jpg" class="img-responsive" alt="" /></a>
-          <a data-ng-href="{{featuredHomeItems.tile5.linkTo}}" class="th-promo th-b3 th-video"><img src="/images/homepage/video-sm.jpg" class="img-responsive" alt=""></a>
+          <a data-ng-href="{{homeTiles.tile4.linkTo}}" class="th-promo th-b1"><img ng-src="{{homeTiles.tile4.imageUrl}}" class="img-responsive" alt="" /></a>
+          <a data-ng-href="{{homeTiles.tile5.linkTo}}" class="th-promo th-b2"><img ng-src="{{homeTiles.tile5.imageUrl}}" class="img-responsive" alt="" /></a>
+          <a data-ng-href="{{homeTiles.tile6.linkTo}}" class="th-promo th-b3"><img ng-src="{{homeTiles.tile6.imageUrl}}" class="img-responsive" alt=""></a>
         </div>
       </div>
     </div>
@@ -62,20 +62,20 @@
   <div class="visible-md visible-lg">
     <div class="row">
       <div class="col-md-4">
-        <a data-ng-href="{{featuredHomeItems.tile1.linkTo}}" class="th-promo th-p1"><img src="/images/homepage/p1.jpg" class="img-responsive" alt="" /></a>
+        <a data-ng-href="{{homeTiles.tile1.linkTo}}" class="th-promo th-p1"><img ng-src="{{homeTiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
       </div>
       <div class="col-md-4">
-        <a data-ng-href="{{featuredHomeItems.tile2.linkTo}}" class="th-promo th-p2">
+        <a data-ng-href="{{homeTiles.tile2.linkTo}}" class="th-promo th-p2">
           <div class="th-title">Now Stocking Herschel Bags.</div>
           <div class="th-text">
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
             <div class="th-link" data-translate="home.shopNow">Shop Now &gt;</div>
           </div>
-          <img src="/images/homepage/p2.jpg" class="img-responsive" alt="" />
+          <img ng-src="{{homeTiles.tile2.imageUrl}}" class="img-responsive" alt="" />
         </a>
       </div>
       <div class="col-md-4">
-        <a data-ng-href="{{featuredHomeItems.tile3.linkTo}}" class="th-promo th-p3"><img src="/images/homepage/p3.jpg" class="img-responsive" alt="" /></a>
+        <a data-ng-href="{{homeTiles.tile3.linkTo}}" class="th-promo th-p3"><img ng-src="{{homeTiles.tile3.imageUrl}}" class="img-responsive" alt="" /></a>
       </div>
     </div>
   </div>
@@ -85,20 +85,20 @@
     <div class="th-last">
       <div class="row">
         <div class="col-md-4">
-          <a data-ng-href="{{featuredHomeItems.tile4.linkTo}}" class="th-promo th-b1"><img src="/images/homepage/b1.jpg" class="img-responsive" alt="" /><span class="th-category">New Sunglasses ></span></a>
+          <a data-ng-href="{{homeTiles.tile4.linkTo}}" class="th-promo th-b1"><img ng-src="{{homeTiles.tile4.imageUrl}}" class="img-responsive" alt="" /><span class="th-category">New Sunglasses ></span></a>
         </div>
         <div class="col-md-4">
-          <a data-ng-href="{{featuredHomeItems.tile5.linkTo}}" class="th-promo th-b2"><img src="/images/homepage/b2.jpg" class="img-responsive" alt="" /><span class="th-category">Townsend Shoes ></span></a>
+          <a data-ng-href="{{homeTiles.tile5.linkTo}}" class="th-promo th-b2"><img ng-src="{{homeTiles.tile5.imageUrl}}" class="img-responsive" alt="" /><span class="th-category">Townsend Shoes ></span></a>
         </div>
         <div class="col-md-4">
-          <a data-ng-href="#" class="th-promo th-b3 th-video"><img src="/images/homepage/video.jpg" class="img-responsive" alt=""></a>
+          <a data-ng-href="{{homeTiles.tile6.linkTo}}" class="th-promo th-b3"><img ng-src="{{homeTiles.tile6.imageUrl}}" class="img-responsive" alt=""></a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- FEATURED PRODUCTS -->
   <div class="visible-lg visible-md">
-
     <div data-tabset>
       <div data-tab>
         <div data-tab-heading data-translate="home.featured">

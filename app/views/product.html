@@ -14,7 +14,7 @@
       <div class="col-sm-6 col-md-5">
         <div class="visible-xs th-product">
           <div class="vn-slider vn-slider--product">
-            <carousel data-interval="interval">
+            <carousel data-interval="carousel.interval">
               <slide data-ng-repeat="image in product.images[product.optionSelection.images] | filter: '!youtube.com'" data-active="image.active">
                 <div class="vn-slider__slide">
                   <img itemprop="image" data-ng-src="{{image.large}}" class="img-responsive" />
@@ -140,27 +140,27 @@
 
             <div class="th-product-info visible-lg visible-md">
               <div data-accordion data-close-others="true">
-                <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
+                <div data-accordion-group data-is-open="accordionPanels.isopen1" data-ng-show="product.descriptions.detail">
                   <div data-accordion-heading>
-                    <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+                    <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen1, 'glyphicon-chevron-right': !accordionPanels.isopen1}"></i>
                   </div>
                   <span itemprop="description" data-ng-bind-html="toTrusted(product.descriptions.detail)"></span>
                 </div>
-                <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
+                <div data-accordion-group data-is-open="accordionPanels.isopen2" data-ng-show="product.descriptions.features">
                   <div data-accordion-heading>
-                    <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
+                    <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen2, 'glyphicon-chevron-right': !accordionPanels.isopen2}"></i>
                   </div>
                   <span data-ng-bind-html="toTrusted(product.descriptions.features)"></span>
                 </div>
-                <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
+                <div data-accordion-group data-is-open="accordionPanels.isopen3" data-ng-show="product.descriptions.techSpecs">
                   <div data-accordion-heading>
-                    <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
+                    <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen3, 'glyphicon-chevron-right': !accordionPanels.isopen3}"></i>
                   </div>
                   <span data-ng-bind-html="toTrusted(product.descriptions.techSpecs)"></span>
                 </div>
-                <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
+                <div data-accordion-group data-is-open="accordionPanels.isopen4" data-ng-show="product.descriptions.extendedInfo">
                   <div data-accordion-heading>
-                    <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
+                    <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen4, 'glyphicon-chevron-right': !accordionPanels.isopen4}"></i>
                   </div>
                   <span data-ng-bind-html="toTrusted(product.descriptions.extendedInfo)"></span>
                 </div>
@@ -179,27 +179,27 @@
       <div class="col-sm-12">
         <div class="th-product-info">
           <div data-accordion data-close-others="true">
-            <div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
+            <div data-accordion-group data-is-open="accordionPanels.isopen1" data-ng-show="product.descriptions.detail">
               <div data-accordion-heading>
-                <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
+                <span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen1, 'glyphicon-chevron-right': !accordionPanels.isopen1}"></i>
               </div>
               <span itemprop="description" data-ng-bind-html="toTrusted(product.descriptions.detail)"></span>
             </div>
-            <div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
+            <div data-accordion-group data-is-open="accordionPanels.isopen2" data-ng-show="product.descriptions.features">
               <div data-accordion-heading>
-                <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
+                <span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen2, 'glyphicon-chevron-right': !accordionPanels.isopen2}"></i>
               </div>
               <span data-ng-bind-html="toTrusted(product.descriptions.features)"></span>
             </div>
-            <div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
+            <div data-accordion-group data-is-open="accordionPanels.isopen3" data-ng-show="product.descriptions.techSpecs">
               <div data-accordion-heading>
-                <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
+                <span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen3, 'glyphicon-chevron-right': !accordionPanels.isopen3}"></i>
               </div>
               <span data-ng-bind-html="toTrusted(product.descriptions.techSpecs)"></span>
             </div>
-            <div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
+            <div data-accordion-group data-is-open="accordionPanels.isopen4" data-ng-show="product.descriptions.extendedInfo">
               <div data-accordion-heading>
-                <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
+                <span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen4, 'glyphicon-chevron-right': !accordionPanels.isopen4}"></i>
               </div>
               <span data-ng-bind-html="toTrusted(product.descriptions.extendedInfo)"></span>
             </div>
@@ -221,16 +221,16 @@
       <div class="col-xs-12">
         <div class="th-related-wrap">
           <div data-tabset>
-            <div data-tab data-ng-if="relatedProducts">
+            <div data-tab data-ng-if="relatedProducts" data-active="tabs.relatedProducts.active">
               <div data-tab-heading data-translate="product.related">
                 Related
               </div>
               <div class="th-products-wrap clearfix">
-                <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts" data-ng-include="'views/partials/product-tile.html'">
+                <div class="col-xs-12 col-sm-3 col-md-3" data-ng-repeat="product in relatedProducts | filter: '!' + product.id" data-ng-include="'views/partials/product-tile.html'">
                 </div>
               </div>
             </div>
-            <div data-tab data-ng-if="accessories">
+            <div data-tab data-ng-if="accessories" data-active="tabs.accessories.active">
               <div data-tab-heading data-translate="product.accessories">
                 Accessories
               </div>
@@ -248,13 +248,13 @@
         </div>
       </div>
     </div>
-    <div class="th-reviews">
+    <div class="th-reviews" data-ng-if="ratingsAndReviews">
       <div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
       <div class="th-reviews__totals">
         <div class="th-totals-left">
-          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content = "1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
+          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content="1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
           <div class="th-reviews__avg">
-            <!-- TODO: Do this -->
+            <!-- TODO: Fix rating and review stars -->
             <div class="th-review-stars">
               <div class="th-icon th-icon--star th-review-stars__star">
                 <div class="th-icon__foreground"></div>
@@ -300,7 +300,7 @@
               <div class="th-icon__foreground"></div>
             </div>
           </div>
-          <span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
+          <span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
           <div itemprop="datePublished" class="th-rating-date hidden-xs pull-right" data-ng-bind="review.date"></div>
         </div>
         <div itemprop="name" class="th-rating-title" data-ng-bind="review.title"></div>

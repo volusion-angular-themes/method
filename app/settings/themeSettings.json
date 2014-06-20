@@ -3,7 +3,34 @@
         "one": "myfirstnewsetting",
         "two": "myseconddifferent"
     },
+    "homeTiles": {
+      "tile1": {
+        "imageUrl": "/images/homepage/tile1.jpg",
+        "linkTo": "category-name/c/category-id-1"
+      },
+      "tile2": {
+        "imageUrl": "/images/homepage/tile2.jpg",
+        "linkTo": "category-name/c/category-id-2"
+      },
+      "tile3": {
+        "imageUrl": "/images/homepage/tile3.jpg",
+        "linkTo": "category-name/c/category-id-3"
+      },
+      "tile4": {
+        "imageUrl": "/images/homepage/tile4.jpg",
+        "linkTo": "category-name/c/category-id-4"
+      },
+      "tile5": {
+        "imageUrl": "/images/homepage/tile5.jpg",
+        "linkTo": "category-name/c/category-id-5"
+      },
+      "tile6": {
+        "imageUrl": "/images/homepage/tile6.jpg",
+        "linkTo": "category-name/c/category-id-6"
+      }
+    },
     "slider": {
+        "interval": 4000,
         "slides": [
             {
                 "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",

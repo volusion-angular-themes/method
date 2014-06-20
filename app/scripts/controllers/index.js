@@ -8,6 +8,7 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   'api',
   '$rootScope',
   'tokenGenerator',
+  'cacheBustFilter',
   function (
     $state,
     $location,
@@ -15,7 +16,46 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
     $http,
     api,
     $rootScope,
-    tokenGenerator) {
+    tokenGenerator,
+    cacheBustFilter) {
+
+    $http.get(cacheBustFilter('/settings/themeSettings.json'))
+    .success(function (data) {
+      console.log('themeSettings: ', data);
+      $rootScope.themeSettings = data;
+
+      $rootScope.slider = {
+        interval: $rootScope.themeSettings.slider.interval,
+        slides: $rootScope.themeSettings.slider.slides
+      };
+
+      $rootScope.homeTiles = {
+        tile1: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile1.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile1.linkTo
+        },
+        tile2: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile2.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile2.linkTo
+        },
+        tile3: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile3.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile3.linkTo
+        },
+        tile4: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile4.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile4.linkTo
+        },
+        tile5: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile5.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile5.linkTo
+        },
+        tile6: {
+          imageUrl: $rootScope.themeSettings.homeTiles.tile6.imageUrl,
+          linkTo: $rootScope.themeSettings.homeTiles.tile6.linkTo
+        }
+      };
+    });
 
     //hide header & footer when viewing theme-settings
     if ($location.path().indexOf('/theme-settings') >= 0) {
