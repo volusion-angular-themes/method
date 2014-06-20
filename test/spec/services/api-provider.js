@@ -10,8 +10,8 @@ describe('Service: apiProvider', function () {
         apiProvider = _apiProvider_;
     }));
 
-//    it('should do something', function () {
-//        expect(!!apiProvider).toBe(true);
-//    });
+    it('should do something', function () {
+        expect(!!apiProvider).toBe(true);
+    });
 
 });
