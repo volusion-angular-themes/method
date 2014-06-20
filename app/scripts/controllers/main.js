@@ -24,6 +24,7 @@ angular.module('methodApp')
             $scope.config = vnApi.Configuration().get();
 
 //            console.log('getCart obj', vnApi.getCart().get());
+//            Todo: Move cart into header, give it its own controller and inject it here.
             $scope.cart = vnApi.Cart().get();
 
 //
