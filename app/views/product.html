@@ -25,17 +25,17 @@
         </div>
         <div class="hidden-xs">
             <div class="clearfix th-product-view vn-zoom">
-                <img data-easy-zoom
-                     class="th-product-view__image vn-zoom__image"
-                     data-ng-src="product.image.medium"
-                     data-ez-zoom-src="product.image.large"
-                     data-ez-adjacent="isInDesktopMode"
-                     data-ez-overlay="!isInDesktopMode"
+                <img easy-zoom
+                     ng-src="product.image.medium"
+                     ez-zoom-src="product.image.large"
+                     ez-adjacent="isInDesktopMode"
+                     ez-overlay="!isInDesktopMode"
                      alt="{{product.name}}">
+
                 <div class="th-product-view__alts">
-              <span data-ng-click="product.image=image" ng-repeat="image in product.images[product.optionSelection.images] | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail">
-                <img data-ng-src="{{image.medium}}" class="img-responsive" alt="">
-              </span>
+                    <span data-ng-click="product.image=image" ng-repeat="image in product.images[product.optionSelection.images] | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail">
+                        <img data-ng-src="{{image.medium}}" class="img-responsive" alt="">
+                    </span>
                 </div>
             </div>
         </div><!-- .th-product -->
