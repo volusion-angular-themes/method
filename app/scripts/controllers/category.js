@@ -66,15 +66,19 @@ angular.module('methodApp')
 
             }
 
-
-
             /**
              * End private functions for the CategoryCtrl
              */
 
+            /**
+             * 'Public' functions for CategoryCtrl
+             */
+            $scope.selectBrand = function() {
+                console.log('update for the brand: ', $scope.brand);
+            }
+
 //            TODO: Change this to use $routeParams and couple that to the :id or :slug as it may be
 //            console.log('category api info: ', vnApi.getCategory());
-
             var slug = {
                     slug: $location.path().split('/')[2]
                 },
@@ -85,13 +89,14 @@ angular.module('methodApp')
                 // Handle the category data
 //                console.log('response: ', response);
                 $scope.category = response.data;
+                // Todo: move the subCategory parsing to product response
                 $scope.subCategories = $scope.category.subCategories;
             }).then(function () {
                 // Handle the products for this category
                 var productRequest = vnApi.Product().query({categoryIds: $scope.category.id});
                 productRequest.$promise.then(function(response) {
-                    console.log('the response 2nd: ', response);
-                    console.log('the response: ', response);
+//                    console.log('the response 2nd: ', response);
+//                    console.log('the response: ', response);
                     $scope.products = response.data;
                     $scope.brands = getBrandFromFacets(response.facets);
                     $scope.colors = getColorFromFacets(response.facets);

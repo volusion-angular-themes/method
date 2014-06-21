@@ -1,23 +1,72 @@
+//html,body,.col-md-12,.row {
+//    height:100%;
+//}
+//.row > div {
+//    height:100%;
+//}
+
 .categories {
+    border: 1px solid cornflowerblue;
+    min-height: 600px;
+
+    .-breadcrumb {
+        border: 1px solid sienna;
+        margin-left: 25px;
+    }
+
+    .-filter-form {
+
+    }
     .content-top {
-        .-filter-form {
-            form {
-                .form-group {
-                    .-colors {
-                        max-width: 250px;
 
-                        > * {
-                            float: left;
-                            padding: 0 5px;
-                        }
-                    }
-                }
-            }
-
-        }
     }
 
     .-colors {
 
     }
 }
+
+//@include respond-to(md-and-up) {
+//  .breadcrumb {
+//    margin-bottom: 0;
+//    border-bottom: 0;
+//    border-bottom: 1px solid map-get($colors, border);
+//
+//    a:hover {
+//      @include single-transition(all, 200ms, ease);
+//    }
+//  }
+//}
+
+//.th-refine-exp {
+//    display: none;
+//}
+//
+//@include respond-to(md-and-up) {
+//    .th-refine-exp {
+//        display: block;
+//        background: map-get($colors, component-bg--darker);
+//        padding: 11px 10px;
+//
+//        .th-filter-text {
+//            font-size: 1.4rem;
+//            padding-right: 15px;
+//            font-weight: bold;
+//            text-transform: uppercase;
+//        }
+//
+//        select {
+//            min-width: 174px;
+//            margin-right: 10px;
+//        }
+//    }
+//}
+//
+//@include respond-to(lg) {
+//    .th-refine-exp {
+//        select {
+//            min-width: 233px;
+//            margin-right: 15px;
+//        }
+//    }
+//}
