@@ -47,6 +47,44 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="product in products">
                         <div vn-product-tile product="product"></div>
+                        <div class="th-product">
+                            <span class="th-product__sale" ng-show="product.isOnSale"></span>
+                            <span class="th-product__new" ng-show="product.isNew"></span>
+
+                            <div class="th-product__image">
+                                <!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
+                                <a href="p/product.slug">
+                                    <img ng-src="{{product.mainImage.large}}" class="img-responsive" alt="">
+                                </a>
+
+                                <div class="th-quick-options visible-md visible-lg">
+                                    <a ui-sref="i18n.product({ productTitle: featuredProduct.name, productCode: featuredProduct.code })"
+                                    <!--class="th-quick-view">Quick View</a> -->
+                                    <a href="" class="th-add-to-cart"><span></span></a>
+                                </div>
+                            </div>
+                            <div class="th-product__name">
+                                <a href="p/product.slug">{{ product.name }}</a>
+                            </div>
+                            <div class="th-product__price">
+                        <span class="th-reg-price" ng-show="product.price.regularPrice > 0">
+                            <span class="th-price" ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span>
+                            <span class="th-price-text th-text-left">Reg</span>
+                        </span>
+                        <span class="th-now-price" ng-show="product.price.salePrice > 0">
+                            <span class="th-price">{{product.price.salePrice | currency}}</span>
+                            <span class="th-price-text">Now</span>
+                        </span>
+                            </div>
+                            <div class="th-colors-sm">
+                                <!-- Todo: how does the client know which color to show for this product?  -->
+                                <a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
