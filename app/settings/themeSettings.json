@@ -1,65 +1,73 @@
 {
-    "general": {
-        "one": "myfirstnewsetting",
-        "two": "myseconddifferent"
-    },
-    "homeTiles": {
-      "tile1": {
-        "imageUrl": "/images/homepage/tile1.jpg",
-        "linkTo": "category-name/c/category-id-1"
+  "general": {
+    "one": "myfirstnewsetting",
+    "two": "myseconddifferent"
+  },
+  "pages": {
+    "home": {
+      "content1": "",
+      "content2": "",
+      "content3": "",
+      "featuredProducts": {
+        "isEnabled": true
       },
-      "tile2": {
-        "imageUrl": "/images/homepage/tile2.jpg",
-        "linkTo": "category-name/c/category-id-2"
-      },
-      "tile3": {
-        "imageUrl": "/images/homepage/tile3.jpg",
-        "linkTo": "category-name/c/category-id-3"
-      },
-      "tile4": {
-        "imageUrl": "/images/homepage/tile4.jpg",
-        "linkTo": "category-name/c/category-id-4"
-      },
-      "tile5": {
-        "imageUrl": "/images/homepage/tile5.jpg",
-        "linkTo": "category-name/c/category-id-5"
-      },
-      "tile6": {
-        "imageUrl": "/images/homepage/tile6.jpg",
-        "linkTo": "category-name/c/category-id-6"
-      }
-    },
-    "slider": {
+      "slider": {
+        "isEnabled": true,
         "interval": 4000,
         "slides": [
-            {
-                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
-                "headline": "NewYearSaleathon",
-                "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-                "linksTo": "product1/p/123"
-            },
-            {
-                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
-                "headline": "NewSunriseCollection",
-                "subHeadline": "Wakeuptosomethinggood",
-                "linksTo": "category1/c/123"
-            },
-            {
-                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
-                "headline": "MiamiFashion",
-                "subHeadline": null,
-                "linksTo": "product2/p/2"
-            },
-            {
-                "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
-                "headline": "MiamiFashion",
-                "subHeadline": null,
-                "linksTo": "product2/p/2"
-            }
-        ],
-        "settings": {
-            "enableArrows": true,
-            "enableDots": true
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
+            "headline": "NewYearSaleathon",
+            "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
+            "linksTo": "product1/p/123"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
+            "headline": "NewSunriseCollection",
+            "subHeadline": "Wakeuptosomethinggood",
+            "linksTo": "category1/c/123"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
+            "headline": "MiamiFashion",
+            "subHeadline": null,
+            "linksTo": "product2/p/2"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
+            "headline": "MiamiFashion",
+            "subHeadline": null,
+            "linksTo": "product2/p/2"
+          }
+        ]
+      },
+      "tiles": {
+        "isEnabled": true,
+        "tile1": {
+          "imageUrl": "/images/homepage/tile1.jpg",
+          "linkTo": "category-name/c/category-id-1"
+        },
+        "tile2": {
+          "imageUrl": "/images/homepage/tile2.jpg",
+          "linkTo": "category-name/c/category-id-2"
+        },
+        "tile3": {
+          "imageUrl": "/images/homepage/tile3.jpg",
+          "linkTo": "category-name/c/category-id-3"
+        },
+        "tile4": {
+          "imageUrl": "/images/homepage/tile4.jpg",
+          "linkTo": "category-name/c/category-id-4"
+        },
+        "tile5": {
+          "imageUrl": "/images/homepage/tile5.jpg",
+          "linkTo": "category-name/c/category-id-5"
+        },
+        "tile6": {
+          "imageUrl": "/images/homepage/tile6.jpg",
+          "linkTo": "category-name/c/category-id-6"
         }
+      }
     }
+  }
 }
