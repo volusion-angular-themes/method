@@ -3,4 +3,4 @@
   <img data-vn-element="image" data-ng-show="item.image" data-ng-src="{{item.image}}" alt="{{item.text}}">
 </div>
 <div data-vn-element="text" data-ng-bind="item.text"></div>
-<div data-vn-element="border"></div>
+<div data-vn-element="border" data-ng-class="{ checked: option.selected===itemKey }"></div>
