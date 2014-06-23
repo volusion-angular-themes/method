@@ -13,6 +13,25 @@ angular.module('methodApp')
 
             /**
              * @ngdoc method
+             * @name getFacetsFromResponse
+             * @methodOf methodApp.CategoryCtrl
+             * @params {Object} response
+             * @returns {Object} facets is an object parsed from response.facets
+             *
+             * @description
+             * The vn-faceted-search directive needs the facets data abject response from product queries on first page load.
+             * This can boot strap the refinement process with the facets for this venders products.
+             *
+             */
+            function getFacetsFromResponse(response) {
+
+                if(response.hasOwnProperty(facets)) {
+                    return response.facets;
+                }
+            }
+
+            /**
+             * @ngdoc method
              * @name getBrandFromFacets
              * @methodOf methodApp.CategoryCtrl
              * @params {Object} facet
@@ -107,8 +126,7 @@ angular.module('methodApp')
 //                    console.log('the response 2nd: ', response);
 //                    console.log('the response: ', response);
                     $scope.products = response.data;
-                    $scope.brands = getBrandFromFacets(response.facets);
-                    $scope.colors = getColorFromFacets(response.facets);
+                    $scope.facets = getFacetsFromResponse(response);
                 });
             });
         }]);
