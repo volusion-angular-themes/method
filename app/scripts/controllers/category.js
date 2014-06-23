@@ -27,8 +27,8 @@ angular.module('methodApp')
                 var item,
                     obj;
 
-                for (item in facets) {
-                    if (facets.hasOwnProperty(item)) {
+                if (facets.hasOwnProperty(item)) {
+                    for (item in facets) {
                         obj = facets[item];
                         if (obj.title && obj.title === 'Brand') {
                             // api structure is: response.facets
@@ -37,6 +37,7 @@ angular.module('methodApp')
                         }
                     }
                 }
+
                 // If code execution gets here there is an error
                 throw new Error('CategoryCtrl: Did not find a brand object in the facets object from api.');
 
