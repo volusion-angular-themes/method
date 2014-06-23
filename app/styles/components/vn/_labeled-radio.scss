@@ -1,7 +1,30 @@
 .vn-labeled-radio {
 
+  text-align: left;
+  font-weight: normal;
+
+  &--vertical {
+
+    display: table-row;
+
+    &__radio, &__checkbox, &__color-image, &__text, &__border {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &__radio, &__checkbox, &__text {
+      padding: 0.5rem;
+    }
+
+  }
+
+  &__border {
+    display: none;
+  }
+
   &--tiles {
 
+    @extend %inline-block;
     padding: 0 2.5px;
     margin-bottom: 5px;
     cursor: pointer;
@@ -37,6 +60,7 @@
 
     &__border {
       position: absolute;
+      display: block;
       top: 0;
       width: 100%;
       height: 100%;
@@ -50,9 +74,23 @@
 
     }
 
+    &__radio[disabled] + &__content > &__border:hover {
+      border-color: #d6d6d6;
+      outline-color: transparent;
+    }
+
+    &__radio[disabled] + &__content > &__text {
+      color: #d6d6d6;
+    }
+
+    &__radio:checked + &__content > &__border {
+      border-color: #007391;
+      outline-color: #007391;
+    }
+
   }
 
-  &--swatch {
+  &--no-text {
 
     &__text {
       display: none;
@@ -60,18 +98,18 @@
 
   }
 
-  &__radio[disabled] + &__content > &__border:hover {
-    border-color: #d6d6d6;
-    outline-color: transparent;
+  &__color-image {
+    position: relative;
   }
 
-  &__radio[disabled] + &__content > &__text {
-    color: #d6d6d6;
+  &__color {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 
-  &__radio:checked + &__content > &__border {
-    border-color: #007391;
-    outline-color: #007391;
+  &__image {
+    position: relative;
   }
 
 }

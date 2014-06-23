@@ -3,9 +3,10 @@
   data-ng-repeat="itemKey in option.items"
   data-ng-init="item=product.optionItems[itemKey]">
 
-  <input type="checkbox"
-    data-vn-element="checkbox"
-    data-ng-click="onCheckboxClicked(option)">
+  <div data-vn-element="checkbox">
+    <input type="checkbox"
+      data-ng-click="onCheckboxClicked(option)">
+  </div>
 
   <div data-vn-element="content" data-ng-include=" 'content.html' "></div>
 
