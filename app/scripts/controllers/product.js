@@ -120,6 +120,11 @@ angular.module('Volusion.controllers')
 //            $scope.ratingsAndReviews = response;
 //        });
 //
+            vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
+                .then(function (response) {
+                    $scope.ratingsAndReviews = response;
+                });
+
             $scope.decrementQty = function () {
                 cartItem.quantity--;
             };
