@@ -9,10 +9,6 @@
   @include inline-block;
 }
 
-%opacity-50 {
-  @include opacity(0.50);
-}
-
 %opacity-75 {
   @include opacity(0.75);
 }

@@ -95,10 +95,3 @@
     line-height: $line-height;
   }
 }
-
-@mixin absolute-center($width, $height) {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: $height/-2 0 0 $width/-2;
-}
