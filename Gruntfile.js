@@ -362,7 +362,7 @@ module.exports = function(grunt) {
       scripts: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: ['settings/themeSettings.json', 'scripts/{,*/}*.js'],
+        src: ['scripts/{,*/}*.js'],
         dest: '.tmp'
       },
       components: {
