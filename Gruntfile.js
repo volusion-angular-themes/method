@@ -345,7 +345,7 @@ module.exports = function(grunt) {
             '*.{ico,png,txt}',
             'web.config',
             '*.html',
-            'bower_components/**',
+            'bower_components/angular-i18n/angular-locale_*.js',
             'images/**/*.{gif,jpeg,jpg,png,svg,webp}',
             'fonts/*',
             'translations/{,*/}*.json',
@@ -397,11 +397,6 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      vendor: {
-        files: {
-          '<%= yeoman.dist %>/scripts/vendor.js': ['.tmp/concat/scripts/vendor.js']
-        }
-      },
       scripts: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': ['.tmp/scripts/scripts.js']

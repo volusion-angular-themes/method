@@ -33,6 +33,5 @@
   },
   "_source": "git://github.com/volusion-angular/vn-product-option.git",
   "_target": "~1.0.5",
-  "_originalSource": "vn-product-option",
-  "_direct": true
+  "_originalSource": "vn-product-option"
 }

@@ -1,34 +1,38 @@
 'use strict';
 
 angular.module('volusion.controllers').controller('IndexCtrl', [
+  '$rootScope',
   '$state',
   '$location',
   '$scope',
   '$http',
   'api',
-  '$rootScope',
   'tokenGenerator',
   'cacheBustFilter',
   '$sce',
   function (
+    $rootScope,
     $state,
     $location,
     $scope,
     $http,
     api,
-    $rootScope,
     tokenGenerator,
     cacheBustFilter,
     $sce) {
+
+    $rootScope.seo = {};
 
     $rootScope.html = function (html) {
       return $sce.trustAsHtml(html);
     };
 
-    $http.get(cacheBustFilter('/settings/themeSettings.json'))
-    .success(function (data) {
-      console.log('Theme Settings', data);
-      $rootScope.themeSettings = data;
+    $scope.$on('$stateChangeSuccess', function() {
+      $http.get(cacheBustFilter('/settings/themeSettings.json'))
+      .success(function (data) {
+        console.log('Theme Settings', data);
+        $rootScope.themeSettings = data;
+      });
     });
 
     //hide header & footer when viewing theme-settings
@@ -62,7 +66,7 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
       // Config
       api.config.get(tokenGenerator.getCacheBustingToken()).then(function (response) {
         $scope.config = response.data;
-        angular.extend($rootScope.seo, $scope.config.seo);
+        $rootScope.seo = $rootScope.seo || $scope.config.seo;
 
         // TODO: REMOVE
         console.log('Config: ', response.data);

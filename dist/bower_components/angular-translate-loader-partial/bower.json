@@ -1,8 +1,0 @@
-{
-  "name": "angular-translate-loader-partial",
-  "version": "2.0.0",
-  "main": "./angular-translate-loader-partial.js",
-  "dependencies": {
-    "angular-translate": "~2.0.0"
-  }
-}

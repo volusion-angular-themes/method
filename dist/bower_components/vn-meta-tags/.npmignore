@@ -1,7 +1,0 @@
-bower_components/
-test/
-.*
-bower.json
-Gruntfile.js
-karma.conf.js
-*.sublime*
