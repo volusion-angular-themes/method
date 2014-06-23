@@ -1,11 +1,11 @@
-/*global angular, console */
+/*global angular */
 
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', '$http', 'vnApi',
-        function ($scope, $rootScope, $location, $sce, $http, vnApi) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', 'vnApi',
+        function ($scope, $rootScope, $location, $sce, vnApi) {
             'use strict';
 
-            $rootScope.html = function (html) {
+            $scope.html = function (html) {
                 return $sce.trustAsHtml(html);
             };
 
@@ -26,6 +26,7 @@ angular.module('methodApp')
                     $scope.featuredProducts = response.data;
                 });
 
+            // TODO: Consider moving SEO into a service
             $rootScope.seo = {};
 
             // TODO: refactor the seo state into a directive.
