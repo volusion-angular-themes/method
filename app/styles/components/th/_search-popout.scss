@@ -1,0 +1,23 @@
+.th-search-popout {
+  @extend %inline-block;
+
+  &__trigger{
+    @extend %inline-block;
+    cursor: pointer;
+    padding:0;
+    margin: 0 25px 0 20px;
+  }
+
+  &__input{
+    @extend %inline-block;
+    border: 1px solid map-get($colors, border);
+    height: 28px;
+    text-indent: 5px;
+  }
+
+  &__submit{
+    @extend %inline-block;
+    height: 28px;
+  }
+
+}
