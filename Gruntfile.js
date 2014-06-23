@@ -332,7 +332,8 @@ module.exports = function (grunt) {
                             'views/{,*/}*.html',
                             'images/{,*/}*.{webp}',
                             'fonts/*',
-                            'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'
+                            'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
+                            'bower_components/angular-i18n/angular-locale_*.js'
                         ]
                     },
                     {
