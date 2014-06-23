@@ -72,20 +72,11 @@
         outline-color: #9fe6f8;
       }
 
-    }
+      &.checked {
+        border-color: #007391;
+        outline-color: #007391;
+      }
 
-    &__radio[disabled] + &__content > &__border:hover {
-      border-color: #d6d6d6;
-      outline-color: transparent;
-    }
-
-    &__radio[disabled] + &__content > &__text {
-      color: #d6d6d6;
-    }
-
-    &__radio:checked + &__content > &__border {
-      border-color: #007391;
-      outline-color: #007391;
     }
 
   }

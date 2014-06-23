@@ -31,8 +31,6 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
 
     angular.extend($scope.seo, product.seo);
 
-    $scope.product.quantity = 1;
-
     $scope.toTrusted = function (htmlCode) {
       return $sce.trustAsHtml(htmlCode);
     };
@@ -46,20 +44,38 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
     setDefaults();
 
     $scope.$watch('product.optionSelection', function (selection, oldSelection) {
-      function setSKU(sku) {
-        if (typeof sku !== 'undefined') {
+
+      function setAvailabilityMessage() {
+        var message = product.optionAvailabilityMessages[selection.state];
+        if (message) {
+          $scope.availabilityMessage = message.replace('{{available}}', selection.available);
+        } else {
+          delete $scope.availabilityMessage;
+        }
+      }
+
+      function setSKU() {
+        var sku = selection.sku;
+        if (sku !== null && typeof sku !== 'undefined') {
           cartItem.sku = sku;
         } else {
           delete cartItem.sku;
         }
       }
 
-      function setAvailabilityMessage(message, available) {
-        if (message) {
-          $scope.availabilityMessage = message.replace('{{available}}', available);
-        } else {
-          delete $scope.availabilityMessage;
+      function setQuantity() {
+        if (!cartItem.hasOwnProperty('sku')) {
+          cartItem.quantity = 0;
+          selection.available = 0;
+          return;
         }
+        if (selection.available < cartItem.quantity) {
+          cartItem.quantity = selection.available;
+        }
+        if (cartItem.quantity === 0 && selection.available > 0) {
+          cartItem.quantity = 1;
+        }
+        selection.available -= cartItem.quantity;
       }
 
       function setImage() {
@@ -68,8 +84,9 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
         }
       }
 
-      setSKU(selection.sku);
-      setAvailabilityMessage(product.optionAvailabilityMessages[selection.state], selection.available);
+      setAvailabilityMessage();
+      setSKU();
+      setQuantity();
       setImage();
     });
 
@@ -114,26 +131,30 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
     });
 
     $scope.decrementQty = function () {
-      cartItem.quantity--;
+      modifyQuantity(-1);
     };
 
     $scope.incrementQty = function () {
-      cartItem.quantity++;
+      modifyQuantity(1);
     };
 
-    // Add to Cart
-    $scope.isAddToCartEnabled = false;
-    $scope.$watch('cartItem.sku', function (sku) {
-      $scope.isAddToCartEnabled = !!sku;
-    });
+    function modifyQuantity(amount) {
+      cartItem.quantity += amount;
+      var selection = product.optionSelection;
+      if (selection) {
+        selection.available -= amount;
+      }
+    }
 
+    // Add to Cart
     $scope.addToCart = function () {
-      $scope.isAddToCartEnabled = false;
       $rootScope.$emit('ADD_TO_CART', cartItem);
+      cartItem.quantity = 0;
     };
 
     $rootScope.$on('ITEM_ADDED_TO_CART', function () {
-      $scope.isAddToCartEnabled = true;
+      var selection = product.optionSelection;
+      modifyQuantity(selection.available && 1);
     });
 
     var fullUrl = $location.absUrl();
