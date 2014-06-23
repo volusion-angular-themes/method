@@ -55,7 +55,12 @@ angular.module('methodApp', [
             $routeProvider
                 .when('/', {
                     templateUrl: 'views/main.html',
-                    controller : 'MainCtrl'
+                    controller : 'MainCtrl',
+                    resolve    : {
+                        translations: ['translate', function (translate) {
+                            return translate.addParts('main');
+                        }]
+                    }
                 })
 
                 // Second pass at routes
