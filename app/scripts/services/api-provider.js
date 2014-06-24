@@ -168,7 +168,7 @@ angular.module('volusion.services')
     apiProvider.endpoint('config').
       route('/config');
     apiProvider.endpoint('articles').
-      route('/articles/:slug');
+      route('/articles');
     apiProvider.endpoint('products').
       route('/products/:code');
     apiProvider.endpoint('reviews').

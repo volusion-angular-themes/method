@@ -130,7 +130,7 @@ angular.module('volusionApp')
       .state('i18n.articles', {
         url: '/:slug',
         controller: 'ArticleCtrl',
-        template: '<article class="container" data-ng-include="templateUrl"></article>',
+        templateUrl: 'views/article.html',
         resolve: {
           article: ['api', '$stateParams',
             function(api, $stateParams) {
@@ -200,6 +200,7 @@ angular.module('volusionApp')
     $templateCache.put('views/about.html', require('./views/about.html'));
     $templateCache.put('views/contact.html', require('./views/contact.html'));
     $templateCache.put('views/category.html', require('./views/category.html'));
+    $templateCache.put('views/article.html', require('./views/article.html'));
     $templateCache.put('views/product.html', require('./views/product.html'));
     $templateCache.put('views/partials/product-tile.html', require('./views/partials/product-tile.html'));
     $templateCache.put('views/partials/footer.html', require('./views/partials/footer.html'));
