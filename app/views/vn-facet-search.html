@@ -1,0 +1,69 @@
+<div class="-faceted-search">
+
+    <div class="category-results">
+        <header>Show results for</header>
+        {{  categories }}
+        <div ng-repeat="category in categories">
+            <a href="{{ category.url  }}">{{ category.name }}</a>
+        </div>
+
+        <div ng-repeat="category in categories.subCategories">
+            <a href="{{ category.url  }}">{{ category.name }}</a>
+        </div>
+    </div>
+
+    <div class="facets">
+        <header>Refine by</header>
+        <div ng-repeat="facet in facets">
+            <hr>
+            <header>{{ facet.title }}</header>
+            <div ng-repeat="property in facet.properties">
+                <div class="row">
+                    <label>{{ property.name }}
+                        <input type="checkbox"
+                               name="property.name"
+                               ng-click="refineFacetSearch(property)"/>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="-filter-form">-->
+    <!--<div class="row">Filter by:</div>-->
+    <!--&lt;!&ndash;TODO: turn this in to a directive that renders generic facet data&ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<select class="form-control"-->
+                <!--ng-model="subCat"-->
+                <!--ng-selected="selectCategory()"-->
+                <!--ng-options="value.name for value in subCategories">-->
+            <!--<option value="">Category</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<select class="form-control"-->
+                <!--ng-model="brand"-->
+                <!--ng-selected="selectBrand()"-->
+                <!--ng-options="value.name for value in brands">-->
+            <!--<option value="">Brands</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<select class="form-control">-->
+            <!--<option value="">Max Price</option>-->
+            <!--<option value="">$1000</option>-->
+            <!--<option value="">$1200</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="-colors">-->
+            <!--&lt;!&ndash;Todo: How do we figure out what color to display?&ndash;&gt;-->
+            <!--<span>Color</span>-->
+
+            <!--<div ng-repeat="color in colors"><a href="">{{ color.name }}</a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

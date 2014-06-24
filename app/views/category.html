@@ -1,41 +1,8 @@
 <div class="container categories">
+    subCats: {{ subCategories }}
     <div class="row col-md-12">
-        <div class="col-sm-2">
-            <div class="-filter-form">
-                <div class="row">Filter by:</div>
-                <!--TODO: turn this in to a directive that renders generic facet data-->
-                <div class="row">
-                    <select class="form-control"
-                            ng-model="subCat"
-                            ng-selected="selectCategory()"
-                            ng-options="value.name for value in subCategories">
-                        <option value="">Category</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <select class="form-control"
-                            ng-model="brand"
-                            ng-selected="selectBrand()"
-                            ng-options="value.name for value in brands">
-                        <option value="">Brands</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <select class="form-control">
-                        <option value="">Max Price</option>
-                        <option value="">$1000</option>
-                        <option value="">$1200</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <div class="-colors">
-                        <!--Todo: How do we figure out what color to display?-->
-                        <span>Color</span>
-
-                        <div ng-repeat="color in colors"><a href="">{{ color.name }}</a></div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-sm-2 -faceted-search">
+            <div vn-facet-search facets="facets" categories="categories"></div>
         </div>
         <div class="col-sm-10">
             <div class="row">
