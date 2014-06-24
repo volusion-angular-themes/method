@@ -1,12 +1,9 @@
 /*global angular */
 
 angular.module('Volusion.services')
-    .factory('vnFacetSelections', function () {
+    .factory('vnProductParams', function () {
 
         'use strict';
-
-        // Service logic
-        // ...
 
         var selectedFacets = [];
 

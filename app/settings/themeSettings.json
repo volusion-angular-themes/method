@@ -61,7 +61,7 @@
         },
         "tile5": {
           "imageUrl": "/images/homepage/tile5.jpg",
-          "linkTo": "category-name/c/category-id-5"
+          "linkTo": "/c/home-decor"
         },
         "tile6": {
           "imageUrl": "/images/homepage/tile6.jpg",
