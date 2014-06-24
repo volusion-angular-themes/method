@@ -1,4 +1,4 @@
-/*global angular, console */
+/*global angular */
 
 angular.module('methodApp')
     .controller('CategoryCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
@@ -10,9 +10,6 @@ angular.module('methodApp')
             /**
              * 'Public' functions for CategoryCtrl
              */
-            $scope.selectBrand = function () {
-                console.log('update for the brand: ', $scope.brand);
-            };
 
 //          TODO: Change this to use $routeParams and couple that to the :id or :slug as it may be
             var slug = {
@@ -32,7 +29,6 @@ angular.module('methodApp')
                     $scope.products = response.data;
                     $scope.facets = response.facets;
                     $scope.categories = response.categories;
-                    console.log('subCats', $scope.categories);
                 });
             });
         }]);

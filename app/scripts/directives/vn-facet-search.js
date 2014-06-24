@@ -1,4 +1,4 @@
-'use strict';
+/* global console */
 
 
 /**
@@ -27,6 +27,8 @@
  */
 angular.module('methodApp')
     .directive('vnFacetSearch', function () {
+        'use strict';
+
         return {
             templateUrl: 'views/vn-facet-search.html',
             restrict   : 'AE',
@@ -40,9 +42,13 @@ angular.module('methodApp')
                     scope.facets = facets;
                 });
 
-                scope.$watch('subCategories', function (subCategories) {
-                    scope.subCategories = subCategories;
-                    console.log('scope categories: ', scope.subCategories);
+                scope.$watch('categories', function (categories) {
+                    scope.categories = categories[0];
+                    angular.forEach(categories[0].subCategories, function(i) {
+                        console.log(i);
+                    });
+                    console.log('type of: ',  categories[0].subCategories);
+                    console.log('type of: ',  categories[0]);
                 });
 
                 scope.selectedFacets = [];

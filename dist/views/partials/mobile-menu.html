@@ -1,1 +1,85 @@
-<div snap-drawer class="th-mobile-menu"><div class="th-search hidden-md hidden-lg"><form class="th-search__form"><input type="text" class="th-search__input" placeholder="Search..."> <button type="submit" class="th-search__submit"><span class="glyphicon glyphicon-search th-search__icon"></span></button></form></div><div class="th-mobile-menu__list"><ul class="nav navbar-nav th-mobile-list"><li class="th-mobile-list__item th-mobile-list__item--header">Categories</li><li class="th-mobile-list__item dropdown" ng-repeat="category in categories"><a href="#" class="dropdown-toggle th-dropdown-toggle th-mobile-list__link" toggle="dropdown">{{category.name}}</a><ul class="dropdown-menu th-mobile-list th-mobile-list--sub" ng-if="category.subCategories.length"><li ng-repeat="subCategory in category.subCategories"><a class="th-mobile-list__link th-mobile-list__link--sub" ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a></li></ul></li></ul></div><div class="th-mobile-menu__list"><ul class="th-mobile-sitemap"><li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Company Info</li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" ui-sref="i18n.about">About Us</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Careers</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Partners</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Excetera</a></li></ul><ul class="th-mobile-sitemap"><li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Help &amp; Support</li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Customer Service</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Shopping Bag</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Order Status</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" ui-sref="i18n.contact">Contact Us</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Returns</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Shipping</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Size Charts</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Favorites</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Site Map</a></li></ul><ul class="th-mobile-sitemap"><li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Programs &amp; Services</li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Affiliate Program</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Gift Certificates</a></li><li class="th-mobile-sitemap__item"><a class="th-mobile-sitemap__link" href="#">Gift Cards</a></li></ul></div></div>
+<div snap-drawer class="th-mobile-menu">
+    <div class="th-search hidden-md hidden-lg">
+        <form class="th-search__form">
+            <input type="text" class="th-search__input" placeholder="Search...">
+            <button type="submit" class="th-search__submit">
+                <span class="glyphicon glyphicon-search th-search__icon"></span>
+            </button>
+        </form>
+    </div>
+    <div class="th-mobile-menu__list">
+        <ul class="nav navbar-nav th-mobile-list">
+            <li class="th-mobile-list__item th-mobile-list__item--header">Categories</li>
+            <li class="th-mobile-list__item dropdown" ng-repeat="category in categories">
+                <a href="#" class="dropdown-toggle th-dropdown-toggle th-mobile-list__link" toggle="dropdown">{{category.name}}</a>
+                <ul class="dropdown-menu th-mobile-list th-mobile-list--sub" ng-if="category.subCategories.length">
+                    <li ng-repeat="subCategory in category.subCategories">
+                        <a class="th-mobile-list__link th-mobile-list__link--sub"
+                           ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="th-mobile-menu__list">
+        <ul class="th-mobile-sitemap">
+            <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Company Info</li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" ui-sref="i18n.about">About Us</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Careers</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Partners</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Excetera</a>
+            </li>
+        </ul>
+
+        <ul class="th-mobile-sitemap">
+            <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Help &amp; Support</li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Customer Service</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Shopping Bag</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Order Status</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" ui-sref="i18n.contact">Contact Us</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Returns</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Shipping</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Size Charts</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Favorites</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Site Map</a>
+            </li>
+        </ul>
+
+        <ul class="th-mobile-sitemap">
+            <li class="th-mobile-sitemap__item th-mobile-sitemap__item--header">Programs &amp; Services</li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Affiliate Program</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Gift Certificates</a>
+            </li>
+            <li class="th-mobile-sitemap__item">
+                <a class="th-mobile-sitemap__link" href="#">Gift Cards</a>
+            </li>
+        </ul>
+    </div>
+</div>

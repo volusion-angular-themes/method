@@ -1,13 +1,35 @@
+/*global angular */
+
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'vnApi',
-        function ($scope, $rootScope, $location, vnApi) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', 'vnApi',
+        function ($scope, $rootScope, $location, $sce, vnApi) {
             'use strict';
 
-//            console.log('vnApi', vnApi.Configuration().get());
+            $scope.html = function (html) {
+                return $sce.trustAsHtml(html);
+            };
 
+            // TODO: Consider moving ThemeSettings into a service
+            vnApi.ThemeSettings().get().$promise
+                .then(function (response) {
+                    $rootScope.themeSettings = response;
+                });
+
+            //hide header & footer when viewing theme-settings
+            if ($location.path().indexOf('/theme-settings') >= 0) {
+                $rootScope.hideWrapper = true;
+            }
+
+            // Featured Products
+            vnApi.Product().get({ filter: 'featured', pageSize: 4 }).$promise
+                .then(function (response) {
+                    $scope.featuredProducts = response.data;
+                });
+
+            // TODO: Consider moving SEO into a service
             $rootScope.seo = {};
 
-// TODO: refactor the seo state into a directive.
+            // TODO: refactor the seo state into a directive.
 //            $scope.$on('$stateChangeSuccess', function (event, toState) {
 //                if (toState.name === 'i18n') {
 //                    $state.go('.home', null, { location: 'replace' });

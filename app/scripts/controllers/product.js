@@ -9,11 +9,26 @@ angular.module('Volusion.controllers')
             var product = {},
                 cartItem = {};
 
-            // Carousel
-            $scope.interval = 4000;
+            // carousel
+            $scope.carousel = {
+                interval: 4000
+            };
 
-            // Accordion panels
-            $scope.isopen1 = true;
+            // accordion panels
+            $scope.accordionPanels = {
+                isopen1: true
+            };
+
+            // tabs
+            $scope.tabs = {
+                relatedProducts: {
+                    active: true
+                },
+                accessories: {
+                    active: false
+                }
+            };
+
 
             function setDefaults() {
                 product.optionSelection = { images: 'default' };
@@ -45,7 +60,32 @@ angular.module('Volusion.controllers')
 
                     setDefaults();
 
+
+
                     console.log('route params: ', $routeParams);
+                })
+                .then(function () {
+
+                    // TODO: Figure out what will be the right implementation
+                    // Ken's implementation
+//                    var categoryIds = product.categories.map(function (category) {
+//                        return category.id;
+//                    }).join();
+
+                    // According to Kevin we should query only the top category
+                    var categoryIds = product.categories[0].id;
+
+                    // related products
+                    vnApi.Product().get({ categoryIds: categoryIds, pageNumber: 1, pageSize: 4 }).$promise
+                        .then(function (response) {
+                            $scope.relatedProducts = response.data;
+                        });
+
+                    // accessories
+                    vnApi.Product().get({ accessoriesOf: product.code, pageNumber: 1, pageSize: 4 }).$promise
+                        .then(function (response) {
+                            $scope.accessories = response.data;
+                        });
                 });
 
 //        $scope.$on('$stateChangeSuccess', function () {
