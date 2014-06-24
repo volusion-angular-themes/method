@@ -26,7 +26,7 @@
 @include respond-to(sm-and-up) {
 
     .th-cart-summary {
-      top: 22px;
+      top: 23px;
     }
 
 }
@@ -35,6 +35,7 @@
     .th-cart-summary {
       position: relative;
       right: 13px;
+      top: 29px;
     }
 }
 
