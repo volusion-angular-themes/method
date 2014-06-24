@@ -82,6 +82,7 @@ angular.module('methodApp')
 //
 //            });
 
+            // TODO: Figure out how this can be moved into directive
             $(document).ready(function () {
                 $('[data-toggle="popover"]').popover();
                 $('body').on('click', function (e) {
