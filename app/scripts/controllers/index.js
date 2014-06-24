@@ -9,7 +9,6 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   'api',
   'tokenGenerator',
   'cacheBustFilter',
-  '$sce',
   function (
     $rootScope,
     $state,
@@ -18,14 +17,9 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
     $http,
     api,
     tokenGenerator,
-    cacheBustFilter,
-    $sce) {
+    cacheBustFilter) {
 
     $rootScope.seo = {};
-
-    $rootScope.html = function (html) {
-      return $sce.trustAsHtml(html);
-    };
 
     $scope.$on('$stateChangeSuccess', function() {
       $http.get(cacheBustFilter('/settings/themeSettings.json'))

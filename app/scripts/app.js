@@ -5,7 +5,7 @@ var enquire = require('enquire');
 require('./theme');
 
 angular.module('volusion.directives', []);
-angular.module('volusion.filters', ['volusion.services']);
+angular.module('volusion.filters', ['ngSanitize', 'volusion.services']);
 angular.module('volusion.services', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'services.config']);
 angular.module('volusion.decorators', ['pascalprecht.translate', 'services.config']);
 angular.module('volusion.controllers', ['ui.router', 'volusion.services']);
