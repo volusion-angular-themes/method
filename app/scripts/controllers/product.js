@@ -31,10 +31,6 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
 
     angular.extend($scope.seo, product.seo);
 
-    $scope.toTrusted = function (htmlCode) {
-      return $sce.trustAsHtml(htmlCode);
-    };
-
     function setDefaults() {
       product.optionSelection = { images: 'default' };
       product.image = product.images.default[0];
