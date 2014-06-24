@@ -85,32 +85,37 @@ angular.module('methodApp', [
                     redirectTo: '/'
                 });
         }])
-    .run(function (snapRemote, $rootScope, $window) {
+    .run(['snapRemote', '$rootScope', '$window', 'themeSettings',
+        function (snapRemote, $rootScope, $window, themeSettings) {
 
-        'use strict';
+            'use strict';
 
-        $rootScope.isInDesktopMode = true;
+            $rootScope.isInDesktopMode = true;
 
-        enquire.register('screen and (max-width: 991px)', {
-            // transitioning to desktop mode
-            unmatch: function () {
+            enquire.register('screen and (max-width: 991px)', {
+                // transitioning to desktop mode
+                unmatch: function () {
+                    snapRemote.close();
+                    $rootScope.isInDesktopMode = true;
+                },
+                // transitioning to mobile mode
+                match  : function () {
+                    $rootScope.isInDesktopMode = false;
+                }
+            });
+
+            $rootScope.$on('$routeChangeSuccess', function () {
                 snapRemote.close();
-                $rootScope.isInDesktopMode = true;
-            },
-            // transitioning to mobile mode
-            match  : function () {
-                $rootScope.isInDesktopMode = false;
-            }
-        });
+            });
 
-        $rootScope.$on('$routeChangeSuccess', function () {
-            snapRemote.close();
-        });
+            $rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+                event.preventDefault();
+                if (error.status === 404) {
+                    $window.location.replace('/404.html');
+                }
+            });
 
-        $rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-            event.preventDefault();
-            if (error.status === 404) {
-                $window.location.replace('/404.html');
-            }
-        });
-    });
+            // Init services
+            themeSettings.init();
+
+        }]);

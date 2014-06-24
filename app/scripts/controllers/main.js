@@ -1,19 +1,15 @@
 /*global angular */
 
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', 'vnApi',
-        function ($scope, $rootScope, $location, $sce, vnApi) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', 'vnApi', 'themeSettings',
+        function ($scope, $rootScope, $location, $sce, vnApi, themeSettings) {
             'use strict';
 
             $scope.html = function (html) {
                 return $sce.trustAsHtml(html);
             };
 
-            // TODO: Consider moving ThemeSettings into a service
-            vnApi.ThemeSettings().get().$promise
-                .then(function (response) {
-                    $rootScope.themeSettings = response;
-                });
+            $scope.themeSettings = themeSettings.getThemeSettings();
 
             //hide header & footer when viewing theme-settings
             if ($location.path().indexOf('/theme-settings') >= 0) {
