@@ -39,7 +39,7 @@
 
           <!-- Categories -->
           <ul class="nav navbar-nav">
-            <li class="dropdown" data-ng-repeat="category in categories">
+            <li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="visibility: hidden;">
               <a data-ui-sref="i18n.category({ categoryName: category.slug, categoryId: category.id })" class="navbar-link">{{category.name}}</a>
               <span>
                 <a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
@@ -47,6 +47,17 @@
                 </a>
                 <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
                   <li data-ng-repeat="subCategory in category.subCategories"><a data-ui-sref="i18n.category({ categoryName: subCategory.slug, categoryId: subCategory.id })">{{subCategory.name}}</a></li>
+                </ul>
+              </span>
+            </li>
+            <li class="dropdown" ng-show="displaySmartNavMoreMenuItem">
+              <a href="#" class="navbar-link" data-translate=" index.smartNavMoreLinkText">More</a>
+              <span>
+                <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li data-ng-repeat="category in smartNavMoreCategories"><a data-ui-sref="i18n.category({ categoryName: category.slug, categoryId: category.id })" class="navbar-link">{{category.name}}</a></li>
                 </ul>
               </span>
             </li>

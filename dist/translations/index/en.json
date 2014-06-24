@@ -12,6 +12,7 @@
     "createAccount": "Create Account",
     "myFavorites": "My Favorites",
     "signUpForNewsletter": "Sign-Up for Our Newsletter",
-    "newsletterSignUpButton": "Go"
+    "newsletterSignUpButton": "Go",
+    "smartNavMoreLinkText": "More"
   }
 }
