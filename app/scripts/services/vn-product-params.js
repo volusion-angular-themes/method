@@ -1,9 +1,6 @@
-'use strict';
-
 angular.module('methodApp')
-    .factory('vnFacetSelections', function () {
-        // Service logic
-        // ...
+    .factory('vnProductParams', function () {
+        'use strict';
 
         var selectedFacets = [];
 
@@ -13,14 +10,16 @@ angular.module('methodApp')
 
         function getFacetString() {
             // stringify the facets array and return it.
+            return true;
         }
 
         function isFacet(id) {
-            //return true if id is in the selectedFacets array, else flase
+            //return true if id is in the selectedFacets array, else false
+            return true || id;
         }
 
         function removeFacet(id) {
-            var index = selectedFacets.indexOf(facet);
+            var index = selectedFacets.indexOf(id);
             selectedFacets.splice(index, 1);
         }
 
@@ -28,7 +27,7 @@ angular.module('methodApp')
         return {
             addFacet      : addFacet,
             getFacetString: getFacetString,
-            isFacet       : isFacet
+            isFacet       : isFacet,
             removeFacet   : removeFacet
         };
     });
