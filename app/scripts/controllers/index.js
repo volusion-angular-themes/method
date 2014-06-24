@@ -9,6 +9,8 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
   'api',
   'tokenGenerator',
   'cacheBustFilter',
+  '$timeout',
+  '$window',
   function (
     $rootScope,
     $state,
@@ -17,14 +19,16 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
     $http,
     api,
     tokenGenerator,
-    cacheBustFilter) {
+    cacheBustFilter,
+    $timeout,
+    $window) {
 
     $rootScope.seo = {};
 
     $scope.$on('$stateChangeSuccess', function() {
       $http.get(cacheBustFilter('/settings/themeSettings.json'))
       .success(function (data) {
-        console.log('Theme Settings', data);
+        console.log('Theme Settings:', data);
         $rootScope.themeSettings = data;
       });
     });
@@ -44,10 +48,71 @@ angular.module('volusion.controllers').controller('IndexCtrl', [
       }
     });
 
+    $scope.isPrimaryNavReady = false;
+
+    function buildSmartNav(cssClassForTopLevelMenuItems) {
+      var itemIndex = 0;
+      var firstItemTopPosition = 0;
+      var indexPositionWhereItemWrapped = 0;
+
+      angular.forEach(angular.element('.' + cssClassForTopLevelMenuItems), function (value) {
+        // Get top position of first item
+        if (itemIndex === 0) {
+          firstItemTopPosition = angular.element(value).position().top;
+        }
+
+        if (angular.element(value).position().top !== firstItemTopPosition) {
+          indexPositionWhereItemWrapped = itemIndex;
+          return false;
+        }
+
+        itemIndex++;
+      });
+
+      if (indexPositionWhereItemWrapped !== 0) {
+        $scope.displaySmartNavMoreMenuItem = true;
+        $scope.smartNavMoreCategories = [];
+        var newSmartNavCategories = [];
+
+        angular.forEach($scope.categories, function (value, index) {
+          if (index >= (indexPositionWhereItemWrapped - 1)) {
+            $scope.smartNavMoreCategories.push(value);
+          } else {
+            newSmartNavCategories.push(value);
+          }
+        });
+
+        $scope.smartNavCategories = newSmartNavCategories;
+      }
+
+      angular.element('.' + cssClassForTopLevelMenuItems).css('visibility', 'visible');
+    }
+
+    $rootScope.windowWidth = $window.outerWidth;
+    angular.element($window).bind('resize', function () {
+      $rootScope.windowWidth = $window.outerWidth;
+      $rootScope.$apply('windowWidth');
+    });
+
+    $rootScope.$watch('windowWidth', function () {
+      $scope.displaySmartNavMoreMenuItem = false;
+      angular.element('.nav-top-level-menu-items').css('visibility', 'hidden');
+
+      $scope.smartNavCategories = $scope.categories;
+
+      $timeout(function () {
+        buildSmartNav('nav-top-level-menu-items');
+      }, 0);
+    });
+
     this.getMenuItems = function () {
       // Nav
       api.navs.get({ navId: 1 }).then(function (response) {
-        $scope.categories = response.data;
+        $scope.smartNavCategories = $scope.categories = response.data;
+
+        $timeout(function () {
+          buildSmartNav('nav-top-level-menu-items');
+        }, 0);
 
         // TODO: REMOVE
         console.log('Categories: ', response.data);
