@@ -30,11 +30,10 @@ angular.module('methodApp')
         'use strict';
 
         return {
-            templateUrl: 'views/vn-facet-search.html',
+            templateUrl: '/views/partials/vn-facet-search.html',
             restrict   : 'AE',
             scope      : {
-                facets    : '=',
-                categories: '='
+                facets    : '='
             },
             link       : function postLink(scope) {
 
@@ -42,31 +41,19 @@ angular.module('methodApp')
                     scope.facets = facets;
                 });
 
-                scope.$watch('categories', function (categories) {
-                    scope.categories = categories[0];
-                    angular.forEach(categories[0].subCategories, function(i) {
-                        console.log(i);
-                    });
-                    console.log('type of: ',  categories[0].subCategories);
-                    console.log('type of: ',  categories[0]);
-                });
-
                 scope.selectedFacets = [];
 
                 scope.refineFacetSearch = function (facet) {
 
                     // Add / Remove facet to selectedFacets
-
                     if (scope.selectedFacets.indexOf(facet) === -1) {
                         scope.selectedFacets.push(facet);
-                        console.log('prop not found adding', scope.selectedFacets);
+                        console.log(scope.selectedFacets);
                     } else {
                         var index = scope.selectedFacets.indexOf(facet);
                         scope.selectedFacets.splice(index, 1);
-                        console.log('else assume prop was found and removeing', scope.selectedFacets);
+                        console.log(scope.selectedFacets);
                     }
-//
-//                    console.log('selectedFacets: ', scope.selectedFacets);
                 };
             }
         };

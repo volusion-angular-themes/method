@@ -1,9 +1,11 @@
 <div class="container categories">
-    subCats: {{ subCategories }}
     <div class="row col-md-12">
+        <!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
         <div class="col-sm-2 -faceted-search">
-            <div vn-facet-search facets="facets" categories="categories"></div>
+            <div vn-category-search categories="categories"></div>
+            <div vn-facet-search facets="facets"></div>
         </div>
+        <!-- This is a bootstrap responsive column that holds product tiles for the current query -->
         <div class="col-sm-10">
             <div class="row">
                 <ol class="breadcrumb -breadcrumb visible-lg visible-md">
