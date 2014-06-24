@@ -26,7 +26,7 @@
     "jquery": "~2.1.0",
     "vn-bem": "~0.0.1",
     "vn-meta-tags": "~0.0.1",
-    "vn-product-option": "~1.0.5"
+    "vn-product-option": "~1.0.6"
   },
   "devDependencies": {
     "angular-mocks": "1.2.9",
