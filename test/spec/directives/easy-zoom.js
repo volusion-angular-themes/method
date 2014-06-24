@@ -1,20 +1,22 @@
-'use strict';
+/*global angular, describe, module, beforeEach, it, inject, expect */
 
 describe('Directive: easyZoom', function () {
 
-  // load the directive's module
-  beforeEach(module('volusionMethodThemeApp'));
+    'use strict';
 
-  var element,
-    scope;
+    // load the directive's module
+    beforeEach(module('methodApp'));
 
-  beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
-  }));
+    var element,
+        scope;
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<easy-zoom></easy-zoom>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the easyZoom directive');
-  }));
+    beforeEach(inject(function ($rootScope) {
+        scope = $rootScope.$new();
+    }));
+
+    it('should make hidden element visible', inject(function ($compile) {
+        element = angular.element('<easy-zoom></easy-zoom>');
+        element = $compile(element)(scope);
+        expect(element.text()).toBe('this is the easyZoom directive');
+    }));
 });

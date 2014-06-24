@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width">
     <!-- build:css /styles/vendor.css -->
     <!-- bower:css({.tmp,app}) -->
-    <link rel="stylesheet" href="/bower_components/angular-snap/angular-snap.css" />
-    <link rel="stylesheet" href="/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css" />
-    <link rel="stylesheet" href="/bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm-styles.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) /styles/main.css -->
@@ -84,6 +81,7 @@
 <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
 <script src="bower_components/angularfire/angularfire.js"></script>
 <script src="bower_components/vn-toolbox-common/dist/vn-toolbox-common.js"></script>
+<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
 <script src="bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
@@ -110,5 +108,24 @@
 
 <script src="scripts/filters/seo-friendly.js"></script>
 <!-- endbuild -->
+
+<script>
+    $(document).ready(function() {
+
+        // Search Popout
+        $('[data-toggle="popover"]').popover();
+
+        $('body').on('click', function (e) {
+            $('[data-toggle="popover"]').each(function () {
+                //the 'is' for buttons that trigger popups
+                //the 'has' for icons within a button that triggers a popup
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    $(this).popover('hide');
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

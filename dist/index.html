@@ -1,14 +1,20 @@
-<<<<<<< HEAD
-<!doctype html><html class="no-js" ng-app="methodApp"><head><meta charset="utf-8"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/styles/b5a66331.vendor.css"><link rel="stylesheet" href="/styles/3514aa1c.main.css"><base href="/"><body role="document" ng-controller="MainCtrl"><!--[if lt IE 9]>
-=======
-<!doctype html><html class="no-js" ng-app="methodApp"><head><meta charset="utf-8"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/styles/c53218cf.vendor.css"><link rel="stylesheet" href="/styles/3514aa1c.main.css"><base href="/"><body role="document" ng-controller="MainCtrl"><!--[if lt IE 9]>
->>>>>>> 48a9639c5b35673ce03bb9e0bc391cf1e994671c
+<!doctype html><html class="no-js" ng-app="methodApp"><head><meta charset="utf-8"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/styles/6f155689.main.css"><base href="/"><body role="document" ng-controller="MainCtrl"><!--[if lt IE 9]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
                                                                                                                     your
                                                                                                                     browser</a>
                        to improve your experience.</p>
-<<<<<<< HEAD
-<![endif]--><div ng-include=" 'views/partials/mobile-menu.html' "></div><div snap-content><a id="top"></a> <!-- Header --><div ng-include=" 'views/partials/header.html' "></div><!-- Main Content --><div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div><!--<div class="vn-showcase" role="main" autoscroll="false" ui-view=""></div>--><!-- Footer --><div ng-include=" 'views/partials/footer.html' "></div></div><!-- Google Analytics: change UA-XXXXX-X to be your site's ID --><!--<script>--><!--(function (i, s, o, g, r, a, m) {--><!--i['GoogleAnalyticsObject'] = r;--><!--i[r] = i[r] || function () {--><!--(i[r].q = i[r].q || []).push(arguments)--><!--}, i[r].l = 1 * new Date();--><!--a = s.createElement(o),--><!--m = s.getElementsByTagName(o)[0];--><!--a.async = 1;--><!--a.src = g;--><!--m.parentNode.insertBefore(a, m)--><!--})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');--><!--ga('create', 'UA-XXXXX-X');--><!--ga('send', 'pageview');--><!--</script>--><script src="scripts/1d81bf22.vendor.js"></script><script src="/scripts/35182ec7.scripts.js"></script>
-=======
-<![endif]--><div ng-include=" 'views/partials/mobile-menu.html' "></div><div snap-content><a id="top"></a> <!-- Header --><div ng-include=" 'views/partials/header.html' "></div><!-- Main Content --><div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div><!--<div class="vn-showcase" role="main" autoscroll="false" ui-view=""></div>--><!-- Footer --><div ng-include=" 'views/partials/footer.html' "></div></div><!-- Google Analytics: change UA-XXXXX-X to be your site's ID --><!--<script>--><!--(function (i, s, o, g, r, a, m) {--><!--i['GoogleAnalyticsObject'] = r;--><!--i[r] = i[r] || function () {--><!--(i[r].q = i[r].q || []).push(arguments)--><!--}, i[r].l = 1 * new Date();--><!--a = s.createElement(o),--><!--m = s.getElementsByTagName(o)[0];--><!--a.async = 1;--><!--a.src = g;--><!--m.parentNode.insertBefore(a, m)--><!--})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');--><!--ga('create', 'UA-XXXXX-X');--><!--ga('send', 'pageview');--><!--</script>--><script src="scripts/501a0edf.vendor.js"></script><script src="/scripts/1509725c.scripts.js"></script>
->>>>>>> 48a9639c5b35673ce03bb9e0bc391cf1e994671c
+<![endif]--><div ng-include=" 'views/partials/mobile-menu.html' "></div><div snap-content><a id="top"></a> <!-- Header --><div ng-include=" 'views/partials/header.html' "></div><!-- Main Content --><div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div><!--<div class="vn-showcase" role="main" autoscroll="false" ui-view=""></div>--><!-- Footer --><div ng-include=" 'views/partials/footer.html' "></div></div><script src="scripts/fdd4ffc1.vendor.js"></script><script src="/scripts/scripts.js"></script><script>$(document).ready(function() {
+
+        // Search Popout
+        $('[data-toggle="popover"]').popover();
+
+        $('body').on('click', function (e) {
+            $('[data-toggle="popover"]').each(function () {
+                //the 'is' for buttons that trigger popups
+                //the 'has' for icons within a button that triggers a popup
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    $(this).popover('hide');
+                }
+            });
+        });
+    });</script>
