@@ -35,7 +35,7 @@ angular.module('methodApp')
             link       : function postLink(scope) {
                 vnProductParams.isFacetSelected(11);
                 scope.updateCategory = function (category) {
-                    vnProductParams.addCategory(category.slug);
+                    vnProductParams.addCategory(category.id);
                     $rootScope.$broadcast('FacetedSearch.update');
                 };
 
