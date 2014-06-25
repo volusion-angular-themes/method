@@ -1,13 +1,10 @@
 /*global angular, $, document */
 
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$sce', 'vnApi', 'themeSettings',
-        function ($scope, $rootScope, $location, $sce, vnApi, themeSettings) {
-            'use strict';
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'vnApi', 'themeSettings',
+        function ($scope, $rootScope, $location, vnApi, themeSettings) {
 
-            $scope.html = function (html) {
-                return $sce.trustAsHtml(html);
-            };
+            'use strict';
 
             $scope.themeSettings = themeSettings.getThemeSettings();
 

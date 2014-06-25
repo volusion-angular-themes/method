@@ -79,7 +79,7 @@ angular.module('methodApp', [
                 })
                 .when('/:slug', {
                     templateUrl: 'views/article.html',
-                    controller : 'ArticlesCtrl'
+                    controller : 'ArticleCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'
