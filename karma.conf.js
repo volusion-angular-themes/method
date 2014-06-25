@@ -23,6 +23,7 @@ module.exports = function (config) {
             'app/bower_components/angular-touch/angular-touch.js',
             'app/bower_components/angular-translate/angular-translate.js',
             'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
+            'app/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js',
             'app/bower_components/angular-snap/angular-snap.js',
             'app/bower_components/angular-seo/angular-seo.js',
             'app/bower_components/angulartics/dist/angulartics.min.js',
