@@ -12,7 +12,7 @@ angular.module('methodApp')
             vnProductParams.addCategory($routeParams.slug);
 
             // Perhaps refactor this to updateProducts?
-            function queryProducts () {
+            function queryProducts() {
                 var test = vnProductParams.getParamsObject();
                 console.log('productParams query: ', vnProductParams.getParamsObject());
                 var params = vnProductParams.getParamsObject();
@@ -35,8 +35,9 @@ angular.module('methodApp')
             queryProducts();
 
             // Listen for facetd search updates
-            $rootScope.$on('FacetedSearch.update', function() {
-               queryProducts();
+            $rootScope.$on('FacetedSearch.update', function () {
+                console.log('heard FacetedSearch.update message');
+                queryProducts();
             });
 
             // Clean up beofre this controller is destroyed

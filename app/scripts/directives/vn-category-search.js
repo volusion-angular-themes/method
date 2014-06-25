@@ -24,7 +24,7 @@
  */
 
 angular.module('methodApp')
-    .directive('vnCategorySearch', ['vnProductParams', function (vnProductParams) {
+    .directive('vnCategorySearch', ['$rootScope', 'vnProductParams', function ($rootScope, vnProductParams) {
         'use strict';
         return {
             templateUrl: '/views/partials/vn-category-search.html',
@@ -33,8 +33,12 @@ angular.module('methodApp')
                 categories: '='
             },
             link       : function postLink(scope) {
-//                console.log('prod params: ', vnProductParams);
                 vnProductParams.isFacetSelected(11);
+                scope.updateCategory = function (category) {
+                    vnProductParams.addCategory(category.slug);
+                    $rootScope.$broadcast('FacetedSearch.update');
+                };
+
                 scope.$watch('categories', function (categories) {
 
                     // Gaurd against the error message for while categories is not defined.
