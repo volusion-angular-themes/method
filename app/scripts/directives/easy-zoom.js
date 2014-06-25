@@ -2,11 +2,11 @@
 //
 ///**
 // * @ngdoc directive
-// * @name volusionMethodThemeApp.directive:easyZoom
+// * @name methodApp.directive:easyZoom
 // * @description
 // * # easyZoom
 // */
-//angular.module('volusionMethodThemeApp')
+//angular.module('methodApp')
 //  .directive('easyZoom', function () {
 //    return {
 //      template: '<div></div>',

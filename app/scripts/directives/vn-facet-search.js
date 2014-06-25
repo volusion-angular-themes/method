@@ -35,11 +35,13 @@ angular.module('methodApp')
             scope      : {
                 facets    : '='
             },
-            link       : function postLink(scope) {
+            link       : ['scope', 'vnProductParams', function postLink(scope, vnProductParams) {
 
                 scope.$watch('facets', function (facets) {
                     scope.facets = facets;
                 });
+
+                console.log(vnProductParams);
 
                 scope.selectedFacets = [];
 
@@ -55,6 +57,6 @@ angular.module('methodApp')
                         console.log(scope.selectedFacets);
                     }
                 };
-            }
+            }]
         };
     });

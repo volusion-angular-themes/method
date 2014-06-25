@@ -3,7 +3,7 @@
 describe('Service: themeSettings', function () {
 
   // load the service's module
-  beforeEach(module('volusionMethodThemeApp'));
+  beforeEach(module('methodApp'));
 
   // instantiate service
   var themeSettings;

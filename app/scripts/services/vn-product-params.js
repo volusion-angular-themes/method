@@ -5,32 +5,216 @@ angular.module('Volusion.services')
 
         'use strict';
 
-        var selectedFacets = [];
+        /** http://volusion.apiary-mock.com/api/v1/products/?
+         * categoryIds=categoryIds&
+         * slug=slug
+         * &search=search
+         * &facets=facets
+         * &minPrice=minPrice
+         * &maxPrice=maxPrice
+         * &accessoriesOf=accessoriesOf
+         * &sort=sort
+         * &pageNumber=pageNumber
+         * &pageSize=pageSize
+         */
 
+        var categoryIds = [],    // Container for the category id's to query for
+        facets = [],             // Container for the facets to query for
+        //        currentPageNumber = '',
+        //        nextPageNumber = '',
+        //        previousPageNumber = '',
+        paramsObject = {
+            categoryIds  : '',
+            slug         : '',
+            facets       : '',
+            minPrice     : '',
+            maxPrice     : '',
+            accessoriesOf: '',
+            sort         : '',
+            pageNumber   : '',
+            pageSize     : ''
+        };
+
+        /**
+         * Page number management
+         * - when do I know which page I am currently on? Prolly set in the vnApi response
+         * - when do I update the next / previous pages? Prolly in the vnApi response if I can intercept it there
+         * - how does the category page add this to the request given some basic information
+         * - Have not done any implementation on this since the data set is small right now
+         */
+
+        /**
+         * Sort Management
+         */
+        function setSort(sortString) {
+            paramsObject.sort = sortString;
+        }
+
+        function getSort() {
+            return paramsObject.sort;
+        }
+
+        function removeSort() {
+            paramsObject.sort = '';
+        }
+
+        /**
+         * Accessories Of Management
+         */
+        function setAccessoriesOf(productCode) {
+            paramsObject.accessoriesOf = productCode;
+        }
+
+        function getAccessoriesOf() {
+            return paramsObject.accessoriesOf;
+        }
+
+        function removeAccessoriesOf() {
+            paramsObject.accessoriesOf = '';
+        }
+
+        /**
+         * Price Management
+         */
+        function setMaxPrice(numString) {
+            paramsObject.maxPrice = numString;
+        }
+
+        function getMaxPrice() {
+            return paramsObject.maxPrice;
+        }
+
+        function removeMaxPrice() {
+            paramsObject.maxPrice = '';
+        }
+
+        function setMinPrice(numString) {
+            paramsObject.minPrice = numString;
+        }
+
+        function getMinPrice() {
+            return paramsObject.minPrice;
+        }
+
+        function removeMinPrice() {
+            paramsObject.minPrice = '';
+        }
+
+
+        /**
+         * Search String Management
+         */
+        function updateSearch(string) {
+            paramsObject.search = string;
+        }
+
+        function removeSearch() {
+            paramsObject.search = '';
+        }
+
+        /**
+         * Slug Management
+         */
+        function updateSlug(newSlug) {
+            paramsObject.slug = newSlug;
+        }
+
+        function removeSlug() {
+            paramsObject.slug = '';
+        }
+
+
+        /**
+         * Category Management
+         */
+        function addCategory(id) {
+            categoryIds.push(id);
+            paramsObject.categoryIds = getCategoryString();
+        }
+
+        function getCategoryString() {
+            return categoryIds.join(',');
+        }
+
+        function removeCategory(id) {
+            var index = categoryIds.indewxOf(id);
+            categoryIds.splice(index, 1);
+            paramsObject.categoryIds = getCategoryString();
+        }
+
+
+        /**
+         * Returned Params Object Management
+         */
+
+        function getParamsObject() {
+            return paramsObject;
+        }
+
+        function resetParamsObject() {
+            paramsObject = {
+                categoryIds  : '',
+                slug         : '',
+                facets       : '',
+                minPrice     : '',
+                maxPrice     : '',
+                accessoriesOf: '',
+                sort         : '',
+                pageNumber   : '',
+                pageSize     : ''
+            };
+        }
+
+        /**
+         * Facets Management
+         */
         function addFacet(id) {
-            selectedFacets.push(id);
+            facets.push(id);
+            paramsObject.facets = getFacetString();
         }
 
         function getFacetString() {
             // stringify the facets array and return it.
-            return selectedFacets.join('');
+            return facets.join(',');
         }
 
-        function isFacet(id) {
+        function isFacetSelected(id) {
             //return true if id is in the selectedFacets array, else false
-            return (selectedFacets.indexOf(id) > -1);
+            return (facets.indexOf(id) > -1);
         }
 
         function removeFacet(id) {
-            var index = selectedFacets.indexOf(id);
-            selectedFacets.splice(index, 1);
+            var index = facets.indexOf(id);
+            facets.splice(index, 1);
+            paramsObject.facets = getFacetString();
         }
 
         // Public API here
         return {
-            addFacet      : addFacet,
-            getFacetString: getFacetString,
-            isFacet       : isFacet,
-            removeFacet   : removeFacet
+            addCategory        : addCategory,
+            removeCategory     : removeCategory,
+            addFacet           : addFacet,
+            isFacetSelected    : isFacetSelected,
+            removeFacet        : removeFacet,
+            getParamsObject    : getParamsObject,
+            resetParamsObject  : resetParamsObject,
+            updateSlug         : updateSlug,
+            removeSlug         : removeSlug,
+            updateSearch       : updateSearch,
+            removeSearch       : removeSearch,
+            setMinPrice        : setMinPrice,
+            getMinPrice        : getMinPrice,
+            removeMinPrice     : removeMinPrice,
+            setMaxPrice        : setMaxPrice,
+            getMaxPrice        : getMaxPrice,
+            removeMaxPrice     : removeMaxPrice,
+            setAccessoriesOf   : setAccessoriesOf,
+            getAccessoriesOf   : getAccessoriesOf,
+            removeAccessoriesOf: removeAccessoriesOf,
+            setSort            : setSort,
+            getSort            : getSort,
+            removeSort         : removeSort
         };
     });
+
+

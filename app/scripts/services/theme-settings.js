@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc service
- * @name volusionMethodThemeApp.themeSettings
+ * @name methodApp.themeSettings
  * @description
  * # themeSettings
- * Service in the volusionMethodThemeApp.
+ * Service in the methodApp.
  */
 angular.module('Volusion.services')
     .service('themeSettings', ['vnApi',

@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc filter
- * @name volusionMethodThemeApp.filter:seoFriendly
+ * @name methodApp.filter:seoFriendly
  * @function
  * @description
  * # seoFriendly
- * Filter in the volusionMethodThemeApp.
+ * Filter in the methodApp.
  */
 
 angular.module('Volusion.filters')
