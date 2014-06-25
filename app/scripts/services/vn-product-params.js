@@ -152,6 +152,8 @@ angular.module('Volusion.services')
         }
 
         function resetParamsObject() {
+            categoryIds = [];
+            facets = [];
             paramsObject = {
                 categoryIds  : '',
                 slug         : '',
@@ -179,7 +181,6 @@ angular.module('Volusion.services')
         }
 
         function isFacetSelected(id) {
-            //return true if id is in the selectedFacets array, else false
             return (facets.indexOf(id) > -1);
         }
 
@@ -192,28 +193,29 @@ angular.module('Volusion.services')
         // Public API here
         return {
             addCategory        : addCategory,
-            removeCategory     : removeCategory,
+            getAccessoriesOf   : getAccessoriesOf,
             addFacet           : addFacet,
-            isFacetSelected    : isFacetSelected,
-            removeFacet        : removeFacet,
+            getFacetString     : getFacetString,
+            getMinPrice        : getMinPrice,
+            getMaxPrice        : getMaxPrice,
             getParamsObject    : getParamsObject,
-            resetParamsObject  : resetParamsObject,
-            updateSlug         : updateSlug,
+            getSort            : getSort,
+            isFacetSelected    : isFacetSelected,
             removeSlug         : removeSlug,
-            updateSearch       : updateSearch,
             removeSearch       : removeSearch,
             setMinPrice        : setMinPrice,
-            getMinPrice        : getMinPrice,
             removeMinPrice     : removeMinPrice,
-            setMaxPrice        : setMaxPrice,
-            getMaxPrice        : getMaxPrice,
             removeMaxPrice     : removeMaxPrice,
-            setAccessoriesOf   : setAccessoriesOf,
-            getAccessoriesOf   : getAccessoriesOf,
             removeAccessoriesOf: removeAccessoriesOf,
+            removeCategory     : removeCategory,
+            removeFacet        : removeFacet,
+            removeSort         : removeSort,
+            resetParamsObject  : resetParamsObject,
+            setAccessoriesOf   : setAccessoriesOf,
+            setMaxPrice        : setMaxPrice,
             setSort            : setSort,
-            getSort            : getSort,
-            removeSort         : removeSort
+            updateSearch       : updateSearch,
+            updateSlug         : updateSlug
         };
     });
 
