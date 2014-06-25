@@ -86,19 +86,15 @@ angular.module('Volusion.controllers')
 
 //            $scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
-            $scope.toTrusted = function (htmlCode) {
-                return $sce.trustAsHtml(htmlCode);
-            };
-
             $scope.$watch('product.optionSelection', function (selection, oldSelection) {
 
                 function setAvailabilityMessage() {
-                    var message = product.optionAvailabilityMessages[selection.state];
-                    if (message) {
-                        $scope.availabilityMessage = message.replace('{{available}}', selection.available);
-                    } else {
-                        delete $scope.availabilityMessage;
-                    }
+//                    var message = product.optionAvailabilityMessages[selection.state];
+//                    if (message) {
+//                        $scope.availabilityMessage = message.replace('{{available}}', selection.available);
+//                    } else {
+//                        delete $scope.availabilityMessage;
+//                    }
                 }
 
                 function setSKU() {
@@ -126,9 +122,13 @@ angular.module('Volusion.controllers')
                 }
 
                 function setImage() {
-                    if (selection.images !== oldSelection.images) {
+                    if (oldSelection === undefined || selection.images !== oldSelection.images) {
                         product.image = product.images[selection.images][0];
                     }
+                }
+
+                if (selection === undefined) {
+                    return;
                 }
 
                 setAvailabilityMessage();
