@@ -1,4 +1,4 @@
-//angular.module('volusionMethodThemeApp')
+//angular.module('methodApp')
 //  .provider('translateProvider', function () {
 //
 //    // Private variables

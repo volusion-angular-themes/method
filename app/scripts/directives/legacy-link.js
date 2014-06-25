@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name volusionMethodThemeApp.directive:legacyLink
+ * @name methodApp.directive:legacyLink
  * @description
  * # legacyLink
  */

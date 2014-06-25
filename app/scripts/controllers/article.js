@@ -11,7 +11,6 @@
 angular.module('Volusion.controllers')
     .controller('ArticleCtrl', ['$rootScope', '$scope', '$templateCache', '$routeParams', 'vnApi',
         function ($rootScope, $scope, $templateCache, $routeParams, vnApi) {
-
             'use strict';
 
             var article;
@@ -22,7 +21,7 @@ angular.module('Volusion.controllers')
                 .then(function (response) {
                     $scope.article = response.data;
 
-                    $rootScope.seo = angular.extend($rootScope.seo || {}, article.seo);
+                    $rootScope.seo = angular.extend($rootScope.seo || {}, $scope.article.seo);
                 });
         }
     ]);

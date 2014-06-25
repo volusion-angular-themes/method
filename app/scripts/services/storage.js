@@ -2,12 +2,12 @@
 //
 ///**
 // * @ngdoc service
-// * @name volusionMethodThemeApp.starage
+// * @name methodApp.starage
 // * @description
 // * # starage
-// * Factory in the volusionMethodThemeApp.
+// * Factory in the methodApp.
 // */
-//angular.module('volusionMethodThemeApp')
+//angular.module('methodApp')
 //  .factory('storage', function () {
 //    // Service logic
 //    // ...

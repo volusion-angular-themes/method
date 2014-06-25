@@ -2,7 +2,7 @@
 // Todo: refactor this into an angular provider.
 // Use resources and follow the Volusion.toolboxCommon vnApi
 //
-//angular.module('volusionMethodThemeApp')
+//angular.module('methodApp')
 //  .provider('apiProvider', function () {
 //
 //    // Private variables

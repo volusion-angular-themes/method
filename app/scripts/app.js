@@ -1,6 +1,5 @@
 /*global angular, enquire */
 
-// TODO move the dependency's injected to the place it is needed/used
 angular.module('Volusion.directives', []);
 angular.module('Volusion.filters', []);
 angular.module('Volusion.services', []);
