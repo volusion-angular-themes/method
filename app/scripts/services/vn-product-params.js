@@ -19,21 +19,21 @@ angular.module('Volusion.services')
          */
 
         var categoryIds = [],    // Container for the category id's to query for
-        facets = [],             // Container for the facets to query for
-        //        currentPageNumber = '',
-        //        nextPageNumber = '',
-        //        previousPageNumber = '',
-        paramsObject = {
-            categoryIds  : '',
-            slug         : '',
-            facets       : '',
-            minPrice     : '',
-            maxPrice     : '',
-            accessoriesOf: '',
-            sort         : '',
-            pageNumber   : '',
-            pageSize     : ''
-        };
+            facets = [],             // Container for the facets to query for
+            //        currentPageNumber = '',
+            //        nextPageNumber = '',
+            //        previousPageNumber = '',
+            paramsObject = {
+                categoryIds  : '',
+                slug         : '',
+                facets       : '',
+                minPrice     : '',
+                maxPrice     : '',
+                accessoriesOf: '',
+                sort         : '',
+                pageNumber   : '',
+                pageSize     : ''
+            };
 
         /**
          * Page number management
@@ -128,8 +128,12 @@ angular.module('Volusion.services')
          * Category Management
          */
         function addCategory(id) {
-            categoryIds.push(id);
-            paramsObject.categoryIds = getCategoryString();
+            //
+            if(!categoryIds.indexOf(id) > -1) {
+                categoryIds.push(id);
+                paramsObject.categoryIds = getCategoryString();
+            }
+
         }
 
         function getCategoryString() {
@@ -152,6 +156,8 @@ angular.module('Volusion.services')
         }
 
         function resetParamsObject() {
+            categoryIds = [];
+            facets = [];
             paramsObject = {
                 categoryIds  : '',
                 slug         : '',
@@ -179,7 +185,6 @@ angular.module('Volusion.services')
         }
 
         function isFacetSelected(id) {
-            //return true if id is in the selectedFacets array, else false
             return (facets.indexOf(id) > -1);
         }
 
@@ -192,28 +197,29 @@ angular.module('Volusion.services')
         // Public API here
         return {
             addCategory        : addCategory,
-            removeCategory     : removeCategory,
+            getAccessoriesOf   : getAccessoriesOf,
             addFacet           : addFacet,
-            isFacetSelected    : isFacetSelected,
-            removeFacet        : removeFacet,
+            getFacetString     : getFacetString,
+            getMinPrice        : getMinPrice,
+            getMaxPrice        : getMaxPrice,
             getParamsObject    : getParamsObject,
-            resetParamsObject  : resetParamsObject,
-            updateSlug         : updateSlug,
+            getSort            : getSort,
+            isFacetSelected    : isFacetSelected,
             removeSlug         : removeSlug,
-            updateSearch       : updateSearch,
             removeSearch       : removeSearch,
             setMinPrice        : setMinPrice,
-            getMinPrice        : getMinPrice,
             removeMinPrice     : removeMinPrice,
-            setMaxPrice        : setMaxPrice,
-            getMaxPrice        : getMaxPrice,
             removeMaxPrice     : removeMaxPrice,
-            setAccessoriesOf   : setAccessoriesOf,
-            getAccessoriesOf   : getAccessoriesOf,
             removeAccessoriesOf: removeAccessoriesOf,
+            removeCategory     : removeCategory,
+            removeFacet        : removeFacet,
+            removeSort         : removeSort,
+            resetParamsObject  : resetParamsObject,
+            setAccessoriesOf   : setAccessoriesOf,
+            setMaxPrice        : setMaxPrice,
             setSort            : setSort,
-            getSort            : getSort,
-            removeSort         : removeSort
+            updateSearch       : updateSearch,
+            updateSlug         : updateSlug
         };
     });
 

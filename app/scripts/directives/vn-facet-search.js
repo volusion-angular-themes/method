@@ -26,37 +26,40 @@
  </example>
  */
 angular.module('methodApp')
-    .directive('vnFacetSearch', function () {
-        'use strict';
+    .directive('vnFacetSearch', ['$rootScope', 'vnProductParams',
+        function ($rootScope, vnProductParams) {
+            'use strict';
 
-        return {
-            templateUrl: '/views/partials/vn-facet-search.html',
-            restrict   : 'AE',
-            scope      : {
-                facets    : '='
-            },
-            link       : ['scope', 'vnProductParams', function postLink(scope, vnProductParams) {
+            return {
+                templateUrl: '/views/partials/vn-facet-search.html',
+                restrict   : 'AE',
+                scope      : {
+                    facets: '='
+                },
+                link       : function postLink(scope) {
 
-                scope.$watch('facets', function (facets) {
-                    scope.facets = facets;
-                });
+                    scope.$watch('facets', function (facets) {
+                        scope.facets = facets;
+                    });
 
-                console.log(vnProductParams);
+                    scope.selectProperty = function (facet) {
+                        return vnProductParams.isFacetSelected(facet.id);
+                    };
 
-                scope.selectedFacets = [];
+                    scope.refineFacetSearch = function (facet) {
 
-                scope.refineFacetSearch = function (facet) {
+                        // Adding / Removeing facet to selectedFacets
+                        if (!vnProductParams.isFacetSelected(facet.id)) {
+                            vnProductParams.addFacet(facet.id);
+//                            console.log('adding facet: ', vnProductParams.getParamsObject());
+                        } else {
+                            vnProductParams.removeFacet(facet.id);
+//                            console.log('removing facet: ', vnProductParams.getParamsObject());
+                        }
 
-                    // Add / Remove facet to selectedFacets
-                    if (scope.selectedFacets.indexOf(facet) === -1) {
-                        scope.selectedFacets.push(facet);
-                        console.log(scope.selectedFacets);
-                    } else {
-                        var index = scope.selectedFacets.indexOf(facet);
-                        scope.selectedFacets.splice(index, 1);
-                        console.log(scope.selectedFacets);
-                    }
-                };
-            }]
-        };
-    });
+                        // Broadcast an update to whomever is subscribed.
+                        $rootScope.$broadcast('FacetedSearch.update');
+                    };
+                }
+            };
+        }]);

@@ -24,19 +24,25 @@
  */
 
 angular.module('methodApp')
-    .directive('vnCategorySearch', function () {
+    .directive('vnCategorySearch', ['$rootScope', 'vnProductParams', function ($rootScope, vnProductParams) {
         'use strict';
         return {
             templateUrl: '/views/partials/vn-category-search.html',
-            restrict: 'AE',
-            scope: {
+            restrict   : 'AE',
+            scope      : {
                 categories: '='
             },
-            link    : function postLink(scope) {
+            link       : function postLink(scope) {
+                vnProductParams.isFacetSelected(11);
+                scope.updateCategory = function (category) {
+                    vnProductParams.addCategory(category.id);
+                    $rootScope.$broadcast('FacetedSearch.update');
+                };
+
                 scope.$watch('categories', function (categories) {
-//                    console.log(categories[0].subCategories);
+
                     // Gaurd against the error message for while categories is not defined.
-                    if( !categories || !categories[0]) {
+                    if (!categories || !categories[0]) {
                         return;
                     } else {
                         // Navigating / parsing the api response to get the data
@@ -48,4 +54,4 @@ angular.module('methodApp')
                 });
             }
         };
-    });
+    }]);
