@@ -42,21 +42,50 @@
                 </a>
             </div>
             <div class="col-md-8 hidden-xs hidden-sm">
-                <div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'"
-                     ng-click="navCollapsed=true">
+                <div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
 
                     <!-- Navigation -->
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--<li class="dropdown" ng-repeat="item in mainNav.data">-->
+                            <!--<a class="th-dropdown-toggle"-->
+                               <!--href="c/{{ item.slug }}">{{item.name}}</a>-->
+                            <!--<span>-->
+                                <!--<a href="" ng-if="item.subCategories" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">-->
+                                    <!--<span class="caret"></span>-->
+                                <!--</a>-->
+                                <!--<ul class="dropdown-menu" ng-if="item.subCategories.length">-->
+                                    <!--<li ng-repeat="subCategory in item.subCategories">-->
+                                        <!--<a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+
+                    <!-- Categories -->
                     <ul class="nav navbar-nav">
-                        <li class="dropdown" ng-repeat="item in mainNav.data">
-                            <a class="th-dropdown-toggle"
-                               href="c/{{ item.slug }}">{{item.name}}</a>
+                        <li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="visibility: hidden;">
+                            <a class="navbar-link" href="c/{{ category.slug }}">{{category.name}}</a>
                             <span>
-                                <a href="" ng-if="item.subCategories" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu" ng-if="item.subCategories.length">
-                                    <li ng-repeat="subCategory in item.subCategories">
-                                        <a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>
+                                <ul class="dropdown-menu" data-ng-if="category.subCategories.length">
+                                    <li data-ng-repeat="subCategory in category.subCategories">
+                                        <a  href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </li>
+                        <li class="dropdown" ng-show="displaySmartNavMoreMenuItem">
+                            <a href="#" class="navbar-link" data-translate=" index.smartNavMoreLinkText">More</a>
+                            <span>
+                                <a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-ng-repeat="category in smartNavMoreCategories">
+                                        <a class="navbar-link" href="c/{{ category.slug }}">{{category.name}}</a>
                                     </li>
                                 </ul>
                             </span>

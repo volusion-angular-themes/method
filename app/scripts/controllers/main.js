@@ -1,8 +1,8 @@
 /*global angular, $, document */
 
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'vnApi', 'themeSettings',
-        function ($scope, $rootScope, $location, vnApi, themeSettings) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
+        function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {
 
             'use strict';
 
@@ -30,10 +30,76 @@ angular.module('methodApp')
 //                    $rootScope.seo = angular.extend($rootScope.seo, $scope.config.seo);
 //                }
 //            });
-            //this.getMenuItems(); // Is a call to get the categories.Was at bottom but can be prunned
-//
-//          // Handle Navigation
-            $scope.mainNav = vnApi.Nav().get({navId: 1});
+
+            $scope.isPrimaryNavReady = false;
+
+            function buildSmartNav(cssClassForTopLevelMenuItems) {
+                var itemIndex = 0,
+                    firstItemTopPosition = 0,
+                    indexPositionWhereItemWrapped = 0,
+                    newSmartNavCategories = [];
+
+                angular.forEach(angular.element('.' + cssClassForTopLevelMenuItems), function (value) {
+                    // Get top position of first item
+                    if (itemIndex === 0) {
+                        firstItemTopPosition = angular.element(value).position().top;
+                    }
+
+                    if (angular.element(value).position().top !== firstItemTopPosition) {
+                        indexPositionWhereItemWrapped = itemIndex;
+                        return false;
+                    }
+
+                    itemIndex++;
+                });
+
+                if (indexPositionWhereItemWrapped !== 0) {
+                    $scope.displaySmartNavMoreMenuItem = true;
+                    $scope.smartNavMoreCategories = [];
+
+                    angular.forEach($scope.categories, function (value, index) {
+                        if (index >= (indexPositionWhereItemWrapped - 1)) {
+                            $scope.smartNavMoreCategories.push(value);
+                        } else {
+                            newSmartNavCategories.push(value);
+                        }
+                    });
+
+                    $scope.smartNavCategories = newSmartNavCategories;
+                }
+
+                angular.element('.' + cssClassForTopLevelMenuItems).css('visibility', 'visible');
+            }
+
+            $rootScope.windowWidth = $window.outerWidth;
+            angular.element($window).bind('resize', function () {
+                $rootScope.windowWidth = $window.outerWidth;
+                $rootScope.$apply('windowWidth');
+            });
+
+            $rootScope.$watch('windowWidth', function () {
+                $scope.displaySmartNavMoreMenuItem = false;
+                angular.element('.nav-top-level-menu-items').css('visibility', 'hidden');
+
+                $scope.smartNavCategories = $scope.categories;
+
+                $timeout(function () {
+                    buildSmartNav('nav-top-level-menu-items');
+                }, 0);
+            });
+
+            // Handle Navigation
+            vnApi.Nav().get({ navId: 1 }).$promise
+                .then(function (response) {
+                    $scope.smartNavCategories = $scope.categories = response.data;
+
+                    $timeout(function () {
+                        buildSmartNav('nav-top-level-menu-items');
+                    }, 0);
+
+                }, function (error) {
+                    console.log('Error: ' + error);
+                });
 
             // Handle the configuration data
             $scope.config = vnApi.Configuration().get();
