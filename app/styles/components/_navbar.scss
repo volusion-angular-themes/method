@@ -59,7 +59,6 @@
                     position : relative;
                     display  : inline-block;
                     padding  : 10px 15px;
-                    display  : inline-block;
                 }
 
                 > span {
@@ -130,6 +129,7 @@
             /*position: static;
                   float: left;
                   margin: 16px 0 0 11px;*/
+            margin-left: 0;
         }
 
         .navbar-toggle {
@@ -142,8 +142,8 @@
             margin-left : 14px;
 
             > li {
-                padding-top    : 38px;
-                padding-bottom : 38px;
+                padding-top    : 36px;
+                padding-bottom : 35px;
                 position       : relative;
 
                 &:first-child {
@@ -154,7 +154,7 @@
 
                 > span {
                     > a {
-                        padding : 2px 7px 5px 13px;
+                        padding : 2px 13px 5px 0px;
 
                         > span.caret {
                             margin-top : -4px;

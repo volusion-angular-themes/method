@@ -5,7 +5,7 @@ describe('Filter: seoFriendly', function () {
 
     'use strict';
 
-    beforeEach(module('volusion.filters'));
+    beforeEach(module('Volusion.filters'));
 
     it('trims non-alphanumeric characters from the beginning of the input', inject(function (seoFriendlyFilter) {
         expect(seoFriendlyFilter('% % - ( & )foo')).to.eq('foo');

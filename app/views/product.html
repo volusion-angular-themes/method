@@ -100,34 +100,27 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 th-qty-wrap">
-                            <div class="visible-xs">
-                                <div class="input-group th-qty-counter">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="cartItem.quantity === 1" type="button">-</button>
-                      </span>
-                                    <input type="text" class="form-control th-qty-counter__input" data-ng-model="cartItem.quantity" placeholder="1">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
-                      </span>
-                                </div>
-                            </div>
-                            <div class="hidden-xs">
-                                <div class="input-group th-qty-counter">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="decrementQty()" data-ng-disabled="cartItem.quantity === 1" type="button">-</button>
-                      </span>
-                                    <input type="text" class="form-control th-qty-counter__input" data-ng-model="cartItem.quantity" placeholder="1">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default th-qty-counter__btn" data-ng-click="incrementQty()" type="button">+</button>
-                      </span>
-                                </div>
+                            <div data-vn-block="th-qty-counter" class="input-group">
+                                <span class="input-group-btn">
+                                    <button data-vn-element="btn" class="btn btn-default"
+                                            data-ng-click="decrementQty()"
+                                            data-ng-disabled="cartItem.quantity === 1">-</button>
+                                </span>
+                                <input data-vn-element="input" class="form-control"
+                                       data-ng-model="cartItem.quantity"
+                                       placeholder="1">
+                                <span class="input-group-btn">
+                                    <button data-vn-element="btn" class="btn btn-default"
+                                            data-ng-click="incrementQty()"
+                                            data-ng-disabled="product.optionSelection.available === 0">+</button>
+                                </span>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-8 th-add-to-cart">
                             <button class="btn btn-primary btn-lg btn-block"
                                     data-translate="product.addToCart"
                                     data-ng-click="addToCart()"
-                                    data-ng-disabled="!isAddToCartEnabled"
+                                    data-ng-disabled="cartItem.quantity === 0"
                                     data-analytics-category="element click"
                                     data-analytics-label="Add to Cart"
                                     data-analytics-location="body-product"

@@ -1,8 +1,8 @@
-/*global angular, console */
+/*global angular */
 
 angular.module('Volusion.controllers')
-    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$sce', '$location', '$routeParams',
-        function ($rootScope, $scope, vnApi, $sce, $location, $routeParams) {
+    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$sce', '$location', '$routeParams', '$anchorScroll',
+        function ($rootScope, $scope, vnApi, $sce, $location, $routeParams, $anchorScroll) {
 
             'use strict';
 
@@ -24,11 +24,10 @@ angular.module('Volusion.controllers')
                 relatedProducts: {
                     active: true
                 },
-                accessories: {
+                accessories    : {
                     active: false
                 }
             };
-
 
             function setDefaults() {
                 product.optionSelection = { images: 'default' };
@@ -36,7 +35,7 @@ angular.module('Volusion.controllers')
                 cartItem.options = cartItem.options || {};
             }
 
-            vnApi.Product().get({code: 'ah-chairbamboo'}).$promise
+            vnApi.Product().get({code: $routeParams.slug }).$promise
                 .then(function (response) {
                     $scope.product = response.data;
 
@@ -45,9 +44,9 @@ angular.module('Volusion.controllers')
 
                     // Sharing
                     $scope.product.sharing = {
-                        facebook: 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
-                        twitter: 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
-                        tumblr: 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
+                        facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
+                        twitter   : 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
+                        tumblr    : 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
                         googlePlus: 'https://plus.google.com/share?url=' + fullUrl
                     };
 
@@ -60,17 +59,8 @@ angular.module('Volusion.controllers')
 
                     setDefaults();
 
-
-
-                    console.log('route params: ', $routeParams);
                 })
                 .then(function () {
-
-                    // TODO: Figure out what will be the right implementation
-                    // Ken's implementation
-//                    var categoryIds = product.categories.map(function (category) {
-//                        return category.id;
-//                    }).join();
 
                     // According to Kevin we should query only the top category
                     var categoryIds = product.categories[0].id;
@@ -88,114 +78,100 @@ angular.module('Volusion.controllers')
                         });
                 });
 
-//        $scope.$on('$stateChangeSuccess', function () {
-//            $location.hash('top');
-//            $anchorScroll();
-//            $location.hash('');
-//        });
-//
+            $scope.$on('$stateChangeSuccess', function () {
+                $location.hash('top');
+                $anchorScroll();
+                $location.hash('');
+            });
 
-//            var product = $scope.product = productResponse.data;
-//            var cartItem = $scope.cartItem = product.cartItem;
-//
-//        angular.extend($scope.seo, product.seo);
-//        $scope.sceDescriptions = angular.copy(product.descriptions);
-//
-//            $scope.product.quantity = 1;
+//            $scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
             $scope.toTrusted = function (htmlCode) {
                 return $sce.trustAsHtml(htmlCode);
             };
-//
-//        function setDefaults() {
-//            product.optionSelection = { images: 'default' };
-//            product.image = product.images.default[0];
-//            cartItem.options = cartItem.options || {};
-//        }
-//        setDefaults();
-//
-//        $scope.$watch('product.optionSelection', function(selection, oldSelection) {
-//            function setSKU(sku) {
-//                if (typeof sku !== 'undefined') {
-//                    cartItem.sku = sku;
-//                } else {
-//                    delete cartItem.sku;
-//                }
-//            }
-//            function setAvailabilityMessage(message, available) {
-//                if (message) {
-//                    $scope.availabilityMessage = message.replace('{{available}}', available);
-//                } else {
-//                    delete $scope.availabilityMessage;
-//                }
-//            }
-//            function setImage() {
-//                if (selection.images !== oldSelection.images) {
-//                    product.image = product.images[selection.images][0];
-//                }
-//            }
-//            setSKU(selection.sku);
-//            setAvailabilityMessage(product.optionAvailabilityMessages[selection.state], selection.available);
-//            setImage();
-//        });
-//
-//        // Carousel
-//        $scope.interval = 4000;
-//
-//        // Accordion panels
-//        $scope.isopen1 = true;
-//
-//        // Related Products
-//        api.relatedProducts.get({ code: $stateParams.productCode, pageNumber: 1, pageSize: 4 }).then(function (response) {
-//            $scope.relatedProducts = response.data;
-//        });
-//
-//        api.accessories.get({ code: $stateParams.productCode, pageNumber: 1, pageSize: 4 }).then(function (response) {
-//            $scope.accessories = response.data;
-//        });
-//
-//        // Reviews
-//        // TODO: Need to validate that reviews are the correct viewmodel
-//        api.reviews.get({ code: $stateParams.productCode }).then(function (response) {
-//            $scope.ratingsAndReviews = response;
-//        });
-//
-            vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
+
+            $scope.$watch('product.optionSelection', function (selection, oldSelection) {
+
+                function setAvailabilityMessage() {
+                    var message = product.optionAvailabilityMessages[selection.state];
+                    if (message) {
+                        $scope.availabilityMessage = message.replace('{{available}}', selection.available);
+                    } else {
+                        delete $scope.availabilityMessage;
+                    }
+                }
+
+                function setSKU() {
+                    var sku = selection.sku;
+                    if (sku !== null && sku !== undefined) {
+                        cartItem.sku = sku;
+                    } else {
+                        delete cartItem.sku;
+                    }
+                }
+
+                function setQuantity() {
+                    if (!cartItem.hasOwnProperty('sku')) {
+                        cartItem.quantity = 0;
+                        selection.available = 0;
+                        return;
+                    }
+                    if (selection.available < cartItem.quantity) {
+                        cartItem.quantity = selection.available;
+                    }
+                    if (cartItem.quantity === 0 && selection.available > 0) {
+                        cartItem.quantity = 1;
+                    }
+                    selection.available -= cartItem.quantity;
+                }
+
+                function setImage() {
+                    if (selection.images !== oldSelection.images) {
+                        product.image = product.images[selection.images][0];
+                    }
+                }
+
+                setAvailabilityMessage();
+                setSKU();
+                setQuantity();
+                setImage();
+            });
+
+            // Reviews
+            vnApi.Review().get({ code: $routeParams.slug }).$promise
                 .then(function (response) {
                     $scope.ratingsAndReviews = response;
                 });
 
+            function modifyQuantity(amount) {
+                cartItem.quantity += amount;
+                var selection = product.optionSelection;
+                if (selection) {
+                    selection.available -= amount;
+                }
+            }
+
             $scope.decrementQty = function () {
-                cartItem.quantity--;
+                modifyQuantity(-1);
             };
 
             $scope.incrementQty = function () {
-                cartItem.quantity++;
+                modifyQuantity(1);
             };
+
 //
-//        // Add to Cart
-//        $scope.isAddToCartEnabled = false;
-//        $scope.$watch('cartItem.sku', function(sku) {
-//            $scope.isAddToCartEnabled = !!sku;
-//        });
-//
-//        $scope.addToCart = function () {
+//            // Add to Cart
 //            $scope.isAddToCartEnabled = false;
-//            $rootScope.$emit('ADD_TO_CART', cartItem);
-//        };
+//            $scope.$watch('cartItem.sku', function(sku) {
+//                $scope.isAddToCartEnabled = !!sku;
+//            });
 //
-//        $rootScope.$on('ITEM_ADDED_TO_CART', function() {
-//            $scope.isAddToCartEnabled = true;
-//        });
+//            $scope.addToCart = function () {
+//                $scope.isAddToCartEnabled = false;
+//                $rootScope.$emit('ADD_TO_CART', cartItem);
+//            };
 //
-//        var fullUrl = $location.absUrl(),
-//            pageTitle = $scope.seo.metaTagTitle;
-//
-//        // Sharing
-//        $scope.product.sharing = {
-//            facebook: 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
-//            twitter: 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
-//            tumblr: 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
-//            googlePlus: 'https://plus.google.com/share?url=' + fullUrl
-//        };
+//            $rootScope.$on('ITEM_ADDED_TO_CART', function() {
+//                $scope.isAddToCartEnabled = true;
+//            });
         }]);
