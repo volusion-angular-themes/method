@@ -2,10 +2,45 @@ angular.module('methodApp')
     .factory('vnProductParams', function () {
         'use strict';
 
-        var selectedFacets = [];
+        /** http://volusion.apiary-mock.com/api/v1/products/?
+         * categoryIds=categoryIds&
+         * slug=slug
+         * &search=search
+         * &facets=facets
+         * &minPrice=minPrice
+         * &maxPrice=maxPrice
+         * &accessoriesOf=accessoriesOf
+         * &sort=sort
+         * &pageNumber=pageNumber
+         * &pageSize=pageSize
+         */
+
+        var categoryIds = [],    // Needs to return a comma separated string for the query param
+            slug = '',
+            search = '',
+            facets = [],// Needs to return a comma separated string for the query param
+            minPrice = '',
+            maxPrice = '',
+            accessoriesOf = '', // The product-code & it returns products that are it's accessories
+            sort = '',     // Sort order keyword of either relevance, lowest price, highest price, newest, oldest, or popularity
+            pageNumber = '', // If there are 10 pages for this query the page number we want to retrieve
+            pageSize = '',    // the number of products to be returned for this query
+            paramsObject = {
+                categoryIds: '',
+                slug: '',
+                facets: '',
+                minPrice: '',
+                maxPrice: '',
+                accessoriesOf: '',
+                sort: '',
+                pageNumber: '',
+                pageSize: ''
+            };
+
 
         function addFacet(id) {
             selectedFacets.push(id);
+            paramsObject.facets = getFacetString();
         }
 
         function getFacetString() {
@@ -26,8 +61,10 @@ angular.module('methodApp')
         // Public API here
         return {
             addFacet      : addFacet,
-            getFacetString: getFacetString,
             isFacet       : isFacet,
             removeFacet   : removeFacet
+            getParamsObject: getParamsObject
         };
     });
+
+

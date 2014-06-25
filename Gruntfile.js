@@ -168,10 +168,10 @@ module.exports = function (grunt) {
         // Automatically inject Bower components into the app
         'wiredep'    : {
             target: {
-                //dependencies: true,
-                //devDependencies: true,
+                dependencies: true,
+                devDependencies: false,
                 src       : ['<%= yeoman.app %>/index.html'],
-                ignorePath: '<%= yeoman.app %>/',
+                ignorePath: '<%= yeoman.app %>',
                 exclude   : ['bootstrap.js']
             }
         },

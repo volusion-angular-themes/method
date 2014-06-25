@@ -25,7 +25,7 @@ describe('Directive: legacyLink', function () {
     it('goes to the specified location on click', inject(function ($window) {
         var assign = sinon.stub($window.location, 'assign');
         element.click();
-        expect(assign).to.have.been.calledOnce;
+        expect(assign).to.have.been.calledOnce();
         expect(assign).to.have.been.calledWithMatch(/\/foo$/);
         $window.location.assign.restore();
     }));
