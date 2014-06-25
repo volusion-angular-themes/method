@@ -15,9 +15,13 @@ describe('Filter: html', function () {
     }));
     /*jshint camelcase: true */
 
-    function compile(content) {
+    function compile(content, withoutFilter) {
         scope.content = content;
-        var element = angular.element('<div data-ng-bind-html="content | html" />');
+        var element,
+            htmlTemplate = withoutFilter ? '<div data-ng-bind-html="content" />' : '<div data-ng-bind-html="content | html" />';
+
+        element = angular.element(htmlTemplate);
+
         element = $compile(element)(scope);
         scope.$digest();
         return element;
@@ -25,10 +29,15 @@ describe('Filter: html', function () {
 
     it('allows unsafe html (button) to be bound', function () {
         var htmlContent = '<div><span>foo</span><button>bar</button></div>',
-            elem;
+            elem,
+            elemWithoutFilter;
+
+        elemWithoutFilter = compile(htmlContent, true);
+        expect(elemWithoutFilter.html()).toNotEqual(htmlContent);
+
 
         elem = compile(htmlContent);
-        expect(elem.html()).toBe(htmlContent);
+        expect(elem.html()).toEqual(htmlContent);
     });
 
     it('binds empty string if content is undefined', function () {
