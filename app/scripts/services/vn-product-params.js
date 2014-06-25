@@ -19,21 +19,21 @@ angular.module('Volusion.services')
          */
 
         var categoryIds = [],    // Container for the category id's to query for
-        facets = [],             // Container for the facets to query for
-        //        currentPageNumber = '',
-        //        nextPageNumber = '',
-        //        previousPageNumber = '',
-        paramsObject = {
-            categoryIds  : '',
-            slug         : '',
-            facets       : '',
-            minPrice     : '',
-            maxPrice     : '',
-            accessoriesOf: '',
-            sort         : '',
-            pageNumber   : '',
-            pageSize     : ''
-        };
+            facets = [],             // Container for the facets to query for
+            //        currentPageNumber = '',
+            //        nextPageNumber = '',
+            //        previousPageNumber = '',
+            paramsObject = {
+                categoryIds  : '',
+                slug         : '',
+                facets       : '',
+                minPrice     : '',
+                maxPrice     : '',
+                accessoriesOf: '',
+                sort         : '',
+                pageNumber   : '',
+                pageSize     : ''
+            };
 
         /**
          * Page number management
@@ -128,8 +128,12 @@ angular.module('Volusion.services')
          * Category Management
          */
         function addCategory(id) {
-            categoryIds.push(id);
-            paramsObject.categoryIds = getCategoryString();
+            //
+            if(!categoryIds.indexOf(id) > -1) {
+                categoryIds.push(id);
+                paramsObject.categoryIds = getCategoryString();
+            }
+
         }
 
         function getCategoryString() {
