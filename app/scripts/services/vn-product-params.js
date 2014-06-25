@@ -18,16 +18,11 @@ angular.module('Volusion.services')
          * &pageSize=pageSize
          */
 
-        var categoryIds = [],    // Needs to return a comma separated string for the query param
-        slug = '',
-        search = '',
-        facets = [],// Needs to return a comma separated string for the query param
-        minPrice = '',
-        maxPrice = '',
-        accessoriesOf = '', // The product-code & it returns products that are it's accessories
-        sort = '',     // Sort order keyword of either relevance, lowest price, highest price, newest, oldest, or popularity
-        pageNumber = '', // If there are 10 pages for this query the page number we want to retrieve
-        pageSize = '',    // the number of products to be returned for this query
+        var categoryIds = [],    // Container for the category id's to query for
+        facets = [],             // Container for the facets to query for
+        //        currentPageNumber = '',
+        //        nextPageNumber = '',
+        //        previousPageNumber = '',
         paramsObject = {
             categoryIds  : '',
             slug         : '',
@@ -40,9 +35,97 @@ angular.module('Volusion.services')
             pageSize     : ''
         };
 
+        /**
+         * Page number management
+         * - when do I know which page I am currently on? Prolly set in the vnApi response
+         * - when do I update the next / previous pages? Prolly in the vnApi response if I can intercept it there
+         * - how does the category page add this to the request given some basic information
+         * - Have not done any implementation on this since the data set is small right now
+         */
 
         /**
-         * Category functionality
+         * Sort Management
+         */
+        function setSort(sortString) {
+            paramsObject.sort = sortString;
+        }
+
+        function getSort() {
+            return paramsObject.sort;
+        }
+
+        function removeSort() {
+            paramsObject.sort = '';
+        }
+
+        /**
+         * Accessories Of Management
+         */
+        function setAccessoriesOf(productCode) {
+            paramsObject.accessoriesOf = productCode;
+        }
+
+        function getAccessoriesOf() {
+            return paramsObject.accessoriesOf;
+        }
+
+        function removeAccessoriesOf() {
+            paramsObject.accessoriesOf = '';
+        }
+
+        /**
+         * Price Management
+         */
+        function setMaxPrice(numString) {
+            paramsObject.maxPrice = numString;
+        }
+
+        function getMaxPrice() {
+            return paramsObject.maxPrice;
+        }
+
+        function removeMaxPrice() {
+            paramsObject.maxPrice = '';
+        }
+
+        function setMinPrice(numString) {
+            paramsObject.minPrice = numString;
+        }
+
+        function getMinPrice() {
+            return paramsObject.minPrice;
+        }
+
+        function removeMinPrice() {
+            paramsObject.minPrice = '';
+        }
+
+
+        /**
+         * Search String Management
+         */
+        function updateSearch(string) {
+            paramsObject.search = string;
+        }
+
+        function removeSearch() {
+            paramsObject.search = '';
+        }
+
+        /**
+         * Slug Management
+         */
+        function updateSlug(newSlug) {
+            paramsObject.slug = newSlug;
+        }
+
+        function removeSlug() {
+            paramsObject.slug = '';
+        }
+
+
+        /**
+         * Category Management
          */
         function addCategory(id) {
             categoryIds.push(id);
@@ -61,7 +144,7 @@ angular.module('Volusion.services')
 
 
         /**
-         * The Params Object Functionality
+         * Returned Params Object Management
          */
 
         function getParamsObject() {
@@ -83,7 +166,7 @@ angular.module('Volusion.services')
         }
 
         /**
-         * Facets functionality
+         * Facets Management
          */
         function addFacet(id) {
             facets.push(id);
@@ -108,13 +191,29 @@ angular.module('Volusion.services')
 
         // Public API here
         return {
-            addCategory      : addCategory,
-            removeCategory   : removeCategory,
-            addFacet         : addFacet,
-            isFacetSelected  : isFacetSelected,
-            removeFacet      : removeFacet,
-            getParamsObject  : getParamsObject,
-            resetParamsObject: resetParamsObject
+            addCategory        : addCategory,
+            removeCategory     : removeCategory,
+            addFacet           : addFacet,
+            isFacetSelected    : isFacetSelected,
+            removeFacet        : removeFacet,
+            getParamsObject    : getParamsObject,
+            resetParamsObject  : resetParamsObject,
+            updateSlug         : updateSlug,
+            removeSlug         : removeSlug,
+            updateSearch       : updateSearch,
+            removeSearch       : removeSearch,
+            setMinPrice        : setMinPrice,
+            getMinPrice        : getMinPrice,
+            removeMinPrice     : removeMinPrice,
+            setMaxPrice        : setMaxPrice,
+            getMaxPrice        : getMaxPrice,
+            removeMaxPrice     : removeMaxPrice,
+            setAccessoriesOf   : setAccessoriesOf,
+            getAccessoriesOf   : getAccessoriesOf,
+            removeAccessoriesOf: removeAccessoriesOf,
+            setSort            : setSort,
+            getSort            : getSort,
+            removeSort         : removeSort
         };
     });
 
