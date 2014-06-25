@@ -159,18 +159,19 @@ angular.module('Volusion.controllers')
                 modifyQuantity(1);
             };
 
-//
-//            // Add to Cart
-//            $scope.isAddToCartEnabled = false;
+
+            // Add to Cart
+            $scope.isAddToCartEnabled = false;
+
 //            $scope.$watch('cartItem.sku', function(sku) {
 //                $scope.isAddToCartEnabled = !!sku;
 //            });
-//
+
 //            $scope.addToCart = function () {
 //                $scope.isAddToCartEnabled = false;
 //                $rootScope.$emit('ADD_TO_CART', cartItem);
 //            };
-//
+
 //            $rootScope.$on('ITEM_ADDED_TO_CART', function() {
 //                $scope.isAddToCartEnabled = true;
 //            });
