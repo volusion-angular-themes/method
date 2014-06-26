@@ -1,6 +1,3 @@
-/* global console */
-
-
 /**
  * @ngdoc directive
  * @name Volusion.methodApp.directive:vnFacetSearch
@@ -58,7 +55,7 @@ angular.module('methodApp')
                         }
 
                         // Broadcast an update to whomever is subscribed.
-                        $rootScope.$broadcast('FacetedSearch.update');
+                        $rootScope.$broadcast('ProductSearch.facetsUpdated');
                     };
                 }
             };

@@ -33,12 +33,13 @@ angular.module('methodApp')
                 categories: '='
             },
             link       : function postLink(scope) {
-                vnProductParams.isFacetSelected(11);
+                // Categories use this to update the search params.
                 scope.updateCategory = function (category) {
                     vnProductParams.addCategory(category.id);
-                    $rootScope.$broadcast('FacetedSearch.update');
+                    $rootScope.$broadcast('ProductSearch.categoriesUpdated', { categoryId: category.id });
                 };
 
+                // Have to do this to listen for the data returned async
                 scope.$watch('categories', function (categories) {
 
                     // Gaurd against the error message for while categories is not defined.

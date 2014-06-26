@@ -129,7 +129,7 @@ angular.module('Volusion.services')
          */
         function addCategory(id) {
             //
-            if(!categoryIds.indexOf(id) > -1) {
+            if(categoryIds.indexOf(id) < 0) {
                 categoryIds.push(id);
                 paramsObject.categoryIds = getCategoryString();
             }

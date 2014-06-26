@@ -31,27 +31,34 @@ angular.module('methodApp')
             /**
              * The 'main' part of the controller lives below here.
              * - set up all the $scope properties
-             * - declare scope level functionality (listeners erc)
+             * - declare scope level functionality (listeners etc)
              */
             // TODO: refactor this into a service and use that service where it has access to the directive in the header.
             $rootScope.seo = {};
             $scope.currentCategory = {};
 
 
-            // Load when the controller is activated.
+            // Load the url category when the controller is activated.
             getCategory($routeParams.slug);
 //            queryProducts();
 
-            // Listen for facetd search updates
-            $rootScope.$on('FacetedSearch.update', function () {
-                console.log('heard FacetedSearch.update message');
+            // Listen for faceted search updates
+            $rootScope.$on('ProductSearch.facetsUpdated', function () {
+//                console.log('heard FacetedSearch.update message');
                 queryProducts();
+            });
+
+            // Listen for Sub Category updated
+            $rootScope.$on('ProductSearch.categoriesUpdated', function (evt, args) {
+//                console.log('evt', evt);
+//                console.log('args', args);
+                getCategory(args.caegorytId);
             });
 
             // Clean up before this controller is destroyed
             $scope.$on('$destroy', function cleanUp() {
-                console.log('CategoryCtrl is destroyed');
+//                console.log('CategoryCtrl is destroyed');
                 vnProductParams.resetParamsObject();
-            })
+            });
 
         }]);
