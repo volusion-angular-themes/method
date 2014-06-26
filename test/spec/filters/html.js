@@ -42,7 +42,7 @@ describe('Filter: html', function () {
 
     it('binds empty string if content is undefined', function () {
         var $elem = compile();
-        expect($elem.html()).toBeEmpty();
+        expect($elem.html()).toBe('');
     });
 
 });
