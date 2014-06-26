@@ -1,19 +1,40 @@
 'use strict';
 
-module.exports = ['$scope', function($scope) {
+module.exports = [
+  '$rootScope',
+  '$scope',
+  function(
+    $rootScope,
+    $scope
+  ) {
 
   $scope.onOptionChanged = function(option, item) {
-    $scope.cartItem.options[option.id] = item.id;
-    preserveSubOptions([], $scope.product.options);
+    $scope.saveTo[option.id] = item.id;
+    preserveSubOptions();
+    $rootScope.$emit('VN_PRODUCT_SELECTED', angular.extend({},
+      {
+        product: $scope.product,
+        option: option,
+        item: item,
+        isValid: verifyRequiredOptionsAreSelected($scope.product.options)
+      },
+      buildSelection()
+    ));
   };
 
-  function preserveSubOptions(selections, options) {
+  function preserveSubOptions() {
+    traverseSelectedOptions($scope.product.options, null, function(option, item) {
+      option.selected = item.id;
+    });
+  }
+
+  function traverseSelectedOptions(options, filter, callback) {
     if (!options) {
       return;
     }
-    var saveOptions = $scope.cartItem.options;
+    filter = filter || function() { return true; };
     var product = $scope.product;
-    var optionSelections = product.optionSelections;
+    var saveTo = $scope.saveTo;
     angular.forEach(options, function(option) {
       var itemKeys = option.items;
       if (!itemKeys) {
@@ -22,18 +43,12 @@ module.exports = ['$scope', function($scope) {
       for (var i = 0, len = itemKeys.length; i < len; i++) {
         var itemKey = itemKeys[i];
         var item = product.optionItems[itemKey];
-        if (saveOptions.hasOwnProperty(option.id) && saveOptions[option.id] === item.id) {
-          selections.push([option.id, item.id].join(':'));
-          var selectionKey = selections.join('|');
-          option.selected = itemKey;
-          product.optionSelection = angular.extend(
-            {},
-            optionSelections.template,
-            optionSelections[selectionKey]
-          );
-          options = option.options;
-          if (options) {
-            preserveSubOptions(selections, options);
+        if (saveTo.hasOwnProperty(option.id) && saveTo[option.id] === item.id) {
+          if (filter(option)) {
+            callback(option, item);
+          }
+          if (option.options) {
+            traverseSelectedOptions(option.options, filter, callback);
           }
           break;
         }
@@ -41,9 +56,40 @@ module.exports = ['$scope', function($scope) {
     });
   }
 
+  function buildSelection() {
+    var selections = [];
+    var filter = function(option) {
+      return option.isComputedInSelection;
+    };
+    traverseSelectedOptions($scope.product.options, filter, function(option, item) {
+      selections.push([option.id, item.id].join(':'));
+    });
+    var optionSelections = $scope.product.optionSelections;
+    return angular.extend({},
+      optionSelections.template,
+      optionSelections[selections.join('|')]
+    );
+  }
+
+  function verifyRequiredOptionsAreSelected(options) {
+    if (!options) {
+      return true;
+    }
+    for (var i = 0, len = options.length; i < len; i++) {
+      var option = options[i];
+      if (option.isRequired && !option.hasOwnProperty('selected')) {
+        return false;
+      }
+      if (verifyRequiredOptionsAreSelected(option.options) === false) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   $scope.onCheckboxClicked = function(option, itemKey) {
-    var options = $scope.cartItem.options;
-    var items = options[option.id] = options[option.id] || [];
+    var saveTo = $scope.saveTo;
+    var items = saveTo[option.id] = saveTo[option.id] || [];
     var idx = items.indexOf(itemKey);
     if (idx > -1) {
       items.splice(idx, 1);
@@ -51,7 +97,7 @@ module.exports = ['$scope', function($scope) {
       items.push(itemKey);
     }
     if (!items.length) {
-      delete options[option.id];
+      delete saveTo[option.id];
     }
   };
 
