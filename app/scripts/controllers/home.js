@@ -1,7 +1,7 @@
-/*global angular, $, document */
+/*global angular, $, document, console */
 
 angular.module('methodApp')
-    .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
+    .controller('HomeCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
         function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {
 
             'use strict';
@@ -120,30 +120,19 @@ angular.module('methodApp')
 //                }
 //            };
 //
-              // TODO: Refactor the add to cart flow
-//            // Add to Cart
-//            $rootScope.$on('ADD_TO_CART', function (event, args) {
-//                var pricing = args.pricing;
-//                var cartItem = {
-//                    id      : args.id,
-//                    code    : args.code,
-//                    name    : args.name,
-//                    options : args.options,
-//                    quantity: args.qty,
-//                    pricing : {
-//                        unitPrice     : pricing.salePrice > 0 ? pricing.salePrice : pricing.regularPrice,
-//                        recurringPrice: pricing.recurringPrice
-//                    }
-//                };
-//
-//                api.carts.save({ cartId: $scope.cart.id || $scope.config.checkout.cartId }, cartItem)
-//                    .then(function (response) {
-//
-//                        $scope.cart = response.data;
-//                        $rootScope.$emit('ITEM_ADDED_TO_CART');
-//                    });
-//
-//            });
+            // TODO: Refactor the add to cart flow
+            // Add to Cart
+            $rootScope.$on('ADD_TO_CART', function(event, cartItem) {
+                var cartId = $scope.cart && $scope.cart.id;
+                if (cartId === undefined) {
+                    cartId = $scope.config.checkout.cartId;
+                }
+
+                api.carts.save({ cartId: cartId }, cartItem)
+                    .then(function (response) {
+                        $rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
+                    });
+            });
 
             // TODO: Figure out how this can be moved into directive
             $(document).ready(function () {

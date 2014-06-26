@@ -53,11 +53,11 @@ angular.module('methodApp', [
 
             $routeProvider
                 .when('/', {
-                    templateUrl: 'views/main.html',
-                    controller : 'MainCtrl',
+                    templateUrl: 'views/home.html',
+                    controller : 'HomeCtrl',
                     resolve    : {
                         translations: ['translate', function (translate) {
-                            return translate.addParts('main');
+                            return translate.addParts('home');
                         }]
                     }
                 })
