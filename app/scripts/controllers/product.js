@@ -1,13 +1,21 @@
 /*global angular */
 
 angular.module('Volusion.controllers')
-    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$sce', '$location', '$routeParams', '$anchorScroll',
-        function ($rootScope, $scope, vnApi, $sce, $location, $routeParams, $anchorScroll) {
+    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', /*'Cart', 'Config',*/
+        function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll) { //}, Cart, Config) {
 
             'use strict';
 
             var product = {},
                 cartItem = {};
+//                cart = Cart.getCart(),
+//                cartId;
+
+//            cartId = cart && cart.id;
+//            if (cartId === undefined) {
+////                cartId = $scope.config.checkout.cartId;
+//                cartId = Config.getCheckoutCartId();
+//            }
 
             // carousel
             $scope.carousel = {
@@ -161,18 +169,19 @@ angular.module('Volusion.controllers')
 
 
             // Add to Cart
-            $scope.isAddToCartEnabled = false;
-
-//            $scope.$watch('cartItem.sku', function(sku) {
-//                $scope.isAddToCartEnabled = !!sku;
-//            });
-
-//            $scope.addToCart = function () {
-//                $scope.isAddToCartEnabled = false;
+            $scope.addToCart = function () {
 //                $rootScope.$emit('ADD_TO_CART', cartItem);
-//            };
+//                Cart.saveCart(cartId, cartItem)
+//                    .then(function (response) {
+//                        cart = response.data;
+//                        cartItem.quantity = 0;
+//
+//                        modifyQuantity(product.optionSelection.available && 1);
+//                    });
+            };
 
-//            $rootScope.$on('ITEM_ADDED_TO_CART', function() {
-//                $scope.isAddToCartEnabled = true;
+//            $rootScope.$on('ITEM_ADDED_TO_CART', function () {
+//                var selection = product.optionSelection;
+//                modifyQuantity(selection.available && 1);
 //            });
         }]);

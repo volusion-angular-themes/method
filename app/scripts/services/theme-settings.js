@@ -9,7 +9,7 @@
  */
 angular.module('Volusion.services')
     .service('themeSettings', ['vnApi',
-        function ThemeSettings(vnApi) {
+        function (vnApi) {
 
             'use strict';
 

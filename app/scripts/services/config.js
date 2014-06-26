@@ -1,7 +1,9 @@
-'use strict';
+/*global angular */
 
 angular.module('Volusion.services')
-    .provider('config', function () {
+    .provider('Config', function () {
+
+        'use strict';
 
         // Private variables
         var salutation = 'Hello';
@@ -10,6 +12,11 @@ angular.module('Volusion.services')
         function Greeter() {
             this.greet = function () {
                 return salutation;
+            };
+
+            // STUB ... TODO: Move this method in funal impementation
+            this.getCheckoutCartId = function () {
+                return 1;
             };
         }
 

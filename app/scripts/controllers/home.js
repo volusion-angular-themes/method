@@ -104,9 +104,12 @@ angular.module('methodApp')
             // Handle the configuration data
             $scope.config = vnApi.Configuration().get();
 
-//            console.log('getCart obj', vnApi.getCart().get());
-//            Todo: Move cart into header, give it its own controller and inject it here.
-            $scope.cart = vnApi.Cart().get();
+            // Todo: Move cart into header, give it its own controller and inject it here.
+//            vnApi.Cart().get().$promise
+//                .then(function (response) {
+//                    $scope.cart = response.data;
+//                });
+//            $scope.cart = Cart.getCart();
 
 //
 //            this.getConfig(this.getCart);  //TODO Prune this code
@@ -122,17 +125,22 @@ angular.module('methodApp')
 //
             // TODO: Refactor the add to cart flow
             // Add to Cart
-            $rootScope.$on('ADD_TO_CART', function(event, cartItem) {
-                var cartId = $scope.cart && $scope.cart.id;
-                if (cartId === undefined) {
-                    cartId = $scope.config.checkout.cartId;
-                }
+//            $rootScope.$on('ADD_TO_CART', function(event, cartItem) {
+//                var cartId = $scope.cart && $scope.cart.id;
+//                if (cartId === undefined) {
+//                    cartId = $scope.config.checkout.cartId;
+//                }
 
-                api.carts.save({ cartId: cartId }, cartItem)
-                    .then(function (response) {
-                        $rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
-                    });
-            });
+//                api.carts.save({ cartId: cartId }, cartItem)
+//                    .then(function (response) {
+//                        $rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
+//                    });
+
+//                Cart.saveCart(cartId, cartItem)
+//                    .then(function (response) {
+//                        $scope.cart = response.data;
+//                    });
+//            });
 
             // TODO: Figure out how this can be moved into directive
             $(document).ready(function () {

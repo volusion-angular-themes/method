@@ -84,8 +84,8 @@ angular.module('methodApp', [
                     redirectTo: '/'
                 });
         }])
-    .run(['snapRemote', '$rootScope', '$window', 'themeSettings',
-        function (snapRemote, $rootScope, $window, themeSettings) {
+    .run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'Cart',
+        function (snapRemote, $rootScope, $window, themeSettings, Cart) {
 
             'use strict';
 
@@ -115,6 +115,8 @@ angular.module('methodApp', [
             });
 
             // Init services
+            // one time initialization for services
             themeSettings.init();
+            Cart.init();
 
         }]);
