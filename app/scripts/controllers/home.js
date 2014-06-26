@@ -122,17 +122,17 @@ angular.module('methodApp')
 //
             // TODO: Refactor the add to cart flow
             // Add to Cart
-            $rootScope.$on('ADD_TO_CART', function(event, cartItem) {
-                var cartId = $scope.cart && $scope.cart.id;
-                if (cartId === undefined) {
-                    cartId = $scope.config.checkout.cartId;
-                }
-
-                api.carts.save({ cartId: cartId }, cartItem)
-                    .then(function (response) {
-                        $rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
-                    });
-            });
+//            $rootScope.$on('ADD_TO_CART', function(event, cartItem) {
+//                var cartId = $scope.cart && $scope.cart.id;
+//                if (cartId === undefined) {
+//                    cartId = $scope.config.checkout.cartId;
+//                }
+//
+//                api.carts.save({ cartId: cartId }, cartItem)
+//                    .then(function (response) {
+//                        $rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
+//                    });
+//            });
 
             // TODO: Figure out how this can be moved into directive
             $(document).ready(function () {
