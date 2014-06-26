@@ -6,6 +6,8 @@ angular.module('methodApp')
 
             'use strict';
 
+            console.log('vnApi in home', vnApi);
+
             $scope.themeSettings = themeSettings.getThemeSettings();
 
             //hide header & footer when viewing theme-settings
@@ -91,6 +93,7 @@ angular.module('methodApp')
             // Handle Navigation
             vnApi.Nav().get({ navId: 1 }).$promise
                 .then(function (response) {
+                    console.log('nav response: ', response);
                     $scope.smartNavCategories = $scope.categories = response.data;
 
                     $timeout(function () {
@@ -101,11 +104,8 @@ angular.module('methodApp')
                     console.log('Error: ' + error);
                 });
 
-            // Handle the configuration data
+            // Handle the setup data
             $scope.config = vnApi.Configuration().get();
-
-//            console.log('getCart obj', vnApi.getCart().get());
-//            Todo: Move cart into header, give it its own controller and inject it here.
             $scope.cart = vnApi.Cart().get();
 
 //
