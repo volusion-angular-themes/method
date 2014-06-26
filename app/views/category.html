@@ -10,7 +10,7 @@
             <div class="row">
                 <ol class="breadcrumb -breadcrumb visible-lg visible-md">
                     <li><a href="/">Home</a></li>
-                    <li><a href="">{{ categories.name }}</a></li>
+                    <li><a href="">{{ categories.name }}</a></li>∞
                 </ol>
             </div>
             <div class="row">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="th-product__name">
-                            <a href="p/product.slug">{{ product.name }}</a>
+                            <a href="p/{{ product.slug }}">{{ product.name }}</a>
                         </div>
                         <div class="th-product__price">
                         <span class="th-reg-price" ng-show="product.price.regularPrice > 0">
