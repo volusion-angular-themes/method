@@ -36,7 +36,7 @@ angular.module('methodApp')
                 // Categories use this to update the search params.
                 scope.updateCategory = function (category) {
                     vnProductParams.addCategory(category.id);
-                    $rootScope.$broadcast('ProductSearch.categoriesUpdated', { categoryId: category.id });
+                    $rootScope.$broadcast('ProductSearch.categoriesUpdated', { category: category });
                 };
 
                 // Have to do this to listen for the data returned async
