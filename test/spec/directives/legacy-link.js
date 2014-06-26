@@ -1,4 +1,4 @@
-/*global angular, describe, module, beforeEach, inject, it, expect, sinon */
+///*global angular, describe, module, beforeEach, inject, it, expect, sinon */
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 // ReSharper disable WrongExpressionStatement

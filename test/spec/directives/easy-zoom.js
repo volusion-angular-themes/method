@@ -1,4 +1,4 @@
-/*global angular, describe, module, beforeEach, it, inject, expect */
+///*global angular, describe, module, beforeEach, it, inject, expect */
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 

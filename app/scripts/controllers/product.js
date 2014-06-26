@@ -35,7 +35,7 @@ angular.module('Volusion.controllers')
                 cartItem.options = cartItem.options || {};
             }
 
-            vnApi.Product().get({code: $routeParams.slug }).$promise
+            vnApi.Product().get({slug: $routeParams.slug }).$promise
                 .then(function (response) {
                     $scope.product = response.data;
 
@@ -137,8 +137,8 @@ angular.module('Volusion.controllers')
                 setImage();
             });
 
-            // Reviews
-            vnApi.Review().get({ code: $routeParams.slug }).$promise
+            // Reviews //TODO: replace hardcoded 'ah-chairbamboo' with $scope.product.code after it's resolved
+            vnApi.Review().get({ productCode: 'ah-chairbamboo' }).$promise
                 .then(function (response) {
                     $scope.ratingsAndReviews = response;
                 });
