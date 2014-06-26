@@ -2,9 +2,9 @@
 
 > Volusion theme for the AngularJS Framework
 
-[![Build Status][]](https://travis-ci.org/volusion-angular/theme)
-[![Dependency Status][]](https://gemnasium.com/volusion-angular/theme)
-[![Views][]](https://sourcegraph.com/github.com/volusion-angular/theme)
+[![Build Status][]](https://travis-ci.org/volusion-angular-themes/method)
+[![Dependency Status][]](https://gemnasium.com/volusion-angular-themes/method)
+[![Views][]](https://sourcegraph.com/github.com/volusion-angular-themes/method)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 
