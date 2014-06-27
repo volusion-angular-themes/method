@@ -1,7 +1,6 @@
 
 // Animation for products as facets of search are applied. [rough draft]
 .-product-tile-animation {
-    border: 2px solid #800080;
     margin: 4px;
 }
 
@@ -25,3 +24,8 @@
 /* ending leave animation */
 .-product-tile-animation.ng-leave.ng-leave-active { opacity:0; }
 // End animation for products as facets of search are applied. [rough draft]
+
+
+.categories {
+    min-height: 400px;
+}
