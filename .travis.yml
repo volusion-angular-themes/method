@@ -1,6 +1,10 @@
 rvm:
   - 2.1.1
 
+env:
+  global:
+    secure: Nrd3yCzczIn+DCq13yZBVcd3+ilZXi698SJv+ze6AkeUrDYiWb3o/2A2yPZqFXsaZOLcRhLOFAxMEAhEWFD3Hgrujc8weJb5DVZ1+e+eV0Rw+7UKOiPXkC4j8nb8owlQAbllMHJ0t9ugMfMgzrnSyJVIoUlB8BKgU9p28IUPP1Y=
+
 bundler_args: --without development
 
 language: node_js
@@ -15,3 +19,8 @@ notifications:
 
 before_install:
   - npm install -g grunt-cli
+
+after_success:
+  - grunt build
+  - chmod +x deploy.sh
+  - ./deploy.sh
