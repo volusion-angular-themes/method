@@ -94,6 +94,15 @@ angular.module('Volusion.controllers')
 
 //            $scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
+//            TODO: Fix the html related to no reviews 
+            $scope.$watch('product', function() {
+                vnApi.Review().get({ code: product.code }).$promise
+                    .then(function (response) {
+                        console.log('what is our product? ', product);
+                        $scope.ratingsAndReviews = response;
+                    });
+            });
+
             $scope.$watch('product.optionSelection', function (selection, oldSelection) {
 
                 function setAvailabilityMessage() {
@@ -146,10 +155,12 @@ angular.module('Volusion.controllers')
             });
 
             // Reviews //TODO: replace hardcoded 'ah-chairbamboo' with $scope.product.code after it's resolved
-            vnApi.Review().get({ productCode: 'ah-chairbamboo' }).$promise
-                .then(function (response) {
-                    $scope.ratingsAndReviews = response;
-                });
+//            vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
+//            vnApi.Review().get({ code: product.code }).$promise
+//                .then(function (response) {
+//                    console.log('what is our product? ', product);
+//                    $scope.ratingsAndReviews = response;
+//                });
 
             function modifyQuantity(amount) {
                 cartItem.quantity += amount;
