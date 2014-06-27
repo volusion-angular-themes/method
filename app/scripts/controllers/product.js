@@ -139,7 +139,11 @@ angular.module('Volusion.controllers')
 
 //            $scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
-//            TODO: Fix the html related to no reviews 
+            $rootScope.$on('VN_PRODUCT_SELECTED', function(event, selection) {
+                selection.product.optionSelection = selection;
+            });
+
+//            TODO: Fix the html related to no reviews
             $scope.$watch('product', function() {
                 vnApi.Review().get({ code: product.code }).$promise
                     .then(function (response) {
@@ -163,13 +167,11 @@ angular.module('Volusion.controllers')
                     var sku = selection.sku;
                     if (sku !== null && sku !== undefined) {
                         cartItem.sku = sku;
-                    } else {
-                        delete cartItem.sku;
                     }
                 }
 
                 function setQuantity() {
-                    if (!cartItem.hasOwnProperty('sku')) {
+                    if (!selection.isValid) {
                         cartItem.quantity = 0;
                         selection.available = 0;
                         return;
@@ -197,6 +199,8 @@ angular.module('Volusion.controllers')
                 setSKU();
                 setQuantity();
                 setImage();
+
+                $scope.isAddToCartButtonEnabled = selection.isValid && cartItem.quantity > 0;
             });
 
             // Reviews //TODO: replace hardcoded 'ah-chairbamboo' with $scope.product.code after it's resolved
