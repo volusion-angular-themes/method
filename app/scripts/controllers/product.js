@@ -39,6 +39,10 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
 
     setDefaults();
 
+    $rootScope.$on('VN_PRODUCT_SELECTED', function(event, selection) {
+      selection.product.optionSelection = selection;
+    });
+
     $scope.$watch('product.optionSelection', function (selection, oldSelection) {
 
       function setAvailabilityMessage() {
@@ -54,13 +58,11 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
         var sku = selection.sku;
         if (sku !== null && typeof sku !== 'undefined') {
           cartItem.sku = sku;
-        } else {
-          delete cartItem.sku;
         }
       }
 
       function setQuantity() {
-        if (!cartItem.hasOwnProperty('sku')) {
+        if (!selection.isValid) {
           cartItem.quantity = 0;
           selection.available = 0;
           return;
@@ -84,6 +86,7 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
       setSKU();
       setQuantity();
       setImage();
+      $scope.isAddToCartButtonEnabled = selection.isValid && cartItem.quantity > 0;
     });
 
     // carousel

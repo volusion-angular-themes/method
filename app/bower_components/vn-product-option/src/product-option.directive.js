@@ -10,7 +10,7 @@ module.exports = [
       scope: {
         option: '=',
         product: '=',
-        cartItem: '='
+        saveTo: '='
       }
     };
   }
