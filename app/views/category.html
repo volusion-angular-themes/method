@@ -14,7 +14,7 @@
                 </ol>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="product in products">
+                <div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" ng-repeat="product in products track by $index">
                     <!--<div vn-product-tile product="product"></div>-->
                     <div class="th-product">
                         <span class="th-product__sale" ng-show="product.isOnSale"></span>

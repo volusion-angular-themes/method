@@ -7,6 +7,7 @@ angular.module('Volusion.decorators', []);
 angular.module('Volusion.controllers', []);
 
 angular.module('methodApp', [
+    'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
