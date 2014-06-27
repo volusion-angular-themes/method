@@ -109,7 +109,7 @@ angular.module('volusion.controllers').controller('ProductCtrl', [
       }
     };
 
-    var categoryIds = productResponse.data.categories.map(function (category) {
+    var categoryIds = productResponse.categories.map(function (category) {
       return category.id;
     }).join();
 
