@@ -1,21 +1,21 @@
 /*global angular */
 
 angular.module('Volusion.controllers')
-    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', /*'Cart', 'Config',*/
-        function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll) { //}, Cart, Config) {
+    .controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart', 'Config',
+        function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll, Cart, Config) {
 
             'use strict';
 
             var product = {},
-                cartItem = {};
-//                cart = Cart.getCart(),
-//                cartId;
+                cartItem = {},
+                cart = Cart.getCart(),
+                cartId;
 
-//            cartId = cart && cart.id;
-//            if (cartId === undefined) {
-////                cartId = $scope.config.checkout.cartId;
-//                cartId = Config.getCheckoutCartId();
-//            }
+            cartId = cart && cart.id;
+            if (cartId === undefined) {
+//                cartId = $scope.config.checkout.cartId;
+                cartId = Config.getCheckoutCartId();
+            }
 
             // carousel
             $scope.carousel = {
@@ -49,6 +49,51 @@ angular.module('Volusion.controllers')
 
                     var fullUrl = $location.absUrl(),
                         pageTitle = $scope.seo.metaTagTitle;
+
+//                    $scope.product.descriptions.detail = 'Shred some waves!  These stylish board shorts use the latest stretch material technology for optimal performance.<br /><br /><span style="font-weight: bold;">Size Chart:</span><br /><br />' +
+//
+//                        '<table style="width: 414px; height: 74px; text-align: left; margin-left: auto; margin-right: auto;" class="box">' +
+//                        '<tbody>' +
+//                        '<tr align="center">' +
+//                            '<td style="background-color:#939186; color: #fff;" class="first_title">Australia</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">28W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">30W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">31W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">32W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">33W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">34W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">36W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">38W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">40W</td>' +
+//                            '<td style="background-color:#939186; color:#fff;">41W</td>' +
+//                        '</tr>' +
+//                        '<tr align="center">' +
+//                            '<td style="background-color:#7e7c73;color: #fff;" class="first_title">United States</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">28W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">30W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">31W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">32W</td>' +
+//
+//                            '<td style="background-color: #7e7c73;color: #fff;">33W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">34W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">36W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">38W</td>' +
+//                            '<td style="background-color: #7e7c73;color: #fff;">40W</td>' +
+//                        '</tr>' +
+//                        '<tr class="last">' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;" class="first_title">Europe</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">36W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">38W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">39W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">40.5W</td>' +
+//
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">42W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">43W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">46W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">48W</td>' +
+//                            '<td style="background-color: #5c5a53; color: #fff; text-align: center;">51W</td>' +
+//                        '</tr>' +
+//                        '</tbody></table>';
 
                     // Sharing
                     $scope.product.sharing = {
@@ -182,13 +227,13 @@ angular.module('Volusion.controllers')
             // Add to Cart
             $scope.addToCart = function () {
 //                $rootScope.$emit('ADD_TO_CART', cartItem);
-//                Cart.saveCart(cartId, cartItem)
-//                    .then(function (response) {
-//                        cart = response.data;
-//                        cartItem.quantity = 0;
-//
-//                        modifyQuantity(product.optionSelection.available && 1);
-//                    });
+                Cart.saveCart(cartId, cartItem)
+                    .then(function (response) {
+                        cart = response.data;
+                        cartItem.quantity = 0;
+
+                        modifyQuantity(product.optionSelection.available && 1);
+                    });
             };
 
 //            $rootScope.$on('ITEM_ADDED_TO_CART', function () {

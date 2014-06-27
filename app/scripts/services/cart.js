@@ -31,17 +31,10 @@ angular.module('Volusion.services')
             }
 
             function saveCart(cartId, cartItem) {
-                var deferred = $q.defer();
-
-                vnApi.Cart().save({cartId: cartId}, cartItem).$promise
+                return vnApi.Cart().save({cartId: cartId}, cartItem).$promise
                     .then(function (response) {
-                        deferred.resolve(response.data);
-                    })
-                    .error(function (response) {
-                        deferred.reject(response);
+                        return response.data;
                     });
-
-                return deferred.promise;
             }
 
             return {
