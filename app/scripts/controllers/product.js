@@ -145,11 +145,12 @@ angular.module('Volusion.controllers')
 
 //            TODO: Fix the html related to no reviews
             $scope.$watch('product', function() {
-                vnApi.Review().get({ code: product.code }).$promise
-                    .then(function (response) {
-                        console.log('what is our product? ', product);
-                        $scope.ratingsAndReviews = response;
-                    });
+                if (product.code) {
+                    vnApi.Review().get({ code: product.code }).$promise
+                        .then(function (response) {
+                            $scope.ratingsAndReviews = response;
+                        });
+                }
             });
 
             $scope.$watch('product.optionSelection', function (selection, oldSelection) {
