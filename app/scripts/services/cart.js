@@ -8,9 +8,8 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-	.service('Cart', [
-		'$q', 'vnApi', 'Config',
-		function($q, vnApi, Config) {
+	.service('Cart', ['vnApi', 'AppConfig',
+		function (vnApi, AppConfig) {
 
 			'use strict';
 
@@ -21,9 +20,9 @@ angular.module('Volusion.services')
 				// TODO: get cartId from Config
 				// config.checkout.cartId
 				//
-				vnApi.Cart({ cartId: Config.getCheckoutCartId() }).get().$promise
-					.then(function(response) {
-						cart = response;
+				vnApi.Cart({ cartId: AppConfig.getCheckoutCartId() }).get().$promise
+					.then(function (response) {
+						cart = response.data;
 					});
 			}
 
@@ -31,17 +30,17 @@ angular.module('Volusion.services')
 				return cart;
 			}
 
-			function saveCart(cartId, cartItem) {
-				return vnApi.Cart().save({ cartId: cartId }, cartItem).$promise
-					.then(function(response) {
-						return response.data;
+			function saveCart(cartItem) {
+				return vnApi.Cart().save({cartId: cart.id}, cartItem).$promise
+					.then(function (response) {
+						cart = response.data;
+						return cart;
 					});
 			}
 
 			return {
-				init: init,
-				getCart: getCart,
+				init    : init,
+				getCart : getCart,
 				saveCart: saveCart
 			};
-		}
-	]);
+		}]);
