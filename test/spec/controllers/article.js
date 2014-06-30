@@ -2,7 +2,7 @@
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
-describe.skip('Controller: ArticleCtrl', function() {
+xdescribe('Controller: ArticleCtrl', function() {
 
 	'use strict';
 

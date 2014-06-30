@@ -1,5 +1,5 @@
 // ReSharper disable WrongExpressionStatement
-describe.skip('Service: storage', function() {
+xdescribe('Service: storage', function() {
 
 	'use strict';
 

@@ -15,7 +15,7 @@ describe('Controller: ProductCtrl', function() {
 		});
 	}));
 
-	it.skip('should attach a list of awesomeThings to the scope', function() {
+	xit('should attach a list of awesomeThings to the scope', function() {
 		expect(scope.awesomeThings.length).toBe(3);
 	});
 });

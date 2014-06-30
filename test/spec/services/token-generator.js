@@ -1,4 +1,4 @@
-describe.skip('Service: tokenGenerator', function () {
+xdescribe('Service: tokenGenerator', function () {
 	'use strict';
 
 	// load the service's module

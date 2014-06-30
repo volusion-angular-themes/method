@@ -1,5 +1,5 @@
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
-describe.skip('Service: apiProvider', function() {
+xdescribe('Service: apiProvider', function() {
 	'use strict';
 
 	// load the service's module

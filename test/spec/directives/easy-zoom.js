@@ -2,7 +2,7 @@
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
-describe.skip('Directive: easyZoom', function() {
+xdescribe('Directive: easyZoom', function() {
 
 	'use strict';
 

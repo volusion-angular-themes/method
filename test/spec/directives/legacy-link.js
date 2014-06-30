@@ -2,7 +2,7 @@
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 // ReSharper disable WrongExpressionStatement
-describe.skip('Directive: legacyLink', function() {
+xdescribe('Directive: legacyLink', function() {
 
 	'use strict';
 

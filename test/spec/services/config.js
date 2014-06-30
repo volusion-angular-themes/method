@@ -1,4 +1,4 @@
-describe.skip('Service: config', function() {
+xdescribe('Service: config', function() {
 	'use strict';
 
 	// load the service's module

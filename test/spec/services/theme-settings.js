@@ -2,7 +2,7 @@
 
 'use strict';
 
-describe.skip('Service: themeSettings', function() {
+xdescribe('Service: themeSettings', function() {
 
 	// load the service's module
 	beforeEach(module('methodApp'));
