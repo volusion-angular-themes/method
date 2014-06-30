@@ -352,21 +352,6 @@ module.exports = function (grunt) {
             }
         },
 
-        // Run some tasks in parallel to speed up the build process
-        concurrent: {
-            server: [
-                'compass:server'
-            ],
-            test  : [
-                'compass'
-            ],
-            dist  : [
-                'compass:dist',
-                'imagemin',
-                'svgmin'
-            ]
-        },
-
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
@@ -411,7 +396,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
 //            'wiredep',
-            'concurrent:server',
+            'compass:server',
             'autoprefixer',
             'connect:livereload',
             'watch'
@@ -425,7 +410,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
-        'concurrent:test',
+        'compass',
         'autoprefixer',
         'connect:test',
         'karma'
@@ -435,7 +420,9 @@ module.exports = function (grunt) {
         'clean:dist',
         'wiredep',
         'useminPrepare',
-        'concurrent:dist',
+        'compass:dist',
+        'imagemin',
+        'svgmin',
         'autoprefixer',
         'concat',
         'ngmin',
