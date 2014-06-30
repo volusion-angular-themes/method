@@ -1,11 +1,11 @@
 <div class="-category-search">
-    <header>Show results for</header>
-    <div ng-repeat="category in categories">
-        <a href="{{ category.url  }}">{{ category.name }}</a>
-    </div>
+	<header>Show results for</header>
+	<div ng-repeat="category in categories">
+		<a href="{{ category.url  }}">{{ category.name }}</a>
+	</div>
 
-    <div ng-repeat="subCat in subCategories">
-        <!--<a href="{{ subCat.url  }}">{{ subCat.name }}</a>-->
-        <a href="" ng-click="updateCategory(subCat)">{{ subCat.name }}</a>
-    </div>
+	<div ng-repeat="subCat in subCategories">
+		<!--<a href="{{ subCat.url  }}">{{ subCat.name }}</a>-->
+		<a href="" ng-click="updateCategory(subCat)">{{ subCat.name }}</a>
+	</div>
 </div>

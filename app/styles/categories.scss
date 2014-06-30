@@ -1,31 +1,39 @@
 
 // Animation for products as facets of search are applied. [rough draft]
 .-product-tile-animation {
-    margin: 4px;
+	margin: 4px;
 }
 
 .-product-tile-animation.ng-enter,
 .-product-tile-animation.ng-leave {
-    -webkit-transition:0.5s linear all;
-    transition:0.5s linear all;
+	-webkit-transition: 0.5s linear all;
+	transition: 0.5s linear all;
 }
 
 /* ending enter and move styling
    (this is what the element will animate from */
-.-product-tile-animation.ng-enter { opacity:0; }
+.-product-tile-animation.ng-enter {
+	opacity: 0;
+}
 
 /* ending enter and move styling
    (this is what the element will animate towards */
-.-product-tile-animation.ng-enter.ng-enter-active { opacity:1; }
+.-product-tile-animation.ng-enter.ng-enter-active {
+	opacity: 1;
+}
 
 /* starting leave animation */
-.-product-tile-animation.ng-leave { opacity:1; }
+.-product-tile-animation.ng-leave {
+	opacity: 1;
+}
 
 /* ending leave animation */
-.-product-tile-animation.ng-leave.ng-leave-active { opacity:0; }
+.-product-tile-animation.ng-leave.ng-leave-active {
+	opacity: 0;
+}
 // End animation for products as facets of search are applied. [rough draft]
 
 
 .categories {
-    min-height: 400px;
+	min-height: 400px;
 }

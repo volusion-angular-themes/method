@@ -1,105 +1,99 @@
 .vn-labeled-radio {
+	text-align: left;
+	font-weight: normal;
 
-    text-align  : left;
-    font-weight : normal;
+	&--vertical {
+		display: table-row;
 
-    &--vertical {
+		&__radio, &__checkbox, &__color-image, &__text, &__border {
+			display: table-cell;
+			vertical-align: middle;
+		}
 
-        display : table-row;
+		&__radio, &__checkbox, &__text {
+			padding: 0.5rem;
+		}
+	}
 
-        &__radio, &__checkbox, &__color-image, &__text, &__border {
-            display        : table-cell;
-            vertical-align : middle;
-        }
+	&__border {
+		display: none;
+	}
 
-        &__radio, &__checkbox, &__text {
-            padding : 0.5rem;
-        }
+	&--tiles {
 
-    }
+		@extend %inline-block;
+		padding: 0 2.5px;
+		margin-bottom: 5px;
+		cursor: pointer;
 
-    &__border {
-        display : none;
-    }
+		&__radio {
+			display: none;
+		}
 
-    &--tiles {
+		&__content {
+			display: block;
+			position: relative;
+		}
 
-        @extend %inline-block;
-        padding       : 0 2.5px;
-        margin-bottom : 5px;
-        cursor        : pointer;
+		&__color {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border: 2px solid transparent;
+		}
 
-        &__radio {
-            display : none;
-        }
+		&__image {
+			position: relative; // stacks over color
+			border: 2px solid white;
+		}
 
-        &__content {
-            display  : block;
-            position : relative;
-        }
+		&__text {
+			position: relative;
+			padding: 5px 10px;
+			font-family: $font-family-condensed-bold;
+			text-transform: uppercase;
+			color: #444444;
+		}
 
-        &__color {
-            position : absolute;
-            width    : 100%;
-            height   : 100%;
-            border   : 2px solid transparent;
-        }
+		&__border {
+			position: absolute;
+			display: block;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #D6D6D6;
+			outline: 1px solid transparent;
 
-        &__image {
-            position : relative; // stacks over color
-            border   : 2px solid white;
-        }
+			&:hover {
+				border-color: #9FE6F8;
+				outline-color: #9FE6F8;
+			}
+		}
 
-        &__text {
-            position       : relative;
-            padding        : 5px 10px;
-            font-family    : $font-family-condensed-bold;
-            text-transform : uppercase;
-            color          : #444444;
-        }
+		&.checked {
+			border-color: #007391;
+			outline-color: #007391;
+		}
+	}
 
-        &__border {
-            position : absolute;
-            display  : block;
-            top      : 0;
-            width    : 100%;
-            height   : 100%;
-            border   : 1px solid #D6D6D6;
-            outline  : 1px solid transparent;
+	&--no-text {
 
-            &:hover {
-                border-color  : #9FE6F8;
-                outline-color : #9FE6F8;
-            }
+		&__text {
+			display: none;
+		}
+	}
 
-        }
+	&__color-image {
+		position: relative;
+	}
 
-        &.checked {
-            border-color  : #007391;
-            outline-color : #007391;
-        }
+	&__color {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
 
-    }
-
-    &--no-text {
-
-        &__text {
-            display : none;
-        }
-
-    }
-
-    &__color-image {
-        position : relative;
-    }
-
-    &__color {
-        position : absolute;
-        width    : 100%;
-        height   : 100%;
-    }
-
-    &__image {
-        position : relative;
-    }
+	&__image {
+		position: relative;
+	}
 }

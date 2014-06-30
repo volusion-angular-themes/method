@@ -1,43 +1,43 @@
 %backface-visibility {
-    backface-visibility         : hidden;
-    -webkit-backface-visibility : hidden;
-    -moz-backface-visibility    : hidden;
-    -ms-backface-visibility     : hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 }
 
 %inline-block {
-    @include inline-block;
+	@include inline-block;
 }
 
 %opacity-50 {
-    @include opacity(0.50);
+	@include opacity(0.50);
 }
 
 %opacity-75 {
-    @include opacity(0.75);
+	@include opacity(0.75);
 }
 
 %opacity-80 {
-    @include opacity(0.8);
+	@include opacity(0.8);
 }
 
 %opacity-100 {
-    @include opacity(1);
+	@include opacity(1);
 }
 
 %animate-all-default {
-    @include single-transition(all, 200ms, ease);
+	@include single-transition(all, 200ms, ease);
 }
 
 %position-absolute-center {
-    position : absolute;
-    top      : 0;
-    left     : 0;
-    right    : 0;
-    bottom   : 0;
-    margin   : auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 %font-smoothing {
-    -webkit-font-smoothing : antialiased;
+	-webkit-font-smoothing: antialiased;
 }

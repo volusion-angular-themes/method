@@ -10,12 +10,12 @@
  */
 
 angular.module('Volusion.filters')
-    .filter('seoFriendly', function seoFriendly() {
+	.filter('seoFriendly', function seoFriendly() {
 
-        'use strict';
+		'use strict';
 
-        return function (input) {
-            var words = input.match(/[0-9a-z]+/gi);
-            return words ? words.join('-') : '';
-        };
-    });
+		return function(input) {
+			var words = input.match(/[0-9a-z]+/gi);
+			return words ? words.join('-') : '';
+		};
+	});

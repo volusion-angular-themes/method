@@ -1,18 +1,18 @@
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
-// describe('Service: cart', function () {
+describe.skip('Service: cart', function() {
 
-//   // load the service's module
-//   beforeEach(module('methodApp'));
+	// load the service's module
+	beforeEach(module('methodApp'));
 
-//   // instantiate service
-//   var cart;
-//   beforeEach(inject(function (_cart_) {
-//     cart = _cart_;
-//   }));
+	// instantiate service
+	var cart;
+	beforeEach(inject(function(_cart_) {
+		cart = _cart_;
+	}));
 
-//   it('should do something', function () {
-//     expect(!!cart).toBe(true);
-//   });
+	it('should do something', function() {
+		expect(!!cart).toBe(true);
+	});
 
-// });
+});

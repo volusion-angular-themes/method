@@ -10,14 +10,14 @@
  */
 
 angular.module('Volusion.filters')
-    .filter('html', ['$sce',
-        function ($sce) {
+	.filter('html', [
+		'$sce',
+		function($sce) {
 
-            'use strict';
+			'use strict';
 
-            return function (content) {
-                return $sce.trustAsHtml(content);
-            };
-        }
-    ]);
-
+			return function(content) {
+				return $sce.trustAsHtml(content);
+			};
+		}
+	]);
