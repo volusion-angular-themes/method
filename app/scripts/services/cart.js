@@ -8,8 +8,8 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-	.service('Cart', ['vnApi', 'AppConfig',
-		function (vnApi, AppConfig) {
+	.service('Cart', ['vnApi',
+		function (vnApi) {
 
 			'use strict';
 
@@ -17,10 +17,8 @@ angular.module('Volusion.services')
 
 			function init() {
 
-				// TODO: get cartId from Config
-				// config.checkout.cartId
-				//
-				vnApi.Cart({ cartId: AppConfig.getCheckoutCartId() }).get().$promise
+				// Initial cartId is empty
+				vnApi.Cart({ cartId: '' }).get().$promise
 					.then(function (response) {
 						cart = response.data;
 					});

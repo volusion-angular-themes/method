@@ -1,4 +1,4 @@
-///*global angular, describe, module, beforeEach, inject, it, expect, sinon */
+///*global angular, xdescribe, module, beforeEach, inject, it, expect */
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 // ReSharper disable WrongExpressionStatement
@@ -23,11 +23,11 @@ xdescribe('Directive: legacyLink', function() {
 		expect(element.attr('href')).to.eq('/foo');
 	});
 
-	it('goes to the specified location on click', inject(function($window) {
-		var assign = sinon.stub($window.location, 'assign');
-		element.click();
-		expect(assign).to.have.been.calledOnce();
-		expect(assign).to.have.been.calledWithMatch(/\/foo$/);
-		$window.location.assign.restore();
-	}));
+//	xit('goes to the specified location on click', inject(function($window) {
+//		var assign = sinon.stub($window.location, 'assign');
+//		element.click();
+//		expect(assign).to.have.been.calledOnce();
+//		expect(assign).to.have.been.calledWithMatch(/\/foo$/);
+//		$window.location.assign.restore();
+//	}));
 });

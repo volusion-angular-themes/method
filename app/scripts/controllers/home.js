@@ -1,6 +1,6 @@
 /*global angular, console */
 
-angular.module('methodApp')
+angular.module('Volusion.controllers')
 	.controller('HomeCtrl', [
 		'$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
 		function($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {

@@ -1,6 +1,6 @@
 /*global angular */
 
-angular.module('methodApp')
+angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
 		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
 		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {

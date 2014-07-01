@@ -8,8 +8,7 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-	.service('themeSettings', [
-		'vnApi',
+	.service('themeSettings', ['vnApi',
 		function(vnApi) {
 
 			'use strict';

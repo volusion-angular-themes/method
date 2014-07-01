@@ -1,4 +1,4 @@
-/*global describe, beforeEach, module, inject, it */
+/*global xdescribe, beforeEach, module, inject, it */
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
