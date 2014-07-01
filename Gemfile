@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem "compass", "~> 1.0.0.alpha.20"
+gem "oily_png"

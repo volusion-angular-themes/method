@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 				livereload: 35729
 			},
 			rules: [
-				{ from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+				{ from: '^/(bower_components|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
 				{ from: '^/404.html', to: '/404.html' },
 				{ from: '^/(.*)$', to: '/index.html' }
 			],
@@ -200,7 +200,10 @@ module.exports = function(grunt) {
 				imagesDir: '<%= yeoman.app %>/images',
 				javascriptsDir: '<%= yeoman.app %>/scripts',
 				fontsDir: '<%= yeoman.app %>/styles/fonts',
-				importPath: '<%= yeoman.app %>/bower_components',
+				importPath: [
+					'<%= yeoman.app %>/bower_components',
+					'<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
+				],
 				httpImagesPath: '/images',
 				httpGeneratedImagesPath: '/images/generated',
 				httpFontsPath: '/styles/fonts',
@@ -227,6 +230,7 @@ module.exports = function(grunt) {
 					src: [
 						'<%= yeoman.dist %>/scripts/{,*/}*.js',
 						'<%= yeoman.dist %>/styles/{,*/}*.css',
+						'!<%= yeoman.dist %>/styles/overrides.css',
 						'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'<%= yeoman.dist %>/styles/fonts/*'
 					]
@@ -346,7 +350,7 @@ module.exports = function(grunt) {
 							'*.html',
 							'views/{,*/}*.html',
 							'images/{,*/}*.{webp}',
-							'fonts/*',
+							'styles/fonts/*',
 							'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
@@ -426,7 +430,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('test', [
 		'clean:server',
-		'compass',
+		'compass:server',
 		'autoprefixer',
 		'connect:test',
 		'karma'
