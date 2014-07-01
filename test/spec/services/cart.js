@@ -1,3 +1,5 @@
+'use strict';
+
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 xdescribe('Service: cart', function() {

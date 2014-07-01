@@ -171,13 +171,23 @@ module.exports = function(grunt) {
 		},
 
 		// Automatically inject Bower components into the app
-		'wiredep': {
+		wiredep: {
 			target: {
 				dependencies: true,
 				devDependencies: false,
 				src: ['<%= yeoman.app %>/index.html'],
 				ignorePath: '<%= yeoman.app %>',
 				exclude: ['bootstrap.js']
+			}
+		},
+
+		scriptinject: {
+			dev: {
+				srcs: [
+					'<%= yeoman.app %>/scripts/*/*.js'
+				],
+				html: '<%= yeoman.app %>/index.html',
+				without: 'app/'
 			}
 		},
 
@@ -400,7 +410,8 @@ module.exports = function(grunt) {
 
 		grunt.task.run([
 			'clean:server',
-			//'wiredep',
+			'wiredep',
+			'scriptinject',
 			'compass:server',
 			'autoprefixer',
 			'connect:livereload',
@@ -424,6 +435,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'clean:dist',
 		'wiredep',
+		'scriptinject',
 		'useminPrepare',
 		'compass:dist',
 		'imagemin',
@@ -441,7 +453,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', [
 		'newer:jshint',
-		//'test', // TODO: get tests back as soon as possible
+		'test',
 		'build'
 	]);
 };
