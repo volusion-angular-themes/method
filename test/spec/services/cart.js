@@ -1,4 +1,4 @@
-'use strict';
+/*global xdescribe, module, beforeEach, inject, it, expect */
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
