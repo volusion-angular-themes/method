@@ -69,12 +69,17 @@ module.exports = function(grunt) {
 				hostname: 'localhost',
 				livereload: 35729
 			},
+			rules: [
+				{ from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+				{ from: '^/404.html', to: '/404.html' },
+				{ from: '^/(.*)$', to: '/index.html' }
+			],
 			livereload: {
 				options: {
 					open: true,
 					base: [
-							'.tmp',
-							'<%= yeoman.app %>/'
+						'.tmp',
+						'<%= yeoman.app %>/'
 					],
 					middleware: function(connect, options) {
 						var middlewares = [];
@@ -100,9 +105,9 @@ module.exports = function(grunt) {
 				options: {
 					port: 9001,
 					base: [
-							'.tmp',
-							'test',
-							'<%= yeoman.app %>'
+						'.tmp',
+						'test',
+						'<%= yeoman.app %>'
 					]
 				}
 			},
@@ -120,8 +125,8 @@ module.exports = function(grunt) {
 				reporter: require('jshint-stylish')
 			},
 			all: [
-					'Gruntfile.js',
-					'<%= yeoman.app %>/scripts/{,*/}*.js'
+				'Gruntfile.js',
+				'<%= yeoman.app %>/scripts/{,*/}*.js'
 			],
 			test: {
 				options: {
@@ -138,9 +143,9 @@ module.exports = function(grunt) {
 						{
 							dot: true,
 							src: [
-									'.tmp',
-									'<%= yeoman.dist %>/*',
-									'!<%= yeoman.dist %>/.git*'
+								'.tmp',
+								'<%= yeoman.dist %>/*',
+								'!<%= yeoman.dist %>/.git*'
 							]
 						}
 				]
@@ -210,10 +215,10 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					src: [
-							'<%= yeoman.dist %>/scripts/{,*/}*.js',
-							'<%= yeoman.dist %>/styles/{,*/}*.css',
-							'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-							'<%= yeoman.dist %>/styles/fonts/*'
+						'<%= yeoman.dist %>/scripts/{,*/}*.js',
+						'<%= yeoman.dist %>/styles/{,*/}*.css',
+						'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+						'<%= yeoman.dist %>/styles/fonts/*'
 					]
 				}
 			}
@@ -258,12 +263,12 @@ module.exports = function(grunt) {
 		imagemin: {
 			dist: {
 				files: [
-						{
-							expand: true,
-							cwd: '<%= yeoman.app %>/images',
-							src: '{,*/}*.{png,jpg,jpeg,gif}',
-							dest: '<%= yeoman.dist %>/images'
-						}
+					{
+						expand: true,
+						cwd: '<%= yeoman.app %>/images',
+						src: '{,*/}*.{png,jpg,jpeg,gif}',
+						dest: '<%= yeoman.dist %>/images'
+					}
 				]
 			}
 		},
@@ -271,12 +276,12 @@ module.exports = function(grunt) {
 		svgmin: {
 			dist: {
 				files: [
-						{
-							expand: true,
-							cwd: '<%= yeoman.app %>/images',
-							src: '{,*/}*.svg',
-							dest: '<%= yeoman.dist %>/images'
-						}
+					{
+						expand: true,
+						cwd: '<%= yeoman.app %>/images',
+						src: '{,*/}*.svg',
+						dest: '<%= yeoman.dist %>/images'
+					}
 				]
 			}
 		},
@@ -290,12 +295,12 @@ module.exports = function(grunt) {
 					removeOptionalTags: true
 				},
 				files: [
-						{
-							expand: true,
-							cwd: '<%= yeoman.dist %>',
-							src: ['*.html', 'views/{,*/}*.html'],
-							dest: '<%= yeoman.dist %>'
-						}
+					{
+						expand: true,
+						cwd: '<%= yeoman.dist %>',
+						src: ['*.html', 'views/{,*/}*.html'],
+						dest: '<%= yeoman.dist %>'
+					}
 				]
 			}
 		},
@@ -306,12 +311,12 @@ module.exports = function(grunt) {
 		ngmin: {
 			dist: {
 				files: [
-						{
-							expand: true,
-							cwd: '.tmp/concat/scripts',
-							src: '*.js',
-							dest: '.tmp/concat/scripts'
-						}
+					{
+						expand: true,
+						cwd: '.tmp/concat/scripts',
+						src: '*.js',
+						dest: '.tmp/concat/scripts'
+					}
 				]
 			}
 		},
@@ -320,28 +325,28 @@ module.exports = function(grunt) {
 		copy: {
 			dist: {
 				files: [
-						{
-							expand: true,
-							dot: true,
-							cwd: '<%= yeoman.app %>',
-							dest: '<%= yeoman.dist %>',
-							src: [
-									'*.{ico,png,txt}',
-									'.htaccess',
-									'*.html',
-									'views/{,*/}*.html',
-									'images/{,*/}*.{webp}',
-									'fonts/*',
-									'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
-									'bower_components/angular-i18n/angular-locale_*.js'
-							]
-						},
-						{
-							expand: true,
-							cwd: '.tmp/images',
-							dest: '<%= yeoman.dist %>/images',
-							src: ['generated/*']
-						}
+					{
+						expand: true,
+						dot: true,
+						cwd: '<%= yeoman.app %>',
+						dest: '<%= yeoman.dist %>',
+						src: [
+							'*.{ico,png,txt}',
+							'.htaccess',
+							'*.html',
+							'views/{,*/}*.html',
+							'images/{,*/}*.{webp}',
+							'fonts/*',
+							'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
+							'bower_components/angular-i18n/angular-locale_*.js'
+						]
+					},
+					{
+						expand: true,
+						cwd: '.tmp/images',
+						dest: '<%= yeoman.dist %>/images',
+						src: ['generated/*']
+					}
 				]
 			},
 			styles: {
@@ -394,12 +399,12 @@ module.exports = function(grunt) {
 		}
 
 		grunt.task.run([
-				'clean:server',
-				//'wiredep',
-				'compass:server',
-				'autoprefixer',
-				'connect:livereload',
-				'watch'
+			'clean:server',
+			//'wiredep',
+			'compass:server',
+			'autoprefixer',
+			'connect:livereload',
+			'watch'
 		]);
 	});
 
@@ -409,34 +414,34 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('test', [
-			'clean:server',
-			'compass',
-			'autoprefixer',
-			'connect:test',
-			'karma'
+		'clean:server',
+		'compass',
+		'autoprefixer',
+		'connect:test',
+		'karma'
 	]);
 
 	grunt.registerTask('build', [
-			'clean:dist',
-			'wiredep',
-			'useminPrepare',
-			'compass:dist',
-			'imagemin',
-			'svgmin',
-			'autoprefixer',
-			'concat',
-			'ngmin',
-			'copy:dist',
-			'cssmin',
-			'uglify',
-			'rev',
-			'usemin',
-			'htmlmin'
+		'clean:dist',
+		'wiredep',
+		'useminPrepare',
+		'compass:dist',
+		'imagemin',
+		'svgmin',
+		'autoprefixer',
+		'concat',
+		'ngmin',
+		'copy:dist',
+		'cssmin',
+		'uglify',
+		'rev',
+		'usemin',
+		'htmlmin'
 	]);
 
 	grunt.registerTask('default', [
-			'newer:jshint',
-			//'test', // TODO: get tests back as soon as possible
-			'build'
+		'newer:jshint',
+		//'test', // TODO: get tests back as soon as possible
+		'build'
 	]);
 };
