@@ -87,18 +87,24 @@
 	<script src="bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm.js"></script>
 	<!-- endbower -->
 	<!-- endbuild -->
-	<!-- scriptinject begin -->
+
+	<!-- build:js({.tmp,app}) /scripts/scripts.js -->
+	<script src="scripts/app.js"></script>
+
     <script src="scripts/controllers/article.js"></script>
     <script src="scripts/controllers/category.js"></script>
     <script src="scripts/controllers/home.js"></script>
     <script src="scripts/controllers/page.js"></script>
     <script src="scripts/controllers/product.js"></script>
-    <script src="scripts/directives/easy-zoom.js"></script>
+
+	<script src="scripts/directives/easy-zoom.js"></script>
     <script src="scripts/directives/legacy-link.js"></script>
-    <script src="scripts/filters/html.js"></script>
+
+	<script src="scripts/filters/html.js"></script>
     <script src="scripts/filters/legacy-linkify.js"></script>
     <script src="scripts/filters/seo-friendly.js"></script>
-    <script src="scripts/services/api-provider.js"></script>
+
+	<script src="scripts/services/api-provider.js"></script>
     <script src="scripts/services/app-config.js"></script>
     <script src="scripts/services/cart.js"></script>
     <script src="scripts/services/site-config.js"></script>
@@ -106,10 +112,7 @@
     <script src="scripts/services/theme-settings.js"></script>
     <script src="scripts/services/token-generator.js"></script>
     <script src="scripts/services/translate-provider.js"></script>
-    <!-- scriptinject end -->
-	<!-- endbuild -->
-
-	<script src="scripts/app.js"></script>
+    <!-- endbuild -->
 
 </body>
 </html>

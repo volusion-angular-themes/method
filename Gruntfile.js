@@ -181,15 +181,16 @@ module.exports = function(grunt) {
 			}
 		},
 
-		scriptinject: {
-			dev: {
-				srcs: [
-					'<%= yeoman.app %>/scripts/*/*.js'
-				],
-				html: '<%= yeoman.app %>/index.html',
-				without: 'app/'
-			}
-		},
+		// TODO : looks like we don't need it
+//		scriptinject: {
+//			dev: {
+//				srcs: [
+//					'<%= yeoman.app %>/scripts/*/*.js'
+//				],
+//				html: '<%= yeoman.app %>/index.html',
+//				without: 'app/'
+//			}
+//		},
 
 		// Compiles Sass to CSS and generates necessary files if requested
 		compass: {
@@ -415,7 +416,7 @@ module.exports = function(grunt) {
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
-			'scriptinject',
+//			'scriptinject',		// TODO : looks like we don't need it
 			'compass:server',
 			'autoprefixer',
 			'connect:livereload',
@@ -439,7 +440,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'clean:dist',
 		'wiredep',
-		'scriptinject',
+//		'scriptinject', 	// TODO : looks like we don't need it
 		'useminPrepare',
 		'compass:dist',
 		'imagemin',
