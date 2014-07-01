@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @ngdoc service
  * @name methodApp.cart
@@ -8,8 +10,6 @@
 angular.module('Volusion.services')
 	.service('Cart', ['vnApi',
 		function (vnApi) {
-
-			'use strict';
 
 			var cart = {};
 

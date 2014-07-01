@@ -1,8 +1,7 @@
+'use strict';
 
 angular.module('Volusion.services')
 	.provider('AppConfig', function () {
-
-		'use strict';
 
 		// Private variables
 		var apiUrl = '',                    // URL will be set during config

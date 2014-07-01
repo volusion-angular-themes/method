@@ -1,4 +1,4 @@
-/*global enquire */
+'use strict';
 
 angular.module('Volusion.directives', []);
 angular.module('Volusion.filters', []);
@@ -30,14 +30,12 @@ angular.module('methodApp', [
 	'Volusion.directives',
 	'Volusion.filters',
 	'Volusion.services'
-//        'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
+	//'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
 
-			'use strict';
-
-//            console.log($route);
+			//console.log($route);
 			console.log(AppConfigProvider);
 
 			if (location.hostname === 'localhost') {
@@ -95,8 +93,6 @@ angular.module('methodApp', [
 		}])
 	.run(['snapRemote', '$rootScope', '$window', 'SiteConfig', 'themeSettings', 'Cart',
 		function (snapRemote, $rootScope, $window, SiteConfig, themeSettings, Cart) {
-
-			'use strict';
 
 			$rootScope.isInDesktopMode = true;
 

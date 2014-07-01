@@ -1,10 +1,8 @@
-/*global xdescribe, beforeEach, module, inject, it, expect */
+'use strict';
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 xdescribe('Controller: ArticleCtrl', function() {
-
-	'use strict';
 
 	// load the controller's module
 	beforeEach(module('methodApp'));

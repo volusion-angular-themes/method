@@ -1,16 +1,15 @@
-///*global angular, xdescribe, module, beforeEach, inject, it, expect */
+'use strict';
+
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 // ReSharper disable WrongExpressionStatement
 //describe('Directive: legacyLink', function() {
 
-//	'use strict';
-
 //	// load the directive's module
 //	beforeEach(module('methodApp'));
 
-//	var element,
-//	    scope;
+//	var element;
+//	var scope;
 
 //	beforeEach(inject(function($rootScope, $compile) {
 //		scope = $rootScope.$new();

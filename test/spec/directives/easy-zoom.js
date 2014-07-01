@@ -1,16 +1,14 @@
-///*global angular, describe, module, beforeEach, it, inject, expect */
+'use strict';
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 xdescribe('Directive: easyZoom', function() {
 
-	'use strict';
-
 	// load the directive's module
 	beforeEach(module('methodApp'));
 
-	var element,
-	    scope;
+	var element;
+	var scope;
 
 	beforeEach(inject(function($rootScope) {
 		scope = $rootScope.$new();

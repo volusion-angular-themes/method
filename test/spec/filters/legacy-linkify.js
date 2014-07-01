@@ -1,9 +1,7 @@
-/*global describe, beforeEach, module, it, inject, expect */
+'use strict';
 
 // ReSharper disable WrongExpressionStatement
 describe('Filter: legacyLinkify', function() {
-
-	'use strict';
 
 	// load the filter's module
 	beforeEach(module('Volusion.filters'));

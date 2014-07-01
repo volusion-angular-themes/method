@@ -1,6 +1,8 @@
+'use strict';
+
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
+
 xdescribe('Service: apiProvider', function() {
-	'use strict';
 
 	// load the service's module
 	beforeEach(module('methodApp'));

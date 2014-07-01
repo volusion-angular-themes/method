@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 						if (!Array.isArray(options.base)) {
 							options.base = [options.base];
 						}
-						//                        // Setup the proxy to the backend for api calls
-						//                        middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+						// Setup the proxy to the backend for api calls
+						//middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
 						//enable modrewrite for html5mode
 						middlewares.push(require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']));
 						options.base.forEach(function(base) {
@@ -181,17 +181,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// TODO : looks like we don't need it
-//		scriptinject: {
-//			dev: {
-//				srcs: [
-//					'<%= yeoman.app %>/scripts/*/*.js'
-//				],
-//				html: '<%= yeoman.app %>/index.html',
-//				without: 'app/'
-//			}
-//		},
-
 		// Compiles Sass to CSS and generates necessary files if requested
 		compass: {
 			options: {
@@ -271,7 +260,6 @@ module.exports = function(grunt) {
 		cssmin: {
 			options: {
 				root: '<%= yeoman.app %>'
-				//                root: 'src'
 			}
 		},
 
@@ -372,32 +360,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// By default, your `index.html`'s <!-- Usemin block --> will take care of
-		// minification. These next options are pre-configured if you do not wish
-		// to use the Usemin blocks.
-		//cssmin: {
-		//	dist: {
-		//		files: {
-		//			'<%= yeoman.dist %>/styles/main.css': [
-		//				'.tmp/styles/{,*/}*.css',
-		//				'<%= yeoman.app %>/styles/{,*/}*.css'
-		//			]
-		//		}
-		//	}
-		//},
-		//uglify: {
-		//	dist: {
-		//		files: {
-		//			'<%= yeoman.dist %>/scripts/scripts.js': [
-		//				'<%= yeoman.dist %>/scripts/scripts.js'
-		//			]
-		//		}
-		//	}
-		//},
-		//concat: {
-		//	dist: {}
-		//},
-
 		// Test settings
 		karma: {
 			unit: {
@@ -416,7 +378,6 @@ module.exports = function(grunt) {
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
-//			'scriptinject',		// TODO : looks like we don't need it
 			'compass:server',
 			'autoprefixer',
 			'connect:livereload',
@@ -440,7 +401,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'clean:dist',
 		'wiredep',
-//		'scriptinject', 	// TODO : looks like we don't need it
 		'useminPrepare',
 		'compass:dist',
 		'imagemin',

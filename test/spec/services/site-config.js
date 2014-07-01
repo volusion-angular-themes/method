@@ -1,8 +1,7 @@
-/*global describe, beforeEach, module, inject, it, expect */
+'use strict';
 
 describe('Service: siteConfig', function () {
 
-	'use strict';
 	// load the service's module
 	beforeEach(module('methodApp'));
 

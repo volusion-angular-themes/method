@@ -1,3 +1,5 @@
+'use strict';
+
 // Providers Example from the yo gnerator
 // Todo: refactor this into an angular provider.
 // Use resources and follow the Volusion.toolboxCommon vnApi
@@ -30,7 +32,6 @@
  * @constructor
  */
 var ApiEndpointConfig = function(customActions) {
-	'use strict';
 
 	/** The default actions defined for every endpoint. */
 	var defaultActions = {
@@ -63,7 +64,6 @@ var ApiEndpointConfig = function(customActions) {
  * @return {app.ApiEndpointConfig}
  */
 ApiEndpointConfig.prototype.route = function(route) {
-	'use strict';
 	this.route = route;
 	return this;
 };
@@ -74,7 +74,6 @@ ApiEndpointConfig.prototype.route = function(route) {
  * @return {app.ApiEndpointConfig}
  */
 ApiEndpointConfig.prototype.model = function(model) {
-	'use strict';
 	this.model = model;
 	return this;
 };
@@ -86,7 +85,6 @@ ApiEndpointConfig.prototype.model = function(model) {
  * @param {Object=} params The default parameters for the action.
  */
 ApiEndpointConfig.prototype.addHttpAction = function(name, action) {
-	'use strict';
 	this.actions[name] = action;
 };
 
@@ -102,7 +100,6 @@ ApiEndpointConfig.prototype.addHttpAction = function(name, action) {
  * @param {!Function} $resource The angular $resource service.
  */
 var ApiEndpoint = function(baseRoute, endpointConfig, $resource) {
-	'use strict';
 	this.config = endpointConfig;
 	this.resource = $resource(baseRoute + endpointConfig.route, {},
 			endpointConfig.actions);
@@ -129,7 +126,6 @@ var ApiEndpoint = function(baseRoute, endpointConfig, $resource) {
  *     a response.
  */
 ApiEndpoint.prototype.request = function(action, params, data) {
-	'use strict';
 	return this.resource[action](params, data).$promise;
 };
 
@@ -141,7 +137,6 @@ ApiEndpoint.prototype.request = function(action, params, data) {
  * @constructor
  */
 var ApiProvider = function() {
-	'use strict';
 	this.baseRoute = '';
 	this.endpoints = {};
 };
@@ -151,7 +146,6 @@ var ApiProvider = function() {
  * @param {string} route The base server route.
  */
 ApiProvider.prototype.setBaseRoute = function(route) {
-	'use strict';
 	this.baseRoute = route;
 };
 
@@ -163,7 +157,6 @@ ApiProvider.prototype.setBaseRoute = function(route) {
  * @return {app.ApiEndpointConfig} The endpoint configuration object.
  */
 ApiProvider.prototype.endpoint = function(name, customActions) {
-	'use strict';
 	var endpointConfig = new ApiEndpointConfig(customActions);
 	this.endpoints[name] = endpointConfig;
 	return endpointConfig;
@@ -178,8 +171,6 @@ ApiProvider.prototype.endpoint = function(name, customActions) {
 ApiProvider.prototype.$get = [
 	'$resource',
 	function($resource) {
-		'use strict';
-
 		var api = {};
 
 		var self = this;
@@ -196,7 +187,6 @@ angular.module('Volusion.services')
 	.config([
 		'apiProvider',
 		function(apiProvider) {
-			'use strict';
 
 			var customActions = {
 				'save': { method: 'POST', headers: { 'vMethod': 'POST' } },

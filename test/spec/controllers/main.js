@@ -1,11 +1,12 @@
+'use strict';
+
 describe('Controller: MainCtrl', function() {
-	'use strict';
 
 	// load the controller's module
 	beforeEach(module('methodApp'));
 
-	var MainCtrl,
-	    scope;
+	var MainCtrl;
+	var scope;
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function($controller, $rootScope) {

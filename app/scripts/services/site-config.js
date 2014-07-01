@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @ngdoc service
  * @name themeMethod.siteConfig
@@ -8,8 +10,6 @@
 angular.module('Volusion.services')
 	.service('SiteConfig', ['vnApi',
 		function SiteConfig(vnApi) {
-
-			'use strict';
 
 			var siteConfig = {};
 

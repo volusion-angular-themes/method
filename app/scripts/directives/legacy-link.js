@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @ngdoc directive
  * @name methodApp.directive:legacyLink
@@ -8,8 +10,6 @@ angular.module('Volusion.directives')
 	.directive('legacyLink', [
 		'$window',
 		function($window) {
-
-			'use strict';
 
 			return {
 				restrict: 'A',
