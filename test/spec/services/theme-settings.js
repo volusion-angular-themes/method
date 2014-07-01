@@ -1,6 +1,6 @@
-// TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
-
 'use strict';
+
+// TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
 xdescribe('Service: themeSettings', function() {
 

@@ -1,3 +1,5 @@
+'use strict';
+
 //angular.module('methodApp')
 //  .provider('translateProvider', function () {
 //
@@ -21,8 +23,6 @@
 //      return new Greeter();
 //    };
 //  });
-
-'use strict';
 
 var storageKey = 'VN_TRANSLATE';
 

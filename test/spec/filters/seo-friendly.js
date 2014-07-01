@@ -1,9 +1,7 @@
-/*global describe, module, it, expect, beforeEach, inject */
+'use strict';
 
 // ReSharper disable WrongExpressionStatement
 describe('Filter: seoFriendly', function() {
-
-	'use strict';
 
 	beforeEach(module('Volusion.filters'));
 

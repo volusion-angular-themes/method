@@ -1,11 +1,12 @@
+'use strict';
+
 describe('Controller: ProductCtrl', function() {
-	'use strict';
 
 	// load the controller's module
 	beforeEach(module('methodApp'));
 
-	var ProductCtrl,
-	    scope;
+	var ProductCtrl;
+	var scope;
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function($controller, $rootScope) {

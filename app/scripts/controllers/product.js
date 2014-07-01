@@ -1,21 +1,19 @@
-/*global angular */
+'use strict';
 
 angular.module('Volusion.controllers')
 	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart',
 		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll, Cart) {
-
-			'use strict';
 
 			$scope.product = {};
 			$scope.cartItem = {};
 			//cart = Cart.getCart(),
 			//cartId;
 
-//            cartId = cart && cart.id;
-//            if (cartId === undefined) {
-//                cartId = $scope.config.checkout.cartId;
-//                cartId = Config.getCheckoutCartId();
-//            }
+			//cartId = cart && cart.id;
+			//if (cartId === undefined) {
+			//	cartId = $scope.config.checkout.cartId;
+			//	cartId = Config.getCheckoutCartId();
+			//}
 
 			// carousel
 			$scope.carousel = {
@@ -58,8 +56,8 @@ angular.module('Volusion.controllers')
 						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
 					};
 
-//                    product = $scope.product;
-//                    cartItem = $scope.cartItem = product.cartItem;
+					//product = $scope.product;
+					//cartItem = $scope.cartItem = product.cartItem;
 					$scope.cartItem = $scope.product.cartItem;
 
 					$scope.isInDesktopMode = $rootScope.isInDesktopMode;
@@ -93,7 +91,7 @@ angular.module('Volusion.controllers')
 				$location.hash('');
 			});
 
-//            $scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
+			//$scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
 			/*jslint unparam: true*/
 			$rootScope.$on('VN_PRODUCT_SELECTED', function (event, selection) {
@@ -101,7 +99,7 @@ angular.module('Volusion.controllers')
 			});
 			/*jslint unparam: false*/
 
-//            TODO: Fix the html related to no reviews
+			//TODO: Fix the html related to no reviews
 			$scope.$watch('product', function () {
 				if ($scope.product.code) {
 					vnApi.Review().get({ code: $scope.product.code }).$promise
@@ -114,21 +112,21 @@ angular.module('Volusion.controllers')
 			$scope.$watch('product.optionSelection', function (selection, oldSelection) {
 
 				function setAvailabilityMessage() {
-//                    var message = product.optionAvailabilityMessages[selection.state];
-//                    if (message) {
-//                        $scope.availabilityMessage = message.replace('{{available}}', selection.available);
-//                    } else {
-//                        delete $scope.availabilityMessage;
-//                    }
+					//var message = product.optionAvailabilityMessages[selection.state];
+					//if (message) {
+					//	$scope.availabilityMessage = message.replace('{{available}}', selection.available);
+					//} else {
+					//	delete $scope.availabilityMessage;
+					//}
 				}
 
 				// TODO: Remove SKU if not needed
-//                function setSKU() {
-//                    var sku = selection.sku;
-//                    if (sku !== null && sku !== undefined) {
-//                        cartItem.sku = sku;
-//                    }
-//                }
+				//function setSKU() {
+				//	var sku = selection.sku;
+				//	if (sku !== null && sku !== undefined) {
+				//		cartItem.sku = sku;
+				//	}
+				//}
 
 				function setProductCode() {
 					$scope.cartItem.code = $scope.product.code;
@@ -160,7 +158,7 @@ angular.module('Volusion.controllers')
 				}
 
 				setAvailabilityMessage();
-//                setSKU();
+				//setSKU();
 				setProductCode();
 				setQuantity();
 				setImage();
@@ -169,12 +167,12 @@ angular.module('Volusion.controllers')
 			});
 
 			// Reviews //TODO: replace hardcoded 'ah-chairbamboo' with $scope.product.code after it's resolved
-//            vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
-//            vnApi.Review().get({ code: product.code }).$promise
-//                .then(function (response) {
-//                    console.log('what is our product? ', product);
-//                    $scope.ratingsAndReviews = response;
-//                });
+			//vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
+			//vnApi.Review().get({ code: product.code }).$promise
+			//	.then(function(response) {
+			//		console.log('what is our product? ', product);
+			//		$scope.ratingsAndReviews = response;
+			//	});
 
 			function modifyQuantity(amount) {
 				$scope.cartItem.qty += amount;
@@ -198,7 +196,7 @@ angular.module('Volusion.controllers')
 
 			// Add to Cart
 			$scope.addToCart = function () {
-//                $rootScope.$emit('ADD_TO_CART', cartItem);
+				//$rootScope.$emit('ADD_TO_CART', cartItem);
 				Cart.saveCart($scope.cartItem)
 					.then(function () {
 						safeApply($scope, function () {
@@ -208,8 +206,8 @@ angular.module('Volusion.controllers')
 					});
 			};
 
-//            $rootScope.$on('ITEM_ADDED_TO_CART', function () {
-//                var selection = product.optionSelection;
-//                modifyQuantity(selection.available && 1);
-//            });
+			//$rootScope.$on('ITEM_ADDED_TO_CART', function () {
+			//	var selection = product.optionSelection;
+			//	modifyQuantity(selection.available && 1);
+			//});
 		}]);

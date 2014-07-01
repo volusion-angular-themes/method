@@ -1,4 +1,4 @@
-/*global angular */
+'use strict';
 
 /**
  * @ngdoc filter
@@ -11,8 +11,6 @@
 angular.module('Volusion.filters')
 	.filter('legacyLinkify',
 		function() {
-
-			'use strict';
 
 			return function(html) {
 				var $div = angular.element('<div/>').html(html);

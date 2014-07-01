@@ -1,5 +1,5 @@
-//'use strict';
-//
+'use strict';
+
 ///**
 // * @ngdoc service
 // * @name methodApp.starage
@@ -21,8 +21,6 @@
 //      }
 //    };
 //  });
-
-'use strict';
 
 angular.module('Volusion.services')
 	.factory('storage', [

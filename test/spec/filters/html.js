@@ -1,9 +1,7 @@
-/*global describe, module, it, inject, beforeEach, angular, expect */
+'use strict';
 
 // ReSharper disable WrongExpressionStatement
 describe('Filter: html', function() {
-
-	'use strict';
 
 	beforeEach(module('Volusion.filters', 'ngSanitize'));
 	var $compile, scope;

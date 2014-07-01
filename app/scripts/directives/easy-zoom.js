@@ -1,5 +1,5 @@
-//'use strict';
-//
+'use strict';
+
 ///**
 // * @ngdoc directive
 // * @name methodApp.directive:easyZoom
@@ -17,13 +17,9 @@
 //    };
 //  });
 
-/*global angular */
-
 // http://i-like-robots.github.io/EasyZoom/
 angular.module('Volusion.directives')
 	.directive('easyZoom', function() {
-
-		'use strict';
 
 		var imageHash = {};
 
@@ -75,8 +71,6 @@ angular.module('Volusion.directives')
 	})
 	.run([
 		'$templateCache', function($templateCache) {
-
-			'use strict';
 
 			$templateCache.put(
 				'template/easyZoom.html',

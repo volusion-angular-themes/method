@@ -1,4 +1,4 @@
-/*global angular */
+'use strict';
 
 /**
  * @ngdoc service
@@ -10,8 +10,6 @@
 angular.module('Volusion.services')
 	.service('themeSettings', ['vnApi',
 		function(vnApi) {
-
-			'use strict';
 
 			var themeSettings = {};
 

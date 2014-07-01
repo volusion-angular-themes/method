@@ -1,10 +1,9 @@
-/*global angular */
+'use strict';
 
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
 		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
 		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
-			'use strict';
 
 			// Perhaps refactor this to updateProducts?
 			function queryProducts() {

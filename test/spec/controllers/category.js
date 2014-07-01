@@ -1,13 +1,12 @@
-/*global describe, beforeEach, inject, module */
+'use strict';
 
 describe('Controller: CategoryCtrl', function() {
-	'use strict';
 
 	// load the controller's module
 	beforeEach(module('methodApp'));
 
-	var CategoryCtrl,
-	    scope;
+	var CategoryCtrl;
+	var scope;
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function($controller, $rootScope) {

@@ -1,11 +1,9 @@
-/*global angular, console */
+'use strict';
 
 angular.module('Volusion.controllers')
 	.controller('HomeCtrl', [
 		'$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
 		function($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {
-
-			'use strict';
 
 			console.log('vnApi in home', vnApi);
 

@@ -1,4 +1,4 @@
-/*global angular */
+'use strict';
 
 /**
  * @ngdoc service
@@ -10,8 +10,6 @@
 angular.module('Volusion.services')
 	.service('SiteConfig', ['vnApi',
 		function SiteConfig(vnApi) {
-
-			'use strict';
 
 			var siteConfig = {};
 
