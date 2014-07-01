@@ -1,5 +1,3 @@
-/*global angular */
-
 /**
  * @ngdoc directive
  * @name methodApp.directive:legacyLink

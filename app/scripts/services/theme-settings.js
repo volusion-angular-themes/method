@@ -1,5 +1,3 @@
-/*global angular */
-
 /**
  * @ngdoc service
  * @name methodApp.themeSettings

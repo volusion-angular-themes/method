@@ -1,23 +1,3 @@
-//'use strict';
-//
-///**
-// * @ngdoc directive
-// * @name methodApp.directive:easyZoom
-// * @description
-// * # easyZoom
-// */
-//angular.module('methodApp')
-//  .directive('easyZoom', function () {
-//    return {
-//      template: '<div></div>',
-//      restrict: 'E',
-//      link: function postLink(scope, element, attrs) {
-//        element.text('this is the easyZoom directive');
-//      }
-//    };
-//  });
-
-/*global angular */
 
 // http://i-like-robots.github.io/EasyZoom/
 angular.module('Volusion.directives')

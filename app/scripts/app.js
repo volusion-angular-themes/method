@@ -1,4 +1,4 @@
-/*global angular, enquire, location, console */
+/*global enquire */
 
 angular.module('Volusion.directives', []);
 angular.module('Volusion.filters', []);

@@ -1,5 +1,3 @@
-/*global angular */
-
 /**
  * @ngdoc function
  * @name methodApp.controller:ArticleCtrl

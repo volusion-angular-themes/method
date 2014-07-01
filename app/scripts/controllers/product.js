@@ -1,4 +1,3 @@
-/*global angular */
 
 angular.module('Volusion.controllers')
 	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart',

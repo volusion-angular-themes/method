@@ -1,4 +1,3 @@
-/*global angular */
 
 angular.module('Volusion.services')
 	.provider('AppConfig', function () {

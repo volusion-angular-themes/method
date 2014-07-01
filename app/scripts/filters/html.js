@@ -1,5 +1,3 @@
-/*global angular */
-
 /**
  * @ngdoc filter
  * @name methodApp.filter:html

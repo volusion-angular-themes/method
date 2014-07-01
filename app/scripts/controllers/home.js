@@ -1,4 +1,3 @@
-/*global angular, console */
 
 angular.module('Volusion.controllers')
 	.controller('HomeCtrl', [
