@@ -1,5 +1,6 @@
 # Angular Generator ignores
 node_modules
+dist
 .tmp
 .sass-cache
 
