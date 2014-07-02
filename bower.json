@@ -26,8 +26,6 @@
 		"angular-translate-storage-local"              : "~2.2.0",
 		"vn-toolbox-common"                            : "https://github.com/volusion-angular/vn-toolbox-common.git",
 		"vn-toolbox-ecomm"                             : "https://github.com/volusion-angular/vn-toolbox-ecomm.git",
-		"vn-bem"                                       : "~0.0.1",
-		"vn-meta-tags"                                 : "~0.0.1",
 		"vn-product-option"                            : "~2.0.0",
 		"vn-labeled-radio"                             : "~0.1.1"
 	},
