@@ -1,7 +1,7 @@
 'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Service: storage', function() {
+describe.skip('Service: storage', function() {
 
 	// beforeEach(module('pascalprecht.translate', 'volusion.services', 'ngCookies'));
 	beforeEach(module('methodApp'));

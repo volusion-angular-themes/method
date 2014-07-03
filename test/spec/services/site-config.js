@@ -6,12 +6,15 @@ describe('Service: siteConfig', function () {
 	beforeEach(module('methodApp'));
 
 	// instantiate service
-	var siteConfig;
-	beforeEach(inject(function (_SiteConfig_) {
+	var siteConfig,
+		vnApi;
+
+	beforeEach(inject(function (_vnApi_, _SiteConfig_) {
 		siteConfig = _SiteConfig_;
+		vnApi = _vnApi_;
 	}));
 
-	it('should do something', function () {
+	xit('should be defined', function () {
 		expect(!!siteConfig).toBeDefined();
 	});
 

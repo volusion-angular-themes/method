@@ -32,6 +32,7 @@
 		"jasmine": false,
 		"spyOn": false,
 		"xdescribe": false,
-		"xit": false
+		"xit": false,
+		"sinon": false
 	}
 }
