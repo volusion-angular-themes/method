@@ -25,9 +25,7 @@
     "angular-translate-loader-partial": "~2.0.0",
     "angular-translate-storage-local": "~2.2.0",
     "vn-toolbox-common": "https://github.com/volusion-angular/vn-toolbox-common.git",
-    "vn-toolbox-ecomm": "https://github.com/volusion-angular/vn-toolbox-ecomm.git",
-    "vn-product-option": "~2.0.0",
-    "vn-labeled-radio": "~0.1.1"
+    "vn-toolbox-ecomm": "https://github.com/volusion-angular/vn-toolbox-ecomm.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.0",
