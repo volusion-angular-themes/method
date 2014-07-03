@@ -308,6 +308,40 @@ module.exports = function(grunt) {
 			}
 		},
 
+		html2js: {
+			options: {
+				singleModule: true,
+				module: 'Volusion.templates',
+				rename: function(moduleName) {
+					return moduleName.replace('../app/views/partials/', '');
+				},
+				htmlmin: {
+					collapseBooleanAttributes: true,
+					collapseWhitespace: true,
+					removeAttributeQuotes: true,
+					removeComments: true,
+					removeEmptyAttributes: true,
+					removeRedundantAttributes: true,
+					removeScriptTypeAttributes: true,
+					removeStyleLinkTypeAttributes: true
+				}
+			},
+			templates: {
+				src: ['<%= yeoman.app %>/views/partials/{,*/}*.html'],
+				dest: '.tmp/templates.js'
+			}
+		},
+
+		concat: {
+			templates: {
+				dest: '.tmp/concat/scripts/scripts.js',
+				src: [
+					'.tmp/templates.js',
+					'.tmp/concat/scripts/scripts.js'
+				]
+			}
+		},
+
 		// ngmin tries to make the code safe for minification automatically by
 		// using the Angular long form for dependency injection. It doesn't work on
 		// things like resolve or inject so those have to be done manually.
@@ -362,8 +396,12 @@ module.exports = function(grunt) {
 
 		// Test settings
 		karma: {
-			unit: {
-				configFile: 'karma.conf.js',
+			jasmine: {
+				configFile: 'karma.conf.jasmine.js',
+				singleRun: true
+			},
+			mocha: {
+				configFile: 'karma.conf.mocha.js',
 				singleRun: true
 			}
 		}
@@ -406,7 +444,9 @@ module.exports = function(grunt) {
 		'imagemin',
 		'svgmin',
 		'autoprefixer',
-		'concat',
+		'concat:generated',
+		'html2js',
+		'concat:templates',
 		'ngmin',
 		'copy:dist',
 		'cssmin',
