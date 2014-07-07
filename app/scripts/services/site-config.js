@@ -9,7 +9,7 @@
  */
 angular.module('Volusion.services')
 	.service('SiteConfig', ['vnApi',
-		function SiteConfig(vnApi) {
+		function (vnApi) {
 
 			var siteConfig = {};
 
