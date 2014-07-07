@@ -1,4 +1,4 @@
-/*global angular */
+'use strict';
 
 /**
  * @ngdoc service
@@ -8,38 +8,35 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-    .service('Cart', ['$q', 'vnApi', 'Config',
-        function ($q, vnApi, Config) {
+	.service('Cart', ['vnApi',
+		function (vnApi) {
 
-            'use strict';
+			var cart = {};
 
-            var cart = {};
+			function init() {
 
-            function init() {
+				// Initial cartId is empty
+				vnApi.Cart({ cartId: '' }).get().$promise
+					.then(function (response) {
+						cart = response.data;
+					});
+			}
 
-                // TODO: get cartId from Config
-                // config.checkout.cartId
-                //
-                vnApi.Cart({ cartId: Config.getCheckoutCartId() }).get().$promise
-                    .then(function (response) {
-                        cart = response;
-                    });
-            }
+			function getCart() {
+				return cart;
+			}
 
-            function getCart() {
-                return cart;
-            }
+			function saveCart(cartItem) {
+				return vnApi.Cart().save({cartId: cart.id}, cartItem).$promise
+					.then(function (response) {
+						cart = response.data;
+						return cart;
+					});
+			}
 
-            function saveCart(cartId, cartItem) {
-                return vnApi.Cart().save({cartId: cartId}, cartItem).$promise
-                    .then(function (response) {
-                        return response.data;
-                    });
-            }
-
-            return {
-                init    : init,
-                getCart : getCart,
-                saveCart: saveCart
-            };
-        }]);
+			return {
+				init    : init,
+				getCart : getCart,
+				saveCart: saveCart
+			};
+		}]);

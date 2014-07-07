@@ -1,77 +1,77 @@
 .vn-slider {
 
-    .carousel-indicators {
-        .active {
-            width            : 13px;
-            height           : 13px;
-            border           : 0;
-            background-color : map-get($colors, component-active-bg);
-        }
+	.carousel-indicators {
+		.active {
+			width: 13px;
+			height: 13px;
+			border: 0;
+			background-color: map-get($colors, component-active-bg);
+		}
 
-        li {
-            width            : 13px;
-            margin           : 0 3px;
-            height           : 13px;
-            background-color : map-get($colors, body-bg);
-            border           : 0;
-        }
-    }
+		li {
+			width: 13px;
+			margin: 0 3px;
+			height: 13px;
+			background-color: map-get($colors, body-bg);
+			border: 0;
+		}
+	}
 
-    &__slide {
-        height              : 237px;
-        background-size     : cover;
-        background-position : center center;
-    }
+	&__slide {
+		height: 237px;
+		background-size: cover;
+		background-position: center center;
+	}
 
-    &--product {
-        .vn-slider__slide {
-            height : auto;
-        }
+	&--product {
+		.vn-slider__slide {
+			height: auto;
+		}
 
-        img {
-            margin : 0 auto;
-        }
-    }
+		img {
+			margin: 0 auto;
+		}
+	}
 
-    .icon-prev, .icon-next {
-        width       : 35px;
-        height      : auto;
-        margin      : 0;
-        margin-top  : -90px;
-        font-size   : 110px;
-        font-family : Arial, Helvetica, sans-serif;
-    }
+	.icon-prev, .icon-next {
+		width: 35px;
+		height: auto;
+		margin: 0;
+		margin-top: -90px;
+		font-size: 110px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
 
-    .icon-prev {
-        left : 20%;
-    }
+	.icon-prev {
+		left: 20%;
+	}
 
-    .icon-next {
-        right : 20%;
-    }
+	.icon-next {
+		right: 20%;
+	}
 
-    @include respond-to(sm-and-up) {
-        &__slide {
-            height : 405px;
-        }
-    }
+	@include respond-to(sm-and-up) {
+		&__slide {
+			height: 405px;
+		}
+	}
 
-    @include respond-to(md-and-up) {
-        &__slide {
-            height : 485px;
-        }
-    }
+	@include respond-to(md-and-up) {
+		&__slide {
+			height: 485px;
+		}
+	}
 }
 
 @include respond-to(sm-and-up) {
-    .th-content-slider {
-        margin-bottom : 30px;
-    }
+	.th-content-slider {
+		margin-bottom: 30px;
+	}
 }
 
 @include respond-to(md-and-up) {
-    .th-content-slider {
-        padding-left  : 15px;
-        padding-right : 15px;
-    }
+	.th-content-slider {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }

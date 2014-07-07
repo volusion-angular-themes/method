@@ -1,21 +1,22 @@
-describe('Controller: PageCtrl', function () {
-    'use strict';
+'use strict';
 
-    // load the controller's module
-    beforeEach(module('methodApp'));
+describe('Controller: PageCtrl', function() {
 
-    var PageCtrl,
-        scope;
+	// load the controller's module
+	beforeEach(module('methodApp'));
 
-    // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new();
-        PageCtrl = $controller('PageCtrl', {
-            $scope: scope
-        });
-    }));
+	var PageCtrl;
+	var scope;
 
-//    it('should attach a list of awesomeThings to the scope', function () {
-//        expect(scope.awesomeThings.length).toBe(3);
-//    });
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function($controller, $rootScope) {
+		scope = $rootScope.$new();
+		PageCtrl = $controller('PageCtrl', {
+			$scope: scope
+		});
+	}));
+
+	xit('should attach a list of awesomeThings to the scope', function() {
+		expect(scope.awesomeThings.length).toBe(3);
+	});
 });

@@ -1,4 +1,4 @@
-/*global angular */
+'use strict';
 
 /**
  * @ngdoc service
@@ -8,27 +8,26 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-    .service('themeSettings', ['vnApi',
-        function (vnApi) {
+	.service('themeSettings', ['vnApi',
+		function(vnApi) {
 
-            'use strict';
+			var themeSettings = {};
 
-            var themeSettings = {};
+			function init() {
 
-            function init() {
+				vnApi.ThemeSettings().get().$promise
+					.then(function(response) {
+						themeSettings = response;
+					});
+			}
 
-                vnApi.ThemeSettings().get().$promise
-                    .then(function (response) {
-                        themeSettings = response;
-                    });
-            }
+			function getThemeSettings() {
+				return themeSettings;
+			}
 
-            function getThemeSettings() {
-                return themeSettings;
-            }
-
-            return {
-                init: init,
-                getThemeSettings: getThemeSettings
-            };
-        }]);
+			return {
+				init: init,
+				getThemeSettings: getThemeSettings
+			};
+		}
+	]);

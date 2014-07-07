@@ -1,15 +1,15 @@
 .btn {
-  text-transform: uppercase;
-  font-family: $font-family-condensed-reg;
-  font-weight: bold;
+	text-transform: uppercase;
+	font-family: $font-family-condensed-reg;
+	font-weight: bold;
 
-  &.btn-default {
-    font-weight: bold;
-  }
+	&.btn-default {
+		font-weight: bold;
+	}
 
-  &.btn-lg {
-    font-weight: normal;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-  }
+	&.btn-lg {
+		font-weight: normal;
+		font-size: 1.8rem;
+		letter-spacing: 1px;
+	}
 }

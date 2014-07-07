@@ -1,21 +1,22 @@
-describe('Controller: MainCtrl', function () {
-    'use strict';
+'use strict';
 
-    // load the controller's module
-    beforeEach(module('methodApp'));
+describe('Controller: MainCtrl', function() {
 
-    var MainCtrl,
-        scope;
+	// load the controller's module
+	beforeEach(module('methodApp'));
 
-    // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new();
-        MainCtrl = $controller('MainCtrl', {
-            $scope: scope
-        });
-    }));
+	var MainCtrl;
+	var scope;
 
-//    it('should attach a list of awesomeThings to the scope', function () {
-//        expect(scope.awesomeThings.length).toBe(3);
-//    });
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function($controller, $rootScope) {
+		scope = $rootScope.$new();
+		MainCtrl = $controller('MainCtrl', {
+			$scope: scope
+		});
+	}));
+
+	xit('should attach a list of awesomeThings to the scope', function() {
+		expect(scope.awesomeThings.length).toBe(3);
+	});
 });

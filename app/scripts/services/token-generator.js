@@ -1,16 +1,13 @@
-/*global angular */
+'use strict';
 
 angular.module('Volusion.services')
-    .factory('tokenGenerator', function () {
+	.factory('tokenGenerator', function() {
 
-        'use strict';
+		function getCacheBustingToken() {
+			return { '_': (new Date()).valueOf() };
+		}
 
-        function getCacheBustingToken() {
-            return { '_': (new Date()).valueOf() };
-        }
-
-        return {
-            getCacheBustingToken: getCacheBustingToken
-        };
-    });
-
+		return {
+			getCacheBustingToken: getCacheBustingToken
+		};
+	});

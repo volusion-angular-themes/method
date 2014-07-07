@@ -1,21 +1,22 @@
-describe('Controller: ProductCtrl', function () {
-    'use strict';
+'use strict';
 
-    // load the controller's module
-    beforeEach(module('methodApp'));
+describe('Controller: ProductCtrl', function() {
 
-    var ProductCtrl,
-        scope;
+	// load the controller's module
+	beforeEach(module('methodApp'));
 
-    // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new();
-        ProductCtrl = $controller('ProductCtrl', {
-            $scope: scope
-        });
-    }));
+	var ProductCtrl;
+	var scope;
 
-//    it('should attach a list of awesomeThings to the scope', function () {
-//        expect(scope.awesomeThings.length).toBe(3);
-//    });
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function($controller, $rootScope) {
+		scope = $rootScope.$new();
+		ProductCtrl = $controller('ProductCtrl', {
+			$scope: scope
+		});
+	}));
+
+	xit('should attach a list of awesomeThings to the scope', function() {
+		expect(scope.awesomeThings.length).toBe(3);
+	});
 });

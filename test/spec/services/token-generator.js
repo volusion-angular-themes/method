@@ -1,17 +1,18 @@
-//describe('Service: tokenGenerator', function () {
-//    'use strict';
+'use strict';
 
-    // load the service's module
-//    beforeEach(module('methodApp'));
-//
-//    // instantiate service
-//    var tokenGenerator;
-//    beforeEach(inject(function (_tokenGenerator_) {
-//        tokenGenerator = _tokenGenerator_;
-//    }));
+xdescribe('Service: tokenGenerator', function () {
 
-//    it('should do something', function () {
-//        expect(!!tokenGenerator).toBe(true);
-//    });
+	// load the service's module
+	beforeEach(module('methodApp'));
 
-//});
+	// instantiate service
+	var tokenGenerator;
+	beforeEach(inject(function (_tokenGenerator_) {
+		tokenGenerator = _tokenGenerator_;
+	}));
+
+	it('should do something', function () {
+		expect(!!tokenGenerator).toBe(true);
+	});
+
+});
