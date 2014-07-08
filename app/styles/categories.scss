@@ -12,6 +12,10 @@
 	input {
 		width: 50px!important;
 	}
+
+	button {
+		margin: 15px auto;
+	}
 }
 
 /*
@@ -52,30 +56,4 @@ Animation for products as facets of search are applied. [rough draft]
 
 .categories {
 	min-height: 400px;
-}
-
-// Animations for facet items as they are removed and replaced.
-.facet-item {
-	.ng-enter,
-	.ng-leave {
-		-webkit-transition: 0.5s ease-out all, visibility 0.1s linear;
-		-moz-transition: 0.5s ease-out all, visibility 0.1s linear;
-		-ms-transition: 0.5s ease-out all, visibility 0.1s linear;
-		-o-transition: 0.5s ease-out all, visibility 0.1s linear;
-		transition: 0.5s ease-out all, visibility 0.1s linear;
-		width: 100%;
-		overflow: hidden;
-	}
-
-	.ng-leave.ng-leave-active,
-	.ng-enter {
-		width: 0%;
-		height: 0px;
-	}
-
-	.ng-enter.ng-enter-active,
-	.ng-leave {
-		width: 100%;
-		height: 30px;
-	}
 }

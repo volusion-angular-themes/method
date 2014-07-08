@@ -35,6 +35,7 @@ angular.module('Volusion.controllers')
 			$scope.currentCategory = {};
 
 			$scope.clearAllFilters = function() {
+
 				// Reset for the service layer (this will reset the stuff generated via directive
 				vnProductParams.resetParamsObject();
 
