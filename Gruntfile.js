@@ -445,8 +445,12 @@ module.exports = function(grunt) {
 		'svgmin',
 		'autoprefixer',
 		'concat:generated',
+		/*
+		* DEV NOTE: This is not needed as "htmlmin" will minify all html.
+		* For the e2e testing purpose "html2js" need to be configured in karma.conf
+		*
 		'html2js',
-		'concat:templates',
+		'concat:templates', */
 		'ngmin',
 		'copy:dist',
 		'cssmin',

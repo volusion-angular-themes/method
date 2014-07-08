@@ -1,6 +1,6 @@
 //@import "bootstrap/breadcrumbs";
 
-/*@include respond-to(md-and-up) {
+@include respond-to(md-and-up) {
 	.breadcrumb {
 		margin-bottom: 0;
 		border-bottom: 0;
@@ -10,4 +10,4 @@
 			@include single-transition(all, 200ms, ease);
 		}
 	}
-}*/
+}
