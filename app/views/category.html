@@ -2,8 +2,14 @@
 	<div class="row col-md-12">
 		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
 		<div class="col-sm-2 -faceted-search">
+			<h3>Narrow By</h3>
 			<div vn-category-search categories="categories"></div>
+			<h3>Filter By</h3>
 			<div vn-facet-search facets="facets"></div>
+			<h3>Price</h3>
+			<input type="text" ng-model="minPrice"/> to <input type="text" ng-model="maxPrice"/>
+			<h6><a href ng-click="searchByPrice()">Search By Price</a></h6>
+			<h6><a href ng-click="clearAllFilters()">Clear Filters</a></h6>
 		</div>
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
 		<div class="col-sm-10">
@@ -25,13 +31,6 @@
 							<a href="p/{{product.slug}}">
 								<img ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="">
 							</a>
-
-							<!-- quick view
-							<div class="th-quick-options visible-md visible-lg">
-									<a ui-sref="i18n.product({ productTitle: featuredProduct.name, productCode: featuredProduct.code })" class="th-quick-view">Quick View</a>
-									<a href="" class="th-add-to-cart"><span></span></a>
-							</div>
-							-->
 						</div>
 						<div class="th-product__name">
 							<a href="p/{{ product.slug }}">{{ product.name }}</a>
