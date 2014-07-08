@@ -10,7 +10,6 @@ angular.module('Volusion.controllers')
 
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
-					console.log('product response.data', response);
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
@@ -40,17 +39,20 @@ angular.module('Volusion.controllers')
 			$scope.clearAllFilters = function() {
 				vnProductParams.resetParamsObject();
 				queryProducts();
-			}
+			};
+
+			$scope.searchByPrice = function() {
+				vnProductParams.setMinPrice($scope.minPrice);
+				vnProductParams.setMaxPrice($scope.maxPrice);
+				queryProducts();
+			};
 
 
 			// Load the url category when the controller is activated.
 			getCategory($routeParams.slug);
-			//queryProducts();
 
 			// Listen for faceted search updates
 			$rootScope.$on('ProductSearch.facetsUpdated', function() {
-				//console.log('heard FacetedSearch.update message');
-				//console.log('cat scope categories: ', $scope.categories);
 				queryProducts();
 			});
 

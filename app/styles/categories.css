@@ -4,6 +4,8 @@
   .-faceted-search div {
     padding: 0px;
     margin: 0px; }
+  .-faceted-search input {
+    width: 50px !important; }
 
 .-product-tile-animation.ng-enter,
 .-product-tile-animation.ng-leave {
