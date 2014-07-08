@@ -8,31 +8,6 @@
 		padding: 0px;
 		margin: 0px;
 	}
-	.facets {
-		.facet-item {
-			.-facet-property {
-				// Style for the inputs
-
-				input[type="checkbox"] {
-					display:none;
-				}
-
-				input[type="checkbox"] + span:before {
-					font-family: 'Glyphicons Halflings'!important;
-					padding-right: 3px!important;
-					font-size: 20px!important;
-				}
-
-				input[type="checkbox"] + span:before {
-					content: "\e157"!important; /* check-empty */
-				}
-
-				input[type="checkbox"]:checked + span:before {
-					content: "\e067"!important; /* check */
-				}
-			}
-		}
-	}
 }
 
 // Animation for products as facets of search are applied. [rough draft]
