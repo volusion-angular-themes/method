@@ -22,7 +22,6 @@ angular.module('Volusion.controllers')
 			function getCategory(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
-					console.log('category response data: ', response);
 					$scope.category = response.data;
 					vnProductParams.addCategory(response.data.id);
 					queryProducts();
@@ -38,6 +37,11 @@ angular.module('Volusion.controllers')
 			$rootScope.seo = {};
 			$scope.currentCategory = {};
 
+			$scope.clearAllFilters = function() {
+				vnProductParams.resetParamsObject();
+				queryProducts();
+			}
+
 
 			// Load the url category when the controller is activated.
 			getCategory($routeParams.slug);
@@ -52,23 +56,12 @@ angular.module('Volusion.controllers')
 
 			// Listen for Sub Category updated
 			$rootScope.$on('ProductSearch.categoriesUpdated', function(evt, args) {
-				//console.log('evt', evt);
-				//console.log('args', args);
 				vnProductParams.addCategory(args.categoryId);
-
-				//vnApi.Category().get({ slug: args.category.slug }).$promise.then(function(response) {
-				//	// Handle the category data
-				//	console.log('category response data: ', response);
-				//	$scope.categories = response.data;
-				//	vnProductParams.addCategory(response.data.id);
-				//	queryProducts();
-				//});
 				queryProducts();
 			});
 
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				//console.log('CategoryCtrl is destroyed');
 				vnProductParams.resetParamsObject();
 			});
 		}
