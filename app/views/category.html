@@ -7,8 +7,14 @@
 			<h3>Filter By</h3>
 			<div vn-facet-search facets="facets"></div>
 			<h3>Price</h3>
-			<input type="text" ng-model="minPrice"/> to <input type="text" ng-model="maxPrice"/>
-			<h6><a href ng-click="searchByPrice()">Search By Price</a></h6>
+			<input type="text"
+				   ng-model="minPrice"
+					ng-keypress="searchByPrice($event)"/>
+			to
+			<input type="text"
+				   ng-model="maxPrice"
+					ng-keypress="searchByPrice($event)"/>
+			<!--<h6><a href ng-click="searchByPrice()">Search By Price</a></h6>-->
 			<h6><a href ng-click="clearAllFilters()">Clear Filters</a></h6>
 		</div>
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->

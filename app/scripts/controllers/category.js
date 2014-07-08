@@ -35,14 +35,23 @@ angular.module('Volusion.controllers')
 			$scope.currentCategory = {};
 
 			$scope.clearAllFilters = function() {
+				// Reset for the service layer (this will reset the stuff generated via directive
 				vnProductParams.resetParamsObject();
+
+				//Reset for the price fields
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
 				queryProducts();
 			};
 
-			$scope.searchByPrice = function() {
-				vnProductParams.setMinPrice($scope.minPrice);
-				vnProductParams.setMaxPrice($scope.maxPrice);
-				queryProducts();
+			$scope.searchByPrice = function(event) {
+
+				// Detect the return/enter keypress only
+				if( event.which === 13 ) {
+					vnProductParams.setMinPrice($scope.minPrice);
+					vnProductParams.setMaxPrice($scope.maxPrice);
+					queryProducts();
+				}
 			};
 
 			// Load the url category when the controller is activated.
