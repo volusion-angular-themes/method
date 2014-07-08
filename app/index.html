@@ -1,8 +1,12 @@
 <!doctype html>
 <html class="no-js" ng-app="methodApp">
-<head>
+<head data-vn-meta-tags data-title="seo.metaTagTitle"
+  data-description="seo.metaTagDescription" data-keywords="seo.metaTagKeywords"
+  data-robots="seo.enableRobotsMetatags" data-to-append="seo.globallyAppendedMetatags">
 	<meta charset="utf-8">
-	<title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="fragment" content="!" />
+  	<title data-translate="head.title"></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<!-- build:css /styles/vendor.css -->
@@ -18,6 +22,7 @@
 	<link rel="stylesheet" href="/styles/main.css">
 	<link rel="stylesheet" href="/styles/categories.css">
 	<!-- endbuild -->
+	<link rel="stylesheet" data-ng-href="{{ overridesCSS }}">
 	<base href="/">
 </head>
 <body role="document" ng-controller="HomeCtrl">
@@ -26,7 +31,8 @@
 	to improve your experience.</p>
 	<![endif]-->
 
-	<div ng-include=" 'views/partials/mobile-menu.html' "></div>
+  	<!-- Mobile Menu -->
+ 	<div data-ng-include=" 'views/partials/mobile-menu.html' "></div>
 
 	<div snap-content>
 
@@ -37,12 +43,13 @@
 
 		<!-- Main Content -->
 		<div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div>
-		<!--<div class="vn-showcase" role="main" autoscroll="false" ui-view=""></div>-->
 		<!-- Footer -->
 		<div ng-include=" 'views/partials/footer.html' "></div>
 	</div>
 
 	<!-- build:js scripts/vendor.js -->
+	<script src="/bower_components/matchMedia/matchMedia.js"></script>
+	<script src="/bower_components/matchMedia/matchMedia.addListener.js"></script>
 	<!-- bower:js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
@@ -86,6 +93,7 @@
 	<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
 	<script src="bower_components/vn-toolbox-ecomm/dist/vn-toolbox-ecomm.js"></script>
 	<!-- endbower -->
+	<script src="bower_components/angular-i18n/angular-locale_en-us.js"></script>
 	<!-- endbuild -->
 
 	<!-- build:js({.tmp,app}) /scripts/scripts.js -->
