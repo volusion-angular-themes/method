@@ -360,8 +360,8 @@ module.exports = function(grunt) {
 			templates: {
 				dest: '.tmp/concat/scripts/scripts.js',
 				src: [
-					'.tmp/templates.js',
-					'.tmp/concat/scripts/scripts.js'
+					'.tmp/concat/scripts/scripts.js',
+					'.tmp/templates.js'
 				]
 			}
 		},

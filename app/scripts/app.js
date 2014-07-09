@@ -1,5 +1,6 @@
 'use strict';
 
+angular.module('Volusion.templates', []);
 angular.module('Volusion.directives', ['Volusion.templates']);
 angular.module('Volusion.filters', []);
 angular.module('Volusion.services', []);
