@@ -1,11 +1,11 @@
-'use strict';
+/*global alert */
 
 angular.module('Volusion.controllers')
 	.controller('HomeCtrl', [
 		'$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
 		function($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {
 
-			$scope.searchLocal = '';
+			'use strict';
 
 			console.log('vnApi in home', vnApi);
 
@@ -138,6 +138,8 @@ angular.module('Volusion.controllers')
 			//				$scope.cart = response.data;
 			//			});
 			//});
+
+			$scope.searchLocal = '';
 
 			$scope.doSearch = function () {
 				alert('Searching for: ' + $scope.searchLocal);
