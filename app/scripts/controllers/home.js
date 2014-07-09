@@ -145,5 +145,50 @@ angular.module('Volusion.controllers')
 				alert('Searching for: ' + $scope.searchLocal);
 			};
 
+			$scope.doScrollTop = function () {
+				alert('scroll to top');
+//				TODO: Figure out how to scroll
+//				$window.scrollTo(0,0);
+//				$timeout(function () {
+//					$('html,body').animate({
+//						scrollTop: '0px'
+//					}, 500);
+//				}, 250);
+			};
+
 		}
 	]);
+
+
+
+//$(document).ready(function() {
+//
+//	'use strict';
+//
+//	$(window).scroll(function() {
+//		if ($(this).scrollTop() > 100) {
+//			$('#toTop').fadeIn();
+//		} else {
+//			$('#toTop').fadeOut();
+//		}
+//	});
+//
+//	To be replaced by doScrollTop()
+//  ***********************************************************************
+//	$('#toTop').click(function() {
+//		$('html, body').animate({ scrollTop: 0 }, 600); //Scroll time in ms
+//		return false;
+//	});
+//
+//	// Dropdown Menu Fade
+//	$('.dropdown').hover(
+//		function() {
+//			alert('HOVER');
+//			$('.dropdown-menu', this).fadeIn('fast');
+//			$('.dropdown').addClass('active-mega-tab');
+//		},
+//		function() {
+//			$('.dropdown-menu', this).fadeOut('fast');
+//			$('.dropdown').removeClass('active-mega-tab');
+//		});
+//});
