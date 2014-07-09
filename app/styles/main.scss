@@ -1,7 +1,3 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-
-//@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
-
 // Custom Theme Variables & Configuration
 @import 'style-guide/theme-vars';
 
@@ -98,3 +94,5 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 // Theme - Method
 @import 'style-guide/style-guide';
+
+@import 'categories';
