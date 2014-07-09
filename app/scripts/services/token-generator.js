@@ -4,7 +4,9 @@ angular.module('Volusion.services')
 	.factory('tokenGenerator', function() {
 
 		function getCacheBustingToken() {
-			return { '_': (new Date()).valueOf() };
+//			TODO: The original code returns an object ... why?
+//			return { '_':  (new Date()).valueOf() };
+			return (new Date()).valueOf();
 		}
 
 		return {
