@@ -179,16 +179,3 @@ angular.module('Volusion.controllers')
 //		$('html, body').animate({ scrollTop: 0 }, 600); //Scroll time in ms
 //		return false;
 //	});
-//
-//	// Dropdown Menu Fade
-//	$('.dropdown').hover(
-//		function() {
-//			alert('HOVER');
-//			$('.dropdown-menu', this).fadeIn('fast');
-//			$('.dropdown').addClass('active-mega-tab');
-//		},
-//		function() {
-//			$('.dropdown-menu', this).fadeOut('fast');
-//			$('.dropdown').removeClass('active-mega-tab');
-//		});
-//});

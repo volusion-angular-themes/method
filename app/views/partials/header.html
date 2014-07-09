@@ -57,7 +57,7 @@
 								<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
 									<span class="caret"></span>
 								</a>
-								<ul class="dropdown-menu" data-ng-if="category.subCategories.length">
+								<ul show-on-dropdown-hover class="dropdown-menu" data-ng-if="category.subCategories.length">
 									<li data-ng-repeat="subCategory in category.subCategories">
 										<a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>
 									</li>
@@ -70,7 +70,7 @@
 								<a href="#" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
 									<span class="caret"></span>
 								</a>
-								<ul class="dropdown-menu">
+								<ul show-on-dropdown-hover class="dropdown-menu">
 									<li data-ng-repeat="category in smartNavMoreCategories">
 										<a class="navbar-link" href="c/{{ category.id }}">{{category.name}}</a>
 									</li>
