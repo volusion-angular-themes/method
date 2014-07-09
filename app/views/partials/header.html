@@ -41,6 +41,13 @@
 					<img ng-src="{{config.data.general.logoUrl }}" class="img-responsive" />
 				</a>
 			</div>
+
+			<!-- Mobile Logo -->
+			<div class="col-xs-6 hidden-md hidden-lg">
+				<a class="th-navbar__logo" ng-href="/">
+					<img ng-src="{{config.general.logoUrl}}" class="img-responsive" />
+				</a>
+			</div>
 			<div class="col-md-8 hidden-xs hidden-sm">
 				<div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
 					<ul class="nav navbar-nav">

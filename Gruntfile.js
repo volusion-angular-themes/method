@@ -465,7 +465,7 @@ module.exports = function(grunt) {
 		'clean:dist',
 		'wiredep',
 		'useminPrepare',
-		'compass:dist',
+	//	'compass:dist',
 		'imagemin',
 		'svgmin',
 		'autoprefixer',

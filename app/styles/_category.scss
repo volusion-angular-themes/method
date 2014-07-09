@@ -1,20 +1,22 @@
+@import 'components/media';
+
 .-faceted-search {
 	// resets
 	padding: 0px;
 	margin: 0px;
 
 	div {
-		// Weird reset for the list elements in category and facet dives from the toolbox directive.
 		padding: 0px;
 		margin: 0px;
 	}
 
 	input {
-		width: 50px!important;
+		width: 50px;
 	}
 
 	button {
 		margin: 15px auto;
+		display: block;
 	}
 }
 
