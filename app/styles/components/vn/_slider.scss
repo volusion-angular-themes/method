@@ -2,76 +2,86 @@
 
 	.carousel-indicators {
 		.active {
-			width: 13px;
-			height: 13px;
-			border: 0;
-			background-color: map-get($colors, component-active-bg);
+			width            : 13px;
+			height           : 13px;
+			border           : 0;
+			background-color : map-get($colors, component-active-bg);
 		}
 
 		li {
-			width: 13px;
-			margin: 0 3px;
-			height: 13px;
-			background-color: map-get($colors, body-bg);
-			border: 0;
+			width            : 13px;
+			margin           : 0 3px;
+			height           : 13px;
+			background-color : map-get($colors, body-bg);
+			border           : 0;
+		}
+	}
+
+	.carousel-control {
+		.glyphicon-chevron-left, .glyphicon-chevron-right {
+			width       : 35px;
+			height      : auto;
+			margin      : 0;
+			margin-top  : -90px;
+			font-size   : 110px;
+			font-family : Arial, Helvetica, sans-serif;
+		}
+
+		.glyphicon-chevron-left {
+			left : 20%;
+
+			&:before {
+				content : '\2039';
+			}
+		}
+
+		.glyphicon-chevron-right {
+			right : 20%;
+
+			&:before {
+				content : '\203a';
+			}
 		}
 	}
 
 	&__slide {
-		height: 237px;
-		background-size: cover;
-		background-position: center center;
+		height              : 237px;
+		background-size     : cover;
+		background-position : center center;
 	}
 
 	&--product {
 		.vn-slider__slide {
-			height: auto;
+			height : auto;
 		}
 
 		img {
-			margin: 0 auto;
+			margin : 0 auto;
 		}
-	}
-
-	.icon-prev, .icon-next {
-		width: 35px;
-		height: auto;
-		margin: 0;
-		margin-top: -90px;
-		font-size: 110px;
-		font-family: Arial, Helvetica, sans-serif;
-	}
-
-	.icon-prev {
-		left: 20%;
-	}
-
-	.icon-next {
-		right: 20%;
 	}
 
 	@include respond-to(sm-and-up) {
 		&__slide {
-			height: 405px;
+			height : 405px;
 		}
 	}
 
 	@include respond-to(md-and-up) {
 		&__slide {
-			height: 485px;
+			height : 485px;
 		}
 	}
 }
 
 @include respond-to(sm-and-up) {
 	.th-content-slider {
-		margin-bottom: 30px;
+		margin-bottom : 30px;
 	}
 }
 
 @include respond-to(md-and-up) {
 	.th-content-slider {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left  : 15px;
+		padding-right : 15px;
 	}
 }
