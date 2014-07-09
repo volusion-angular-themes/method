@@ -43,8 +43,12 @@ module.exports = function(grunt) {
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass,css}'],
+				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
 				tasks: ['compass:server', 'autoprefixer']
+			},
+			css: {
+				files: ['<%= yeoman.app %>/styles/**/*.css}'],
+				tasks: ['autoprefixer']
 			},
 			gruntfile: {
 				files: ['Gruntfile.js']
@@ -56,7 +60,8 @@ module.exports = function(grunt) {
 				files: [
 						'<%= yeoman.app %>/{,*/}*.html',
 						'.tmp/styles/{,*/}*.css',
-						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+						'<%= yeoman.app %>/translations/{,*/}*.json'
 				]
 			}
 		},
@@ -70,7 +75,7 @@ module.exports = function(grunt) {
 				livereload: 35729
 			},
 			rules: [
-				{ from: '^/(bower_components|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
+				{ from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
 				{ from: '^/404.html', to: '/404.html' },
 				{ from: '^/(.*)$', to: '/index.html' }
 			],
@@ -189,14 +194,14 @@ module.exports = function(grunt) {
 				generatedImagesDir: '.tmp/images/generated',
 				imagesDir: '<%= yeoman.app %>/images',
 				javascriptsDir: '<%= yeoman.app %>/scripts',
-				fontsDir: '<%= yeoman.app %>/styles/fonts',
+				fontsDir: '<%= yeoman.app %>/fonts',
 				importPath: [
 					'<%= yeoman.app %>/bower_components',
 					'<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
 				],
 				httpImagesPath: '/images',
 				httpGeneratedImagesPath: '/images/generated',
-				httpFontsPath: '/styles/fonts',
+				httpFontsPath: '/fonts',
 				relativeAssets: false,
 				assetCacheBuster: false,
 				raw: 'Sass::Script::Number.precision = 10\n'
@@ -222,7 +227,7 @@ module.exports = function(grunt) {
 						'<%= yeoman.dist %>/styles/{,*/}*.css',
 						'!<%= yeoman.dist %>/styles/overrides.css',
 						'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%= yeoman.dist %>/styles/fonts/*'
+						'<%= yeoman.dist %>/fonts/*'
 					]
 				}
 			}
@@ -250,10 +255,20 @@ module.exports = function(grunt) {
 		// Performs rewrites based on rev and the useminPrepare configuration
 		usemin: {
 			html: ['<%= yeoman.dist %>/{,*/}*.html'],
-			css: ['/<%= yeoman.dist %>/styles/{,*/}*.css'],
+			css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
 			options: {
-				assetsDirs: ['<%= yeoman.dist %>']
-			}
+				assetsDirs: ['<%= yeoman.dist %>'],
+				patterns: {
+					js: [[/src=([^ >]+)/g, 'Update template js to reference revved images']],
+					css: [
+						[
+							/(?:src=|url\(\s*)['"]?(?:\.\.)?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
+							'Update template CSS to reference revved images, accomodate for ../'
+						]
+					]
+				}
+			},
+			js: ['<%= yeoman.dist %>/scripts/*.scripts.js']
 		},
 
 		// The following *-min tasks produce minified files in the dist folder
@@ -369,20 +384,21 @@ module.exports = function(grunt) {
 						dest: '<%= yeoman.dist %>',
 						src: [
 							'*.{ico,png,txt}',
+							'web.config',
 							'.htaccess',
 							'*.html',
 							'views/{,*/}*.html',
 							'images/{,*/}*.{webp}',
-							'styles/fonts/*',
-							'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
+							'fonts/*',
+							'translations/{,*/}*.json',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
 					},
 					{
 						expand: true,
-						cwd: '.tmp/images',
-						dest: '<%= yeoman.dist %>/images',
-						src: ['generated/*']
+						cwd: '.tmp',
+						dest: '<%= yeoman.dist %>',
+						src: ['images/generated/*']
 					}
 				]
 			},
