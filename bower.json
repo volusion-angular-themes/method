@@ -24,9 +24,9 @@
     "angular-translate-interpolation-messageformat": "~2.1.0",
     "angular-translate-loader-partial": "~2.0.0",
     "angular-translate-storage-local": "~2.2.0",
-    "vn-toolbox-common": "https://github.com/volusion-angular/vn-toolbox-common.git",
     "vn-toolbox-ecomm": "https://github.com/volusion-angular/vn-toolbox-ecomm.git",
-    "matchMedia": "~0.2.0"
+    "matchMedia": "~0.2.0",
+    "vn-toolbox-common": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.0",
