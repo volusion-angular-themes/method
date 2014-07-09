@@ -182,7 +182,15 @@ module.exports = function(grunt) {
 				devDependencies: false,
 				src: ['<%= yeoman.app %>/index.html'],
 				ignorePath: '<%= yeoman.app %>',
-				exclude: ['bootstrap.js']
+				exclude: ['bootstrap.js'],
+				fileTypes: {
+					html: {
+						replace: {
+							js: '<script src="/{{filePath}}"></script>',
+							css: '<link rel="stylesheet" href="/{{filePath}}" />'
+						}
+					}
+				}
 			}
 		},
 
