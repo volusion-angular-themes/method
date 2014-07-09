@@ -43,25 +43,6 @@
 			</div>
 			<div class="col-md-8 hidden-xs hidden-sm">
 				<div class="collapse navbar-collapse " id="th-main-menu" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
-
-					<!-- Navigation -->
-					<!--<ul class="nav navbar-nav">-->
-					<!--<li class="dropdown" ng-repeat="item in mainNav.data">-->
-					<!--<a class="th-dropdown-toggle"-->
-					<!--href="c/{{ item.slug }}">{{item.name}}</a>-->
-					<!--<span>-->
-					<!--<a href="" ng-if="item.subCategories" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">-->
-					<!--<span class="caret"></span>-->
-					<!--</a>-->
-					<!--<ul class="dropdown-menu" ng-if="item.subCategories.length">-->
-					<!--<li ng-repeat="subCategory in item.subCategories">-->
-					<!--<a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>-->
-					<!--</li>-->
-					<!--</ul>-->
-					<!--</span>-->
-					<!--</li>-->
-					<!--</ul>-->
-					<!-- Categories -->
 					<ul class="nav navbar-nav">
 						<li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="visibility: hidden;">
 							<a class="navbar-link" href="c/{{ category.slug }}">{{category.name}}</a>
@@ -96,23 +77,21 @@
 			<div class="col-xs-3 col-md-2">
 				<div class="th-cart-summary pull-right">
 					<div class="th-search-popout hidden-xs hidden-sm" role="search">
-						<a id="search-toggle" type="button" class="th-search-popout__trigger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="
-							<form class='form-inline' role='search'>
-								<div class='form-group'>
-									<input type='email' class='th-search-popout__input' placeholder='Search...'>
-									<button type='submit' class='btn btn-xs btn-primary th-search-popout__submit'>Go!</button>
-								</div>
-							</form>" data-container="body">
+						<a id="search-toggle" type="button"
+						   class="th-search-popout__trigger"
+						   ng-class="{ '-position' : !showSearch }"
+						   ng-click="showSearch = !showSearch">
 							<span class="glyphicon glyphicon-search"></span>
 						</a>
+						<div ng-show="showSearch" ng-include="'/views/partials/form-search.html'"></div>
 					</div>
 
-					<span class="th-my-cart">
+					<div class="th-my-cart">
 						<a legacy-link="{{viewCart()}}" class="th-my-cart__link">
 							<span class="th-my-cart__text" data-translate="index.myCart">My Bag</span>
 							<span class="th-my-cart__number">{{cart.items.length}}</span>
 						</a>
-					</span>
+					</div>
 				</div>
 			</div>
 		</div>

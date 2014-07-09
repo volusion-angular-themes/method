@@ -5,6 +5,8 @@ angular.module('Volusion.controllers')
 		'$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings',
 		function($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings) {
 
+			$scope.searchLocal = '';
+
 			console.log('vnApi in home', vnApi);
 
 			$scope.themeSettings = themeSettings.getThemeSettings();
@@ -137,20 +139,9 @@ angular.module('Volusion.controllers')
 			//			});
 			//});
 
+			$scope.doSearch = function () {
+				alert('Searching for: ' + $scope.searchLocal);
+			};
+
 		}
 	]);
-
-
-// jQuery breaks the testing. This is a temp fix until new search partial lands.
-if (!window.__karma__) {
-	$(document).ready(function() {
-		$('[data-toggle="popover"]').popover();
-		$('body').on('click', function (e) {
-			$('[data-toggle="popover"]').each(function () {
-				if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-					$(this).popover('hide');
-				}
-			});
-		});
-	});
-}

@@ -1,38 +1,39 @@
 .th-cart-summary {
-    position    : relative;
-    white-space : nowrap;
-    top         : 8px;
-    right       : 0;
+	position    : relative;
+	white-space : nowrap;
+	top         : 8px;
+	right       : 0;
 }
 
 .th-my-cart {
-    @include inline-block;
-    padding : 6px 0;
+	@include inline-block;
+	padding     : 6px 0;
+	margin-left : 10px;
 
-    &__number {
-        color : map-get($colors, link-active);
+	&__number {
+		color : map-get($colors, link-active);
 
-        &:before {
-            content : "(";
-        }
+		&:before {
+			content : "(";
+		}
 
-        &:after {
-            content : ")";
-        }
-    }
+		&:after {
+			content : ")";
+		}
+	}
 }
 
 @include respond-to(sm-and-up) {
-    .th-cart-summary {
-        top : 23px;
-    }
+	.th-cart-summary {
+		top : 23px;
+	}
 }
 
 @include respond-to(md-and-up) {
-    .th-cart-summary {
-        position : relative;
-        right    : 13px;
-        top      : 29px;
-    }
+	.th-cart-summary {
+		position : relative;
+		right    : 13px;
+		top      : 29px;
+	}
 }
 
