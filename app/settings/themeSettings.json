@@ -19,25 +19,25 @@
             "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
             "headline": "NewYearSaleathon",
             "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-            "linksTo": "product1/p/123"
+            "linksTo": "/p/board-shorts"
           },
           {
             "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
             "headline": "NewSunriseCollection",
             "subHeadline": "Wakeuptosomethinggood",
-            "linksTo": "category1/c/123"
+            "linksTo": "/c/gourmet-food"
           },
           {
             "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
             "headline": "MiamiFashion",
             "subHeadline": null,
-            "linksTo": "product2/p/2"
+            "linksTo": "/p/board-shorts"
           },
           {
             "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
             "headline": "MiamiFashion",
             "subHeadline": null,
-            "linksTo": "product2/p/2"
+            "linksTo": "/p/patent-dress-shoe"
           }
         ]
       },
@@ -45,19 +45,19 @@
         "isEnabled": true,
         "tile1": {
           "imageUrl": "/images/homepage/tile1.jpg",
-          "linkTo": "category-name/c/category-id-1"
+          "linkTo": "/c/home-decor"
         },
         "tile2": {
           "imageUrl": "/images/homepage/tile2.jpg",
-          "linkTo": "category-name/c/category-id-2"
+          "linkTo": "/c/home-decor"
         },
         "tile3": {
           "imageUrl": "/images/homepage/tile3.jpg",
-          "linkTo": "category-name/c/category-id-3"
+          "linkTo": "/c/home-decor"
         },
         "tile4": {
           "imageUrl": "/images/homepage/tile4.jpg",
-          "linkTo": "category-name/c/category-id-4"
+          "linkTo": "/c/home-decor"
         },
         "tile5": {
           "imageUrl": "/images/homepage/tile5.jpg",
@@ -65,7 +65,7 @@
         },
         "tile6": {
           "imageUrl": "/images/homepage/tile6.jpg",
-          "linkTo": "category-name/c/category-id-6"
+          "linkTo": "/c/home-decor"
         }
       }
     }
