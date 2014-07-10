@@ -31,6 +31,13 @@ module.exports = function(grunt) {
 				files: ['bower.json'],
 				tasks: ['wiredep']
 			},
+			html: {
+				files: ['<%= yeoman.app %>/*.html', '<%= yeoman.app %>/views/{,*/}*.html'],
+				tasks: ['htmlmin:server'],
+				options: {
+					livereload: true
+				}
+			},
 			js: {
 				files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
 				tasks: ['newer:jshint:all'],
@@ -314,18 +321,28 @@ module.exports = function(grunt) {
 		},
 
 		htmlmin: {
+			options: {
+				collapseWhitespace: true,
+				collapseBooleanAttributes: true,
+				removeCommentsFromCDATA: true,
+				removeOptionalTags: true
+			},
+			server: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= yeoman.app %>',
+						src: ['*.html', 'views/{,*/}*.html'],
+						dest: '.tmp'
+					}
+				]
+			},
 			dist: {
-				options: {
-					collapseWhitespace: true,
-					collapseBooleanAttributes: true,
-					removeCommentsFromCDATA: true,
-					removeOptionalTags: true
-				},
 				files: [
 					{
 						expand: true,
 						cwd: '<%= yeoman.dist %>',
-						src: ['*.html', 'views/{,*/}*.html'],
+						src: ['*.html', 'views/*.html'],
 						dest: '<%= yeoman.dist %>'
 					}
 				]
@@ -337,7 +354,7 @@ module.exports = function(grunt) {
 				singleModule: true,
 				module: 'Volusion.templates',
 				rename: function(moduleName) {
-					return moduleName.replace('../app/views/partials/', '');
+					return moduleName.replace('../app/', '');
 				},
 				htmlmin: {
 					collapseBooleanAttributes: true,
@@ -396,7 +413,7 @@ module.exports = function(grunt) {
 							'web.config',
 							'.htaccess',
 							'*.html',
-							'views/{,*/}*.html',
+							'views/*.html',
 							'images/{,*/}*.{webp}',
 							'fonts/*',
 							'translations/{,*/}*.json',
@@ -410,12 +427,6 @@ module.exports = function(grunt) {
 						src: ['styles/main.css', 'images/generated/*']
 					}
 				]
-			},
-			styles: {
-				expand: true,
-				cwd: '<%= yeoman.app %>/styles',
-				dest: '.tmp/styles/',
-				src: '{,*/}*.css'
 			}
 		},
 
@@ -432,7 +443,6 @@ module.exports = function(grunt) {
 		}
 	});
 
-
 	grunt.registerTask('serve', function(target) {
 		if (target === 'dist') {
 			return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -443,6 +453,7 @@ module.exports = function(grunt) {
 			'wiredep',
 			'compass:server',
 			'autoprefixer',
+			'htmlmin:server',
 			'connect:livereload',
 			'watch'
 		]);
@@ -465,24 +476,20 @@ module.exports = function(grunt) {
 		'clean:dist',
 		'wiredep',
 		'useminPrepare',
-	//	'compass:dist',
+		'compass:dist',
 		'imagemin',
 		'svgmin',
 		'autoprefixer',
 		'concat:generated',
-		/*
-		* DEV NOTE: This is not needed as "htmlmin" will minify all html.
-		* For the e2e testing purpose "html2js" need to be configured in karma.conf
-		*
 		'html2js',
-		'concat:templates', */
+		'concat:templates',
 		'ngmin',
 		'copy:dist',
 		'cssmin',
 		'uglify',
 		'rev',
 		'usemin',
-		'htmlmin'
+		'htmlmin:dist'
 	]);
 
 	grunt.registerTask('default', [
