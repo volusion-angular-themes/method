@@ -40,6 +40,7 @@ angular.module('Volusion.directives')
 						element.hide();
 					});
 
+					/* jshint unused:false */
 					scope.$on('$destroy',
 						function( event ) {
 
@@ -47,6 +48,7 @@ angular.module('Volusion.directives')
 
 						}
 					);
+					/* jshint unused:true */
 				}
 			};
 		}]);
