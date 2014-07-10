@@ -55,6 +55,31 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			$scope.toggleSearch = function() {
+				if($scope.mobileDisplay) {
+					$scope.mobileDisplay = false;
+					return;
+				}
+				$scope.mobileDisplay = true;
+			};
+
+			$scope.showMobileSearch = true; // Flag for view to use when rendering content
+			enquire.register('screen and (max-width:767px)', {
+
+				setup: function() {
+					$scope.mobileDisplay = true;
+				},
+				unmatch: function () {
+					$scope.mobileDisplay = true; // default cats and facets to open
+					$scope.showMobileSearch = false;
+				},
+				// transitioning to mobile mode
+				match  : function () {
+					$scope.mobileDisplay = false; // default cats and facets default to closed
+					$scope.showMobileSearch = true;
+				}
+			});
+
 			// Load the url category when the controller is activated.
 			getCategory($routeParams.slug);
 
