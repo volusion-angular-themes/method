@@ -3,9 +3,15 @@
 		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
 		<div class="col-sm-2 -faceted-search">
 			<div class="">
-				<h3>Narrow By</h3>
+				<!-- conditional content that gives us a mobile menu toggle btn -->
+				<h3 ng-show="!showMobileSearch">Narrow By</h3>
+				<a href ng-show="showMobileSearch"
+					ng-click="toggleSearch()">
+					<h3>Narrow By</h3>
+				</a>
 			</div>
-			<div class="panel-collapse">
+			<div ng-show="mobileDisplay">
+				<!-- This is here b/c mobile needs to hide / show the content -->
 				<div vn-category-search categories="categories"></div>
 				<h3>Filter By</h3>
 				<div vn-facet-search facets="facets"></div>

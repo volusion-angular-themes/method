@@ -20,6 +20,13 @@
 	}
 }
 
+// Default Toolbox Responsive Optimizations
+@media(max-width:767px){
+	.-faceted-search {
+		margin-top: 30px;
+	}
+}
+
 /*
 Animation for products as facets of search are applied. [rough draft]
 - TODO : Figure out why this breaks animation when nesting it.
