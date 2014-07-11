@@ -5,7 +5,6 @@ angular.module('Volusion.controllers')
 		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
 		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
 
-			// Perhaps refactor this to updateProducts?
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
@@ -13,6 +12,20 @@ angular.module('Volusion.controllers')
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
 					$scope.subCategories = response.categories.subCategories;
+				});
+
+				// Hack to get many products into this scope.
+				vnApi.Product().query(params).$promise.then(function(response) {
+					angular.forEach(response.data, function(value, key) {
+						$scope.products.push(value);
+					});
+				});
+				// Hack to get many products into this scope.
+				vnApi.Product().query(params).$promise.then(function(response) {
+					console.log('the second response', response);
+					angular.forEach(response.data, function(value, key) {
+						$scope.products.push(value);
+					});
 				});
 			}
 
