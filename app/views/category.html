@@ -4,26 +4,26 @@
 		<div class="col-sm-2 -faceted-search">
 			<div class="">
 				<!-- conditional content that gives us a mobile menu toggle btn -->
-				<h3 ng-show="!showMobileSearch">Narrow By</h3>
-				<a href ng-show="showMobileSearch"
-					ng-click="toggleSearch()">
+				<h3 data-ng-show="!showMobileSearch">Narrow By</h3>
+				<a href data-ng-show="showMobileSearch"
+					data-ng-click="toggleSearch()">
 					<h3>Narrow By</h3>
 				</a>
 			</div>
-			<div ng-show="mobileDisplay">
+			<div data-ng-show="mobileDisplay">
 				<!-- This is here b/c mobile needs to hide / show the content -->
 				<div vn-category-search categories="categories"></div>
 				<h3>Filter By</h3>
 				<div vn-facet-search facets="facets"></div>
 				<h3>Price</h3>
 				<input type="text"
-					   ng-model="minPrice"
-					   ng-keypress="searchByPrice($event)"/>
+					   data-ng-model="minPrice"
+					   data-ng-keypress="searchByPrice($event)"/>
 				to
 				<input type="text"
-					   ng-model="maxPrice"
-					   ng-keypress="searchByPrice($event)"/>
-				<button class="btn" href ng-click="clearAllFilters()">Clear Filters</button>
+					   data-ng-model="maxPrice"
+					   data-ng-keypress="searchByPrice($event)"/>
+				<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
 			</div>
 		</div>
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
@@ -36,27 +36,27 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" ng-repeat="product in products track by $index">
+				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" data-ng-repeat="product in products track by $index">
 					<!--<div vn-product-tile product="product"></div>-->
 					<div class="th-product">
-						<span class="th-product__sale" ng-show="product.isOnSale"></span>
-						<span class="th-product__new" ng-show="product.isNew"></span>
+						<span class="th-product__sale" data-ng-show="product.isOnSale"></span>
+						<span class="th-product__new" data-ng-show="product.isNew"></span>
 
 						<div class="th-product__image">
 							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
 							<a href="p/{{product.slug}}">
-								<img ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="">
+								<img data-ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="">
 							</a>
 						</div>
 						<div class="th-product__name">
 							<a href="p/{{ product.slug }}">{{ product.name }}</a>
 						</div>
 						<div class="th-product__price">
-							<span class="th-reg-price" ng-show="product.price.regularPrice > 0">
-								<span class="th-price" ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span>
+							<span class="th-reg-price" data-ng-show="product.price.regularPrice > 0">
+								<span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span>
 								<span class="th-price-text th-text-left">Reg</span>
 							</span>
-							<span class="th-now-price" ng-show="product.price.salePrice > 0">
+							<span class="th-now-price" data-ng-show="product.price.salePrice > 0">
 								<span class="th-price">{{product.price.salePrice | currency}}</span>
 								<span class="th-price-text">Now</span>
 							</span>

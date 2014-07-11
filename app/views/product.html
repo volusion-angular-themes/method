@@ -92,15 +92,17 @@
 								</div>
 							</div>
 							<div class="row">
-								<p class="th-product-details__availability" data-ng-show="availabilityMessage" ng-bind="availabilityMessage"></p>
+								<p class="th-product-details__availability"
+								   data-ng-show="availabilityMessage"
+								   data-ng-bind="availabilityMessage"></p>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-4 th-qty-wrap">
 									<div data-vn-block="th-qty-counter" class="input-group">
 										<span class="input-group-btn">
 											<button data-vn-element="btn" class="btn btn-default"
-															data-ng-click="decrementQty()"
-															data-ng-disabled="cartItem.quantity == 0">
+													data-ng-click="decrementQty()"
+													data-ng-disabled="cartItem.quantity == 0">
 												-
 											</button>
 										</span>

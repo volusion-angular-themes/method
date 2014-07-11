@@ -1,4 +1,4 @@
-<div data-snap-drawer class="th-mobile-menu" ng-hide="hideWrapper">
+<div data-snap-drawer class="th-mobile-menu" data-ng-hide="hideWrapper">
 	<div class="th-search hidden-md hidden-lg">
 		<form class="th-search__form">
 			<input type="text" class="th-search__input" placeholder="Search...">
@@ -16,8 +16,8 @@
           				<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
             					<span class="caret"></span>
           				</a>
-					<ul class="dropdown-menu th-mobile-list th-mobile-list--sub" ng-if="category.subCategories.length">
-						<li ng-repeat="subCategory in category.subCategories">
+					<ul class="dropdown-menu th-mobile-list th-mobile-list--sub" data-ng-if="category.subCategories.length">
+						<li data-ng-repeat="subCategory in category.subCategories">
 							<a class="th-mobile-list__link th-mobile-list__link--sub"
 							 	ui-sref="i18n.category({ categoryName: subCategory.seoFriendlyName, categoryId: subCategory.id })">{{subCategory.name}}</a>
 						</li>

@@ -16,14 +16,14 @@ angular.module('Volusion.controllers')
 
 				// Hack to get many products into this scope.
 				vnApi.Product().query(params).$promise.then(function(response) {
-					angular.forEach(response.data, function(value, key) {
+					angular.forEach(response.data, function(value) {
 						$scope.products.push(value);
 					});
 				});
 				// Hack to get many products into this scope.
 				vnApi.Product().query(params).$promise.then(function(response) {
 					console.log('the second response', response);
-					angular.forEach(response.data, function(value, key) {
+					angular.forEach(response.data, function(value) {
 						$scope.products.push(value);
 					});
 				});
