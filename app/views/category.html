@@ -29,10 +29,13 @@
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
 		<div class="col-sm-10">
 			<div class="row">
-				<ol class="breadcrumb -breadcrumb visible-lg visible-md">
-					<li><a href="/">Home</a></li>
-					<li><a href="">{{ categories.name }}</a></li>
-				</ol>
+				<div class="content-top">
+					<div class="page-header">
+						<h1>{{category.name}}</h1>
+						<img class="banner img img-responsive" ng-src="{{category.bannerImgUrl}}">
+						<div class="description">{{category.description}}</div>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" ng-repeat="product in products track by $index">
