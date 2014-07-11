@@ -36,7 +36,7 @@
 		<a id="top"></a>
 
 		<!-- Header -->
-		<div ng-include=" 'views/partials/header.html' "></div>
+		<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
 		<!-- Main Content -->
 		<div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div>
@@ -79,6 +79,7 @@
 	<script src="/bower_components/messageformat/messageformat.js"></script>
 	<script src="/bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
 	<script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+	<script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 	<script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
 	<script src="/bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
 	<script src="/bower_components/angular-carousel/dist/angular-carousel.js"></script>
@@ -104,6 +105,7 @@
 	<script src="scripts/directives/easy-zoom.js"></script>
 	<script src="scripts/directives/legacy-link.js"></script>
 	<script src="scripts/directives/show-on-dropdown-hover.js"></script>
+	<script src="scripts/directives/scroll-to-anchor.js"></script>
 
 	<script src="scripts/filters/cache-bust.js"></script>
 	<script src="scripts/filters/html.js"></script>
