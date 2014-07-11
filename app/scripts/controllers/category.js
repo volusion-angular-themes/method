@@ -14,25 +14,26 @@ angular.module('Volusion.controllers')
 					$scope.subCategories = response.categories.subCategories;
 				});
 
-				// Hack to get many products into this scope.
-				vnApi.Product().query(params).$promise.then(function(response) {
-					angular.forEach(response.data, function(value) {
-						$scope.products.push(value);
-					});
-				});
-				// Hack to get many products into this scope.
-				vnApi.Product().query(params).$promise.then(function(response) {
-					console.log('the second response', response);
-					angular.forEach(response.data, function(value) {
-						$scope.products.push(value);
-					});
-				});
+//				// Hack to get many products into this scope.
+//				vnApi.Product().query(params).$promise.then(function(response) {
+//					angular.forEach(response.data, function(value) {
+//						$scope.products.push(value);
+//					});
+//				});
+//				// Hack to get many products into this scope.
+//				vnApi.Product().query(params).$promise.then(function(response) {
+//					console.log('the second response', response);
+//					angular.forEach(response.data, function(value) {
+//						$scope.products.push(value);
+//					});
+//				});
 			}
 
 			function getCategory(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
-					$scope.category = response.data;
+					console.log('response cat data: ', response.data);
+					$scope.category = response.data[0];  // Prior to 7-11-2014 it was object, not array. Todo: figure out the proper fix.
 					vnProductParams.addCategory(response.data.id);
 					queryProducts();
 				});

@@ -94,7 +94,6 @@ angular.module('Volusion.controllers')
 			// Handle Navigation
 			vnApi.Nav().get({ navId: 1 }).$promise
 				.then(function(response) {
-					console.log('nav response: ', response);
 					$scope.smartNavCategories = $scope.categories = response.data;
 
 					$timeout(function() {

@@ -34,10 +34,13 @@
 					<img class="banner img img-responsive" ng-src="{{category.bannerImgUrl}}">
 					<div class="description" itemprop="description" data-ng-bind-html="category.description | legacyLinkify | html"></div>
 				</div>
+				<ol class="breadcrumb visible-lg visible-md">
+					<li><a data-ng-href="/">Home</a></li>
+					<li><a>{{category.name}}</a></li>
+				</ol>
 			</div>
 			<div class="row">
 				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" data-ng-repeat="product in products track by $index">
-					<!--<div vn-product-tile product="product"></div>-->
 					<div class="th-product">
 						<span class="th-product__sale" data-ng-show="product.isOnSale"></span>
 						<span class="th-product__new" data-ng-show="product.isNew"></span>
