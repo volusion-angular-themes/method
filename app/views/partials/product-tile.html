@@ -2,7 +2,7 @@
 	<span class="th-product__sale hidden-xs" data-ng-show="product.isOnSale"></span>
 	<span class="th-product__new hidden-xs" data-ng-show="product.isNew"></span>
 	<div class="th-product__image">
-		<a data-ui-sref="i18n.product({ productTitle: product.slug, productCode: product.code })">
+		<a data-ng-href="{{product.url}}">
 			<img data-ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="{{product.name}}">
 		</a>
 		<!--<div class="th-quick-options visible-md visible-lg">-->
@@ -11,7 +11,7 @@
 		<!--</div>-->
 	</div>
 	<div class="th-product__name">
-		<a data-ui-sref="i18n.product({ productTitle: product.slug, productCode: product.code })">{{product.name}}</a>
+		<a data-ng-href="{{product.url}}">{{product.name}}</a>
 	</div>
 	<div class="th-product__price">
 		<span class="th-reg-price" data-ng-show="product.price.regularPrice > 0"><span class="th-price" data-ng-class="{strike: product.price.salePrice > 0}">{{product.price.regularPrice | currency}}</span><span class="th-price-text th-text-left" data-translate="product.regularPriceLabel">Reg</span></span>
