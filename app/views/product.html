@@ -79,10 +79,6 @@
 											<div class="th-icon__foreground"></div>
 										</div>
 									</div>
-									<a href="#" data-translate="product.writeReview"></a>
-								</div>
-								<div class="th-add-favorite">
-									<a href="#"><span class="th-favorite-icon"></span> <span data-translate="product.addToFavorites">Add to Favorites &gt;</span></a>
 								</div>
 							</div>
 						</div><!-- end left product column -->
@@ -275,7 +271,6 @@
 					</div>
 				</div>
 				<div class="th-totals-right">
-					<a href="#" class="th-read-all" data-translate="product.readAllReviews">Read All Reviews &gt;</a>
 					<a legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</button>
 				</div>
 			</div>
@@ -308,8 +303,8 @@
 				</div>
 				<div class="th-review__helpful">
 					<span data-translate="product.wasThisReviewHelpfulToYou">Was this review helpful for you?</span>
-					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{ratingsAndReviews.data.id}}&yes=yes" class="btn btn-default btn-grey-sm">Yes</a>
-					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{ratingsAndReviews.data.id}}&yes=no" class="btn btn-default btn-grey-sm">No</a>
+					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=yes" class="btn btn-default btn-grey-sm">Yes</a>
+					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=no" class="btn btn-default btn-grey-sm">No</a>
 				</div>
 			</div>
 		</div>

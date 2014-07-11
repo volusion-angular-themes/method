@@ -14,7 +14,11 @@ angular.module('Volusion.directives')
 			return {
 				restrict: 'A',
 				link: function(scope, element, attrs) {
-					element.attr('href', attrs.legacyLink);
+
+					attrs.$observe('legacyLink', function(newValue) {
+						element.attr('href', newValue);
+					});
+
 					element.on('click', function(e) {
 						e.preventDefault();
 						$window.location.assign(this.href);
