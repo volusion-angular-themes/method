@@ -8,33 +8,30 @@ angular.module('Volusion.controllers')
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
-					console.log('product response: ', response);
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
-					$scope.subCategories = response.categories[0].subCategories; 
 				});
 
 //				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
-//				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					console.log('the second response', response);
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
+				vnApi.Product().query(params).$promise.then(function(response) {
+					angular.forEach(response.data, function(value) {
+						$scope.products.push(value);
+					});
+				});
+				// Hack to get many products into this scope.
+				vnApi.Product().query(params).$promise.then(function(response) {
+					angular.forEach(response.data, function(value) {
+						$scope.products.push(value);
+					});
+				});
 			}
 
 			function getCategory(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
-					console.log('response cat data: ', response.data);
 					$scope.category = response.data[0];  // Prior to 7-11-2014 it was object, not array. Todo: figure out the proper fix.
+					$scope.subCategories = response.data[0].subCategories;
 					vnProductParams.addCategory(response.data[0].id);
 					queryProducts();
 				});
