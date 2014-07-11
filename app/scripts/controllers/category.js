@@ -8,10 +8,11 @@ angular.module('Volusion.controllers')
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
+					console.log('product response: ', response);
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
-					$scope.subCategories = response.categories.subCategories;
+					$scope.subCategories = response.categories[0].subCategories; 
 				});
 
 //				// Hack to get many products into this scope.
@@ -34,7 +35,7 @@ angular.module('Volusion.controllers')
 					// Handle the category data
 					console.log('response cat data: ', response.data);
 					$scope.category = response.data[0];  // Prior to 7-11-2014 it was object, not array. Todo: figure out the proper fix.
-					vnProductParams.addCategory(response.data.id);
+					vnProductParams.addCategory(response.data[0].id);
 					queryProducts();
 				});
 			}
