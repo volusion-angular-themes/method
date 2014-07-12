@@ -11,8 +11,8 @@ angular.module('Volusion.controllers')
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
-					$scope.currentPage = 1;
-					$scope.totalPages = response.cursor.totalPages;
+//					$scope.currentPage = 1;
+//					$scope.totalPages = response.cursor.totalPages;
 					$scope.cursor = response.cursor;
 					console.log('cursor: ', $scope.cursor);
 				});
@@ -49,6 +49,21 @@ angular.module('Volusion.controllers')
 			// TODO: refactor this into a service and use that service where it has access to the directive in the header.
 			$rootScope.seo = {};
 			$scope.currentCategory = {};
+
+			$scope.nextPage = function() {
+
+				var currentPage = parseInt( vnProductParams.getPageNumber() );
+				console.log('the cur page: ', currentPage);
+				var nextPage = currentPage + 1;
+				vnProductParams.setPageNumber(nextPage.toString());
+				queryProducts();
+
+				console.log('go next: ', nextPage.toString());
+			};
+
+			$scope.prevPage = function() {
+				console.log('go prev');
+			};
 
 			$scope.clearAllFilters = function() {
 
@@ -101,7 +116,7 @@ angular.module('Volusion.controllers')
 
 			// Forct the pageSize and pageNumber for now.
 //			pageSize: '1', pageNumber: '1'
-			vnProductParams.setPageSize('1');
+			vnProductParams.setPageSize('');
 			vnProductParams.setPageNumber('1');
 
 			// Listen for faceted search updates
