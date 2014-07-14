@@ -16,13 +16,11 @@ angular.module('Volusion.directives')
 				compile : function () {
 
 					return function (scope, element, attr) {
-						/* jshint unused:false */
 						element.bind('click', function (event) {
+							event.preventDefault();
 							$location.hash(attr.scrollToAnchor);
 							$anchorScroll();
-							$location.hash('');
 						});
-						/* jshint unused:true */
 					};
 				}
 			};
