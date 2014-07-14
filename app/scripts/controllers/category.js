@@ -2,8 +2,8 @@
 
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
-		function($scope, $rootScope, $routeParams, vnApi, vnProductParams) {
+		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
+		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
 
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
@@ -116,7 +116,7 @@ angular.module('Volusion.controllers')
 
 			// Forct the pageSize and pageNumber for now.
 //			pageSize: '1', pageNumber: '1'
-//			vnProductParams.setPageSize('');
+			vnProductParams.setPageSize('');
 			vnProductParams.setPageNumber('1');
 
 			// Listen for faceted search updates
