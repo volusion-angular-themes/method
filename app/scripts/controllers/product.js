@@ -93,11 +93,9 @@ angular.module('Volusion.controllers')
 
 			//$scope.sceDescriptions = angular.copy(product.descriptions);  // TODO: ???
 
-			/*jslint unparam: true*/
 			$rootScope.$on('VN_PRODUCT_SELECTED', function (event, selection) {
 				selection.product.optionSelection = selection;
 			});
-			/*jslint unparam: false*/
 
 			//TODO: Fix the html related to no reviews
 			$scope.$watch('product', function () {
@@ -196,7 +194,7 @@ angular.module('Volusion.controllers')
 
 			// Add to Cart
 			$scope.addToCart = function () {
-				//$rootScope.$emit('ADD_TO_CART', cartItem);
+				//$rootScope.$emit('ADD_TO_CART', $scope.cartItem);
 				Cart.saveCart($scope.cartItem)
 					.then(function () {
 						safeApply($scope, function () {
