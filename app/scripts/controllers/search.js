@@ -1,11 +1,9 @@
-'use strict';
-
 /**
  * @ngdoc function
- * @name volusionMethodThemeApp.controller:SearchCtrl
+ * @name methodApp.controller:SearchCtrl
  * @description
  * # SearchCtrl
- * Controller of the volusionMethodThemeApp
+ * Controller of the methodApp
  */
 angular.module('methodApp')
 	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', 'vnApi', 'vnProductParams',
