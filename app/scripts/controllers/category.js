@@ -14,7 +14,6 @@ angular.module('Volusion.controllers')
 //					$scope.currentPage = 1;
 //					$scope.totalPages = response.cursor.totalPages;
 					$scope.cursor = response.cursor;
-					console.log('cursor: ', $scope.cursor);
 				});
 
 //				// Hack to get many products into this scope.
