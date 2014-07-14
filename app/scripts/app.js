@@ -86,7 +86,8 @@ angular.module('methodApp', [
 				})
 				.when('/search', {
 					templateUrl: 'views/search.html',
-					controller: 'SearchCtrl'
+					controller: 'SearchCtrl',
+					reloadOnSearch: false
 				})
 				// Articles must come after search or search will never be picked up.
 				.when('/:slug', {
