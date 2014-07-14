@@ -88,6 +88,10 @@ angular.module('methodApp', [
 					templateUrl: 'views/article.html',
 					controller : 'ArticleCtrl'
 				})
+.when('/search', {
+  templateUrl: 'views/search.html',
+  controller: 'SearchCtrl'
+})
 				.otherwise({
 					redirectTo: '/'
 				});
