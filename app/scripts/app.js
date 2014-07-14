@@ -84,14 +84,15 @@ angular.module('methodApp', [
 					templateUrl: 'views/category.html',
 					controller : 'CategoryCtrl'
 				})
+				.when('/search', {
+					templateUrl: 'views/search.html',
+					controller: 'SearchCtrl'
+				})
+				// Articles must come after search or search will never be picked up.
 				.when('/:slug', {
 					templateUrl: 'views/article.html',
 					controller : 'ArticleCtrl'
 				})
-.when('/search', {
-  templateUrl: 'views/search.html',
-  controller: 'SearchCtrl'
-})
 				.otherwise({
 					redirectTo: '/'
 				});
