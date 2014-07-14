@@ -118,14 +118,12 @@ angular.module('methodApp', [
 				snapRemote.close();
 			});
 
-			/*jslint unparam: true*/
 			$rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
 				event.preventDefault();
 				if (error.status === 404) {
 					$window.location.replace('/404.html');
 				}
 			});
-			/*jslint unparam: false*/
 
 			// TODO: This should be in a controller ...  $rootScope is not the place for that
 			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
