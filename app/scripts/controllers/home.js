@@ -138,11 +138,11 @@ angular.module('Volusion.controllers')
 			//			});
 			//});
 
-			$scope.searchLocal = '';
-
-			$scope.doSearch = function () {
-//				alert('Searching for: ' + $scope.searchLocal);
-			};
+//			$scope.searchLocal = '';
+//
+//			$scope.doSearch = function () {
+//				console.log('Searching for: ' + $scope.searchLocal);
+//			};
 
 			$scope.doScrollTop = function () {
 				alert('scroll to top');
