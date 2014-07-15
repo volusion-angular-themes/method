@@ -1,4 +1,17 @@
 {
+	"index": {
+		"about": "About Us",
+		"contact": "Contact Us",
+		"toggleNavigation": "Toggle Navigation",
+		"promo": "Free shipping on all orders over $99!",
+		"myCart": "My Bag",
+		"signIn": "Sign In",
+		"createAccount": "Create Account",
+		"myFavorites": "My Favorites",
+		"signUpForNewsletter": "Sign-Up for Our Newsletter",
+		"newsletterSignUpButton": "Go",
+		"smartNavMoreLinkText": "More"
+	},
 	"home": {
 		"shopNow": "Shop Now &gt;",
 		"featured": "Featured",
@@ -6,5 +19,10 @@
 		"quickView": "Quick View",
 		"promoCategoryHeading": "Now Stocking Herschel Bags.",
 		"promoCategoryDescription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+	},
+	"product": {
+		"regularPriceLabel": "Reg",
+		"nowPriceLabel": "Now",
+		"quickView": "Quick View"
 	}
 }
