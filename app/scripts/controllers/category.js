@@ -15,19 +15,6 @@ angular.module('Volusion.controllers')
 //					$scope.totalPages = response.cursor.totalPages;
 					$scope.cursor = response.cursor;
 				});
-
-//				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
-//				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
 			}
 
 			function getCategory(newSlug) {
@@ -112,11 +99,6 @@ angular.module('Volusion.controllers')
 
 			// Load the url category when the controller is activated.
 			getCategory($routeParams.slug);
-
-			// Forct the pageSize and pageNumber for now.
-//			pageSize: '1', pageNumber: '1'
-//			vnProductParams.setPageSize('');
-//			vnProductParams.setPageNumber('1');
 
 			// Listen for faceted search updates
 			$rootScope.$on('ProductSearch.facetsUpdated', function() {

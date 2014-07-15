@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll, Cart) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll) {
 
 			$scope.product = {};
 			$scope.cartItem = {};
@@ -36,9 +36,19 @@ angular.module('Volusion.controllers')
 			};
 
 			function setDefaults() {
-				$scope.product.optionSelection = { images: 'default' };
-				$scope.product.image = $scope.product.images.default[0];
+				var product = $scope.product;
+				product.optionSelection = { images: 'default' };
+				product.image = product.images.default[0];
 				$scope.cartItem.options = $scope.cartItem.options || {};
+				var options = product.options;
+				if (!options || !options.length) {
+					product.optionSelection = angular.extend(product.optionSelection, {
+						available: 9999,
+						isValid: true,
+						product: product,
+						state: 'available'
+					});
+				}
 			}
 
 			vnApi.Product().get({slug: $routeParams.slug }).$promise
@@ -69,6 +79,15 @@ angular.module('Volusion.controllers')
 				})
 				.then(function () {
 
+					//TODO: Fix the html related to no reviews
+					// reviews
+					if ($scope.product.code) {
+						vnApi.Review().get({ code: $scope.product.code }).$promise
+							.then(function (response) {
+								$scope.ratingsAndReviews = response;
+							});
+					}
+
 					// According to Kevin we should query only the top category
 					var categoryIds = $scope.product.categories[0].id;
 
@@ -95,16 +114,6 @@ angular.module('Volusion.controllers')
 
 			$rootScope.$on('VN_PRODUCT_SELECTED', function (event, selection) {
 				selection.product.optionSelection = selection;
-			});
-
-			//TODO: Fix the html related to no reviews
-			$scope.$watch('product', function () {
-				if ($scope.product.code) {
-					vnApi.Review().get({ code: $scope.product.code }).$promise
-						.then(function (response) {
-							$scope.ratingsAndReviews = response;
-						});
-				}
 			});
 
 			$scope.$watch('product.optionSelection', function (selection, oldSelection) {
@@ -192,20 +201,17 @@ angular.module('Volusion.controllers')
 				return (scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
 			}
 
-			// Add to Cart
-			$scope.addToCart = function () {
-				//$rootScope.$emit('ADD_TO_CART', $scope.cartItem);
-				Cart.saveCart($scope.cartItem)
-					.then(function () {
-						safeApply($scope, function () {
-							$scope.cartItem.qty = 0;
-							modifyQuantity($scope.product.optionSelection.available && 1);
-						});
-					});
+			$scope.addToCart = function() {
+				safeApply($scope, function() {
+					$scope.cartItem.qty = 0;
+				});
+				$rootScope.$emit('VN_ADD_TO_CART', $scope.cartItem);
 			};
 
-			//$rootScope.$on('ITEM_ADDED_TO_CART', function () {
-			//	var selection = product.optionSelection;
-			//	modifyQuantity(selection.available && 1);
-			//});
+			$rootScope.$on('VN_ADD_TO_CART_COMPLETE', function() {
+				safeApply($scope, function() {
+					modifyQuantity($scope.product.optionSelection.available && 1);
+				});
+			});
+
 		}]);

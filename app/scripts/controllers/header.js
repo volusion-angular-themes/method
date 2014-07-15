@@ -1,9 +1,9 @@
 /**
  * @ngdoc function
- * @name volusionMethodThemeApp.controller:HeaderCtrl
+ * @name methodApp.controller:HeaderCtrl
  * @description
  * # HeaderCtrl
- * Controller of the volusionMethodThemeApp
+ * Controller of the methodApp
  */
 
 angular.module('Volusion.controllers')
