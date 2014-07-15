@@ -1,29 +1,5 @@
 'use strict';
 
-//angular.module('methodApp')
-//  .provider('translateProvider', function () {
-//
-//    // Private variables
-//    var salutation = 'Hello';
-//
-//    // Private constructor
-//    function Greeter() {
-//      this.greet = function () {
-//        return salutation;
-//      };
-//    }
-//
-//    // Public API for configuration
-//    this.setSalutation = function (s) {
-//      salutation = s;
-//    };
-//
-//    // Method for instantiating
-//    this.$get = function () {
-//      return new Greeter();
-//    };
-//  });
-
 var storageKey = 'VN_TRANSLATE';
 
 // ReSharper disable once InconsistentNaming
@@ -58,9 +34,15 @@ Translate.prototype.addParts = function() {
 	}
 
 	var loader = this.$translatePartialLoader;
-	angular.forEach(arguments, angular.bind(this, function(part) {
+
+	angular.forEach(arguments, function(part) {
 		loader.addPart(part);
-	}));
+	});
+
+//	angular.forEach(arguments, angular.bind(this, function(part) {
+//		loader.addPart(part);
+//	}));
+
 	return this.$translate.refresh();
 };
 
