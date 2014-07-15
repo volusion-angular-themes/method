@@ -79,6 +79,15 @@ angular.module('Volusion.controllers')
 				})
 				.then(function () {
 
+					//TODO: Fix the html related to no reviews
+					// reviews
+					if ($scope.product.code) {
+						vnApi.Review().get({ code: $scope.product.code }).$promise
+							.then(function (response) {
+								$scope.ratingsAndReviews = response;
+							});
+					}
+
 					// According to Kevin we should query only the top category
 					var categoryIds = $scope.product.categories[0].id;
 
@@ -105,16 +114,6 @@ angular.module('Volusion.controllers')
 
 			$rootScope.$on('VN_PRODUCT_SELECTED', function (event, selection) {
 				selection.product.optionSelection = selection;
-			});
-
-			//TODO: Fix the html related to no reviews
-			$scope.$watch('product', function () {
-				if ($scope.product.code) {
-					vnApi.Review().get({ code: $scope.product.code }).$promise
-						.then(function (response) {
-							$scope.ratingsAndReviews = response;
-						});
-				}
 			});
 
 			$scope.$watch('product.optionSelection', function (selection, oldSelection) {
