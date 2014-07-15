@@ -5,9 +5,9 @@
   },
   "pages": {
     "home": {
-      "content1": "",
-      "content2": "",
-      "content3": "",
+      "content1": "test some content",
+      "content2": "more",
+      "content3": "foo",
       "featuredProducts": {
         "isEnabled": true
       },
@@ -43,29 +43,31 @@
       },
       "tiles": {
         "isEnabled": true,
-        "tile1": {
-          "imageUrl": "/images/homepage/tile1.jpg",
-          "linkTo": "/c/home-decor"
-        },
-        "tile2": {
-          "imageUrl": "/images/homepage/tile2.jpg",
-          "linkTo": "/c/home-decor"
-        },
-        "tile3": {
-          "imageUrl": "/images/homepage/tile3.jpg",
-          "linkTo": "/c/home-decor"
-        },
-        "tile4": {
-          "imageUrl": "/images/homepage/tile4.jpg",
-          "linkTo": "/c/home-decor"
-        },
-        "tile5": {
-          "imageUrl": "/images/homepage/tile5.jpg",
-          "linkTo": "/c/home-decor"
-        },
-        "tile6": {
-          "imageUrl": "/images/homepage/tile6.jpg",
-          "linkTo": "/c/home-decor"
+        "tiles": {
+          "tile1": {
+            "imageUrl": "/images/homepage/tile1.jpg",
+            "linkTo": "/c/home-decor"
+          },
+          "tile2": {
+            "imageUrl": "/images/homepage/tile2.jpg",
+            "linkTo": "/c/home-decor"
+          },
+          "tile3": {
+            "imageUrl": "/images/homepage/tile3.jpg",
+            "linkTo": "/c/home-decor"
+          },
+          "tile4": {
+            "imageUrl": "/images/homepage/tile4.jpg",
+            "linkTo": "/c/home-decor"
+          },
+          "tile5": {
+            "imageUrl": "/images/homepage/tile5.jpg",
+            "linkTo": "/c/home-decor"
+          },
+          "tile6": {
+            "imageUrl": "/images/homepage/tile6.jpg",
+            "linkTo": "/c/home-decor"
+          }
         }
       }
     }
