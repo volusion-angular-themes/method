@@ -15,19 +15,6 @@ angular.module('Volusion.controllers')
 //					$scope.totalPages = response.cursor.totalPages;
 					$scope.cursor = response.cursor;
 				});
-
-//				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
-//				// Hack to get many products into this scope.
-//				vnApi.Product().query(params).$promise.then(function(response) {
-//					angular.forEach(response.data, function(value) {
-//						$scope.products.push(value);
-//					});
-//				});
 			}
 
 			function getCategory(newSlug) {
