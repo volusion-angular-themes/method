@@ -13,7 +13,6 @@ angular.module('methodApp')
 			// Private SearchCtrl functions
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
-				console.log('queryProducts params: ', params);
 				vnApi.Product().query(params).$promise.then(function (response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
@@ -42,9 +41,6 @@ angular.module('methodApp')
 
 				// Clean up the UI for this Controller / Page
 				$scope.searchLocal = '';
-				var w = angular.element($window);
-				w.bodyfocus();
-//				console.log('focus ran', $window);
 				// Todo: close search input after this
 			};
 
