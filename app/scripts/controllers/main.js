@@ -14,9 +14,8 @@ angular.module('Volusion.controllers')
 		$location,
 		$window,
 		$timeout,
-		vnApi) {
-
-		console.debug('main controller');
+		vnApi,
+		Cart) {
 
 		//hide header & footer when viewing theme-settings
 		if ($location.path().indexOf('/theme-settings') >= 0) {
@@ -120,24 +119,32 @@ angular.module('Volusion.controllers')
 		//		return '/checkout.asp';
 		//	}
 		//};
-		//
-		// TODO: Refactor the add to cart flow
-		// Add to Cart
-		//$rootScope.$on('ADD_TO_CART', function(event, cartItem) {
-		//	var cartId = $scope.cart && $scope.cart.id;
-		//	if (cartId === undefined) {
-		//		cartId = $scope.config.checkout.cartId;
-		//	}
-		//	api.carts.save({ cartId: cartId }, cartItem)
-		//			.then(function(response) {
-		//				$rootScope.$emit('ITEM_ADDED_TO_CART', $scope.cart = response.data);
-		//			});
 
-		//	Cart.saveCart(cartId, cartItem)
-		//			.then(function(response) {
-		//				$scope.cart = response.data;
-		//			});
-		//});
+		$rootScope.$on('VN_ADD_TO_CART', function(cartItem) {
+			$rootScope.$emit('VN_ADD_TO_CART_BEFORE', cartItem);
+			var status = 'error';
+			Cart.saveCart(cartItem)
+				.then(function(response) {
+					status = 'success';
+					$rootScope.$emit('VN_ADD_TO_CART_SUCCESS', {
+						status: status,
+						originalData: cartItem,
+						data: response.data
+					});
+				}, function() {
+					$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
+						status: status,
+						data: cartItem
+					});
+				})
+				.finally(function(response) {
+					$rootScope.$emit('VN_ADD_TO_CART_COMPLETE', {
+						status: status,
+						originalData: cartItem,
+						data: response.data
+					});
+				});
+		});
 
 		$scope.searchLocal = '';
 
