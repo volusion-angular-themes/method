@@ -6,20 +6,18 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', 'vnApi', 'vnProductParams',
-		function ($rootScope, $scope, $routeParams, $location, vnApi, vnProductParams) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', 'vnApi', 'vnProductParams',
+		function ($rootScope, $scope, $routeParams, $location, $window, vnApi, vnProductParams) {
 			'use strict';
 
 			// Private SearchCtrl functions
 			function queryProducts() {
 				var params = vnProductParams.getParamsObject();
-				console.log('queryProducts params: ', params);
 				vnApi.Product().query(params).$promise.then(function (response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categories = response.categories;
 					$scope.cursor = response.cursor;
-					console.log('cursor: ', $scope.cursor);
 				});
 			}
 
@@ -31,22 +29,27 @@ angular.module('methodApp')
 
 			$scope.searchLocal = '';
 			$scope.doSearch = function () {
+				$scope.currentSearchText = $scope.searchLocal;
+
 				// Change apps location
 				$location.path('/search');
-				// Modify the url for these params // Todo: use this as a model to build the url from the vnProductParams value.
+				// Modify the url for these params // Todo: use this as a model to build the url from the vnProductParams value?
 				$location.search('q', $scope.searchLocal);
-				$scope.searchLocal = '';
 				vnProductParams.updateSearch($scope.searchLocal);
-				console.log('vnProductParams: ', vnProductParams.getParamsObject());
+				$scope.lastSearchString = 'blah';
 				queryProducts();
 
-				// close search after this
-				// remove cursor from the input field
+				// Clean up the UI for this Controller / Page
+				$scope.searchLocal = '';
+				// Todo: close search input after this
 			};
 
-				// TODO: refactor this into a service and directive for pagination? and use that service where it has access to the directive in the header.
+			$scope.init = function() {
+				vnProductParams.updateSearch($routeParams.q);
+				queryProducts();
+			};
+
 			$rootScope.seo = {};
-			$scope.currentCategory = {};
 
 			$scope.nextPage = function () {
 
@@ -63,6 +66,7 @@ angular.module('methodApp')
 				console.log('go prev');
 			};
 
+			// Todo: move this into a directive level w/ ctrl if needed.
 			$scope.clearAllFilters = function () {
 
 				// Reset for the service layer (this will reset the stuff generated via directive
@@ -108,29 +112,24 @@ angular.module('methodApp')
 					$scope.showMobileSearch = true;
 				}
 			});
+			// End long Todo.
 
-			// Load the url category when the controller is activated.
-//			getCategory($routeParams.slug);
-//
-//			// Forct the pageSize and pageNumber for now.
-////			pageSize: '1', pageNumber: '1'
-//			vnProductParams.setPageSize('');
-//			vnProductParams.setPageNumber('1');
-//
+			// Scope listeners, initialization and cleanup routines
+			$scope.init();
+
 			// Listen for faceted search updates
 			$rootScope.$on('ProductSearch.facetsUpdated', function () {
 				queryProducts();
 			});
 
-//			// Listen for Sub Category updated
-//			$rootScope.$on('ProductSearch.categoriesUpdated', function (evt, args) {
-//				vnProductParams.addCategory(args.categoryId);
-//				queryProducts();
-//			});
+			// Listen for Sub Category updated
+			$rootScope.$on('ProductSearch.categoriesUpdated', function (evt, args) {
+				vnProductParams.addCategory(args.categoryId);
+				queryProducts();
+			});
 
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-
 				$scope.searchLocal = '';
 			});
 		}]);
