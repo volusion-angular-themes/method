@@ -64,7 +64,9 @@ angular.module('methodApp', [
 					controller : 'HomeCtrl',
 					resolve    : {
 						translations: ['translate', function (translate) {
-							return translate.addParts('home');
+							translate.addParts('home');
+							translate.addParts('product');
+							return;
 						}]
 					}
 				})
