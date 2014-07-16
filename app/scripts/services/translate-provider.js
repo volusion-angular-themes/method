@@ -35,13 +35,13 @@ Translate.prototype.addParts = function() {
 
 	var loader = this.$translatePartialLoader;
 
-	angular.forEach(arguments, function(part) {
-		loader.addPart(part);
-	});
-
-//	angular.forEach(arguments, angular.bind(this, function(part) {
+//	angular.forEach(arguments, function(part) {
 //		loader.addPart(part);
-//	}));
+//	});
+
+	angular.forEach(arguments, angular.bind(this, function(part) {
+		loader.addPart(part);
+	}));
 
 	return this.$translate.refresh();
 };
