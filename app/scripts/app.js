@@ -18,6 +18,7 @@ angular.module('methodApp', [
 	'ui.bootstrap',
 	'pascalprecht.translate',
 	'snap',
+	'textAngular',
 
 	// Volusion modules
 	'seo',
