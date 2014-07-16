@@ -32,24 +32,24 @@ angular.module('Volusion.controllers')
 			* - set up all the $scope properties
 			* - declare scope level functionality (listeners etc)
 			*/
-			// TODO: refactor this into a service and use that service where it has access to the directive in the header.
-			$rootScope.seo = {};
-			$scope.currentCategory = {};
-
-			$scope.nextPage = function() {
-
-				var currentPage = parseInt( vnProductParams.getPageNumber() );
-				console.log('the cur page: ', currentPage);
-				var nextPage = currentPage + 1;
-				vnProductParams.setPageNumber(nextPage.toString());
-				queryProducts();
-
-				console.log('go next: ', nextPage.toString());
-			};
-
-			$scope.prevPage = function() {
-				console.log('go prev');
-			};
+//			// TODO: refactor this into a service and use that service where it has access to the directive in the header.
+//			$rootScope.seo = {};
+//			$scope.currentCategory = {};
+//
+//			$scope.nextPage = function() {
+//
+//				var currentPage = parseInt( vnProductParams.getPageNumber() );
+//				console.log('the cur page: ', currentPage);
+//				var nextPage = currentPage + 1;
+//				vnProductParams.setPageNumber(nextPage.toString());
+//				queryProducts();
+//
+//				console.log('go next: ', nextPage.toString());
+//			};
+//
+//			$scope.prevPage = function() {
+//				console.log('go prev');
+//			};
 
 			$scope.clearAllFilters = function() {
 
@@ -80,11 +80,11 @@ angular.module('Volusion.controllers')
 				$scope.mobileDisplay = true;
 			};
 
-			$scope.showMobileSearch = true; // Flag for view to use when rendering content
 			enquire.register('screen and (max-width:767px)', {
 
 				setup: function() {
 					$scope.mobileDisplay = true;
+					$scope.showMobileSearch = false;
 				},
 				unmatch: function () {
 					$scope.mobileDisplay = true; // default cats and facets to open
