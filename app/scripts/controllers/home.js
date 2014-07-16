@@ -15,6 +15,5 @@ angular.module('Volusion.controllers')
 				.then(function(response) {
 					$scope.featuredProducts = response.data;
 				});
-
 		}
 	);
