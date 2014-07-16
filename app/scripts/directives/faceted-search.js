@@ -30,6 +30,10 @@ angular.module('methodApp')
 						scope.queryProducts();
 					}
 				};
+
+				scope.$watch('categoryList', function(categoryList) {
+					console.log('facet search directive catList: ', categoryList);
+				});
 			}
 		};
 	}]);

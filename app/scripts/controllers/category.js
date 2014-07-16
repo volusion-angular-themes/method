@@ -31,7 +31,7 @@ angular.module('Volusion.controllers')
 				vnApi.Product().query(params).$promise.then(function(response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
-					$scope.categories = response.categories;
+					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 				});
 			}
