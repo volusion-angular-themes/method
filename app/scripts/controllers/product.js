@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll, Cart) {
 
 			$scope.product = {};
 			$scope.cartItem = {};
@@ -143,12 +143,14 @@ angular.module('Volusion.controllers')
 					if (!selection.isValid) {
 						$scope.cartItem.qty = 0;
 						selection.available = 0;
+						$scope.product.optionSelection.available = 0;
+
 						return;
 					}
 					if (selection.available < $scope.cartItem.qty) {
 						$scope.cartItem.qty = selection.available;
 					}
-					if ($scope.cartItem.qty === 0 && selection.available > 0) {
+					if (($scope.cartItem.qty === undefined || $scope.cartItem.qty === 0) && selection.available > 0) {
 						$scope.cartItem.qty = 1;
 					}
 					selection.available -= $scope.cartItem.qty;
@@ -202,10 +204,35 @@ angular.module('Volusion.controllers')
 			}
 
 			$scope.addToCart = function() {
-				safeApply($scope, function() {
-					$scope.cartItem.qty = 0;
-				});
-				$rootScope.$emit('VN_ADD_TO_CART', $scope.cartItem);
+//				safeApply($scope, function() {
+//					$scope.cartItem.qty = 0;
+//				});
+//				$rootScope.$emit('VN_ADD_TO_CART', $scope.cartItem);
+
+				Cart.saveCart($scope.cartItem)
+					.then(function () {
+						safeApply($scope, function() {
+							$scope.cartItem.qty = 0;
+						});
+//						status = 'success';
+//						$rootScope.$emit('VN_ADD_TO_CART_SUCCESS', {
+//							status      : status,
+//							originalData: cartItem,
+//							data        : response.data
+//						});
+					}, function () {
+//						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
+//							status: status,
+//							data  : cartItem
+//						});
+					})
+					.finally(function () {
+//						$rootScope.$emit('VN_ADD_TO_CART_COMPLETE', {
+//							status      : status,
+//							originalData: cartItem,
+//							data        : response.data
+//						});
+					});
 			};
 
 			$rootScope.$on('VN_ADD_TO_CART_COMPLETE', function() {
