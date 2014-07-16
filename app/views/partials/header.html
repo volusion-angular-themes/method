@@ -6,7 +6,7 @@
 	<div class="th-header">
 		<div class="container">
 			<div class="th-header__shipping-text">
-				<a href="#" class="free-shipping" data-translate="header.promo">Free shipping on all orders over $99!</a>
+				<div data-ng-bind-html="themeSettings.general.header.content.topPromo | legacyLinkify | html"></div>
 			</div>
 			<div class="th-header__account-menu">
 				<ul class="nav nav-pills">

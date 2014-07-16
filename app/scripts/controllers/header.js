@@ -7,9 +7,11 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$scope', 'translate',
-		function ($scope, translate) {
+	.controller('HeaderCtrl', ['$scope', 'translate', 'themeSettings',
+		function ($scope, translate, themeSettings) {
 			'use strict';
+
+      $scope.themeSettings = themeSettings.getThemeSettings();
 
 			translate.addParts('header');
 		}]);
