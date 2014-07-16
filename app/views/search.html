@@ -3,27 +3,18 @@
 		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
 		<div class="col-sm-2 -faceted-search">
 			<div>
-				<!-- conditional content that gives us a mobile menu toggle btn -->
-				<h3 data-ng-show="!showMobileSearch">Narrow By</h3>
-				<a href data-ng-show="showMobileSearch"
-				   data-ng-click="toggleSearch()">
-					<h3>Narrow By</h3>
-				</a>
-			</div>
-			<div data-ng-show="mobileDisplay">
-				<!-- This is here b/c mobile needs to hide / show the content -->
-				<div vn-category-search categories="categories"></div>
-				<h3>Filter By</h3>
-				<div vn-facet-search facets="facets"></div>
-				<h3>Price</h3>
-				<input type="text"
-					   data-ng-model="minPrice"
-					   data-ng-keypress="searchByPrice($event)"/>
-				to
-				<input type="text"
-					   data-ng-model="maxPrice"
-					   data-ng-keypress="searchByPrice($event)"/>
-				<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
+				<div>
+					<h3 data-ng-show="!showMobileSearch">Show results for</h3>
+					<a href data-ng-show="showMobileSearch"
+					   data-ng-click="toggleSearch()">
+						<h3>Show results for</h3>
+					</a>
+				</div>
+				<div faceted-search
+					 categories="categories"
+					 facets="facets"
+					 data-ng-show="mobileDisplay">
+				</div>
 			</div>
 		</div>
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
