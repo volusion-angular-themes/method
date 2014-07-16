@@ -7,9 +7,11 @@
  */
 
 angular.module('Volusion.controllers')
-  .controller('FooterCtrl', ['$scope', 'translate',
-		function ($scope, translate) {
+  .controller('FooterCtrl', ['$scope', 'translate', 'themeSettings',
+		function ($scope, translate, themeSettings) {
 			'use strict';
+
+      $scope.themeSettings = themeSettings.getThemeSettings();
 
 			translate.addParts('footer');
 		}]);
