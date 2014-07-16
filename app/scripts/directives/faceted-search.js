@@ -20,19 +20,8 @@ angular.module('methodApp')
 			templateUrl: 'views/partials/faceted-search.html',
 			restrict   : 'EA',
 			link       : function postLink(scope) {
-//				scope.clearAllFilters = function () {
-//
-//					// Reset for the service layer (this will reset the stuff generated via directive
-//					vnProductParams.resetParamsObject();
-//
-//					//Reset for the price fields
-//					scope.minPrice = '';
-//					scope.maxPrice = '';
-//					scope.queryProducts();
-//				};
 
 				scope.searchByPrice = function (event) {
-					console.log('searchByPrice');
 					// Detect the return/enter keypress only
 					if (event.which === 13) {
 						console.log('scope.minPrice: ', scope.minPrice);
@@ -41,10 +30,6 @@ angular.module('methodApp')
 						scope.queryProducts();
 					}
 				};
-
-				scope.$on('$destroy', function cleanUp() {
-					scope.clearAllFilters();
-				});
 			}
 		};
 	}]);

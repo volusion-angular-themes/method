@@ -6,14 +6,14 @@ angular.module('Volusion.controllers')
 			'use strict';
 
 			$scope.clearAllFilters = function () {
-
+				console.log('work through categories controller reset flow.');
 				// Reset for the service layer (this will reset the stuff generated via directive
 				vnProductParams.resetParamsObject();
 
 				//Reset for the price fields
-				scope.minPrice = '';
-				scope.maxPrice = '';
-				scope.queryProducts();
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
+				$scope.queryProducts();
 			};
 
 			$scope.getCategory = function(newSlug) {

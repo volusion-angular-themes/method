@@ -108,5 +108,6 @@ angular.module('methodApp')
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				$scope.searchLocal = '';
+				$scope.clearAllFilters();
 			});
 		}]);
