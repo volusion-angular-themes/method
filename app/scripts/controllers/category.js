@@ -3,7 +3,7 @@ angular.module('Volusion.controllers')
 		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
 		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
 
-			'use strict';
+			'use strict'
 
 			$scope.clearAllFilters = function () {
 				console.log('work through categories controller reset flow.');
@@ -24,7 +24,7 @@ angular.module('Volusion.controllers')
 					vnProductParams.addCategory(response.data[0].id);
 					$scope.queryProducts();
 				});
-			}
+			};
 
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
@@ -34,7 +34,7 @@ angular.module('Volusion.controllers')
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 				});
-			}
+			};
 
 			$scope.toggleSearch = function() {
 				if($scope.mobileDisplay) {

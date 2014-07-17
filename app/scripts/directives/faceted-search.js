@@ -16,6 +16,9 @@
  */
 angular.module('methodApp')
 	.directive('facetedSearch', ['vnProductParams', function (vnProductParams) {
+
+		'use strict';
+
 		return {
 			templateUrl: 'views/partials/faceted-search.html',
 			restrict   : 'EA',
