@@ -54,7 +54,7 @@ angular.module('Volusion.controllers')
 					$scope.displaySmartNavMoreMenuItem = true;
 					$scope.smartNavMoreCategories = [];
 
-					angular.forEach($scope.categories, function (value, index) {
+					angular.forEach($scope.smartCategories, function (value, index) {
 						if (index >= (indexPositionWhereItemWrapped - 1)) {
 							$scope.smartNavMoreCategories.push(value);
 						} else {
@@ -78,7 +78,7 @@ angular.module('Volusion.controllers')
 				$scope.displaySmartNavMoreMenuItem = false;
 				angular.element('.nav-top-level-menu-items').css('visibility', 'hidden');
 
-				$scope.smartNavCategories = $scope.categories;
+				$scope.smartNavCategories = $scope.smartCategories;
 
 				$timeout(function () {
 					buildSmartNav('nav-top-level-menu-items');
@@ -88,7 +88,7 @@ angular.module('Volusion.controllers')
 			// Handle Navigation
 			vnApi.Nav().get({ navId: 1 }).$promise
 				.then(function (response) {
-					$scope.smartNavCategories = $scope.categories = response.data;
+					$scope.smartNavCategories = $scope.smartCategories = response.data;
 
 					$timeout(function () {
 						buildSmartNav('nav-top-level-menu-items');

@@ -32,12 +32,12 @@
 
 						<div class="th-product__image">
 							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
-							<a href="p/{{product.slug}}">
+							<a href="{{ product.url }}">
 								<img data-ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="">
 							</a>
 						</div>
 						<div class="th-product__name">
-							<a href="p/{{ product.slug }}">{{ product.name }}</a>
+							<a href="p/{{ product.url }}">{{ product.name }}</a>
 						</div>
 						<div class="th-product__price">
 							<span class="th-reg-price" data-ng-show="product.price.regularPrice > 0">

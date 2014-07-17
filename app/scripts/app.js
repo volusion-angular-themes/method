@@ -37,9 +37,6 @@ angular.module('methodApp', [
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
 
-			//console.log($route);
-			console.log(AppConfigProvider);
-
 			if (location.hostname === 'localhost') {
 				AppConfigProvider.setApiPath('http://www.samplestore.io/api/v1');
 				AppConfigProvider.setIsLocalEnv(true);
