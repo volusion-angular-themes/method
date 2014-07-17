@@ -3,7 +3,7 @@ angular.module('Volusion.controllers')
 		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
 		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
 
-			'use strict'
+			'use strict';
 
 			$scope.clearAllFilters = function () {
 				console.log('work through categories controller reset flow.');
