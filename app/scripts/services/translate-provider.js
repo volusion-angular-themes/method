@@ -39,10 +39,6 @@ Translate.prototype.addParts = function() {
 		loader.addPart(part);
 	});
 
-//	angular.forEach(arguments, angular.bind(this, function(part) {
-//		loader.addPart(part);
-//	}));
-
 	return this.$translate.refresh();
 };
 

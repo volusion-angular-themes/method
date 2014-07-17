@@ -7,11 +7,17 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$scope', 'translate', 'themeSettings',
-		function ($scope, translate, themeSettings) {
+	.controller('HeaderCtrl', ['$scope', 'translate', 'Cart', 'themeSettings',
+		function ($scope, translate, Cart, themeSettings) {
+
 			'use strict';
 
-      $scope.themeSettings = themeSettings.getThemeSettings();
+			$scope.themeSettings = themeSettings.getThemeSettings();
 
 			translate.addParts('header');
+
+			$scope.getCartItemsCount = function () {
+				return Cart.getCartItemsCount();
+			};
+
 		}]);

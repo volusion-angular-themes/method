@@ -26,6 +26,14 @@ angular.module('Volusion.services')
 				return cart;
 			}
 
+			function getCartItemsCount() {
+				if (cart.totals === undefined) {
+					return 0;
+				}
+
+				return cart.totals.qty;
+			}
+
 			function saveCart(cartItem) {
 				return vnApi.Cart().save({cartId: cart.id}, cartItem).$promise
 					.then(function (response) {
@@ -35,8 +43,9 @@ angular.module('Volusion.services')
 			}
 
 			return {
-				init    : init,
-				getCart : getCart,
-				saveCart: saveCart
+				init             : init,
+				getCart          : getCart,
+				getCartItemsCount: getCartItemsCount,
+				saveCart         : saveCart
 			};
 		}]);
