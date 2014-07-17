@@ -49,7 +49,7 @@ describe.skip('Provider: translate', function() {
 			config(options, function(translateProvider) {
 				var initTranslateProvider =
 					sinon.spy(translateProvider, 'initTranslateProvider');
-				expect(initTranslateProvider).not.to.have.been.called;
+				expect(initTranslateProvider).not.to.have.been.called; // jshint ignore:line
 				translateProvider.initTranslateProvider.restore();
 			});
 		});
@@ -63,7 +63,7 @@ describe.skip('Provider: translate', function() {
 		config(options);
 		inject(function(translate) {
 			var result = translate.addParts('foo');
-			expect(result).to.be.true;
+			expect(result).to.be.true; // jshint ignore:line
 		});
 	});
 

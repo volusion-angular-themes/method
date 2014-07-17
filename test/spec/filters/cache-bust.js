@@ -27,11 +27,11 @@ xdescribe('Filter: cacheBust', function() {
 
 
 	it('does not append cache busting token to an empty string', function() {
-		expect(cacheBustFilter('')).to.be.empty;
+		expect(cacheBustFilter('')).to.be.empty; // jshint ignore:line
 	});
 
 	it('does not append cache busting token to undefined value', function() {
-		expect(cacheBustFilter()).to.be.undefined;
+		expect(cacheBustFilter()).to.be.undefined; // jshint ignore:line
 	});
 
 });

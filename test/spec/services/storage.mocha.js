@@ -14,7 +14,7 @@ describe.skip('Service: storage', function() {
 	}));
 
 	it('exists', function() {
-		expect(storage).to.exist;
+		expect(storage).to.exist; // jshint ignore:line
 	});
 
 	it('is an object', function() {
@@ -36,11 +36,11 @@ describe.skip('Service: storage', function() {
 		storage.set('foo', 'bar');
 		expect(storage.get('foo')).to.eq('bar');
 		storage.remove('foo');
-		expect(storage.get('foo')).to.be.null;
+		expect(storage.get('foo')).to.be.null; // jshint ignore:line
 	});
 
 	it('returns null for keys that don\'t exist', function() {
-		expect(storage.get('bar')).to.be.null;
+		expect(storage.get('bar')).to.be.null; // jshint ignore:line
 	});
 
 	it('gets value from cookie storage if value retrieved from local storage is null',
