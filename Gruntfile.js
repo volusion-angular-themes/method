@@ -25,6 +25,40 @@ module.exports = function(grunt) {
 			dist: 'dist'
 		},
 
+		// Environment variables
+		ngconstant: {
+			// Options for all targets
+			options: {
+				space: '  ',
+				wrap: '"use strict";\n\n {%= __ngModule %}',
+				name: 'config'
+			},
+			// Environment targets
+			// see "BUILD" task to add additional targets
+			samplestore: {
+				options: {
+					dest: '<%= yeoman.app %>/scripts/config.js'
+				},
+				constants: {
+					ENV: {
+						name: 'samplestore',
+						apiEndpoint: 'http://www.samplestore.io/api/v1'
+					}
+				}
+			} //,
+//			production: {
+//				options: {
+//					dest: '<%= yeoman.dist %>/scripts/config.js'
+//				},
+//				constants: {
+//					ENV: {
+//						name: 'production',
+//						apiEndpoint: '/api/v1'
+//					}
+//				}
+//			}
+		},
+
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
 			bower: {
@@ -157,7 +191,8 @@ module.exports = function(grunt) {
 							src: [
 								'.tmp',
 								'<%= yeoman.dist %>/*',
-								'!<%= yeoman.dist %>/.git*'
+								'!<%= yeoman.dist %>/.git*',
+								'<%= yeoman.app %>/scripts/config.js'
 							]
 						}
 				]
@@ -472,8 +507,7 @@ module.exports = function(grunt) {
 		'karma'
 	]);
 
-	grunt.registerTask('build', [
-		'clean:dist',
+	grunt.registerTask('build_only', [
 		'wiredep',
 		'useminPrepare',
 		'compass:dist',
@@ -492,9 +526,25 @@ module.exports = function(grunt) {
 		'htmlmin:dist'
 	]);
 
+	//
+	grunt.registerTask('build', function(target) {
+		grunt.task.run([
+			'clean:dist',
+			'newer:jshint:all',
+			'test'
+		]);
+
+		// Add additional targets according to environment variables
+		if (target === '' || target === 'samplestore') {
+			grunt.task.run(['ngconstant:samplestore']);
+		}
+
+		grunt.task.run([
+			'build_only'
+		]);
+	});
+
 	grunt.registerTask('default', [
-		'newer:jshint:all',
-		'test',
-		'build'
+		'build:samplestore'
 	]);
 };
