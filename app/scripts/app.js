@@ -22,6 +22,7 @@ angular.module('methodApp', [
 	'textAngular',
 
 	// Volusion modules
+	'config',
 	'seo',
 	//'services.config', // Todo: Refactor this
 	'angulartics',
@@ -36,14 +37,6 @@ angular.module('methodApp', [
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
-
-			if (location.hostname === 'localhost') {
-				AppConfigProvider.setApiPath('http://www.samplestore.io/api/v1');
-				AppConfigProvider.setIsLocalEnv(true);
-			} else {
-				AppConfigProvider.setApiPath('/api/v1');
-				AppConfigProvider.setIsLocalEnv(false);
-			}
 
 			$locationProvider.html5Mode(true);
 

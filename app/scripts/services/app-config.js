@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('Volusion.services')
-	.provider('AppConfig', function () {
+	.provider('AppConfig', ['ENV', function (ENV) {
 
 		// Private variables
-		var apiUrl = '',                    // URL will be set during config
+		var apiUrl = ENV.apiEndpoint,
 			isLocalEnv = true,              // Boolean - will be set during config
 			disableTranslations = false,
 			urlPrefix = '',
@@ -85,4 +85,4 @@ angular.module('Volusion.services')
 		this.$get = function () {
 			return new AppConfig();
 		};
-	});
+	}]);
