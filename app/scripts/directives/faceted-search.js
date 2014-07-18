@@ -11,6 +11,10 @@
  *     - price
  *     - sort?
  *
+ * ## Notes:
+ * - The parent controller for the directive muxt implement a queryProducts() function
+ * - The Function must implement its get products routine with the vnParamsObject
+ *
  * @usage
  * TODO: Add html and javascript here to demo it in docs.
  */
@@ -24,6 +28,9 @@ angular.module('methodApp')
 			restrict   : 'EA',
 			link       : function postLink(scope) {
 
+				scope.showCategorySearch = false;
+				scope.showFacetSearch = false;
+
 				scope.searchByPrice = function (event) {
 					// Detect the return/enter keypress only
 					if (event.which === 13) {
@@ -34,8 +41,32 @@ angular.module('methodApp')
 					}
 				};
 
-				scope.$watch('categoryList', function(categoryList) {
-					console.log('facet search directive catList: ', categoryList);
+				scope.clearAllFilters = function () {
+					console.log('work through categories controller reset flow.');
+					// Reset for the service layer (this will reset the stuff generated via directive
+					vnProductParams.resetParamsObject();
+
+					//Reset for the price fields
+					scope.minPrice = '';
+					scope.maxPrice = '';
+					scope.queryProducts();
+				};
+
+				scope.$watch('categoryList', function (categoryList) {
+
+					if(categoryList) {
+						console.log('facet search directive has sub cats');
+						scope.showCategorySearch = true;
+					}
+
+				});
+
+				scope.$watch('facets', function (facets) {
+
+					if (facets) {
+						scope.showFacetSearch = true;
+					}
+
 				});
 			}
 		};

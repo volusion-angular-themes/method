@@ -5,22 +5,10 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-			$scope.clearAllFilters = function () {
-				console.log('work through categories controller reset flow.');
-				// Reset for the service layer (this will reset the stuff generated via directive
-				vnProductParams.resetParamsObject();
-
-				//Reset for the price fields
-				$scope.minPrice = '';
-				$scope.maxPrice = '';
-				$scope.queryProducts();
-			};
-
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
 					$scope.category = response.data.id;  // Prior to 7-11-2014 it was object, not array. Todo: figure out the proper fix.
-					$scope.subCategories = response.data.subCategories;
 					vnProductParams.addCategory(response.data.id);
 					$scope.queryProducts();
 				});
@@ -39,9 +27,17 @@ angular.module('Volusion.controllers')
 			$scope.toggleSearch = function() {
 				if($scope.mobileDisplay) {
 					$scope.mobileDisplay = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
 					return;
 				}
 				$scope.mobileDisplay = true;
+				$scope.isMobileAndVisible = true;
+				$scope.isMobileAndHidden = false;
+			};
+
+			$scope.dismissMobileFilters = function() {
+				$scope.toggleSearch();
 			};
 
 			// Manage the desktop/tablet & mobile faceted-search directive look and feel.
@@ -50,15 +46,21 @@ angular.module('Volusion.controllers')
 				setup: function() {
 					$scope.mobileDisplay = true;
 					$scope.showMobileSearch = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
 				},
 				unmatch: function () {
 					$scope.mobileDisplay = true; // default cats and facets to open
 					$scope.showMobileSearch = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
 				},
 				// transitioning to mobile mode
 				match  : function () {
 					$scope.mobileDisplay = false; // default cats and facets default to closed
 					$scope.showMobileSearch = true;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
 				}
 			});
 

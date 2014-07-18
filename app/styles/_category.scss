@@ -49,6 +49,23 @@
 @media(max-width:767px){
 	.-faceted-search {
 		margin-top: 30px;
+
+		&.isMobileAndVisible {
+			padding: 4px;
+			position: relative;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 1001;
+			background-color: #fff;
+		}
+	}
+
+	.-category-product-tiles {
+		&.isMobileAndHidden {
+			display: none;
+		}
 	}
 }
 
