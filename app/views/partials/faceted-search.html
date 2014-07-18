@@ -1,13 +1,17 @@
-<h3>Narrow By</h3>
-<div vn-category-search categories="categoryList"></div>
-<h3>Filter By</h3>
-<div vn-facet-search facets="facets"></div>
-<h3>Price</h3>
-<input type="text"
-	   data-ng-model="minPrice"
-	   data-ng-keypress="searchByPrice($event)"/>
-to
-<input type="text"
-	   data-ng-model="maxPrice"
-	   data-ng-keypress="searchByPrice($event)"/>
-<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
+<div data-ng-show="showCategorySearch">
+	<div vn-category-search categories="categoryList"></div>
+</div>
+<div data-ng-show="showFacetSearch">
+	<div vn-facet-search facets="facets"></div>
+	<h4>Price</h4>
+	<input type="text"
+		   data-ng-model="minPrice"
+		   data-ng-keypress="searchByPrice($event)"/>
+	to
+	<input type="text"
+		   data-ng-model="maxPrice"
+		   data-ng-keypress="searchByPrice($event)"/>
+	<button class="btn btn-success" href data-ng-click="dismissMobileFilters()">Apply Filters</butto>
+	<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
+</div>
+
