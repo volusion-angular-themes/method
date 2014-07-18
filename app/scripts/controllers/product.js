@@ -6,14 +6,6 @@ angular.module('Volusion.controllers')
 
 			$scope.product = {};
 			$scope.cartItem = {};
-			//cart = Cart.getCart(),
-			//cartId;
-
-			//cartId = cart && cart.id;
-			//if (cartId === undefined) {
-			//	cartId = $scope.config.checkout.cartId;
-			//	cartId = Config.getCheckoutCartId();
-			//}
 
 			// carousel
 			$scope.carousel = {
@@ -66,8 +58,6 @@ angular.module('Volusion.controllers')
 						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
 					};
 
-					//product = $scope.product;
-					//cartItem = $scope.cartItem = product.cartItem;
 					$scope.cartItem = $scope.product.cartItem;
 
 					$scope.isInDesktopMode = $rootScope.isInDesktopMode;
@@ -175,14 +165,6 @@ angular.module('Volusion.controllers')
 				$scope.isAddToCartButtonEnabled = selection.isValid && $scope.cartItem.qty > 0;
 			});
 
-			// Reviews //TODO: replace hardcoded 'ah-chairbamboo' with $scope.product.code after it's resolved
-			//vnApi.Review().get({ code: 'ah-chairbamboo' }).$promise
-			//vnApi.Review().get({ code: product.code }).$promise
-			//	.then(function(response) {
-			//		console.log('what is our product? ', product);
-			//		$scope.ratingsAndReviews = response;
-			//	});
-
 			function modifyQuantity(amount) {
 				$scope.cartItem.qty += amount;
 				var selection = $scope.product.optionSelection;
@@ -204,10 +186,6 @@ angular.module('Volusion.controllers')
 			}
 
 			$scope.addToCart = function() {
-//				safeApply($scope, function() {
-//					$scope.cartItem.qty = 0;
-//				});
-//				$rootScope.$emit('VN_ADD_TO_CART', $scope.cartItem);
 
 				Cart.saveCart($scope.cartItem)
 					.then(function () {
@@ -227,6 +205,9 @@ angular.module('Volusion.controllers')
 //						});
 					})
 					.finally(function () {
+						safeApply($scope, function() {
+							modifyQuantity($scope.product.optionSelection.available && 1);
+						});
 //						$rootScope.$emit('VN_ADD_TO_CART_COMPLETE', {
 //							status      : status,
 //							originalData: cartItem,
@@ -234,11 +215,4 @@ angular.module('Volusion.controllers')
 //						});
 					});
 			};
-
-			$rootScope.$on('VN_ADD_TO_CART_COMPLETE', function() {
-				safeApply($scope, function() {
-					modifyQuantity($scope.product.optionSelection.available && 1);
-				});
-			});
-
 		}]);

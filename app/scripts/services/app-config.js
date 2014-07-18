@@ -19,11 +19,6 @@ angular.module('Volusion.services')
 			this.AppConfig = function () {
 				return this;
 			};
-
-			// STUB ... TODO: Move this method in site-config implementation
-			this.getCheckoutCartId = function () {
-				return 1;
-			};
 		}
 
 		this.getIsLocalEnv = function () {
