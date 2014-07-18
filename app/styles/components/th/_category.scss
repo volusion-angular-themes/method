@@ -1,4 +1,4 @@
-@import 'components/media';
+@import '../media';
 
 .-faceted-search {
 	// resets
@@ -18,22 +18,11 @@
 		width: 50px;
 	}
 
-	button {
-		margin: 15px auto;
-		display: block;
-	}
-
 	.name {
 		display: inline-block;
 	}
 
 	.count {
-		// &:before {
-		// 	content: "("
-		// }
-		// &:after {
-		// 	content: ")"
-		// }
 		margin-left: 2px;
 		padding-left: 5px;
 		padding-right: 5px;
@@ -49,6 +38,7 @@
 @media(max-width:767px){
 	.-faceted-search {
 		margin-top: 30px;
+		border-bottom: 1px solid;
 
 		&.isMobileAndVisible {
 			padding: 4px;
