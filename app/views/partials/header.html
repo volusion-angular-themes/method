@@ -88,7 +88,7 @@
 						<div data-ng-show="showSearch" data-ng-include=" 'views/partials/form-search.html' "></div>
 					</div>
 					<div class="th-my-cart">
-						<a legacy-link="{{viewCart()}}" class="th-my-cart__link">
+						<a legacy-link="{{ viewCart() }}" class="th-my-cart__link">
 							<span class="th-my-cart__text" data-translate="header.myCart">My Bag</span>
 							<span class="th-my-cart__number">{{ getCartItemsCount() }}</span>
 						</a>

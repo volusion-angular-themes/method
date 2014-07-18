@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 			// Options for all targets
 			options: {
 				space: '  ',
-				wrap: '"use strict";\n\n {%= __ngModule %}',
+				wrap: '\'use strict\';\n\n {%= __ngModule %}',
 				name: 'config'
 			},
 			// Environment targets
@@ -535,7 +535,7 @@ module.exports = function(grunt) {
 		]);
 
 		// Add additional targets according to environment variables
-		if (target === '' || target === 'samplestore') {
+		if (target === undefined || target === '' || target === 'samplestore') {
 			grunt.task.run(['ngconstant:samplestore']);
 		}
 
