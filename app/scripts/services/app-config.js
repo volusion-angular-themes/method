@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('Volusion.services')
-	.provider('AppConfig', ['ENV', function (ENV) {
+	.provider('AppConfig', ['ENV', 'vnDataEndpointProvider', function (ENV, vnDataEndpointProvider) {
+
+		vnDataEndpointProvider.setApiUrl(ENV.apiEndpoint);
 
 		// Private variables
 		var apiUrl = ENV.apiEndpoint,
