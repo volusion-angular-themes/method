@@ -63,6 +63,8 @@
 @import 'components/vn/zoom';
 
 // Theme Components
+@import 'components/th/category';
+@import 'components/th/faceted-search';
 @import 'components/th/sprites-social';
 @import 'components/th/sprites-icons';
 @import 'components/th/sprites-stars';
@@ -94,4 +96,3 @@
 
 // Theme - Method
 @import 'style-guide/style-guide';
-@import 'category';
