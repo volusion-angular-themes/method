@@ -8,7 +8,7 @@
 
 angular.module('Volusion.controllers')
 	.controller('ArticleCtrl', [
-		'$rootScope', '$scope', '$templateCache', '$routeParams', 'vnApi',
+		'$rootScope', '$scope', '$routeParams', 'vnApi',
 		function($rootScope, $scope, $routeParams, vnApi) {
 
 			'use strict';
