@@ -46,10 +46,10 @@
 			<div class="col-md-8 hidden-xs hidden-sm">
 				<div class="collapse navbar-collapse " id="th-main-menu" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed=true">
 					<ul class="nav navbar-nav">
-						<li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="visibility: hidden;">
+						<li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="">
 							<a class="navbar-link" href="c/{{ category.slug }}">{{category.name}}</a>
 							<span>
-								<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
+								<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle">
 									<span class="caret"></span>
 								</a>
 								<ul show-on-dropdown-hover class="dropdown-menu" data-ng-if="category.subCategories.length">
