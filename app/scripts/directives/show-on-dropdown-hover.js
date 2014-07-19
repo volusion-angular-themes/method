@@ -15,30 +15,28 @@ angular.module('Volusion.directives')
 				restrict: 'A',
 				link    : function postLink(scope, element) {
 
-					var timerHide;
+					var timerHide,
+						trigger = element.parent().parent();  // <li>
 
-					element.parent().find('a').bind('mouseenter', function() {
-						element.show();
-					});
-
-					element.parent().find('a').bind('mouseleave', function() {
-						timerHide = $timeout(function () {
-							element.hide();
-						}, 500);
-					});
-
-					element.parent().find('a').bind('click', function() {
-						element.show();
-					});
+					trigger.bind('mouseenter', function() {
+							element.show();
+						})
+						.bind('mouseleave', function() {
+							timerHide = $timeout(function () {
+								element.hide();
+							}, 500);
+						})
+						.bind('click', function() {
+							element.show();
+						});
 
 					element.bind('mouseenter', function() {
-						element.show();
-						$timeout.cancel( timerHide );
-					});
-
-					element.bind('mouseleave', function() {
-						element.hide();
-					});
+							element.show();
+							$timeout.cancel( timerHide );
+						})
+						.bind('mouseleave', function() {
+							element.hide();
+						});
 
 					/* jshint unused:false */
 					scope.$on('$destroy',
