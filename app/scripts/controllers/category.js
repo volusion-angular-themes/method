@@ -1,14 +1,14 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams',
-		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams) {
+		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams, ContentMgr) {
 
 			'use strict';
 
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
-					$scope.category = response.data.id;  // Prior to 7-11-2014 it was object, not array. Todo: figure out the proper fix.
+					$scope.category = response.data;
 					vnProductParams.addCategory(response.data.id);
 					$scope.queryProducts();
 				});
@@ -25,15 +25,20 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.toggleSearch = function() {
+				// Remember, this should only ever be called / used from the mobile filter element.
 				if($scope.mobileDisplay) {
 					$scope.mobileDisplay = false;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
+					ContentMgr.showAppFooter();
+					ContentMgr.showSnapMenuState();
 					return;
 				}
 				$scope.mobileDisplay = true;
 				$scope.isMobileAndVisible = true;
 				$scope.isMobileAndHidden = false;
+				ContentMgr.hideAppFooter();
+				ContentMgr.hideSnapMenuState();
 			};
 
 			$scope.dismissMobileFilters = function() {
@@ -66,6 +71,18 @@ angular.module('Volusion.controllers')
 
 			// Load the url category when the controller is activated.
 			$scope.getCategory($routeParams.slug);
+
+			// Check for applied facet filters
+
+			$scope.checkForFacetFilters = function() {
+
+				if ( vnProductParams.getFacetString() ) {
+					return true;
+				}
+
+			};
+
+
 
 			// Listen for faceted search updates
 			$rootScope.$on('ProductSearch.facetsUpdated', function() {
