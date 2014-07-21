@@ -12,9 +12,9 @@ angular.module('Volusion.controllers')
 		function ($scope, $rootScope, $location, $window, $timeout, vnApi) {
 
 			//hide header & footer when viewing theme-settings
-			if ($location.path().indexOf('/theme-settings') >= 0) {
-				$rootScope.hideWrapper = true;
-			}
+//			if ($location.path().indexOf('/theme-settings') >= 0) {
+//				$rootScope.hideWrapper = true;
+//			}
 
 			// TODO: Do we need this here?
 			// Handle the setup data

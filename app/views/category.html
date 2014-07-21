@@ -1,27 +1,32 @@
 <div class="container categories">
 	<div class="row col-md-12">
 		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
-		<div class="col-sm-2 -faceted-search" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
+		<div class="col-sm-2 vn-faceted-search" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
 			<div>
 				<h5 data-ng-show="!showMobileSearch">Filters</h5>
 				<a href data-ng-show="showMobileSearch"
 				   data-ng-click="toggleSearch()">
-					<h5>Show Filters</h5>
+					<h5 class="vn-facet-search-control">Show Filters</h5>
 				</a>
 			</div>
 			<div faceted-search
 				 categories="categoryList"
 				 facets="facets"
-				 data-ng-show="mobileDisplay">
+				 data-ng-show="mobileDisplay"
+				 class="vn-faceted-search-control">
 			</div>
 		</div>
 		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
-		<div class="col-sm-10 -category-product-tiles" ng-class="{ isMobileAndHidden: true == !isMobileAndHidden }">
+		<div class="col-sm-10 vn-category-product-tiles" ng-class="{ isMobileAndHidden: true == !isMobileAndHidden }">
 			<div class="content-top">
 				<div class="page-header">
 					<h1>{{category.name}}</h1>
-					<img class="banner img img-responsive" ng-src="{{category.bannerImgUrl}}">
-					<div class="description" itemprop="description" data-ng-bind-html="category.description | legacyLinkify | html"></div>
+					<img class="banner img img-responsive"
+						 ng-hide="checkForFacetFilters()"
+						 ng-src="{{category.bannerImgUrl}}">
+					<div class="description" itemprop="description"
+						 ng-hide="checkForFacetFilters()"
+						 data-ng-bind-html="category.description | legacyLinkify | html"></div>
 				</div>
 			</div>
 			<div class="row">
