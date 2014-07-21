@@ -1,0 +1,4 @@
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+	opacity : 0.25;
+	filter  : alpha(opacity=25);
+}
