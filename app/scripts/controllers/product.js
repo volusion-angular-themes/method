@@ -30,7 +30,16 @@ angular.module('Volusion.controllers')
 			function setDefaults() {
 				var product = $scope.product;
 				product.optionSelection = { images: 'default' };
-				product.image = product.images.default[0];
+
+				if (product.images.default) {
+					product.image = product.images.default[0];
+				} else {
+					product.image = {};
+					product.image.medium = '/images/theme/tcp-no-image.jpg';
+					product.image.large = '/images/theme/tcp-no-image.jpg';
+					product.image.small = '/images/theme/tcp-no-image.jpg';
+				}
+
 				$scope.cartItem.options = $scope.cartItem.options || {};
 				var options = product.options;
 				if (!options || !options.length) {
@@ -147,6 +156,16 @@ angular.module('Volusion.controllers')
 				}
 
 				function setImage() {
+
+					if (!$scope.product.images[selection.images]) {
+						$scope.product.image = {};
+						$scope.product.image.medium = '/images/theme/tcp-no-image.jpg';
+						$scope.product.image.large = '/images/theme/tcp-no-image.jpg';
+						$scope.product.image.small = '/images/theme/tcp-no-image.jpg';
+
+						return;
+					}
+
 					if (oldSelection === undefined || selection.images !== oldSelection.images) {
 						$scope.product.image = $scope.product.images[selection.images][0];
 					}
