@@ -44,9 +44,11 @@ angular.module('methodApp')
 					match  : function () {
 						scope.showApplyButton = true;
 					}
+
 				});
 
 				scope.searchByPrice = function (event) {
+
 					// Detect the return/enter keypress only
 					if (event.which === 13) {
 						console.log('scope.minPrice: ', scope.minPrice);
@@ -54,23 +56,31 @@ angular.module('methodApp')
 						vnProductParams.setMaxPrice(scope.maxPrice);
 						scope.queryProducts();
 					}
+
 				};
 
 				scope.clearAllFilters = function () {
-					console.log('work through categories controller reset flow.');
-					// Reset for the service layer (this will reset the stuff generated via directive
-					vnProductParams.resetParamsObject();
 
-					//Reset for the price fields
+					var categoryId = '',
+						currentParams = vnProductParams.getParamsObject();
+
+					if (currentParams.categoryIds) {
+						categoryId = currentParams.categoryIds;
+						vnProductParams.resetParamsForCategory(categoryId);
+					} else {
+						vnProductParams.resetParamsObject(); // reset the world
+					}
+
+//					Reset for the price fields
 					scope.minPrice = '';
 					scope.maxPrice = '';
 					scope.queryProducts();
+
 				};
 
 				scope.$watch('categoryList', function (categoryList) {
 
 					if(categoryList) {
-						console.log('facet search directive has sub cats');
 						scope.showCategorySearch = true;
 					}
 
