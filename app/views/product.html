@@ -246,7 +246,7 @@
 
 		<div vn-product-tile product="product"></div>
 
-		<div class="th-reviews">
+		<div class="th-reviews" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
 			<div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
 			<div class="th-reviews__totals">
 				<div class="th-totals-left">
@@ -273,7 +273,7 @@
 					</div>
 				</div>
 				<div class="th-totals-right">
-					<a legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</button>
+					<a legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</a>
 				</div>
 			</div>
 			<div class="th-review" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
