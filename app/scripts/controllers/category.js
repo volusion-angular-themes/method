@@ -15,6 +15,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.queryProducts = function() {
+				vnProductParams.addCategory( $scope.category.id );
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
 					$scope.products = response.data;
@@ -39,6 +40,16 @@ angular.module('Volusion.controllers')
 				$scope.isMobileAndHidden = false;
 				ContentMgr.hideAppFooter();
 				ContentMgr.hideSnapMenuState();
+			};
+
+			$scope.clearAllFilters = function () {
+//				// Reset for the service layer (this will reset the stuff generated via directive
+				vnProductParams.resetParamsObject();
+
+				//Reset for the price fields
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
+				$scope.queryProducts();
 			};
 
 			$scope.dismissMobileFilters = function() {
@@ -81,8 +92,6 @@ angular.module('Volusion.controllers')
 				}
 
 			};
-
-
 
 			// Listen for faceted search updates
 			$rootScope.$on('ProductSearch.facetsUpdated', function() {

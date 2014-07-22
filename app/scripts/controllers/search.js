@@ -17,13 +17,16 @@ angular.module('methodApp')
 				vnApi.Product().query(params).$promise.then(function (response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
-					$scope.categories = response.categories;
+					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
+
+					console.log('search categories: ', $scope.categories);
 				});
 			};
 
 			$scope.doSearch = function () {
 				$scope.currentSearchText = $scope.searchLocal;
+				vnProductParams.resetParamsObject();
 
 				// Change apps location
 				$location.path('/search');
@@ -43,16 +46,14 @@ angular.module('methodApp')
 				$scope.queryProducts();
 			};
 
-			// Todo: move this into a directive level w/ ctrl if needed.
 			$scope.clearAllFilters = function () {
-				console.log('work through search controller reset flow.');
-//				// Reset for the service layer (this will reset the stuff generated via directive
-//				vnProductParams.resetParamsObject();
-//
-//				//Reset for the price fields
-//				$scope.minPrice = '';
-//				$scope.maxPrice = '';
-//				queryProducts();
+				vnProductParams.resetParamsObject();
+				vnProductParams.updateSearch($routeParams.q);
+
+				//Reset for the price fields
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
+				$scope.queryProducts();
 			};
 
 			$scope.searchByPrice = function (event) {
