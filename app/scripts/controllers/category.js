@@ -53,6 +53,16 @@ angular.module('Volusion.controllers')
 				$scope.queryProducts();
 			};
 
+			$scope.clearAllFilters = function () {
+//				// Reset for the service layer (this will reset the stuff generated via directive
+				vnProductParams.resetParamsObject();
+
+				//Reset for the price fields
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
+				$scope.queryProducts();
+			};
+
 			$scope.dismissMobileFilters = function() {
 				$scope.toggleSearch();
 			};
