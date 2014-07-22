@@ -59,26 +59,8 @@ angular.module('methodApp')
 
 				};
 
-				scope.clearAllFilters = function () {
-
-					var categoryId = '',
-						currentParams = vnProductParams.getParamsObject();
-
-					if (currentParams.categoryIds) {
-						categoryId = currentParams.categoryIds;
-						vnProductParams.resetParamsForCategory(categoryId);
-					} else {
-						vnProductParams.resetParamsObject(); // reset the world
-					}
-
-//					Reset for the price fields
-					scope.minPrice = '';
-					scope.maxPrice = '';
-					scope.queryProducts();
-
-				};
-
 				scope.$watch('categoryList', function (categoryList) {
+					console.log('faceted-search category list: ', categoryList);
 
 					if(categoryList) {
 						scope.showCategorySearch = true;
