@@ -24,7 +24,6 @@ angular.module('methodApp')
 
 			$scope.doSearch = function () {
 				$scope.currentSearchText = $scope.searchLocal;
-				vnProductParams.resetParamsObject();
 
 				// Change apps location
 				$location.path('/search');
