@@ -133,35 +133,11 @@
 							</div>
 						</div>
 
-						<div class="th-product-info visible-lg visible-md">
-							<div data-accordion data-close-others="true">
-								<div data-accordion-group data-is-open="accordionPanels.isopen1" data-ng-show="product.descriptions.detail">
-									<div data-accordion-heading>
-										<span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen1, 'glyphicon-chevron-right': !accordionPanels.isopen1}"></i>
-									</div>
-									<span itemprop="description" data-ng-bind-html="product.descriptions.detail | legacyLinkify | html"></span>
-								</div>
-								<div data-accordion-group data-is-open="accordionPanels.isopen2" data-ng-show="product.descriptions.features">
-									<div data-accordion-heading>
-										<span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen2, 'glyphicon-chevron-right': !accordionPanels.isopen2}"></i>
-									</div>
-									<span data-ng-bind-html="product.descriptions.features | legacyLinkify | html"></span>
-								</div>
-								<div data-accordion-group data-is-open="accordionPanels.isopen3" data-ng-show="product.descriptions.techSpecs">
-									<div data-accordion-heading>
-										<span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen3, 'glyphicon-chevron-right': !accordionPanels.isopen3}"></i>
-									</div>
-									<span data-ng-bind-html="product.descriptions.techSpecs | legacyLinkify | html"></span>
-								</div>
-								<div data-accordion-group data-is-open="accordionPanels.isopen4" data-ng-show="product.descriptions.extendedInfo">
-									<div data-accordion-heading>
-										<span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': accordionPanels.isopen4, 'glyphicon-chevron-right': !accordionPanels.isopen4}"></i>
-									</div>
-									<span data-ng-bind-html="product.descriptions.extendedInfo | legacyLinkify | html"></span>
-								</div>
-							</div>
+						<div class="th-product-info visible-lg visible-md" data-ng-include=" 'views/partials/product-descriptions.html' ">
+
 						</div><!-- .th-product-info -->
 
+						<!-- SOCIAL SHARE ICONS -->
 						<div class="visible-sm visible-md visible-lg">
 							<div class="th-social" data-ng-include=" 'views/partials/social-sharing.html' "></div>
 						</div><!-- .th-social-icons -->
@@ -170,35 +146,11 @@
 			</div><!-- .th-product-details -->
 		</div><!-- .row -->
 
+		<!-- DESCRIPTIONS -->
 		<div class="hidden-lg hidden-md row">
 			<div class="col-sm-12">
-				<div class="th-product-info">
-					<div data-accordion data-close-others="true">
-						<div data-accordion-group data-is-open="isopen1" data-ng-show="product.descriptions.detail">
-							<div data-accordion-heading>
-								<span data-translate="product.description">Description</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen1, 'glyphicon-chevron-right': !isopen1}"></i>
-							</div>
-							<span itemprop="description" data-ng-bind-html="product.descriptions.detail | legacyLinkify | html"></span>
-						</div>
-						<div data-accordion-group data-is-open="isopen2" data-ng-show="product.descriptions.features">
-							<div data-accordion-heading>
-								<span data-translate="product.features">Features</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen2, 'glyphicon-chevron-right': !isopen2}"></i>
-							</div>
-							<span data-ng-bind-html="product.descriptions.features | legacyLinkify | html"></span>
-						</div>
-						<div data-accordion-group data-is-open="isopen3" data-ng-show="product.descriptions.techSpecs">
-							<div data-accordion-heading>
-								<span data-translate="product.techSpecs">Tech Specs</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen3, 'glyphicon-chevron-right': !isopen3}"></i>
-							</div>
-							<span data-ng-bind-html="product.descriptions.techSpecs | legacyLinkify | html"></span>
-						</div>
-						<div data-accordion-group data-is-open="isopen4" data-ng-show="product.descriptions.extendedInfo">
-							<div data-accordion-heading>
-								<span data-translate="product.extendedInfo">Extended Info</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': isopen4, 'glyphicon-chevron-right': !isopen4}"></i>
-							</div>
-							<span data-ng-bind-html="product.descriptions.extendedInfo | legacyLinkify | html"></span>
-						</div>
-					</div>
+				<div class="th-product-info" data-ng-include=" 'views/partials/product-descriptions.html' ">
+
 				</div>
 			</div>
 		</div>
@@ -212,11 +164,12 @@
 			</div>
 		</div>
 
-		<div class="row" data-ng-if="relatedProducts || accessories">
+		<!-- RELATED PRODUCTS & ACCESSORIES -->
+		<div class="row" data-ng-if="relatedProducts.length > 0 || accessories.length > 0">
 			<div class="col-xs-12">
 				<div class="th-related-wrap">
 					<div data-tabset>
-						<div data-tab data-ng-if="relatedProducts" data-active="tabs.relatedProducts.active">
+						<div data-tab data-ng-if="relatedProducts.length > 0" data-active="tabs.relatedProducts.active">
 							<div data-tab-heading data-translate="product.related">
 								Related
 							</div>
@@ -225,7 +178,7 @@
 								</div>
 							</div>
 						</div>
-						<div data-tab data-ng-if="accessories" data-active="tabs.accessories.active">
+						<div data-tab data-ng-if="accessories.length > 0" data-active="tabs.accessories.active">
 							<div data-tab-heading data-translate="product.accessories">
 								Accessories
 							</div>
@@ -237,15 +190,14 @@
 					</div>
 
 					<!-- LOAD MORE BUTTON -->
-					<div class="th-load-more visible-xs">
+					<!--<div class="th-load-more visible-xs">
 						<button class="btn btn-default th-load-more" data-translate="product.loadMore">Load More</button>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
 
-		<div vn-product-tile product="product"></div>
-
+		<!-- REVIEWS -->
 		<div class="th-reviews" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
 			<div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
 			<div class="th-reviews__totals">
