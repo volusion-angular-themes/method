@@ -116,7 +116,7 @@ angular.module('Volusion.controllers')
 
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				$scope.clearAllFilters();
+				vnProductParams.resetParamsObject();
 			});
 		}
 	]);
