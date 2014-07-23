@@ -53,11 +53,9 @@ angular.module('methodApp')
 				});
 
 				scope.$watch('facets', function (facets) {
-
 					if (facets) {
 						scope.showFacetSearch = true;
 					}
-
 				});
 
 				enquire.register('screen and (max-width:767px)', {
@@ -72,7 +70,6 @@ angular.module('methodApp')
 					match  : function () {
 						scope.showApplyButton = true;
 					}
-
 				});
 			}
 		};
