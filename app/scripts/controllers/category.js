@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function($q, $scope, $rootScope, $routeParams, vnApi, vnProductParams, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', 'vnApi', 'vnProductParams', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, $location, vnApi, vnProductParams, ContentMgr) {
 
 			'use strict';
 
@@ -43,12 +43,12 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.clearAllFilters = function () {
-//				// Reset for the service layer (this will reset the stuff generated via directive
 				vnProductParams.resetParamsObject();
-
 				//Reset for the price fields
 				$scope.minPrice = '';
 				$scope.maxPrice = '';
+
+				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
 			};
 
