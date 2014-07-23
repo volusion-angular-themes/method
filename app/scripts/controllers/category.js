@@ -15,7 +15,6 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.queryProducts = function() {
-				vnProductParams.addCategory( $scope.category.id );
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
 					$scope.products = response.data;
