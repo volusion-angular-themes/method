@@ -133,9 +133,8 @@
 							</div>
 						</div>
 
-						<div class="th-product-info visible-lg visible-md" data-ng-include=" 'views/partials/product-descriptions.html' ">
-
-						</div><!-- .th-product-info -->
+						<!-- DESCRIPTIONS -->
+						<div class="th-product-info visible-lg visible-md" data-ng-include=" 'views/partials/product-descriptions.html' "></div>
 
 						<!-- SOCIAL SHARE ICONS -->
 						<div class="visible-sm visible-md visible-lg">
@@ -149,9 +148,7 @@
 		<!-- DESCRIPTIONS -->
 		<div class="hidden-lg hidden-md row">
 			<div class="col-sm-12">
-				<div class="th-product-info" data-ng-include=" 'views/partials/product-descriptions.html' ">
-
-				</div>
+				<div class="th-product-info" data-ng-include=" 'views/partials/product-descriptions.html' "></div>
 			</div>
 		</div>
 
@@ -198,10 +195,10 @@
 		</div>
 
 		<!-- REVIEWS -->
-		<div class="th-reviews" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
+		<div class="th-reviews">
 			<div class="th-reviews__title" data-translate="product.reviews">Reviews</div>
 			<div class="th-reviews__totals">
-				<div class="th-totals-left">
+				<div class="th-totals-left" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
 					<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content="1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
 					<div class="th-reviews__avg">
 						<!-- TODO: Do this -->
@@ -228,7 +225,7 @@
 					<a legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</a>
 				</div>
 			</div>
-			<div class="th-review" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
+			<div data-ng-if="ratingsAndReviews.data.reviews.length > 0" class="th-review" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
 				<div class="th-review__helpful"><span data-ng-bind="review.helpful"></span> people found the following review helpful</div>
 				<div class="th-review__rating">
 					<!-- TODO: Do this -->
