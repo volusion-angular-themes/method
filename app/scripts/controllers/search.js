@@ -19,14 +19,11 @@ angular.module('methodApp')
 					$scope.facets = response.facets;
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
-
-					console.log('search categories: ', $scope.categories);
 				});
 			};
 
 			$scope.doSearch = function () {
 				$scope.currentSearchText = $scope.searchLocal;
-				vnProductParams.resetParamsObject();
 
 				// Change apps location
 				$location.path('/search');
