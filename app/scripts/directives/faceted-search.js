@@ -44,7 +44,6 @@ angular.module('methodApp')
 					match  : function () {
 						scope.showApplyButton = true;
 					}
-					
 				});
 
 				scope.searchByPrice = function (event) {
@@ -56,6 +55,25 @@ angular.module('methodApp')
 						vnProductParams.setMaxPrice(scope.maxPrice);
 						scope.queryProducts();
 					}
+
+				};
+
+				scope.clearAllFilters = function () {
+
+					var categoryId = '',
+						currentParams = vnProductParams.getParamsObject();
+
+					if (currentParams.categoryIds) {
+						categoryId = currentParams.categoryIds;
+						vnProductParams.resetParamsForCategory(categoryId);
+					} else {
+						vnProductParams.resetParamsObject(); // reset the world
+					}
+
+//					Reset for the price fields
+					scope.minPrice = '';
+					scope.maxPrice = '';
+					scope.queryProducts();
 
 				};
 

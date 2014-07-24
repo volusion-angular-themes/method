@@ -40,6 +40,7 @@ angular.module('Volusion.controllers')
 				$scope.isMobileAndHidden = false;
 				ContentMgr.hideAppFooter();
 				ContentMgr.hideSnapMenuState();
+
 			};
 
 			$scope.clearAllFilters = function () {
