@@ -44,7 +44,7 @@ angular.module('methodApp')
 					match  : function () {
 						scope.showApplyButton = true;
 					}
-
+					
 				});
 
 				scope.searchByPrice = function (event) {
