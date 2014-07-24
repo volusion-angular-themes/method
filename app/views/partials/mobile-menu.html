@@ -14,19 +14,39 @@
 	<div class="th-mobile-menu__list">
 		<ul class="nav navbar-nav th-mobile-list">
 			<li class="th-mobile-list__item th-mobile-list__item--header">Categories</li>
-			<li class="th-mobile-list__item dropdown" ng-repeat="category in categories">
-				<a href="#" class="navbar-link th-dropdown-toggle th-mobile-list__link">{{category.name}}</a>
-				<span>
-          				<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle" data-toggle="dropdown">
-            					<span class="caret"></span>
-          				</a>
+			<li class="th-mobile-list__item dropdown" ng-repeat="category in smartNavCategories">
+
+
+<!--
+			<div data-ng-if="category.subCategories.length">
+				<a class="navbar-link th-dropdown-toggle th-mobile-list__link" data-toggle="dropdown">
+					<span>{{category.name}}</span>
+					<span class="caret"></span>
+				</a>
+			</div>
+
+			<div data-ng-if="category.subCategories.length">
+				<a class="navbar-link th-dropdown-toggle th-mobile-list__link" href="c/{{ category.slug }}">
+					<span>{{category.name}}</span>
+				</a>
+			</div>
+-->
+
+						<a href="#" class="dropdown-toggle navbar-link th-dropdown-toggle th-mobile-list__link" ng-if="category.subCategories.length" data-toggle="dropdown">
+							{{category.name}}<span class="pull-right caret"></span>
+						</a>
+
+						<a data-ng-href="c/{{category.slug}}" class="navbar-link th-dropdown-toggle th-mobile-list__link" ng-if="!category.subCategories.length">
+							{{category.name}}
+						</a>
+
 					<ul class="dropdown-menu th-mobile-list th-mobile-list--sub" data-ng-if="category.subCategories.length">
 						<li data-ng-repeat="subCategory in category.subCategories">
 							<a class="th-mobile-list__link th-mobile-list__link--sub"
-							   data-ng-href="{{subCategory.url}}">{{subCategory.name}}</a>
+							   data-ng-href="c/{{subCategory.slug}}">{{subCategory.name}}</a>
 						</li>
 					</ul>
-				</span>
+
 			</li>
 		</ul>
 	</div>
