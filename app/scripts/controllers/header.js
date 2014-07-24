@@ -30,12 +30,14 @@ angular.module('Volusion.controllers')
 			};
 
 			// Smart Nav  *********************************************************
+
 			var threshold = {
 				windowWidth : -1,
 				position: 0
 			};
 
 			function buildSmartNav() {
+
 				var itemIndex = 0,
 					firstItemTopPosition = 0,
 					indexPositionWhereItemWrapped = 0,
@@ -102,7 +104,6 @@ angular.module('Volusion.controllers')
 
 				buildSmartNav();
 			});
-
 			// Smart Nav END *******************************************************
 
 			// Handle Navigation
@@ -114,4 +115,5 @@ angular.module('Volusion.controllers')
 						buildSmartNav();
 					}, 0);
 				});
+
 		}]);
