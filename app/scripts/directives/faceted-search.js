@@ -72,7 +72,6 @@ angular.module('methodApp')
 					match  : function () {
 						scope.showApplyButton = true;
 					}
-
 				});
 			}
 		};

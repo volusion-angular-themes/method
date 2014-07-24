@@ -39,7 +39,6 @@ angular.module('Volusion.controllers')
 				$scope.isMobileAndHidden = false;
 				ContentMgr.hideAppFooter();
 				ContentMgr.hideSnapMenuState();
-
 			};
 
 			$scope.clearAllFilters = function () {
@@ -49,16 +48,6 @@ angular.module('Volusion.controllers')
 				$scope.maxPrice = '';
 
 				vnProductParams.addCategory($scope.category.id);
-				$scope.queryProducts();
-			};
-
-			$scope.clearAllFilters = function () {
-//				// Reset for the service layer (this will reset the stuff generated via directive
-				vnProductParams.resetParamsObject();
-
-				//Reset for the price fields
-				$scope.minPrice = '';
-				$scope.maxPrice = '';
 				$scope.queryProducts();
 			};
 
