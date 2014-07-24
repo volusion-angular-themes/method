@@ -40,7 +40,7 @@ angular.module('Volusion.controllers')
 					product.image.small = '/images/theme/tcp-no-image.jpg';
 				}
 
-				$scope.cartItem.options = $scope.cartItem.options || {};
+				$scope.cartItem.options = $scope.cartItem.options || [];
 				var options = product.options;
 				if (!options || !options.length) {
 					product.optionSelection = angular.extend(product.optionSelection, {
@@ -134,8 +134,9 @@ angular.module('Volusion.controllers')
 				//	}
 				//}
 
-				function setProductCode() {
+				function setProductCodeAndId() {
 					$scope.cartItem.code = $scope.product.code;
+					$scope.cartItem.id = $scope.product.id;
 				}
 
 				function setQuantity() {
@@ -177,7 +178,7 @@ angular.module('Volusion.controllers')
 
 				setAvailabilityMessage();
 				//setSKU();
-				setProductCode();
+				setProductCodeAndId();
 				setQuantity();
 				setImage();
 
