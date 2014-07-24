@@ -13,7 +13,6 @@ angular.module('Volusion.controllers')
 			'use strict';
 
 			$scope.themeSettings = themeSettings.getThemeSettings();
-			$scope.mattTest = false;
 
 			// Watch the appheader state and update as needed
 			$scope.$watch(
