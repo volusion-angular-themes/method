@@ -104,6 +104,7 @@ angular.module('Volusion.controllers')
 
 				buildSmartNav();
 			});
+
 			// Smart Nav END *******************************************************
 
 			// Handle Navigation
@@ -115,5 +116,4 @@ angular.module('Volusion.controllers')
 						buildSmartNav();
 					}, 0);
 				});
-
 		}]);
