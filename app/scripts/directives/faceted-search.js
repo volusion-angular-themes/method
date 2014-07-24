@@ -19,7 +19,8 @@
 * TODO: Add html and javascript here to demo it in docs.
 */
 angular.module('methodApp')
-	.directive('facetedSearch', ['vnProductParams', function (vnProductParams) {
+	.directive('facetedSearch', ['$routeParams', 'vnProductParams',
+		function ($routeParams, vnProductParams) {
 
 		'use strict';
 
@@ -32,25 +33,10 @@ angular.module('methodApp')
 				scope.showFacetSearch = false;
 				scope.showApplyButton = false;
 
-				enquire.register('screen and (max-width:767px)', {
-
-					setup: function() {
-						scope.showApplyButton = false;
-					},
-					unmatch: function () {
-						scope.showApplyButton = false;
-					},
-					// transitioning to mobile mode
-					match  : function () {
-						scope.showApplyButton = true;
-					}
-				});
-
 				scope.searchByPrice = function (event) {
 
 					// Detect the return/enter keypress only
 					if (event.which === 13) {
-						console.log('scope.minPrice: ', scope.minPrice);
 						vnProductParams.setMinPrice(scope.minPrice);
 						vnProductParams.setMaxPrice(scope.maxPrice);
 						scope.queryProducts();
@@ -59,7 +45,6 @@ angular.module('methodApp')
 				};
 
 				scope.$watch('categoryList', function (categoryList) {
-					console.log('faceted-search category list: ', categoryList);
 
 					if(categoryList) {
 						scope.showCategorySearch = true;
@@ -71,6 +56,21 @@ angular.module('methodApp')
 
 					if (facets) {
 						scope.showFacetSearch = true;
+					}
+
+				});
+
+				enquire.register('screen and (max-width:767px)', {
+
+					setup: function() {
+						scope.showApplyButton = false;
+					},
+					unmatch: function () {
+						scope.showApplyButton = false;
+					},
+					// transitioning to mobile mode
+					match  : function () {
+						scope.showApplyButton = true;
 					}
 
 				});
