@@ -47,14 +47,14 @@
 				<div class="collapse navbar-collapse " id="th-main-menu" data-ng-class="!navCollapsed && 'in'" data-ng-click="navCollapsed=true">
 					<ul class="nav navbar-nav">
 						<li class="dropdown nav-top-level-menu-items" data-ng-repeat="category in smartNavCategories" style="">
-							<a class="navbar-link" href="c/{{ category.slug }}">{{category.name}}</a>
+							<a class="navbar-link" data-ng-href="{{ category.url }}">{{category.name}}</a>
 							<span>
 								<a href="#" data-ng-if="category.subCategories.length" class="dropdown-toggle th-dropdown-toggle">
 									<span class="caret"></span>
 								</a>
 								<ul show-on-dropdown-hover class="dropdown-menu" data-ng-if="category.subCategories.length">
 									<li data-ng-repeat="subCategory in category.subCategories">
-										<a href="c/{{ subCategory.slug }}">{{subCategory.name}}</a>
+										<a data-ng-href="{{ subCategory.url }}">{{subCategory.name}}</a>
 									</li>
 								</ul>
 							</span>
@@ -67,7 +67,7 @@
 								</a>
 								<ul show-on-dropdown-hover class="dropdown-menu">
 									<li data-ng-repeat="category in smartNavMoreCategories">
-										<a class="navbar-link" href="c/{{ category.id }}">{{category.name}}</a>
+										<a class="navbar-link" data-ng-href="{{ category.url }}">{{category.name}}</a>
 									</li>
 								</ul>
 							</span>
