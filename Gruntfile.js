@@ -102,7 +102,8 @@ module.exports = function(grunt) {
 						'<%= yeoman.app %>/{,*/}*.html',
 						'.tmp/styles/{,*/}*.css',
 						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%= yeoman.app %>/translations/{,*/}*.json'
+						'<%= yeoman.app %>/translations/{,*/}*.json',
+						'<%= yeoman.app %>/settings/{,*/}*.json'
 				]
 			}
 		},
@@ -452,6 +453,7 @@ module.exports = function(grunt) {
 							'images/{,*/}*.{webp}',
 							'fonts/*',
 							'translations/{,*/}*.json',
+							'settings/{,*/}*.json',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
 					},
