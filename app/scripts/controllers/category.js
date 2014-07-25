@@ -5,6 +5,19 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
+			vnProductParams.setPage(1);
+			vnProductParams.setPageSize(1);
+
+			$scope.prevPage = function() {
+				vnProductParams.previousPage();
+				$scope.queryProducts();
+			};
+
+			$scope.nextPage = function () {
+				vnProductParams.nextPage();
+				$scope.queryProducts();
+			};
+
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
