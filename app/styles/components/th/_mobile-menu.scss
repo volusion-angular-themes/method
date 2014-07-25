@@ -3,13 +3,13 @@
     background-color : map-get($colors, component-bg);
 
     &__list {
-        padding : 35px 15px 0;
+        padding : 20px 15px 0;
     }
 
 }
 
 .th-mobile-list {
-    margin     : 0 0 20px;
+    margin     : 0 0 10px;
     list-style : none;
     padding    : 0;
 
@@ -27,6 +27,7 @@
             letter-spacing : 1px;
             font-family    : $font-family-condensed-bold;
             font-size      : 1.4rem;
+            margin-bottom  : 15px;
         }
     }
 
