@@ -5,8 +5,14 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-			var queryString = $location.search();
-			var pageSize = queryString.pageSize || 20;
+			var search = $location.search();
+			var queryString = {};
+
+			angular.forEach(search, function(value, key) {
+				queryString[key.toLowerCase()] = value;
+			});
+
+			var pageSize = queryString['pagesize'] || 20;
 			var page = queryString.page || 1;
 			$scope.currentPage = page;
 			vnProductParams.setPage(page);
