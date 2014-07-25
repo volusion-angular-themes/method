@@ -46,11 +46,25 @@ angular.module('Volusion.controllers')
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
+
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
+
+					// Post response UI Setup
+					$scope.checkFacetsAndCategories(response.categories,response.facets);
 				});
+			};
+
+			$scope.checkFacetsAndCategories = function(categories, facets) {
+
+				if( (categories && categories.length) || (facets && facets.length) ) {
+					$scope.hasFacetsOrCategories = true;
+				} else {
+					$scope.hasFacetsOrCategories = false;
+				}
+
 			};
 
 			$scope.toggleSearch = function() {
