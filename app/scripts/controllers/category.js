@@ -31,14 +31,12 @@ angular.module('Volusion.controllers')
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
 					ContentMgr.showAppFooter();
-					ContentMgr.showSnapMenuState();
 					return;
 				}
 				$scope.mobileDisplay = true;
 				$scope.isMobileAndVisible = true;
 				$scope.isMobileAndHidden = false;
 				ContentMgr.hideAppFooter();
-				ContentMgr.hideSnapMenuState();
 			};
 
 			$scope.clearAllFilters = function () {
