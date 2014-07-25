@@ -5,10 +5,12 @@
 	<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
 </div>
 <div data-ng-show="showCategorySearch">
-	<div vn-category-search categories="categoryList"></div>
+	<div vn-category-search categories="categoryList"
+		 query-products="queryProducts()"></div>
 </div>
 <div data-ng-show="showFacetSearch">
-	<div vn-facet-search facets="facets"></div>
+	<div vn-facet-search facets="facets"
+		 query-products="queryProducts()"></div>
 	<h4>Price</h4>
 	<input type="text"
 		   data-ng-model="minPrice"

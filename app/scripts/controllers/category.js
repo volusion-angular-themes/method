@@ -92,17 +92,6 @@ angular.module('Volusion.controllers')
 
 			};
 
-			// Listen for faceted search updates
-			$rootScope.$on('ProductSearch.facetsUpdated', function() {
-				$scope.queryProducts();
-			});
-
-			// Listen for Sub Category updated
-			$rootScope.$on('ProductSearch.categoriesUpdated', function(evt, args) {
-				vnProductParams.addCategory(args.categoryId);
-				$scope.queryProducts();
-			});
-
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				vnProductParams.resetParamsObject();
