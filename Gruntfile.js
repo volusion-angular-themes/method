@@ -378,7 +378,7 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: '<%= yeoman.dist %>',
-						src: ['*.html', 'views/*.html'],
+						src: ['*.html', 'views/{,*/}*.html'],
 						dest: '<%= yeoman.dist %>'
 					}
 				]
@@ -404,7 +404,7 @@ module.exports = function(grunt) {
 				}
 			},
 			templates: {
-				src: ['<%= yeoman.app %>/views/partials/{,*/}*.html'],
+				src: ['<%= yeoman.app %>/views/{,*/}*.html'],
 				dest: '.tmp/templates.js'
 			}
 		},
@@ -448,7 +448,7 @@ module.exports = function(grunt) {
 							'web.config',
 							'.htaccess',
 							'*.html',
-							'views/*.html',
+							'views/{,*/}*.html',
 							'images/{,*/}*.{webp}',
 							'fonts/*',
 							'translations/{,*/}*.json',
