@@ -1,32 +1,50 @@
-<div class="vn-faceted-search-header" data-ng-show="showApplyButton">
-	<button class="btn btn-success __cancel-action" href
+<div class="vn-faceted-search-header"
+	 data-ng-show="showApplyButton">
+	<button class="btn btn-success __cancel-action"
+			href
 			data-ng-click="dismissMobileFilters()">Apply</button> <!-- close() -->
-	<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
+	<button class="btn __clear-action"
+			href
+			data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
 </div>
-
-<div class="-faceted-search" data-ng-show="showFacetSearch">
+<div class="-faceted-search"
+	 data-ng-show="showFacetSearch">
 	<div class="facets">
-		<div data-accordion data-close-others="false">
+		<div data-accordion
+			 data-close-others="false">
 
 			<!-- By Category -->
-			<div data-accordion-group class="facet-item__by-category" data-is-open="categoryAccordiansOpen">
+			<div data-accordion-group
+				 class="facet-item__by-category"
+				 data-is-open="categoryAccordiansOpen"
+				 data-ng-show="categoryList.length > 0">
 				<div data-accordion-heading>
-					<span>Category</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': categoryAccordiansOpen, 'glyphicon-chevron-right': !categoryAccordiansOpen}"></i>
+					<span>Category</span>
+					<i class="pull-right glyphicon"
+					   data-ng-class="{'glyphicon-chevron-down': categoryAccordiansOpen, 'glyphicon-chevron-right': !categoryAccordiansOpen}"></i>
 				</div>
-				<div vn-category-search categories="categoryList"
+				<div vn-category-search
+					 categories="categoryList"
 					 query-products="queryProducts()"
 					 data-ng-show="showCategorySearch">
 				</div>
 			</div>
 
 			<!-- By Facets -->
-			<div vn-facet-search facets="facets"
-				 query-products="queryProducts()"></div>
+			<div vn-facet-search
+				 facets="facets"
+				 query-products="queryProducts()"
+				 data-ng-show="facets.length > 0"></div>
 
 			<!-- By Price -->
-			<div data-accordion-group class="facet-item__by-price" data-is-open="priceAccordiansOpen">
+			<div data-accordion-group
+				 class="facet-item__by-price"
+				 data-is-open="priceAccordiansOpen"
+				 data-ng-show="facets.length > 0">
 				<div data-accordion-heading>
-					<span>Price</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
+					<span>Price</span>
+					<i class="pull-right glyphicon"
+					   data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
 				</div>
 				<input type="text"
 					   data-ng-model="minPrice"
@@ -40,8 +58,10 @@
 		</div>
 
 		<!-- Clear button -->
-		<div class="vn-faceted-search-footer" data-ng-show="!showApplyButton">
-		<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
+		<div class="vn-faceted-search-footer"
+			 data-ng-show="!showApplyButton">
+		<button class="btn __clear-action"
+				href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
 		</div>
 
 	</div>
