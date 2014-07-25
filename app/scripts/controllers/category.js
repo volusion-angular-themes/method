@@ -18,16 +18,20 @@ angular.module('Volusion.controllers')
 			vnProductParams.setPage(page);
 			vnProductParams.setPageSize(pageSize);
 
-			$scope.prevPage = function() {
-				vnProductParams.previousPage();
-				$scope.currentPage--;
-				$scope.queryProducts();
+			$scope.prevPage = function () {
+				if ($scope.currentPage != 1) {
+					vnProductParams.previousPage();
+					$scope.currentPage--;
+					$scope.queryProducts();
+				}
 			};
 
 			$scope.nextPage = function () {
-				vnProductParams.nextPage();
-				$scope.currentPage++;
-				$scope.queryProducts();
+				if ($scope.currentPage != $scope.cursor.totalPages) {
+					vnProductParams.nextPage();
+					$scope.currentPage++;
+					$scope.queryProducts();
+				}
 			};
 
 			$scope.getCategory = function(newSlug) {
