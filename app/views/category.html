@@ -2,13 +2,7 @@
 	<div class="row col-md-12">
 		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
 		<div class="col-sm-2 vn-faceted-search" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
-			<div>
-				<h5 data-ng-show="!showMobileSearch">Filters</h5>
-				<a href data-ng-show="showMobileSearch"
-				   data-ng-click="toggleSearch()">
-					<h5 class="vn-facet-search-control">Show Filters</h5>
-				</a>
-			</div>
+			<h3 data-ng-show="!showMobileSearch">Narrow By</h3>
 			<div faceted-search
 				 categories="categoryList"
 				 facets="facets"
@@ -29,6 +23,16 @@
 						 data-ng-bind-html="category.description | legacyLinkify | html"></div>
 				</div>
 			</div>
+
+			<!-- Mobile Filtering & Sorting Controls -->
+			<div class="mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
+				<a href data-ng-click="toggleSearch()">
+					<button class="btn btn-default vn-facet-search-control">Show Filters</button>
+				</a>
+				<!-- place sort by button here -->
+			</div>
+
+
 			<div class="row">
 				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" data-ng-repeat="product in products track by $index">
 					<div class="th-product">

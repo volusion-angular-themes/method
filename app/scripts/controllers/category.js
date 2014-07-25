@@ -47,6 +47,9 @@ angular.module('Volusion.controllers')
 
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
+				if($scope.mobileDisplay) {
+					$scope.toggleSearch();
+				}
 			};
 
 			$scope.dismissMobileFilters = function() {
@@ -61,12 +64,16 @@ angular.module('Volusion.controllers')
 					$scope.showMobileSearch = false;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = true;
+					$scope.priceAccordiansOpen = true;
 				},
 				unmatch: function () {
 					$scope.mobileDisplay = true; // default cats and facets to open
 					$scope.showMobileSearch = false;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = true;
+					$scope.priceAccordiansOpen = true;
 				},
 				// transitioning to mobile mode
 				match  : function () {
@@ -74,6 +81,8 @@ angular.module('Volusion.controllers')
 					$scope.showMobileSearch = true;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = false;
+					$scope.priceAccordiansOpen = false;
 				}
 			});
 

@@ -43,6 +43,12 @@
 	}
 }
 
+.mobile-filters {
+	align: center;
+	text-align: center;
+	margin-top: 10px;
+}
+
 .vn-category-product-tiles {
 	// Note: This is also a variable name in the controller
 	// Not sure how to make that work with bem syntax though.
