@@ -1,8 +1,16 @@
+<div class="vn-faceted-search-header">
+	<button class="btn btn-success __cancel-action" href
+			data-ng-click="dismissMobileFilters()"
+			data-ng-show="showApplyButton">Cancel</button> <!-- close() -->
+	<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
+</div>
 <div data-ng-show="showCategorySearch">
-	<div vn-category-search categories="categoryList"></div>
+	<div vn-category-search categories="categoryList"
+		 query-products="queryProducts()"></div>
 </div>
 <div data-ng-show="showFacetSearch">
-	<div vn-facet-search facets="facets"></div>
+	<div vn-facet-search facets="facets"
+		 query-products="queryProducts()"></div>
 	<h4>Price</h4>
 	<input type="text"
 		   data-ng-model="minPrice"
@@ -11,7 +19,4 @@
 	<input type="text"
 		   data-ng-model="maxPrice"
 		   data-ng-keypress="searchByPrice($event)"/>
-	<button class="btn btn-success" href data-ng-click="dismissMobileFilters()">Apply Filters</butto>
-	<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
 </div>
-

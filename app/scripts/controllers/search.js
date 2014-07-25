@@ -17,7 +17,7 @@ angular.module('methodApp')
 				vnApi.Product().query(params).$promise.then(function (response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
-					$scope.categories = response.categories;
+					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 				});
 			};
@@ -43,16 +43,14 @@ angular.module('methodApp')
 				$scope.queryProducts();
 			};
 
-			// Todo: move this into a directive level w/ ctrl if needed.
 			$scope.clearAllFilters = function () {
-				console.log('work through search controller reset flow.');
-//				// Reset for the service layer (this will reset the stuff generated via directive
-//				vnProductParams.resetParamsObject();
-//
-//				//Reset for the price fields
-//				$scope.minPrice = '';
-//				$scope.maxPrice = '';
-//				queryProducts();
+				vnProductParams.resetParamsObject();
+				vnProductParams.updateSearch($routeParams.q);
+
+				//Reset for the price fields
+				$scope.minPrice = '';
+				$scope.maxPrice = '';
+				$scope.queryProducts();
 			};
 
 			$scope.searchByPrice = function (event) {
@@ -94,20 +92,8 @@ angular.module('methodApp')
 			// Scope listeners, initialization and cleanup routines
 			$scope.init();
 
-			// Listen for faceted search updates
-			$rootScope.$on('ProductSearch.facetsUpdated', function () {
-				$scope.queryProducts();
-			});
-
-			// Listen for Sub Category updated
-			$rootScope.$on('ProductSearch.categoriesUpdated', function (evt, args) {
-				vnProductParams.addCategory(args.categoryId);
-				$scope.queryProducts();
-			});
-
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				$scope.searchLocal = '';
-				$scope.clearAllFilters();
+				vnProductParams.resetParamsObject();
 			});
 		}]);
