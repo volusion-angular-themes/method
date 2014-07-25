@@ -30,7 +30,7 @@ angular.module('methodApp')
 			link       : function postLink(scope) {
 
 				scope.showCategorySearch = false;
-				scope.showFacetSearch = false;
+				scope.showFacetSearch = true;
 				scope.showApplyButton = false;
 
 				scope.searchByPrice = function (event) {
