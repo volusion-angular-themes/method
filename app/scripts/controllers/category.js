@@ -5,6 +5,31 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
+			var search = $location.search();
+			var queryString = {};
+
+			angular.forEach(search, function(value, key) {
+				queryString[key.toLowerCase()] = value;
+			});
+
+			var pageSize = queryString['pagesize'] || 20;
+			var page = queryString.page || 1;
+			$scope.currentPage = page;
+			vnProductParams.setPage(page);
+			vnProductParams.setPageSize(pageSize);
+
+			$scope.prevPage = function() {
+				vnProductParams.previousPage();
+				$scope.currentPage--;
+				$scope.queryProducts();
+			};
+
+			$scope.nextPage = function () {
+				vnProductParams.nextPage();
+				$scope.currentPage++;
+				$scope.queryProducts();
+			};
+
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
