@@ -47,7 +47,7 @@ angular.module('Volusion.controllers')
 
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
-				if($scope.mobileDisplay) {
+				if($scope.isMobileAndVisible) {
 					$scope.toggleSearch();
 				}
 			};
