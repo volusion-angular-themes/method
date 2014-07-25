@@ -7,12 +7,21 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', 'translate', 'Cart', 'themeSettings', 'vnApi',
-		function ($rootScope, $scope, $window, $timeout, translate, Cart, themeSettings, vnApi) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', 'translate', 'Cart', 'themeSettings', 'vnApi', 'ContentMgr',
+		function ($rootScope, $scope, $window, $timeout, translate, Cart, themeSettings, vnApi, ContentMgr) {
 
 			'use strict';
 
 			$scope.themeSettings = themeSettings.getThemeSettings();
+
+			// Watch the appheader state and update as needed
+			$scope.$watch(
+				function () {
+					return ContentMgr.getHeaderState();
+				},
+				function (state) {
+					$scope.headerState = state;
+				},true);
 
 			// Add translation
 			translate.addParts('header');
@@ -30,12 +39,14 @@ angular.module('Volusion.controllers')
 			};
 
 			// Smart Nav  *********************************************************
+
 			var threshold = {
 				windowWidth : -1,
 				position: 0
 			};
 
 			function buildSmartNav() {
+
 				var itemIndex = 0,
 					firstItemTopPosition = 0,
 					indexPositionWhereItemWrapped = 0,
@@ -109,7 +120,6 @@ angular.module('Volusion.controllers')
 			vnApi.Nav().get({ navId: 1 }).$promise
 				.then(function (response) {
 					$scope.smartNavCategories = $scope.smartCategories = response.data;
-
 					$timeout(function () {
 						buildSmartNav();
 					}, 0);

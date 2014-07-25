@@ -6,8 +6,8 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('ThemeSettingsCtrl', ['$scope', '$http', '$location',
-		function ($scope, $http, $location) {
+	.controller('ThemeSettingsCtrl', ['$scope', '$http', '$location', 'ContentMgr',
+		function ($scope, $http, $location, ContentMgr) {
 			'use strict';
 
 			/*
@@ -20,6 +20,12 @@ angular.module('methodApp')
 			//load data on initial page load
 			var apiUrl;
 			var environment;
+
+			// Update the UI For this page and hide header and footer when this controller is in use
+			ContentMgr.hideAppHeader();
+			ContentMgr.hideAppFooter();
+
+
 			if ($location.absUrl().indexOf('127.0.0.1') >= 0 || $location.absUrl().indexOf('localhost') >= 0) {
 				//in local development environment (i.e. grunt serve)
 				environment = 'dev';
@@ -64,5 +70,11 @@ angular.module('methodApp')
 							});
 					}
 				};
+
+			// Update the ui and show header / footer when this controller is destroyed
+			$scope.$on('$destroy', function cleanUp() {
+				ContentMgr.showAppHeader();
+				ContentMgr.showAppFooter();
+			});
 
 		}]);

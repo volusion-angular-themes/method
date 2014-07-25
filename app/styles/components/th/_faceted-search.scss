@@ -1,0 +1,19 @@
+.vn-faceted-search-header {
+	text-align    : center;
+
+	.__cancel-action, .__clear-action {
+		width   : 96%;
+		margin  : 15px auto;
+		display : inline-block;
+
+		@media(max-width : 767px) {
+			width : 44%;
+		}
+	}
+}
+.vn-category-search__category-items {
+
+}
+.vn-category-search__category-items__category-item {
+  color: red;
+}

@@ -1,0 +1,98 @@
+@import '../media';
+
+.vn-facet-search-control {
+	border-bottom : 1px solid $gray-dark;
+}
+
+.vn-faceted-search {
+
+	label {
+		display : block;
+	}
+
+	input {
+		width : 50px;
+	}
+
+	.name {
+		display : inline-block;
+	}
+
+	.count {
+		margin-left      : 2px;
+		padding-left     : 5px;
+		padding-right    : 5px;
+		float            : right;
+		background-color : #999;
+		color            : white;
+		display          : block;
+		border-radius    : 2px;
+	}
+
+	@media(max-width : 767px) {
+
+		&.isMobileAndVisible {
+			position         : relative;
+			left             : 0;
+			right            : 0;
+			top              : 0;
+			bottom           : 0;
+			z-index          : 1001;
+			background-color : #fff;
+		}
+	}
+}
+
+.mobile-filters {
+	align: center;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.vn-category-product-tiles {
+	// Note: This is also a variable name in the controller
+	// Not sure how to make that work with bem syntax though.
+	&.isMobileAndHidden {
+		display : none;
+	}
+}
+
+/*
+Animation for products as facets of search are applied. [rough draft]
+- TODO : Figure out why this breaks animation when nesting it.
+- Determine if this default behavior is theme or toolbox responsability
+- Add a line to see what happens
+*/
+.-product-tile-animation.ng-enter,
+.-product-tile-animation.ng-leave {
+	-webkit-transition : 100ms ease-out all;
+	transition         : 100ms ease-out all;
+}
+
+/* ending enter and move styling
+   (this is what the element will animate from */
+.-product-tile-animation.ng-enter {
+	opacity : 0;
+}
+
+/* ending enter and move styling
+   (this is what the element will animate towards */
+.-product-tile-animation.ng-enter.ng-enter-active {
+	opacity : 1;
+}
+
+/* starting leave animation */
+.-product-tile-animation.ng-leave {
+	opacity : 1;
+}
+
+/* ending leave animation */
+.-product-tile-animation.ng-leave.ng-leave-active {
+	opacity : 0;
+}
+
+// End animation for products as facets of search are applied. [rough draft]
+
+.categories {
+	min-height : 400px;
+}

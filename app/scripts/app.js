@@ -94,8 +94,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart) {
+	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr',
+		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr) {
 
 			$rootScope.isInDesktopMode = true;
 
@@ -110,6 +110,17 @@ angular.module('methodApp', [
 					$rootScope.isInDesktopMode = false;
 				}
 			});
+
+			// Watch the snap menu state and update as needed
+			$rootScope.$watch(
+				// Use a fn in $watch first argument that gets value from service
+				function () {
+					return ContentMgr.getSnapMenuState();
+				},
+				// Use second fn to update the controller menu state when changed.
+				function (state) {
+					$rootScope.snapMenuState = state;
+				},true);
 
 			$rootScope.$on('$routeChangeSuccess', function () {
 				snapRemote.close();

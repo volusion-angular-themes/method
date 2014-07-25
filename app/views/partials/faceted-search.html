@@ -1,17 +1,51 @@
-<div data-ng-show="showCategorySearch">
-	<div vn-category-search categories="categoryList"></div>
+<div class="vn-faceted-search-header" data-ng-show="showApplyButton">
+	<button class="btn btn-success __cancel-action" href
+			data-ng-click="dismissMobileFilters()">Apply</button> <!-- close() -->
+	<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
 </div>
-<div data-ng-show="showFacetSearch">
-	<div vn-facet-search facets="facets"></div>
-	<h4>Price</h4>
-	<input type="text"
-		   data-ng-model="minPrice"
-		   data-ng-keypress="searchByPrice($event)"/>
-	to
-	<input type="text"
-		   data-ng-model="maxPrice"
-		   data-ng-keypress="searchByPrice($event)"/>
-	<button class="btn btn-success" href data-ng-click="dismissMobileFilters()">Apply Filters</butto>
-	<button class="btn" href data-ng-click="clearAllFilters()">Clear Filters</button>
+
+<div class="-faceted-search" data-ng-show="showFacetSearch">
+	<div class="facets">
+		<div data-accordion data-close-others="false">
+
+			<!-- By Category -->
+			<div data-accordion-group class="facet-item__by-category" data-is-open="categoryAccordiansOpen">
+				<div data-accordion-heading>
+					<span>Category</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': categoryAccordiansOpen, 'glyphicon-chevron-right': !categoryAccordiansOpen}"></i>
+				</div>
+				<div vn-category-search categories="categoryList"
+					 query-products="queryProducts()"
+					 data-ng-show="showCategorySearch">
+				</div>
+			</div>
+
+			<!-- By Facets -->
+			<div vn-facet-search facets="facets"
+				 query-products="queryProducts()"></div>
+
+			<!-- By Price -->
+			<div data-accordion-group class="facet-item__by-price" data-is-open="priceAccordiansOpen">
+				<div data-accordion-heading>
+					<span>Price</span>  <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
+				</div>
+				<input type="text"
+					   data-ng-model="minPrice"
+					   data-ng-keypress="searchByPrice($event)"/>
+				to
+				<input type="text"
+					   data-ng-model="maxPrice"
+					   data-ng-keypress="searchByPrice($event)"/>
+			</div>
+
+		</div>
+
+		<!-- Clear button -->
+		<div class="vn-faceted-search-footer" data-ng-show="!showApplyButton">
+		<button class="btn __clear-action" href data-ng-click="clearAllFilters()">Clear</button> <!-- close() & apply() -->
+		</div>
+
+	</div>
 </div>
+
+
 
