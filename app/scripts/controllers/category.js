@@ -21,6 +21,17 @@ angular.module('Volusion.controllers')
 					$scope.facets = response.facets;
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
+
+					angular.forEach($scope.products, function(product) {
+						if (!product.images.default) {
+							product.images.default = [];
+							product.images.default[0] = {
+								'medium' : '/images/theme/tcp-no-image.jpg',
+								'large' : '/images/theme/tcp-no-image.jpg',
+								'small' : '/images/theme/tcp-no-image.jpg'
+							}
+						}
+					});
 				});
 			};
 
