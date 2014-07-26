@@ -59,7 +59,7 @@ angular.module('Volusion.controllers')
 								'medium' : '/images/theme/tcp-no-image.jpg',
 								'large' : '/images/theme/tcp-no-image.jpg',
 								'small' : '/images/theme/tcp-no-image.jpg'
-							}
+							};
 						}
 					});
 
