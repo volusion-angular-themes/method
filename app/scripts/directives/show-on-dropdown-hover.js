@@ -24,7 +24,7 @@ angular.module('Volusion.directives')
 						.bind('mouseleave', function() {
 							timerHide = $timeout(function () {
 								element.hide();
-							}, 500);
+							}, 1);
 						})
 						.bind('click', function() {
 							element.show();
