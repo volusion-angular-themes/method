@@ -1,43 +1,52 @@
 <div class="container categories">
 	<div class="row col-md-12">
-		<!-- This is a bootstrap responsive column that holds the search by category and facets functionality -->
-		<div class="col-sm-2 -faceted-search">
-			<div>
-				<div>
-					<h3 data-ng-show="!showMobileSearch">Narrow search by</h3>
-					<a href data-ng-show="showMobileSearch"
-					   data-ng-click="toggleSearch()">
-						<h5 class="vn-facet-search-control">Narrow search by</h5>
-					</a>
-				</div>
-				<div faceted-search
-					 categories="categories"
-					 facets="facets"
-					 data-ng-show="mobileDisplay">
-				</div>
+		<div class="col-sm-3 col-lg-2 vn-faceted-search"
+			 ng-class="{ isMobileAndVisible: true == isMobileAndVisible }"
+			 data-ng-hide="!hasFacetsOrCategories">
+			<h3 data-ng-show="!showMobileSearch">Narrow By</h3>
+			<div vn-faceted-search
+				 categories="categoryList"
+				 facets="facets"
+				 data-ng-show="mobileDisplay"
+				 class="vn-faceted-search-control">
 			</div>
 		</div>
-		<!-- This is a bootstrap responsive column that holds product tiles for the current query -->
-		<div class="col-sm-10">
+		<div class="col-sm-9 col-lg-10 vn-category-product-tiles"
+			 ng-class="{ 'isMobileAndHidden': true == !isMobileAndHidden }">
 			<div class="content-top">
 				<div class="page-header">
-					<h1>Search for {{ lastSearchString }}</h1>
+					<h1>Search results for {{searchTerms.q}}</h1>
+					<img class="banner img img-responsive"
+						 ng-hide="checkForFacetFilters()"
+						 ng-src="{{category.bannerImgUrl}}">
+					<div class="description" itemprop="description"
+						 ng-hide="checkForFacetFilters()"
+						 data-ng-bind-html="category.description | legacyLinkify | html"></div>
 				</div>
 			</div>
+
+			<!-- Mobile Filtering & Sorting Controls -->
+			<div class="mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
+				<a href data-ng-click="toggleSearch()">
+					<button class="btn btn-default vn-facet-search-control">Show Filters</button>
+				</a>
+				<!-- place sort by button here -->
+			</div>
+
 			<div class="row">
-				<div class="-product-tile-animation col-xs-12 col-sm-6 col-md-3" data-ng-repeat="product in products track by $index">
+				<div class="-product-tile-animation col-sm-6 col-md-3" data-ng-repeat="product in products track by $index">
 					<div class="th-product">
 						<span class="th-product__sale" data-ng-show="product.isOnSale"></span>
 						<span class="th-product__new" data-ng-show="product.isNew"></span>
 
 						<div class="th-product__image">
 							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
-							<a href="p/{{product.slug}}">
+							<a href="{{ product.url }}">
 								<img data-ng-src="{{product.images.default[0].medium}}" class="img-responsive" alt="">
 							</a>
 						</div>
 						<div class="th-product__name">
-							<a href="p/{{ product.slug }}">{{ product.name }}</a>
+							<a href="{{ product.url }}">{{ product.name }}</a>
 						</div>
 						<div class="th-product__price">
 							<span class="th-reg-price" data-ng-show="product.price.regularPrice > 0">
@@ -49,21 +58,14 @@
 								<span class="th-price-text">Now</span>
 							</span>
 						</div>
-						<!-- Todo: show available colors: but how does the client know which color to show for this product?
-						<div class="th-colors-sm">
-								<a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
-						</div>
-						-->
 					</div>
 				</div>
-				<button class="btn btn-default btn-lg visible-xs th-load-more">Load More</button>
 			</div>
 			<div>
-				<a ng-click="prevPage()">Previous</a> Page {{ currentPage }} of {{ totalPages }} <a ng-click="nextPage()">Next</a>
+				<ul class="pager">
+					<li data-ng-class="{disabled: currentPage == 1}"><a href data-ng-click="prevPage()">&laquo;</a></li>
+					<li data-ng-class="{disabled: currentPage == cursor.totalPages}"><a href data-ng-click="nextPage()">&raquo;</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
