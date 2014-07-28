@@ -246,7 +246,7 @@
 							<div class="th-icon__foreground"></div>
 						</div>
 					</div>
-					<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer"></span>
+					<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer || 'Anonymous'"></span>
 					<div itemprop="datePublished" class="th-rating-date hidden-xs pull-right" data-ng-bind="review.date"></div>
 				</div>
 				<div itemprop="name" class="th-rating-title" data-ng-bind="review.title"></div>
