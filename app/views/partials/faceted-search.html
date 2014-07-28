@@ -46,13 +46,8 @@
 					<i class="pull-right glyphicon"
 					   data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
 				</div>
-				<input type="text"
-					   data-ng-model="minPrice"
-					   data-ng-keypress="searchByPrice($event)"/>
-				to
-				<input type="text"
-					   data-ng-model="maxPrice"
-					   data-ng-keypress="searchByPrice($event)"/>
+				<div vn-price-search
+					 query-products="queryProducts()"></div>
 			</div>
 
 		</div>

@@ -44,6 +44,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.queryProducts = function() {
+				console.log('cat ctrl: running product query.');
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function(response) {
 
@@ -95,9 +96,6 @@ angular.module('Volusion.controllers')
 
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParamsObject();
-				//Reset for the price fields
-				$scope.minPrice = '';
-				$scope.maxPrice = '';
 
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();

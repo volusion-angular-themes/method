@@ -19,8 +19,7 @@
 * TODO: Add html and javascript here to demo it in docs.
 */
 angular.module('methodApp')
-	.directive('facetedSearch', ['$routeParams', 'vnProductParams',
-		function ($routeParams, vnProductParams) {
+	.directive('facetedSearch', function () {
 
 		'use strict';
 
@@ -32,17 +31,6 @@ angular.module('methodApp')
 				scope.showCategorySearch = false;
 				scope.showFacetSearch = true;
 				scope.showApplyButton = false;
-
-				scope.searchByPrice = function (event) {
-
-					// Detect the return/enter keypress only
-					if (event.which === 13) {
-						vnProductParams.setMinPrice(scope.minPrice);
-						vnProductParams.setMaxPrice(scope.maxPrice);
-						scope.queryProducts();
-					}
-
-				};
 
 				scope.$watch('categoryList', function (categoryList) {
 
@@ -75,4 +63,4 @@ angular.module('methodApp')
 				});
 			}
 		};
-	}]);
+	});
