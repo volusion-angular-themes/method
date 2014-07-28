@@ -19,9 +19,11 @@
 				 data-is-open="categoryAccordiansOpen"
 				 data-ng-show="categoryList.length > 0">
 				<div data-accordion-heading>
-					<span>Category</span>
-					<i class="pull-right glyphicon"
-					   data-ng-class="{'glyphicon-chevron-down': categoryAccordiansOpen, 'glyphicon-chevron-right': !categoryAccordiansOpen}"></i>
+					<div>
+						<span>Category</span>
+						<i class="pull-right glyphicon"
+						   data-ng-class="{'glyphicon-chevron-down': categoryAccordiansOpen, 'glyphicon-chevron-right': !categoryAccordiansOpen}"></i>
+					</div>
 				</div>
 				<div vn-category-search
 					 categories="categoryList"
@@ -42,9 +44,11 @@
 				 data-is-open="priceAccordiansOpen"
 				 data-ng-show="facets.length > 0">
 				<div data-accordion-heading>
-					<span>Price</span>
-					<i class="pull-right glyphicon"
-					   data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
+					<div>
+						<span>Price</span>
+						<i class="pull-right glyphicon"
+						   data-ng-class="{'glyphicon-chevron-down': priceAccordiansOpen, 'glyphicon-chevron-right': !priceAccordiansOpen}"></i>
+					</div>
 				</div>
 				<div class="facet-item__by-price__inputs"
 					 vn-price-search
