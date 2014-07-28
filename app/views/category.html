@@ -4,7 +4,7 @@
 			 ng-class="{ isMobileAndVisible: true == isMobileAndVisible }"
 				data-ng-hide="!hasFacetsOrCategories">
 			<h3 data-ng-show="!showMobileSearch">Narrow By</h3>
-			<div faceted-search
+			<div vn-faceted-search
 				 categories="categoryList"
 				 facets="facets"
 				 data-ng-show="mobileDisplay"
@@ -59,18 +59,8 @@
 								<span class="th-price-text">Now</span>
 							</span>
 						</div>
-						<!-- Todo: show available colors: but how does the client know which color to show for this product?
-						<div class="th-colors-sm">
-								<a href="#"><img src="/images/theme/sw-1-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-2-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-3-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-4-sm.png" class="img-responsive" alt=""></a>
-								<a href="#"><img src="/images/theme/sw-5-sm.png" class="img-responsive" alt=""></a>
-						</div>
-						-->
 					</div>
 				</div>
-				<button class="btn btn-default btn-lg visible-xs th-load-more">Load More</button>
 			</div>
 			<div>
 				<ul class="pager">
