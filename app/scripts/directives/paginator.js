@@ -15,7 +15,6 @@ angular.module('Volusion.directives')
 			restrict   : 'A',
 			scope      : {
 				cursor     : '=',
-				//currentPage: '=',
 				queryFn    : '&'
 			},
 			link       : function postLink(scope, elem, attrs) {
