@@ -59,6 +59,7 @@ angular.module('methodApp')
 
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParamsObject();
+				vnProductParams.setSort('relevance'); // Is default when
 				vnProductParams.updateSearch($routeParams.q);
 
 				//Reset for the price fields
