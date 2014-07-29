@@ -6,8 +6,8 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', 'vnApi', 'vnProductParams',
-		function ($rootScope, $scope, $routeParams, $location, $window, vnApi, vnProductParams) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', 'vnApi', 'vnProductParams', 'ContentMgr',
+		function ($rootScope, $scope, $routeParams, $location, $window, vnApi, vnProductParams, ContentMgr) {
 			'use strict';
 
 			$scope.searchLocal = '';
@@ -19,6 +19,9 @@ angular.module('methodApp')
 					$scope.facets = response.facets;
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
+
+					// Post response UI Setup
+					$scope.checkFacetsAndCategories(response.categories,response.facets);
 				});
 			};
 
@@ -38,8 +41,19 @@ angular.module('methodApp')
 				// Todo: close search input after this
 			};
 
+			$scope.checkFacetsAndCategories = function(categories, facets) {
+
+				if( (categories && categories.length) || (facets && facets.length) ) {
+					$scope.hasFacetsOrCategories = true;
+				} else {
+					$scope.hasFacetsOrCategories = false;
+				}
+
+			};
+
 			$scope.init = function() {
 				vnProductParams.updateSearch($routeParams.q);
+				$scope.searchTerms = $routeParams;
 				$scope.queryProducts();
 			};
 
@@ -63,31 +77,53 @@ angular.module('methodApp')
 				}
 			};
 
-			$scope.toggleSearch = function () {
-				if ($scope.mobileDisplay) {
+			$scope.toggleSearch = function() {
+				// Remember, this should only ever be called / used from the mobile filter element.
+				if($scope.mobileDisplay) {
 					$scope.mobileDisplay = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
+					ContentMgr.showAppFooter();
 					return;
 				}
 				$scope.mobileDisplay = true;
+				$scope.isMobileAndVisible = true;
+				$scope.isMobileAndHidden = false;
+				ContentMgr.hideAppFooter();
+			};
+
+			$scope.dismissMobileFilters = function() {
+				$scope.toggleSearch();
 			};
 
 			enquire.register('screen and (max-width:767px)', {
 
-				setup  : function () {
-					$scope.showMobileSearch = false;
+				setup: function() {
 					$scope.mobileDisplay = true;
+					$scope.showMobileSearch = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = true;
+					$scope.priceAccordiansOpen = true;
 				},
 				unmatch: function () {
 					$scope.mobileDisplay = true; // default cats and facets to open
 					$scope.showMobileSearch = false;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = true;
+					$scope.priceAccordiansOpen = true;
 				},
 				// transitioning to mobile mode
 				match  : function () {
 					$scope.mobileDisplay = false; // default cats and facets default to closed
 					$scope.showMobileSearch = true;
+					$scope.isMobileAndVisible = false;
+					$scope.isMobileAndHidden = true;
+					$scope.categoryAccordiansOpen = false;
+					$scope.priceAccordiansOpen = false;
 				}
 			});
-			// End long Todo.
 
 			// Scope listeners, initialization and cleanup routines
 			$scope.init();
