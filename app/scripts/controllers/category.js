@@ -85,36 +85,6 @@ angular.module('Volusion.controllers')
 				$scope.toggleSearch();
 			};
 
-			// Manage the desktop/tablet & mobile faceted-search directive look and feel.
-			enquire.register('screen and (max-width:767px)', {
-
-				setup: function() {
-					$scope.mobileDisplay = true;
-					$scope.showMobileSearch = false;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = true;
-					$scope.priceAccordiansOpen = true;
-				},
-				unmatch: function () {
-					$scope.mobileDisplay = true; // default cats and facets to open
-					$scope.showMobileSearch = false;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = true;
-					$scope.priceAccordiansOpen = true;
-				},
-				// transitioning to mobile mode
-				match  : function () {
-					$scope.mobileDisplay = false; // default cats and facets default to closed
-					$scope.showMobileSearch = true;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = false;
-					$scope.priceAccordiansOpen = false;
-				}
-			});
-
 			// Load the url category when the controller is activated.
 			$scope.getCategory($routeParams.slug);
 
