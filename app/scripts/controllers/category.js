@@ -12,28 +12,6 @@ angular.module('Volusion.controllers')
 				queryString[key.toLowerCase()] = value;
 			});
 
-			var pageSize = queryString.pagesize || 20;
-			var page = queryString.page || 1;
-			$scope.currentPage = page;
-			vnProductParams.setPage(page);
-			vnProductParams.setPageSize(pageSize);
-
-			$scope.prevPage = function () {
-				if ($scope.currentPage !== 1) {
-					vnProductParams.previousPage();
-					$scope.currentPage--;
-					$scope.queryProducts();
-				}
-			};
-
-			$scope.nextPage = function () {
-				if ($scope.currentPage !== $scope.cursor.totalPages) {
-					vnProductParams.nextPage();
-					$scope.currentPage++;
-					$scope.queryProducts();
-				}
-			};
-
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
