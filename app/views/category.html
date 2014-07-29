@@ -72,12 +72,7 @@
 				</div>
 				<button class="btn btn-default btn-lg visible-xs th-load-more">Load More</button>
 			</div>
-			<div>
-				<ul class="pager">
-					<li data-ng-class="{disabled: currentPage == 1}"><a href data-ng-click="prevPage()">&laquo;</a></li>
-					<li data-ng-class="{disabled: currentPage == cursor.totalPages}"><a href data-ng-click="nextPage()">&raquo;</a></li>
-				</ul>
-			</div>
+ 			<div vn-paginator cursor="cursor" current-page="currentPage" query-fn="queryProducts()"></div>
 		</div>
 	</div>
 </div>

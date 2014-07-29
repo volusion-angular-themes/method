@@ -1,0 +1,8 @@
+<ul class="pager">
+	<li data-ng-class="{disabled: cursor.currentPage == 1}"><a href data-ng-click="prevPage()">&laquo;</a></li>
+	<li data-ng-class="{disabled: cursor.currentPage == cursor.totalPages}"><a href data-ng-click="nextPage()">&raquo;</a></li>
+</ul>
+
+	<div class="pager">
+		Page {{ cursor.currentPage }} of {{ cursor.totalPages }}
+	</div>

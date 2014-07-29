@@ -9,14 +9,14 @@
  */
 angular.module('Volusion.services')
 	.service('themeSettings', ['vnApi',
-		function(vnApi) {
+		function (vnApi) {
 
 			var themeSettings = {};
 
 			function init() {
 
 				vnApi.ThemeSettings().get().$promise
-					.then(function(response) {
+					.then(function (response) {
 						themeSettings = response;
 					});
 			}
@@ -25,9 +25,13 @@ angular.module('Volusion.services')
 				return themeSettings;
 			}
 
+			function getPageSize() {
+				return themeSettings.itemsPerPage || 8;
+			}
+
 			return {
-				init: init,
-				getThemeSettings: getThemeSettings
+				init            : init,
+				getThemeSettings: getThemeSettings,
+				getPageSize     : getPageSize
 			};
-		}
-	]);
+		}]);
