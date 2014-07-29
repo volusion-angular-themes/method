@@ -79,7 +79,6 @@ angular.module('methodApp')
 
 			$scope.toggleSearch = function() {
 				// Remember, this should only ever be called / used from the mobile filter element.
-				console.log('toggling search facets wdiget.');
 				if($scope.mobileDisplay) {
 					$scope.mobileDisplay = false;
 					$scope.isMobileAndVisible = false;
