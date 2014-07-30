@@ -47,7 +47,6 @@
 		font-family    : $font-family-condensed-reg;
 		text-transform : uppercase;
 		color          : map-get($colors, regular-price);
-		height         : 35px;
 
 		.th-price {
 			@include inline-block;
@@ -79,6 +78,10 @@
 		.strike {
 			text-decoration : line-through;
 		}
+	}
+
+	&__price {
+		height : 35px;
 	}
 
 	&__price--large {
