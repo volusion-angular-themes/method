@@ -8,13 +8,12 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-	.service('themeSettings', ['vnApi',
-		function (vnApi) {
+	.service('themeSettings', ['$q', 'vnApi',
+		function ($q, vnApi) {
 
 			var themeSettings = {};
 
 			function init() {
-
 				vnApi.ThemeSettings().get().$promise
 					.then(function (response) {
 						themeSettings = response;
@@ -22,7 +21,15 @@ angular.module('Volusion.services')
 			}
 
 			function getThemeSettings() {
-				return themeSettings;
+				var deferred = $q.defer();
+
+				vnApi.ThemeSettings().get().$promise
+					.then(function (response) {
+						deferred.resolve(response);
+						themeSettings = response;
+					});
+
+				return deferred.promise;
 			}
 
 			function getPageSize() {
