@@ -1,8 +1,17 @@
 <div style="float: left;" ng-controller="SearchCtrl">
-	<form class='form-inline' role='search' name="frmSearch" data-ng-submit="doSearch()" novalidate>
+	<form class='form-inline'
+		  role='search'
+		  name="frmSearch"
+		  data-ng-submit="doSearch()"
+		  novalidate>
 		<div class='form-group'>
-			<input type='text' data-ng-model='searchLocal' class='th-search-popout__input' placeholder='Search...'>
-			<button type='button' data-ng-click="doSearch()" class='btn btn-xs btn-primary th-search-popout__submit'>Go!</button>
+			<input type='text'
+				   data-ng-model='searchLocal'
+				   class='th-search-popout__input'
+				   placeholder='Search...'>
+			<button type='button'
+					data-ng-click="doSearch()"
+					class='btn btn-xs btn-primary th-search-popout__submit'>Go!</button>
 		</div>
 	</form>
 </div>
