@@ -4,11 +4,18 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-		$scope.themeSettings = themeSettings.getThemeSettings();
 
-		// Featured Products
-		vnApi.Product().get({ filter: 'featured', pageSize: 4 }).$promise
-			.then(function(response) {
-				$scope.featuredProducts = response.data;
-			});
+			$scope.getFeaturedProducts = function () {
+				// Featured Products
+				vnApi.Product().get({ filter: 'featured', pageSize: 4 }).$promise
+					.then(function(response) {
+						$scope.featuredProducts = response.data;
+					});
+			};
+
+			themeSettings.getThemeSettings()
+				.then(function(settings) {
+					$scope.themeSettings = settings;
+					$scope.getFeaturedProducts();
+				});
 	}]);
