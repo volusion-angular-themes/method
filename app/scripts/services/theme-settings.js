@@ -8,21 +8,45 @@
  * Service in the methodApp.
  */
 angular.module('Volusion.services')
-	.service('themeSettings', ['vnApi',
-		function (vnApi) {
+	.service('themeSettings', ['$q', 'vnApi',
+		function ($q, vnApi) {
 
 			var themeSettings = {};
 
-			function init() {
+			function hasEmptySettings (obj) {
+				for(var key in obj) {
+					if(obj.hasOwnProperty(key)) {
+						return false;
+					}
+				}
+				return true;
+			}
 
-				vnApi.ThemeSettings().get().$promise
-					.then(function (response) {
-						themeSettings = response;
-					});
+			function init() {
+				if(hasEmptySettings(themeSettings)) {
+					vnApi.ThemeSettings().get().$promise
+						.then(function (response) {
+							// Remember themeSettings is a $resource!
+							themeSettings = response;
+						});
+				}
 			}
 
 			function getThemeSettings() {
-				return themeSettings;
+				var deferred = $q.defer();
+
+				if(hasEmptySettings(themeSettings)) {
+					console.log('in gaurd: ', themeSettings);
+					vnApi.ThemeSettings().get().$promise
+						.then(function (response) {
+							deferred.resolve(response);
+							themeSettings = response;
+						});
+				} else {
+					deferred.resolve(themeSettings);
+				}
+
+				return deferred.promise;
 			}
 
 			function getPageSize() {
