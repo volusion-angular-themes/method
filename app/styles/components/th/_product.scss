@@ -14,7 +14,7 @@
 	&__image {
 		position   : relative;
 		padding    : 7px 0;
-		min-height : 215px;
+		min-height : 252px;
 
 		.img-responsive {
 			margin  : 0 auto;
@@ -33,6 +33,7 @@
 		padding        : 2px 0;
 		line-height    : 1.22em;
 		text-align     : center;
+		height         : 30px;
 
 		a:hover {
 			@extend %animate-all-default;
@@ -46,6 +47,7 @@
 		font-family    : $font-family-condensed-reg;
 		text-transform : uppercase;
 		color          : map-get($colors, regular-price);
+		height         : 35px;
 
 		.th-price {
 			@include inline-block;
