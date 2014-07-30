@@ -45,18 +45,18 @@ module.exports = function(grunt) {
 						apiEndpoint: 'http://www.samplestore.io/api/v1'
 					}
 				}
-			} //,
-//			production: {
-//				options: {
-//					dest: '<%= yeoman.dist %>/scripts/config.js'
-//				},
-//				constants: {
-//					ENV: {
-//						name: 'production',
-//						apiEndpoint: '/api/v1'
-//					}
-//				}
-//			}
+			},
+			production: {
+				options: {
+					dest: '<%= yeoman.app %>/scripts/config.js'
+				},
+				constants: {
+					ENV: {
+						name: 'production',
+						apiEndpoint: '/api/v1'
+					}
+				}
+			}
 		},
 
 		// Watches files for changes and runs tasks based on the changed files
@@ -488,6 +488,7 @@ module.exports = function(grunt) {
 			'clean:server',
 			'wiredep',
 			'compass:server',
+			'ngconstant:samplestore',
 			'autoprefixer',
 			'htmlmin:server',
 			'connect:livereload',
@@ -538,6 +539,8 @@ module.exports = function(grunt) {
 		// Add additional targets according to environment variables
 		if (target === undefined || target === '' || target === 'samplestore') {
 			grunt.task.run(['ngconstant:samplestore']);
+		} else if (target === 'dist') {
+			grunt.task.run(['ngconstant:production']);
 		}
 
 		grunt.task.run([
