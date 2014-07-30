@@ -6,11 +6,12 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function ($rootScope, $scope, $routeParams, $location, $window, vnApi, vnProductParams, ContentMgr) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', 'vnApi', 'vnProductParams', 'ContentMgr', 'themeSettings',
+		function ($rootScope, $scope, $routeParams, $location, $window, vnApi, vnProductParams, ContentMgr, themeSettings) {
 			'use strict';
 
 			$scope.searchLocal = '';
+			$scope.searchTerms = '';
 
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
@@ -20,6 +21,17 @@ angular.module('methodApp')
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 
+					angular.forEach($scope.products, function(product) {
+						if (!product.images.default) {
+							product.images.default = [];
+							product.images.default[0] = {
+								'medium' : '/images/theme/tcp-no-image.jpg',
+								'large' : '/images/theme/tcp-no-image.jpg',
+								'small' : '/images/theme/tcp-no-image.jpg'
+							};
+						}
+					});
+
 					// Post response UI Setup
 					$scope.checkFacetsAndCategories(response.categories,response.facets);
 				});
@@ -28,14 +40,21 @@ angular.module('methodApp')
 			$scope.doSearch = function () {
 				$scope.currentSearchText = $scope.searchLocal;
 
+				// Unify scope variable to match $routeParams when reloading the page
+				$scope.searchTerms = { 'q' : $scope.searchLocal};
+
+				// This could go both ways ... depends on the route story *****************************
 				// Change apps location
 				$location.path('/search');
 				// Modify the url for these params // Todo: use this as a model to build the url from the vnProductParams value?
 				$location.search('q', $scope.searchLocal);
-				vnProductParams.updateSearch($scope.searchLocal);
-				$scope.queryProducts();
 
-				// Todo: close search input after this
+				// ************************************************************************************
+
+//				vnProductParams.updateSearch($scope.searchLocal);
+//				$scope.queryProducts();
+
+				// ************************************************************************************
 			};
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {
@@ -48,10 +67,14 @@ angular.module('methodApp')
 
 			};
 
-			$scope.init = function() {
-				vnProductParams.updateSearch($routeParams.q);
-				$scope.searchTerms = $routeParams;
-				$scope.queryProducts();
+			$scope.initParams = function() {
+				vnProductParams.setPageSize(themeSettings.getPageSize());
+
+				if ($routeParams.q !== undefined && $scope.searchTerms !== $routeParams) {
+					vnProductParams.updateSearch($routeParams.q);
+					$scope.searchTerms = $routeParams;
+					$scope.queryProducts();
+				}
 			};
 
 			$scope.clearAllFilters = function () {
@@ -95,7 +118,7 @@ angular.module('methodApp')
 			};
 
 			// Scope listeners, initialization and cleanup routines
-			$scope.init();
+			$scope.initParams();
 
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {

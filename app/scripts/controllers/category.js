@@ -5,12 +5,13 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-			var search = $location.search();
-			var queryString = {};
-
-			angular.forEach(search, function(value, key) {
-				queryString[key.toLowerCase()] = value;
-			});
+			// TODO : Prune this code if not needed
+//			var search = $location.search();
+//			var queryString = {};
+//
+//			angular.forEach(search, function(value, key) {
+//				queryString[key.toLowerCase()] = value;
+//			});
 
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
