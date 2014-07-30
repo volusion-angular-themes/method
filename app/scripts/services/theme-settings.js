@@ -13,21 +13,38 @@ angular.module('Volusion.services')
 
 			var themeSettings = {};
 
+			function hasEmptySettings (obj) {
+				for(var key in obj) {
+					if(obj.hasOwnProperty(key)) {
+						return false;
+					}
+				}
+				return true;
+			}
+
 			function init() {
-				vnApi.ThemeSettings().get().$promise
-					.then(function (response) {
-						themeSettings = response;
-					});
+				if(hasEmptySettings(themeSettings)) {
+					vnApi.ThemeSettings().get().$promise
+						.then(function (response) {
+							// Remember themeSettings is a $resource!
+							themeSettings = response;
+						});
+				}
 			}
 
 			function getThemeSettings() {
 				var deferred = $q.defer();
 
-				vnApi.ThemeSettings().get().$promise
-					.then(function (response) {
-						deferred.resolve(response);
-						themeSettings = response;
-					});
+				if(hasEmptySettings(themeSettings)) {
+					console.log('in gaurd: ', themeSettings);
+					vnApi.ThemeSettings().get().$promise
+						.then(function (response) {
+							deferred.resolve(response);
+							themeSettings = response;
+						});
+				} else {
+					deferred.resolve(themeSettings);
+				}
 
 				return deferred.promise;
 			}
