@@ -59,6 +59,7 @@ angular.module('methodApp')
 
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParamsObject();
+				vnProductParams.setSort('relevance'); // Is default when
 				vnProductParams.updateSearch($routeParams.q);
 
 				//Reset for the price fields
@@ -95,35 +96,6 @@ angular.module('methodApp')
 			$scope.dismissMobileFilters = function() {
 				$scope.toggleSearch();
 			};
-
-			enquire.register('screen and (max-width:767px)', {
-
-				setup: function() {
-					$scope.mobileDisplay = true;
-					$scope.showMobileSearch = false;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = true;
-					$scope.priceAccordiansOpen = true;
-				},
-				unmatch: function () {
-					$scope.mobileDisplay = true; // default cats and facets to open
-					$scope.showMobileSearch = false;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = true;
-					$scope.priceAccordiansOpen = true;
-				},
-				// transitioning to mobile mode
-				match  : function () {
-					$scope.mobileDisplay = false; // default cats and facets default to closed
-					$scope.showMobileSearch = true;
-					$scope.isMobileAndVisible = false;
-					$scope.isMobileAndHidden = true;
-					$scope.categoryAccordiansOpen = false;
-					$scope.priceAccordiansOpen = false;
-				}
-			});
 
 			// Scope listeners, initialization and cleanup routines
 			$scope.init();
