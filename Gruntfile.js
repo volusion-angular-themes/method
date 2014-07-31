@@ -532,8 +532,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', function(target) {
 		grunt.task.run([
 			'clean:dist',
-			'newer:jshint:all',
-			'test'
+			'newer:jshint:all'
 		]);
 
 		// Add additional targets according to environment variables
@@ -544,6 +543,7 @@ module.exports = function(grunt) {
 		}
 
 		grunt.task.run([
+			'test',
 			'build_only'
 		]);
 	});
