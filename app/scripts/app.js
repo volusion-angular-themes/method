@@ -138,8 +138,5 @@ angular.module('methodApp', [
 
 			// Init services
 			// one time initialization for services
-			SiteConfig.init();
-			themeSettings.init();
 			Cart.init();
-
 		}]);

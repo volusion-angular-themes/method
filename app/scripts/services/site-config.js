@@ -8,16 +8,18 @@
  * Service in the themeMethod.
  */
 angular.module('Volusion.services')
-	.service('SiteConfig', ['vnApi',
-		function (vnApi) {
+	.service('SiteConfig', ['vnApi', '$q',
+		function (vnApi, $q) {
 
 			var siteConfig = {};
 
-			siteConfig.init = function() {
+			siteConfig.getConfig = function() {
+				var deferred = $q.defer();
 				vnApi.Configuration().get().$promise
 					.then(function(response) {
-						siteConfig = response.data;
+						deferred.resolve(response);
 					});
+				return deferred.promise;
 			};
 
 			return siteConfig;

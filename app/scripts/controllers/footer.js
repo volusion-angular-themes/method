@@ -11,10 +11,7 @@ angular.module('Volusion.controllers')
 		function ($scope, translate, themeSettings, ContentMgr) {
 			'use strict';
 
-			$scope.themeSettings = themeSettings.getThemeSettings();
-
 			translate.addParts('footer');
-
 
 			// Watch the footer state and update as needed
 			$scope.$watch(
@@ -23,14 +20,6 @@ angular.module('Volusion.controllers')
 				},
 				function (state) {
 					$scope.footerState = state;
-			},true);
-
-//			$scope.hideContent = function() {
-//				$scope.showFooter = false;
-//			};
-//
-//			$scope.showContent = function() {
-//				$scope.showFooter = true;
-//			};
+				},true);
 
 		}]);
