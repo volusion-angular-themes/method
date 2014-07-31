@@ -505,6 +505,7 @@ module.exports = function(grunt) {
 		'clean:server',
 		'compass:server',
 		'autoprefixer',
+		'ngconstant:samplestore',
 		'connect:test',
 		'karma'
 	]);
