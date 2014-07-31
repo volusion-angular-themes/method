@@ -7,12 +7,10 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', 'translate', 'Cart', 'themeSettings', 'vnApi', 'ContentMgr',
-		function ($rootScope, $scope, $window, $timeout, translate, Cart, themeSettings, vnApi, ContentMgr) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', 'translate', 'Cart', 'vnApi', 'ContentMgr',
+		function ($rootScope, $scope, $window, $timeout, translate, Cart, vnApi, ContentMgr) {
 
 			'use strict';
-
-			$scope.themeSettings = themeSettings.getThemeSettings();
 
 			// Watch the appheader state and update as needed
 			$scope.$watch(
@@ -117,11 +115,7 @@ angular.module('Volusion.controllers')
 			// Smart Nav END *******************************************************
 
 			// Handle Navigation
-			vnApi.Nav().get({ navId: 1 }).$promise
-				.then(function (response) {
-					$scope.smartNavCategories = $scope.smartCategories = response.data;
-					$timeout(function () {
-						buildSmartNav();
-					}, 0);
-				});
+			$timeout(function () {
+				buildSmartNav();
+			}, 0);
 		}]);
