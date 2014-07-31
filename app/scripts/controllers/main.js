@@ -13,7 +13,7 @@ angular.module('Volusion.controllers')
 
 			// Handle the setup data
 			SiteConfig.getConfig().then(function(response) {
-				$scope.config = response;
+				$scope.config = response.data;
 			});
 
 			themeSettings.getThemeSettings().then(function(response) {

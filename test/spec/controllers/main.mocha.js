@@ -11,7 +11,9 @@ describe('Controller: MainCtrl', function() {
 
 
 	var configResponse = {
-		foo: 'bar'
+		data: {
+			foo: 'bar'
+		}
 	};
 
 	var themeSettingsResponse = {
@@ -74,7 +76,7 @@ describe('Controller: MainCtrl', function() {
 
 	it('calls SiteConfig and stores response in scope', function() {
 		expect(SiteConfig.getConfig).to.have.been.calledOnce;
-		expect(scope.config).to.deep.equal(configResponse);
+		expect(scope.config).to.deep.equal(configResponse.data);
 	});
 
 	it('calls themeSettings and stores response in scope', function() {
