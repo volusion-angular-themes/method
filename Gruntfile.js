@@ -361,7 +361,7 @@ module.exports = function(grunt) {
 				collapseWhitespace: true,
 				collapseBooleanAttributes: true,
 				removeCommentsFromCDATA: true,
-				removeOptionalTags: true
+//				removeOptionalTags: true // This option breaks livereload when used.
 			},
 			server: {
 				files: [
