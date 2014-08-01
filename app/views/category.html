@@ -14,6 +14,8 @@
 		<div class="col-sm-9 col-lg-10 vn-category-product-tiles"
 			 ng-class="{ 'isMobileAndHidden': true == !isMobileAndHidden }">
 			<div class="content-top">
+				<div vn-sort-search
+					 query-products="queryProducts()"></div>
 				<div class="page-header">
 					<h1>{{category.name}}</h1>
 					<img class="banner img img-responsive"
@@ -28,8 +30,9 @@
 			<!-- Mobile Filtering & Sorting Controls -->
 			<div class="mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
 				<a href data-ng-click="toggleSearch()">
-					<button class="btn btn-default vn-facet-search-control">Show Filters</button>
+					<button class="btn btn-default vn-facet-search-control">Filter</button>
 				</a>
+				<div style="display: inline-block" vn-sort-search query-products="queryProducts()"></div>
 				<!-- place sort by button here -->
 			</div>
 
