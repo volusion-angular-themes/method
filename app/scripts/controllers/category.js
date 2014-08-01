@@ -31,20 +31,27 @@ angular.module('Volusion.controllers')
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 
-					angular.forEach($scope.products, function(product) {
-						if (!product.images.default) {
-							product.images.default = [];
-							product.images.default[0] = {
-								'medium' : '/images/theme/tcp-no-image.jpg',
-								'large' : '/images/theme/tcp-no-image.jpg',
-								'small' : '/images/theme/tcp-no-image.jpg'
-							};
-						}
-					});
-
 					// Post response UI Setup
 					$scope.checkFacetsAndCategories(response.categories,response.facets);
 				});
+			};
+
+			//Todo: move this into a central service so logic tied to api contract only has to be updated in one place
+			// Currently search ctrl & categoryctrl implement this fn
+			$scope.getDefaultImage = function (product) {
+				var imgPath = '';
+				if(product.imageCollections.length === 0) {
+					imgPath = '/images/theme/tcp-no-image.jpg';
+				} else {
+					for(var i = product.imageCollections.length - 1; i >=0; i--) {
+						var currentImageCollection = product.imageCollections[i];
+						if('default' === currentImageCollection.key) {
+							imgPath = 'http:' + currentImageCollection.images[0].medium;
+							break;
+						}
+					}
+				}
+				return imgPath;
 			};
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {
