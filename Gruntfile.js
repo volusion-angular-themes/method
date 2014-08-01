@@ -461,7 +461,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: '.tmp',
 						dest: '<%= yeoman.dist %>',
-						src: ['styles/main.css', 'images/generated/*']
+						src: ['styles/main.css', 'images/generated/{,*/}*.*']
 					}
 				]
 			}
