@@ -36,7 +36,6 @@ angular.module('methodApp')
 					for(var i = product.imageCollections.length - 1; i >=0; i--) {
 						var currentImageCollection = product.imageCollections[i];
 						if('default' === currentImageCollection.key) {
-							console.log('http:' + currentImageCollection.images[0].medium);
 							imgPath = 'http:' + currentImageCollection.images[0].medium;
 							break;
 						}
