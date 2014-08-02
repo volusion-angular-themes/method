@@ -11,10 +11,7 @@
 		margin: 10px auto 0;
 	}
 
-	&:hover {
-		@extend %animate-all-default;
-		@extend %opacity-80;
-	}
+	// add these buttons to the reviews stylesheet and get rid of redundant styling that TWBS provides
 
 	&.btn-grey-sm {
 		background: map-get($colors, component-bg--darker);
@@ -25,12 +22,7 @@
 	}
 }
 
-// Add to Cart - Product Details
-.th-product-details {
-	.th-add-to-cart {
-		padding: 4px 15px;
-	}
-}
+
 
 // Write a review
 .th-write-review {
