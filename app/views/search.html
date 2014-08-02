@@ -28,12 +28,12 @@
 			</div>
 
 			<!-- Mobile Filtering & Sorting Controls -->
-			<div class="mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
-				<a href data-ng-click="toggleSearch()">
-					<button class="btn btn-default vn-facet-search-control">Show Filters</button>
+			<div class="row mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
+				<a class="col-xs-6" href data-ng-click="toggleSearch()">
+					<button class="btn btn-default pull-right vn-facet-search-control">Filter</button>
 				</a>
+				<div class="col-xs-6 vn-sort-mobile-search-control" vn-sort-search query-products="queryProducts()"></div>
 				<!-- place sort by button here -->
-
 			</div>
 
 			<div class="row">
