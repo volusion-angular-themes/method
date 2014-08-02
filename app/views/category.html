@@ -14,12 +14,14 @@
 		<div class="col-sm-9 col-lg-10 vn-category-product-tiles"
 			 ng-class="{ 'isMobileAndHidden': true == !isMobileAndHidden }">
 			<div class="content-top">
-				<div vn-sort-search
-					 class="pull-right"
-					 data-ng-show="mobileDisplay"
-					 query-products="queryProducts()"></div>
 				<div class="page-header">
-					<h1>{{category.name}}</h1>
+					<div class="row">
+						<h1 class="col-sm-10 col-md-10">{{category.name}}</h1>
+						<div vn-sort-search
+							 class="col-sm-2 col-md-2 vn-sort-desktop-search"
+							 data-ng-show="mobileDisplay"
+							 query-products="queryProducts()"></div>
+					</div>
 					<img class="banner img img-responsive"
 						 ng-hide="checkForFacetFilters()"
 						 ng-src="{{category.bannerImgUrl}}">

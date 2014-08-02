@@ -16,7 +16,13 @@
 			 ng-class="{ 'isMobileAndHidden': true == !isMobileAndHidden }">
 			<div class="content-top">
 				<div class="page-header">
-					<h1>Search results for {{searchTerms.q}}</h1>
+					<div class="row">
+						<h1 class="col-sm-10 col-md-10">Search results for {{searchTerms.q}}</h1>
+						<div vn-sort-search
+							 class="col-sm-2 col-md-2 vn-sort-desktop-search"
+							 data-ng-show="mobileDisplay"
+							 query-products="queryProducts()"></div>
+					</div>
 					<img class="banner img img-responsive"
 						 ng-hide="checkForFacetFilters()"
 						 ng-src="{{category.bannerImgUrl}}">
