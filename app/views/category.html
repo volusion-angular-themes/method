@@ -15,7 +15,13 @@
 			 ng-class="{ 'isMobileAndHidden': true == !isMobileAndHidden }">
 			<div class="content-top">
 				<div class="page-header">
-					<h1>{{category.name}}</h1>
+					<div class="row">
+						<h1 class="col-sm-10 col-md-10">{{category.name}}</h1>
+						<div vn-sort-search
+							 class="col-sm-2 col-md-2 vn-sort-desktop-search"
+							 data-ng-show="mobileDisplay"
+							 query-products="queryProducts()"></div>
+					</div>
 					<img class="banner img img-responsive"
 						 ng-hide="checkForFacetFilters()"
 						 ng-src="{{category.bannerImgUrl}}">
@@ -26,10 +32,11 @@
 			</div>
 
 			<!-- Mobile Filtering & Sorting Controls -->
-			<div class="mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
-				<a href data-ng-click="toggleSearch()">
-					<button class="btn btn-default vn-facet-search-control">Show Filters</button>
+			<div class="row mobile-filters" data-ng-hide="mobileDisplay" ng-class="{ isMobileAndVisible: true == isMobileAndVisible }">
+				<a class="col-xs-6" href data-ng-click="toggleSearch()">
+					<button class="btn btn-default pull-right vn-facet-search-control">Filter</button>
 				</a>
+				<div class="col-xs-6 vn-sort-mobile-search-control" vn-sort-search query-products="queryProducts()"></div>
 				<!-- place sort by button here -->
 			</div>
 

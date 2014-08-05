@@ -1,1 +1,10 @@
 /* Use this to over-ride default faceted-search styles */
+.vn-sort-mobile-search-control {
+		.dropdown {
+			float: left;
+	}
+}
+
+.vn-sort-desktop-search {
+	margin-top: 34px;
+}
