@@ -97,17 +97,17 @@
 										<span class="input-group-btn">
 											<button data-vn-element="btn" class="btn btn-default"
 													data-ng-click="decrementQty()"
-													data-ng-disabled="cartItem.qty == 0">
+													data-ng-disabled="cartItem.qty == 1">
 												-
 											</button>
 										</span>
-										<input data-vn-element="input" class="form-control"
-													 data-ng-model="cartItem.qty"
-													 placeholder="1">
+										<input data-vn-element="input"
+											   class="form-control"
+											   data-ng-model="cartItem.qty">
 										<span class="input-group-btn">
-											<button data-vn-element="btn" class="btn btn-default"
-															data-ng-click="incrementQty()"
-															data-ng-disabled="product.optionSelection.available < 1">
+											<button data-vn-element="btn"
+													class="btn btn-default"
+													data-ng-click="incrementQty()">
 												+
 											</button>
 										</span>
@@ -117,7 +117,6 @@
 									<button class="btn btn-primary btn-lg btn-block"
 													data-translate="product.addToCart"
 													data-ng-click="addToCart()"
-													data-ng-disabled="cartItem.qty === 0"
 													data-analytics-category="element click"
 													data-analytics-label="Add to Cart"
 													data-analytics-location="body-product"

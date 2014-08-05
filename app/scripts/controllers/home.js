@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('HomeCtrl', ['$scope', 'vnApi',
-		function($scope, vnApi) {
+	.controller('HomeCtrl', ['$scope', '$filter', 'vnApi',
+		function($scope, $filter, vnApi) {
 
 			'use strict';
 
@@ -8,6 +8,12 @@ angular.module('Volusion.controllers')
 				.then(function(response) {
 					$scope.featuredProducts = response.data;
 				});
+
+			$scope.getImagePath = function (imageCollections) {
+				// Get the default:medium sized image for this collection
+				// See docs for vnProductImageFilter fro more options
+				return $filter('vnProductImageFilter')(imageCollections);
+			};
 
 		}
 	]);
