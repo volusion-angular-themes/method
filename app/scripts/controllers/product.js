@@ -31,8 +31,8 @@ angular.module('Volusion.controllers')
 				var product = $scope.product;
 				product.optionSelection = { images: 'default' };
 
-				if (product.images.default) {
-					product.image = product.images.default[0];
+				if (product.imageCollections.length > 0 && product.imageCollections[0].images.length > 0) {
+					product.image = product.imageCollections[0].images[0];
 				} else {
 					product.image = {};
 					product.image.medium = '/images/theme/tcp-no-image.jpg';
@@ -117,15 +117,6 @@ angular.module('Volusion.controllers')
 
 			$scope.$watch('product.optionSelection', function (selection, oldSelection) {
 
-				function setAvailabilityMessage() {
-					//var message = product.optionAvailabilityMessages[selection.state];
-					//if (message) {
-					//	$scope.availabilityMessage = message.replace('{{available}}', selection.available);
-					//} else {
-					//	delete $scope.availabilityMessage;
-					//}
-				}
-
 				// TODO: Remove SKU if not needed
 				//function setSKU() {
 				//	var sku = selection.sku;
@@ -156,9 +147,11 @@ angular.module('Volusion.controllers')
 					selection.available -= $scope.cartItem.qty;
 				}
 
-				function setImage() {
+				function setImages() {
 
-					if (!$scope.product.images[selection.images]) {
+					if ($scope.product.imageCollections.length === 0 ||
+						$scope.product.imageCollections[0].images.length === 0) {
+
 						$scope.product.image = {};
 						$scope.product.image.medium = '/images/theme/tcp-no-image.jpg';
 						$scope.product.image.large = '/images/theme/tcp-no-image.jpg';
@@ -168,19 +161,24 @@ angular.module('Volusion.controllers')
 					}
 
 					if (oldSelection === undefined || selection.images !== oldSelection.images) {
-						$scope.product.image = $scope.product.images[selection.images][0];
+						$scope.product.image = $scope.product.imageCollections[0].images[0];
 					}
+
+					$scope.currentImageCollection = {};
+					angular.forEach($scope.product.imageCollections, function (collection) {
+						if (collection.key === selection.images) {
+							$scope.currentImageCollection = collection.images;
+						}
+					});
 				}
 
 				if (selection === undefined) {
 					return;
 				}
 
-				setAvailabilityMessage();
-				//setSKU();
 				setProductCodeAndId();
 				setQuantity();
-				setImage();
+				setImages();
 
 				$scope.isAddToCartButtonEnabled = selection.isValid && $scope.cartItem.qty > 0;
 			});

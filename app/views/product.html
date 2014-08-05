@@ -15,9 +15,9 @@
 				<div class="visible-xs th-product">
 					<div class="vn-slider vn-slider--product">
 						<carousel data-interval="carousel.interval">
-							<slide data-ng-repeat="image in product.images[product.optionSelection.images] | filter: '!youtube.com'" data-active="image.active">
+							<slide data-ng-repeat="image in currentImageCollection | filter: '!youtube.com'" data-active="image.active">
 								<div class="vn-slider__slide">
-									<img itemprop="image" data-ng-src="{{image.large}}" class="img-responsive" />
+									<img itemprop="image" data-ng-src="{{ image.large }}" class="img-responsive" />
 								</div>
 							</slide>
 						</carousel>
@@ -33,8 +33,8 @@
 								 alt="{{product.name}}">
 
 						<div class="th-product-view__alts">
-							<span data-ng-click="product.image=image" ng-repeat="image in product.images[product.optionSelection.images] | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail">
-								<img data-ng-src="{{image.medium}}" class="img-responsive" alt="">
+							<span data-ng-click="product.image=image" ng-repeat="image in currentImageCollection | filter: '!youtube.com'" class="col-xs-3 th-product-view__thumbnail">
+								<img data-ng-src="{{ image.medium }}" class="img-responsive" alt="">
 							</span>
 						</div>
 					</div>
@@ -90,11 +90,6 @@
 										 data-product="product"
 										 data-save-to="cartItem.options">
 								</div>
-							</div>
-							<div class="row">
-								<p class="th-product-details__availability"
-								   data-ng-show="availabilityMessage"
-								   data-ng-bind="availabilityMessage"></p>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-4 th-qty-wrap">
