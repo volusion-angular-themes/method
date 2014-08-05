@@ -1,0 +1,34 @@
+.th-cart-summary {
+	position    : relative;
+	white-space : nowrap;
+	top         : 8px;
+	right       : 0;
+
+	@include respond-to(sm-and-up) {
+		top: 23px;
+	}
+
+	@include respond-to(md-and-up) {
+		position : relative;
+		right    : 13px;
+		top      : 29px;
+	}
+}
+
+.th-my-cart {
+	@include inline-block;
+	padding     : 6px 0;
+	margin-left : 10px;
+
+	&__number {
+		color : map-get($colors, link-active);
+
+		&:before {
+			content : "(";
+		}
+
+		&:after {
+			content : ")";
+		}
+	}
+}

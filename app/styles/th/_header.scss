@@ -1,0 +1,20 @@
+.th-header {
+	display : none;
+	border  : 1px solid map-get($colors, border);
+
+	@include respond-to(md-and-up) {
+		display: block;
+	}
+
+	a:hover {
+		@extend %animate-all-default;
+	}
+
+	&__shipping-text {
+		float : left;
+	}
+
+	&__account-menu {
+		float : right;
+	}
+}

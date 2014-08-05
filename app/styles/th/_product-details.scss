@@ -1,0 +1,43 @@
+.th-product-details {
+
+	&__add-to-cart {
+		padding: 4px 15px;
+	}
+
+	&__availability {
+		background-color : cornsilk;
+		padding          : 7px 15px;
+	}
+
+	&__options {
+		margin-top : 15px;
+		padding    : 10px;
+		text-align : center;
+	}
+
+	&__title {
+		text-transform : uppercase;
+		font-family    : $font-family-condensed-reg;
+		font-size      : 1.9rem;
+		text-align     : left;
+		line-height    : 22px;
+		padding        : 2px 0;
+
+		@include respond-to(md-and-up) {
+			font-size    : 3.1rem;
+			line-height  : 34px;
+		}
+
+		a:hover {
+			@extend %animate-all-default;
+		}
+	}
+
+	&__title--tablet {
+		font-family    : $font-family-condensed-reg;
+		font-size  : 3.2rem;
+		text-align : center;
+		text-transform : uppercase;
+		padding    : 30px 0;
+	}
+}
