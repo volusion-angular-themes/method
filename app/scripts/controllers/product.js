@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$anchorScroll', 'Cart',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $anchorScroll, Cart) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', 'Cart',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, Cart) {
 
 			$scope.product = {};
 			$scope.cartItem = {};
@@ -201,6 +201,12 @@ angular.module('Volusion.controllers')
 			function safeApply(scope, fn) {
 				return (scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
 			}
+
+			$scope.getImagePath = function (imageCollections) {
+				// Get the default:medium sized image for this collection
+				// See docs for vnProductImageFilter fro more options
+				return $filter('vnProductImageFilter')(imageCollections);
+			};
 
 			$scope.addToCart = function() {
 
