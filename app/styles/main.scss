@@ -1,5 +1,5 @@
 // Custom Theme Variables & Configuration
-@import 'style-guide/theme-vars';
+@import 'base/bootstrap-variables';
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
@@ -7,15 +7,12 @@
 
 // Core variables and mixins
 @import 'compass';
-@import 'core/base/mixins';
-@import 'core/base/helpers';
-
-// Core CSS
-@import 'core/buttons';
+@import 'base/mixins';
+@import 'base/helpers';
 
 // Components
 @import 'th-import';
 
 // Theme - Method
-@import 'style-guide/fonts';
-@import 'style-guide/bootstrap-style';
+@import 'base/fonts';
+@import 'base/bootstrap-style';
