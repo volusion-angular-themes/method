@@ -203,9 +203,14 @@ angular.module('Volusion.controllers')
 			}
 
 			$scope.getImagePath = function (imageCollections) {
-				// Get the default:medium sized image for this collection
-				// See docs for vnProductImageFilter fro more options
-				return $filter('vnProductImageFilter')(imageCollections);
+				// This gets the default:medium image for the product
+				var path = $filter('vnProductImageFilter')(imageCollections);
+
+				if ('' === path) {
+					return '/images/theme/tcp-no-image.jpg';
+				}
+
+				return path;
 			};
 
 			$scope.addToCart = function() {
