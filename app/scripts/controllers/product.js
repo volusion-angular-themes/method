@@ -132,18 +132,17 @@ angular.module('Volusion.controllers')
 
 				function setQuantity() {
 					if (!selection.isValid) {
-						$scope.cartItem.qty = 0;
+						$scope.cartItem.qty = 1;
 						selection.available = 0;
 						$scope.product.optionSelection.available = 0;
 
 						return;
 					}
-					if (selection.available < $scope.cartItem.qty) {
-						$scope.cartItem.qty = selection.available;
-					}
-					if (($scope.cartItem.qty === undefined || $scope.cartItem.qty === 0) && selection.available > 0) {
+
+					if ($scope.cartItem.qty === undefined || $scope.cartItem.qty === 0) {
 						$scope.cartItem.qty = 1;
 					}
+
 					selection.available -= $scope.cartItem.qty;
 				}
 
@@ -184,7 +183,7 @@ angular.module('Volusion.controllers')
 			});
 
 			function modifyQuantity(amount) {
-				$scope.cartItem.qty += amount;
+				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
 				var selection = $scope.product.optionSelection;
 				if (selection && (selection.available - amount) >= 0) {
 					selection.available -= amount;
