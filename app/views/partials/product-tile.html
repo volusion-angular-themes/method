@@ -3,7 +3,8 @@
 	<span class="th-product__new hidden-xs" data-ng-show="product.isNew"></span>
 	<div class="th-product__image">
 		<a data-ng-href="{{ product.url }}">
-			<img data-ng-src="{{ product.images.default[0].medium }}" class="img-responsive" alt="{{ product.name }}">
+			<!--<img data-ng-src="{{ product.images.default[0].medium }}" class="img-responsive" alt="{{ product.name }}">-->
+			<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="{{ product.name }}">
 		</a>
 		<!--<div class="th-quick-options visible-md visible-lg">-->
 		<!--<a data-ui-sref="i18n.product({ productTitle: featuredProduct.slug, productCode: featuredProduct.code })" class="th-quick-view" data-translate="product.quickView">Quick View</a>-->

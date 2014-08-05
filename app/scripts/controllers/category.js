@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function($q, $scope, $rootScope, $routeParams, $location, vnApi, vnProductParams, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, $location, $filter, vnApi, vnProductParams, ContentMgr) {
 
 			'use strict';
 
@@ -36,22 +36,9 @@ angular.module('Volusion.controllers')
 				});
 			};
 
-			//Todo: move this into a central service so logic tied to api contract only has to be updated in one place
-			// Currently search ctrl & categoryctrl implement this fn
-			$scope.getDefaultImage = function (product) {
-				var imgPath = '';
-				if(product.imageCollections.length === 0) {
-					imgPath = '/images/theme/tcp-no-image.jpg';
-				} else {
-					for(var i = product.imageCollections.length - 1; i >=0; i--) {
-						var currentImageCollection = product.imageCollections[i];
-						if('default' === currentImageCollection.key) {
-							imgPath = 'http:' + currentImageCollection.images[0].medium;
-							break;
-						}
-					}
-				}
-				return imgPath;
+			$scope.getImagePath = function (imageCollections) {
+				// Get the default:medium sized image for this collection
+				return $filter('vnProductImageFilter')(imageCollections);
 			};
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {

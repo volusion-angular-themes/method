@@ -51,7 +51,7 @@
 						<div class="th-product__image">
 							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
 							<a href="{{ product.url }}">
-								<img data-ng-src="{{ getDefaultImage(product) }}" class="img-responsive" alt="">
+								<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="">
 							</a>
 						</div>
 						<div class="th-product__name">
