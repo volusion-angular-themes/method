@@ -89,8 +89,8 @@ angular.module('methodApp', [
 					templateUrl: 'views/search.html',
 					controller: 'SearchCtrl',
 					resolve: {
-						route: ['VnAppRoute', function(VnAppRoute){
-							return VnAppRoute.updateRoute();
+						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+							return vnAppRoute.updateUrl();
 						}]
 					}
 				})
