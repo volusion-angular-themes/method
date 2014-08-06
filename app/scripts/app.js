@@ -1,4 +1,4 @@
-'use strict';
+/* exported VnAppRouteProvider */
 
 angular.module('Volusion.templates', []);
 angular.module('Volusion.directives', ['Volusion.templates']);
@@ -36,13 +36,10 @@ angular.module('methodApp', [
 	//'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider', 'VnAppRouteProvider',
-//	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider, VnAppRouteProvider) {
-//		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+			/*jshint unused: false*/ //VnAppRouteProvider really is used in the resolve for cats and search
 
-			VnAppRouteProvider.updateRoute();
-
-			console.log(VnAppRouteProvider);
+			'use strict';
 
 			$locationProvider.html5Mode(true);
 
@@ -90,7 +87,12 @@ angular.module('methodApp', [
 				})
 				.when('/search', {
 					templateUrl: 'views/search.html',
-					controller: 'SearchCtrl'
+					controller: 'SearchCtrl',
+					resolve: {
+						route: ['VnAppRoute', function(VnAppRoute){
+							return VnAppRoute.updateRoute();
+						}]
+					}
 				})
 				.when('/theme-settings', {
 					templateUrl: 'views/theme-settings.html',
@@ -107,6 +109,8 @@ angular.module('methodApp', [
 		}])
 	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr',
 		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr) {
+
+			'use strict';
 
 			$rootScope.isInDesktopMode = true;
 
