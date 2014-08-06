@@ -89,10 +89,9 @@ angular.module('methodApp', [
 				.when('/search', {
 					templateUrl: 'views/search.html',
 					controller: 'SearchCtrl',
-					reloadOnSearch: false,
 					resolve: {
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateUrl();
+						route: ['VnAppRoute', function(VnAppRoute){
+							return VnAppRoute.updateRoute();
 						}]
 					}
 				})
