@@ -35,8 +35,8 @@ angular.module('methodApp', [
 	'Volusion.services'
 	//'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
 ])
-	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider', 'VnAppRouteProvider',
-		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider, VnAppRouteProvider) {
+	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
+		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
 			/*jshint unused: false*/ //VnAppRouteProvider really is used in the resolve for cats and search
 
 			'use strict';
@@ -93,7 +93,7 @@ angular.module('methodApp', [
 					controller: 'SearchCtrl',
 					reloadOnSearch: false,
 					resolve: {
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+						route: ['vnAppRoute', '$route', function(vnAppRoute){
 							return vnAppRoute.updateUrl();
 						}]
 					}
