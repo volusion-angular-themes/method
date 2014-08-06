@@ -37,7 +37,6 @@ angular.module('methodApp', [
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
-
 			'use strict';
 
 			$locationProvider.html5Mode(true);
@@ -88,13 +87,8 @@ angular.module('methodApp', [
 					templateUrl: 'views/search.html',
 					controller: 'SearchCtrl',
 					resolve: {
-<<<<<<< HEAD
 						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
 							return vnAppRoute.updateRoute($route.current.params);
-=======
-						route: ['VnAppRoute', function(VnAppRoute){
-							return VnAppRoute.updateRoute();
->>>>>>> Working deltas. eod.
 						}]
 					}
 				})
