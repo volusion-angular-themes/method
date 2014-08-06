@@ -241,7 +241,6 @@ a:hover, a:active {
 	}
 }
 
-/* Medium devices (desktops, 992px and up) */
 @include respond-to(md-and-up) {
 
 	.th-navbar {
@@ -312,7 +311,6 @@ a:hover, a:active {
 	}
 }
 
-/* Large devices (large desktops, 1200px and up) */
 @include respond-to(lg) {
 
 	.th-navbar {
