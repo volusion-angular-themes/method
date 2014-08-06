@@ -60,7 +60,6 @@ angular.module('Volusion.controllers')
 			};
 
 			// Todo: rename this as its badly named and has nothing to do with our search ctrl or search page.
-			// Called from the view
 			$scope.toggleSearch = function() {
 				// Remember, this should only ever be called / used from the mobile filter element.
 				if($scope.mobileDisplay) {
@@ -103,7 +102,6 @@ angular.module('Volusion.controllers')
 					return true;
 				}
 			};
-
 
 			// Load the url category when the controller is activated.
 //			$scope.getCategory($routeParams.slug);

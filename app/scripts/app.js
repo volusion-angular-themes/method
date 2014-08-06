@@ -80,9 +80,8 @@ angular.module('methodApp', [
 					controller : 'CategoryCtrl',
 					reloadOnSearch: false,
 					resolve: {
-						route: ['vnAppRoute', '$route', 'vnProductParams', function(vnAppRoute, $route, vnProductParams){
-//							return vnAppRoute.update($route.current.params, vnProductParams);
-							return vnAppRoute.updateUrl();
+						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+							return vnAppRoute.updateRoute($route.current.params);
 						}]
 					}
 				})
@@ -90,8 +89,8 @@ angular.module('methodApp', [
 					templateUrl: 'views/search.html',
 					controller: 'SearchCtrl',
 					resolve: {
-						route: ['VnAppRoute', function(VnAppRoute){
-							return VnAppRoute.updateRoute();
+						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+							return vnAppRoute.updateRoute($route.current.params);
 						}]
 					}
 				})
