@@ -8,6 +8,7 @@
 angular.module('methodApp')
 	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr', 'themeSettings',
 		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, ContentMgr, themeSettings) {
+
 			'use strict';
 
 			$scope.searchLocal = '';

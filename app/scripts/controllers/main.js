@@ -5,7 +5,7 @@
  * @name Volusion.controllers.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the volusionMethodThemeApp
+ * Controller of the methodApp
  */
 angular.module('Volusion.controllers')
 	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig',

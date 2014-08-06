@@ -1,8 +1,8 @@
-'use strict';
-
 angular.module('Volusion.controllers')
 	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', 'Cart',
 		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, Cart) {
+
+			'use strict';
 
 			$scope.product = {};
 			$scope.cartItem = {};
