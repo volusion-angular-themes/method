@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function($q, $scope, $rootScope, $routeParams, $location, $filter, vnApi, vnProductParams, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', '$route', 'vnApi', 'vnProductParams', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, $location, $filter, $route, vnApi, vnProductParams, ContentMgr) {
 
 			'use strict';
 
@@ -57,6 +57,7 @@ angular.module('Volusion.controllers')
 
 			};
 
+			// Todo: rename this as its badly named and has nothing to do with our search ctrl or search page.
 			$scope.toggleSearch = function() {
 				// Remember, this should only ever be called / used from the mobile filter element.
 				if($scope.mobileDisplay) {
@@ -73,8 +74,12 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.clearAllFilters = function () {
+				/** On a product page this means
+				 * - clear all facets
+				 * - clear min and max prices
+				 * - clear all but the current $scope.category.id
+				 */
 				vnProductParams.resetParamsObject();
-
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
 				if($scope.isMobileAndVisible) {
@@ -99,9 +104,20 @@ angular.module('Volusion.controllers')
 
 			};
 
+			// Manage the routes for this page
+			var lastRoute = $route.current;
+			$scope.$on('$locationChangeStart', function (event) {
+				console.log('event is: ', event);
+				console.log('cat ctrl watching location change event is: ', lastRoute.$$route.originalPath);
+//				event.preventDefault();
+//				if (lastRoute.$$route.originalPath === $route.current.$$route.originalPath) {
+//					$route.current = lastRoute;
+//				}
+			});
+
 			// Clean up before this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				vnProductParams.resetParamsObject();
+				vnProductParams.endActiveSession();
 			});
 		}
 	]);

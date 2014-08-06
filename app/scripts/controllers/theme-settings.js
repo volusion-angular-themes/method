@@ -40,7 +40,6 @@ angular.module('methodApp')
 			$http.get(apiUrl)
 			.success(function(data) {
 					if (environment === 'dev') {
-						console.log(data);
 						$scope.settings = data;
 					} else {
 						$scope.settings = data.data; //API in production has a "data{}" wrapper
