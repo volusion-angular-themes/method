@@ -80,8 +80,8 @@ angular.module('methodApp', [
 					controller : 'CategoryCtrl',
 					reloadOnSearch: false,
 					resolve: {
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateRoute($route.current.params);
+						route: ['vnAppRoute', function(vnAppRoute){
+							return vnAppRoute.updateUrl();
 						}]
 					}
 				})
