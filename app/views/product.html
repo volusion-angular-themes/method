@@ -97,13 +97,14 @@
 										<span class="input-group-btn">
 											<button data-vn-element="btn" class="btn btn-default"
 													data-ng-click="decrementQty()"
-													data-ng-disabled="cartItem.qty == 1">
+													data-ng-disabled="cartItem.qty <= 1">
 												-
 											</button>
 										</span>
 										<input data-vn-element="input"
 											   class="form-control"
-											   data-ng-model="cartItem.qty">
+											   data-ng-model="cartItem.qty"
+											   data-ng-change="changeQty()">
 										<span class="input-group-btn">
 											<button data-vn-element="btn"
 													class="btn btn-default"
@@ -115,12 +116,15 @@
 								</div>
 								<div class="col-xs-12 col-sm-8 th-add-to-cart">
 									<button class="btn btn-primary btn-lg btn-block"
-													data-translate="product.addToCart"
-													data-ng-click="addToCart()"
-													data-analytics-category="element click"
-													data-analytics-label="Add to Cart"
-													data-analytics-location="body-product"
-													data-analytics-description="Add to Cart Button">
+											data-ng-class="{ '-disabled' : buttonDisabled }"
+											data-translate="product.addToCart"
+											data-ng-click="addToCart()"
+											data-popover="{{ popoverText }}"
+											data-popover-placement="bottom"
+											data-analytics-category="element click"
+											data-analytics-label="Add to Cart"
+											data-analytics-location="body-product"
+											data-analytics-description="Add to Cart Button">
 										Add to Cart
 									</button>
 								</div>
