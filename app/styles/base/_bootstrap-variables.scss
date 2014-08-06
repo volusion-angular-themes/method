@@ -18,17 +18,36 @@ $font-family-heading-reg:           "antonio-regular";
 //
 //## Gray and brand colors for use across Bootstrap.
 
-$gray-darker:            map-get($colors, grayDarker) !default; // #222
-$gray-dark:              map-get($colors, grayDark) !default;   // #333
-$gray:                   map-get($colors, gray) !default; // #555
-$gray-light:             map-get($colors, grayLight) !default;   // #999
-$gray-lighter:           map-get($colors, grayLighter) !default; // #eee
+$gray-darker:            #222 !default; // #222
+$gray-dark:              #333 !default;   // #333
+$gray:                   #555 !default; // #555
+$gray-light:             #999 !default;   // #999
+$gray-lighter:           #eee !default; // #eee
 
-$brand-primary:          map-get($colors, brandPrimary) !default;
-$brand-success:          map-get($colors, brandSuccess) !default;
-$brand-info:             map-get($colors, brandInfo) !default;
-$brand-warning:          map-get($colors, brandWarning) !default;
-$brand-danger:           map-get($colors, brandDanger) !default;
+$brand-primary:          #000 !default;
+$brand-success:          #5cb85c !default;
+$brand-info:             #5bc0de !default;
+$brand-warning:          #f0ad4e !default;
+$brand-danger:           #d9534f !default;
+
+$method-red:						#f63e34;
+
+
+//x brand-primary:                      #000,
+//x body-bg:                            #fff,
+//x text:                               #000,
+//text-emphasized:                    $method-red,
+//x link:                               #000,
+//x link-hover:                         $method-red,
+//link-active:                        $method-red,
+//regular-price:                      #000,
+//sales-price:                        $method-red,
+//headings:                           #333,
+//placeholder:                        #333,
+//border:                             #d9d9d9,
+//component-active-bg:                $method-red,
+//component-bg:                       #fff,
+//component-shadow:                   #000
 
 
 //== Scaffolding
@@ -36,14 +55,14 @@ $brand-danger:           map-get($colors, brandDanger) !default;
 // ## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               map-get($colors, bodyBg) !default;
+$body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            map-get($colors, textColor) !default;
+$text-color:            #000 !default;
 
 //** Global textual link color.
-$link-color:            map-get($colors, linkColor) !default;
+$link-color:            #000 !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      map-get($colors, linkHoverColor) !default;
+$link-hover-color:      $method-red !default;
 
 
 //== Typography
