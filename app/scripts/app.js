@@ -35,8 +35,14 @@ angular.module('methodApp', [
 	'Volusion.services'
 	//'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
 ])
-	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
-		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider', 'VnAppRouteProvider',
+//	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
+		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider, VnAppRouteProvider) {
+//		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+
+			VnAppRouteProvider.updateRoute();
+
+			console.log(VnAppRouteProvider);
 
 			'use strict';
 
