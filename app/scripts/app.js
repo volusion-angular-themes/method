@@ -37,6 +37,7 @@ angular.module('methodApp', [
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+
 			'use strict';
 
 			$locationProvider.html5Mode(true);
