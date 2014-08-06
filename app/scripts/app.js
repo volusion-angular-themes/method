@@ -37,9 +37,6 @@ angular.module('methodApp', [
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
 		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
-			/*jshint unused: false*/ //VnAppRouteProvider really is used in the resolve for cats and search
-
-			'use strict';
 
 			'use strict';
 
@@ -85,13 +82,8 @@ angular.module('methodApp', [
 					controller : 'CategoryCtrl',
 					reloadOnSearch: false,
 					resolve: {
-<<<<<<< HEAD
 						route: ['vnAppRoute', function(vnAppRoute){
 							return vnAppRoute.updateUrl();
-=======
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateRoute($route.current.params);
->>>>>>> 27452: Initial changes to theme for toolbox changes
 						}]
 					}
 				})
@@ -100,17 +92,8 @@ angular.module('methodApp', [
 					controller: 'SearchCtrl',
 					reloadOnSearch: false,
 					resolve: {
-<<<<<<< HEAD
 						route: ['vnAppRoute', '$route', function(vnAppRoute){
 							return vnAppRoute.updateUrl();
-=======
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-<<<<<<< HEAD
-							return vnAppRoute.updateUrl($route.current.params);
->>>>>>> Handles facets, min and max price.
-=======
-							return vnAppRoute.updateUrl();
->>>>>>> Handles facets, min and max price.
 						}]
 					}
 				})
