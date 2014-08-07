@@ -1,0 +1,50 @@
+.snap-content {
+	background-color: white; //required to set a background color, otherwise the snap menu will show through content pages
+}
+
+.th-mobile-menu {
+	border-right     : 1px solid map-get($colors, border);
+	background-color : map-get($colors, component-bg);
+
+	&__list {
+		padding : 20px 15px 0;
+	}
+
+}
+
+.th-mobile-list {
+	margin     : 0 0 10px;
+	list-style : none;
+	padding    : 0;
+
+	// Done to address specificity issue
+	> li {
+		> a {
+			padding-left : 0;
+			display      : block;
+		}
+	}
+
+	&__item {
+		&--header {
+			text-transform : uppercase;
+			letter-spacing : 1px;
+			font-family    : $font-family-condensed-bold;
+			font-size      : 1.4rem;
+			margin-bottom  : 15px;
+		}
+	}
+
+	&__link {
+		padding        : 10px 10px 10px 0;
+		position       : relative;
+		text-transform : uppercase;
+		display        : inline-block;
+		line-height    : 17px;
+		border-bottom  : 1px solid map-get($colors, border);
+		font-size      : 1.4rem;
+		&--sub {
+			background-color:#efefef;
+		}
+	}
+}
