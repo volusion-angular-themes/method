@@ -3,7 +3,7 @@
 		<!-- PRODUCT TITLE/NAME FOR TABLET -->
 		<div class="row">
 			<div class="col-sm-12 visible-sm">
-				<div class="th-product-name-lg">
+				<div class="th-product-details__title--tablet">
 					<span itemprop="name" data-ng-bind="product.name"></span>
 				</div>
 			</div>
@@ -62,20 +62,20 @@
 							</div>
 							<div class="hidden-xs">
 								<div class="th-write-review">
-									<div class="th-review-stars">
-										<div class="th-icon th-icon--star th-review-stars__star">
+									<div class="th-reviews__star-group">
+										<div class="th-icon th-icon--star th-reviews__star">
 											<div class="th-icon__foreground"></div>
 										</div>
-										<div class="th-icon th-icon--star th-review-stars__star">
+										<div class="th-icon th-icon--star th-reviews__star">
 											<div class="th-icon__foreground"></div>
 										</div>
-										<div class="th-icon th-icon--star th-review-stars__star">
+										<div class="th-icon th-icon--star th-reviews__star">
 											<div class="th-icon__foreground"></div>
 										</div>
-										<div class="th-icon th-icon--star-half th-review-stars__star">
+										<div class="th-icon th-icon--star-half th-reviews__star">
 											<div class="th-icon__foreground"></div>
 										</div>
-										<div class="th-icon th-icon--star-inactive th-review-stars__star">
+										<div class="th-icon th-icon--star-inactive th-reviews__star">
 											<div class="th-icon__foreground"></div>
 										</div>
 									</div>
@@ -114,7 +114,7 @@
 										</span>
 									</div>
 								</div>
-								<div class="col-xs-12 col-sm-8 th-add-to-cart">
+								<div class="col-xs-12 col-sm-8 th-product-details__add-to-cart">
 									<button class="btn btn-primary btn-lg btn-block"
 											data-ng-class="{ '-disabled' : buttonDisabled }"
 											data-translate="product.addToCart"
@@ -200,20 +200,20 @@
 					<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content="1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
 					<div class="th-reviews__avg">
 						<!-- TODO: Do this -->
-						<div class="th-review-stars">
-							<div class="th-icon th-icon--star th-review-stars__star">
+						<div class="th-reviews__star-group">
+							<div class="th-icon th-icon--star th-reviews__star">
 								<div class="th-icon__foreground"></div>
 							</div>
-							<div class="th-icon th-icon--star th-review-stars__star">
+							<div class="th-icon th-icon--star th-reviews__star">
 								<div class="th-icon__foreground"></div>
 							</div>
-							<div class="th-icon th-icon--star th-review-stars__star">
+							<div class="th-icon th-icon--star th-reviews__star">
 								<div class="th-icon__foreground"></div>
 							</div>
-							<div class="th-icon th-icon--star-half th-review-stars__star">
+							<div class="th-icon th-icon--star-half th-reviews__star">
 								<div class="th-icon__foreground"></div>
 							</div>
-							<div class="th-icon th-icon--star-inactive th-review-stars__star">
+							<div class="th-icon th-icon--star-inactive th-reviews__star">
 								<div class="th-icon__foreground"></div>
 							</div>
 						</div>
@@ -223,34 +223,34 @@
 					<a legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</a>
 				</div>
 			</div>
-			<div data-ng-if="ratingsAndReviews.data.reviews.length > 0" class="th-review" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
-				<div class="th-review__helpful"><span data-ng-bind="review.helpful"></span> people found the following review helpful</div>
-				<div class="th-review__rating">
+			<div data-ng-if="ratingsAndReviews.data.reviews.length > 0" class="th-reviews" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
+				<div class="th-reviews__helpful"><span data-ng-bind="review.helpful"></span> people found the following review helpful</div>
+				<div class="th-review__ratings">
 					<!-- TODO: Do this -->
-					<div class="th-review-stars">
-						<div class="th-icon th-icon--star th-review-stars__star">
+					<div class="th-reviews__star-group">
+						<div class="th-icon th-icon--star th-reviews__star">
 							<div class="th-icon__foreground"></div>
 						</div>
-						<div class="th-icon th-icon--star th-review-stars__star">
+						<div class="th-icon th-icon--star th-reviews__star">
 							<div class="th-icon__foreground"></div>
 						</div>
-						<div class="th-icon th-icon--star th-review-stars__star">
+						<div class="th-icon th-icon--star th-reviews__star">
 							<div class="th-icon__foreground"></div>
 						</div>
-						<div class="th-icon th-icon--star-half th-review-stars__star">
+						<div class="th-icon th-icon--star-half th-reviews__star">
 							<div class="th-icon__foreground"></div>
 						</div>
-						<div class="th-icon th-icon--star-inactive th-review-stars__star">
+						<div class="th-icon th-icon--star-inactive th-reviews__star">
 							<div class="th-icon__foreground"></div>
 						</div>
 					</div>
-					<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__rating__author" data-ng-bind="review.nameOfReviewer || 'Anonymous'"></span>
+					<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__ratings__author" data-ng-bind="review.nameOfReviewer || 'Anonymous'"></span>
 					<div itemprop="datePublished" class="th-rating-date hidden-xs pull-right" data-ng-bind="review.date"></div>
 				</div>
 				<div itemprop="name" class="th-rating-title" data-ng-bind="review.title"></div>
 				<div itemprop="description" class="th-rating-description" data-ng-bind="review.body">
 				</div>
-				<div class="th-review__helpful">
+				<div class="th-reviews__helpful">
 					<span data-translate="product.wasThisReviewHelpfulToYou">Was this review helpful for you?</span>
 					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=yes" class="btn btn-default btn-grey-sm">Yes</a>
 					<a legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=no" class="btn btn-default btn-grey-sm">No</a>

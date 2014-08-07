@@ -1,0 +1,55 @@
+.th-options-wrap {
+	margin-top     : 15px;
+	padding-top    : 10px;
+	padding-bottom : 10px;
+
+	.th-options {
+		overflow : hidden;
+		margin   : 0 -3px;
+
+		@include respond-to(sm-and-up) {
+			margin   : 0 0 10px 0;
+			padding  : 10px;
+			border   : 1px solid map-get($colors, border);
+		}
+	}
+
+	.th-options-title {
+		text-align     : center;
+		letter-spacing : 0.07em;
+		padding        : 8px 0;
+		font-family    : $font-family-condensed-bold;
+		text-transform : uppercase;
+		clear          : both;
+	}
+
+	.th-col-sm {
+		padding : 3px;
+	}
+
+	.sw1 { background-image : image-url("theme/sw-1-lg.png"); }
+	.sw2 { background-image : image-url("theme/sw-2-lg.png"); }
+	.sw3 { background-image : image-url("theme/sw-3-lg.png"); }
+	.sw4 { background-image : image-url("theme/sw-4-lg.png"); }
+	.sw5 { background-image : image-url("theme/sw-5-lg.png"); }
+	.sw6 { background-image : image-url("theme/sw-6-lg.png"); }
+
+	.th-swatch {
+		width               : 100%;
+		display             : block;
+		min-height          : 27px;
+		background-repeat   : repeat;
+		background-position : top left;
+
+		@include respond-to(sm) {
+			max-height : 13px;
+			min-height : 13px;
+		}
+
+		@include respond-to(md-and-up) {
+			min-height : 19px;
+			max-height : 19px;
+		}
+	}
+}
+
