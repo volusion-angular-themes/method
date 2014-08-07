@@ -20,7 +20,7 @@
 	margin-left : 10px;
 
 	&__number {
-		color : map-get($colors, link-active);
+		color : $link-hover-color;
 
 		&:before {
 			content : "(";

@@ -50,7 +50,6 @@
 	}
 }
 
-/* Large devices (large desktops, 1200px and up) */
 @include respond-to(lg) {
 	.th-elist {
 		border-bottom : 0;
@@ -71,13 +70,6 @@
 			height       : 33px;
 			min-width    : 220px;
 			border-color : lighten($navbar-default-border, 50);
-		}
-
-		&__submit {
-			&:hover {
-				background : $btn-primary-bg;
-				border     : 0;
-			}
 		}
 	}
 }

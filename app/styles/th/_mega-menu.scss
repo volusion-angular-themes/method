@@ -1,3 +1,6 @@
+/* TODO determine if this stylesheet is being used,
+ if so then refactor visibility with Bootstrap classes */
+
 .th-mega-menu {
 	display : none;
 }
@@ -27,7 +30,7 @@
 		}
 
 		.navbar-default .navbar-nav > li {
-			border-top : 1px solid map-get($colors, border--light);
+			border-top : 1px solid lighten($navbar-default-border, 10);
 		}
 
 		.navbar-default .navbar-nav > li > a {
@@ -84,7 +87,7 @@
 		display        : block;
 		text-transform : uppercase;
 		font-family    : $font-family-condensed-reg;
-		border-bottom  : 1px solid map-get($colors, border);
+		border-bottom  : 1px solid $navbar-default-border;
 	}
 
 	.th-mega-menu img {
@@ -122,7 +125,7 @@
 	/* Toggle hover */
 	.th-navbar .nav li.dropdown > .dropdown-toggle:hover,
 	.th-navbar .nav li.dropdown.open > .dropdown-toggle:hover {
-		background-color : map-get($colors, component-bg);
+		background-color : $body-bg;
 	}
 	/* Toggle caret*/
 	.th-navbar .nav li.dropdown > .dropdown-toggle .caret {
@@ -130,15 +133,15 @@
 	/* Toggle caret hover */
 	.th-navbar .nav li.dropdown > a:hover .caret,
 	.th-navbar .nav li.dropdown > a:focus .caret {
-		border-bottom-color : map-get($colors, border);
-		border-top-color    : map-get($colors, border);
+		border-bottom-color : $navbar-default-border;
+		border-top-color    : $navbar-default-border;
 	}
 	/* Toggle caret active */
 	.th-navbar .nav li.dropdown.open > .dropdown-toggle .caret,
 	.th-navbar .nav li.dropdown.active > .dropdown-toggle .caret,
 	.th-navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-		border-bottom-color : map-get($colors, border);
-		border-top-color    : map-get($colors, border);
+		border-bottom-color : $navbar-default-border;
+		border-top-color    : $navbar-default-border;
 	}
 	/* Hover style
 	********************************/

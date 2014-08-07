@@ -15,7 +15,7 @@
 		padding      : 10px 8px 11px;
 		min-width    : 45px;
 		height       : 45px;
-		border-color : map-get($colors, border);
+		border-color : $navbar-default-border;
 	}
 }
 

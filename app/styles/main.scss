@@ -1,18 +1,17 @@
-// Custom Theme Variables & Configuration
-@import 'base/bootstrap-variables';
-
-// bower:scss
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
-// endbower
-
-// Core variables and mixins
+// Initialize with Compass and our custom helpers/mixins
 @import 'compass';
 @import 'base/mixins';
 @import 'base/helpers';
 
-// Components
+// Import our fonts and customized Bootstrap variables
+@import 'base/fonts';
+@import 'base/bootstrap-variables';
+
+// Import Bootstrap-Sass from Bower - we don't edit these
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+// Import all 'th' (theme) stylesheets
 @import 'th-import';
 
-// Theme - Method
-@import 'base/fonts';
+// Customize Bootstrap default styling
 @import 'base/bootstrap-style';

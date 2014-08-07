@@ -6,13 +6,6 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 // Variables
 // --------------------------------------------------
 
-// Custom Font Variables
-$font-family-condensed-reg:         "robotocondensed-regular";
-$font-family-condensed-bold:        "robotocondensed-bold";
-$font-family-serif-italic:          "crimsontext-italic", "Times New Roman", Times, serif !default;
-$font-family-heading-reg:           "antonio-regular";
-
-@import "colors";
 
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -37,10 +30,10 @@ $brand-danger:           #d9534f !default;	// Bootstrap default red
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            $brand-primary !default;
+$text-color:            #000 !default;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+$link-color:            $text-color !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      $brand-info !default;
 
@@ -75,7 +68,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 $headings-font-family:    "antonio-bold", "robotocondensed-regular", sans-serif !default;
 $headings-font-weight:    400 !default;
 $headings-line-height:    1.1 !default;
-$headings-color:          inherit !default;
+$headings-color:          #333 !default;
 
 
 //-- Iconography

@@ -23,11 +23,11 @@ a:hover, a:active {
 	}
 
 	a {
-		color: map-get($colors, link--light);
+		color: lighten($link-color, 40);
 		font-size: 1.4rem;
 
 		&:hover {
-			color: map-get($colors, link-hover--dark);
+			color: darken($link-hover-color, 100);
 		}
 	}
 }
@@ -44,7 +44,7 @@ a:hover, a:active {
 	.breadcrumb {
 		margin-bottom: 0;
 		border-bottom: 0;
-		border-bottom: 1px solid map-get($colors, border);
+		border-bottom: 1px solid $navbar-default-border;
 
 		a:hover {
 			@include single-transition(all, 200ms, ease);
@@ -76,8 +76,8 @@ a:hover, a:active {
 	}
 
 	&.btn-grey-sm {
-		background: map-get($colors, component-bg--darker);
-		color: map-get($colors, btnDefaultColor);
+		background: darken($component-active-color, 6);
+		color: $btn-default-color;
 		font-family: $font-family-sans-serif;
 		border: 0;
 		text-transform: none;
@@ -119,7 +119,7 @@ a:hover, a:active {
 
 .form-control {
 	font-family: $font-family-condensed-reg;
-	color: map-get($colors, text);
+	color: $text-color;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 }
@@ -164,7 +164,7 @@ a:hover, a:active {
 
 	.th-header {
 		border-right: none;
-		border-bottom: 1px solid map-get($colors, border--light);
+		border-bottom: 1px solid lighten($navbar-default-border, 10);
 	}
 }
 
@@ -308,7 +308,7 @@ a:hover, a:active {
 					text-transform: uppercase;
 					font-size: 1.6rem;
 					display: inline-block;
-					border-left: 1px solid map-get($colors, border);
+					border-left: 1px solid $navbar-default-border;
 					padding-left: 0.9em;
 					padding-right: 0.9em;
 					padding-top: 0;
@@ -341,17 +341,17 @@ a:hover, a:active {
 
 .nav {
 	.open > a {
-		border-color: map-get($colors, border);
+		border-color: $navbar-default-border;
 
 		&:hover, &:focus {
-			border-color: map-get($colors, border);
+			border-color: $navbar-default-border;
 		}
 	}
 }
 
 ul.nav-tabs {
 	clear: both;
-	border-bottom: 1px solid map-get($colors, border);
+	border-bottom: 1px solid $navbar-default-border;
 	border-top: 0;
 	margin-bottom: 19px;
 	text-align: center;
@@ -367,12 +367,12 @@ ul.nav-tabs {
 		> a {
 			border: 0;
 			padding: 10px 13px 7px;
-			color: map-get($colors, link);
+			color: $link-color;
 			margin: 0;
 
 			&:hover {
 				margin: 0;
-				color: map-get($colors, link-hover);
+				color: $link-hover-color;
 				border-top: 0;
 				cursor: pointer;
 			}
@@ -381,15 +381,15 @@ ul.nav-tabs {
 		&.active {
 			> a {
 				border-top: 0;
-				border-bottom: 1px solid map-get($colors, border--lightest);
+				border-bottom: 1px solid lighten($navbar-default-border, 50);
 				margin-bottom: 0;
-				color: map-get($colors, link);
-				border-color: map-get($colors, border--dark);
+				color: $link-color;
+				border-color: darken($navbar-default-border, 40);
 				border-left: 0;
 				border-right: 0;
 
 				&:hover {
-					color: map-get($colors, link-hover);
+					color: $link-hover-color;
 					border-top: 0;
 				}
 			}
@@ -401,7 +401,7 @@ ul.nav-tabs {
 
 	ul.nav-tabs {
 		text-align: left;
-		border-top: 1px solid map-get($colors, border);
+		border-top: 1px solid $navbar-default-border;
 
 		> li {
 			font-size: 1.4rem;
@@ -414,10 +414,10 @@ ul.nav-tabs {
 
 			&.active {
 				> a {
-					border-left: 1px solid map-get($colors, border);
-					border-right: 1px solid map-get($colors, border);
+					border-left: 1px solid $navbar-default-border;
+					border-right: 1px solid $navbar-default-border;
 					margin-bottom: -1px;
-					border-bottom: 1px solid map-get($colors, border--lightest);
+					border-bottom: 1px solid lighten($navbar-default-border, 50);
 				}
 			}
 		}
@@ -461,12 +461,12 @@ ul.nav-tabs {
 .panel-group .panel-default {
 	border-left: 0;
 	border-right: 0;
-	-webkit-box-shadow: 0 1px 1px rgba(map-get($colors, component-shadow), 0);
-	box-shadow: 0 1px 1px rgba(map-get($colors, component-shadow), 0);
+	-webkit-box-shadow: 0 1px 1px rgba($brand-primary, 0);
+	box-shadow: 0 1px 1px rgba($brand-primary, 0);
 }
 
 .panel-default > .panel-heading {
-	color: map-get($colors, headings);
+	color: $headings-color;
 	border-left: 0;
 	border-right: 0;
 
@@ -478,7 +478,7 @@ ul.nav-tabs {
 }
 
 .panel-default > .panel-heading + .panel-collapse .panel-body {
-	border-top-color: map-get($colors, border--lightest);
+	border-top-color: lighten($navbar-default-border, 50);
 }
 
 

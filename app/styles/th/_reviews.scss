@@ -1,11 +1,11 @@
 .th-reviews {
 	font-size   : 1.3rem;
-	color       : map-get($colors, text--light);
+	color       : lighten($text-color, 55);
 	line-height : 22px;
-	border-top  : 1px solid map-get($colors, border);
+	border-top  : 1px solid $navbar-default-border;
 
 	a {
-		color  : map-get($colors, text--light);
+		color  : lighten($text-color, 55);
 		margin : 0 4px;
 	}
 
@@ -18,7 +18,7 @@
 	}
 
 	&__totals {
-		border   : 1px solid map-get($colors, border--light);
+		border   : 1px solid lighten($navbar-default-border, 10);
 		padding  : 15px;
 		overflow : hidden;
 	}
@@ -42,6 +42,7 @@
 
 }
 
+// TODO BEMify these classes
 .th-totals-right {
 	margin-top : 10px;
 }
@@ -57,7 +58,7 @@
 
 
 
-// TODO Clean this up // taken from buttons stylesheet in core
+// TODO Clean this up, taken from buttons stylesheet in core
 // Write a review
 .th-write-review {
 	padding: 10px 0;
