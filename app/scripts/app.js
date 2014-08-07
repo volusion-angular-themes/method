@@ -77,18 +77,21 @@ angular.module('methodApp', [
 				.when('/c/:slug', {
 					templateUrl: 'views/category.html',
 					controller : 'CategoryCtrl',
+					reloadOnSearch: false,
 					resolve: {
 						route: ['vnAppRoute', '$route', 'vnProductParams', function(vnAppRoute, $route, vnProductParams){
-							return vnAppRoute.update($route.current.params, vnProductParams);
+//							return vnAppRoute.update($route.current.params, vnProductParams);
+							return vnAppRoute.updateUrl();
 						}]
 					}
 				})
 				.when('/search', {
 					templateUrl: 'views/search.html',
 					controller: 'SearchCtrl',
+					reloadOnSearch: false,
 					resolve: {
 						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateRoute($route.current.params);
+							return vnAppRoute.updateUrl($route.current.params);
 						}]
 					}
 				})
