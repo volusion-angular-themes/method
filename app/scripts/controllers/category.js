@@ -114,12 +114,12 @@ angular.module('Volusion.controllers')
 
 			// Manage the routes for this page
 //			var lastRoute = $route.current;
-//			$scope.$on('$locationChangeStart', function (event) {
-			$scope.$on('$locationChangeStart', function () {
+			$scope.$on('$locationChangeStart', function (event) {
+//				console.log('category location change start with $location: ', $location);
+//				console.log('category location change start with event: ', event);
+
 				if(vnProductParams.getSessionState()) {
-//					preserve the session data and change the location path
-				} else {
-					console.log('are the query params to consume?');
+					console.log('We have an active productParams session', event);
 				}
 			});
 
