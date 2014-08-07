@@ -91,7 +91,7 @@ angular.module('methodApp', [
 					reloadOnSearch: false,
 					resolve: {
 						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateUrl($route.current.params);
+							return vnAppRoute.updateUrl();
 						}]
 					}
 				})

@@ -119,23 +119,29 @@ angular.module('Volusion.controllers')
 				console.log('location change start in catergory for current, next: ', current, next);
 				if(vnProductParams.getSessionState()) {
 					console.log('We have an active productParams session', event);
-//					event.preventDefault();
+				} else {
+					console.log('are the query params to consume?');
 				}
 			});
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				if(!vnProductParams.getSessionState()) {
-					console.log('We do not have an active productParams Session', event);
+//					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
 					$scope.getCategory($routeParams.slug);
-
+				} else {
+//					console.log('we do have an active session state, lets resotre it');
+					$scope.getCategory($routeParams.slug);
 				}
 			});
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-//				kill the product filtering session
+				console.log('$location before cleanup: ', $location.path());
+				if(vnProductParams.getSessionState() ){  //&& route is not to /c
+					return;
+				}
 				vnProductParams.endActiveSession();
 			});
 		}
