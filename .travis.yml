@@ -1,26 +1,19 @@
 rvm:
-  - 2.1.1
-
+- 2.1.1
 env:
   global:
-    secure: Nrd3yCzczIn+DCq13yZBVcd3+ilZXi698SJv+ze6AkeUrDYiWb3o/2A2yPZqFXsaZOLcRhLOFAxMEAhEWFD3Hgrujc8weJb5DVZ1+e+eV0Rw+7UKOiPXkC4j8nb8owlQAbllMHJ0t9ugMfMgzrnSyJVIoUlB8BKgU9p28IUPP1Y=
-
+  - secure: V/C8aUAfTVtbGOvro4VYkP+WQtiw+GpSSoaNF41/0ekXdzXiwW7zFVPf39RdASRi5dT872mAvHjakcdaNTMZXlPBhlXSaFQSzKbtUJFVK1/B3rGZnEC/Xt4ex2FBzRV+Tyw0BgU1u6MHKdaeqXxx2m801sxXa1govBquzqwE3Tw=
 bundler_args: --without development
-
 language: node_js
-
 node_js:
-  - "0.10"
-
+- '0.10'
 notifications:
   email:
     on_success: change
     on_failure: always
-
 before_install:
-  - npm install -g grunt-cli bower
-
+- npm install -g grunt-cli bower
 after_success:
-  - grunt build
-  - chmod +x deploy.sh
-  - ./deploy.sh
+- grunt build
+- chmod +x deploy.sh
+- ./deploy.sh
