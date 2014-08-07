@@ -116,10 +116,14 @@ angular.module('Volusion.controllers')
 //			var lastRoute = $route.current;
 			$scope.$on('$locationChangeStart', function (event) {
 //				console.log('category location change start with $location: ', $location);
+//				console.log('category location change start with $route: ', $route);
 //				console.log('category location change start with event: ', event);
 
+//				if we have an active product filtering session prevernt the default route change behavior
+				// How do I know when a new toplevel link has been touched and new session is needed?
 				if(vnProductParams.getSessionState()) {
 					console.log('We have an active productParams session', event);
+//					event.preventDefault();
 				}
 			});
 
