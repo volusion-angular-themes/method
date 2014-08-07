@@ -101,6 +101,14 @@ a:hover, a:active {
 	filter  : alpha(opacity=25);
 }
 
+// Add CSS styling to button which need to appear as disabled
+.btn {
+	&.-disabled {
+		//		opacity : 0.25;
+		//		filter  : alpha(opacity=25);
+	}
+}
+
 
 
 // Dropdowns ==============================================================

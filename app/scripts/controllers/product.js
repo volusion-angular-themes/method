@@ -27,6 +27,48 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			function findRequiredOptionsAreSelected(options) {
+				var missedOptions = [];
+
+				if (!options) {
+					return missedOptions;
+				}
+
+				for (var i = 0; i < options.length; i++) {
+					var option = options[i];
+					if (option.isRequired && !option.hasOwnProperty('selected')) {
+						missedOptions.push(option.label);
+					}
+					if (option.options.length > 0) {
+						var subOptions = findRequiredOptionsAreSelected(option.options);
+						for (var j = 0; j < subOptions.length; j++) {
+							missedOptions.push(subOptions[j].label);
+						}
+					}
+				}
+
+				return missedOptions;
+			}
+
+			function setPopover () {
+				$scope.popoverText = '';
+				$scope.buttonDisabled = false;
+
+				var missedOptions = findRequiredOptionsAreSelected($scope.product.options);
+				if (missedOptions.length > 0) {
+					for (var idx = 0; idx < missedOptions.length; idx++) {
+						$scope.popoverText += $filter('uppercase')(missedOptions[idx]);
+
+						if (idx !== missedOptions.length - 1) {
+							$scope.popoverText += ' and ';
+						}
+					}
+
+					$scope.popoverText = 'Please select ' + $scope.popoverText + ' to add this to your cart';
+					$scope.buttonDisabled = true;
+				}
+			}
+
 			function setDefaults() {
 				var product = $scope.product;
 				product.optionSelection = { images: 'default' };
@@ -49,7 +91,11 @@ angular.module('Volusion.controllers')
 						product: product,
 						state: 'available'
 					});
+
+					return;
 				}
+
+				setPopover();
 			}
 
 			vnApi.Product().get({slug: $routeParams.slug }).$promise
@@ -178,6 +224,7 @@ angular.module('Volusion.controllers')
 				setProductCodeAndId();
 				setQuantity();
 				setImages();
+				setPopover();
 
 				$scope.isAddToCartButtonEnabled = selection.isValid && $scope.cartItem.qty > 0;
 			});
@@ -198,6 +245,12 @@ angular.module('Volusion.controllers')
 				modifyQuantity(1);
 			};
 
+			$scope.changeQty = function () {
+				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
+					$scope.cartItem.qty = 1;
+				}
+			};
+
 			function safeApply(scope, fn) {
 				return (scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
 			}
@@ -215,17 +268,15 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function() {
 
+				if (findRequiredOptionsAreSelected($scope.product.options).length > 0) {
+					return;
+				}
+
 				Cart.saveCart($scope.cartItem)
 					.then(function () {
 						safeApply($scope, function() {
 							$scope.cartItem.qty = 0;
 						});
-//						status = 'success';
-//						$rootScope.$emit('VN_ADD_TO_CART_SUCCESS', {
-//							status      : status,
-//							originalData: cartItem,
-//							data        : response.data
-//						});
 					}, function () {
 //						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
 //							status: status,
@@ -236,11 +287,6 @@ angular.module('Volusion.controllers')
 						safeApply($scope, function() {
 							modifyQuantity($scope.product.optionSelection.available && 1);
 						});
-//						$rootScope.$emit('VN_ADD_TO_CART_COMPLETE', {
-//							status      : status,
-//							originalData: cartItem,
-//							data        : response.data
-//						});
 					});
 			};
 		}]);
