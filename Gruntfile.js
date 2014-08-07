@@ -454,6 +454,7 @@ module.exports = function(grunt) {
 							'fonts/*',
 							'translations/{,*/}*.json',
 							'settings/{,*/}*.json',
+							'styles/overrides.css',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
 					},
