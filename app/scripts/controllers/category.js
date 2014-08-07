@@ -125,7 +125,7 @@ angular.module('Volusion.controllers')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				if(!vnProductParams.getSessionState()) {
-					console.log('We do not have an active productParams Session', event);
+//					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
 					$scope.getCategory($routeParams.slug);
 				} else {
