@@ -3,8 +3,8 @@
 }
 
 .th-mobile-menu {
-	border-right     : 1px solid map-get($colors, border);
-	background-color : map-get($colors, component-bg);
+	border-right     : 1px solid $navbar-default-border;
+	background-color : #fff;
 
 	&__list {
 		padding : 20px 15px 0;
@@ -41,7 +41,7 @@
 		text-transform : uppercase;
 		display        : inline-block;
 		line-height    : 17px;
-		border-bottom  : 1px solid map-get($colors, border);
+		border-bottom  : 1px solid $navbar-default-border;
 		font-size      : 1.4rem;
 		&--sub {
 			background-color:#efefef;

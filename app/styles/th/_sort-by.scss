@@ -21,7 +21,7 @@
     padding: 8px 15px;
     margin-bottom: 10px;
     text-transform: uppercase;
-    color: map-get($colors, text--light);
+    color: lighten($text-color, 55);
     font-size: 1.2rem;
   }
 
