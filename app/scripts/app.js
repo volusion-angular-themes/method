@@ -78,8 +78,8 @@ angular.module('methodApp', [
 					templateUrl: 'views/category.html',
 					controller : 'CategoryCtrl',
 					resolve: {
-						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
-							return vnAppRoute.updateRoute($route.current.params);
+						route: ['vnAppRoute', '$route', 'vnProductParams', function(vnAppRoute, $route, vnProductParams){
+							return vnAppRoute.update($route.current.params, vnProductParams);
 						}]
 					}
 				})

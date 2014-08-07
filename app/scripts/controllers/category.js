@@ -117,28 +117,30 @@ angular.module('Volusion.controllers')
 //			var lastRoute = $route.current;
 			$scope.$on('$locationChangeStart', function (event) {
 //				console.log('category location change start with $location: ', $location);
+//				console.log('category location change start with $route: ', $route);
 //				console.log('category location change start with event: ', event);
 
+//				if we have an active product filtering session prevernt the default route change behavior
+				// How do I know when a new toplevel link has been touched and new session is needed?
 				if(vnProductParams.getSessionState()) {
 					console.log('We have an active productParams session', event);
+//					event.preventDefault();
 				}
 			});
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				if(vnProductParams.getSessionState()) {
-					console.log('We have an active productParams session', event);
-				} else {
-					console.log('We do not have an active productParams Session', event);
+				if(!vnProductParams.getSessionState()) {
+//					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
 					$scope.getCategory($routeParams.slug);
-					// Looking at doing something like
-					// $scope.getCategory with $routeParams -> to consume all the other stuff there.
+					
 				}
 			});
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
+//				kill the product filtering session
 				vnProductParams.endActiveSession();
 			});
 		}
