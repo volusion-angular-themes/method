@@ -36,6 +36,7 @@ angular.module('Volusion.controllers')
 				});
 			};
 
+			// Called from the view
 			$scope.getImagePath = function (imageCollections) {
 				// This gets the default:medium image for the product
 				var path = $filter('vnProductImageFilter')(imageCollections);
@@ -47,6 +48,7 @@ angular.module('Volusion.controllers')
 				return path;
 			};
 
+			// Called from the view
 			$scope.checkFacetsAndCategories = function(categories, facets) {
 
 				if( (categories && categories.length) || (facets && facets.length) ) {
@@ -58,6 +60,7 @@ angular.module('Volusion.controllers')
 			};
 
 			// Todo: rename this as its badly named and has nothing to do with our search ctrl or search page.
+			// Called from the view
 			$scope.toggleSearch = function() {
 				// Remember, this should only ever be called / used from the mobile filter element.
 				if($scope.mobileDisplay) {
@@ -73,6 +76,7 @@ angular.module('Volusion.controllers')
 				ContentMgr.hideAppFooter();
 			};
 
+			// Called from the view
 			$scope.clearAllFilters = function () {
 				/** On a product page this means
 				 * - clear all facets
@@ -87,35 +91,41 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			// Called from the view
 			$scope.dismissMobileFilters = function() {
 				$scope.toggleSearch();
 			};
 
-			// Load the url category when the controller is activated.
-			$scope.getCategory($routeParams.slug);
-
+			// Called from the view: I forget the deatils of how this works MattH - 8-7-2014
 			// Check for applied facet filters
-
 			$scope.checkForFacetFilters = function() {
-
 				if ( vnProductParams.getFacetString() ) {
 					return true;
 				}
-
 			};
 
+
+			// Load the url category when the controller is activated.
+//			$scope.getCategory($routeParams.slug);
+
+//			$scope.$on('$locationChangeSuccess', function (event) {
+//				console.log('location change success in catCtrl', event);
+//				$scope.getCategory($routeParams.slug);
+//			});
+
 			// Manage the routes for this page
-			var lastRoute = $route.current;
+//			var lastRoute = $route.current;
 			$scope.$on('$locationChangeStart', function (event) {
-				console.log('event is: ', event);
-				console.log('cat ctrl watching location change event is: ', lastRoute.$$route.originalPath);
-//				event.preventDefault();
-//				if (lastRoute.$$route.originalPath === $route.current.$$route.originalPath) {
-//					$route.current = lastRoute;
-//				}
+				console.log('category location cheange start with event: ', event);
+				console.log('The route is: ', $route);
 			});
 
-			// Clean up before this controller is destroyed
+			// First time Initialization tasks
+			$scope.$on('$viewContentLoaded', function() {
+				$scope.getCategory($routeParams.slug);
+			});
+
+			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				vnProductParams.endActiveSession();
 			});
