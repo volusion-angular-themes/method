@@ -92,8 +92,13 @@ angular.module('methodApp', [
 					controller: 'SearchCtrl',
 					reloadOnSearch: false,
 					resolve: {
+<<<<<<< HEAD
 						route: ['vnAppRoute', '$route', function(vnAppRoute){
 							return vnAppRoute.updateUrl();
+=======
+						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+							return vnAppRoute.updateUrl($route.current.params);
+>>>>>>> Handles facets, min and max price.
 						}]
 					}
 				})
