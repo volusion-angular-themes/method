@@ -114,13 +114,8 @@ angular.module('Volusion.controllers')
 
 			// Manage the routes for this page
 //			var lastRoute = $route.current;
-			$scope.$on('$locationChangeStart', function (event) {
-//				console.log('category location change start with $location: ', $location);
-//				console.log('category location change start with $route: ', $route);
-//				console.log('category location change start with event: ', event);
-
-//				if we have an active product filtering session prevernt the default route change behavior
-				// How do I know when a new toplevel link has been touched and new session is needed?
+			$scope.$on('$locationChangeStart', function (event, next, current) {
+				console.log('location change start in catergory for current, next: ', current, next);
 				if(vnProductParams.getSessionState()) {
 					console.log('We have an active productParams session', event);
 //					event.preventDefault();
@@ -130,7 +125,7 @@ angular.module('Volusion.controllers')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				if(!vnProductParams.getSessionState()) {
-//					console.log('We do not have an active productParams Session', event);
+					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
 					$scope.getCategory($routeParams.slug);
 				} else {
