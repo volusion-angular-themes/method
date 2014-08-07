@@ -118,14 +118,15 @@ angular.module('Volusion.controllers')
 				console.log('location change start in catergory for current, next: ', current, next);
 				if(vnProductParams.getSessionState()) {
 					console.log('We have an active productParams session', event);
-//					event.preventDefault();
+				} else {
+					console.log('are the query params to consume?');
 				}
 			});
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				if(!vnProductParams.getSessionState()) {
-					console.log('We do not have an active productParams Session', event);
+//					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
 					$scope.getCategory($routeParams.slug);
 				} else {
@@ -137,7 +138,7 @@ angular.module('Volusion.controllers')
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				console.log('$location before cleanup: ', $location.path());
-				if(vnProductParams.getSessionState() ){  //&& route is not to /c
+				if(vnProductParams.getSessionState() ){
 					console.log('keep session alive');
 				} else {
 					console.log('end active session');
