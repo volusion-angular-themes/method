@@ -116,13 +116,25 @@ angular.module('Volusion.controllers')
 			// Manage the routes for this page
 //			var lastRoute = $route.current;
 			$scope.$on('$locationChangeStart', function (event) {
-				console.log('category location cheange start with event: ', event);
-				console.log('The route is: ', $route);
+//				console.log('category location change start with $location: ', $location);
+//				console.log('category location change start with event: ', event);
+
+				if(vnProductParams.getSessionState()) {
+					console.log('We have an active productParams session', event);
+				}
 			});
 
-			// First time Initialization tasks
+			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				$scope.getCategory($routeParams.slug);
+				if(vnProductParams.getSessionState()) {
+					console.log('We have an active productParams session', event);
+				} else {
+					console.log('We do not have an active productParams Session', event);
+					vnProductParams.startActiveSession();
+					$scope.getCategory($routeParams.slug);
+					// Looking at doing something like
+					// $scope.getCategory with $routeParams -> to consume all the other stuff there.
+				}
 			});
 
 			// Clean up tasks when this controller is destroyed
