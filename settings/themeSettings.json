@@ -1,73 +1,91 @@
 {
-  "general": {
-    "one": "myfirstnewsetting",
-    "two": "myseconddifferent"
-  },
-  "pages": {
-    "home": {
-      "content1": "",
-      "content2": "",
-      "content3": "",
-      "featuredProducts": {
-        "isEnabled": true
-      },
-      "slider": {
-        "isEnabled": true,
-        "interval": 4000,
-        "slides": [
-          {
-            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
-            "headline": "NewYearSaleathon",
-            "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-            "linksTo": "product1/p/123"
-          },
-          {
-            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
-            "headline": "NewSunriseCollection",
-            "subHeadline": "Wakeuptosomethinggood",
-            "linksTo": "category1/c/123"
-          },
-          {
-            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
-            "headline": "MiamiFashion",
-            "subHeadline": null,
-            "linksTo": "product2/p/2"
-          },
-          {
-            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
-            "headline": "MiamiFashion",
-            "subHeadline": null,
-            "linksTo": "product2/p/2"
-          }
-        ]
-      },
-      "tiles": {
-        "isEnabled": true,
-        "tile1": {
-          "imageUrl": "/images/homepage/tile1.jpg",
-          "linkTo": "category-name/c/category-id-1"
-        },
-        "tile2": {
-          "imageUrl": "/images/homepage/tile2.jpg",
-          "linkTo": "category-name/c/category-id-2"
-        },
-        "tile3": {
-          "imageUrl": "/images/homepage/tile3.jpg",
-          "linkTo": "category-name/c/category-id-3"
-        },
-        "tile4": {
-          "imageUrl": "/images/homepage/tile4.jpg",
-          "linkTo": "category-name/c/category-id-4"
-        },
-        "tile5": {
-          "imageUrl": "/images/homepage/tile5.jpg",
-          "linkTo": "category-name/c/category-id-5"
-        },
-        "tile6": {
-          "imageUrl": "/images/homepage/tile6.jpg",
-          "linkTo": "category-name/c/category-id-6"
-        }
-      }
-    }
-  }
+	"general": {
+		"header": {
+			"content": {
+				"topPromo": "<a href=\"#\" class=\"free-shipping\">Free shipping on all orders over $25!</a>"
+			}
+		},
+		"footer": {
+			"content"         : {
+				"column1"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus.asp\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
+				"column2"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">SHOP WITH US</li>&#10;&#10;<li><a href=\"/shoppingcart.asp\">View Cart</a></li>&#10;&#10;<li><a href=\"/myaccount.asp\">Your Account</a></li>&#10;&#10;<li><a href=\"/orders.asp\">Order Tracking</a></li>&#10;&#10;<li><a href=\"/cindex.asp\">Site Map</a></li>&#10;&#10;<li><a href=\"/pindex.asp\">Product Index</a></li>&#10;</ul>",
+				"column3"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">HELP &amp; SUPPORT</li>&#10;&#10;<li><a href=\"/aboutus.asp\">Contact Us</a></li>&#10;&#10;<li><a href=\"/help.asp\">Help / FAQ</a></li>&#10;&#10;<li><a href=\"/aboutus.asp\">Toll Free 123-123-1234</a></li>&#10;</ul>",
+				"column4"  : "<div class=\"th-info-box\">&#10;<div class=\"th-footer__title\"><br/></div>&#10;</div>",
+				"bottomRow": "<div class=\"th-footer__copyright\">\n&#169; Copyright 2014. All Rights Reserved. Powered by <a href=\"http://www.volusion.com\" rel=\"nofollow\">Volusion</a>.\n</div>\n\n<ul class=\"th-footer__contact\">\n<li>1-800-555-5432</li>\n<li>24 hours a day 7 days a week</li>\n<li><a href=\"/terms.asp\">Terms of Use</a></li>\n<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>\n</ul>"
+			},
+			"newsletterSignup": {
+				"isEnabled": true
+			}
+		}
+	},
+	"pages"  : {
+		"home": {
+			"content1"        : "",
+			"content2"        : "",
+			"content3"        : "",
+			"featuredProducts": {
+				"isEnabled": true
+			},
+			"slider"          : {
+				"isEnabled": true,
+				"interval" : 4000,
+				"slides"   : [
+					{
+						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
+						"headline"   : "NewYearSaleathon",
+						"subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
+						"linksTo"    : "/p/board-shorts"
+					},
+					{
+						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
+						"headline"   : "NewSunriseCollection",
+						"subHeadline": "Wakeuptosomethinggood",
+						"linksTo"    : "/c/gourmet-food"
+					},
+					{
+						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
+						"headline"   : "MiamiFashion",
+						"subHeadline": null,
+						"linksTo"    : "/p/board-shorts"
+					},
+					{
+						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
+						"headline"   : "MiamiFashion",
+						"subHeadline": null,
+						"linksTo"    : "/p/patent-dress-shoe"
+					}
+				]
+			},
+			"tiles"           : {
+				"isEnabled": true,
+				"tiles"    : {
+					"tile1": {
+						"imageUrl": "/images/homepage/tile1.jpg",
+						"linkTo"  : "/c/home-decor"
+					},
+					"tile2": {
+						"imageUrl": "/images/homepage/tile2.jpg",
+						"linkTo"  : "/c/home-decor"
+					},
+					"tile3": {
+						"imageUrl": "/images/homepage/tile3.jpg",
+						"linkTo"  : "/c/home-decor"
+					},
+					"tile4": {
+						"imageUrl": "/images/homepage/tile4.jpg",
+						"linkTo"  : "/c/home-decor"
+					},
+					"tile5": {
+						"imageUrl": "/images/homepage/tile5.jpg",
+						"linkTo"  : "/c/home-decor"
+					},
+					"tile6": {
+						"imageUrl": "/images/homepage/tile6.jpg",
+						"linkTo"  : "/c/home-decor"
+					}
+				}
+			}
+		}
+	},
+	"itemsPerPage" : 4
 }

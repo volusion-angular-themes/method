@@ -1,0 +1,14 @@
+{
+    "name": "Method",
+    "files": {
+        "cssOverrides": "/styles",
+        "language": "/translations"
+    },
+    "version": "0.0.4",
+    "source": "https://github.com/volusion-angular-themes/method/archive/v0.0.4.zip",
+    "features": {
+        "responsive": true,
+        "myRewards": false,
+        "VAT": false
+    }
+}
