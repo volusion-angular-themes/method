@@ -97,7 +97,11 @@ angular.module('methodApp', [
 							return vnAppRoute.updateUrl();
 =======
 						route: ['vnAppRoute', '$route', function(vnAppRoute, $route){
+<<<<<<< HEAD
 							return vnAppRoute.updateUrl($route.current.params);
+>>>>>>> Handles facets, min and max price.
+=======
+							return vnAppRoute.updateUrl();
 >>>>>>> Handles facets, min and max price.
 						}]
 					}
