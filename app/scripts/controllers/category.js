@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', '$route', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function($q, $scope, $rootScope, $routeParams, $location, $filter, $route, vnApi, vnProductParams, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, $location, $filter, $route, vnApi, vnProductParams, vnAppRoute, ContentMgr) {
 
 			'use strict';
 
@@ -104,18 +104,16 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.$on('$locationChangeStart', function () {
-				if(vnProductParams.getSessionState()) {
-//					preserve the session data and change the location path
-				} else {
-					console.log('are the query params to consume?');
+				if(!vnProductParams.getSessionState()) {
+					console.log('Consume ths query params and assume shared link: ', $routeParams);
 				}
 			});
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				if(!vnProductParams.getSessionState()) {
-//					console.log('We do not have an active productParams Session', event);
 					vnProductParams.startActiveSession();
+					vnAppRoute.setActiveStrategy('category');
 					$scope.getCategory($routeParams.slug);
 				} else {
 //					console.log('we do have an active session state, lets resotre it');
@@ -126,9 +124,7 @@ angular.module('Volusion.controllers')
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				console.log('$location before cleanup: ', $location.path());
-				if(vnProductParams.getSessionState() ){  //&& route is not to /c
-					console.log('keep session alive');
-				} else {
+				if(!vnProductParams.getSessionState()){  //&& route is not to /c
 					console.log('end active session');
 					vnProductParams.endActiveSession();
 				}
