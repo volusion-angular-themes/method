@@ -8567,14 +8567,6 @@ Animation for products as facets of search are applied. [rough draft]
     vertical-align: text-top;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_forms\.scss}line{font-family:\000031}}
-label {
-  display: inline-block;
-  max-width: 100%;
-  font-weight: bold;
-  margin: 0 5px 5px;
-}
-
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_elist\.scss}line{font-family:\000031}}
 .th-elist {
   border-bottom: 1px solid #d9d9d9;
