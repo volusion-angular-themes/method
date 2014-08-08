@@ -34,7 +34,8 @@ angular.module('methodApp')
 			} else {
 				//in production
 				environment = 'prod';
-				apiUrl = 'http://txlpt374-vm.corp.volusion.com/api/v1/themes/method/settings'; //TODO: use configurable url
+				var queryString = $location.search();
+				apiUrl = '/api/v1/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/settings';
 			}
 			$http.get(apiUrl)
 			.success(function(data) {
