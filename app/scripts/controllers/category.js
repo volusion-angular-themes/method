@@ -115,10 +115,10 @@ angular.module('Volusion.controllers')
 
 			// Manage the routes for this page
 //			var lastRoute = $route.current;
-			$scope.$on('$locationChangeStart', function (event, next, current) {
-				console.log('location change start in catergory for current, next: ', current, next);
+//			$scope.$on('$locationChangeStart', function (event) {
+			$scope.$on('$locationChangeStart', function () {
 				if(vnProductParams.getSessionState()) {
-					console.log('We have an active productParams session', event);
+//					preserve the session data and change the location path
 				} else {
 					console.log('are the query params to consume?');
 				}
@@ -140,9 +140,11 @@ angular.module('Volusion.controllers')
 			$scope.$on('$destroy', function cleanUp() {
 				console.log('$location before cleanup: ', $location.path());
 				if(vnProductParams.getSessionState() ){  //&& route is not to /c
-					return;
+					console.log('keep session alive');
+				} else {
+					console.log('end active session');
+					vnProductParams.endActiveSession();
 				}
-				vnProductParams.endActiveSession();
 			});
 		}
 	]);
