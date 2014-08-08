@@ -82,7 +82,7 @@ angular.module('Volusion.controllers')
 				 * - clear min and max prices
 				 * - clear all but the current $scope.category.id
 				 */
-				vnProductParams.resetParamsObject();
+				vnProductParams.endActiveSession();
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
 				if($scope.isMobileAndVisible) {
@@ -103,17 +103,6 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			// Load the url category when the controller is activated.
-//			$scope.getCategory($routeParams.slug);
-
-//			$scope.$on('$locationChangeSuccess', function (event) {
-//				console.log('location change success in catCtrl', event);
-//				$scope.getCategory($routeParams.slug);
-//			});
-
-			// Manage the routes for this page
-//			var lastRoute = $route.current;
-//			$scope.$on('$locationChangeStart', function (event) {
 			$scope.$on('$locationChangeStart', function () {
 				if(vnProductParams.getSessionState()) {
 //					preserve the session data and change the location path
