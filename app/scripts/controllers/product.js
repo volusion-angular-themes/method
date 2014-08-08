@@ -113,6 +113,8 @@ angular.module('Volusion.controllers')
 						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
 					};
 
+					$scope.product.isEditable = false;
+
 					$scope.cartItem = $scope.product.cartItem;
 
 					$scope.isInDesktopMode = $rootScope.isInDesktopMode;
