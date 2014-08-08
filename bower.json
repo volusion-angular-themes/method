@@ -24,7 +24,6 @@
     "angular-translate-interpolation-messageformat": "~2.1.0",
     "angular-translate-loader-partial": "~2.0.0",
     "angular-translate-storage-local": "~2.2.0",
-    "vn-toolbox-ecomm": "https://github.com/volusion-angular/vn-toolbox-ecomm.git",
     "vn-toolbox-common": "*",
     "textAngular": "~1.2.1",
     "angular-carousel": "~0.2.3"
