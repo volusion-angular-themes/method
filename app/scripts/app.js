@@ -55,6 +55,10 @@ angular.module('methodApp', [
 			translateProvider.configure(translateOptions);
 
 			$routeProvider
+				.when('/reset/c/:slug', {
+					templateUrl: 'views/product.html',
+					controller : 'CategoryCtrl',
+				})
 				.when('/', {
 					templateUrl: 'views/home.html',
 					controller : 'HomeCtrl',
@@ -66,8 +70,6 @@ angular.module('methodApp', [
 						}]
 					}
 				})
-
-				// Second pass at routes
 				.when('/p/:slug', {
 					templateUrl: 'views/product.html',
 					controller : 'ProductCtrl',
@@ -106,6 +108,10 @@ angular.module('methodApp', [
 					templateUrl: 'views/article.html',
 					controller : 'ArticleCtrl'
 				})
+.when('/reset', {
+  templateUrl: 'views/reset.html',
+  controller: 'ResetCtrl'
+})
 				.otherwise({
 					redirectTo: '/'
 				});
