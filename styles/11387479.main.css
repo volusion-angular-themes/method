@@ -8116,6 +8116,16 @@ body {
   display: block;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/vn\/_faceted-search\.scss}line{font-family:\000032}}
+.vn-faceted-search .facet-property__swatch {
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /*
 Animation for products as facets of search are applied. [rough draft]
 - TODO : Figure out why this breaks animation when nesting it.
