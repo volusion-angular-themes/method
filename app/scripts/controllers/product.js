@@ -103,8 +103,8 @@ angular.module('Volusion.controllers')
 				var available = false;
 
 				for (var idx = 0; idx < $scope.product.optionSelections.length; idx++) {
-					available |= findOptionAvailability($scope.product.optionSelections[idx].key);
-				};
+					available |= findOptionAvailability($scope.product.optionSelections[idx].key);  // jshint ignore:line
+				}
 
 				$scope.itemSelectionsNotInStock = (available === 0) ? true : false;
 			}
