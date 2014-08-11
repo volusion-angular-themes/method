@@ -29,7 +29,7 @@ angular.module('Volusion.controllers')
 			};
 
 			function findOptionAvailability(key) {
-				if ('template' === key) {
+				if (0 < $scope.product.options.length && 'template' === key) {
 					return false;
 				}
 
@@ -88,10 +88,10 @@ angular.module('Volusion.controllers')
 				// For some reason when having only one option 'optionSelection.key' is populated with 'template' :(
 				var selection = (1 === $scope.product.options.length) ?
 										$scope.product.optionSelection.option.key + ':' + $scope.product.optionSelection.option.selected :
-										$scope.product.optionSelection.key;
+										$scope.product.optionSelections[0].key; // get "template" key if no options
 
-				var available = findOptionAvailability(selection);
-				if (!available) {
+				var selectionAvailable = findOptionAvailability(selection);
+				if (!selectionAvailable) {
 					$scope.popoverText = 'Sorry, this product is not in stock';
 					$scope.buttonDisabled = true;
 

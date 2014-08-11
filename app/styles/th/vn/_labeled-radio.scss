@@ -102,4 +102,10 @@
 	&__image {
 		position: relative;
 	}
+
+	&.-disabled {
+		.vn-labeled-radio__image {
+			@include opacity(0.3);
+		}
+	}
 }
