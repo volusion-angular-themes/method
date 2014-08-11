@@ -62,10 +62,14 @@
 							</div>
 							<div class="hidden-xs">
 								<div class="th-write-review">
-                                    <div data-vn-rating rating-value="product.avgRating"
-                                         title="" editable="isEditable"></div>
+                                    <div data-vn-rating
+                                    	 rating-value="product.avgRating"
+                                         title="" editable="isEditable">
 									</div>
 								</div>
+							</div>
+							<div class="th-product__availability" ng-if="itemSelectionsNotInStock" data-ng-cloak>
+								Not in stock
 							</div>
 						</div><!-- end left product column -->
 						<div class="col-xs-12 col-md-6">

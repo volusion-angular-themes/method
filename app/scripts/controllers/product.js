@@ -6,6 +6,7 @@ angular.module('Volusion.controllers')
 
 			$scope.product = {};
 			$scope.cartItem = {};
+			$scope.itemSelectionsNotInStock = false;
 
 			// carousel
 			$scope.carousel = {
@@ -26,6 +27,20 @@ angular.module('Volusion.controllers')
 					active: false
 				}
 			};
+
+			function findOptionAvailability(key) {
+				if ('template' === key) {
+					return false;
+				}
+
+				var qty = 0;
+
+				qty = $scope.product.optionSelections.filter(function (option) {
+					return option.key === key;
+				})[0].available;
+
+				return (qty > 0);
+			}
 
 			function findRequiredOptionsAreSelected(options) {
 				var missedOptions = [];
@@ -66,7 +81,32 @@ angular.module('Volusion.controllers')
 
 					$scope.popoverText = 'Please select ' + $scope.popoverText + ' to add this to your cart';
 					$scope.buttonDisabled = true;
+
+					return;
 				}
+
+				// For some reason when having only one option 'optionSelection.key' is populated with 'template' :(
+				var selection = (1 === $scope.product.options.length) ?
+										$scope.product.optionSelection.option.key + ':' + $scope.product.optionSelection.option.selected :
+										$scope.product.optionSelection.key;
+
+				var available = findOptionAvailability(selection);
+				if (!available) {
+					$scope.popoverText = 'Sorry, this product is not in stock';
+					$scope.buttonDisabled = true;
+
+					return;
+				}
+			}
+
+			function findAvailability () {
+				var available = false;
+
+				for (var idx = 0; idx < $scope.product.optionSelections.length; idx++) {
+					available |= findOptionAvailability($scope.product.optionSelections[idx].key);
+				};
+
+				$scope.itemSelectionsNotInStock = (available === 0) ? true : false;
 			}
 
 			function setDefaults() {
@@ -95,7 +135,9 @@ angular.module('Volusion.controllers')
 					return;
 				}
 
+				findAvailability();
 				setPopover();
+
 			}
 
 			vnApi.Product().get({slug: $routeParams.slug }).$promise
@@ -270,7 +312,9 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function() {
 
-				if (findRequiredOptionsAreSelected($scope.product.options).length > 0) {
+				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
+					!findOptionAvailability($scope.product.optionSelection.key)) {
+
 					return;
 				}
 
