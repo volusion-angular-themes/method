@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 				}
 			},
 			js: {
-				files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+				files: ['<%= yeoman.app %>/scripts/{,*/}*.js', '<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
 				tasks: ['newer:jshint:all'],
 				options: {
 					livereload: true

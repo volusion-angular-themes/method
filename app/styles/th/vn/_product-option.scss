@@ -8,4 +8,10 @@
 		letter-spacing: 0.07em;
 		text-align: center;
 	}
+
+	&__select {
+		.-disabled {
+			color: #AAAAAA;
+		}
+	}
 }
