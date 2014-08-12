@@ -40,8 +40,6 @@ angular.module('methodApp', [
 
 			'use strict';
 
-			'use strict';
-
 			$locationProvider.html5Mode(true);
 
 			var translateOptions = {
@@ -55,10 +53,6 @@ angular.module('methodApp', [
 			translateProvider.configure(translateOptions);
 
 			$routeProvider
-				.when('/reset/c/:slug', {
-					templateUrl: 'views/product.html',
-					controller : 'CategoryCtrl',
-				})
 				.when('/', {
 					templateUrl: 'views/home.html',
 					controller : 'HomeCtrl',
@@ -80,38 +74,24 @@ angular.module('methodApp', [
 					}
 				})
 				.when('/c/:slug', {
-					templateUrl: 'views/category.html',
-					controller : 'CategoryCtrl',
-					reloadOnSearch: false,
-					resolve: {
-						route: ['vnAppRoute', function(vnAppRoute){
-							return vnAppRoute.updateUrl();
-						}]
-					}
+					templateUrl   : 'views/category.html',
+					controller    : 'CategoryCtrl',
+					reloadOnSearch: false
 				})
 				.when('/search', {
-					templateUrl: 'views/search.html',
-					controller: 'SearchCtrl',
-					reloadOnSearch: false,
-					resolve: {
-						route: ['vnAppRoute', '$route', function(vnAppRoute){
-							return vnAppRoute.updateUrl();
-						}]
-					}
+					templateUrl   : 'views/search.html',
+					controller    : 'SearchCtrl',
+					reloadOnSearch: false
 				})
 				.when('/theme-settings', {
 					templateUrl: 'views/theme-settings.html',
-					controller: 'ThemeSettingsCtrl'
+					controller : 'ThemeSettingsCtrl'
 				})
 				// Articles must be last or the prior /search and /theme-settings will never be picked up
 				.when('/:slug', {
 					templateUrl: 'views/article.html',
 					controller : 'ArticleCtrl'
 				})
-.when('/reset', {
-  templateUrl: 'views/reset.html',
-  controller: 'ResetCtrl'
-})
 				.otherwise({
 					redirectTo: '/'
 				});
@@ -144,7 +124,7 @@ angular.module('methodApp', [
 				// Use second fn to update the controller menu state when changed.
 				function (state) {
 					$rootScope.snapMenuState = state;
-				},true);
+				}, true);
 
 			$rootScope.$on('$routeChangeSuccess', function () {
 				snapRemote.close();

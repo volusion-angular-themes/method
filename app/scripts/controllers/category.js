@@ -103,33 +103,16 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			$scope.$on('$locationChangeStart', function () {
-				if(!vnProductParams.getSessionState()) {
-					console.log('Consume ths query params and assume shared link: ', $routeParams);
-				}
-			});
-
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setActiveStrategy('category');
+				vnAppRoute.updateUrl($routeParams);
 				$scope.getCategory($routeParams.slug);
-//				if(!vnProductParams.getSessionState()) {
-//					vnProductParams.startActiveSession();
-//					vnAppRoute.setActiveStrategy('category');
-//					$scope.getCategory($routeParams.slug);
-//				} else {
-//					$scope.getCategory($routeParams.slug);
-//				}
 			});
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
 				vnProductParams.endActiveSession();
-//				console.log('$location before cleanup: ', $location.path());
-//				if(!vnProductParams.getSessionState()){  //&& route is not to /c
-//					console.log('end active session');
-//					vnProductParams.endActiveSession();
-//				}
 			});
 		}
 	]);
