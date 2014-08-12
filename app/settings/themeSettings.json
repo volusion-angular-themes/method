@@ -2,7 +2,7 @@
 	"general": {
 		"header": {
 			"content": {
-				"topPromo": "<a href=\"#\" class=\"free-shipping\">Free shipping on all orders over $25!</a>"
+				"topPromo": "<a href=\"#\" class=\"top-promo\">Free shipping on all orders over $25!</a>"
 			}
 		},
 		"footer": {

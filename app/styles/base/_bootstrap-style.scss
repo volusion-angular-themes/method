@@ -161,11 +161,6 @@ a:hover, a:active {
 			height: 4px;
 		}
 	}
-
-	.th-header {
-		border-right: none;
-		border-bottom: 1px solid lighten($navbar-default-border, 10);
-	}
 }
 
 @include respond-to(xs) {
@@ -259,17 +254,6 @@ a:hover, a:active {
 
 		.th-main {
 			float: left;
-		}
-
-		.free-shipping {
-			color: $navbar-default-link-color;
-			display: block;
-			text-transform: uppercase;
-			padding: 10px 15px;
-
-			&:hover {
-				color: $link-hover-color;
-			}
 		}
 
 		> .container .navbar-brand {
