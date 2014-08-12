@@ -5,14 +5,6 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-			// TODO : Prune this code if not needed
-//			var search = $location.search();
-//			var queryString = {};
-//
-//			angular.forEach(search, function(value, key) {
-//				queryString[key.toLowerCase()] = value;
-//			});
-
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
 					// Handle the category data
@@ -105,9 +97,8 @@ angular.module('Volusion.controllers')
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				vnAppRoute.setActiveStrategy('category');
-//				vnAppRoute.updateUrl($routeParams); // Start here with parsing the route params and updaitng url.
 				$scope.getCategory($routeParams.slug);
+				vnProductParams.preloadData($routeParams);
 			});
 
 			// Clean up tasks when this controller is destroyed
