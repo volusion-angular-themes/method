@@ -3,6 +3,7 @@
 
 	&__trigger {
 		@extend %inline-block;
+		color: $navbar-default-link-color;
 		position : absolute;
 		top      : 7px;
 		left     : 7px;

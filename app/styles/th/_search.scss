@@ -1,39 +1,36 @@
 .th-search {
-	padding   : 0 10px 0;
+	height    : 48px;
 	margin-top: 15px;
 	min-width : 48px;
-	height    : 48px;
+	padding   : 0 10px;
 	position  : relative;
 
   @include respond-to(md-and-up) {
     @include inline-block;
+		border       : 0;
+		height       : 46px;
 		margin       : 0;
 		padding      : 0;
-		border       : 0;
-		border-bottom: 0;
-		height       : 46px;
   }
 
   &__input {
-		cursor      : pointer;
-		border-color: $hr-border;
-		border-width: 1px;
-		border-style: solid;
 		background  : transparent;
-		padding     : 10px;
+		border-color: 1px solid $hr-border;
+		cursor      : pointer;
 		height      : 48px;
+		padding     : 10px;
 		width       : 100%;
 
     @include respond-to(md-and-up) {
-			width       : 48px;
-			height      : 40px;
-			z-index     : 3;
-			text-indent : -99px;
-			position    : absolute;
-			top         : 3px;
-			right       : 8px;
 			border-color: transparent;
-    }
+			height      : 40px;
+			position    : absolute;
+			right       : 8px;
+			text-indent : -99px;
+			top         : 3px;
+			width       : 48px;
+			z-index     : 3;
+		}
 
     &:focus {
 
@@ -42,29 +39,25 @@
       @include respond-to(md-and-up) {
         @include single-transition(all, 200ms, ease);
 				border-color: $hr-border;
-				width       : 200px;
 				text-indent : 0;
+				width       : 200px;
 				z-index     : 1;
       }
     }
   }
 
   &__submit {
-		position  : absolute;
 		background: transparent;
 		border    : 0;
-		top       : 14px;
+		position  : absolute;
 		right     : 19px;
+		top       : 14px;
 		z-index   : 2;
 
     @include respond-to(md-and-up) {
-			top  : 15px;
 			right: 13px;
+			top  : 15px;
     }
   }
-
-	&-popout__trigger {
-		color: $navbar-default-link-color;
-	}
 
 }
