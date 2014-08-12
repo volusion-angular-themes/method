@@ -111,7 +111,6 @@ angular.module('Volusion.controllers')
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				vnProductParams.startActiveSession();
 				vnAppRoute.setActiveStrategy('category');
 				$scope.getCategory($routeParams.slug);
 //				if(!vnProductParams.getSessionState()) {
@@ -125,6 +124,7 @@ angular.module('Volusion.controllers')
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
+				vnProductParams.endActiveSession();
 //				console.log('$location before cleanup: ', $location.path());
 //				if(!vnProductParams.getSessionState()){  //&& route is not to /c
 //					console.log('end active session');
