@@ -111,23 +111,25 @@ angular.module('Volusion.controllers')
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				if(!vnProductParams.getSessionState()) {
-					vnProductParams.startActiveSession();
-					vnAppRoute.setActiveStrategy('category');
-					$scope.getCategory($routeParams.slug);
-				} else {
-//					console.log('we do have an active session state, lets resotre it');
-					$scope.getCategory($routeParams.slug);
-				}
+				vnProductParams.startActiveSession();
+				vnAppRoute.setActiveStrategy('category');
+				$scope.getCategory($routeParams.slug);
+//				if(!vnProductParams.getSessionState()) {
+//					vnProductParams.startActiveSession();
+//					vnAppRoute.setActiveStrategy('category');
+//					$scope.getCategory($routeParams.slug);
+//				} else {
+//					$scope.getCategory($routeParams.slug);
+//				}
 			});
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				console.log('$location before cleanup: ', $location.path());
-				if(!vnProductParams.getSessionState()){  //&& route is not to /c
-					console.log('end active session');
-					vnProductParams.endActiveSession();
-				}
+//				console.log('$location before cleanup: ', $location.path());
+//				if(!vnProductParams.getSessionState()){  //&& route is not to /c
+//					console.log('end active session');
+//					vnProductParams.endActiveSession();
+//				}
 			});
 		}
 	]);
