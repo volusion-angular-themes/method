@@ -3,7 +3,7 @@
 }
 
 .th-mobile-menu {
-	border-right     : 1px solid $navbar-default-border;
+	border-right     : 1px solid $hr-border;
 	background-color : #fff;
 
 	&__list {
@@ -41,7 +41,7 @@
 		text-transform : uppercase;
 		display        : inline-block;
 		line-height    : 17px;
-		border-bottom  : 1px solid $navbar-default-border;
+		border-bottom  : 1px solid $hr-border;
 		font-size      : 1.4rem;
 		&--sub {
 			background-color:#efefef;

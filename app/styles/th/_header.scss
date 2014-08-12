@@ -7,6 +7,10 @@
 		display: block;
 	}
 
+	a {
+		color: $navbar-default-link-color;
+	}
+
 	a:hover {
 		@extend %animate-all-default;
 	}

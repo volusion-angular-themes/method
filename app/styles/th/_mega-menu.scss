@@ -30,7 +30,7 @@
 		}
 
 		.navbar-default .navbar-nav > li {
-			border-top : 1px solid lighten($navbar-default-border, 10);
+			border-top : 1px solid lighten($hr-border, 10);
 		}
 
 		.navbar-default .navbar-nav > li > a {
@@ -87,7 +87,7 @@
 		display        : block;
 		text-transform : uppercase;
 		font-family    : $font-family-condensed-reg;
-		border-bottom  : 1px solid $navbar-default-border;
+		border-bottom  : 1px solid $hr-border;
 	}
 
 	.th-mega-menu img {
@@ -133,15 +133,15 @@
 	/* Toggle caret hover */
 	.th-navbar .nav li.dropdown > a:hover .caret,
 	.th-navbar .nav li.dropdown > a:focus .caret {
-		border-bottom-color : $navbar-default-border;
-		border-top-color    : $navbar-default-border;
+		border-bottom-color : $hr-border;
+		border-top-color    : $hr-border;
 	}
 	/* Toggle caret active */
 	.th-navbar .nav li.dropdown.open > .dropdown-toggle .caret,
 	.th-navbar .nav li.dropdown.active > .dropdown-toggle .caret,
 	.th-navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-		border-bottom-color : $navbar-default-border;
-		border-top-color    : $navbar-default-border;
+		border-bottom-color : $hr-border;
+		border-top-color    : $hr-border;
 	}
 	/* Hover style
 	********************************/

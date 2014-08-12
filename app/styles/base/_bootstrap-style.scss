@@ -44,7 +44,7 @@ a:hover, a:active {
 	.breadcrumb {
 		margin-bottom: 0;
 		border-bottom: 0;
-		border-bottom: 1px solid $navbar-default-border;
+		border-bottom: 1px solid $hr-border;
 
 		a:hover {
 			@include single-transition(all, 200ms, ease);
@@ -262,9 +262,14 @@ a:hover, a:active {
 		}
 
 		.free-shipping {
+			color: $navbar-default-link-color;
 			display: block;
 			text-transform: uppercase;
 			padding: 10px 15px;
+
+			&:hover {
+				color: $link-hover-color;
+			}
 		}
 
 		> .container .navbar-brand {
@@ -298,6 +303,7 @@ a:hover, a:active {
 						padding: 2px 13px 5px 0px;
 
 						> span.caret {
+							color: $navbar-default-link-color;
 							margin-top: -4px;
 						}
 					}
@@ -341,17 +347,17 @@ a:hover, a:active {
 
 .nav {
 	.open > a {
-		border-color: $navbar-default-border;
+		border-color: $hr-border;
 
 		&:hover, &:focus {
-			border-color: $navbar-default-border;
+			border-color: $hr-border;
 		}
 	}
 }
 
 ul.nav-tabs {
 	clear: both;
-	border-bottom: 1px solid $navbar-default-border;
+	border-bottom: 1px solid $hr-border;
 	border-top: 0;
 	margin-bottom: 19px;
 	text-align: center;
@@ -367,7 +373,7 @@ ul.nav-tabs {
 		> a {
 			border: 0;
 			padding: 10px 13px 7px;
-			color: $link-color;
+			color: $text-color;
 			margin: 0;
 
 			&:hover {
@@ -381,10 +387,10 @@ ul.nav-tabs {
 		&.active {
 			> a {
 				border-top: 0;
-				border-bottom: 1px solid lighten($navbar-default-border, 50);
+				border-bottom: 1px solid lighten($hr-border, 50);
 				margin-bottom: 0;
-				color: $link-color;
-				border-color: darken($navbar-default-border, 40);
+				color: $text-color;
+				border-color: darken($hr-border, 40);
 				border-left: 0;
 				border-right: 0;
 
@@ -401,7 +407,7 @@ ul.nav-tabs {
 
 	ul.nav-tabs {
 		text-align: left;
-		border-top: 1px solid $navbar-default-border;
+		border-top: 1px solid $hr-border;
 
 		> li {
 			font-size: 1.4rem;
@@ -414,10 +420,10 @@ ul.nav-tabs {
 
 			&.active {
 				> a {
-					border-left: 1px solid $navbar-default-border;
-					border-right: 1px solid $navbar-default-border;
+					border-left: 1px solid $hr-border;
+					border-right: 1px solid $hr-border;
 					margin-bottom: -1px;
-					border-bottom: 1px solid lighten($navbar-default-border, 50);
+					border-bottom: 1px solid lighten($hr-border, 50);
 				}
 			}
 		}
@@ -478,7 +484,7 @@ ul.nav-tabs {
 }
 
 .panel-default > .panel-heading + .panel-collapse .panel-body {
-	border-top-color: lighten($navbar-default-border, 50);
+	border-top-color: lighten($hr-border, 50);
 }
 
 

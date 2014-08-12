@@ -1,5 +1,5 @@
 .th-elist {
-	border-bottom : 1px solid $navbar-default-border;
+	border-bottom : 1px solid $hr-border;
 	padding       : 12px 0;
 
 	&__form {
@@ -25,13 +25,13 @@
 
 	&__input {
 		@include inline-block;
-		border-color : $navbar-default-border;
+		border-color : $hr-border;
 		width        : 100%;
 		height       : 32px;
 		margin       : 0;
 
 		&:focus {
-			border-color : darken($navbar-default-border, 40);
+			border-color : darken($hr-border, 40);
 		}
 	}
 
@@ -69,7 +69,7 @@
 		&__input {
 			height       : 33px;
 			min-width    : 220px;
-			border-color : lighten($navbar-default-border, 50);
+			border-color : lighten($hr-border, 50);
 		}
 	}
 }

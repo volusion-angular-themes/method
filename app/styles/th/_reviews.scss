@@ -2,7 +2,7 @@
 	font-size   : 1.3rem;
 	color       : lighten($text-color, 55);
 	line-height : 22px;
-	border-top  : 1px solid $navbar-default-border;
+	border-top  : 1px solid $hr-border;
 
 	a {
 		color  : lighten($text-color, 55);
@@ -18,7 +18,7 @@
 	}
 
 	&__totals {
-		border   : 1px solid lighten($navbar-default-border, 10);
+		border   : 1px solid lighten($hr-border, 10);
 		padding  : 15px;
 		overflow : hidden;
 	}
