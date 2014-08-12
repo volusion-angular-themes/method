@@ -34,7 +34,7 @@
 			font-family    : $font-family-heading-reg;
 			font-size      : 2.2rem;
 			line-height    : 1.1em;
-			border-bottom  : 1px solid map-get($colors, border);
+			border-bottom  : 1px solid $hr-border;
 			padding        : .5em 0;
 		}
 
@@ -49,7 +49,7 @@
 
 		.th-link {
 			@extend %inline-block;
-			color : map-get($colors, link-active);
+			color : $link-hover-color;
 		}
 	}
 

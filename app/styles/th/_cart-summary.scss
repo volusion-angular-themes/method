@@ -4,12 +4,11 @@
 	top         : 8px;
 	right       : 0;
 
-	@include respond-to(sm-and-up) {
+	@include respond-to(sm) {
 		top: 23px;
 	}
 
 	@include respond-to(md-and-up) {
-		position : relative;
 		right    : 13px;
 		top      : 29px;
 	}
@@ -21,7 +20,7 @@
 	margin-left : 10px;
 
 	&__number {
-		color : map-get($colors, link-active);
+		color : $brand-info;
 
 		&:before {
 			content : "(";
@@ -29,6 +28,14 @@
 
 		&:after {
 			content : ")";
+		}
+	}
+
+	&__text {
+		color: $navbar-default-link-color;
+
+		&:hover {
+			color: $link-hover-color;
 		}
 	}
 }

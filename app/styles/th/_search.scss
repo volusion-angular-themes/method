@@ -16,7 +16,7 @@
 
   &__input {
 		cursor      : pointer;
-		border-color: map-get($colors, border);
+		border-color: $hr-border;
 		border-width: 1px;
 		border-style: solid;
 		background  : transparent;
@@ -41,7 +41,7 @@
 
       @include respond-to(md-and-up) {
         @include single-transition(all, 200ms, ease);
-				border-color: map-get($colors, border);
+				border-color: $hr-border;
 				width       : 200px;
 				text-indent : 0;
 				z-index     : 1;
@@ -62,5 +62,9 @@
 			right: 13px;
     }
   }
+
+	&-popout__trigger {
+		color: $navbar-default-link-color;
+	}
 
 }
