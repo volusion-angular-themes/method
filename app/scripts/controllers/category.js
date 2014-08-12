@@ -106,7 +106,7 @@ angular.module('Volusion.controllers')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setActiveStrategy('category');
-				vnAppRoute.updateUrl($routeParams);
+//				vnAppRoute.updateUrl($routeParams); // Start here with parsing the route params and updaitng url.
 				$scope.getCategory($routeParams.slug);
 			});
 
