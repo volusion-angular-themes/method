@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 						'.tmp/styles/{,*/}*.css',
 						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'<%= yeoman.app %>/translations/{,*/}*.json',
-						'<%= yeoman.app %>/settings/{,*/}*.json'
+						'<%= yeoman.app %>/settings/{,*/}*'
 				]
 			}
 		},
@@ -313,7 +313,10 @@ module.exports = function(grunt) {
 			options: {
 				assetsDirs: ['<%= yeoman.dist %>'],
 				patterns: {
-					js: [[/src=([^ >]+)/g, 'Update template js to reference revved images']],
+					js: [
+						[/src=([^ >]+)/g, 'Update template js to reference revved images'],
+						[/(styles\/main.css)/gm, 'Update JS to reference our revved main.css'] //used in settings/app.js
+					],
 					css: [
 						[
 							/(?:src=|url\(\s*)['"]?(?:\.\.)?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
@@ -322,7 +325,10 @@ module.exports = function(grunt) {
 					]
 				}
 			},
-			js: ['<%= yeoman.dist %>/scripts/*.scripts.js']
+			js: [
+				'<%= yeoman.dist %>/scripts/*.scripts.js',
+				'<%= yeoman.dist %>/settings/app.js'
+			]
 		},
 
 		// The following *-min tasks produce minified files in the dist folder
@@ -454,7 +460,7 @@ module.exports = function(grunt) {
 							'images/{,*/}*.{webp}',
 							'fonts/*',
 							'translations/{,*/}*.json',
-							'settings/{,*/}*.json',
+							'settings/{,*/}*',
 							'styles/overrides.css',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
