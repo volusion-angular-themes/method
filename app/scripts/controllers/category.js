@@ -103,7 +103,7 @@ angular.module('Volusion.controllers')
 
 			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				vnProductParams.endActiveSession();
+				vnProductParams.resetParams();
 			});
 		}
 	]);
