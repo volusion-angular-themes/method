@@ -36,7 +36,6 @@ angular.module('Volusion.services')
 				var deferred = $q.defer();
 
 				if(hasEmptySettings(themeSettings)) {
-					console.log('in gaurd: ', themeSettings);
 					vnApi.ThemeSettings().get().$promise
 						.then(function (response) {
 							deferred.resolve(response);
