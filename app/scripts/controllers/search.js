@@ -79,7 +79,7 @@ angular.module('methodApp')
 			};
 
 			$scope.clearAllFilters = function () {
-				vnProductParams.resetParamsObject();
+				vnProductParams.resetParams();
 				vnProductParams.setSort('relevance'); // Is default when
 				vnProductParams.updateSearch($routeParams.q);
 
@@ -124,8 +124,7 @@ angular.module('methodApp')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setRouteStrategy('search');
-				vnProductParams.preloadData($routeParams);
-				console.log($routeParams);
+				vnProductParams.preloadDataForSearch($routeParams);
 			});
 
 			// Clean up tasks when this controller is destroyed
