@@ -1,9 +1,14 @@
+// TODO Refactor with Bootstrap visibility classes in HTML
 .th-header {
 	display : none;
-	border  : 1px solid map-get($colors, border);
+	border  : 1px solid $navbar-default-border;
 
 	@include respond-to(md-and-up) {
 		display: block;
+	}
+
+	a {
+		color: $navbar-default-link-color;
 	}
 
 	a:hover {

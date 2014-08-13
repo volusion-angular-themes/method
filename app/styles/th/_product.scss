@@ -50,7 +50,7 @@
 		line-height    : 22px;
 		font-family    : $font-family-condensed-reg;
 		text-transform : uppercase;
-		color          : map-get($colors, regular-price);
+		color          : $text-color;
 
 		.th-price {
 			@include inline-block;
@@ -66,8 +66,8 @@
 		}
 
 		.th-now-price {
-			color        : map-get($colors, sales-price);
-			border-left  : 1px solid map-get($colors, border);
+			color        : $brand-info;
+			border-left  : 1px solid $hr-border;
 			padding-left : 6px;
 			margin-left  : 3px;
 			white-space  : nowrap;
@@ -105,6 +105,11 @@
 		.th-price-text {
 			font-size : 1.4rem;
 		}
+	}
+
+	&__availability {
+		font-size : 1.8rem;
+		color: $brand-danger;
 	}
 }
 
