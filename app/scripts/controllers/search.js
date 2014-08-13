@@ -78,8 +78,14 @@ angular.module('methodApp')
 				}
 			};
 
+
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParams();
+				$location.search('categoryId', null);
+				$location.search('facetIds', null);
+				$location.search('maxPrice', null);
+				$location.search('minPrice', null);
+
 				vnProductParams.setSort('relevance'); // Is default when
 				vnProductParams.updateSearch($routeParams.q);
 
@@ -131,5 +137,4 @@ angular.module('methodApp')
 			$scope.$on('$destroy', function cleanUp() {
 				vnProductParams.resetParams();
 			});
-
 		}]);
