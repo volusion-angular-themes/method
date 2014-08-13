@@ -1,10 +1,20 @@
 .vn-faceted-search {
   .facet-property__swatch  {
-    height: 20px;
-    width: 20px;
     float: left;
-    margin: 3px;
+    margin: 2px;
+    padding: 3px;
     border-radius: 4px;
     cursor: pointer;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+
+    &--selected {
+      border: 3px solid black;
+    }
+
+    &--color {
+      height: 25px;
+      width: 25px;
+    }
   }
 }
