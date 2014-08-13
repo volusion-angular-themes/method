@@ -74,7 +74,7 @@ angular.module('Volusion.controllers')
 				 * - clear min and max prices
 				 * - clear all but the current $scope.category.id
 				 */
-				vnProductParams.endActiveSession();
+				vnProductParams.resetParams();
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
 				if($scope.isMobileAndVisible) {
