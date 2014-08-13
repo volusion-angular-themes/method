@@ -8195,12 +8195,22 @@ button.close {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/vn\/_faceted-search\.scss}line{font-family:\000032}}
 .vn-faceted-search .facet-property__swatch {
-  height: 20px;
-  width: 20px;
   float: left;
-  margin: 3px;
+  margin: 2px;
+  padding: 3px;
   border-radius: 4px;
   cursor: pointer;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/vn\/_faceted-search\.scss}line{font-family:\0000311}}
+.vn-faceted-search .facet-property__swatch--selected {
+  border: 3px solid black;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/vn\/_faceted-search\.scss}line{font-family:\0000315}}
+.vn-faceted-search .facet-property__swatch--color {
+  height: 25px;
+  width: 25px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/sprites\/social\/\*\.png}line{font-family:\00003104}}
