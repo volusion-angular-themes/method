@@ -47,7 +47,6 @@
 						<span class="th-product__new" data-ng-show="product.isNew"></span>
 
 						<div class="th-product__image">
-							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
 							<a href="{{ product.url }}">
 								<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="">
 							</a>
@@ -56,11 +55,11 @@
 							<a href="{{ product.url }}">{{ product.name }}</a>
 						</div>
 						<div class="th-product__price">
-							<span class="th-reg-price" data-ng-show="product.pricing.regularPrice > 0">
+							<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
 								<span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">{{product.pricing.regularPrice | currency}}</span>
-								<span class="th-price-text th-text-left">Reg</span>
+								<span class="th-price-text">Reg</span>
 							</span>
-							<span class="th-now-price" data-ng-show="product.pricing.salePrice > 0">
+							<span class="th-price--now" data-ng-show="product.pricing.salePrice > 0">
 								<span class="th-price">{{product.pricing.salePrice | currency}}</span>
 								<span class="th-price-text">Now</span>
 							</span>

@@ -4,18 +4,14 @@
 	padding-top    : 15px;
 	padding-bottom : 25px;
 
-	&__new,
-	&__sale {
-		position : absolute;
-		top      : 15px;
-		right    : 15px;
-		z-index  : 1;
+	&__availability {
+		font-size : 1.8rem;
+		color: $brand-danger;
 	}
 
 	&__image {
 		position   : relative;
 		padding    : 7px 0;
-//		min-height : 252px;
 
 		.img-responsive {
 			margin  : 0 auto;
@@ -36,11 +32,17 @@
 		text-align     : center;
 		height         : 30px;
 
-//		@include ellipsis(false);
-
 		a:hover {
 			@extend %animate-all-default;
 		}
+	}
+
+	&__new,
+	&__sale {
+		position : absolute;
+		top      : 15px;
+		right    : 15px;
+		z-index  : 1;
 	}
 
 	&__price,
@@ -58,20 +60,21 @@
 			font-size    : 1.6rem;
 			padding      : 0 4px 0 0;
 			font-weight  : bold;
+
+			&--reg {
+				@include inline-block;
+				white-space : nowrap;
+			}
+
+			&--now {
+				color        : $brand-info;
+				border-left  : 1px solid $hr-border;
+				padding-left : 6px;
+				margin-left  : 3px;
+				white-space  : nowrap;
+			}
 		}
 
-		.th-reg-price {
-			@include inline-block;
-			white-space : nowrap;
-		}
-
-		.th-now-price {
-			color        : $brand-info;
-			border-left  : 1px solid $hr-border;
-			padding-left : 6px;
-			margin-left  : 3px;
-			white-space  : nowrap;
-		}
 
 		.th-price-text {
 			@include inline-block;
@@ -93,6 +96,8 @@
 		padding     : 30px 0 15px;
 		text-align  : center;
 
+		@include respond-to(sm-and-up) { text-align: left; }
+
 		.th-price {
 			font-size : 3.0rem;
 		}
@@ -107,27 +112,20 @@
 		}
 	}
 
-	&__availability {
-		font-size : 1.8rem;
-		color: $brand-danger;
-	}
 }
 
+// TODO Figure out if this class is being utilized
 .th-colors-sm .img-responsive {
 	@include inline-block;
 }
 
 .th-related-wrap {
+	clear: both;
 	margin : 0 0 20px;
 
 	.th-product {
 		padding-top    : 10px;
 		padding-bottom : 10px;
-	}
-
-	.th-product__name {
-		text-align : left;
-		margin-top : 12px;
 	}
 
 	.th-product__image {
@@ -139,35 +137,24 @@
 		}
 	}
 
-	.th-product__name {
-		text-align : left;
-	}
-
-	.th-product__price {
-		text-align : left;
-	}
-
+	.th-product__name,
+	.th-product__price,
 	.th-colors-sm {
 		text-align : left;
 	}
 
+	.th-product__name {
+		margin-top : 12px;
+	}
 }
 
 @include respond-to(sm-and-up) {
-	.th-product__price--large {
-		text-align : left;
-	}
-
 	.th-related-wrap {
 		margin : 20px 0 0;
 
 		.th-product {
 			padding-top    : 15px;
 			padding-bottom : 25px;
-		}
-
-		.th-product__name {
-			margin-top : 0;
 		}
 
 		.th-product__image {
@@ -179,17 +166,14 @@
 			}
 		}
 
-		.th-product__name {
-			text-align : center;
-		}
-
-		.th-product__price {
-			text-align : center;
-		}
-
+		.th-product__name,
+		.th-product__price,
 		.th-colors-sm {
-			text-align : center;
+			text-align: center;
+		}
+
+		.th-product__name {
+			margin-top : 0;
 		}
 	}
-
 }
