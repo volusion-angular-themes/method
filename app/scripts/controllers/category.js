@@ -69,11 +69,6 @@ angular.module('Volusion.controllers')
 
 			// Called from the view
 			$scope.clearAllFilters = function () {
-				/** On a product page this means
-				 * - clear all facets
-				 * - clear min and max prices
-				 * - clear all but the current $scope.category.id
-				 */
 				vnProductParams.resetParams();
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
@@ -87,7 +82,7 @@ angular.module('Volusion.controllers')
 				$scope.toggleSearch();
 			};
 
-			// Called from the view: I forget the deatils of how this works MattH - 8-7-2014
+			// Called from the view: I forget the details of how this works MattH - 8-7-2014
 			// Check for applied facet filters
 			$scope.checkForFacetFilters = function() {
 				if ( vnProductParams.getFacetString() ) {
@@ -97,8 +92,11 @@ angular.module('Volusion.controllers')
 
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
-				$scope.getCategory($routeParams.slug);
+				console.log($routeParams);
+				vnAppRoute.setRouteStrategy('category');
 				vnProductParams.preloadData($routeParams);
+				$scope.getCategory($routeParams.slug);
+
 			});
 
 			// Clean up tasks when this controller is destroyed

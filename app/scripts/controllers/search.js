@@ -6,8 +6,8 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr', 'themeSettings',
-		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, ContentMgr, themeSettings) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr', 'themeSettings', 'vnAppRoute',
+		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, ContentMgr, themeSettings, vnAppRoute) {
 
 			'use strict';
 
@@ -121,8 +121,16 @@ angular.module('methodApp')
 			// Scope listeners, initialization and cleanup routines
 			$scope.initParams();
 
-			// Clean up before this controller is destroyed
-			$scope.$on('$destroy', function cleanUp() {
-				vnProductParams.resetParamsObject();
+			// First time view / controller is loaded (or reloaded) Initialization tasks
+			$scope.$on('$viewContentLoaded', function() {
+				vnAppRoute.setRouteStrategy('search');
+				vnProductParams.preloadData($routeParams);
+				console.log($routeParams);
 			});
+
+			// Clean up tasks when this controller is destroyed
+			$scope.$on('$destroy', function cleanUp() {
+				vnProductParams.resetParams();
+			});
+
 		}]);
