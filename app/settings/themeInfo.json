@@ -4,8 +4,10 @@
         "cssOverrides": "/styles",
         "language": "/translations"
     },
-    "version": "0.0.4",
-    "source": "https://github.com/volusion-angular-themes/method/archive/v0.0.4.zip",
+    "version": "0.0.11",
+    "source": "https://github.com/volusion-angular-themes/method/archive/v0.0.11.zip",
+	"matchingLegacyTemplateId": 240,
+	"mobileCheckoutCssOverrides": "",
     "features": {
         "responsive": true,
         "myRewards": false,
