@@ -259,19 +259,12 @@ angular.module('Volusion.controllers')
 						return;
 					}
 
-					var hasCollection = false;
 					angular.forEach($scope.product.imageCollections, function (collection) {
 						if (collection.key === currentSelection.option.selected) {
 							$scope.currentImageCollection = collection.images;
 							$scope.product.image = $scope.currentImageCollection[0];
-							hasCollection = true;
 						}
 					});
-
-					if (!hasCollection) { // load default collection if current selection has no images
-						$scope.currentImageCollection = $scope.product.imageCollections[0].images;
-						$scope.product.image = $scope.currentImageCollection[0];
-					}
 				}
 
 				if (currentSelection === undefined) {
@@ -330,6 +323,9 @@ angular.module('Volusion.controllers')
 				Cart.saveCart($scope.cartItem)
 					.then(function () {
 						$scope.cartItem.qty = 0;
+
+						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: 'Item(s) are added to your cart.' });
+
 					}, function () {
 //						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
 //							status: status,
