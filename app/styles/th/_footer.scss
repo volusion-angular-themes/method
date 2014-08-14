@@ -1,19 +1,18 @@
 .th-footer {
-	text-align       : center;
-	background-color : #fff;
-	line-height      : 2em;
+	background-color : $body-bg;
 	border-top       : 1px solid $hr-border;
+	line-height      : 2em;
+	text-align       : center;
 
 	a:hover {
 		@extend %animate-all-default;
 	}
 
 	&__title {
+		font-family    : $font-family-condensed-bold;
 		font-size      : 1.4rem;
 		margin-top     : 10px;
 		text-transform : uppercase;
-		font-weight    : bold;
-		font-family    : $font-family-condensed-reg;
 	}
 
 	&__bottom {
@@ -21,20 +20,22 @@
 	}
 
 	&__copyright {
-		margin-right : 15px;
+		@include respond-to(md-and-up) { text-align: left; }
 	}
 
 	&__contact {
 		list-style : none;
-		padding    : 0;
 		margin     : 0;
+		padding    : 0;
+
+		@include respond-to(md-and-up) { float: right; }
 
 		li {
 			@include inline-block;
 			border-left  : 1px solid $hr-border;
 			line-height  : 13px;
-			padding-left : 10px;
 			margin-right : 9px;
+			padding-left : 10px;
 
 			&:first-child {
 				border : 0;
@@ -43,29 +44,21 @@
 	}
 }
 
-.th-back-top {
-	span {
-		font-size      : 1.2rem;
-		font-weight    : normal;
-		vertical-align : text-top;
-	}
-}
-
 @include respond-to(lg) {
 
 	.th-footer {
-		min-height       : 422px;
-		border-top       : 0;
-		text-align       : left;
 		background-color : darken($body-bg, 6);
+		border-top       : 0;
+		min-height       : 422px;
+		text-align       : left;
 
 		&__title {
 			display : block;
 		}
 
 		&__top {
-			padding-bottom : 25px;
 			border-bottom  : 1px solid $hr-border;
+			padding-bottom : 25px;
 
 			ul.nav {
 				margin : 0 0 35px;
@@ -87,27 +80,18 @@
 		}
 
 		&__contact {
-			float      : left;
-			list-style : none;
-			padding    : 0;
-			margin     : 0;
 
 			li {
 				@include inline-block;
 				border-left  : 1px solid $hr-border;
 				line-height  : 13px;
-				padding-left : 10px;
 				margin-right : 9px;
+				padding-left : 10px;
 
 				&:first-child {
 					border : 0;
 				}
 			}
-		}
-
-		&__copyright {
-			float        : left;
-			margin-right : 15px;
 		}
 	}
 

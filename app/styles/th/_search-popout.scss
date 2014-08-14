@@ -4,11 +4,11 @@
 	&__trigger {
 		@extend %inline-block;
 		color: $navbar-default-link-color;
+		cursor   : pointer;
+		left     : 7px;
+		padding  : 0;
 		position : absolute;
 		top      : 7px;
-		left     : 7px;
-		cursor   : pointer;
-		padding  : 0;
 
 		&.-position {
 			left  : auto;
@@ -26,6 +26,7 @@
 	&__submit {
 		@extend %inline-block;
 		height : 28px;
+		letter-spacing: 1.2px;
 	}
 
 }

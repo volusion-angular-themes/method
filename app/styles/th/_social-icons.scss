@@ -1,12 +1,12 @@
 .th-social {
-  text-align: center;
-  padding: 26px 0 20px;
-  clear: both;
+	clear: both;
+	padding: 26px 0 20px;
+	text-align: center;
 }
 
 .th-social__icon {
-  margin: 0 2px;
-  @extend %inline-block;
+	@extend %inline-block;
+	margin: 0 2px;
 
   &:hover {
     @extend %animate-all-default;
@@ -24,5 +24,4 @@
   .th-social__icon {
     margin: 0 6px;
   }
-
 }

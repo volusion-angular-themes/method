@@ -24,9 +24,9 @@
 	&__input {
 		@include inline-block;
 		border-color : $hr-border;
-		width        : 100%;
 		height       : 31px;
 		margin       : 0;
+		min-width: 162px;
 
 		&:focus {
 			border-color : darken($hr-border, 40);
@@ -34,6 +34,7 @@
 	}
 
 	&__submit {
+		@extend %font-smoothing;
 		@include inline-block;
 		font-size  : 1.5rem;
 		padding    : 5px 10px;
@@ -60,8 +61,8 @@
 
 		&__title {
 			display     : block;
+			font-family: $font-family-condensed-bold;
 			margin      : 10px 0 0 0;
-			font-weight : bold;
 		}
 
 		&__input {
@@ -70,7 +71,3 @@
 		}
 	}
 }
-
-
-
-

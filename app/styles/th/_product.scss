@@ -114,11 +114,6 @@
 
 }
 
-// TODO Figure out if this class is being utilized
-.th-colors-sm .img-responsive {
-	@include inline-block;
-}
-
 .th-related-wrap {
 	clear: both;
 	margin : 0 0 20px;
@@ -138,13 +133,36 @@
 	}
 
 	.th-product__name,
-	.th-product__price,
-	.th-colors-sm {
+	.th-product__price {
 		text-align : left;
 	}
 
 	.th-product__name {
 		margin-top : 12px;
+	}
+}
+
+@include respond-to(sm) {
+	.th-related-wrap {
+		.th-product {
+			&__name {
+				height: auto;
+			}
+			&__price {
+				line-height: 18px;
+			}
+		}
+
+		.th-price--now {
+			border-left  : 0;
+			padding-left : 0;
+			margin-left  : 0;
+
+			&:before {
+				content: '\A';
+				white-space: pre;
+			}
+		}
 	}
 }
 
@@ -167,8 +185,7 @@
 		}
 
 		.th-product__name,
-		.th-product__price,
-		.th-colors-sm {
+		.th-product__price {
 			text-align: center;
 		}
 
