@@ -17,11 +17,12 @@
 			<div class="content-top">
 				<div class="page-header">
 					<div class="row">
-						<h1 class="col-sm-10 col-md-10">Search results for {{searchTerms.q}}</h1>
+						<h1 class="col-sm-10 col-md-10"><span ng-if="products.length <= 0">No</span> Search results for {{searchTerms.q}}</h1>
 						<div vn-sort-search
 							 class="col-sm-2 col-md-2 vn-sort-desktop-search"
 							 data-ng-show="mobileDisplay"
-							 query-products="queryProducts()"></div>
+							 query-products="queryProducts()"
+							 ng-if="products.length > 0"></div>
 					</div>
 					<img class="banner img img-responsive"
 						 ng-hide="checkForFacetFilters()"
@@ -43,13 +44,12 @@
 			</div>
 
 			<div class="row">
-				<div class="-product-tile-animation col-sm-6 col-md-4 col-lg-3" data-ng-repeat="product in products">
+				<div class="-product-tile-animation col-sm-6 col-md-4 col-lg-3" data-ng-repeat="product in products track by product.id">
 					<div class="th-product">
 						<span class="th-product__sale" data-ng-show="product.isOnSale"></span>
 						<span class="th-product__new" data-ng-show="product.isNew"></span>
 
 						<div class="th-product__image">
-							<!--<a ui-sref="i18n.product({ productTitle: product.seoFriendlyProductTitle, productCode: product.code })"> -->
 							<a href="{{ product.url }}">
 								<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="">
 							</a>
@@ -71,7 +71,11 @@
 				</div>
 			</div>
 
-			<div vn-paginator cursor="cursor" current-page="currentPage" query-fn="queryProducts()"></div>
+			<div vn-paginator
+				 cursor="cursor"
+				 current-page="currentPage"
+				 query-fn="queryProducts()"
+				 ng-if="products.length > 0"></div>
 
 		</div>
 	</div>

@@ -1,17 +1,9 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr',
-		function($q, $scope, $rootScope, $routeParams, $location, $filter, vnApi, vnProductParams, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$filter', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'ContentMgr',
+		function($q, $scope, $rootScope, $routeParams, $location, $filter, $route, vnApi, vnProductParams, vnAppRoute, ContentMgr) {
 
 			'use strict';
-
-			// TODO : Prune this code if not needed
-//			var search = $location.search();
-//			var queryString = {};
-//
-//			angular.forEach(search, function(value, key) {
-//				queryString[key.toLowerCase()] = value;
-//			});
 
 			$scope.getCategory = function(newSlug) {
 				vnApi.Category().get({ slug: newSlug }).$promise.then(function(response) {
@@ -36,6 +28,7 @@ angular.module('Volusion.controllers')
 				});
 			};
 
+			// Called from the view
 			$scope.getImagePath = function (imageCollections) {
 				// This gets the default:medium image for the product
 				var path = $filter('vnProductImageFilter')(imageCollections);
@@ -47,6 +40,7 @@ angular.module('Volusion.controllers')
 				return path;
 			};
 
+			// Called from the view
 			$scope.checkFacetsAndCategories = function(categories, facets) {
 
 				if( (categories && categories.length) || (facets && facets.length) ) {
@@ -57,6 +51,7 @@ angular.module('Volusion.controllers')
 
 			};
 
+			// Todo: rename this as its badly named and has nothing to do with our search ctrl or search page.
 			$scope.toggleSearch = function() {
 				// Remember, this should only ever be called / used from the mobile filter element.
 				if($scope.mobileDisplay) {
@@ -72,9 +67,9 @@ angular.module('Volusion.controllers')
 				ContentMgr.hideAppFooter();
 			};
 
+			// Called from the view
 			$scope.clearAllFilters = function () {
-				vnProductParams.resetParamsObject();
-
+				vnProductParams.resetParams();
 				vnProductParams.addCategory($scope.category.id);
 				$scope.queryProducts();
 				if($scope.isMobileAndVisible) {
@@ -82,26 +77,30 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			// Called from the view
 			$scope.dismissMobileFilters = function() {
 				$scope.toggleSearch();
 			};
 
-			// Load the url category when the controller is activated.
-			$scope.getCategory($routeParams.slug);
-
+			// Called from the view: I forget the details of how this works MattH - 8-7-2014
 			// Check for applied facet filters
-
 			$scope.checkForFacetFilters = function() {
-
 				if ( vnProductParams.getFacetString() ) {
 					return true;
 				}
-
 			};
 
-			// Clean up before this controller is destroyed
+			// First time view / controller is loaded (or reloaded) Initialization tasks
+			$scope.$on('$viewContentLoaded', function() {
+				vnAppRoute.setRouteStrategy('category');
+				vnProductParams.preloadDataForCategory($routeParams);
+				$scope.getCategory($routeParams.slug);
+
+			});
+
+			// Clean up tasks when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				vnProductParams.resetParamsObject();
+				vnProductParams.resetParams();
 			});
 		}
 	]);

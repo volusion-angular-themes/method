@@ -1,8 +1,8 @@
-'use strict';
-
 angular.module('Volusion.controllers')
 	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', 'Cart',
 		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, Cart) {
+
+			'use strict';
 
 			$scope.product = {};
 			$scope.cartItem = {};
@@ -29,6 +29,10 @@ angular.module('Volusion.controllers')
 			};
 
 			function findOptionAvailability(key) {
+                if (typeof key === 'undefined') {
+                    return true;
+                }
+
 				var qty = 0,
 					option;
 
@@ -112,11 +116,17 @@ angular.module('Volusion.controllers')
 			function findAvailability () {
 				var available = 0;
 
-				for (var idx = 0; idx < $scope.product.optionSKUs.length; idx++) {
-					available |= findOptionAvailability($scope.product.optionSKUs[idx].key);  // jshint ignore:line
-				}
+                if ($scope.product.options && $scope.product.options.length > 0) {
+                    for (var idx = 0; idx < $scope.product.optionSKUs.length; idx++) {
+                        available |= findOptionAvailability($scope.product.optionSKUs[idx].key);  // jshint ignore:line
+                    }
+                    $scope.itemSelectionsNotInStock = (available === 0);
+                } else {
+                    $scope.itemSelectionsNotInStock = (!$scope.product.availability.allowBackOrders &&
+                        $scope.product.availability.quantityInStock !== null &&
+                        $scope.product.availability.quantityInStock <= 0);
+                }
 
-				$scope.itemSelectionsNotInStock = (available === 0) ? true : false;
 			}
 
 			function setDefaults() {
@@ -314,6 +324,7 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function() {
 
+
 				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
 					!findOptionAvailability($scope.product.optionSelection.key)) {
 
@@ -326,14 +337,20 @@ angular.module('Volusion.controllers')
 
 						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: 'Item(s) are added to your cart.' });
 
-					}, function () {
+					}, function (response) {
+                        if (response.errors &&response.errors.length > 0) {
+                            $rootScope.$emit('VN_ADD_TO_CART_ERROR', response.errors);
+                        }
+                        if (response.warnings && response.warnings.length > 0) {
+                            $rootScope.$emit('VN_ADD_TO_CART_WARNING', response.warnings);
+                        }
 //						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
 //							status: status,
 //							data  : cartItem
 //						});
 					})
 					.finally(function () {
-						modifyQuantity($scope.product.optionSelection.quantityInStock && 1);
+						modifyQuantity(1);
 					});
 			};
 		}]);
