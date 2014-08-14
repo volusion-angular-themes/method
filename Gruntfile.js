@@ -248,7 +248,7 @@ module.exports = function(grunt) {
 				fontsDir: '<%= yeoman.app %>/fonts',
 				importPath: [
 					'<%= yeoman.app %>/bower_components',
-					'<%= yeoman.app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets'
+					'<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/stylesheets'
 				],
 				httpImagesPath: '/images',
 				httpGeneratedImagesPath: '/images/generated',
