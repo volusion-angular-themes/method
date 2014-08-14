@@ -1,0 +1,103 @@
+.th-alert-container {
+	position : absolute;
+	right    : 0;
+	height   : 50px;
+	z-index  : 9999;
+//	opacity  : 1;
+
+	.alert {
+		position              : relative;
+		margin                : 0 auto;
+		padding               : 8px 35px 8px 14px;
+		text-shadow           : 0 1px 0 rgba(255, 255, 255, 0.5);
+		background-color      : #FCF8E3;
+		border                : 1px solid #FBEED5;
+		-webkit-border-radius : 4px;
+		-moz-border-radius    : 4px;
+		border-radius         : 4px;
+		height                : inherit;
+
+		font-size             : 14px;
+		font-weight           : bold;
+		line-height           : 32px;
+		color                 : #000000;
+		text-shadow           : 0 1px 0 #FFFFFF;
+		line-height           : 32px;
+
+		&.alert-success {
+			background-color : #DFF0D8;
+			border-color     : #D6E9C6;
+			color            : #468847;
+		}
+
+		&.alert-danger {
+			background-color : #F2DEDE;
+			border-color     : #EED3D7;
+			color            : #B94A48;
+		}
+
+		&.alert-warning {
+			color            : #8A6D3B;
+			background-color : #FCF8E3;
+			border-color     : #FAEBCC;
+		}
+
+		&.alert-info {
+			color            : #31708F;
+			background-color : #D9EDF7;
+			border-color     : #BCE8F1;
+		}
+
+		.close {
+			position           : absolute;
+			right              : 10px;
+
+			padding            : 0;
+			cursor             : pointer;
+			background         : transparent;
+			border             : 0;
+			-webkit-appearance : none;
+
+			font-size          : 20px;
+			font-weight        : bold;
+			line-height        : 52px;
+			color              : #000000;
+			text-shadow        : 0 1px 0 #FFFFFF;
+			outline            : none;
+			outline            : 0;
+
+			@include opacity(0.2);
+		}
+	}
+
+	&.ng-hide-add {
+		-webkit-transition : 0.5s linear all;
+		-moz-transition    : 0.5s linear all;
+		-o-transition      : 0.5s linear all;
+		transition         : 0.5s linear all;
+
+		opacity            : 1;
+	}
+
+	&.ng-hide-add.ng-hide-add-active {
+		opacity : 0;
+	}
+
+	/* When showing an element */
+	&.ng-hide-remove {
+		-webkit-transition : 0.5s linear all;
+		-moz-transition    : 0.5s linear all;
+		-o-transition      : 0.5s linear all;
+		transition         : 0.5s linear all;
+
+		/* this needs to be here to make it visible during the animation
+			 since the .ng-hide class is already on the element rendering
+			 it as hidden. */
+		display            : block !important;
+		opacity            : 0;
+	}
+
+	&.ng-hide-remove.ng-hide-remove-active {
+		opacity : 1;
+	}
+}
