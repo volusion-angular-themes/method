@@ -4,34 +4,24 @@
 // ========================================================================
 
 body {
-	@extend %font-smoothing;
-	margin: 0;
 	font-size: 1.2rem;
+	margin: 0;
 }
 
-a:hover, a:active {
+a:active,
+a:hover {
 	outline: none;
 	text-decoration: none;
 }
 
-
-// TODO Find a place for this to live
-.th-add-favorite {
-
-	img {
-		margin-right: 5px;
-	}
-
-	a {
-		color: lighten($link-color, 40);
-		font-size: 1.4rem;
-
-		&:hover {
-			color: darken($link-hover-color, 100);
-		}
-	}
+// TODO Fix font config, using roboto-reg w bold weight is faux-bold
+label {
+	display: inline-block;
+	font-family: 'roboto-bold';
+	font-weight: normal;
+	margin: 0 5px 5px;
+	max-width: 100%;
 }
-
 
 
 // Alerts =================================================================
@@ -40,37 +30,29 @@ a:hover, a:active {
 
 // Breadcrumbs ============================================================
 
-@include respond-to(md-and-up) {
-	.breadcrumb {
-		margin-bottom: 0;
-		border-bottom: 0;
-		border-bottom: 1px solid $hr-border;
-
-		a:hover {
-			@include single-transition(all, 200ms, ease);
-		}
-	}
-}
 
 
 // Buttons ================================================================
 
 .btn {
 	text-transform: uppercase;
-	font-family: $font-family-condensed-reg;
-	font-weight: bold;
+	font-family: $font-family-condensed-bold;
+	font-weight: normal;
 
 	&:hover {
 		@extend %animate-all-default;
 		@extend %opacity-80;
 	}
 
-	&.btn-default {
-		font-weight: bold;
+	&:focus {
+		outline: 0;
+	}
+
+	&.btn-primary {
+		@extend %font-smoothing;
 	}
 
 	&.btn-lg {
-		font-weight: normal;
 		font-size: 1.8rem;
 		letter-spacing: 1px;
 	}
@@ -82,33 +64,12 @@ a:hover, a:active {
 		border: 0;
 		text-transform: none;
 	}
-
-	// this class is currently unused/commented out on the category page
-	// either way needs to be cleaned up
-	&.th-load-more {
-		padding-top: 12px;
-		width: 70%;
-		display: block;
-		text-align: center;
-		padding-bottom: 12px;
-		margin: 10px auto 0;
-	}
-
 }
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
 	opacity : 0.25;
 	filter  : alpha(opacity=25);
 }
-
-// Add CSS styling to button which need to appear as disabled
-.btn {
-	&.-disabled {
-		//		opacity : 0.25;
-		//		filter  : alpha(opacity=25);
-	}
-}
-
 
 
 // Dropdowns ==============================================================
@@ -118,8 +79,8 @@ a:hover, a:active {
 // Forms ==================================================================
 
 .form-control {
-	font-family: $font-family-condensed-reg;
 	color: $text-color;
+	font-family: $font-family-condensed-reg;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 }
@@ -144,206 +105,11 @@ a:hover, a:active {
 
 // Navbar =================================================================
 
-.th-navbar {
 
-	.th-menu-container {
-		min-height: 44px;
-		position: relative;
-	}
-
-	.navbar-toggle {
-		float: left;
-		margin-right: 0;
-		border: 0;
-		padding: 8px 10px;
-
-		.icon-bar {
-			height: 4px;
-		}
-	}
-
-	.th-header {
-		border-right: none;
-		border-bottom: 1px solid lighten($navbar-default-border, 10);
-	}
-}
-
-@include respond-to(xs) {
-	.th-navbar {
-		min-height: 44px;
-
-		&__logo {
-			position: relative;
-			top: 3px;
-
-			img {
-				max-height: 36px;
-				margin: auto;
-			}
-		}
-	}
-}
-
-@include respond-to(sm) {
-	.th-navbar {
-		.th-navbar__logo {
-			position: relative;
-			top: 10px;
-
-			img {
-				max-height: 48px;
-				margin: auto;
-			}
-		}
-
-		.navbar-nav {
-			> li {
-				> a {
-					position: relative;
-					display: inline-block;
-					padding: 10px 15px;
-				}
-
-				> span {
-					> a {
-						padding: 2px 7px 5px 13px;
-					}
-				}
-			}
-		}
-	}
-}
-
-@include respond-to(sm-and-up) {
-
-	.th-navbar {
-
-		.th-menu-container {
-			min-height: 74px;
-		}
-
-		.navbar-toggle {
-			margin: 19px 10px;
-		}
-
-		.navbar-nav {
-			> li {
-				> a {
-					position: relative;
-					display: inline-block;
-					padding: 10px 15px;
-					display: inline-block;
-				}
-
-				> span {
-					> a {
-						padding: 2px 7px 5px 13px;
-
-						> span.caret {
-							margin-top: -4px;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-@include respond-to(md-and-up) {
-
-	.th-navbar {
-
-		.th-menu-container {
-			min-height: 92px;
-		}
-
-		.th-main {
-			float: left;
-		}
-
-		.free-shipping {
-			color: $navbar-default-link-color;
-			display: block;
-			text-transform: uppercase;
-			padding: 10px 15px;
-
-			&:hover {
-				color: $link-hover-color;
-			}
-		}
-
-		> .container .navbar-brand {
-			/*position: static;
-			float: left;
-			margin: 16px 0 0 11px;*/
-			margin-left: 0;
-		}
-
-		.navbar-toggle {
-			float: right;
-			margin-right: 15px;
-			margin-left: 0;
-		}
-
-		.navbar-nav {
-			margin-left: 14px;
-
-			> li {
-				padding-top: 36px;
-				position: relative;
-
-				&:first-child {
-					> a {
-						border: 0;
-					}
-				}
-
-				> span {
-					> a {
-						padding: 2px 13px 5px 0px;
-
-						> span.caret {
-							color: $navbar-default-link-color;
-							margin-top: -4px;
-						}
-					}
-				}
-
-				> a {
-					font-family: $font-family-condensed-reg;
-					text-transform: uppercase;
-					font-size: 1.6rem;
-					display: inline-block;
-					border-left: 1px solid $navbar-default-border;
-					padding-left: 0.9em;
-					padding-right: 0.9em;
-					padding-top: 0;
-					padding-bottom: 0;
-				}
-			}
-		}
-	}
-}
-
-@include respond-to(lg) {
-
-	.th-navbar {
-		.navbar-nav {
-			> li {
-				> a {
-					padding-left: 0.7em;
-				}
-			}
-		}
-	}
-}
+	// View _navbar.scss for navbar styles
 
 
 // Navs ===================================================================
-
-.th-related-wrap {
-	clear: both;
-}
 
 .nav {
 	.open > a {
@@ -479,19 +245,9 @@ ul.nav-tabs {
 	.panel-title {
 		font-size: 1.5rem;
 		text-transform: uppercase;
-		font-weight: bold;
 	}
 }
 
 .panel-default > .panel-heading + .panel-collapse .panel-body {
 	border-top-color: lighten($hr-border, 50);
 }
-
-
-
-
-
-
-
-
-

@@ -4,18 +4,18 @@
 
 .th-qty-counter {
 	&__input {
-		padding    : 10px 5px;
 		height     : 45px;
+		padding    : 10px 5px;
 		text-align : center;
 	}
 }
 
 .th-qty-counter {
 	&__btn {
-		padding      : 10px 8px 11px;
-		min-width    : 45px;
-		height       : 45px;
 		border-color : $hr-border;
+		height       : 45px;
+		min-width    : 45px;
+		padding      : 10px 8px 11px;
 	}
 }
 
@@ -26,9 +26,9 @@
 
 	.th-qty-counter {
 		&__btn {
-			padding   : 13px 0px 14px;
-			min-width : 25px;
 			height    : 46px;
+			min-width : 25px;
+			padding   : 13px 0px 14px;
 		}
 
 		&__input {

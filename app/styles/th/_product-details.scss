@@ -1,6 +1,7 @@
 .th-product-details {
 
 	&__add-to-cart {
+		@extend %font-smoothing;
 		padding: 4px 15px;
 	}
 

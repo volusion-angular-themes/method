@@ -3,7 +3,7 @@
 	 data-ng-show="snapMenuState"
 	 data-ng-controller="HeaderCtrl">
 
-	<div class="th-search hidden-md hidden-lg"
+	<div class="hidden-md hidden-lg th-search"
 		 ng-controller="SearchCtrl">
 		<form class="th-search__form"
 			  role='search'
@@ -24,11 +24,10 @@
 	<div class="th-mobile-menu__list">
 		<ul class="nav navbar-nav th-mobile-list">
 			<li class="th-mobile-list__item th-mobile-list__item--header">Categories</li>
-			<li class="th-mobile-list__item dropdown" ng-repeat="category in smartCategories">
+			<li class="dropdown th-mobile-list__item" ng-repeat="category in smartCategories">
 				<a href="#" class="dropdown-toggle navbar-link th-dropdown-toggle th-mobile-list__link" ng-if="category.subCategories.length" data-toggle="dropdown">
 					{{category.name}} <span class="pull-right caret"></span>
 				</a>
-
 				<a data-ng-href="{{category.url}}" class="navbar-link th-dropdown-toggle th-mobile-list__link" ng-if="!category.subCategories.length">
 					{{category.name}}
 				</a>
@@ -42,8 +41,8 @@
 		</ul>
 	</div>
 
-	<div class="th-mobile-menu__list" data-ng-bind-html="themeSettings.general.footer.content.column1 | legacyLinkify | html"></div>
-	<div class="th-mobile-menu__list" data-ng-bind-html="themeSettings.general.footer.content.column2 | legacyLinkify | html"></div>
-	<div class="th-mobile-menu__list" data-ng-bind-html="themeSettings.general.footer.content.column3 | legacyLinkify | html"></div>
+	<div class="th-mobile-menu__list th-mobile-menu__list--footer" data-ng-bind-html="themeSettings.general.footer.content.column1 | legacyLinkify | html"></div>
+	<div class="th-mobile-menu__list th-mobile-menu__list--footer" data-ng-bind-html="themeSettings.general.footer.content.column2 | legacyLinkify | html"></div>
+	<div class="th-mobile-menu__list th-mobile-menu__list--footer" data-ng-bind-html="themeSettings.general.footer.content.column3 | legacyLinkify | html"></div>
 
 </div>
