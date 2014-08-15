@@ -1,9 +1,9 @@
 {
 	"message": {
-		"VN_ADD_TO_CART_SUCCESS": "Item(s) are added to your cart",
-		"VN_ADD_TO_CART_ERROR"  : "ERROR!",
-		"VN_ADD_TO_CART_WARNING": "Warning!",
+		"addToCartSuccess": "Item(s) are added to your cart",
+		"addToCartError"  : "ERROR!",
+		"addToCartWarning": "Warning!",
 
-		"VN_UNKNOWN" 			: "Unknown server error"
+		"unknown" 		  : "Unknown server error"
 	}
 }
