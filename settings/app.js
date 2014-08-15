@@ -55,7 +55,7 @@ angular.module('app', ['ui.bootstrap','ui.tinymce'])
 				,autoresize_min_height: 50
 				,autoresize_max_height: 1000
 				,skin_url: 'tinymce-skin'
-				,content_css: '/styles/c6451e97.main.css' //and this right here folks is why we can't use textAngular
+				,content_css: '/styles/bcdd55ed.main.css' //and this right here folks is why we can't use textAngular
 			};
 
 			//handle save button
