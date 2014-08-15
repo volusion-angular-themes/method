@@ -6,7 +6,7 @@
     },
     "version": "0.0.11",
     "source": "https://github.com/volusion-angular-themes/method/archive/v0.0.11.zip",
-	"matchingLegacyTemplateId": 240,
+	"matchingLegacyTemplateId": "method",
 	"mobileCheckoutCssOverrides": "",
     "features": {
         "responsive": true,
