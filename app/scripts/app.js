@@ -96,8 +96,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr) {
+	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr', 'translate',
+		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr, translate) {
 
 			'use strict';
 
@@ -143,4 +143,8 @@ angular.module('methodApp', [
 			// Init services
 			// one time initialization for services
 			Cart.init();
+
+			// Add translated messages
+			translate.addParts('message');
+
 		}]);

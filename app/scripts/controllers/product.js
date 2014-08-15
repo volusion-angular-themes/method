@@ -335,14 +335,31 @@ angular.module('Volusion.controllers')
 					.then(function () {
 						$scope.cartItem.qty = 0;
 
-						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: 'Item(s) are added to your cart.' });
+						var vnMsg = $filter('translate')('message.VN_ADD_TO_CART_SUCCESS');
+						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: vnMsg });
 
 					}, function (response) {
+						var vnMsg = '';
+
                         if (response.errors &&response.errors.length > 0) {
-                            $rootScope.$emit('VN_ADD_TO_CART_ERROR', response.errors);
+                        	// Multiple error handling ?
+							try {
+								// vnMsg = $filter('translate')('message.VN_ADD_TO_CART_ERROR');
+								vnMsg = $filter('translate')('message.' + response.errors);
+							} catch (ex) {
+								vnMsg = $filter('translate')('message.VN_UNKNOWN');
+							}
+                            $rootScope.$emit('vnNotification.show', { type: 'danger', time: 100000, msg: vnMsg });
                         }
                         if (response.warnings && response.warnings.length > 0) {
-                            $rootScope.$emit('VN_ADD_TO_CART_WARNING', response.warnings);
+							// Multiple warning handling ?
+							try {
+								// vnMsg = $filter('translate')('message.VN_ADD_TO_CART_WARNING');
+								vnMsg = $filter('translate')('message.' + response.errors);
+							} catch (ex) {
+								vnMsg = $filter('translate')('message.VN_UNKNOWN');
+							}
+							$rootScope.$emit('vnNotification.show', { type: 'warning', time: 100000, msg: vnMsg });
                         }
 //						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
 //							status: status,
