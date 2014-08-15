@@ -8,6 +8,8 @@ angular.module('Volusion.controllers')
 			$scope.cartItem = {};
 			$scope.itemSelectionsNotInStock = false;
 
+			var optionsAndSKU;
+
 			// carousel
 			$scope.carousel = {
 				interval: 4000
@@ -28,20 +30,48 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			function findOptionsAndOptionSKU(options) {
+				var optionsToSKU = [];
+
+				if (!options) {
+					return optionsToSKU;
+				}
+
+				for (var i = 0; i < options.length; i++) {
+					var option = options[i];
+
+					if (option.isRequired && option.derivesToSKU) {
+						optionsToSKU.push(option.label);
+					}
+				}
+
+				return optionsToSKU;
+			}
+
 			function findOptionAvailability(key) {
                 if (typeof key === 'undefined') {
                     return true;
                 }
 
 				var qty = 0,
-					option;
+					option,
+					takeOptionInConsideration = (optionsAndSKU === 1);
 
 				option = $scope.product.optionSKUs.filter(function (option) {
 					return option.key === key;
 				});
 
-				if (option.length > 0) {
+				// filter self option from complex one and take them in considerations only one option derives SKU
+				// if it's a complex option - check always
+				if (option.length > 0 && (takeOptionInConsideration || option[0].key.indexOf('|') > -1)) {
 					qty = option[0].quantityInStock;
+				} else {
+					if (option.length === 0) {
+						return ($scope.product.availability.allowBackOrders ||
+								$scope.product.availability.quantityInStock === null ||
+								$scope.product.availability.quantityInStock > 0);
+					}
+					return false;
 				}
 
 				return (qty === null || qty > 0);
@@ -56,9 +86,11 @@ angular.module('Volusion.controllers')
 
 				for (var i = 0; i < options.length; i++) {
 					var option = options[i];
+
 					if (option.isRequired && !option.hasOwnProperty('selected')) {
 						missedOptions.push(option.label);
 					}
+
 					if (option.options.length > 0) {
 						var subOptions = findRequiredOptionsAreSelected(option.options);
 						for (var j = 0; j < subOptions.length; j++) {
@@ -116,8 +148,12 @@ angular.module('Volusion.controllers')
 			function findAvailability () {
 				var available = 0;
 
-                if ($scope.product.options && $scope.product.options.length > 0) {
+                if ($scope.product.options.length > 0 &&
+                	$scope.product.optionSKUs.length > 0) {
+
                     for (var idx = 0; idx < $scope.product.optionSKUs.length; idx++) {
+
+
                         available |= findOptionAvailability($scope.product.optionSKUs[idx].key);  // jshint ignore:line
                     }
                     $scope.itemSelectionsNotInStock = (available === 0);
@@ -143,18 +179,8 @@ angular.module('Volusion.controllers')
 				}
 
 				$scope.cartItem.options = $scope.cartItem.options || [];
-//				var options = product.options;
-//				if (!options || !options.length) {
-//					product.optionSelection = angular.extend(product.optionSelection, {
-//						available: 9999,
-//						isValid: true,
-//						product: product,
-//						state: 'available'
-//					});
-//
-//					return;
-//				}
 
+				optionsAndSKU = findOptionsAndOptionSKU($scope.product.options).length;
 				findAvailability();
 				setPopover();
 
@@ -335,29 +361,29 @@ angular.module('Volusion.controllers')
 					.then(function () {
 						$scope.cartItem.qty = 0;
 
-						var vnMsg = $filter('translate')('message.VN_ADD_TO_CART_SUCCESS');
+						var vnMsg = $filter('translate')('message.addToCartSuccess');
 						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: vnMsg });
 
 					}, function (response) {
 						var vnMsg = '';
 
-                        if (response.errors &&response.errors.length > 0) {
+                        if (response.errors && response.errors.length > 0) {
                         	// Multiple error handling ?
 							try {
-								// vnMsg = $filter('translate')('message.VN_ADD_TO_CART_ERROR');
+								// vnMsg = $filter('translate')('message.addToCartError');
 								vnMsg = $filter('translate')('message.' + response.errors);
 							} catch (ex) {
-								vnMsg = $filter('translate')('message.VN_UNKNOWN');
+								vnMsg = $filter('translate')('message.unknown');
 							}
                             $rootScope.$emit('vnNotification.show', { type: 'danger', time: 100000, msg: vnMsg });
                         }
                         if (response.warnings && response.warnings.length > 0) {
 							// Multiple warning handling ?
 							try {
-								// vnMsg = $filter('translate')('message.VN_ADD_TO_CART_WARNING');
+								// vnMsg = $filter('translate')('message.addToCartWarning');
 								vnMsg = $filter('translate')('message.' + response.errors);
 							} catch (ex) {
-								vnMsg = $filter('translate')('message.VN_UNKNOWN');
+								vnMsg = $filter('translate')('message.unknown');
 							}
 							$rootScope.$emit('vnNotification.show', { type: 'warning', time: 100000, msg: vnMsg });
                         }
