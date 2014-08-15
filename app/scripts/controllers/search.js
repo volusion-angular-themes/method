@@ -39,6 +39,12 @@ angular.module('methodApp')
 			};
 
 			$scope.doSearch = function () {
+
+				// If we are not on search do this ..
+				var currentPath = $location.path();
+				console.log('current search ctrl path: ', currentPath);
+
+				//if we are on search, how to kill this search ctrl and get a new one?
 				$scope.currentSearchText = $scope.searchLocal;
 
 				// Unify scope variable to match $routeParams when reloading the page
@@ -126,7 +132,6 @@ angular.module('methodApp')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setRouteStrategy('search');
-				vnProductParams.preloadDataForSearch($routeParams);
 			});
 
 			// Clean up tasks when this controller is destroyed
