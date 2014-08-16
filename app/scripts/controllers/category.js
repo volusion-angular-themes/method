@@ -93,6 +93,8 @@ angular.module('Volusion.controllers')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setRouteStrategy('category');
+				console.log('search params in category on load: ', $location.search());
+				vnAppRoute.resolveParams($location.search());
 				$scope.getCategory($routeParams.slug);
 
 			});
