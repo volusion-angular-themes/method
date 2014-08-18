@@ -60,22 +60,6 @@ angular.module('methodApp')
 				$location.search('q', $scope.searchLocal);
 
 				vnProductParams.updateSearch($scope.currentSearchText);
-
-
-//				// If we are not on search do this ..
-//				var currentPath = $location.path();
-//				console.log('current search ctrl path: ', currentPath);
-//				if('/search' === currentPath) {
-//					console.log('second search: products queried');
-//					console.log('prods before query', $scope.products);
-//					$scope.queryProducts();
-//					console.log('prods after query', $scope.products);
-//				}
-
-//				vnProductParams.updateSearch($scope.searchLocal);
-//				$scope.queryProducts();
-
-				// ************************************************************************************
 			};
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {
