@@ -13,11 +13,10 @@ angular.module('Volusion.directives')
 
 			return {
 				restrict: 'A',
-//				scope   : {},
 				link    : function postLink(scope, element) {
 
 					var timerHide,
-						triggerHover = angular.element(element.parent().parent().find('a')[0]);  // target category anchor (first <a> in <li>)
+						triggerHover = angular.element(element.parent().find('a')[0]);  // target category anchor (first <a> in <li>)
 
 					triggerHover.bind('mouseenter', function() {
 							element.show();
