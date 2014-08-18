@@ -14,6 +14,15 @@ angular.module('methodApp')
 			$scope.searchLocal = '';
 			$scope.searchTerms = '';
 
+			$scope.$watch(
+				function () {
+					return vnProductParams.getSearchText();
+				},
+				function () {
+					$scope.queryProducts();
+				}
+			);
+
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function (response) {
@@ -39,12 +48,6 @@ angular.module('methodApp')
 			};
 
 			$scope.doSearch = function () {
-
-				// If we are not on search do this ..
-				var currentPath = $location.path();
-				console.log('current search ctrl path: ', currentPath);
-
-				//if we are on search, how to kill this search ctrl and get a new one?
 				$scope.currentSearchText = $scope.searchLocal;
 
 				// Unify scope variable to match $routeParams when reloading the page
@@ -56,7 +59,18 @@ angular.module('methodApp')
 				// Modify the url for these params // Todo: use this as a model to build the url from the vnProductParams value?
 				$location.search('q', $scope.searchLocal);
 
-				// ************************************************************************************
+				vnProductParams.updateSearch($scope.currentSearchText);
+
+
+//				// If we are not on search do this ..
+//				var currentPath = $location.path();
+//				console.log('current search ctrl path: ', currentPath);
+//				if('/search' === currentPath) {
+//					console.log('second search: products queried');
+//					console.log('prods before query', $scope.products);
+//					$scope.queryProducts();
+//					console.log('prods after query', $scope.products);
+//				}
 
 //				vnProductParams.updateSearch($scope.searchLocal);
 //				$scope.queryProducts();
