@@ -14,6 +14,15 @@ angular.module('methodApp')
 			$scope.searchLocal = '';
 			$scope.searchTerms = '';
 
+			$scope.$watch(
+				function () {
+					return vnProductParams.getSearchText();
+				},
+				function () {
+					$scope.queryProducts();
+				}
+			);
+
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
 				vnApi.Product().query(params).$promise.then(function (response) {
@@ -50,12 +59,7 @@ angular.module('methodApp')
 				// Modify the url for these params // Todo: use this as a model to build the url from the vnProductParams value?
 				$location.search('q', $scope.searchLocal);
 
-				// ************************************************************************************
-
-//				vnProductParams.updateSearch($scope.searchLocal);
-//				$scope.queryProducts();
-
-				// ************************************************************************************
+				vnProductParams.updateSearch($scope.currentSearchText);
 			};
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {
@@ -126,7 +130,6 @@ angular.module('methodApp')
 			// First time view / controller is loaded (or reloaded) Initialization tasks
 			$scope.$on('$viewContentLoaded', function() {
 				vnAppRoute.setRouteStrategy('search');
-				vnProductParams.preloadDataForSearch($routeParams);
 			});
 
 			// Clean up tasks when this controller is destroyed

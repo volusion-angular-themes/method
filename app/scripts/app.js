@@ -76,12 +76,22 @@ angular.module('methodApp', [
 				.when('/c/:slug', {
 					templateUrl   : 'views/category.html',
 					controller    : 'CategoryCtrl',
-					reloadOnSearch: false
+					reloadOnSearch: false,
+					resolve: {
+						params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
+							return vnAppRoute.resolveParams($location.search());
+						}]
+					}
 				})
 				.when('/search', {
 					templateUrl   : 'views/search.html',
 					controller    : 'SearchCtrl',
-					reloadOnSearch: false
+					reloadOnSearch: false,
+					resolve: {
+						params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
+							return vnAppRoute.resolveParams($location.search());
+						}]
+					}
 				})
 				.when('/theme-settings', {
 					templateUrl: 'views/theme-settings.html',

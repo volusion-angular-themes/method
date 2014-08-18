@@ -17,7 +17,7 @@
         "easyzoom"                                     : "~2.1.0",
         "enquire"                                      : "~2.1.0",
         "jquery"                                       : "~2.1.0",
-        "vn-toolbox-common"                            : "https://github.com/volusion-angular/vn-toolbox-common.git",
+        "vn-toolbox-common"                            : "*",
         "vn-toolbox-ecomm"                             : "https://github.com/volusion-angular/vn-toolbox-ecomm.git"
     },
     "devDependencies": {
