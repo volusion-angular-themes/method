@@ -16,15 +16,16 @@ angular.module('Volusion.directives')
 				link    : function postLink(scope, element) {
 
 					var timerHide,
-						trigger = element.parent().parent();  // <li>
+						triggerHover = angular.element(element.parent().find('a')[0]);  // target category anchor (first <a> in <li>)
 
-					trigger.bind('mouseenter', function() {
+					triggerHover.bind('mouseenter', function() {
 							element.show();
+							$timeout.cancel( timerHide );
 						})
 						.bind('mouseleave', function() {
 							timerHide = $timeout(function () {
 								element.hide();
-							}, 1);
+							}, 100);
 						})
 						.bind('click', function() {
 							element.show();
@@ -35,7 +36,9 @@ angular.module('Volusion.directives')
 							$timeout.cancel( timerHide );
 						})
 						.bind('mouseleave', function() {
-							element.hide();
+							timerHide = $timeout(function () {
+								element.hide();
+							}, 100);
 						});
 
 					/* jshint unused:false */
