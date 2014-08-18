@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', 'Cart',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, Cart) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart) {
 
 			'use strict';
 
@@ -103,20 +103,26 @@ angular.module('Volusion.controllers')
 			}
 
 			function setPopover () {
+				var missedOpt = '';
+
 				$scope.popoverText = '';
 				$scope.buttonDisabled = false;
 
 				var missedOptions = findRequiredOptionsAreSelected($scope.product.options);
 				if (missedOptions.length > 0) {
 					for (var idx = 0; idx < missedOptions.length; idx++) {
-						$scope.popoverText += $filter('uppercase')(missedOptions[idx]);
+						missedOpt += $filter('uppercase')(missedOptions[idx]);
 
 						if (idx !== missedOptions.length - 1) {
-							$scope.popoverText += ' and ';
+							missedOpt += $filter('translate')('common.and');
 						}
 					}
 
-					$scope.popoverText = 'Please select ' + $scope.popoverText + ' to add this to your cart';
+					$translate('product.addToCartMissing', { missingOptions: missedOpt })
+						.then(function (result) {
+							$scope.popoverText = result;
+						});
+
 					$scope.buttonDisabled = true;
 
 					return;
@@ -138,7 +144,7 @@ angular.module('Volusion.controllers')
 				}
 
 				if (!selectionAvailable) {
-					$scope.popoverText = 'Sorry, this product is not in stock';
+					$scope.popoverText = $filter('translate')('product.addToCartNotInStock');
 					$scope.buttonDisabled = true;
 
 					return;

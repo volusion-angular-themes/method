@@ -43,7 +43,8 @@ angular.module('Volusion.controllers')
 					$scope.headerState = state;
 				},true);
 
-			// Add translation
+			// Add translations
+			translate.addParts('common');
 			translate.addParts('header');
 
 			$scope.getCartItemsCount = function () {
