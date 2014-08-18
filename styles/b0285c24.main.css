@@ -8102,18 +8102,17 @@ button.close {
   position: relative;
   margin: 0 auto;
   padding: 8px 35px 8px 14px;
-  margin: 5px 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #FCF8E3;
   border: 1px solid #FBEED5;
+  border-radius: 4px;
   height: inherit;
   font-size: 14px;
   font-weight: bold;
   line-height: 32px;
   color: #000000;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 0 #FFFFFF;
   line-height: 32px;
-  border-radius: 4px;
-  box-shadow: #777777 0 0 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/vn\/_alert\.scss}line{font-family:\0000327}}
 .th-alert-container .alert.alert-success {
