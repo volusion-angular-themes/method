@@ -1,11 +1,13 @@
 {
 	"product": {
+		"writeReview": "Write Review &gt;",
+		"addToFavorites": "Add to Favorites &gt;",
 		"regularPriceLabel": "Reg",
 		"nowPriceLabel": "Now",
 		"addToCart": "Add to Cart",
-		"addToCartMissing": "Please select {missingOptions} to add this to your cart",
-		"addToCartNotInStock": "Sorry, this product is not in stock",
+		"loadMore": "Load More",
 		"reviews": "Reviews",
+		"quickView": "Quick View",
 		"readAllReviews": "Read All Reviews &gt;",
 		"writeAReview": "Write a Review &gt;",
 		"wasThisReviewHelpfulToYou": "Was this review helpful for you?",

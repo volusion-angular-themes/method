@@ -1,8 +1,13 @@
 {
 	"header": {
 		"toggleNavigation"      : "Toggle Navigation",
+		"promo"                 : "Free shipping on all orders over $99!",
 		"myCart"                : "My Bag",
 		"signIn"                : "Sign In",
+		"createAccount"         : "Create Account",
+		"myFavorites"           : "My Favorites",
+		"signUpForNewsletter"   : "Sign-Up for Our Newsletter",
+		"newsletterSignUpButton": "Go",
 		"smartNavMoreLinkText"  : "More"
 	}
 }
