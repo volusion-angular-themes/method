@@ -86,21 +86,26 @@
 							<span class="th-my-cart__number">{{ getCartItemsCount() }}</span>
 						</a>
 					</div>
-					<!--
-						current AngularJS have problem with angular-ui's alert directive
-						{{ alert.type }} will be interpolated correctly but ng-class will always pick "alert-warning"
-					-->
-					<!--<div class="th-alert-container" ng-show="alert !== null">-->
-						<!--<alert type="{{ alert.type }}" close="closeAlert()">{{ alert.msg }}</alert>-->
-					<!--</div>-->
-					<div class="th-alert-container" ng-if="alert !== null && alert.type === 'success'">
-						<alert type="success" close="closeAlert()">{{ alert.msg }}</alert>
-					</div>
-					<div class="th-alert-container" ng-if="alert !== null && alert.type === 'danger'">
-						<alert type="danger" close="closeAlert()">{{ alert.msg }}</alert>
-					</div>
-					<div class="th-alert-container" ng-if="alert !== null && alert.type === 'warning'">
-						<alert type="warning" close="closeAlert()">{{ alert.msg }}</alert>
+
+					<div class="th-alert-container">
+						<div data-ng-repeat="alert in alerts">
+							<!--
+								current AngularJS have problem with angular-ui's alert directive
+								{{ alert.type }} will be interpolated correctly but ng-class will always pick "alert-warning"
+							-->
+							<!--<div class="th-alert-container" ng-show="alert !== null">-->
+							<!--<alert type="{{ alert.type }}" close="closeAlert()">{{ alert.msg }}</alert>-->
+							<!--</div>-->
+							<div ng-if="alert !== null && alert.type === 'success'">
+								<alert type="success" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
+							</div>
+							<div ng-if="alert !== null && alert.type === 'danger'">
+								<alert type="danger" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
+							</div>
+							<div ng-if="alert !== null && alert.type === 'warning'">
+								<alert type="warning" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

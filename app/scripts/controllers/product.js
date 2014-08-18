@@ -362,7 +362,7 @@ angular.module('Volusion.controllers')
 						$scope.cartItem.qty = 0;
 
 						var vnMsg = $filter('translate')('message.addToCartSuccess');
-						$rootScope.$emit('vnNotification.show', { type: 'success', time: 100000, msg: vnMsg });
+						$rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
 
 					}, function (response) {
 						var vnMsg = '';
@@ -375,7 +375,7 @@ angular.module('Volusion.controllers')
 							} catch (ex) {
 								vnMsg = $filter('translate')('message.unknown');
 							}
-                            $rootScope.$emit('vnNotification.show', { type: 'danger', time: 100000, msg: vnMsg });
+                            $rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
                         }
                         if (response.warnings && response.warnings.length > 0) {
 							// Multiple warning handling ?
@@ -385,7 +385,7 @@ angular.module('Volusion.controllers')
 							} catch (ex) {
 								vnMsg = $filter('translate')('message.unknown');
 							}
-							$rootScope.$emit('vnNotification.show', { type: 'warning', time: 100000, msg: vnMsg });
+							$rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
                         }
 //						$rootScope.$emit('VN_ADD_TO_CART_FAIL', {
 //							status: status,
