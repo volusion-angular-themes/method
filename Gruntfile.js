@@ -192,10 +192,20 @@ module.exports = function(grunt) {
 							src: [
 								'.tmp',
 								'<%= yeoman.dist %>/*',
-								'!<%= yeoman.dist %>/.git*',
-								'<%= yeoman.app %>/scripts/config.js'
+								'!<%= yeoman.dist %>/.git*'//,
+//								'<%= yeoman.app %>/scripts/config.js'
 							]
 						}
+				]
+			},
+			config: {
+				files: [
+					{
+						dot: true,
+						src: [
+							'<%= yeoman.app %>/scripts/config.js'
+						]
+					}
 				]
 			},
 			server: '.tmp'
@@ -538,6 +548,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', function(target) {
 		grunt.task.run([
 			'clean:dist',
+			'clean:configure',
 			'newer:jshint:all',
 			'configure:' + target,
 			'test',
