@@ -23,8 +23,6 @@ angular.module('Volusion.controllers')
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 
-					console.log('cursor info: ', $scope.cursor);
-
 					// Post response UI Setup
 					$scope.checkFacetsAndCategories(response.categories,response.facets);
 				});

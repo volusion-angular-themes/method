@@ -31,8 +31,6 @@ angular.module('methodApp')
 					$scope.categoryList = response.categories;
 					$scope.cursor = response.cursor;
 
-					console.log('cursor info: ', $scope.cursor);
-
 					// Post response UI Setup
 					$scope.checkFacetsAndCategories(response.categories,response.facets);
 					$scope.searchTerms = vnProductParams.getSearchText() || 'All Products';
