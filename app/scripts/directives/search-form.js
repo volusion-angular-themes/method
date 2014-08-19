@@ -12,7 +12,9 @@ angular.module('methodApp')
 			templateUrl: 'views/partials/search-form.html',
 			restrict   : 'AE',
 			link       : function postLink(scope, element) {
-				console.log(scope, element);
+				element.bind('click', function () {
+					element.find('input').focus();
+				});
 			}
 		};
 	});
