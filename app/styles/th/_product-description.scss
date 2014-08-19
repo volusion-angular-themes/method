@@ -2,11 +2,20 @@
 	clear       : both;
 	padding-top : 15px;
 
+	&__accordion-text {
+		font-size: 1.4rem;
+	}
+
 	.panel-heading {
 		font-size      : 1.5rem;
 		letter-spacing : 1px;
 		padding-top    : 14px;
 		padding-bottom : 14px;
+	}
+
+	.collapsing,
+	.collapse.in {
+		border-top: 1px solid $panel-default-border;
 	}
 
 	.accordion-toggle, .glyphicon {
