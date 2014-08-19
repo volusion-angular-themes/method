@@ -9505,8 +9505,13 @@ Animation for products as facets of search are applied. [rough draft]
 .th-product-info .accordion-toggle, .th-product-info .glyphicon {
   cursor: pointer;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000316}}
+.th-product-info .panel-body {
+  padding: 10px 15px;
+  line-height: 2.0rem;
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000322}}
 .panel-group .panel + .panel {
   margin: 0;
   border-top: 0;
@@ -9531,7 +9536,7 @@ Animation for products as facets of search are applied. [rough draft]
 .th-product-details__title {
   text-transform: uppercase;
   font-family: "robotocondensed-regular";
-  font-size: 1.9rem;
+  font-size: 3.1rem;
   text-align: left;
   line-height: 22px;
   padding: 2px 0;
@@ -9543,7 +9548,14 @@ Animation for products as facets of search are applied. [rough draft]
     line-height: 34px;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-details\.scss}line{font-family:\0000337}}
+@media only screen and (max-width: 991px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-details\.scss}line{font-family:\0000319}}
+  .th-product-details__title {
+    font-size: 3.1rem;
+    text-align: center;
+  }
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-details\.scss}line{font-family:\0000342}}
 .th-product-details__title--tablet {
   font-family: "robotocondensed-regular";
   font-size: 3.2rem;
@@ -9580,6 +9592,7 @@ Animation for products as facets of search are applied. [rough draft]
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000331}}
 .th-product-view__alts {
   text-align: center;
+  margin-top: 15px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_quantity-counter\.scss}line{font-family:\000031}}
@@ -9805,7 +9818,7 @@ Animation for products as facets of search are applied. [rough draft]
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_social-icons\.scss}line{font-family:\000031}}
 .th-social {
   clear: both;
-  padding: 26px 0 20px;
+  padding: 10px 0;
   text-align: center;
 }
 
@@ -9823,7 +9836,7 @@ Animation for products as facets of search are applied. [rough draft]
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_social-icons\.scss}line{font-family:\0000324}}
   .th-social__icon {
-    margin: 0 6px;
+    margin: 0px 6px 0px 0px;
   }
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\000036}}
