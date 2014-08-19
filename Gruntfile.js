@@ -488,16 +488,31 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.registerTask('configure', function(target) {
+
+		// Add additional targets according to environment variables
+		if (target === 'dist') {
+			grunt.log.write('TARGET is set to [DIST]');
+			grunt.task.run(['ngconstant:production']);
+		} else {
+			// default build
+			// if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
+			grunt.task.run(['ngconstant:samplestore']);
+			grunt.log.write('TARGET is set to [SAMPLESTORE]');
+			//}
+		}
+	});
+
 	grunt.registerTask('serve', function(target) {
 		if (target === 'dist') {
-			return grunt.task.run(['build', 'connect:dist:keepalive']);
+			return grunt.task.run(['build:dist', 'connect:dist:keepalive']);
 		}
 
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
 			'compass:server',
-			'ngconstant:samplestore',
+			'configure:' + target,
 			'autoprefixer',
 			'htmlmin:server',
 			'connect:livereload',
@@ -510,62 +525,38 @@ module.exports = function(grunt) {
 		grunt.task.run(['serve:' + target]);
 	});
 
-	grunt.registerTask('test', function(target) {
+	grunt.registerTask('test', function() {
 		grunt.task.run([
 			'clean:server',
 			'compass:server',
 			'autoprefixer',
-		]);
-
-		// Add additional targets according to environment variables
-		if (target === undefined || target === '' || target === 'samplestore') {
-			grunt.task.run(['ngconstant:samplestore']);
-		} else if (target === 'dist') {
-			grunt.task.run(['ngconstant:production']);
-		}
-
-		grunt.task.run([
 			'connect:test',
 			'karma'
 		]);
 	});
 
-	grunt.registerTask('build_only', [
-		'wiredep',
-		'useminPrepare',
-		'compass:dist',
-		'imagemin',
-		'svgmin',
-		'autoprefixer',
-		'concat:generated',
-		'html2js',
-		'concat:templates',
-		'ngAnnotate',
-		'copy:dist',
-		'cssmin',
-		'uglify',
-		'rev',
-		'usemin',
-		'htmlmin:dist'
-	]);
-
-	//
 	grunt.registerTask('build', function(target) {
 		grunt.task.run([
 			'clean:dist',
-			'newer:jshint:all'
-		]);
-
-		// Add additional targets according to environment variables
-		if (target === undefined || target === '' || target === 'samplestore') {
-			grunt.task.run(['ngconstant:samplestore']);
-		} else if (target === 'dist') {
-			grunt.task.run(['ngconstant:production']);
-		}
-
-		grunt.task.run([
-			'test:dist',
-			'build_only'
+			'newer:jshint:all',
+			'configure:' + target,
+			'test',
+			'wiredep',
+			'useminPrepare',
+			'compass:dist',
+			'imagemin',
+			'svgmin',
+			'autoprefixer',
+			'concat:generated',
+			'html2js',
+			'concat:templates',
+			'ngAnnotate',
+			'copy:dist',
+			'cssmin',
+			'uglify',
+			'rev',
+			'usemin',
+			'htmlmin:dist'
 		]);
 	});
 

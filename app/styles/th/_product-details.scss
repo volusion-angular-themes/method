@@ -19,7 +19,7 @@
 	&__title {
 		text-transform : uppercase;
 		font-family    : $font-family-condensed-reg;
-		font-size      : 1.9rem;
+		font-size      : 3.1rem;
 		text-align     : left;
 		line-height    : 22px;
 		padding        : 2px 0;
@@ -28,6 +28,11 @@
 			font-size    : 3.1rem;
 			line-height  : 34px;
 		}
+
+        @include respond-to(sm-and-down) {
+            font-size    : 3.1rem;
+            text-align: center;
+        }
 
 		a:hover {
 			@extend %animate-all-default;
