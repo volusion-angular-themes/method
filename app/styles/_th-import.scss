@@ -1,14 +1,14 @@
 // Components import
 
 // Volusion Components
-@import 'th/vn/alert';
-@import 'th/vn/dropzone';
-@import 'th/vn/labeled-radio';
-@import 'th/vn/product-option';
-@import 'th/vn/showcase';
-@import 'th/vn/slider';
-@import 'th/vn/zoom';
-@import 'th/vn/faceted-search';
+@import 'th/overrides/alert';
+@import 'th/overrides/dropzone';
+@import 'th/overrides/labeled-radio';
+@import 'th/overrides/product-option';
+@import 'th/overrides/showcase';
+@import 'th/overrides/slider';
+@import 'th/overrides/zoom';
+@import 'th/overrides/faceted-search';
 
 // Sprites imported first so they can be used in other classes
 @import 'th/sprites-social';
