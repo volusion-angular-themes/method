@@ -27,7 +27,7 @@ angular.module('Volusion.services')
 			}
 
 			function getCartItemsCount() {
-				if (cart.totals === undefined) {
+				if (cart === undefined || cart.totals === undefined) {
 					return 0;
 				}
 

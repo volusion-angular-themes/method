@@ -6,8 +6,9 @@ angular.module('Volusion.services')
 		vnDataEndpointProvider.setApiUrl(ENV.apiEndpoint);
 
 		// Private variables
-		var apiUrl = ENV.apiEndpoint,
-			isLocalEnv = true,              // Boolean - will be set during config
+		var apiHost = ENV.host,
+			apiUrl = ENV.host + ENV.apiEndpoint,
+			isLocalEnv = (ENV.host === '') ? false : true,              // if host is empty assume is PROD (use relative path)
 			disableTranslations = false,
 			urlPrefix = '',
 			region = 'us',
@@ -19,6 +20,11 @@ angular.module('Volusion.services')
 			this.AppConfig = function () {
 				return this;
 			};
+
+			this.getApiHost = function () {
+				return apiHost;
+			};
+
 		}
 
 		this.getIsLocalEnv = function () {

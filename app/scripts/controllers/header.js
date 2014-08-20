@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', '$filter', 'translate', 'Cart', 'vnApi', 'ContentMgr',
-		function ($rootScope, $scope, $window, $timeout, $filter, translate, Cart, vnApi, ContentMgr) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', '$filter', 'translate', 'Cart', 'vnApi', 'ContentMgr', 'AppConfig',
+		function ($rootScope, $scope, $window, $timeout, $filter, translate, Cart, vnApi, ContentMgr, AppConfig) {
 
 			'use strict';
 
@@ -52,10 +52,13 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.viewCart = function() {
+
+				var host = AppConfig.getApiHost();
+
 				if ($rootScope.isInDesktopMode) {
-					return '/shoppingcart.asp';
+					return host + '/shoppingcart.asp';
 				} else {
-					return '/checkout.asp';
+					return host + '/checkout.asp';
 				}
 			};
 		}]);

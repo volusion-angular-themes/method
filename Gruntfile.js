@@ -42,7 +42,8 @@ module.exports = function(grunt) {
 				constants: {
 					ENV: {
 						name: 'samplestore',
-						apiEndpoint: 'http://www.samplestore.io/api/v1'
+						host: 'http://www.samplestore.io',
+						apiEndpoint: '/api/v1'
 					}
 				}
 			},
@@ -53,6 +54,7 @@ module.exports = function(grunt) {
 				constants: {
 					ENV: {
 						name: 'production',
+						host: '',
 						apiEndpoint: '/api/v1'
 					}
 				}
