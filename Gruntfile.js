@@ -198,7 +198,7 @@ module.exports = function(grunt) {
 						}
 				]
 			},
-			config: {
+			configure: {
 				files: [
 					{
 						dot: true,
@@ -378,7 +378,7 @@ module.exports = function(grunt) {
 			options: {
 				collapseWhitespace: true,
 				collapseBooleanAttributes: true,
-				removeCommentsFromCDATA: true,
+				removeCommentsFromCDATA: true
 //				removeOptionalTags: true // This option breaks livereload when used.
 			},
 			server: {
