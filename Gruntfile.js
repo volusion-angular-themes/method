@@ -1,6 +1,8 @@
 // Generated on 2014-06-16 using generator-angular 0.8.0
 'use strict';
 
+// test comment
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
