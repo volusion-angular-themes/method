@@ -34,25 +34,25 @@
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
 						"headline"   : "NewYearSaleathon",
 						"subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-						"linksTo"    : "/p/board-shorts"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
 						"headline"   : "NewSunriseCollection",
 						"subHeadline": "Wakeuptosomethinggood",
-						"linksTo"    : "/c/gourmet-food"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
 						"headline"   : "MiamiFashion",
 						"subHeadline": null,
-						"linksTo"    : "/p/board-shorts"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
 						"headline"   : "MiamiFashion",
 						"subHeadline": null,
-						"linksTo"    : "/p/patent-dress-shoe"
+						"linksTo"    : "/all-products"
 					}
 				]
 			},
@@ -61,27 +61,27 @@
 				"tiles"    : {
 					"tile1": {
 						"imageUrl": "/images/homepage/tile1.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile2": {
 						"imageUrl": "/images/homepage/tile2.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile3": {
 						"imageUrl": "/images/homepage/tile3.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile4": {
 						"imageUrl": "/images/homepage/tile4.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile5": {
 						"imageUrl": "/images/homepage/tile5.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile6": {
 						"imageUrl": "/images/homepage/tile6.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					}
 				}
 			}
