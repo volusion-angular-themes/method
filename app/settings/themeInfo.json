@@ -1,16 +1,20 @@
 {
-    "name": "Method",
-    "files": {
-        "cssOverrides": "/styles",
-        "language": "/translations"
-    },
-    "version": "0.0.11",
-    "source": "https://github.com/volusion-angular-themes/method/archive/v0.0.11.zip",
+	"name": "Method",
+	"files": {
+		"cssOverrides": "/styles",
+		"language": "/translations"
+	},
+	"version": "0.0.20",
+	"source": "https://github.com/volusion-angular-themes/method/archive/v0.0.11.zip",
+	"thumbnail": {
+		"small": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/method/method-small.jpg",
+		"large": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/method/method-large.jpg"
+	},
 	"matchingLegacyTemplateId": "method",
 	"mobileCheckoutCssOverrides": "",
-    "features": {
-        "responsive": true,
-        "myRewards": false,
-        "VAT": false
-    }
+	"features": {
+		"responsive": true,
+		"myRewards": false,
+		"VAT": false
+	}
 }
