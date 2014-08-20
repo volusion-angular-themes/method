@@ -47,6 +47,18 @@ module.exports = function(grunt) {
 					}
 				}
 			},
+			mybox: {
+				options: {
+					dest: '<%= yeoman.app %>/scripts/config.js'
+				},
+				constants: {
+					ENV: {
+						name: 'mybox',
+						host: 'http://txlpt374-vm.corp.volusion.com',
+						apiEndpoint: '/api/v1'
+					}
+				}
+			},
 			production: {
 				options: {
 					dest: '<%= yeoman.app %>/scripts/config.js'
@@ -506,12 +518,14 @@ module.exports = function(grunt) {
 		if (target === 'dist') {
 			grunt.log.write('TARGET is set to [DIST]');
 			grunt.task.run(['ngconstant:production']);
-		} else {
-			// default build
-			// if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
+		} else if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
+			//default build
 			grunt.task.run(['ngconstant:samplestore']);
 			grunt.log.write('TARGET is set to [SAMPLESTORE]');
-			//}
+		} else {
+			//specific build
+			grunt.task.run(['ngconstant:' + target ]);
+			grunt.log.write('TARGET is set to [' + target + ']');
 		}
 	});
 
