@@ -47,7 +47,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "bower install && bundle",
+    "postinstall": "bower install && bundle && grunt configure",
     "test": "grunt test"
   }
 }

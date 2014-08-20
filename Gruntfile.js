@@ -192,10 +192,20 @@ module.exports = function(grunt) {
 							src: [
 								'.tmp',
 								'<%= yeoman.dist %>/*',
-								'!<%= yeoman.dist %>/.git*',
-								'<%= yeoman.app %>/scripts/config.js'
+								'!<%= yeoman.dist %>/.git*'//,
+//								'<%= yeoman.app %>/scripts/config.js'
 							]
 						}
+				]
+			},
+			configure: {
+				files: [
+					{
+						dot: true,
+						src: [
+							'<%= yeoman.app %>/scripts/config.js'
+						]
+					}
 				]
 			},
 			server: '.tmp'
@@ -368,7 +378,7 @@ module.exports = function(grunt) {
 			options: {
 				collapseWhitespace: true,
 				collapseBooleanAttributes: true,
-				removeCommentsFromCDATA: true,
+				removeCommentsFromCDATA: true
 //				removeOptionalTags: true // This option breaks livereload when used.
 			},
 			server: {
@@ -538,6 +548,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', function(target) {
 		grunt.task.run([
 			'clean:dist',
+			'clean:configure',
 			'newer:jshint:all',
 			'configure:' + target,
 			'test',
