@@ -3,8 +3,6 @@
 angular.module('Volusion.services')
 	.provider('AppConfig', ['ENV', 'vnDataEndpointProvider', function (ENV, vnDataEndpointProvider) {
 
-		vnDataEndpointProvider.setApiUrl(ENV.apiEndpoint);
-
 		// Private variables
 		var apiHost = ENV.host,
 			apiUrl = ENV.host + ENV.apiEndpoint,
@@ -14,6 +12,8 @@ angular.module('Volusion.services')
 			region = 'us',
 			lang = 'en',
 			country = 'us';
+
+		vnDataEndpointProvider.setApiUrl(apiUrl);
 
 		// Private constructor
 		function AppConfig() {
