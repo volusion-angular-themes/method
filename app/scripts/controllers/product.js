@@ -196,8 +196,8 @@ angular.module('Volusion.controllers')
 				.then(function (response) {
 					$scope.product = response.data;
 
-					var fullUrl = $location.absUrl(),
-						pageTitle = $scope.seo.metaTagTitle;
+					var fullUrl = encodeURIComponent($location.absUrl()),
+						pageTitle = encodeURIComponent($scope.seo.metaTagTitle);
 
 					// Sharing
 					$scope.product.sharing = {
