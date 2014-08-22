@@ -196,12 +196,12 @@ angular.module('Volusion.controllers')
 				.then(function (response) {
 					$scope.product = response.data;
 
-					var fullUrl = $location.absUrl(),
-						pageTitle = $scope.seo.metaTagTitle;
+					var fullUrl = encodeURIComponent($location.absUrl()),
+							pageTitle = encodeURIComponent($scope.seo.metaTagTitle);
 
 					// Sharing
 					$scope.product.sharing = {
-						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '/',
+						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '&amp;t=' + pageTitle,
 						twitter   : 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
 						tumblr    : 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
 						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
