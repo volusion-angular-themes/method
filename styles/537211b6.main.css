@@ -8432,6 +8432,17 @@ button.close {
 .vn-faceted-search .facet-property__swatch--color {
   height: 25px;
   width: 25px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000323}}
+.vn-faceted-search .panel-heading {
+  border-top: 1px solid #ddd;
+  background-color: transparent;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000328}}
+.vn-faceted-search .panel-default {
+  border: 0px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/sprites\/social\/\*\.png}line{font-family:\00003104}}
