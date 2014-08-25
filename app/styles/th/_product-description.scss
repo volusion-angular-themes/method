@@ -11,12 +11,17 @@
 		letter-spacing : 1px;
 		padding-top    : 14px;
 		padding-bottom : 14px;
+        background-color: transparent;
+        border-bottom: 0px;
 	}
 
-	.collapsing,
-	.collapse.in {
+	.collapse {
 		border-top: 1px solid $panel-default-border;
 	}
+
+    .collapse.in {
+        border-top: 0px;
+    }
 
 	.accordion-toggle, .glyphicon {
 		cursor : pointer;
