@@ -48,7 +48,8 @@ label {
 		outline: 0;
 	}
 
-	&.btn-primary {
+	&.btn-primary,
+	&.btn-success {
 		@extend %font-smoothing;
 	}
 
