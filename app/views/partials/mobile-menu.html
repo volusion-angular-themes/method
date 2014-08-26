@@ -32,6 +32,11 @@
 					{{category.name}}
 				</a>
 				<ul class="dropdown-menu th-mobile-list th-mobile-list--sub" data-ng-if="category.subCategories.length">
+                    <li>
+                        <a data-ng-href="{{category.url}}" class="th-mobile-list__link th-mobile-list__link--sub">
+                            All {{category.name}}
+                        </a>
+                    </li>
 					<li data-ng-repeat="subCategory in category.subCategories">
 						<a class="th-mobile-list__link th-mobile-list__link--sub"
 						   data-ng-href="{{subCategory.url}}">{{subCategory.name}}</a>
