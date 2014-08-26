@@ -20,7 +20,7 @@
 			}
 		],
 		"facets": {
-			"color-shade": "light",
+			"colorShade": "light",
 			"colors": ["white","black","red"],
 			"styles": ["modern","sleek","minimalist"]
 		},
