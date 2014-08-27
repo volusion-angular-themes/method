@@ -8432,17 +8432,6 @@ button.close {
 .vn-faceted-search .facet-property__swatch--color {
   height: 25px;
   width: 25px;
-  border: 1px solid black;
-  border-radius: 2px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000323}}
-.vn-faceted-search .panel-heading {
-  border-top: 1px solid #ddd;
-  background-color: transparent;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000328}}
-.vn-faceted-search .panel-default {
-  border: 0px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/sprites\/social\/\*\.png}line{font-family:\00003104}}
@@ -8683,45 +8672,7 @@ button.close {
   color: #f63e34;
 }
 
-/*
-Animation for products as facets of search are applied. [rough draft]
-- TODO : Figure out why this breaks animation when nesting it.
-- Determine if this default behavior is theme or toolbox responsibility
-- Add a line to see what happens
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\000037}}
-.-product-tile-animation.ng-enter,
-.-product-tile-animation.ng-leave {
-  transition: 100ms ease-out all;
-}
-
-/* ending enter and move styling
-   (this is what the element will animate from */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000315}}
-.-product-tile-animation.ng-enter {
-  opacity: 0;
-}
-
-/* ending enter and move styling
-   (this is what the element will animate towards */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000321}}
-.-product-tile-animation.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-/* starting leave animation */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000326}}
-.-product-tile-animation.ng-leave {
-  opacity: 1;
-}
-
-/* ending leave animation */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000331}}
-.-product-tile-animation.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\000031}}
 .categories {
   min-height: 400px;
 }
@@ -9515,28 +9466,23 @@ Animation for products as facets of search are applied. [rough draft]
   letter-spacing: 1px;
   padding-top: 14px;
   padding-bottom: 14px;
-  background-color: transparent;
-  border-bottom: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000318}}
-.th-product-info .collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000316}}
+.th-product-info .collapsing,
+.th-product-info .collapse.in {
   border-top: 1px solid #ddd;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000322}}
-.th-product-info .collapse.in {
-  border-top: 0px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000321}}
 .th-product-info .accordion-toggle, .th-product-info .glyphicon {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000325}}
 .th-product-info .panel-body {
-  padding: 0px 15px 10px 15px;
+  padding: 10px 15px;
   line-height: 2.0rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000331}}
 .panel-group .panel + .panel {
   margin: 0;
   border-top: 0;
@@ -9589,24 +9535,25 @@ Animation for products as facets of search are applied. [rough draft]
   padding: 30px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\000031}}
-.th-product-view {
-  text-align: center;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-grid\.scss}line{font-family:\000032}}
+.product-grid .mix {
+  display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\000034}}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\000032}}
 .th-product-view__image {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\000037}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\000035}}
 .th-product-view__image img {
   display: block;
   margin: 0 auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000312}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000310}}
 .th-product-view__image:hover {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000315}}
 .th-product-view__zoom {
   cursor: crosshair;
   position: absolute;
@@ -9614,11 +9561,11 @@ Animation for products as facets of search are applied. [rough draft]
   left: 50%;
   margin: -38.5px 0 0 -38.5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000327}}
 .th-product-view__thumbnail {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-view\.scss}line{font-family:\0000331}}
 .th-product-view__alts {
   text-align: center;
   margin-top: 15px;
