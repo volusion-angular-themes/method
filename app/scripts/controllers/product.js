@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'Preloader',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, Preloader) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'vnImagePreloader',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, vnImagePreloader) {
 
 			'use strict';
 
@@ -182,7 +182,7 @@ angular.module('Volusion.controllers')
 					});
 				});
 
-				Preloader.preloadImages(imagesToPreload);
+				vnImagePreloader.preloadImages(imagesToPreload);
 			}
 
 			function setDefaults() {

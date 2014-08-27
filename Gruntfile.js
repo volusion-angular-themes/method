@@ -580,7 +580,6 @@ module.exports = function(grunt) {
 			'ngAnnotate',
 			'copy:dist',
 			'cssmin',
-			'uglify',
 			'rev',
 			'usemin',
 			'htmlmin:dist'
