@@ -199,19 +199,19 @@
 // TODO Refactor these CSS Classes
 .th-product__container {
 	@include respond-to(sm) {
-		.col-sm-6:nth-of-type(2n+3) {
+		> .col-sm-6:nth-of-type(2n+3) {
 			clear : both;
 		}
 	}
 
 	@include respond-to(md) {
-		.col-md-4:nth-of-type(3n+4) {
+		> .col-md-4:nth-of-type(3n+4) {
 			clear : both;
 		}
 	}
 
 	@include respond-to(lg) {
-		.col-lg-3:nth-of-type(4n+5) {
+		> .col-lg-3:nth-of-type(4n+5) {
 			clear : both;
 		}
 	}
