@@ -17,17 +17,16 @@ angular.module('Volusion.controllers')
 			});
 
 			themeSettings.getThemeSettings().then(function(response) {
-					$scope.themeSettings = response;
-				})
-				.then(function () {
-					var imagesToPreload  = [];
+				$scope.themeSettings = response;
 
-					angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
-						imagesToPreload.push(slide.imageUrl);
-					});
+				var imagesToPreload  = [];
 
-					Preloader.preloadImages(imagesToPreload);
+				angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
+					imagesToPreload.push(slide.imageUrl);
 				});
+
+				Preloader.preloadImages(imagesToPreload);
+			});
 
 			// Smart Nav  *********************************************************
 
