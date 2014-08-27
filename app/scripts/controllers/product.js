@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'Preloader',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, Preloader) {
 
 			'use strict';
 
@@ -171,6 +171,20 @@ angular.module('Volusion.controllers')
 
 			}
 
+			function fetchProductImages () {
+				var imagesToPreload  = [];
+
+				angular.forEach($scope.product.imageCollections, function (collection) {
+					angular.forEach(collection.images, function (imageCollection) {
+						imagesToPreload.push(imageCollection.large);
+						imagesToPreload.push(imageCollection.medium);
+						imagesToPreload.push(imageCollection.small);
+					});
+				});
+
+				Preloader.preloadImages(imagesToPreload);
+			}
+
 			function setDefaults() {
 				var product = $scope.product;
 				product.optionSelection = { option: {selected: 'default'} };
@@ -189,7 +203,7 @@ angular.module('Volusion.controllers')
 				optionsAndSKU = findOptionsAndOptionSKU($scope.product.options).length;
 				findAvailability();
 				setPopover();
-
+				fetchProductImages();
 			}
 
 			vnApi.Product().get({slug: $routeParams.slug }).$promise
