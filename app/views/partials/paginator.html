@@ -1,7 +1,9 @@
 <ul class="pager"
 		data-ng-if="cursor.totalPages > 1">
-	<li data-ng-class="{disabled: cursor.currentPage == 1}"><a href data-ng-click="prevPage()">&laquo;</a></li>
-	<li data-ng-class="{disabled: cursor.currentPage == cursor.totalPages}"><a href data-ng-click="nextPage()">&raquo;</a></li>
+	<li data-ng-class="{disabled: cursor.currentPage == 1}">
+		<a href data-ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+	<li data-ng-class="{disabled: cursor.currentPage == cursor.totalPages}">
+		<a href data-ng-click="nextPage()"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
 </ul>
 
 	<div class="pager">
