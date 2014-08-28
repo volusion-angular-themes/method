@@ -18,14 +18,6 @@ angular.module('Volusion.controllers')
 
 			themeSettings.getThemeSettings().then(function(response) {
 				$scope.themeSettings = response;
-
-				var imagesToPreload  = [];
-
-				angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
-					imagesToPreload.push(slide.imageUrl);
-				});
-
-				vnImagePreloader.preloadImages(imagesToPreload);
 			});
 
 			// Smart Nav  *********************************************************
