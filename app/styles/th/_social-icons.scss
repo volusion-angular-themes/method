@@ -1,27 +1,24 @@
 .th-social {
-	clear: both;
-	padding: 10px 0;
-	text-align: center;
-}
+	clear      : both;
+	padding    : 10px 0;
+	text-align : center;
 
-.th-social__icon {
-	@extend %inline-block;
-	margin: 0 2px;
+	@include respond-to(md-and-up) {
+		text-align   : left;
+		padding-left : 12px;
+	}
 
-  &:hover {
-    @extend %animate-all-default;
-    @extend %opacity-80;
-  }
-}
+	&__icon {
+		@extend %inline-block;
+		margin : 0 2px;
 
-@include respond-to(md-and-up) {
+		@include respond-to(md-and-up) {
+			margin : 0px 6px 0px 0px;
+		}
 
-  .th-social {
-    text-align: left;
-    padding-left: 12px;
-  }
-
-  .th-social__icon {
-    margin: 0px 6px 0px 0px;
-  }
+		&:hover {
+			@extend %animate-all-default;
+			@extend %opacity-80;
+		}
+	}
 }

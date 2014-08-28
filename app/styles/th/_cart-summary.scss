@@ -5,12 +5,12 @@
 	white-space : nowrap;
 
 	@include respond-to(sm) {
-		top: 23px;
+		top : 23px;
 	}
 
 	@include respond-to(md-and-up) {
-		right    : 13px;
-		top      : 29px;
+		right : 13px;
+		top   : 29px;
 	}
 }
 
@@ -22,16 +22,20 @@
 	&__number {
 		color : $brand-info;
 
-		&:before { content : "("; }
-		&:after { content : ")"; }
+		&:before {
+			content : "(";
+		}
+		&:after {
+			content : ")";
+		}
 
 	}
 
 	&__text {
-		color: $link-color;
+		color : $link-color;
 
 		&:hover {
-			color: $link-hover-color;
+			color : $link-hover-color;
 		}
 	}
 }
