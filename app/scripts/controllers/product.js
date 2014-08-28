@@ -211,13 +211,13 @@ angular.module('Volusion.controllers')
 					$scope.product = response.data;
 
 					var fullUrl = encodeURIComponent($location.absUrl()),
-							pageTitle = encodeURIComponent($scope.seo.metaTagTitle);
+							pageTitle = encodeURIComponent($scope.product.name);
 
 					// Sharing
 					$scope.product.sharing = {
-						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '&amp;t=' + pageTitle,
-						twitter   : 'http://twitter.com/share?url=' + fullUrl + '&amp;text=' + pageTitle,
-						tumblr    : 'http://www.tumblr.com/share/link?url=' + fullUrl + '&amp;name=' + pageTitle,
+						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '&t=' + pageTitle,
+						twitter   : 'http://twitter.com/share?url=' + fullUrl + '&text=' + pageTitle,
+						tumblr    : 'http://www.tumblr.com/share/link?url=' +  fullUrl + '&name=' + pageTitle,
 						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
 					};
 
