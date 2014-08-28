@@ -1,22 +1,20 @@
+// If VALUE is empty translate service will return the KEY
 {
-    "message": {
-        "addToCartSuccess": "Item(s) are added to your cart",
-        "addToCartError"  : "ERROR!",
-        "addToCartWarning": "Warning!",
-
-        "unknown" 		  : "Unknown server error",
-        "CART_ITEM_UNAVAILABLE": "",
-        "CART_ITEM_WITH_OPTION_UNAVAILABLE": "",
-        "CART_MAX_ITEM_COUNT_EXCEEDED": "",
-        "CART_ITEM_MIN_ORDER_QTY": "",
-        "CART_ITEM_MAX_ORDER_QTY": "",
-        "CART_ITEM_PREVIOUSLY_ADDED_UNAVAILABLE": "",
-        "CART_ITEM_MINQTY_UNAVAILABLE": "",
-        "CART_ITEM_QTY_ADJUSTED_TO_AVAILABILITY": "",
-        "CART_ITEM_OUT_OF_STOCK": "",
-        "CART_KITITEM_MINQTY_UNAVAILABLE": "",
-        "CART_KITITEM_QTY_ADJUSTED_TO_AVAILABILITY": "",
-        "CART_KITITEM_NO_AVAILABLE_STOCK": "",
-        "CART_KITITEM_OUT_OF_STOCK": ""
-    }
+	"message": {
+		"CART_UNKNOWN"                             : "Unknown server error",
+		"CART_ADD_SUCCESS"                         : "Item(s) are added to your cart",
+		"CART_ITEM_UNAVAILABLE"                    : "",
+		"CART_ITEM_WITH_OPTION_UNAVAILABLE"        : "",
+		"CART_MAX_ITEM_COUNT_EXCEEDED"             : "",
+		"CART_ITEM_MIN_ORDER_QTY"                  : "",
+		"CART_ITEM_MAX_ORDER_QTY"                  : "",
+		"CART_ITEM_PREVIOUSLY_ADDED_UNAVAILABLE"   : "",
+		"CART_ITEM_MINQTY_UNAVAILABLE"             : "",
+		"CART_ITEM_QTY_ADJUSTED_TO_AVAILABILITY"   : "",
+		"CART_ITEM_OUT_OF_STOCK"                   : "",
+		"CART_KITITEM_MINQTY_UNAVAILABLE"          : "",
+		"CART_KITITEM_QTY_ADJUSTED_TO_AVAILABILITY": "",
+		"CART_KITITEM_NO_AVAILABLE_STOCK"          : "",
+		"CART_KITITEM_OUT_OF_STOCK"                : ""
+	}
 }

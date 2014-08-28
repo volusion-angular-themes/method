@@ -368,31 +368,7 @@ angular.module('Volusion.controllers')
 				return path;
 			};
 
-            function displayCartMessages(res) {
-                var vnMsg;
-                var translateFilter = $filter('translate');
-
-                if (res.serviceErrors && res.serviceErrors.length > 0) {
-                    angular.forEach(res.serviceErrors, function(error) {
-                        vnMsg = translateFilter(error.Code);
-                        vnMsg = (vnMsg === error.Code) ? error.Message : vnMsg;
-                        $rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
-                    });
-                }
-                else if (res.warnings && res.warnings.length > 0 ) {
-                    angular.forEach(res.warnings, function(warning) {
-                        vnMsg = translateFilter(warning.Code);
-                        vnMsg = (vnMsg === warning.Code) ? warning.Message : vnMsg;
-                        $rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
-                    });
-                } else {
-                    vnMsg = translateFilter('message.addToCartSuccess');
-                    $rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
-                }
-            }
-
-			$scope.addToCart = function() {
-
+            $scope.addToCart = function() {
 
 				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
 					!findOptionAvailability($scope.product.optionSelection.key)) {
@@ -401,13 +377,34 @@ angular.module('Volusion.controllers')
 				}
 
 				Cart.saveCart($scope.cartItem)
-					.then(function (response) {
+					.then(function () {
 						$scope.cartItem.qty = 0;
-                        displayCartMessages(response.data);
+						var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
+						$rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
 
 					}, function (response) {
                         $scope.cartItem.qty = 0;
-                        displayCartMessages(response.data);
+						var vnMsg;
+						var translateFilter = $filter('translate');
+
+						if (response.serviceErrors && response.serviceErrors.length > 0) {
+							angular.forEach(response.serviceErrors, function(error) {
+								vnMsg = translateFilter(error.Code);
+								// If there is no translation the service will return KEY
+								vnMsg = (vnMsg === error.Code) ? error.Message : vnMsg;
+								$rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
+							});
+						} else if (response.warnings && response.warnings.length > 0 ) {
+							angular.forEach(response.warnings, function(warning) {
+								vnMsg = translateFilter(warning.Code);
+								// If there is no translation the service will return KEY
+								vnMsg = (vnMsg === warning.Code) ? warning.Message : vnMsg;
+								$rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
+							});
+						} else {
+							vnMsg = translateFilter('message.CART_UNKNOWN');
+							$rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
+						}
 					})
 					.finally(function () {
 						modifyQuantity(1);
