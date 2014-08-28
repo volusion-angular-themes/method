@@ -1,26 +1,21 @@
-// Components import
+/* Components import */
 
-// Volusion Components
+// Volusion ToolBox Components
 @import 'th/overrides/alert';
 @import 'th/overrides/dropzone';
 @import 'th/overrides/labeled-radio';
 @import 'th/overrides/product-option';
 @import 'th/overrides/showcase';
 @import 'th/overrides/slider';
+@import 'th/overrides/sort-search';
 @import 'th/overrides/zoom';
 @import 'th/overrides/faceted-search';
-
-// Sprites imported first so they can be used in other classes
-@import 'th/sprites-social';
-@import 'th/sprites-icons';
-@import 'th/sprites-stars';
 
 // Theme Components
 @import 'th/cart-summary';
 @import 'th/category';
 @import 'th/dropdown';
 @import 'th/elist';
-@import 'th/faceted-search';
 @import 'th/footer';
 @import 'th/header';
 @import 'th/home-content';

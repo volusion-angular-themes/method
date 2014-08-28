@@ -6,12 +6,12 @@
 
 	&__availability {
 		font-size : 1.8rem;
-		color: $brand-danger;
+		color     : $brand-danger;
 	}
 
 	&__image {
-		position   : relative;
-		padding    : 7px 0;
+		position : relative;
+		padding  : 7px 0;
 
 		.img-responsive {
 			margin  : 0 auto;
@@ -75,7 +75,6 @@
 			}
 		}
 
-
 		.th-price-text {
 			@include inline-block;
 			font-size   : 1.2rem;
@@ -96,7 +95,9 @@
 		padding     : 30px 0 15px;
 		text-align  : center;
 
-		@include respond-to(sm-and-up) { text-align: left; }
+		@include respond-to(sm-and-up) {
+			text-align : left;
+		}
 
 		.th-price {
 			font-size : 3.0rem;
@@ -115,7 +116,7 @@
 }
 
 .th-related-wrap {
-	clear: both;
+	clear  : both;
 	margin : 0 0 20px;
 
 	.th-product {
@@ -146,10 +147,10 @@
 	.th-related-wrap {
 		.th-product {
 			&__name {
-				height: auto;
+				height : auto;
 			}
 			&__price {
-				line-height: 18px;
+				line-height : 18px;
 			}
 		}
 
@@ -159,8 +160,8 @@
 			margin-left  : 0;
 
 			&:before {
-				content: '\A';
-				white-space: pre;
+				content     : '\A';
+				white-space : pre;
 			}
 		}
 	}
@@ -186,7 +187,7 @@
 
 		.th-product__name,
 		.th-product__price {
-			text-align: center;
+			text-align : center;
 		}
 
 		.th-product__name {
@@ -194,3 +195,33 @@
 		}
 	}
 }
+
+// TODO Refactor these CSS Classes
+.th-product__container {
+	@include respond-to(sm) {
+		> .col-sm-6:nth-of-type(2n+3) {
+			clear : both;
+		}
+	}
+
+	@include respond-to(md) {
+		> .col-md-4:nth-of-type(3n+4) {
+			clear : both;
+		}
+	}
+
+	@include respond-to(lg) {
+		> .col-lg-3:nth-of-type(4n+5) {
+			clear : both;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+

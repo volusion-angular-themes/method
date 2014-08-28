@@ -1,8 +1,11 @@
 .th-product-details {
+	a:hover {
+		@extend %animate-all-default;
+	}
 
 	&__add-to-cart {
 		@extend %font-smoothing;
-		padding: 4px 15px;
+		padding : 4px 15px;
 	}
 
 	&__availability {
@@ -17,33 +20,22 @@
 	}
 
 	&__title {
-		text-transform : uppercase;
 		font-family    : $font-family-condensed-reg;
 		font-size      : 3.1rem;
-		text-align     : left;
 		line-height    : 22px;
 		padding        : 2px 0;
-
-		@include respond-to(md-and-up) {
-			font-size    : 3.1rem;
-			line-height  : 34px;
-		}
-
-        @include respond-to(sm-and-down) {
-            font-size    : 3.1rem;
-            text-align: center;
-        }
-
-		a:hover {
-			@extend %animate-all-default;
-		}
-	}
-
-	&__title--tablet {
-		font-family    : $font-family-condensed-reg;
-		font-size  : 3.2rem;
 		text-align : center;
 		text-transform : uppercase;
-		padding    : 30px 0;
+
+		@include respond-to(sm) {
+			font-size   : 3.2rem;
+			line-height : normal;
+			padding     : 30px 0;
+		}
+
+		@include respond-to(md-and-up) {
+			line-height : 34px;
+			text-align  : left;
+		}
 	}
 }

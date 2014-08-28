@@ -1,63 +1,62 @@
 .th-search {
-	height    : 48px;
-	margin-top: 15px;
-	min-width : 48px;
-	padding   : 0 10px;
-	position  : relative;
+	height     : 48px;
+	margin-top : 15px;
+	min-width  : 48px;
+	padding    : 0 10px;
+	position   : relative;
 
-  @include respond-to(md-and-up) {
-    @include inline-block;
-		border       : 0;
-		height       : 46px;
-		margin       : 0;
-		padding      : 0;
-  }
+	@include respond-to(md-and-up) {
+		@include inline-block;
+		border  : 0;
+		height  : 46px;
+		margin  : 0;
+		padding : 0;
+	}
 
-  &__input {
-		background  : transparent;
-		border-color: 1px solid $hr-border;
-		cursor      : pointer;
-		height      : 48px;
-		padding     : 10px;
-		width       : 100%;
+	&__input {
+		background   : transparent;
+		border-color : 1px solid $hr-border;
+		cursor       : pointer;
+		height       : 48px;
+		padding      : 10px;
+		width        : 100%;
 
-    @include respond-to(md-and-up) {
-			border-color: transparent;
-			height      : 40px;
-			position    : absolute;
-			right       : 8px;
-			text-indent : -99px;
-			top         : 3px;
-			width       : 48px;
-			z-index     : 3;
+		@include respond-to(md-and-up) {
+			border-color : transparent;
+			height       : 40px;
+			position     : absolute;
+			right        : 8px;
+			text-indent  : -99px;
+			top          : 3px;
+			width        : 48px;
+			z-index      : 3;
 		}
 
-    &:focus {
+		&:focus {
+			outline : none;
 
-      outline: none;
+			@include respond-to(md-and-up) {
+				@include single-transition(all, 200ms, ease);
+				border-color : $hr-border;
+				text-indent  : 0;
+				width        : 200px;
+				z-index      : 1;
+			}
+		}
+	}
 
-      @include respond-to(md-and-up) {
-        @include single-transition(all, 200ms, ease);
-				border-color: $hr-border;
-				text-indent : 0;
-				width       : 200px;
-				z-index     : 1;
-      }
-    }
-  }
+	&__submit {
+		background : transparent;
+		border     : 0;
+		position   : absolute;
+		right      : 19px;
+		top        : 14px;
+		z-index    : 2;
 
-  &__submit {
-		background: transparent;
-		border    : 0;
-		position  : absolute;
-		right     : 19px;
-		top       : 14px;
-		z-index   : 2;
-
-    @include respond-to(md-and-up) {
-			right: 13px;
-			top  : 15px;
-    }
-  }
+		@include respond-to(md-and-up) {
+			right : 13px;
+			top   : 15px;
+		}
+	}
 
 }

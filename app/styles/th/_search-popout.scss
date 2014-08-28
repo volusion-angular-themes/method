@@ -3,7 +3,7 @@
 
 	&__trigger {
 		@extend %inline-block;
-		color: $navbar-default-link-color;
+		color    : $navbar-default-link-color;
 		cursor   : pointer;
 		left     : 7px;
 		padding  : 0;
@@ -20,13 +20,14 @@
 		@extend %inline-block;
 		border      : 1px solid $hr-border;
 		height      : 28px;
+		outline     : 0;
 		text-indent : 21px;
 	}
 
 	&__submit {
 		@extend %inline-block;
-		height : 28px;
-		letter-spacing: 1.2px;
+		height         : 28px;
+		letter-spacing : 1.2px;
 	}
 
 }
