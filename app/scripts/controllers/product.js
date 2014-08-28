@@ -176,9 +176,9 @@ angular.module('Volusion.controllers')
 
 				angular.forEach($scope.product.imageCollections, function (collection) {
 					angular.forEach(collection.images, function (imageCollection) {
-						imagesToPreload.push(imageCollection.large);
+						//imagesToPreload.push(imageCollection.large);
 						imagesToPreload.push(imageCollection.medium);
-						imagesToPreload.push(imageCollection.small);
+						//imagesToPreload.push(imageCollection.small);
 					});
 				});
 
