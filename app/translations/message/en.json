@@ -1,4 +1,3 @@
-// If VALUE is empty translate service will return the KEY
 {
 	"message": {
 		"CART_UNKNOWN"                             : "Unknown server error",
