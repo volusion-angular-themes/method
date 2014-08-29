@@ -16,4 +16,4 @@ before_install:
 after_success:
 - grunt build
 - chmod +x deploy.sh
-- ./deploy.sh
+- ./deploy.sh -v
