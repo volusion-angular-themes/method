@@ -8,8 +8,8 @@
  * Controller of the methodApp
  */
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig', 'vnImagePreloader',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig, vnImagePreloader) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig) {
 
 			// Handle the setup data
 			SiteConfig.getConfig().then(function(response) {
