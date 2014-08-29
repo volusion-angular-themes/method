@@ -70,10 +70,13 @@
 				color        : $brand-info;
 				border-left  : 1px solid $hr-border;
 				padding-left : 6px;
+				padding-bottom: 6px;
 				margin-left  : 3px;
 				white-space  : nowrap;
 			}
 		}
+
+// TODO Refactor this CSS, names too confusing ie now-price and price--now. Move classes into _product-price.scss file
 
 		.th-price-text {
 			@include inline-block;
@@ -100,7 +103,11 @@
 		}
 
 		.th-price {
-			font-size : 3.0rem;
+			font-size : 2.6rem;
+
+			@include respond-to(lg) {
+				font-size: 3.0rem;
+			}
 		}
 
 		.th-now-price {
