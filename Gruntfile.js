@@ -555,6 +555,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', function() {
 		grunt.task.run([
 			'clean:server',
+			'newer:jshint:all',
 			'compass:server',
 			'autoprefixer',
 			'connect:test',
