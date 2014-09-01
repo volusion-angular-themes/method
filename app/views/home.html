@@ -20,7 +20,7 @@
 	<div data-ng-if="themeSettings.pages.home.tiles.isEnabled">
 
 		<!-- MOBILE & TABLET CONTENT -->
-		<div class="visible-xs visible-sm">
+		<div class="visible-xs-block visible-sm-block">
 			<div class="row">
 				<div class="col-sm-6 hidden-xs">
 					<a data-ng-href="{{themeSettings.pages.home.tiles.tiles.tile1.linkTo}}" class="th-promo th-p1"><img ng-src="{{themeSettings.pages.home.tiles.tiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
@@ -36,9 +36,9 @@
 					</a>
 				</div>
 			</div><!-- .row -->
-		</div><!-- visible-xs -->
+		</div><!-- visible-xs-block -->
 		<!-- MOBILE ONLY CONTENT -->
-		<div class="visible-xs">
+		<div class="visible-xs-block">
 			<div class="row">
 				<div class="col-xs-6 th-p-pad">
 					<a data-ng-href="{{themeSettings.pages.home.tiles.tiles.tile1.linkTo}}" class="th-promo th-p1-sm"><img ng-src="{{themeSettings.pages.home.tiles.tiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
@@ -50,7 +50,7 @@
 		</div>
 
 		<!-- MOBILE & TABLET CONTENT -->
-		<div class="visible-xs visible-sm">
+		<div class="visible-xs-block visible-sm-block">
 			<div class="th-last">
 				<div class="row">
 					<div class="col-sm-6 hidden-xs">
@@ -66,7 +66,7 @@
 		</div>
 
 		<!-- DESKTOP CONTENT -->
-		<div class="visible-md visible-lg">
+		<div class="visible-md-block visible-lg-block">
 			<div class="row">
 				<div class="col-md-4">
 					<a data-ng-href="{{themeSettings.pages.home.tiles.tiles.tile1.linkTo}}" class="th-promo th-p1"><img ng-src="{{themeSettings.pages.home.tiles.tiles.tile1.imageUrl}}" class="img-responsive" alt="" /></a>
@@ -88,7 +88,7 @@
 		</div>
 
 		<!-- DESKTOP CONTENT -->
-		<div class="visible-md visible-lg">
+		<div class="visible-md-block visible-lg-block">
 			<div class="th-last">
 				<div class="row">
 					<div class="col-md-4">
@@ -110,7 +110,7 @@
 	<div data-ng-bind-html="themeSettings.pages.home.content2 | legacyLinkify | html"></div>
 
 	<!-- FEATURED PRODUCTS -->
-	<div class="visible-lg visible-md" data-ng-if="themeSettings.pages.home.featuredProducts.isEnabled">
+	<div class="visible-md-block visible-lg-block" data-ng-if="themeSettings.pages.home.featuredProducts.isEnabled">
 		<div data-tabset>
 			<div data-tab>
 				<div data-tab-heading data-translate="home.featured">
