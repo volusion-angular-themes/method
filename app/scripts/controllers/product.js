@@ -374,9 +374,9 @@ angular.module('Volusion.controllers')
 
                 if (errors && errors.length > 0) {
                     angular.forEach(errors, function(error) {
-                        messageKey = '"' +'message.' + error.Code + '"';
+                        messageKey = 'message.' + error.Code;
                         vnMsg = translateFilter(messageKey);
-                        vnMsg = (vnMsg === messageKey) ? error.Message : vnMsg;
+                        vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
                         vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
                         $rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
                     });
@@ -390,9 +390,9 @@ angular.module('Volusion.controllers')
                 
                 if (warningsArray && warningsArray.length > 0 ) {
                     angular.forEach(warningsArray, function(warning) {
-                        messageKey = '"' + 'message.' + warning.Code + '"';
+                        messageKey = 'message.' + warning.Code;
                         vnMsg = translateFilter( messageKey);
-                        vnMsg = (vnMsg === messageKey) ? warning.Message : vnMsg;
+                        vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
                         $rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
                     });
                 }
