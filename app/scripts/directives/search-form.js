@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name volusionMethodThemeApp.directive:searchForm
+ * @name methodApp.directive:searchForm
  * @description
  * # searchForm
  */
