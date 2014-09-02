@@ -1,16 +1,8 @@
-'use strict';
-
-/**
- * @ngdoc filter
- * @name methodApp.filter:legacyLinkify
- * @function
- * @description
- * # legacyLinkify
- * Filter in the methodApp.
- */
 angular.module('Volusion.filters')
 	.filter('legacyLinkify',
 		function() {
+
+			'use strict';
 
 			return function(html) {
 				var $div = angular.element('<div/>').html(html);
