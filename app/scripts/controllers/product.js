@@ -368,28 +368,39 @@ angular.module('Volusion.controllers')
 				return path;
 			};
 
-            function displayCartMessages(res) {
-                var vnMsg;
+            function displayErrors(errors) {
+                var vnMsg, messageKey;
                 var translateFilter = $filter('translate');
 
-                if (res.serviceErrors && res.serviceErrors.length > 0) {
-                    angular.forEach(res.serviceErrors, function(error) {
-                        vnMsg = translateFilter(error.Code);
-                        vnMsg = (vnMsg === error.Code) ? error.Message : vnMsg;
+                if (errors && errors.length > 0) {
+                    angular.forEach(errors, function(error) {
+                        messageKey = '"' +'message.' + error.Code + '"';
+                        vnMsg = translateFilter(messageKey);
+                        vnMsg = (vnMsg === messageKey) ? error.Message : vnMsg;
                         vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
                         $rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
                     });
                 }
-                else if (res.warnings && res.warnings.length > 0 ) {
-                    angular.forEach(res.warnings, function(warning) {
-                        vnMsg = translateFilter(warning.Code);
-                        vnMsg = (vnMsg === warning.Code) ? warning.Message : vnMsg;
+            }
+
+
+            function displayWarnings(warningsArray) {
+                var vnMsg, messageKey;
+                var translateFilter = $filter('translate');
+                
+                if (warningsArray && warningsArray.length > 0 ) {
+                    angular.forEach(warningsArray, function(warning) {
+                        messageKey = '"' + 'message.' + warning.Code + '"';
+                        vnMsg = translateFilter( messageKey);
+                        vnMsg = (vnMsg === messageKey) ? warning.Message : vnMsg;
                         $rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
                     });
-                } else {
-                    vnMsg = translateFilter('message.addToCartSuccess');
-                    $rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
                 }
+            }
+
+            function displaySuccess() {
+                var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
+                $rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
             }
 
             $scope.addToCart = function() {
@@ -402,12 +413,14 @@ angular.module('Volusion.controllers')
 
                 Cart.saveCart($scope.cartItem)
                     .then(function (response) {
+
                         $scope.cartItem.qty = 0;
-                        displayCartMessages(response.data);
+                        displaySuccess();
+                        displayWarnings(response.data.warnings);
 
                     }, function (response) {
                         $scope.cartItem.qty = 0;
-                        displayCartMessages(response.data);
+                        displayErrors(response.data.serviceErrors);
                     })
                     .finally(function () {
                         modifyQuantity(1);
