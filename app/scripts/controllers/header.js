@@ -12,31 +12,11 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-			// Watch the appheader state and update as needed
 			$scope.$watch(
 				function () {
 					return ContentMgr.getHeaderState();
 				},
 				function (state) {
 					$scope.headerState = state;
-				},true);
-
-			// Add translations
-			translate.addParts('common');
-			translate.addParts('header');
-
-			$scope.getCartItemsCount = function () {
-				return Cart.getCartItemsCount();
-			};
-
-			$scope.viewCart = function() {
-
-				var host = AppConfig.getApiHost();
-
-				if ($rootScope.isInDesktopMode) {
-					return host + '/shoppingcart.asp';
-				} else {
-					return host + '/checkout.asp';
-				}
-			};
+				}, true);
 		}]);

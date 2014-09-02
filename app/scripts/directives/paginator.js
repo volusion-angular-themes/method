@@ -1,10 +1,3 @@
-/**
- * @ngdoc directive
- * @name volusionMethodThemeApp.directive:paginator
- * @description
- * # paginator
- */
-
 angular.module('Volusion.directives')
 	.directive('vnPaginator', ['vnProductParams', 'themeSettings', function (vnProductParams, themeSettings) {
 
@@ -14,19 +7,12 @@ angular.module('Volusion.directives')
 			templateUrl: 'views/partials/paginator.html',
 			restrict   : 'A',
 			scope      : {
-				cursor     : '=',
-				queryFn    : '&'
+				cursor : '=',
+				queryFn: '&'
 			},
 			link       : function postLink(scope, elem, attrs) {
 
 				vnProductParams.setPageSize(themeSettings.getPageSize());
-
-				scope.prevPage = function () {
-					if (scope.cursor.currentPage > 1) {
-						vnProductParams.previousPage();
-						scope.queryFn();
-					}
-				};
 
 				scope.nextPage = function () {
 					if (scope.cursor.currentPage < scope.cursor.totalPages) {
@@ -35,12 +21,17 @@ angular.module('Volusion.directives')
 					}
 				};
 
-				scope.$watch(attrs.cursor, function (value) {
+				scope.prevPage = function () {
+					if (scope.cursor.currentPage > 1) {
+						vnProductParams.previousPage();
+						scope.queryFn();
+					}
+				};
 
+				scope.$watch(attrs.cursor, function (value) {
 					if (value === undefined) {
 						return;
 					}
-
 					scope.currentPage = value.currentPage;
 					vnProductParams.setPage(scope.currentPage);
 				}, true);

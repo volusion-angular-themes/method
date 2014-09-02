@@ -1,39 +1,15 @@
-'use strict';
-
-/**
- * @ngdoc function
- * @name Volusion.controllers.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the methodApp
- */
 angular.module('Volusion.controllers')
 	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig', 'vnImagePreloader',
 		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig, vnImagePreloader) {
 
-			// Handle the setup data
-			SiteConfig.getConfig().then(function(response) {
-				$scope.config = response.data;
-			});
-
-			themeSettings.getThemeSettings().then(function(response) {
-				$scope.themeSettings = response;
-
-				var imagesToPreload  = [];
-
-				angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
-					imagesToPreload.push(slide.imageUrl);
-				});
-
-				vnImagePreloader.preloadImages(imagesToPreload);
-			});
-
-			// Smart Nav  *********************************************************
+			'use strict';
 
 			var threshold = {
-				windowWidth : -1,
-				position: 0
+				windowWidth: -1,
+				position   : 0
 			};
+
+			$rootScope.seo = {};
 
 			function buildSmartNav() {
 
@@ -92,11 +68,6 @@ angular.module('Volusion.controllers')
 				$scope.displaySmartNavMoreMenuItem = (indexPositionWhereItemWrapped !== 0);
 			}
 
-			$scope.initializeWindowSize = function() {
-				$scope.windowWidth = $window.outerWidth;
-			};
-			$scope.initializeWindowSize();
-
 			angular.element($window).bind('resize', function () {
 				$scope.initializeWindowSize();
 				$scope.$apply();
@@ -104,8 +75,19 @@ angular.module('Volusion.controllers')
 				buildSmartNav();
 			});
 
-			// Smart Nav END *******************************************************
+			SiteConfig.getConfig().then(function (response) {
+				$scope.config = response.data;
+			});
 
+			themeSettings.getThemeSettings().then(function (response) {
+				$scope.themeSettings = response;
+			});
+
+			$scope.initializeWindowSize = function () {
+				$scope.windowWidth = $window.outerWidth;
+			};
+
+			$scope.initializeWindowSize();
 
 			vnApi.Nav().get({ navId: 1 }).$promise
 				.then(function (response) {
@@ -115,8 +97,4 @@ angular.module('Volusion.controllers')
 						buildSmartNav();
 					}, 0);
 				});
-
-			// TODO: Consider moving SEO into a service
-			$rootScope.seo = {};
-
 		}]);

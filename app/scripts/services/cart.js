@@ -1,26 +1,10 @@
-'use strict';
-
-/**
- * @ngdoc service
- * @name methodApp.cart
- * @description
- * # cart
- * Service in the methodApp.
- */
 angular.module('Volusion.services')
 	.service('Cart', ['vnApi',
 		function (vnApi) {
 
+			'use strict';
+
 			var cart = {};
-
-			function init() {
-
-				// Initial cartId is empty
-				vnApi.Cart({ cartId: '' }).get().$promise
-					.then(function (response) {
-						cart = response.data;
-					});
-			}
 
 			function getCart() {
 				return cart;
@@ -32,6 +16,15 @@ angular.module('Volusion.services')
 				}
 
 				return cart.totals.qty;
+			}
+
+			function init() {
+
+				// Initial cartId is empty
+				vnApi.Cart({ cartId: '' }).get().$promise
+					.then(function (response) {
+						cart = response.data;
+					});
 			}
 
 			function saveCart(cartItem) {
@@ -52,9 +45,9 @@ angular.module('Volusion.services')
 			}
 
 			return {
-				init             : init,
 				getCart          : getCart,
 				getCartItemsCount: getCartItemsCount,
+				init             : init,
 				saveCart         : saveCart
 			};
 		}]);

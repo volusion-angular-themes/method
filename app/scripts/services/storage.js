@@ -1,27 +1,5 @@
 'use strict';
 
-///**
-// * @ngdoc service
-// * @name methodApp.starage
-// * @description
-// * # starage
-// * Factory in the methodApp.
-// */
-//angular.module('methodApp')
-//  .factory('storage', function () {
-//    // Service logic
-//    // ...
-//
-//    var meaningOfLife = 42;
-//
-//    // Public API here
-//    return {
-//      someMethod: function () {
-//        return meaningOfLife;
-//      }
-//    };
-//  });
-
 angular.module('Volusion.services')
 	.factory('storage', [
 		'$window', '$cookieStore',
