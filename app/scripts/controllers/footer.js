@@ -18,6 +18,6 @@ angular.module('Volusion.controllers')
 				},
 				function (state) {
 					$scope.footerState = state;
-				},true);
+				}, true);
 
 		}]);
