@@ -1,25 +1,19 @@
-'use strict';
-
-/**
- * @ngdoc directive
- * @name methodApp.directive:legacyLink
- * @description
- * # legacyLink
- */
 angular.module('Volusion.directives')
 	.directive('legacyLink', [
 		'$window',
-		function($window) {
+		function ($window) {
+
+			'use strict';
 
 			return {
-				restrict: 'A',
-				link: function(scope, element, attrs) {
+				restrict: 'AE',
+				link    : function (scope, element, attrs) {
 
-					attrs.$observe('legacyLink', function(newValue) {
+					attrs.$observe('legacyLink', function (newValue) {
 						element.attr('href', newValue);
 					});
 
-					element.on('click', function(e) {
+					element.on('click', function (e) {
 						e.preventDefault();
 						$window.location.assign(this.href);
 					});

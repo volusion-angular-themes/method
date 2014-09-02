@@ -1,21 +1,14 @@
-'use strict';
-
-/**
- * @ngdoc service
- * @name methodApp.themeSettings
- * @description
- * # themeSettings
- * Service in the methodApp.
- */
 angular.module('Volusion.services')
 	.service('themeSettings', ['$q', 'vnApi',
 		function ($q, vnApi) {
 
+			'use strict';
+
 			var themeSettings = {};
 
-			function hasEmptySettings (obj) {
-				for(var key in obj) {
-					if(obj.hasOwnProperty(key)) {
+			function hasEmptySettings(obj) {
+				for (var key in obj) {
+					if (obj.hasOwnProperty(key)) {
 						return false;
 					}
 				}
@@ -23,7 +16,7 @@ angular.module('Volusion.services')
 			}
 
 			function init() {
-				if(hasEmptySettings(themeSettings)) {
+				if (hasEmptySettings(themeSettings)) {
 					vnApi.ThemeSettings().get().$promise
 						.then(function (response) {
 							// Remember themeSettings is a $resource!
@@ -32,10 +25,14 @@ angular.module('Volusion.services')
 				}
 			}
 
+			function getPageSize() {
+				return themeSettings.itemsPerPage || 8;
+			}
+
 			function getThemeSettings() {
 				var deferred = $q.defer();
 
-				if(hasEmptySettings(themeSettings)) {
+				if (hasEmptySettings(themeSettings)) {
 					vnApi.ThemeSettings().get().$promise
 						.then(function (response) {
 							deferred.resolve(response);
@@ -46,10 +43,6 @@ angular.module('Volusion.services')
 				}
 
 				return deferred.promise;
-			}
-
-			function getPageSize() {
-				return themeSettings.itemsPerPage || 8;
 			}
 
 			return {
