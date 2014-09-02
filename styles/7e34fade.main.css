@@ -8436,6 +8436,10 @@ button.close {
 .vn-product-option__select .-disabled {
   color: #AAAAAA;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_product-option\.scss}line{font-family:\0000318}}
+.vn-product-option .dropdown .btn.dropdown-toggle {
+  text-align: right;
+}
 
 /* SHOWCASE */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_showcase\.scss}line{font-family:\000032}}
