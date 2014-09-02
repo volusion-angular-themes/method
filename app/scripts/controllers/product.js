@@ -292,8 +292,7 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function () {
 
-				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
-					!findOptionAvailability($scope.product.optionSelection.key)) {
+				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 || !findOptionAvailability($scope.product.optionSelection.key)) {
 
 					return;
 				}
@@ -314,14 +313,14 @@ angular.module('Volusion.controllers')
 					});
 			};
 
+			$scope.decrementQty = function () {
+				modifyQuantity(-1);
+			};
+
 			$scope.changeQty = function () {
 				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
 					$scope.cartItem.qty = 1;
 				}
-			};
-
-			$scope.decrementQty = function () {
-				modifyQuantity(-1);
 			};
 
 			$scope.getImagePath = function (imageCollections) {
@@ -345,14 +344,6 @@ angular.module('Volusion.controllers')
 			});
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {
-
-				// TODO: Remove SKU if not needed
-				//function setSKU() {
-				//	var sku = currentSelection.sku;
-				//	if (sku !== null && sku !== undefined) {
-				//		cartItem.sku = sku;
-				//	}
-				//}
 
 				function setProductCodeAndId() {
 					$scope.cartItem.code = $scope.product.code;
@@ -407,97 +398,4 @@ angular.module('Volusion.controllers')
 
 				$scope.isAddToCartButtonEnabled = currentSelection.isValid && $scope.cartItem.qty > 0;
 			});
-
-			function modifyQuantity(amount) {
-				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
-
-				if ($scope.product.optionSelection && ($scope.product.optionSelection.quantityInStock - amount) >= 0) {
-					$scope.product.optionSelection.quantityInStock -= amount;
-				}
-			}
-
-			$scope.decrementQty = function () {
-				modifyQuantity(-1);
-			};
-
-			$scope.incrementQty = function () {
-				modifyQuantity(1);
-			};
-
-			$scope.changeQty = function () {
-				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
-					$scope.cartItem.qty = 1;
-				}
-			};
-
-			$scope.getImagePath = function (imageCollections) {
-				// This gets the default:medium image for the product
-				var path = $filter('vnProductImageFilter')(imageCollections);
-
-				if ('' === path) {
-					return '/images/theme/tcp-no-image.jpg';
-				}
-
-				return path;
-			};
-
-            function displayErrors(errors) {
-                var vnMsg, messageKey;
-                var translateFilter = $filter('translate');
-
-                if (errors && errors.length > 0) {
-                    angular.forEach(errors, function(error) {
-                        messageKey = 'message.' + error.Code;
-                        vnMsg = translateFilter(messageKey);
-                        vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
-                        vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
-                        vnAppMessageService.addMessage({ type: 'danger', text: vnMsg });
-                    });
-                }
-            }
-
-
-            function displayWarnings(warningsArray) {
-                var vnMsg, messageKey;
-                var translateFilter = $filter('translate');
-
-                if (warningsArray && warningsArray.length > 0 ) {
-                    angular.forEach(warningsArray, function(warning) {
-                        messageKey = 'message.' + warning.Code;
-                        vnMsg = translateFilter( messageKey);
-                        vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
-                        vnAppMessageService.addMessage({ type: 'warning', text: vnMsg });
-                    });
-                }
-            }
-
-            function displaySuccess() {
-                var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
-                vnAppMessageService.addMessage({ type: 'success', text: vnMsg });
-            }
-
-            $scope.addToCart = function() {
-
-                if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
-                    !findOptionAvailability($scope.product.optionSelection.key)) {
-                        return;
-                    }
-
-                Cart.saveCart($scope.cartItem)
-                    .then(function (cart) {
-
-                        $scope.cartItem.qty = 0;
-
-                        if (cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings(cart.warnings); // if any
-						} else {
-							displayErrors(cart.serviceErrors);
-						}
-
-                    })
-                    .finally(function () {
-                        modifyQuantity(1);
-                    });
-            };
-        }]);
+		}]);
