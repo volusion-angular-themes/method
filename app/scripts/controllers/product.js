@@ -419,4 +419,5 @@ angular.module('Volusion.controllers')
 
 				$scope.isAddToCartButtonEnabled = currentSelection.isValid && $scope.cartItem.qty > 0;
 			});
-		}]);
+        }]);
+
