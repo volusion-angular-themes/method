@@ -176,9 +176,7 @@ angular.module('Volusion.controllers')
 
 				angular.forEach($scope.product.imageCollections, function (collection) {
 					angular.forEach(collection.images, function (imageCollection) {
-						//imagesToPreload.push(imageCollection.large);
 						imagesToPreload.push(imageCollection.medium);
-						//imagesToPreload.push(imageCollection.small);
 					});
 				});
 
@@ -387,7 +385,7 @@ angular.module('Volusion.controllers')
             function displayWarnings(warningsArray) {
                 var vnMsg, messageKey;
                 var translateFilter = $filter('translate');
-                
+
                 if (warningsArray && warningsArray.length > 0 ) {
                     angular.forEach(warningsArray, function(warning) {
                         messageKey = 'message.' + warning.Code;
