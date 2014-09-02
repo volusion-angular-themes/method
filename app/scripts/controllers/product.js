@@ -292,8 +292,7 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function () {
 
-				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
-					!findOptionAvailability($scope.product.optionSelection.key)) {
+				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 || !findOptionAvailability($scope.product.optionSelection.key)) {
 
 					return;
 				}
@@ -314,14 +313,14 @@ angular.module('Volusion.controllers')
 					});
 			};
 
+			$scope.decrementQty = function () {
+				modifyQuantity(-1);
+			};
+
 			$scope.changeQty = function () {
 				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
 					$scope.cartItem.qty = 1;
 				}
-			};
-
-			$scope.decrementQty = function () {
-				modifyQuantity(-1);
 			};
 
 			$scope.getImagePath = function (imageCollections) {
@@ -345,14 +344,6 @@ angular.module('Volusion.controllers')
 			});
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {
-
-				// TODO: Remove SKU if not needed
-				//function setSKU() {
-				//	var sku = currentSelection.sku;
-				//	if (sku !== null && sku !== undefined) {
-				//		cartItem.sku = sku;
-				//	}
-				//}
 
 				function setProductCodeAndId() {
 					$scope.cartItem.code = $scope.product.code;
@@ -407,4 +398,4 @@ angular.module('Volusion.controllers')
 
 				$scope.isAddToCartButtonEnabled = currentSelection.isValid && $scope.cartItem.qty > 0;
 			});
-        }]);
+		}]);
