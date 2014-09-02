@@ -124,11 +124,11 @@ angular.module('methodApp', [
 
 			$rootScope.isInDesktopMode = true;
 
-			$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
+			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
 
-			vnCart.init();
+			Cart.init();
 
-			translate.addParts('messages');
+			translate.addParts('message');
 
 			enquire.register('screen and (max-width: 991px)', {
 				// transitioning to desktop mode

@@ -35,6 +35,14 @@ angular.module('methodApp')
 				$scope.toggleSearch();
 			};
 
+			$scope.doSearch = function () {
+				$scope.currentSearchText = $scope.searchLocal;
+				if('/search' !== $location.path()) {
+					$location.path('/search');
+				}
+				vnProductParams.updateSearch($scope.currentSearchText);
+			};
+
 			$scope.getImagePath = function (imageCollections) {
 				var path = $filter('vnProductImageFilter')(imageCollections);
 				if ('' === path) {
@@ -100,4 +108,13 @@ angular.module('methodApp')
 				vnAppRoute.setRouteStrategy('search');
 				vnProductParams.preLoadData($routeParams);
 			});
+
+			$scope.$watch(
+				function () {
+					return vnProductParams.getSearchText();
+				},
+				function () {
+					$scope.queryProducts();
+				}
+			);
 		}]);

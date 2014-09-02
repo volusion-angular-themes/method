@@ -88,4 +88,5 @@ angular.module('Volusion.controllers')
 					$scope.searchLocal = searchText || '';
 				}, true);
 
+
 		}]);

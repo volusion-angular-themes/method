@@ -84,6 +84,7 @@ angular.module('Volusion.controllers')
 			});
 
 			$scope.$on('$viewContentLoaded', function () {
+				vnAppRoute.setRouteStrategy('category');
 				vnAppRoute.resolveParams($location.search());
 				vnAppRoute.setRouteStrategy('category');
 				$scope.getCategory($routeParams.slug);
