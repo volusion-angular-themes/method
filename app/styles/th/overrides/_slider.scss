@@ -51,6 +51,11 @@
 	}
 
 	&--product {
+
+		.carousel-inner {
+			height: 370px;
+		}
+
 		.vn-slider__slide {
 			height : auto;
 		}
