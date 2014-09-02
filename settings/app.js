@@ -20,14 +20,14 @@ angular.module('app', ['ui.bootstrap','ui.tinymce','angular-ladda'])
 				//in local development environment (i.e. grunt serve)
 				environment = 'dev';
 				apiUrl = '/settings/themeSettings.json';
-				cssUrl =  '/styles/7e34fade.main.css';
+				cssUrl =  '/styles/f2b15662.main.css';
 				$scope.debug = true;
 			} else {
 				//in production
 				environment = 'prod';
 				var queryString = $location.search();
 				apiUrl = '/api/v1/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/settings';
-				cssUrl =  '/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/styles/7e34fade.main.css';
+				cssUrl =  '/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/styles/f2b15662.main.css';
 			}
 			$http.get(apiUrl)
 				.success(function(data) {
