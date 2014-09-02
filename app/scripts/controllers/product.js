@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'vnImagePreloader',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, vnImagePreloader) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'vnImagePreloader', 'vnAppMessageService',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, vnImagePreloader, vnAppMessageService) {
 
 			'use strict';
 
@@ -376,7 +376,7 @@ angular.module('Volusion.controllers')
                         vnMsg = translateFilter(messageKey);
                         vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
                         vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
-                        $rootScope.$emit('vnNotification.show', { type: 'danger', msg: vnMsg });
+                        vnAppMessageService.addMessage({ type: 'danger', text: vnMsg });
                     });
                 }
             }
@@ -391,23 +391,22 @@ angular.module('Volusion.controllers')
                         messageKey = 'message.' + warning.Code;
                         vnMsg = translateFilter( messageKey);
                         vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
-                        $rootScope.$emit('vnNotification.show', { type: 'warning', msg: vnMsg });
+                        vnAppMessageService.addMessage({ type: 'warning', text: vnMsg });
                     });
                 }
             }
 
             function displaySuccess() {
                 var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
-                $rootScope.$emit('vnNotification.show', { type: 'success', msg: vnMsg });
+                vnAppMessageService.addMessage({ type: 'success', text: vnMsg });
             }
 
             $scope.addToCart = function() {
 
                 if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
                     !findOptionAvailability($scope.product.optionSelection.key)) {
-
-                    return;
-                }
+                        return;
+                    }
 
                 Cart.saveCart($scope.cartItem)
                     .then(function (response) {
