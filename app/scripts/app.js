@@ -126,7 +126,7 @@ angular.module('methodApp', [
 
 			Cart.init();
 
-			translate.addParts('message');
+			translate.addParts('messages');
 
 			enquire.register('screen and (max-width: 991px)', {
 				// transitioning to desktop mode
