@@ -165,6 +165,6 @@ angular.module('methodApp', [
 			Cart.init();
 
 			// Add translated messages
-			translate.addParts('message');
+			translate.addParts('messages');
 
 		}]);
