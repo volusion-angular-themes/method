@@ -410,15 +410,17 @@ angular.module('Volusion.controllers')
                 }
 
                 Cart.saveCart($scope.cartItem)
-                    .then(function (response) {
+                    .then(function (cart) {
 
                         $scope.cartItem.qty = 0;
-                        displaySuccess();
-                        displayWarnings(response.data.warnings);
 
-                    }, function (response) {
-                        $scope.cartItem.qty = 0;
-                        displayErrors(response.data.serviceErrors);
+                        if (cart.serviceErrors.length === 0) {
+							displaySuccess();
+							displayWarnings(cart.warnings); // if any
+						} else {
+							displayErrors(cart.serviceErrors);
+						}
+
                     })
                     .finally(function () {
                         modifyQuantity(1);
