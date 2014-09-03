@@ -318,6 +318,7 @@ angular.module('Volusion.controllers')
 						}
 
 						$scope.cartItem.qty = 0;
+
 						if (cart.serviceErrors.length === 0) {
 							displaySuccess();
 							displayWarnings(cart.warnings); // if any
