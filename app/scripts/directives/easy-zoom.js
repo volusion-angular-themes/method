@@ -1,25 +1,7 @@
-'use strict';
-
-///**
-// * @ngdoc directive
-// * @name methodApp.directive:easyZoom
-// * @description
-// * # easyZoom
-// */
-//angular.module('methodApp')
-//  .directive('easyZoom', function () {
-//    return {
-//      template: '<div></div>',
-//      restrict: 'E',
-//      link: function postLink(scope, element, attrs) {
-//        element.text('this is the easyZoom directive');
-//      }
-//    };
-//  });
-
-// http://i-like-robots.github.io/EasyZoom/
 angular.module('Volusion.directives')
 	.directive('easyZoom', function() {
+
+		'use strict';
 
 		var imageHash = {};
 
@@ -71,6 +53,8 @@ angular.module('Volusion.directives')
 	})
 	.run([
 		'$templateCache', function($templateCache) {
+
+			'use strict';
 
 			$templateCache.put(
 				'template/easyZoom.html',

@@ -11,13 +11,11 @@ angular.module('Volusion.controllers')
 		function ($scope, translate, themeSettings, ContentMgr) {
 			'use strict';
 
-			// Watch the footer state and update as needed
 			$scope.$watch(
 				function () {
 					return ContentMgr.getFooterState();
 				},
 				function (state) {
 					$scope.footerState = state;
-				},true);
-
+				}, true);
 		}]);

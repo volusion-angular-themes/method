@@ -1,17 +1,16 @@
-'use strict';
-
 angular.module('Volusion.services')
 	.provider('AppConfig', ['ENV', 'vnDataEndpointProvider', function (ENV, vnDataEndpointProvider) {
 
-		// Private variables
+		'use strict';
+
 		var apiHost = ENV.host,
 			apiUrl = ENV.host + ENV.apiEndpoint,
-			isLocalEnv = (ENV.host === '') ? false : true,              // if host is empty assume is PROD (use relative path)
+			country = 'us',
 			disableTranslations = false,
-			urlPrefix = '',
-			region = 'us',
+			isLocalEnv = (ENV.host === '') ? false : true,
 			lang = 'en',
-			country = 'us';
+			region = 'us',
+			urlPrefix = '';
 
 		vnDataEndpointProvider.setApiUrl(apiUrl);
 
@@ -27,16 +26,20 @@ angular.module('Volusion.services')
 
 		}
 
-		this.getIsLocalEnv = function () {
-			return isLocalEnv;
-		};
-
 		this.getApiPath = function () {
 			return apiUrl;
 		};
 
-		this.getTranslations = function () {
-			return disableTranslations;
+		this.getCountry = function () {
+			return country;
+		};
+
+		this.getIsLocalEnv = function () {
+			return isLocalEnv;
+		};
+
+		this.getLang = function () {
+			return lang;
 		};
 
 		this.getPrefix = function () {
@@ -47,25 +50,24 @@ angular.module('Volusion.services')
 			return region;
 		};
 
-		this.getLang = function () {
-			return lang;
+		this.getTranslations = function () {
+			return disableTranslations;
 		};
 
-		this.getCountry = function () {
-			return country;
-		};
-
-		// Public API for configuration
 		this.setApiPath = function (uriPath) {
 			apiUrl = uriPath;
+		};
+
+		this.setCountry = function (stringCountry) {
+			country = stringCountry;
 		};
 
 		this.setIsLocalEnv = function (bool) {
 			isLocalEnv = bool;
 		};
 
-		this.setTranslations = function (bool) {
-			disableTranslations = bool;
+		this.setLang = function (stringLang) {
+			lang = stringLang;
 		};
 
 		this.setPrefix = function (stringPath) {
@@ -76,12 +78,8 @@ angular.module('Volusion.services')
 			region = stringRegion;
 		};
 
-		this.setLang = function (stringLang) {
-			lang = stringLang;
-		};
-
-		this.setCountry = function (stringCountry) {
-			country = stringCountry;
+		this.setTranslations = function (bool) {
+			disableTranslations = bool;
 		};
 
 		// Method for instantiating
