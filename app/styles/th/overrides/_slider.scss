@@ -25,6 +25,11 @@
 			margin-top  : -90px;
 			font-size   : 110px;
 			font-family : Arial, Helvetica, sans-serif;
+
+			@include respond-to(xs) {
+				font-size  : 80px;
+				margin-top : -50px;
+			}
 		}
 
 		.glyphicon-chevron-left {
@@ -48,6 +53,13 @@
 		height              : 237px;
 		background-size     : cover;
 		background-position : center center;
+
+		@include respond-to(sm) {
+			height : 405px;
+		}
+		@include respond-to(md-and-up) {
+			height : 485px;
+		}
 	}
 
 	&--product {
@@ -59,28 +71,13 @@
 			margin : 0 auto;
 		}
 	}
-
-	@include respond-to(sm-and-up) {
-		&__slide {
-			height : 405px;
-		}
-	}
-
-	@include respond-to(md-and-up) {
-		&__slide {
-			height : 485px;
-		}
-	}
 }
 
-@include respond-to(sm-and-up) {
-	.th-content-slider {
+.th-content-slider {
+	@include respond-to(sm-and-up) {
 		margin-bottom : 30px;
 	}
-}
-
-@include respond-to(md-and-up) {
-	.th-content-slider {
+	@include respond-to(md-and-up) {
 		padding-left  : 15px;
 		padding-right : 15px;
 	}

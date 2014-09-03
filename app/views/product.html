@@ -12,7 +12,7 @@
 		<!-- PRODUCT IMAGE AND ALT VIEWS -->
 		<div class="row">
 			<div class="col-sm-6 col-md-5">
-				<div class="visible-xs th-product">
+				<div class="visible-xs-block th-product">
 					<div class="vn-slider vn-slider--product">
 						<carousel data-interval="carousel.interval">
 							<slide data-ng-repeat="image in currentImageCollection | filter: '!youtube.com'" data-active="image.active">
@@ -44,7 +44,7 @@
 			<!-- PRODUCT DETAILS RIGHT -->
 			<div class="col-sm-6 col-md-7">
 				<div class="th-product-details">
-					<div class="row visible-md visible-lg">
+					<div class="row visible-md-block visible-lg-block">
 						<div class="col-xs-12">
 							<div class="th-product-details__title">
 								<span itemprop="name" data-ng-bind="product.name"></span>
@@ -53,7 +53,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-md-6">
-							<div class="th-product-details__title visible-xs">
+							<div class="th-product-details__title visible-xs-block">
 								<span itemprop="name" data-ng-bind="product.name"></span>
 							</div>
 							<div class="th-product__price--large">
