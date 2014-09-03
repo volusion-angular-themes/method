@@ -37,7 +37,16 @@ angular.module('Volusion.services')
 			function saveCart(cartItem) {
 				return vnApi.Cart().save({cartId: cart.id}, cartItem).$promise
 					.then(function (response) {
+						// on success
 						cart = response.data;
+					},
+					function (response) {
+						// on error
+						cart = response.data.data;
+						cart.serviceErrors = response.data.serviceErrors || [];
+						cart.warnings = response.data.warnings || [];
+					})
+					.then(function () {
 						return cart;
 					});
 			}
