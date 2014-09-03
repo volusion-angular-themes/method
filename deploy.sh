@@ -15,6 +15,16 @@ if [[ $1 = "-v" || $1 = "--verbose" ]]; then
 	verbose=true
 fi
 
+# Guard code to keep travis from deploying the gh-pages dist files when not on master.
+if [ ${TRAVIS_BRANCH} == master ]; then
+    echo "On Master, This will deploy to gh-pages."
+else
+    echo "Not on master. This will not deploy to gh-pages."
+    exit 0
+fi
+
+export TEST_MODE
+
 #echo expanded commands as they are executed (for debugging)
 function enable_expanded_output {
 	if [ $verbose ]; then
