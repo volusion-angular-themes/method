@@ -15,8 +15,12 @@ if [[ $1 = "-v" || $1 = "--verbose" ]]; then
 	verbose=true
 fi
 
-if [ ${TRAVIS_BRANCH} -ne master ]; then
-    echo "Not on master. This will not deply to gh-pages."
+echo "The travis branch tested is:"
+echo $TRAVIS_BRANCH
+
+# Guard code to keep travis from deploying the gh-pages dist files when not on master.
+if [ ${TRAVIS_BRANCH} -ne 'master' ]; then
+    echo "Not on master. This will not deploy to gh-pages."
     exit 0
 else
     echo "On Master, This will deploy to gh-pages."
