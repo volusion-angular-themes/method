@@ -7,12 +7,15 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', '$filter', 'translate', 'Cart', 'vnApi', 'ContentMgr', 'AppConfig',
-		function ($rootScope, $scope, $window, $timeout, $filter, translate, Cart, vnApi, ContentMgr, AppConfig) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig) {
 
 			'use strict';
 
 			$scope.alerts = [];
+
+			translate.addParts('common');
+			translate.addParts('header');
 
 			$scope.closeAlert = function (id) {
 				$scope.alerts = $filter('filter')($scope.alerts, function (alert) {
@@ -34,21 +37,8 @@ angular.module('Volusion.controllers')
 				$scope.alerts.push(alert);
 			});
 
-			// Watch the appheader state and update as needed
-			$scope.$watch(
-				function () {
-					return ContentMgr.getHeaderState();
-				},
-				function (state) {
-					$scope.headerState = state;
-				},true);
-
-			// Add translations
-			translate.addParts('common');
-			translate.addParts('header');
-
 			$scope.getCartItemsCount = function () {
-				return Cart.getCartItemsCount();
+				return vnCart.getCartItemsCount();
 			};
 
 			$scope.viewCart = function() {
@@ -61,4 +51,12 @@ angular.module('Volusion.controllers')
 					return host + '/checkout.asp';
 				}
 			};
+
+			$scope.$watch(
+				function () {
+					return ContentMgr.getHeaderState();
+				},
+				function (state) {
+					$scope.headerState = state;
+				}, true);
 		}]);

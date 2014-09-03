@@ -1,17 +1,10 @@
-/**
- * @ngdoc service
- * @name volusionMethodThemeApp.vnContentMgr
- * @description
- * # vnContentMgr
- * Factory in the volusionMethodThemeApp.
- */
 angular.module('Volusion.services')
 	.factory('ContentMgr', function () {
 
 		'use strict';
 
-		var showHeader = true,
-			showFooter = true,
+		var showFooter = true,
+			showHeader = true,
 			snapMenuState = true;
 
 		function getFooterState() {
@@ -45,19 +38,20 @@ angular.module('Volusion.services')
 		function showAppHeader() {
 			showHeader = true;
 		}
+
 		function showSnapMenuState() {
 			snapMenuState = true;
 		}
 
 		return {
-			getFooterState: getFooterState,
-			getHeaderState: getHeaderState,
-			getSnapMenuState: getSnapMenuState,
-			hideAppFooter : hideAppFooter,
-			hideAppHeader : hideAppHeader,
+			getFooterState   : getFooterState,
+			getHeaderState   : getHeaderState,
+			getSnapMenuState : getSnapMenuState,
+			hideAppFooter    : hideAppFooter,
+			hideAppHeader    : hideAppHeader,
 			hideSnapMenuState: hideSnapMenuState,
 			showSnapMenuState: showSnapMenuState,
-			showAppFooter : showAppFooter,
-			showAppHeader : showAppHeader
+			showAppFooter    : showAppFooter,
+			showAppHeader    : showAppHeader
 		};
 	});

@@ -1,12 +1,3 @@
-/**
- * @ngdoc filter
- * @name volusionMethodThemeApp.filter:cacheBust
- * @function
- * @description
- * # cacheBust
- * Filter in the methodApp.
- */
-
 angular.module('Volusion.filters').filter('cacheBust',
 	[ 'tokenGenerator',
 		function (tokenGenerator) {
