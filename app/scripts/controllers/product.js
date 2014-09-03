@@ -290,23 +290,26 @@ angular.module('Volusion.controllers')
 				$scope.product.optionSelection = selection;
 			});
 
-			$scope.addToCart = function () {
+			$scope.addToCart = function() {
 
-				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 || !findOptionAvailability($scope.product.optionSelection.key)) {
+				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
+					!findOptionAvailability($scope.product.optionSelection.key)) {
 
 					return;
 				}
 
 				Cart.saveCart($scope.cartItem)
-					.then(function (response) {
+					.then(function (cart) {
 
 						$scope.cartItem.qty = 0;
-						displaySuccess();
-						displayWarnings(response.data.warnings);
 
-					}, function (response) {
-						$scope.cartItem.qty = 0;
-						displayErrors(response.data.serviceErrors);
+						if (cart.serviceErrors.length === 0) {
+							displaySuccess();
+							displayWarnings(cart.warnings); // if any
+						} else {
+							displayErrors(cart.serviceErrors);
+						}
+
 					})
 					.finally(function () {
 						modifyQuantity(1);
