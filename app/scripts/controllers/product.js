@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'Cart', 'vnImagePreloader', 'vnAppMessageService',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, Cart, vnImagePreloader, vnAppMessageService) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService) {
 
 			'use strict';
 
@@ -298,11 +298,10 @@ angular.module('Volusion.controllers')
 					return;
 				}
 
-				Cart.saveCart($scope.cartItem)
+				vnCart.saveCart($scope.cartItem)
 					.then(function (cart) {
 
 						$scope.cartItem.qty = 0;
-
 						if (cart.serviceErrors.length === 0) {
 							displaySuccess();
 							displayWarnings(cart.warnings); // if any
