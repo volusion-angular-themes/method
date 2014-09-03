@@ -115,8 +115,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr', 'translate',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr, translate) {
+	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate',
+		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate) {
 
 			'use strict';
 
@@ -124,7 +124,7 @@ angular.module('methodApp', [
 
 			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
 
-			Cart.init();
+			vnCart.init();
 
 			translate.addParts('messages');
 

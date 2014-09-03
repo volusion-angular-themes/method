@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 				tasks: ['wiredep']
 			},
 			html: {
-				files: ['<%= yeoman.app %>/*.html', '<%= yeoman.app %>/views/{,*/}*.html'],
+				files: ['<%= yeoman.app %>/*.html', '<%= yeoman.app %>/views/**/*.html'],
 				tasks: ['htmlmin:server'],
 				options: {
 					livereload: true
