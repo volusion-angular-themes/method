@@ -66,9 +66,9 @@ Switched to branch 'my-theme'
 
 `grunt serve` (to develop and preview with livereload)
 
-`grunt` (or "grunt build" does the same thing. Both build for production which hardcodes the API urls to relative paths of /api/v1/ so you won't be able to preview it)
+`grunt build:dist` (Build for production which hardcodes the API urls to relative paths of /api/v1/ so you won't be able to preview it)
 
-`grunt build:samplestore` (to build to dist which hardcodes the API urls to http://www.samplestore.io/api/v1/. Then to preview it you'll want to setup a web server to serve dist. We'd welcome a PR to support `grunt serve:dist` and eliminate the need for a seperate web server)
+`grunt build:samplestore` (or just "grunt" or just "grunt build" to build to dist which hardcodes the API urls to http://www.samplestore.io/api/v1/. Then to preview it you'll want to setup a web server to serve dist. We'd welcome a PR to support `grunt serve:dist` and eliminate the need for a seperate web server)
 
 `grunt build:mybox` (this mybox alias you'll find in the gruntfile, which you can customize to build to a specific api, such as the merchant site you're designing the theme for)
 
