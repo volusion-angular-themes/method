@@ -77,4 +77,5 @@ angular.module('Volusion.controllers')
 				function (state) {
 					$scope.headerState = state;
 				}, true);
+				
 		}]);
