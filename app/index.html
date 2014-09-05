@@ -29,8 +29,13 @@
 	to improve your experience.</p>
 	<![endif]-->
 
-	<!-- Mobile Menu -->
-	<div data-ng-include=" 'views/partials/mobile-menu.html' "></div>
+	<div data-snap-drawers>
+		<!-- Mobile Menu -->
+		<div data-ng-include=" 'views/partials/mobile-menu.html' "></div>
+
+		<!-- Checkout -->
+		<div data-ng-include=" 'views/partials/shopping-card.html' "></div>
+	</div>
 
 	<div snap-content data-snap-ignore="true">
 
@@ -102,6 +107,7 @@
 	<script src="scripts/controllers/search.js"></script>
 	<script src="scripts/controllers/article.js"></script>
 	<script src="scripts/controllers/theme-settings.js"></script>
+	<script src="scripts/controllers/shopping-cart.js"></script>
 
 	<script src="scripts/directives/easy-zoom.js"></script>
 	<script src="scripts/directives/legacy-link.js"></script>
@@ -114,6 +120,7 @@
 	<script src="scripts/filters/html.js"></script>
 	<script src="scripts/filters/legacy-linkify.js"></script>
 	<script src="scripts/filters/seo-friendly.js"></script>
+	<script src="scripts/filters/reverse.js"></script>
 
 	<!--<script src="scripts/services/api-provider.js"></script>-->
 	<script src="scripts/services/app-config.js"></script>
