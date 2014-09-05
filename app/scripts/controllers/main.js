@@ -1,8 +1,25 @@
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig', 'vnImagePreloader',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig, vnImagePreloader) {
 
-			'use strict';
+			// Handle the setup data
+			SiteConfig.getConfig().then(function(response) {
+				$scope.config = response.data;
+			});
+
+			themeSettings.getThemeSettings().then(function(response) {
+				$scope.themeSettings = response;
+
+				var imagesToPreload  = [];
+
+				angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
+					imagesToPreload.push(slide.imageUrl);
+				});
+
+				vnImagePreloader.preloadImages(imagesToPreload);
+			});
+
+			// Smart Nav  *********************************************************
 
 			var threshold = {
 				windowWidth: -1,
