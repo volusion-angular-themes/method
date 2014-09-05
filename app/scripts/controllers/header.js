@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$location', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager',
+		function ($rootScope, $scope, $location, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager) {
 
 			'use strict';
 
@@ -21,6 +21,10 @@ angular.module('Volusion.controllers')
 				$scope.alerts = $filter('filter')($scope.alerts, function (alert) {
 					return alert.id !== id;
 				});
+			};
+
+			$scope.doSearch = function () {
+				searchManager.updateSearch($scope.searchLocal);
 			};
 
 			$rootScope.$on('vnNotification.show', function (evt, alert) {
