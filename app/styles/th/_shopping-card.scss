@@ -1,0 +1,136 @@
+.th-cart-item {
+
+}
+
+.th-checkout {
+	background-color : $body-bg;
+	border-left      : 1px solid $hr-border;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	padding-bottom: 120px;
+
+	&__nav {
+		border-bottom : 1px solid $hr-border;
+
+		&--button {
+			padding    : 7px 5px;
+			border     : 0 none;
+			background : none;
+			width      : 130px;
+			margin     : 0;
+			font-size  : 14px;
+			outline    : none;
+			outline    : 0;
+
+			&:hover {
+				background-color : $btn-primary-bg;
+				color            : $btn-primary-color;
+			}
+
+			&:first-child {
+
+				&:before {
+					font-family : $font-family-glyphs;
+					content     : "\e079";
+					margin      : 0 10px 0 0;
+				}
+			}
+
+			&:last-child {
+
+				float : right;
+
+				&:after {
+					font-family : $font-family-glyphs;
+					content     : "\e080";
+					margin      : 0 0 0 10px;
+				}
+			}
+		}
+	}
+
+	&__subtotal {
+		padding       : 5px 10px;
+		border-bottom : 1px solid $hr-border;
+		height        : 94px;
+
+		&--label {
+			float          : left;
+			text-transform : uppercase;
+			margin-top     : 15px;
+		}
+
+		&--price {
+			float       : right;
+			font-size   : 3rem;
+			font-family : $font-family-condensed-reg;
+		}
+
+		&__addlabel {
+			float       : left;
+			padding-top : 7px;
+		}
+
+		&__add {
+
+			float : right;
+
+			&--coupon {
+				width  : 100px;
+				height : 30px;
+				float  : left;
+			}
+
+			&--button {
+				height : 30px;
+			}
+		}
+	}
+
+	&__items {
+		padding : 5px 10px;
+		overflow-y: scroll;
+		height: 100%;
+
+		&--label {
+			text-transform : uppercase;
+		}
+
+		&__item {
+
+			margin-bottom : 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid $gray-lighter;
+
+			&--image {
+				max-height   : 80px;
+				max-width    : 80px;
+				float        : left;
+				margin-right : 10px;
+			}
+
+			&--name {
+				@include ellipsis(true);
+			}
+
+			&--qty {
+
+				float : left;
+
+				input {
+					width      : 80px;
+					text-align : center;
+				}
+			}
+
+			&--subtotal {
+				float       : right;
+				font-size   : 1.5rem;
+				font-family : $font-family-condensed-reg;
+			}
+		}
+
+	}
+}
