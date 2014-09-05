@@ -52,7 +52,7 @@ angular.module('Volusion.controllers')
 
 			$scope.queryProducts = function () {
 				var params = vnProductParams.getParamsObject();
-				vnApi.Product().query(params).$promise.then(function (response) {
+				vnApi.Product().get(params).$promise.then(function (response) {
 
 					$scope.products = response.data;
 					$scope.facets = response.facets;
@@ -84,8 +84,8 @@ angular.module('Volusion.controllers')
 			});
 
 			$scope.$on('$viewContentLoaded', function () {
-				vnAppRoute.setRouteStrategy('category');
 				vnAppRoute.resolveParams($location.search());
+				vnAppRoute.setRouteStrategy('category');
 				$scope.getCategory($routeParams.slug);
 			});
 		}
