@@ -8,8 +8,8 @@
  * Controller of the methodApp
  */
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig', 'vnImagePreloader',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig, vnImagePreloader) {
 
 			// Handle the setup data
 			SiteConfig.getConfig().then(function(response) {
@@ -18,6 +18,14 @@ angular.module('Volusion.controllers')
 
 			themeSettings.getThemeSettings().then(function(response) {
 				$scope.themeSettings = response;
+
+				var imagesToPreload  = [];
+
+				angular.forEach($scope.themeSettings.pages.home.slider.slides, function (slide) {
+					imagesToPreload.push(slide.imageUrl);
+				});
+
+				vnImagePreloader.preloadImages(imagesToPreload);
 			});
 
 			// Smart Nav  *********************************************************
