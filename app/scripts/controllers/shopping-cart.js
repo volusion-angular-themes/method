@@ -13,6 +13,11 @@ angular.module('Volusion.controllers')
 			'use strict';
 
 			$scope.cart = {};
+			$scope.choices = 99;
+
+			$scope.getArray = function(num) {
+				return new Array(num);
+			};
 
 			$scope.$watch(
 				function () {
@@ -23,7 +28,12 @@ angular.module('Volusion.controllers')
 				}
 			);
 
+			$scope.onOptionChanged = function (item, choice) {
 
+				$scope.currentSelectionText = choice;
+
+				item.qty = choice;
+			};
 
 			$scope.getCartItemsCount = function () {
 				return vnCart.getCartItemsCount();

@@ -1,15 +1,11 @@
-.th-cart-item {
-
-}
-
 .th-checkout {
 	background-color : $body-bg;
 	border-left      : 1px solid $hr-border;
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	padding-bottom: 120px;
+	overflow         : hidden;
+	position         : fixed;
+	top              : 0;
+	bottom           : 0;
+	padding-bottom   : 120px;
 
 	&__nav {
 		border-bottom : 1px solid $hr-border;
@@ -90,9 +86,9 @@
 	}
 
 	&__items {
-		padding : 5px 10px;
-		overflow-y: scroll;
-		height: 100%;
+		padding    : 5px 10px;
+		overflow-y : scroll;
+		height     : 100%;
 
 		&--label {
 			text-transform : uppercase;
@@ -100,9 +96,32 @@
 
 		&__item {
 
-			margin-bottom : 10px;
-			padding-bottom: 10px;
-			border-bottom: 1px solid $gray-lighter;
+			position       : relative;
+			margin-bottom  : 10px;
+			padding-bottom : 10px;
+			border-bottom  : 1px solid $gray-lighter;
+
+			&--close {
+				position : absolute;
+				right    : 0px;
+
+				button {
+					border     : 1px solid $gray-lighter;
+					background : none;
+					padding    : 2px;
+					height     : 22px;
+					width      : 22px;
+					outline    : none;
+					outline    : 0;
+
+					span {
+						&:before {
+							font-family : $font-family-glyphs;
+							content     : "\e014";
+						}
+					}
+				}
+			}
 
 			&--image {
 				max-height   : 80px;
@@ -113,15 +132,32 @@
 
 			&--name {
 				@include ellipsis(true);
+				padding-right : 25px;
 			}
 
 			&--qty {
 
 				float : left;
 
-				input {
+				button {
 					width      : 80px;
 					text-align : center;
+					position : relative;
+
+					.caret {
+						position: absolute;
+						right: 10px;
+						top: 12px;
+					}
+				}
+
+				.dropdown-menu {
+					height     : 100px;
+					overflow-y : scroll;
+					width      : 80px;
+					margin-top : -11px;
+					text-align : center;
+					min-width  : 80px;
 				}
 			}
 

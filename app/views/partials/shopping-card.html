@@ -28,11 +28,11 @@
 
 	<div class="th-checkout__items">
 		<div>
-			<div class="th-checkout__items--label">Your cart ({{ getCartItemsCount() }})</div>
+			<div class="th-checkout__items--label">Your cart</div>
 		</div>
 		<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse">
-			<div >
-
+			<div class="th-checkout__items__item--close">
+				<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
 			</div>
 			<div>
 				<img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" />
@@ -51,7 +51,24 @@
 
 			<div>
 				<div class="th-checkout__items__item--qty">
-					<input class="form-control" value="{{ item.qty }}"/>
+					<!--<span class="dropdown" on-toggle="toggled(open)">-->
+						<button class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown">
+
+								{{ item.qty }}<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="choice in getArray(choices) track by $index">
+								<a role="menuitem"
+								   tabindex="-1"
+								   href
+								   data-ng-click="onOptionChanged(item, {{ $index+1 }})">
+
+								   {{ $index+1 }}
+								</a>
+							</li>
+						</ul>
+					<!--</span>-->
 				</div>
 				<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | currency }}</div>
 			</div>
