@@ -14,32 +14,9 @@ angular.module('Volusion.controllers')
 
 			$scope.cart = {};
 			$scope.choices = 99;
-
-			$scope.getArray = function(num) {
-				return new Array(num);
-			};
-
-			$scope.$watch(
-				function () {
-					return vnCart.getCart();
-				},
-				function () {
-					$scope.cart = vnCart.getCart();
-				}
-			);
-
-			$scope.onOptionChanged = function (item, choice) {
-
-				$scope.currentSelectionText = choice;
-
-				item.qty = choice;
-			};
-
-			$scope.getCartItemsCount = function () {
-				return vnCart.getCartItemsCount();
-			};
-
 			$scope.showCoupon = false;
+
+			translate.addParts('shopping-card');
 
 			$scope.deleteItem = function (id) {
 				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
@@ -47,8 +24,12 @@ angular.module('Volusion.controllers')
 				});
 			};
 
-			$scope.toggleShowCoupon = function () {
-				$scope.showCoupon = !$scope.showCoupon;
+			$scope.getArray = function(num) {
+				return new Array(num);
+			};
+
+			$scope.getCartItemsCount = function () {
+				return vnCart.getCartItemsCount();
 			};
 
 			$scope.gotoCheckout = function() {
@@ -62,4 +43,23 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			$scope.onOptionChanged = function (item, choice) {
+
+				$scope.currentSelectionText = choice;
+
+				item.qty = choice;
+			};
+
+			$scope.toggleShowCoupon = function () {
+				$scope.showCoupon = !$scope.showCoupon;
+			};
+
+			$scope.$watch(
+				function () {
+					return vnCart.getCart();
+				},
+				function () {
+					$scope.cart = vnCart.getCart();
+				}
+			);
 		}]);

@@ -3,23 +3,23 @@
 	 data-ng-controller="ShoppingCardCtrl">
 
 	<div class="th-checkout__nav">
-		<button class="th-checkout__nav--button" data-snap-close>Keep Shopping</span></button>
-		<button class="th-checkout__nav--button" data-ng-click="gotoCheckout()">Checkout</button>
+		<button class="th-checkout__nav--button" data-snap-close data-translate="shopping-card.btnKeepShopping">Keep Shopping</span></button>
+		<button class="th-checkout__nav--button" data-ng-click="gotoCheckout()" data-translate="shopping-card.btnCheckout">Checkout</button>
 	</div>
 
 	<div class="th-checkout__subtotal">
 		<div>
-			<div class="th-checkout__subtotal--label">Subtotal:</div>
+			<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal:</div>
 			<div class="th-checkout__subtotal--price">{{ cart.totals.items | currency }}</div>
 			<br style="clear: both;" />
 		</div>
 
 		<div class="th-checkout__subtotal__addlabel">
-			<a href data-ng-click="toggleShowCoupon()">Add coupon</a>
+			<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add coupon</a>
 		</div>
 		<div class="th-checkout__subtotal__add" data-ng-show="showCoupon">
 			<input class="form-control th-checkout__subtotal__add--coupon">
-			<button class="btn btn-primary th-checkout__subtotal__add--button">Apply</button>
+			<button class="btn btn-primary th-checkout__subtotal__add--button" data-translate="shopping-card.btnApply">Apply</button>
 		</div>
 
 		<br style="clear: both;" />
@@ -28,7 +28,7 @@
 
 	<div class="th-checkout__items">
 		<div>
-			<div class="th-checkout__items--label">Your cart</div>
+			<div class="th-checkout__items--label" data-translate="shopping-card.lblYourCart">Your cart</div>
 		</div>
 		<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse">
 			<div class="th-checkout__items__item--close">
