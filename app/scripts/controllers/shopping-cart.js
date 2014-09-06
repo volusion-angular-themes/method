@@ -41,6 +41,12 @@ angular.module('Volusion.controllers')
 
 			$scope.showCoupon = false;
 
+			$scope.deleteItem = function (id) {
+				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
+					return item.id !== id;
+				});
+			};
+
 			$scope.toggleShowCoupon = function () {
 				$scope.showCoupon = !$scope.showCoupon;
 			};
