@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: searchManager', function () {
+xdescribe('Service: searchManager', function () {
 
 	// load the service's module
 	beforeEach(module('methodApp'));
