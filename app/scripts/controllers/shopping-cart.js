@@ -62,5 +62,4 @@ angular.module('Volusion.controllers')
 					$scope.cart = vnCart.getCart();
 				}
 			);
-			
 		}]);
