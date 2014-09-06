@@ -3,22 +3,13 @@
 	 data-ng-controller="ShoppingCardCtrl">
 
 	<div class="th-checkout__nav">
-<<<<<<< HEAD
 		<button class="th-checkout__nav--button" data-snap-close data-translate="shopping-card.btnKeepShopping">Keep Shopping</span></button>
 		<button class="th-checkout__nav--button" data-ng-click="gotoCheckout()" data-translate="shopping-card.btnCheckout">Checkout</button>
-=======
-		<button class="th-checkout__nav--button" data-snap-close>Keep Shopping</span></button>
-		<button class="th-checkout__nav--button" data-ng-click="gotoCheckout()">Checkout</button>
->>>>>>> main layout created
 	</div>
 
 	<div class="th-checkout__subtotal">
 		<div>
-<<<<<<< HEAD
 			<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal:</div>
-=======
-			<div class="th-checkout__subtotal--label">Subtotal:</div>
->>>>>>> main layout created
 			<div class="th-checkout__subtotal--price">{{ cart.totals.items | currency }}</div>
 			<br style="clear: both;" />
 		</div>
@@ -60,7 +51,6 @@
 
 			<div>
 				<div class="th-checkout__items__item--qty">
-<<<<<<< HEAD
 					<!--<span class="dropdown" on-toggle="toggled(open)">-->
 						<button class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown">
@@ -79,9 +69,6 @@
 							</li>
 						</ul>
 					<!--</span>-->
-=======
-					<input class="form-control" value="{{ item.qty }}"/>
->>>>>>> main layout created
 				</div>
 				<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | currency }}</div>
 			</div>
