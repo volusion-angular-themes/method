@@ -115,8 +115,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate) {
+	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
+		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
 
 			'use strict';
 
@@ -150,6 +150,10 @@ angular.module('methodApp', [
 			$rootScope.$on('$routeChangeSuccess', function () {
 				snapRemote.close();
 			});
+
+            $rootScope.$on('VN_HTTP_500_ERROR', function() {
+                vnErrorModalService.showError('views/server-error.html');
+            });
 
 			$rootScope.$watch(
 				// Use a fn in $watch first argument that gets value from service
