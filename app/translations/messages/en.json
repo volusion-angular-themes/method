@@ -14,6 +14,9 @@
 		"CART_KITITEM_MINQTY_UNAVAILABLE"          : "",
 		"CART_KITITEM_QTY_ADJUSTED_TO_AVAILABILITY": "",
 		"CART_KITITEM_NO_AVAILABLE_STOCK"          : "",
-		"CART_KITITEM_OUT_OF_STOCK"                : ""
+		"CART_KITITEM_OUT_OF_STOCK"                : "",
+        "SERVER_ERROR_HEADING"                      : "Sorry, something went wrong with the page...",
+        "SERVER_ERROR_SECTION1"                     : "... but it might just be a small glitch. Try refreshing the page to see if that fixes it.",
+        "SERVER_ERROR_SECTION2"                     : "If the problem persists, please try again later."
 	}
 }
