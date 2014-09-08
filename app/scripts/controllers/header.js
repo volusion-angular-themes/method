@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$location', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager',
-		function ($rootScope, $scope, $location, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager) {
 
 			'use strict';
 
