@@ -12,7 +12,7 @@ angular.module('methodApp')
 			'use strict';
 
 			$scope.searchLocal = '';
-			$scope.searchTerms = '';
+			$scope.searchTerms = $routeParams.q;
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {
 				if( (categories && categories.length) || (facets && facets.length) ) {
@@ -35,14 +35,6 @@ angular.module('methodApp')
 				$scope.toggleSearch();
 			};
 
-			$scope.doSearch = function () {
-				$scope.currentSearchText = $scope.searchLocal;
-				if('/search' !== $location.path()) {
-					$location.path('/search');
-				}
-				vnProductParams.updateSearch($scope.currentSearchText);
-			};
-
 			$scope.getImagePath = function (imageCollections) {
 				var path = $filter('vnProductImageFilter')(imageCollections);
 				if ('' === path) {
@@ -54,7 +46,7 @@ angular.module('methodApp')
 			$scope.initParams = function() {
 				vnProductParams.setPageSize(themeSettings.getPageSize());
 				if (!$routeParams.q) {
-					$scope.searchTerms = 'All Products';
+					$scope.searchTerms = $location.search('q', 'All Products');
 					$scope.queryProducts();
 				} else {
 					vnProductParams.updateSearch($routeParams.q);
@@ -65,7 +57,7 @@ angular.module('methodApp')
 
 			$scope.queryProducts = function() {
 				var params = vnProductParams.getParamsObject();
-				vnApi.Product().query(params).$promise.then(function (response) {
+				vnApi.Product().get(params).$promise.then(function (response) {
 					$scope.products = response.data;
 					$scope.facets = response.facets;
 					$scope.categoryList = response.categories;
@@ -95,7 +87,7 @@ angular.module('methodApp')
 				}
 				$scope.mobileDisplay = true;
 				$scope.isMobileAndVisible = true;
-				$scope.isMobileAndHidden = false;
+				$scope.isMobileAndHidden =
 				ContentMgr.hideAppFooter();
 			};
 
@@ -108,13 +100,4 @@ angular.module('methodApp')
 				vnAppRoute.setRouteStrategy('search');
 				vnProductParams.preLoadData($routeParams);
 			});
-
-			$scope.$watch(
-				function () {
-					return vnProductParams.getSearchText();
-				},
-				function () {
-					$scope.queryProducts();
-				}
-			);
 		}]);
