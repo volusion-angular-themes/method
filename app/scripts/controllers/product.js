@@ -240,6 +240,12 @@ angular.module('Volusion.controllers')
 					var fullUrl = encodeURIComponent($location.absUrl()),
 						pageTitle = encodeURIComponent($scope.product.name);
 
+					$rootScope.social = {
+						pageTitle : pageTitle,
+						pageUrl: fullUrl,
+						imageUrl: ($scope.product.imageCollections.length !== 0 && $scope.product.imageCollections[0].images.length !== 0) ? $scope.product.imageCollections[0].images[0].medium : ''
+					};
+
 					// Sharing
 					$scope.product.sharing = {
 						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '&t=' + pageTitle,
