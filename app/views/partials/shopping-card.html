@@ -10,7 +10,7 @@
 	<div class="th-checkout__subtotal">
 		<div>
 			<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal:</div>
-			<div class="th-checkout__subtotal--price">{{ cart.totals.items | currency }}</div>
+			<div class="th-checkout__subtotal--price">{{ calcSubtotal | currency }}</div>
 			<br style="clear: both;" />
 		</div>
 
@@ -18,8 +18,12 @@
 			<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add coupon</a>
 		</div>
 		<div class="th-checkout__subtotal__add" data-ng-show="showCoupon">
-			<input class="form-control th-checkout__subtotal__add--coupon">
-			<button class="btn btn-primary th-checkout__subtotal__add--button" data-translate="shopping-card.btnApply">Apply</button>
+			<input class="form-control th-checkout__subtotal__add--coupon" data-ng-model="coupon">
+			<button class="btn btn-primary th-checkout__subtotal__add--button"
+					data-translate="shopping-card.btnApply"
+					data-ng-click="applyCoupon()">
+				Apply
+			</button>
 		</div>
 
 		<br style="clear: both;" />
