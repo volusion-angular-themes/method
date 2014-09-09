@@ -5,6 +5,7 @@
 		"lblSubtotal" : "Subtotal",
 		"lblAddCoupon" : "Add coupon",
 		"btnApply" : "Apply",
-		"lblYourCart" : "Your cart"
+		"lblYourCart" : "Your cart",
+		"lblYourCartIsEmpty" : "Your cart is empty"
 	}
 }

@@ -7,24 +7,26 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCardCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'vnAppMessageService',
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'vnAppMessageService',
 		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, AppConfig, vnAppMessageService) {
 
 			'use strict';
 
 			$scope.cart = {};
+			$scope.cartEmpty = true;
 			$scope.calcSubtotal = 0;
 			$scope.choices = 99;
+			$scope.coupon = { 'code' : ''};
 			$scope.showCoupon = false;
 
 			translate.addParts('shopping-card');
 
 			$scope.applyCoupon = function () {
 				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
-					return coupon.couponCode !== $scope.coupon;
+					return coupon.couponCode !== $scope.coupon.code;
 				});
 
-				$scope.cart.discounts.push({ 'couponCode': $scope.coupon });
+				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
 				vnCart.updateCart()
 					.then(function (cart) {
@@ -142,6 +144,8 @@ angular.module('Volusion.controllers')
 					if ($scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
 						$scope.calcSubtotal = $scope.cart.totals.items + $scope.cart.totals.discounts;
+
+						$scope.cartEmpty = ($scope.cart.totals.qty > 0) ? false : true;
 					}
 				}
 			);

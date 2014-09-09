@@ -1,13 +1,31 @@
 <div data-snap-drawer="right"
 	 class="th-checkout"
-	 data-ng-controller="ShoppingCardCtrl">
+	 data-ng-controller="ShoppingCartCtrl">
+
+	<div class="th-checkout__brand" data-ng-if="!isInDesktopMode">
+		<button type="button" class="navbar-toggle th-checkout__brand--search" data-ng-init="navCollapsed = true" snap-toggle="left">
+			<span class="sr-only" data-translate="header.toggleNavigation">Toggle Navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+
+		<img class="th-checkout__brand--image" data-ng-src="{{ config.general.logoUrl }}" class="img-responsive" />
+
+		<br style="clear: both;" />
+	</div>
 
 	<div class="th-checkout__nav">
 		<button class="th-checkout__nav--button" data-snap-close data-translate="shopping-card.btnKeepShopping">Keep Shopping</span></button>
-		<button class="th-checkout__nav--button" data-ng-click="gotoCheckout()" data-translate="shopping-card.btnCheckout">Checkout</button>
+		<button class="th-checkout__nav--button"
+				data-ng-click="gotoCheckout()"
+				data-translate="shopping-card.btnCheckout"
+				data-ng-disabled="cartEmpty">
+			Checkout
+		</button>
 	</div>
 
-	<div class="th-checkout__subtotal">
+	<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">
 		<div>
 			<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal:</div>
 			<div class="th-checkout__subtotal--price">{{ calcSubtotal | currency }}</div>
@@ -18,7 +36,7 @@
 			<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add coupon</a>
 		</div>
 		<div class="th-checkout__subtotal__add" data-ng-show="showCoupon">
-			<input class="form-control th-checkout__subtotal__add--coupon" data-ng-model="coupon">
+			<input class="form-control th-checkout__subtotal__add--coupon" data-ng-model="coupon.code">
 			<button class="btn btn-primary th-checkout__subtotal__add--button"
 					data-translate="shopping-card.btnApply"
 					data-ng-click="applyCoupon()">
@@ -30,7 +48,18 @@
 
 	</div>
 
-	<div class="th-checkout__items">
+	<div class="th-alert-container">
+		<div data-vn-app-message=""></div>
+	</div>
+
+	<div class="th-checkout__noitems--label"
+		 data-translate="shopping-card.lblYourCartIsEmpty"
+		 data-ng-if="cartEmpty">
+
+		 Your cart is empty
+	</div>
+
+	<div class="th-checkout__items" data-ng-if="!cartEmpty">
 		<div>
 			<div class="th-checkout__items--label" data-translate="shopping-card.lblYourCart">Your cart</div>
 		</div>
