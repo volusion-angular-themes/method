@@ -73,7 +73,7 @@
 				<div class="pull-right th-cart-summary">
 					<div search-form></div>
 					<div class="th-my-cart">
-						<a legacy-link="{{ viewCart() }}" class="th-my-cart__link">
+						<a href class="th-my-cart__link" data-ng-click="snapToggle('right')"><!--snap-toggle="right"-->
 							<span class="th-my-cart__text" data-translate="header.myCart">My Bag</span>
 							<span class="th-my-cart__number">{{ getCartItemsCount() }}</span>
 						</a>

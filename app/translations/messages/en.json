@@ -2,6 +2,7 @@
 	"message": {
 		"CART_UNKNOWN"                             : "Unknown server error",
 		"CART_ADD_SUCCESS"                         : "Item(s) are added to your cart",
+		"CART_UPDATE_SUCCESS"                      : "Your cart was updated",
 		"CART_ITEM_UNAVAILABLE"                    : "",
 		"CART_ITEM_WITH_OPTION_UNAVAILABLE"        : "",
 		"CART_MAX_ITEM_COUNT_EXCEEDED"             : "",

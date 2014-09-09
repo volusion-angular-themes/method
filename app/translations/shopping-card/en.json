@@ -1,0 +1,10 @@
+{
+	"shopping-card": {
+		"btnKeepShopping": "Keep Shopping",
+		"btnCheckout": "Checkout",
+		"lblSubtotal" : "Subtotal",
+		"lblAddCoupon" : "Add coupon",
+		"btnApply" : "Apply",
+		"lblYourCart" : "Your cart"
+	}
+}

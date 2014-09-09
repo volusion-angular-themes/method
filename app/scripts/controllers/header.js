@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager, snapRemote) {
 
 			'use strict';
 
@@ -45,6 +45,20 @@ angular.module('Volusion.controllers')
 				return vnCart.getCartItemsCount();
 			};
 
+			$scope.snapToggle = function (side) {
+				if ($rootScope.isInDesktopMode) {
+					snapRemote.toggle(side);
+				} else {
+					snapRemote.getSnapper().then(function(snapper) {
+						if(side === snapper.state().state) {
+							snapper.close();
+						} else {
+							snapper.expand(side);
+						}
+					});
+				}
+			};
+
 			$scope.viewCart = function() {
 
 				var host = AppConfig.getApiHost();
@@ -63,4 +77,5 @@ angular.module('Volusion.controllers')
 				function (state) {
 					$scope.headerState = state;
 				}, true);
+
 		}]);
