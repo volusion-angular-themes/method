@@ -29,10 +29,12 @@ angular.module('Volusion.directives')
 				};
 
 				scope.$watch(attrs.cursor, function (value) {
+
 					if (value === undefined) {
 						return;
 					}
-					scope.currentPage = value.currentPage;
+
+					scope.currentPage = value.currentPage.toString();
 					vnProductParams.setPage(scope.currentPage);
 				}, true);
 			}
