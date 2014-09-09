@@ -7,6 +7,30 @@
 	bottom           : 0;
 	padding-bottom   : 120px;
 
+	&__brand {
+
+		padding       : 3px 10px;
+		border-bottom : 1px solid $hr-border;
+		height        : 46px;
+		position      : relative;
+
+		&--image {
+			display : block;
+			margin  : auto;
+			height  : 36px;
+		}
+
+		&--search {
+			float  : left;
+			margin : 0;
+
+			span {
+				background-color : black;
+				height           : 4px !important;
+			}
+		}
+	}
+
 	&__nav {
 		border-bottom : 1px solid $hr-border;
 
@@ -19,6 +43,16 @@
 			font-size  : 14px;
 			outline    : none;
 			outline    : 0;
+
+			&[disabled] {
+				//background-color : $gray-lighter;
+				color : $btn-link-disabled-color;
+
+				&:hover {
+					background-color : $body-bg;
+					color            : $btn-link-disabled-color;
+				}
+			}
 
 			&:hover {
 				background-color : $btn-primary-bg;
@@ -85,6 +119,14 @@
 		}
 	}
 
+	&__noitems {
+		&--label {
+			text-transform : uppercase;
+			text-align     : center;
+			margin-top     : 15px;
+		}
+	}
+
 	&__items {
 		padding    : 5px 10px;
 		overflow-y : scroll;
@@ -142,12 +184,12 @@
 				button {
 					width      : 80px;
 					text-align : center;
-					position : relative;
+					position   : relative;
 
 					.caret {
-						position: absolute;
-						right: 10px;
-						top: 12px;
+						position : absolute;
+						right    : 10px;
+						top      : 12px;
 					}
 				}
 
