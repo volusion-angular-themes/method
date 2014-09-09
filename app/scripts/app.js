@@ -11,7 +11,6 @@ angular.module('methodApp', [
 	'ngAnimate',
 	'ngCookies',
 	'ngResource',
-	'ngSanitize',
 	'ngRoute',
 	'ngTouch',
 
@@ -59,7 +58,6 @@ angular.module('methodApp', [
 						translations: ['translate', function (translate) {
 							translate.addParts('home');
 							translate.addParts('product');
-							return;
 						}]
 					}
 				})
@@ -115,14 +113,14 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
+	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
+		function (snapRemote, $rootScope, $window, vnCacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
 
 			'use strict';
 
 			$rootScope.isInDesktopMode = true;
 
-			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
+			$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
 
 			vnCart.init();
 
