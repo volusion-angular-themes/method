@@ -13,7 +13,7 @@ angular.module('Volusion.controllers')
 			'use strict';
 
 			$scope.cart = {};
-			$scope.calcSubtotal;
+			$scope.calcSubtotal = 0;
 			$scope.choices = 99;
 			$scope.showCoupon = false;
 
