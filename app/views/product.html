@@ -202,6 +202,7 @@
 	</div>
 </div>
 
+<<<<<<< HEAD
 <!-- REVIEWS -->
 <div class="th-reviews" data-ng-if="config.general.enableCustomerReviews">
 	<div class="th-reviews__heading" data-translate="product.reviews">Reviews</div>
@@ -218,6 +219,42 @@
 				<div data-vn-rating rating-value="ratingsAndReviews.data.avgRating"
 					 maximum="ratingsAndReviews.data.maxRating"
 					 editable="isEditable" title=""></div>
+=======
+		<!-- REVIEWS -->
+		<div class="th-reviews" data-ng-if="config.general.enableCustomerReviews">
+			<div class="th-reviews__heading" data-translate="product.reviews">Reviews</div>
+			<div class="th-reviews__totals">
+				<div class="th-reviews__totals--left" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
+					<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count"><meta itemprop="worstRating" content="1">This product has recieved <span itemprop="ratingValue" data-ng-bind="ratingsAndReviews.data.avgRating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span> stars based on <span itemprop="reviewCount" data-ng-bind="ratingsAndReviews.cursor.total"></span> customer reviews</div>
+					<div class="th-reviews__avg">
+						<div data-vn-rating rating-value="ratingsAndReviews.data.avgRating"
+								 maximum="ratingsAndReviews.data.maxRating"
+								 editable="isEditable" title=""></div>
+					</div>
+				</div>
+				<div class="th-reviews__totals--right">
+					<a data-vn-legacy-link="/reviewnew.asp?productcode={{product.code}}" class="btn btn-default btn-grey-sm" data-translate="product.writeAReview">Write a Review &gt;</a>
+				</div>
+			</div>
+			<div data-ng-if="ratingsAndReviews.data.reviews.length > 0" class="th-reviews" itemprop="review" itemscope itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
+				<div class="th-reviews__helpful"><span data-ng-bind="review.helpful"></span> people found the following review helpful</div>
+				<div class="th-reviews__ratings">
+					<div class="th-reviews__star-group"
+							 data-vn-rating rating-value="review.rating"
+							 maximum="ratingsAndReviews.data.maxRating"
+							 title="" editable="isEditable"></div>
+					<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"><span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of <span itemprop="bestRating" data-ng-bind="ratingsAndReviews.data.maxRating"></span></span> By <span itemprop="author" class="th-review__ratings__author" data-ng-bind="review.nameOfReviewer || 'Anonymous'"></span>
+					<div itemprop="datePublished" class="th-rating-date hidden-xs pull-right" data-ng-bind="review.date"></div>
+				</div>
+				<div itemprop="name" class="th-reviews__title" data-ng-bind="review.title"></div>
+				<div itemprop="description" class="th-rating-description" data-ng-bind="review.body">
+				</div>
+				<div class="th-reviews__helpful">
+					<span data-translate="product.wasThisReviewHelpfulToYou">Was this review helpful for you?</span>
+					<a data-vn-legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=yes" class="btn btn-default btn-grey-sm" data-translate="common.yes">Yes</a>
+					<a data-vn-legacy-link="/reviewhelpful.asp?ProductCode={{product.code}}&ID={{review.id}}&yes=no" class="btn btn-default btn-grey-sm" data-translate="common.no">No</a>
+				</div>
+>>>>>>> Moved legacy link filter and directive to toolbox
 			</div>
 		</div>
 		<div class="th-reviews__totals--right">
