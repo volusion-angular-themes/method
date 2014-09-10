@@ -71,7 +71,10 @@
 
 			<div class="col-xs-3 col-md-2">
 				<div class="pull-right th-cart-summary">
-					<div search-form></div>
+
+                    <div class="hidden-xs hidden-sm th-search-popout">
+					    <div vn-search-form search-term="searchLocal" allow-collapse="true" show-search="showSearchDesktop"></div>
+                    </div>
 					<div class="th-my-cart">
 						<a href class="th-my-cart__link" data-ng-click="snapToggle('right')"><!--snap-toggle="right"-->
 							<span class="th-my-cart__text" data-translate="header.myCart">My Bag</span>
