@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'SiteConfig',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, SiteConfig) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig) {
 
 			'use strict';
 
@@ -75,7 +75,7 @@ angular.module('Volusion.controllers')
 				buildSmartNav();
 			});
 
-			SiteConfig.getConfig().then(function (response) {
+            vnSiteConfig.getConfig().then(function (response) {
 				$scope.config = response.data;
 			});
 
