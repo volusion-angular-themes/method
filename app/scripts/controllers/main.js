@@ -75,7 +75,7 @@ angular.module('Volusion.controllers')
 				buildSmartNav();
 			});
 
-			SiteConfig.getConfig().then(function (response) {
+            vnSiteConfig.getConfig().then(function (response) {
 				$scope.config = response.data;
 			});
 

@@ -33,19 +33,22 @@ angular.module('methodApp', [
 	'Volusion.filters',
 	'Volusion.services'
 ])
-	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
-		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
+		function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
 
 			'use strict';
 
 			$locationProvider.html5Mode(true);
 
+            vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
+            vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
+
 			var translateOptions = {
-				urlPrefix          : AppConfigProvider.getPrefix(),
-				region             : AppConfigProvider.getRegion(),
-				lang               : AppConfigProvider.getLang(),
-				country            : AppConfigProvider.getCountry(),
-				disableTranslations: AppConfigProvider.getTranslations()
+				urlPrefix          : vnAppConfigProvider.getPrefix(),
+				region             : vnAppConfigProvider.getRegion(),
+				lang               : vnAppConfigProvider.getLang(),
+				country            : vnAppConfigProvider.getCountry(),
+				disableTranslations: vnAppConfigProvider.getTranslations()
 			};
 
 			translateProvider.configure(translateOptions);
@@ -113,8 +116,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'SiteConfig', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
-		function (snapRemote, $rootScope, $window, vnCacheBustFilter, SiteConfig, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
+	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
+		function (snapRemote, $rootScope, $window, vnCacheBustFilter, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
 
 			'use strict';
 

@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'vnSearchManager', 'snapRemote',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, vnSearchManager, snapRemote) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, vnAppConfig, vnSearchManager, snapRemote) {
 
 			'use strict';
 
@@ -63,7 +63,7 @@ angular.module('Volusion.controllers')
 
 			$scope.viewCart = function() {
 
-				var host = AppConfig.getApiHost();
+				var host = vnAppConfig.getApiHost();
 
 				if ($rootScope.isInDesktopMode) {
 					return host + '/shoppingcart.asp';

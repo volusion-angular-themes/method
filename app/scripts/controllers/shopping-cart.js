@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'vnAppMessageService',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, AppConfig, vnAppMessageService) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnAppMessageService',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, vnAppConfig, vnAppMessageService) {
 
 			'use strict';
 
@@ -111,7 +111,7 @@ angular.module('Volusion.controllers')
 
 			$scope.gotoCheckout = function() {
 
-				var host = AppConfig.getApiHost();
+				var host = vnAppConfig.getApiHost();
 
 				if ($rootScope.isInDesktopMode) {
 					$window.location.assign(host + '/one-page-checkout.asp');
