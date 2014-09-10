@@ -20,46 +20,9 @@ angular.module('Volusion.controllers')
 				'code' : '',
 				'show' : false
 			};
+			$scope.couponsEmpty = false;
 
 			translate.addParts('shopping-card');
-
-			$scope.applyCoupon = function () {
-				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
-					return coupon.couponCode !== $scope.coupon.code;
-				});
-
-				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
-
-				vnCart.updateCart()
-					.then(function (cart) {
-						$scope.cart = cart;
-
-						if ($scope.cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings($scope.cart.warnings); // if any
-						} else {
-							displayErrors($scope.cart.serviceErrors);
-						}
-					});
-			};
-
-			$scope.deleteItem = function (id) {
-				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
-					return item.id !== id;
-				});
-
-				vnCart.updateCart()
-					.then(function (cart) {
-						$scope.cart = cart;
-
-						if ($scope.cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings($scope.cart.warnings); // if any
-						} else {
-							displayErrors($scope.cart.serviceErrors);
-						}
-					});
-			};
 
 			function displayErrors(errors) {
 				var vnMsg,
@@ -96,6 +59,48 @@ angular.module('Volusion.controllers')
 				}
 			}
 
+			function updateCart() {
+				vnCart.updateCart()
+					.then(function (cart) {
+						$scope.cart = cart;
+
+						if ($scope.cart.serviceErrors.length === 0) {
+							displaySuccess();
+							displayWarnings($scope.cart.warnings); // if any
+						} else {
+							displayErrors($scope.cart.serviceErrors);
+						}
+					});
+			}
+
+			$scope.applyCoupon = function () {
+				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
+					return coupon.couponCode !== $scope.coupon.code;
+				});
+
+				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
+
+				updateCart();
+			};
+
+			$scope.deleteCoupon = function (id) {
+				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
+					return coupon.id !== id;
+				});
+
+				$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
+
+				updateCart();
+			};
+
+			$scope.deleteItem = function (id) {
+				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
+					return item.id !== id;
+				});
+
+				updateCart();
+			};
+
 			$scope.getArray = function(num) {
 				return new Array(num);
 			};
@@ -119,17 +124,7 @@ angular.module('Volusion.controllers')
 
 				item.qty = choice;
 
-				vnCart.updateCart()
-					.then(function (cart) {
-						$scope.cart = cart;
-
-						if ($scope.cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings($scope.cart.warnings); // if any
-						} else {
-							displayErrors($scope.cart.serviceErrors);
-						}
-					});
+				updateCart();
 			};
 
 			$scope.toggleShowCoupon = function () {
@@ -148,6 +143,10 @@ angular.module('Volusion.controllers')
 						$scope.calcSubtotal = $scope.cart.totals.items + $scope.cart.totals.discounts;
 
 						$scope.cartEmpty = ($scope.cart.totals.qty > 0) ? false : true;
+					}
+
+					if ($scope.cart.discounts !== undefined) {
+						$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 					}
 				}
 			);

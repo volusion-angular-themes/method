@@ -119,6 +119,61 @@
 		}
 	}
 
+	&__coupons {
+		padding       : 5px 10px;
+		border-bottom : 1px solid $hr-border;
+
+		&--label {
+			text-transform : uppercase;
+			margin         : 15px 0;
+		}
+
+		&__coupon {
+
+			position       : relative;
+			margin-bottom  : 10px;
+			padding-bottom : 10px;
+			border-bottom  : 1px solid $gray-lighter;
+
+			&.-last {
+				border-bottom : none;
+				margin-bottom : 0;
+			}
+
+			&--close {
+				position : absolute;
+				right    : 0px;
+
+				button {
+					border     : 1px solid $gray-lighter;
+					background : none;
+					padding    : 2px;
+					height     : 22px;
+					width      : 22px;
+					outline    : none;
+					outline    : 0;
+
+					span {
+						&:before {
+							font-family : $font-family-glyphs;
+							content     : "\e014";
+						}
+					}
+				}
+			}
+
+			&--name {
+				padding-right : 55px;
+			}
+
+			&--value {
+				position : absolute;
+				right    : 0px;
+				bottom   : 0px;
+			}
+		}
+	}
+
 	&__noitems {
 		&--label {
 			text-transform : uppercase;
