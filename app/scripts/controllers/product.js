@@ -1,12 +1,13 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService', 'snapRemote',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService, snapRemote) {
 
 			'use strict';
 
 			var optionsAndSKU;
 
 			$scope.accordionPanels = {isopen1: true};
+			$scope.buttonWait = false;
 			$scope.carousel = {interval: 4000};
 			$scope.cartItem = {};
 			$scope.itemSelectionsNotInStock = false;
@@ -304,8 +305,17 @@ angular.module('Volusion.controllers')
 					return;
 				}
 
+				// disable button and show "wait" animation
+				$scope.buttonWait = true;
+
 				vnCart.saveCart($scope.cartItem)
 					.then(function (cart) {
+
+						if ($rootScope.isInDesktopMode) {
+							snapRemote.open('right');
+						} else {
+							snapRemote.expand('right');
+						}
 
 						$scope.cartItem.qty = 0;
 						if (cart.serviceErrors.length === 0) {
@@ -318,6 +328,9 @@ angular.module('Volusion.controllers')
 					})
 					.finally(function () {
 						modifyQuantity(1);
+
+						// hide "wait" animation and enable button
+						$scope.buttonWait = false;
 					});
 			};
 
