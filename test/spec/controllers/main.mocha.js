@@ -3,11 +3,11 @@
 describe('Controller: MainCtrl', function() {
 
 	// load the controller's module
-	beforeEach(module('Volusion.controllers', 'ngResource', 'config', 'Volusion.toolboxCommon', 'Volusion.services'));
+	beforeEach(module('Volusion.controllers', 'ngResource', 'ngSanitize', 'config', 'Volusion.toolboxCommon', 'Volusion.services'));
 
 	var MainCtrl;
 	var scope;
-	var SiteConfig, themeSettings, vnApi;
+	var vnSiteConfig, themeSettings, vnApi;
 
 
 	var configResponse = {
@@ -26,25 +26,17 @@ describe('Controller: MainCtrl', function() {
 
 	// Initialize the controller and a mock scope
 	/*jshint camelcase: false */
-	beforeEach(inject(function($controller, $rootScope, _SiteConfig_, _themeSettings_, _vnApi_) {
-		SiteConfig = _SiteConfig_;
+	beforeEach(inject(function($controller, $rootScope, _vnSiteConfig_, _themeSettings_, _vnApi_) {
+		vnSiteConfig = _vnSiteConfig_;
 		themeSettings = _themeSettings_;
 		vnApi = _vnApi_;
-		sinon.stub(SiteConfig, 'getConfig', function() {
+		sinon.stub(vnSiteConfig, 'getConfig', function() {
 			return {
 				then: function(fn) {
 					return fn(configResponse);
 				}
 			};
 		});
-
-//		sinon.stub(themeSettings, 'getThemeSettings', function() {
-//			return {
-//				then: function(fn) {
-//					return fn(themeSettingsResponse);
-//				}
-//			};
-//		});
 
 		sinon.stub(vnApi, 'Nav', function() {
 			return {
@@ -69,19 +61,13 @@ describe('Controller: MainCtrl', function() {
 	/*jshint camelcase: true */
 
 	afterEach(function () {
-		SiteConfig.getConfig.restore();
-//		themeSettings.getThemeSettings.restore();
+        vnSiteConfig.getConfig.restore();
 		vnApi.Nav.restore();
 	});
 
 	it('calls SiteConfig and stores response in scope', function() {
-		expect(SiteConfig.getConfig).to.have.been.calledOnce;
+		expect(vnSiteConfig.getConfig).to.have.been.calledOnce;
 		expect(scope.config).to.deep.equal(configResponse.data);
-	});
-
-	it.skip('calls themeSettings and stores response in scope', function() {
-		expect(themeSettings.getThemeSettings).to.have.been.calledOnce;
-		expect(scope.themeSettings).to.deep.equal(themeSettingsResponse);
 	});
 
 

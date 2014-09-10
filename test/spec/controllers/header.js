@@ -3,7 +3,7 @@ describe('Controller: HeaderCtrl', function () {
 	'use strict';
 
 	// load the controller's module
-	beforeEach(module('volusionMethodThemeApp'));
+	beforeEach(module('methodApp'));
 
 	var HeaderCtrl,
 		scope;
@@ -16,7 +16,7 @@ describe('Controller: HeaderCtrl', function () {
 		});
 	}));
 
-	xit('should attach a list of awesomeThings to the scope', function () {
-		expect(scope.awesomeThings.length).toBe(3);
-	});
+    it('should exist', function() {
+        expect(HeaderCtrl).toBeDefined();
+    });
 });

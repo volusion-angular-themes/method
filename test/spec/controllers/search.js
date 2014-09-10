@@ -16,7 +16,7 @@ describe('Controller: SearchCtrl', function () {
 		});
 	}));
 
-	xit('should attach a list of awesomeThings to the scope', function () {
-		expect(true).toBe(true);
-	});
+    it('should exist', function() {
+        expect(SearchCtrl).toBeDefined();
+    });
 });

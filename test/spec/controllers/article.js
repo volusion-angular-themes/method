@@ -2,7 +2,7 @@
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
-xdescribe('Controller: ArticleCtrl', function() {
+describe('Controller: ArticleCtrl', function() {
 
 	// load the controller's module
 	beforeEach(module('methodApp'));
@@ -41,14 +41,16 @@ xdescribe('Controller: ArticleCtrl', function() {
 		});
 	}));
 
-	it('should attach the article data to the scope', function() {
-		console.log(scope.article); // Undefined
-		console.log(article.data);
-		expect(scope.article).to.deep.equal(article.data);
+    it('should exist', function() {
+       expect(controller).toBeDefined();
+    });
+
+	xit('should attach the article data to the scope', function() {
+		expect(scope.article).toEqual(article.data);
 	});
 
-	it('updates the root scope\'s seo object with the article seo', function() {
-		expect(scope.seo).to.deep.equal(article.data.seo);
+	xit('updates the root scope\'s seo object with the article seo', function() {
+		expect(scope.seo).toEqual(article.data.seo);
 	});
 
 });
