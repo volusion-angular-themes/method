@@ -16,8 +16,10 @@ angular.module('Volusion.controllers')
 			$scope.cartEmpty = true;
 			$scope.calcSubtotal = 0;
 			$scope.choices = 99;
-			$scope.coupon = { 'code' : ''};
-			$scope.showCoupon = false;
+			$scope.coupon = {
+				'code' : '',
+				'show' : false
+			};
 
 			translate.addParts('shopping-card');
 
@@ -131,7 +133,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.toggleShowCoupon = function () {
-				$scope.showCoupon = !$scope.showCoupon;
+				$scope.coupon.show = !$scope.coupon.show;
 			};
 
 			$scope.$watch(

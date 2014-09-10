@@ -311,7 +311,11 @@ angular.module('Volusion.controllers')
 				vnCart.saveCart($scope.cartItem)
 					.then(function (cart) {
 
-						snapRemote.open('right');
+						if ($rootScope.isInDesktopMode) {
+							snapRemote.open('right');
+						} else {
+							snapRemote.expand('right');
+						}
 
 						$scope.cartItem.qty = 0;
 						if (cart.serviceErrors.length === 0) {

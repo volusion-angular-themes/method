@@ -35,7 +35,7 @@
 		<div class="th-checkout__subtotal__addlabel">
 			<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add coupon</a>
 		</div>
-		<div class="th-checkout__subtotal__add" data-ng-show="showCoupon">
+		<div class="th-checkout__subtotal__add" data-ng-show="coupon.show">
 			<input class="form-control th-checkout__subtotal__add--coupon" data-ng-model="coupon.code">
 			<button class="btn btn-primary th-checkout__subtotal__add--button"
 					data-translate="shopping-card.btnApply"
