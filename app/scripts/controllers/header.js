@@ -85,7 +85,7 @@ angular.module('Volusion.controllers')
 					return vnSearchManager.getSearchText();
 				},
 				function (searchText) {
-					$scope.searchLocal = searchText;
+					$scope.searchLocal = searchText || '';
 				}, true);
 
 		}]);

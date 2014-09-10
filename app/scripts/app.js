@@ -11,6 +11,7 @@ angular.module('methodApp', [
 	'ngAnimate',
 	'ngCookies',
 	'ngResource',
+    'ngSanitize',
 	'ngRoute',
 	'ngTouch',
 
