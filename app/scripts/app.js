@@ -124,9 +124,9 @@ angular.module('methodApp', [
 
 			$rootScope.isInDesktopMode = true;
 
-			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
+			$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
 
-			Cart.init();
+			vnCart.init();
 
 			translate.addParts('message');
 
