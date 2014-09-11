@@ -1,10 +1,7 @@
 /* exported VnAppRouteProvider */
 
 angular.module('Volusion.templates', []);
-angular.module('Volusion.directives', ['Volusion.templates']);
-angular.module('Volusion.filters', []);
 angular.module('Volusion.services', []);
-angular.module('Volusion.decorators', []);
 angular.module('Volusion.controllers', []);
 
 angular.module('methodApp', [
@@ -29,9 +26,6 @@ angular.module('methodApp', [
 
 	'Volusion.toolboxCommon',
 	'Volusion.controllers',
-	'Volusion.decorators',
-	'Volusion.directives',
-	'Volusion.filters',
 	'Volusion.services'
 ])
 	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
