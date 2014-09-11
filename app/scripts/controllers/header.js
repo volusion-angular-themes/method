@@ -7,17 +7,26 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$window', '$timeout', '$filter', 'translate', 'Cart', 'vnApi', 'ContentMgr', 'AppConfig',
-		function ($rootScope, $scope, $window, $timeout, $filter, translate, Cart, vnApi, ContentMgr, AppConfig) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, vnAppConfig, vnSearchManager, snapRemote) {
 
 			'use strict';
 
 			$scope.alerts = [];
+            $scope.showSearchMobile = true;
+            $scope.showSearchDesktop = false;
+
+			translate.addParts('common');
+			translate.addParts('header');
 
 			$scope.closeAlert = function (id) {
 				$scope.alerts = $filter('filter')($scope.alerts, function (alert) {
 					return alert.id !== id;
 				});
+			};
+
+			$scope.doSearch = function () {
+                vnSearchManager.updateSearch($scope.searchLocal);
 			};
 
 			$rootScope.$on('vnNotification.show', function (evt, alert) {
@@ -34,26 +43,27 @@ angular.module('Volusion.controllers')
 				$scope.alerts.push(alert);
 			});
 
-			// Watch the appheader state and update as needed
-			$scope.$watch(
-				function () {
-					return ContentMgr.getHeaderState();
-				},
-				function (state) {
-					$scope.headerState = state;
-				},true);
-
-			// Add translations
-			translate.addParts('common');
-			translate.addParts('header');
-
 			$scope.getCartItemsCount = function () {
-				return Cart.getCartItemsCount();
+				return vnCart.getCartItemsCount();
+			};
+
+			$scope.snapToggle = function (side) {
+				if ($rootScope.isInDesktopMode) {
+					snapRemote.toggle(side);
+				} else {
+					snapRemote.getSnapper().then(function(snapper) {
+						if(side === snapper.state().state) {
+							snapper.close();
+						} else {
+							snapper.expand(side);
+						}
+					});
+				}
 			};
 
 			$scope.viewCart = function() {
 
-				var host = AppConfig.getApiHost();
+				var host = vnAppConfig.getApiHost();
 
 				if ($rootScope.isInDesktopMode) {
 					return host + '/shoppingcart.asp';
@@ -61,4 +71,22 @@ angular.module('Volusion.controllers')
 					return host + '/checkout.asp';
 				}
 			};
+
+			$scope.$watch(
+				function () {
+					return ContentMgr.getHeaderState();
+				},
+				function (state) {
+					$scope.headerState = state;
+				}, true);
+
+			$scope.$watch(
+				function () {
+					return vnSearchManager.getSearchText();
+				},
+				function (searchText) {
+					$scope.searchLocal = searchText || '';
+				}, true);
+
+
 		}]);

@@ -1,17 +1,14 @@
 /* exported VnAppRouteProvider */
 
 angular.module('Volusion.templates', []);
-angular.module('Volusion.directives', ['Volusion.templates']);
-angular.module('Volusion.filters', []);
 angular.module('Volusion.services', []);
-angular.module('Volusion.decorators', []);
 angular.module('Volusion.controllers', []);
 
 angular.module('methodApp', [
 	'ngAnimate',
 	'ngCookies',
 	'ngResource',
-	'ngSanitize',
+    'ngSanitize',
 	'ngRoute',
 	'ngTouch',
 
@@ -29,25 +26,24 @@ angular.module('methodApp', [
 
 	'Volusion.toolboxCommon',
 	'Volusion.controllers',
-	'Volusion.decorators',
-	'Volusion.directives',
-	'Volusion.filters',
 	'Volusion.services'
-	//'Volusion.google.tagmanager' //TODO fix Volusion.google.tagmanager
 ])
-	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'AppConfigProvider',
-		function ($routeProvider, $locationProvider, translateProvider, AppConfigProvider) {
+	.config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
+		function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
 
 			'use strict';
 
 			$locationProvider.html5Mode(true);
 
+            vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
+            vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
+
 			var translateOptions = {
-				urlPrefix          : AppConfigProvider.getPrefix(),
-				region             : AppConfigProvider.getRegion(),
-				lang               : AppConfigProvider.getLang(),
-				country            : AppConfigProvider.getCountry(),
-				disableTranslations: AppConfigProvider.getTranslations()
+				urlPrefix          : vnAppConfigProvider.getPrefix(),
+				region             : vnAppConfigProvider.getRegion(),
+				lang               : vnAppConfigProvider.getLang(),
+				country            : vnAppConfigProvider.getCountry(),
+				disableTranslations: vnAppConfigProvider.getTranslations()
 			};
 
 			translateProvider.configure(translateOptions);
@@ -60,7 +56,6 @@ angular.module('methodApp', [
 						translations: ['translate', function (translate) {
 							translate.addParts('home');
 							translate.addParts('product');
-							return;
 						}]
 					}
 				})
@@ -77,7 +72,7 @@ angular.module('methodApp', [
 					templateUrl   : 'views/category.html',
 					controller    : 'CategoryCtrl',
 					reloadOnSearch: false,
-					resolve: {
+					resolve       : {
 						params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 							return vnAppRoute.resolveParams($location.search());
 						}]
@@ -87,7 +82,7 @@ angular.module('methodApp', [
 					templateUrl   : 'views/search.html',
 					controller    : 'SearchCtrl',
 					reloadOnSearch: false,
-					resolve: {
+					resolve       : {
 						params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 							return vnAppRoute.resolveParams($location.search());
 						}]
@@ -97,7 +92,7 @@ angular.module('methodApp', [
 					templateUrl   : 'views/search.html',
 					controller    : 'SearchCtrl',
 					reloadOnSearch: false,
-					resolve: {
+					resolve       : {
 						params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 							return vnAppRoute.resolveParams($location.search());
 						}]
@@ -116,12 +111,18 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'cacheBustFilter', 'SiteConfig', 'themeSettings', 'Cart', 'ContentMgr', 'translate',
-		function (snapRemote, $rootScope, $window, cacheBustFilter, SiteConfig, themeSettings, Cart, ContentMgr, translate) {
+	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
+		function (snapRemote, $rootScope, $window, vnCacheBustFilter, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
 
 			'use strict';
 
 			$rootScope.isInDesktopMode = true;
+
+			$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
+
+			vnCart.init();
+
+			translate.addParts('message');
 
 			enquire.register('screen and (max-width: 991px)', {
 				// transitioning to desktop mode
@@ -135,7 +136,21 @@ angular.module('methodApp', [
 				}
 			});
 
-			// Watch the snap menu state and update as needed
+			$rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+				event.preventDefault();
+				if (error.status === 404) {
+					$window.location.replace('/404.html');
+				}
+			});
+
+			$rootScope.$on('$routeChangeSuccess', function () {
+				snapRemote.close();
+			});
+
+            $rootScope.$on('VN_HTTP_500_ERROR', function() {
+                vnErrorModalService.showError('views/server-error.html');
+            });
+
 			$rootScope.$watch(
 				// Use a fn in $watch first argument that gets value from service
 				function () {
@@ -145,26 +160,4 @@ angular.module('methodApp', [
 				function (state) {
 					$rootScope.snapMenuState = state;
 				}, true);
-
-			$rootScope.$on('$routeChangeSuccess', function () {
-				snapRemote.close();
-			});
-
-			$rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-				event.preventDefault();
-				if (error.status === 404) {
-					$window.location.replace('/404.html');
-				}
-			});
-
-			// TODO: This should be in a controller ...  $rootScope is not the place for that
-			$rootScope.overridesCSS = cacheBustFilter('/styles/overrides.css');
-
-			// Init services
-			// one time initialization for services
-			Cart.init();
-
-			// Add translated messages
-			translate.addParts('message');
-
 		}]);

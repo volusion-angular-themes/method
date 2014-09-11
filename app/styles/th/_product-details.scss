@@ -6,6 +6,23 @@
 	&__add-to-cart {
 		@extend %font-smoothing;
 		padding : 4px 15px;
+
+		&--loader {
+			height         : 20px;
+			text-align     : center;
+			margin         : 0 auto;
+			display        : inline-block;
+			vertical-align : top;
+			margin-top     : -8px;
+		}
+
+		/*
+		  Set the color of the icon
+		*/
+		svg path,
+		svg rect {
+			fill : #FFFFFF;
+		}
 	}
 
 	&__availability {
@@ -21,19 +38,23 @@
 
 	&__title {
 		font-family    : $font-family-condensed-reg;
-		font-size      : 3.1rem;
-		line-height    : 22px;
+		font-size      : 3.0rem;
 		padding        : 2px 0;
-		text-align : center;
+		text-align     : center;
 		text-transform : uppercase;
 
+		@include respond-to(xs) {
+			line-height : 30px;
+		}
+
 		@include respond-to(sm) {
-			font-size   : 3.2rem;
+			font-size   : 3.1rem;
 			line-height : normal;
 			padding     : 30px 0;
 		}
 
 		@include respond-to(md-and-up) {
+			font-size   : 3.1rem;
 			line-height : 34px;
 			text-align  : left;
 		}

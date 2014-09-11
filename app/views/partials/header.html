@@ -6,10 +6,10 @@
 	<div class="hidden-xs hidden-sm th-header">
 		<div class="container">
 			<div class="pull-left th-header__shipping-text">
-				<span data-ng-bind-html="themeSettings.general.header.content.topPromo | legacyLinkify | html"></span>
+				<span data-ng-bind-html="themeSettings.general.header.content.topPromo | vnLegacyLinkify | html"></span>
 			</div>
 			<div class="pull-right th-header__account-menu">
-					<a legacy-link="/login.asp" data-translate="header.signIn">Sign In</a>
+					<a data-vn-legacy-link="/login.asp" data-translate="header.signIn">Sign In</a>
 			</div>
 		</div>
 	</div>
@@ -48,7 +48,7 @@
 								{{category.name}}
 								<span data-ng-if="category.subCategories.length" class="caret th-dropdown-toggle"></span>
 							</a>
-							<ul show-on-dropdown-hover class="dropdown-menu" data-ng-if="category.subCategories.length">
+							<ul vn-show-on-dropdown-hover class="dropdown-menu" data-ng-if="category.subCategories.length">
 								<li data-ng-repeat="subCategory in category.subCategories">
 									<a data-ng-href="{{ subCategory.url }}">{{subCategory.name}}</a>
 								</li>
@@ -59,7 +59,7 @@
 								More
 								<span class="caret th-dropdown-toggle"></span>
 							</a>
-							<ul show-on-dropdown-hover class="dropdown-menu">
+							<ul vn-show-on-dropdown-hover class="dropdown-menu">
 								<li data-ng-repeat="category in smartNavMoreCategories">
 									<a class="navbar-link" data-ng-href="{{ category.url }}">{{category.name}}</a>
 								</li>
@@ -71,33 +71,15 @@
 
 			<div class="col-xs-3 col-md-2">
 				<div class="pull-right th-cart-summary">
-					<div search-form></div>
+
+                    <div class="hidden-xs hidden-sm th-search-popout">
+					    <div vn-search-form search-term="searchLocal" allow-collapse="true" show-search="showSearchDesktop"></div>
+                    </div>
 					<div class="th-my-cart">
-						<a legacy-link="{{ viewCart() }}" class="th-my-cart__link">
+						<a href class="th-my-cart__link" data-ng-click="snapToggle('right')"><!--snap-toggle="right"-->
 							<span class="th-my-cart__text" data-translate="header.myCart">My Bag</span>
 							<span class="th-my-cart__number">{{ getCartItemsCount() }}</span>
 						</a>
-					</div>
-
-					<div class="th-alert-container">
-						<div data-ng-repeat="alert in alerts">
-							<!--
-								current AngularJS have problem with angular-ui's alert directive
-								{{ alert.type }} will be interpolated correctly but ng-class will always pick "alert-warning"
-							-->
-							<!--<div class="th-alert-container" ng-show="alert !== null">-->
-							<!--<alert type="{{ alert.type }}" close="closeAlert()">{{ alert.msg }}</alert>-->
-							<!--</div>-->
-							<div ng-if="alert !== null && alert.type === 'success'">
-								<alert type="success" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
-							</div>
-							<div ng-if="alert !== null && alert.type === 'danger'">
-								<alert type="danger" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
-							</div>
-							<div ng-if="alert !== null && alert.type === 'warning'">
-								<alert type="warning" close="closeAlert(alert.id)">{{ alert.msg }}</alert>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
