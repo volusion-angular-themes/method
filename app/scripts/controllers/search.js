@@ -11,7 +11,7 @@ angular.module('methodApp')
 
 			'use strict';
 
-			$scope.searchLocal = '';
+            $scope.searchLocal = vnProductParams.getSearchText();
 			$scope.searchTerms = $routeParams.q;
 
 			$scope.checkFacetsAndCategories = function(categories, facets) {

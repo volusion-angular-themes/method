@@ -3,7 +3,7 @@
 describe('Service: vnContentMgr', function () {
 
 	// load the service's module
-	beforeEach(module('methodTheme'));
+	beforeEach(module('methodApp'));
 
 	// instantiate service
 	var ContentMgr;
@@ -11,8 +11,8 @@ describe('Service: vnContentMgr', function () {
 		ContentMgr = _ContentMgr_;
 	}));
 
-	xit('should do something', function () {
-		expect(!!ContentMgr).toBe(true);
+	it('should do something', function () {
+		expect(ContentMgr).toBeDefined();
 	});
 
 });

@@ -14,7 +14,7 @@
 <div class="container th-home-content">
 
 	<!-- CONTENT 1 -->
-	<div data-ng-bind-html="themeSettings.pages.home.content1 | legacyLinkify | html"></div>
+	<div data-ng-bind-html="themeSettings.pages.home.content1 | vnLegacyLinkify | html"></div>
 
 	<!-- TILES -->
 	<div data-ng-if="themeSettings.pages.home.tiles.isEnabled">
@@ -107,7 +107,7 @@
 	</div>
 
 	<!-- CONTENT 2 -->
-	<div data-ng-bind-html="themeSettings.pages.home.content2 | legacyLinkify | html"></div>
+	<div data-ng-bind-html="themeSettings.pages.home.content2 | vnLegacyLinkify | html"></div>
 
 	<!-- FEATURED PRODUCTS -->
 	<div class="visible-md-block visible-lg-block" data-ng-if="themeSettings.pages.home.featuredProducts.isEnabled">
@@ -125,6 +125,6 @@
 	</div>
 
 	<!-- CONTENT 3 -->
-	<div data-ng-bind-html="themeSettings.pages.home.content3 | legacyLinkify | html"></div>
+	<div data-ng-bind-html="themeSettings.pages.home.content3 | vnLegacyLinkify | html"></div>
 
 </div>

@@ -7,12 +7,14 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'AppConfig', 'searchManager', 'snapRemote',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, AppConfig, searchManager, snapRemote) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, vnAppConfig, vnSearchManager, snapRemote) {
 
 			'use strict';
 
 			$scope.alerts = [];
+            $scope.showSearchMobile = true;
+            $scope.showSearchDesktop = false;
 
 			translate.addParts('common');
 			translate.addParts('header');
@@ -24,7 +26,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.doSearch = function () {
-				searchManager.updateSearch($scope.searchLocal);
+                vnSearchManager.updateSearch($scope.searchLocal);
 			};
 
 			$rootScope.$on('vnNotification.show', function (evt, alert) {
@@ -61,7 +63,7 @@ angular.module('Volusion.controllers')
 
 			$scope.viewCart = function() {
 
-				var host = AppConfig.getApiHost();
+				var host = vnAppConfig.getApiHost();
 
 				if ($rootScope.isInDesktopMode) {
 					return host + '/shoppingcart.asp';
@@ -76,6 +78,14 @@ angular.module('Volusion.controllers')
 				},
 				function (state) {
 					$scope.headerState = state;
+				}, true);
+
+			$scope.$watch(
+				function () {
+					return vnSearchManager.getSearchText();
+				},
+				function (searchText) {
+					$scope.searchLocal = searchText || '';
 				}, true);
 
 		}]);
