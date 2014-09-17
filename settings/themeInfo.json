@@ -1,53 +1,37 @@
 {
-	"name": "Method",
-	"version": "0.0.23",
-	"source": "https://github.com/volusion-angular-themes/method/archive/v0.0.23.zip",
+	"name": "Vanilla",
+	"version": "0.0.8",
+	"source": "https://github.com/volusion-angular-themes/vanilla/archive/v0.0.8.zip",
 	"author": {
-		"name": "John Smith",
+		"name": "Tyler Tadej",
 		"email": "test@test.com",
-		"website": "http://www.envato.com"
+		"website": ""
 	},
 	"marketing": {
-		"description": "Method is an awesome theme. Let me tell you all about it. <img src=\"http://www.themelexus.com/guides/opencart/shopping/features.jpg\"> Yes I just mixed in some images too.",
+		"description": "Vanilla is an awesome theme. Let me tell you all about it. <img src=\"http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg\"> Yes I just mixed in some images too.",
 		"images": [
 			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot1-large.png"
+				"small": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-small.jpg",
+				"large": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg"
 			},
 			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot2-large.png"
-			},
-			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot3-large.png"
-			},
-			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot4-large.png"
-			},
-			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot5-large.png"
-			},
-			{
-				"small": "",
-				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot6-large.png"
+				"small": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-small.jpg",
+				"large": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg"
 			}
 		],
 		"facets": {
-			"colorShade": "light",
+			"color-shade": "light",
 			"colors": ["white","black","red"],
 			"styles": ["modern","sleek","minimalist"]
 		},
-		"isPremium": true
+		"isPremium": false
 	},
-	"matchingLegacyTemplateId": "method",
-	"mobileCheckoutCssOverrides": "",
 	"files": {
 		"cssOverrides": "/styles",
 		"language": "/translations"
 	},
+	"matchingLegacyTemplateId": "method",
+	"mobileCheckoutCssOverrides": "",
 	"features": {
 		"responsive": true,
 		"myRewards": false,
