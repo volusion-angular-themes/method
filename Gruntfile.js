@@ -516,13 +516,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('configure', function(target) {
 
 		// Add additional targets according to environment variables
-		if (target === 'dist') {
-			grunt.log.write('TARGET is set to [DIST]');
-			grunt.task.run(['ngconstant:production']);
-		} else if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
+		if (target === undefined || target === 'undefined' || target === '' || target === 'production') {
 			//default build
-			grunt.task.run(['ngconstant:samplestore']);
-			grunt.log.write('TARGET is set to [SAMPLESTORE]');
+			grunt.task.run(['ngconstant:production']);
+			grunt.log.write('TARGET is set to [PROD]');
 		} else {
 			//specific build
 			grunt.task.run(['ngconstant:' + target ]);
@@ -532,7 +529,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('serve', function(target) {
 		if (target === 'dist') {
-			return grunt.task.run(['build:dist', 'connect:dist:keepalive']);
+			return grunt.task.run(['connect:dist:keepalive']);
 		}
 
 		grunt.task.run([
@@ -590,6 +587,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', [
-		'build:samplestore'
+		'build:production'
 	]);
 };
