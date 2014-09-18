@@ -116,7 +116,7 @@ module.exports = function(grunt) {
 						'<%= yeoman.app %>/{,*/}*.html',
 						'.tmp/styles/{,*/}*.css',
 						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%= yeoman.app %>/translations/{,*/}*.json',
+						'<%=  yeoman.app %>/translations/{,*/}*.json',
 						'<%= yeoman.app %>/settings/{,*/}*'
 				]
 			}
@@ -516,10 +516,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('configure', function(target) {
 
 		// Add additional targets according to environment variables
-		if (target === undefined || target === 'undefined' || target === '' || target === 'production') {
+		if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
 			//default build
-			grunt.task.run(['ngconstant:production']);
-			grunt.log.write('TARGET is set to [PROD]');
+			grunt.task.run(['ngconstant:samplestore']);
+			grunt.log.write('TARGET is set to [SAMPLESTORE]');
 		} else {
 			//specific build
 			grunt.task.run(['ngconstant:' + target ]);
@@ -536,7 +536,6 @@ module.exports = function(grunt) {
 			'clean:server',
 			'wiredep',
 			'compass:server',
-			'configure:' + target,
 			'autoprefixer',
 			'htmlmin:server',
 			'connect:livereload',
@@ -587,6 +586,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', [
-		'build:production'
+		'build:samplestore'		// set your default target
 	]);
 };
