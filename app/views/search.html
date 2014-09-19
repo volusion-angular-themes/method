@@ -24,13 +24,6 @@
 							 query-products="queryProducts()"
 							 ng-if="products.length > 0"></div>
 					</div>
-					<img class="banner img img-responsive"
-						 ng-hide="checkForFacetFilters()"
-						 ng-src="{{category.bannerImgUrl}}">
-
-					<div class="description" itemprop="description"
-						 ng-hide="checkForFacetFilters()"
-						 data-ng-bind-html="category.description | vnLegacyLinkify | html"></div>
 				</div>
 			</div>
 
