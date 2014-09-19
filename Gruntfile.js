@@ -532,6 +532,13 @@ module.exports = function(grunt) {
 			return grunt.task.run(['connect:dist:keepalive']);
 		}
 
+		if (!grunt.file.exists('<%= yeoman.dist %>')) {
+			grunt.log.writeln('**********************************************************************');
+			grunt.log.writeln('** DIST folder is missing. Building for default target ...  ');
+			grunt.log.writeln('**********************************************************************');
+			grunt.task.run(['build']);
+		}
+
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
