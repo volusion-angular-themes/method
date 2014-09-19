@@ -138,10 +138,6 @@ angular.module('Volusion.controllers')
 				function () {
 					$scope.cart = vnCart.getCart();
 
-					if ($scope.cart === undefined) {
-						return;
-					}
-
 					if ($scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
 						$scope.calcSubtotal = $scope.cart.totals.items + $scope.cart.totals.discounts;
