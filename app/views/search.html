@@ -24,13 +24,6 @@
 							 query-products="queryProducts()"
 							 ng-if="products.length > 0"></div>
 					</div>
-					<img class="banner img img-responsive"
-						 ng-hide="checkForFacetFilters()"
-						 ng-src="{{category.bannerImgUrl}}">
-
-					<div class="description" itemprop="description"
-						 ng-hide="checkForFacetFilters()"
-						 data-ng-bind-html="category.description | vnLegacyLinkify | html"></div>
 				</div>
 			</div>
 
@@ -44,30 +37,9 @@
 			</div>
 
 			<div class="row th-product__container">
-				<div class="-product-tile-animation col-sm-6 col-md-4 col-lg-3" data-ng-repeat="product in products track by product.id">
-					<div class="th-product">
-						<span class="th-product__sale" data-ng-show="product.isOnSale"></span>
-						<span class="th-product__new" data-ng-show="product.isNew"></span>
-
-						<div class="th-product__image">
-							<a href="{{ product.url }}">
-								<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="">
-							</a>
-						</div>
-						<div class="th-product__name">
-							<a href="{{ product.url }}">{{ product.name }}</a>
-						</div>
-						<div class="th-product__price">
-							<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
-								<span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">{{product.pricing.regularPrice | currency}}</span>
-								<span class="th-price-text">Reg</span>
-							</span>
-							<span class="th-price--now" data-ng-show="product.pricing.salePrice > 0">
-								<span class="th-price">{{product.pricing.salePrice | currency}}</span>
-								<span class="th-price-text">Now</span>
-							</span>
-						</div>
-					</div>
+				<div class="-product-tile-animation col-sm-6 col-md-4 col-lg-3"
+				     data-ng-repeat="product in products track by product.id"
+				     data-ng-include=" 'views/partials/product-tile.html' ">
 				</div>
 			</div>
 

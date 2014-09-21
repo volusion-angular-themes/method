@@ -35,6 +35,8 @@
 		&__content {
 			display: block;
 			position: relative;
+
+			.-disabled & { cursor: not-allowed }
 		}
 
 		&__color {
