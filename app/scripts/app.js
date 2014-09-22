@@ -8,7 +8,7 @@ angular.module('methodApp', [
 	'ngAnimate',
 	'ngCookies',
 	'ngResource',
-	'ngSanitize',
+    'ngSanitize',
 	'ngRoute',
 	'ngTouch',
 
@@ -35,8 +35,8 @@ angular.module('methodApp', [
 
 			$locationProvider.html5Mode(true);
 
-			vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
-			vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
+            vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
+            vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
 
 			var translateOptions = {
 				urlPrefix          : vnAppConfigProvider.getPrefix(),
@@ -111,8 +111,8 @@ angular.module('methodApp', [
 					redirectTo: '/'
 				});
 		}])
-	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnModalService',
-		function (snapRemote, $rootScope, $window, vnCacheBustFilter, themeSettings, vnCart, ContentMgr, translate, vnModalService) {
+	.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnErrorModalService',
+		function (snapRemote, $rootScope, $window, vnCacheBustFilter, themeSettings, vnCart, ContentMgr, translate, vnErrorModalService) {
 
 			'use strict';
 
@@ -147,9 +147,9 @@ angular.module('methodApp', [
 				snapRemote.close();
 			});
 
-			$rootScope.$on('VN_HTTP_500_ERROR', function () {
-				vnModalService.showError('views/server-error.html');
-			});
+            $rootScope.$on('VN_HTTP_500_ERROR', function() {
+                vnErrorModalService.showError('views/server-error.html');
+            });
 
 			$rootScope.$watch(
 				// Use a fn in $watch first argument that gets value from service

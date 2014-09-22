@@ -116,7 +116,7 @@ module.exports = function(grunt) {
 						'<%= yeoman.app %>/{,*/}*.html',
 						'.tmp/styles/{,*/}*.css',
 						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%=  yeoman.app %>/translations/{,*/}*.json',
+						'<%= yeoman.app %>/translations/{,*/}*.json',
 						'<%= yeoman.app %>/settings/{,*/}*'
 				]
 			}
@@ -516,7 +516,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('configure', function(target) {
 
 		// Add additional targets according to environment variables
-		if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
+		if (target === 'dist') {
+			grunt.log.write('TARGET is set to [DIST]');
+			grunt.task.run(['ngconstant:production']);
+		} else if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
 			//default build
 			grunt.task.run(['ngconstant:samplestore']);
 			grunt.log.write('TARGET is set to [SAMPLESTORE]');
@@ -529,20 +532,14 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('serve', function(target) {
 		if (target === 'dist') {
-			return grunt.task.run(['connect:dist:keepalive']);
-		}
-
-		if (!grunt.file.exists('<%= yeoman.dist %>')) {
-			grunt.log.writeln('**********************************************************************');
-			grunt.log.writeln('** DIST folder is missing. Building for default target ...  ');
-			grunt.log.writeln('**********************************************************************');
-			grunt.task.run(['build']);
+			return grunt.task.run(['build:dist', 'connect:dist:keepalive']);
 		}
 
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
 			'compass:server',
+			'configure:' + target,
 			'autoprefixer',
 			'htmlmin:server',
 			'connect:livereload',
@@ -593,6 +590,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', [
-		'build:samplestore'		// set your default target
+		'build:samplestore'
 	]);
 };
