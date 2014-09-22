@@ -67,15 +67,13 @@
 									<span class="th-price"><span itemprop="price" data-ng-bind="product.pricing.salePrice | currency"></span></span>
 										<span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
 							</div>
-							<div class="hidden-xs">
-								<div class="th-write-review">
+								<div class="hidden-xs th-write-review" data-ng-if="product.avgRating">
 									<div data-vn-rating
 									     rating-value="product.avgRating"
 									     title="" editable="isEditable">
 									</div>
 								</div>
-							</div>
-							<div class="th-product__availability" ng-if="itemSelectionsNotInStock" data-ng-cloak>
+							<div class="th-product__availability" data-ng-if="itemSelectionsNotInStock" data-ng-cloak>
 								Not in stock
 							</div>
 						</div>
@@ -196,6 +194,7 @@
 			<div class="row">
 				<div class="col-xs-12 th-reviews__totals">
 					<div class="th-reviews__heading" data-translate="product.reviews">Reviews</div>
+					<div class="th-reviews__totals--left" data-ng-if="ratingsAndReviews.data.reviews.length < 1">Be the first to review!</div>
 					<div class="th-reviews__totals--left" data-ng-if="ratingsAndReviews.data.reviews.length > 0">
 						<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="th-reviews__count">
 							<meta itemprop="worstRating" content="1">
