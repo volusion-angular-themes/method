@@ -261,7 +261,7 @@ angular.module('Volusion.controllers')
 
 					$scope.isInDesktopMode = $rootScope.isInDesktopMode;
 
-					angular.extend($scope.seo, $scope.product.seo);
+					angular.extend($rootScope.seo, $scope.product.seo);
 
 					setDefaults();
 
