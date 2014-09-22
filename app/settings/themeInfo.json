@@ -52,8 +52,5 @@
 		"responsive": true,
 		"myRewards": false,
 		"VAT": false
-	},
-	"apps": [
-        { "name": "Contact Us", "appModuleName": "Volusion.Features.ContactUs", "scriptSrc": "https://dl.dropboxusercontent.com/u/24465416/vnAffiliateApp.js", "styleSrc": ""}
-    ]
+	}
 }
