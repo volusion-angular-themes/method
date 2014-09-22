@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('HomeCtrl', ['$scope', '$filter', 'vnApi', 'vnImagePreloader',
-		function ($scope, $filter, vnApi, vnImagePreloader) {
+	.controller('HomeCtrl', ['$scope', '$filter', 'vnApi',
+		function ($scope, $filter, vnApi) {
 
 			'use strict';
 
