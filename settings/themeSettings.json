@@ -2,14 +2,16 @@
 	"general": {
 		"header": {
 			"content": {
-				"topPromo": "<a href=\"#\" class=\"free-shipping\">Free shipping on all orders over $25!</a>"
+				"topPromo": "<a href=\"#\" class=\"top-promo\">Free shipping on all orders over $25!</a>"
 			}
 		},
 		"footer": {
-			"content": {
-				"column1": "<ul class=\"th-linklist\"> <li class=\"th-linklist__item\"><a href=\"/aboutus.asp\">About us</a></li> <li class=\"th-linklist__item\"><a href=\"/aboutus.asp\">Contact</a></li> <li class=\"th-linklist__item\"><a href=\"/terms.asp\">Terms &amp; Conditions</a></li> <li class=\"th-linklist__item\"><a href=\"/terms_privacy.asp\">Privacy Policy</a></li> </ul>",
-				"column2": "<ul class=\"th-linklist\"> <li class=\"th-linklist__item\"><a href=\"/articles.asp?ID=57\">Shipping Information</a></li> <li class=\"th-linklist__item\"><a href=\"/returns.asp\">Returns &amp; Exchanges</a></li> <li class=\"th-linklist__item\"><a href=\"/help.asp\">FAQ</a></li> <li class=\"th-linklist__item\"><a href=\"/myaccount.asp\">My Account</a></li> </ul>",
-				"bottomRow": "Made with &#10084; by <a href=\"http://volusion-angular.github.io/theme-engine-docs/\">Awesome Theme Developer</a>. Built with <a href=\"http://www.volusion.com/\" target=\"_blank\">Volusion</a>."
+			"content"         : {
+				"column1"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus.asp\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
+				"column2"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">SHOP WITH US</li>&#10;&#10;<li><a href=\"/shoppingcart.asp\">View Cart</a></li>&#10;&#10;<li><a href=\"/myaccount.asp\">Your Account</a></li>&#10;&#10;<li><a href=\"/orders.asp\">Order Tracking</a></li>&#10;&#10;<li><a href=\"/cindex.asp\">Site Map</a></li>&#10;&#10;<li><a href=\"/pindex.asp\">Product Index</a></li>&#10;</ul>",
+				"column3"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">HELP &amp; SUPPORT</li>&#10;&#10;<li><a href=\"/aboutus.asp\">Contact Us</a></li>&#10;&#10;<li><a href=\"/help.asp\">Help / FAQ</a></li>&#10;&#10;<li><a href=\"/aboutus.asp\">Toll Free 123-123-1234</a></li>&#10;</ul>",
+				"column4"  : "<div class=\"th-info-box\">&#10;<div class=\"th-footer__title\"><br/></div>&#10;</div>",
+				"bottomRow": "<div class=\"col-sm-12 col-md-7 col-md-push-5\">\n<ul class=\"th-footer__contact\">\n<li>1-800-555-5432</li>\n<li>24 hours a day 7 days a week</li>\n<li><a href=\"terms.asp\">Terms of Use</a></li>\n<li><a href=\"terms_privacy.asp\">Privacy Policy</a></li>\n</ul>\n</div>\n<div class=\"col-sm-12 col-md-5 col-md-pull-7\">\n<div class=\"th-footer__copyright\">&#169; Copyright 2014. All Rights Reserved. Powered by <a href=\"http://www.volusion.com\" rel=\"nofollow\">Volusion</a>\n</div>\n</div>"
 			},
 			"newsletterSignup": {
 				"isEnabled": true
@@ -32,25 +34,25 @@
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
 						"headline"   : "NewYearSaleathon",
 						"subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-						"linksTo"    : "/p/board-shorts"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
 						"headline"   : "NewSunriseCollection",
 						"subHeadline": "Wakeuptosomethinggood",
-						"linksTo"    : "/c/gourmet-food"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
 						"headline"   : "MiamiFashion",
 						"subHeadline": null,
-						"linksTo"    : "/p/board-shorts"
+						"linksTo"    : "/all-products"
 					},
 					{
 						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
 						"headline"   : "MiamiFashion",
 						"subHeadline": null,
-						"linksTo"    : "/p/patent-dress-shoe"
+						"linksTo"    : "/all-products"
 					}
 				]
 			},
@@ -59,31 +61,31 @@
 				"tiles"    : {
 					"tile1": {
 						"imageUrl": "/images/homepage/tile1.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile2": {
 						"imageUrl": "/images/homepage/tile2.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile3": {
 						"imageUrl": "/images/homepage/tile3.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile4": {
 						"imageUrl": "/images/homepage/tile4.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile5": {
 						"imageUrl": "/images/homepage/tile5.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					},
 					"tile6": {
 						"imageUrl": "/images/homepage/tile6.jpg",
-						"linkTo"  : "/c/home-decor"
+						"linkTo"  : "/all-products"
 					}
 				}
 			}
 		}
 	},
-	"itemsPerPage" : 6
+	"itemsPerPage" : 4
 }
