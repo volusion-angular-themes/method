@@ -1,4 +1,4 @@
-.th-product-info {
+.th-product-description {
 	clear       : both;
 	padding-top : 15px;
 
@@ -11,8 +11,7 @@
 		border-bottom    : 0px;
 		font-size        : 1.5rem;
 		letter-spacing   : 1px;
-		padding-top      : 14px;
-		padding-bottom   : 14px;
+		padding: 14px 10px 14px 0;
 	}
 
 	.collapse {
@@ -29,7 +28,7 @@
 
 	.panel-body {
 		line-height : 2.0rem;
-		padding     : 0px 15px 10px 15px;
+		padding     : 0 0 10px 0;
 	}
 }
 
