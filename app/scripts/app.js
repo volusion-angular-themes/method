@@ -127,8 +127,8 @@ angular.module('methodApp', [
 
 		'use strict';
 
+		$rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
 		$rootScope.isInDesktopMode = true;
-
 		$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
 
 		vnCart.init();
