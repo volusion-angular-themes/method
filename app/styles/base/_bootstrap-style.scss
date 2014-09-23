@@ -203,29 +203,18 @@ ul.nav-tabs {
 // Page Header ============================================================
 
 .page-header {
-	border: 0;
-	margin-top: 0;
-	margin-bottom: 0;
+	border-bottom: 0;
 
 	h1 {
-		padding-left: 15px;
-		font-weight: normal;
 		font-family: $font-family-heading-reg;
-		font-size: 2.0rem;
+		font-size: 2.4rem;
+		font-weight: normal;
+		margin-top : 0;
+		text-align: center;
 		text-transform: uppercase;
-		border: 0;
-	}
-}
 
-@include respond-to(sm-and-up) {
-
-	.page-header {
-		h1 {
-			text-align: center;
-			padding-left: 0;
+		@include respond-to(sm-and-up) {
 			font-size: 3.2rem;
-			padding: 34px 0 29px;
-			margin: 0;
 		}
 	}
 }
