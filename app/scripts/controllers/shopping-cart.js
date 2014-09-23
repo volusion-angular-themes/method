@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnAppMessageService',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, vnAppConfig, vnAppMessageService) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnAppMessageService', 'notifications',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, vnAppConfig, vnAppMessageService, notifications) {
 
 			'use strict';
 
@@ -24,51 +24,16 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
-			function displayErrors(errors) {
-				var vnMsg,
-					messageKey,
-					translateFilter = $filter('translate');
-
-				if (errors && errors.length > 0) {
-					angular.forEach(errors, function (error) {
-						messageKey = 'message.' + error.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
-						vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
-						vnAppMessageService.addMessage({ type: 'danger', text: vnMsg });
-					});
-				}
-			}
-
-			function displaySuccess() {
-				var vnMsg = $filter('translate')('message.CART_UPDATE_SUCCESS');
-				vnAppMessageService.addMessage({ type: 'success', text: vnMsg });
-			}
-
-			function displayWarnings(warningsArray) {
-				var vnMsg, messageKey;
-				var translateFilter = $filter('translate');
-
-				if (warningsArray && warningsArray.length > 0) {
-					angular.forEach(warningsArray, function (warning) {
-						messageKey = 'message.' + warning.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
-						vnAppMessageService.addMessage({ type: 'warning', text: vnMsg });
-					});
-				}
-			}
-
 			function updateCart() {
 				vnCart.updateCart()
 					.then(function (cart) {
 						$scope.cart = cart;
 
 						if ($scope.cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings($scope.cart.warnings); // if any
+							notifications.displaySuccessfulUpdate();
+							notifications.displayWarnings($scope.cart.warnings); // if any
 						} else {
-							displayErrors($scope.cart.serviceErrors);
+							notifications.displayErrors($scope.cart.serviceErrors);
 						}
 					});
 			}

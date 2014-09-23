@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService', 'snapRemote',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService, snapRemote) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService', 'snapRemote', 'notifications',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService, snapRemote, notifications) {
 
 			'use strict';
 
@@ -20,41 +20,6 @@ angular.module('Volusion.controllers')
 					active: false
 				}
 			};
-
-			function displayErrors(errors) {
-				var vnMsg,
-					messageKey,
-					translateFilter = $filter('translate');
-
-				if (errors && errors.length > 0) {
-					angular.forEach(errors, function (error) {
-						messageKey = 'message.' + error.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
-						vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
-						vnAppMessageService.addMessage({ type: 'danger', text: vnMsg });
-					});
-				}
-			}
-
-			function displaySuccess() {
-				var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
-				vnAppMessageService.addMessage({ type: 'success', text: vnMsg });
-			}
-
-			function displayWarnings(warningsArray) {
-				var vnMsg, messageKey;
-				var translateFilter = $filter('translate');
-
-				if (warningsArray && warningsArray.length > 0) {
-					angular.forEach(warningsArray, function (warning) {
-						messageKey = 'message.' + warning.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
-						vnAppMessageService.addMessage({ type: 'warning', text: vnMsg });
-					});
-				}
-			}
 
 			function fetchProductImages() {
 				var imagesToPreload = [];
@@ -320,10 +285,10 @@ angular.module('Volusion.controllers')
 						$scope.cartItem.qty = 0;
 
 						if (cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings(cart.warnings); // if any
+							notifications.displaySuccessfulAddition();
+							notifications.displayWarnings(cart.warnings); // if any
 						} else {
-							displayErrors(cart.serviceErrors);
+							notifications.displayErrors(cart.serviceErrors);
 						}
 
 					})
