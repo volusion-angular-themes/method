@@ -19,6 +19,7 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			
 			function modifyQuantity(amount) {
 				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
 				vnProduct.setQuantityInStock(amount);
