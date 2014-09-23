@@ -10,6 +10,7 @@ body {
 
 a:active,
 a:hover {
+	@extend %animate-all-default;
 	outline: none;
 	text-decoration: none;
 }
