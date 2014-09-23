@@ -4,10 +4,6 @@
 	line-height      : 2em;
 	text-align       : center;
 
-	a:hover {
-		@extend %animate-all-default;
-	}
-
 	&__bottom {
 		padding : 1.5em 0;
 	}
