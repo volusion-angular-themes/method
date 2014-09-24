@@ -12,7 +12,7 @@
 			<div class="visible-xs-block th-product">
 				<div class="vn-slider vn-slider--product">
 					<carousel data-interval="carousel.interval">
-						<slide data-ng-repeat="image in currentImageCollection | filter: '!youtube.com'" data-active="image.active">
+						<slide data-ng-repeat="image in product.currentImageCollection | filter: '!youtube.com'" data-active="image.active">
 							<div class="vn-slider__slide">
 								<img itemprop="image" data-ng-src="{{ image.medium }}" class="img-responsive"/>
 							</div>
@@ -30,7 +30,7 @@
 					     alt="{{product.name}}">
 
 					<div class="th-product-view__alts">
-						<span data-ng-click="product.image=image" ng-repeat="image in currentImageCollection | filter: '!youtube.com'"
+						<span data-ng-click="product.image=image" ng-repeat="image in product.currentImageCollection | filter: '!youtube.com'"
 						      class="col-xs-3 th-product-view__thumbnail">
 							<img data-ng-src="{{ image.medium }}" class="img-responsive" alt="">
 						</span>
