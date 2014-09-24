@@ -4,8 +4,6 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
-//			var optionsAndSKU;
-
 			$scope.accordionPanels = {isopen1: true};
 			$scope.buttonWait = false;
 			$scope.carousel = {interval: 4000};
@@ -193,11 +191,11 @@ angular.module('Volusion.controllers')
 				modifyQuantity(1);
 			};
 
-//			$scope.$on('$stateChangeSuccess', function () {
-//				$location.hash('top');
-//				$anchorScroll();
-//				$location.hash('');
-//			});
+			$scope.$on('$stateChangeSuccess', function () {
+				$location.hash('top');
+				$anchorScroll();
+				$location.hash('');
+			});
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {
 
