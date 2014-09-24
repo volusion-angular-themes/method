@@ -8,7 +8,7 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_helpers\.scss}line{font-family:\00003112}}
-.th-favorite-icon, .th-product-view__zoom, .vn-labeled-radio--tiles, .th-home-content .th-p2 .th-link, .th-product-view__alts img, .th-reviews__star, .th-search-popout, .th-search-popout__trigger, .th-search-popout__input, .th-search-popout__submit, .th-social__icon, ul.nav-tabs > li {
+.th-favorite-icon, .th-product-view__zoom, .vn-labeled-radio--tiles, .th-home-content .th-p2 .th-link, .th-product-view__alts img, .th-search-popout, .th-search-popout__trigger, .th-search-popout__input, .th-search-popout__submit, .th-social__icon, ul.nav-tabs > li {
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -23,7 +23,8 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_helpers\.scss}line{font-family:\00003132}}
-.th-footer a:hover, .th-header a:hover, .th-product__image .img-responsive:hover, .th-product__name a:hover, .th-product-details a:hover, .th-social__icon:hover, .btn:hover {
+.th-product__image .img-responsive:hover, .th-product__name a:hover, .th-product-details a:hover, .th-social__icon:hover, a:active,
+a:hover, .btn:hover {
   transition: all 200ms ease;
 }
 
@@ -4677,7 +4678,7 @@ tbody.collapse.in {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/bower_components\/bootstrap-sass-official\/assets\/stylesheets\/bootstrap\/_dropdowns\.scss}line{font-family:\00003136}}
-.dropdown-menu-right {
+.dropdown-menu-right, .vn-sort-desktop-search .dropdown-menu {
   left: auto;
   right: 0;
 }
@@ -8349,19 +8350,23 @@ button.close {
   display: block;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000339}}
+.-disabled .vn-labeled-radio--tiles__content {
+  cursor: not-allowed;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000342}}
 .vn-labeled-radio--tiles__color {
   position: absolute;
   width: 100%;
   height: 100%;
   border: 2px solid transparent;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000349}}
 .vn-labeled-radio--tiles__image {
   position: relative;
   border: 2px solid white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000354}}
 .vn-labeled-radio--tiles__text {
   position: relative;
   padding: 5px 10px;
@@ -8369,11 +8374,11 @@ button.close {
   text-transform: uppercase;
   color: #444444;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000361}}
 .vn-labeled-radio--tiles__text.-disabled {
   color: #AAAAAA;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000366}}
 .vn-labeled-radio--tiles__border {
   position: absolute;
   display: block;
@@ -8383,35 +8388,35 @@ button.close {
   border: 1px solid #D6D6D6;
   outline: 1px solid transparent;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000375}}
 .vn-labeled-radio--tiles__border:hover {
   border-color: #9FE6F8;
   outline-color: #9FE6F8;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000380}}
 .vn-labeled-radio--tiles__border.checked {
   border-color: #007391;
   outline-color: #007391;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000389}}
 .vn-labeled-radio--no-text__text {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000394}}
 .vn-labeled-radio__color-image {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\0000398}}
 .vn-labeled-radio__color {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\00003104}}
 .vn-labeled-radio__image {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_labeled-radio\.scss}line{font-family:\00003109}}
 .vn-labeled-radio.-disabled .vn-labeled-radio__image {
   opacity: 0.3;
   filter: alpha(opacity=30);
@@ -8434,6 +8439,10 @@ button.close {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_product-option\.scss}line{font-family:\0000318}}
 .vn-product-option .dropdown .btn.dropdown-toggle {
   text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_product-option\.scss}line{font-family:\0000322}}
+.vn-product-option input[type="radio"] {
+  cursor: pointer;
 }
 
 /* SHOWCASE */
@@ -8556,14 +8565,14 @@ button.close {
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_sort-search\.scss}line{font-family:\000032}}
-.vn-sort-mobile-search-control .dropdown {
-  float: left;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_sort-search\.scss}line{font-family:\000037}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_sort-search\.scss}line{font-family:\000031}}
 .vn-sort-desktop-search {
   margin-top: 34px;
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_sort-search\.scss}line{font-family:\000035}}
+.vn-sort-desktop-search .dropdown-menu {
+  text-align: right;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_zoom\.scss}line{font-family:\000032}}
@@ -8582,22 +8591,31 @@ button.close {
   border: 3px solid transparent;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000311}}
-.vn-faceted-search .facet-property__swatch--selected {
-  border: 3px solid black;
+.vn-faceted-search .facet-property__swatch:hover {
+  border-color: #eeeeee;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000315}}
+.vn-faceted-search .facet-property__swatch--selected {
+  border-color: black;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000319}}
 .vn-faceted-search .facet-property__swatch--color {
   height: 25px;
   width: 25px;
   border: 1px solid black;
   border-radius: 2px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000327}}
+.vn-faceted-search label {
+  cursor: pointer;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000331}}
 .vn-faceted-search .panel-heading {
   border-top: 1px solid #ddd;
   background-color: transparent;
+  cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/overrides\/_faceted-search\.scss}line{font-family:\0000337}}
 .vn-faceted-search .panel-default {
   border: 0px;
 }
@@ -8606,6 +8624,7 @@ button.close {
 .th-cart-summary {
   position: relative;
   right: 0;
+  text-align: right;
   top: 8px;
   white-space: nowrap;
 }
@@ -8623,7 +8642,7 @@ button.close {
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000318}}
 .th-my-cart {
   display: inline-block;
   vertical-align: middle;
@@ -8633,25 +8652,17 @@ button.close {
   margin-left: 10px;
   padding: 6px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000323}}
 .th-my-cart__number {
   color: #f63e34;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000326}}
 .th-my-cart__number:before {
   content: "(";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000329}}
 .th-my-cart__number:after {
   content: ")";
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000334}}
-.th-my-cart__text {
-  color: #000;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_cart-summary\.scss}line{font-family:\0000337}}
-.th-my-cart__text:hover {
-  color: #f63e34;
 }
 
 /*
@@ -8692,7 +8703,7 @@ Animation for products as facets of search are applied. [rough draft]
   opacity: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_category\.scss}line{font-family:\0000338}}
 .categories {
   min-height: 400px;
 }
@@ -9066,24 +9077,24 @@ Animation for products as facets of search are applied. [rough draft]
   line-height: 2em;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\000037}}
 .th-footer__bottom {
   padding: 1.5em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000311}}
 .th-footer__contact {
   list-style: none;
   margin: 0;
   padding: 0 0 10px;
 }
 @media only screen and (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000311}}
   .th-footer__contact {
     float: right;
     padding-bottom: 0;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000321}}
 .th-footer__contact li {
   display: inline-block;
   vertical-align: middle;
@@ -9095,17 +9106,17 @@ Animation for products as facets of search are applied. [rough draft]
   margin-right: 9px;
   padding-left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000328}}
 .th-footer__contact li:first-child {
   border: 0;
 }
 @media only screen and (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000334}}
   .th-footer__copyright {
     text-align: left;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000340}}
 .th-footer__title {
   font-family: "robotocondensed-bold";
   font-size: 1.4rem;
@@ -9114,66 +9125,62 @@ Animation for products as facets of search are applied. [rough draft]
 }
 
 @media only screen and (min-width: 1200px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000349}}
   .th-footer {
     background-color: #f0f0f0;
     border-top: 0;
     min-height: 350px;
     text-align: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000355}}
   .th-footer__more-info {
     margin-top: 35px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000359}}
   .th-footer__site-links {
     border-right: 1px solid #d9d9d9;
     margin-top: 25px;
     overflow: hidden;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000365}}
   .th-footer__title {
     display: block;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000369}}
   .th-footer__top {
     border-bottom: 1px solid #d9d9d9;
     padding-bottom: 25px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000373}}
   .th-footer__top ul.nav {
     margin: 0 0 35px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000376}}
   .th-footer__top ul.nav > li > a {
     padding: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_footer\.scss}line{font-family:\0000383}}
   .th-info-box {
     padding-left: 35px;
   }
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\000031}}
-.th-header {
+.th-header-top {
   border-bottom: 1px solid #f3f3f3;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\000034}}
-.th-header a {
-  color: #000000;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\000037}}
-.th-header a:hover {
-  color: #f63e34;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\0000313}}
-.th-header__account-menu {
-  padding: 10px 15px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\0000317}}
-.th-header__shipping-text {
-  padding: 10px 15px;
+.th-header-top__promo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
   text-transform: uppercase;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_header\.scss}line{font-family:\0000311}}
+.th-header-top__sign-in {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: right;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_home-content\.scss}line{font-family:\000033}}
@@ -9727,42 +9734,41 @@ Animation for products as facets of search are applied. [rough draft]
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\000031}}
-.th-product-info {
+.th-product-description {
   clear: both;
   padding-top: 15px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\000035}}
-.th-product-info__accordion-text {
+.th-product-description__accordion-text {
   font-size: 1.4rem;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\000039}}
-.th-product-info .panel-heading {
+.th-product-description .panel-heading {
   background-color: transparent;
   border-bottom: 0px;
   font-size: 1.5rem;
   letter-spacing: 1px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding: 14px 10px 14px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000318}}
-.th-product-info .collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000317}}
+.th-product-description .collapse {
   border-top: 1px solid #ddd;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000322}}
-.th-product-info .collapse.in {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000321}}
+.th-product-description .collapse.in {
   border-top: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000326}}
-.th-product-info .accordion-toggle, .th-product-info .glyphicon {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000325}}
+.th-product-description .accordion-toggle, .th-product-description .glyphicon {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000330}}
-.th-product-info .panel-body {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000329}}
+.th-product-description .panel-body {
   line-height: 2.0rem;
-  padding: 0px 15px 10px 15px;
+  padding: 0 0 10px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_product-description\.scss}line{font-family:\0000335}}
 .panel-group .panel + .panel {
   border-top: 0;
   margin: 0;
@@ -9804,7 +9810,6 @@ Animation for products as facets of search are applied. [rough draft]
 .th-product-details__title {
   font-family: "robotocondensed-regular";
   font-size: 3.0rem;
-  padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -9901,10 +9906,12 @@ Animation for products as facets of search are applied. [rough draft]
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\000031}}
 .th-reviews {
-  border-top: 1px solid #d9d9d9;
-  color: #8c8c8c;
   font-size: 1.3rem;
-  line-height: 22px;
+  margin-top: 15px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\000035}}
+.th-reviews ul.rating i {
+  color: goldenrod;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\000037}}
 .th-reviews a {
@@ -9916,27 +9923,36 @@ Animation for products as facets of search are applied. [rough draft]
   font-family: "robotocondensed-regular";
   font-size: 1.8rem;
   overflow: hidden;
-  padding: 20px 0;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000320}}
+.th-reviews__description {
+  line-height: 1.5;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000322}}
 .th-reviews__helpful {
+  color: #8c8c8c;
   padding: 10px 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000327}}
 .th-reviews__rating {
   padding: 10px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000329}}
 .th-reviews__star-group {
   display: inline-block;
   margin-right: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000333}}
-.th-reviews__star {
-  margin-right: 1px;
+.th-reviews__star-group i {
+  color: goldenrod;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000335}}
+.th-reviews__star-group p {
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000339}}
 .th-reviews__title {
   font-family: 'roboto-bold';
   font-size: 1.4rem;
@@ -9944,39 +9960,43 @@ Animation for products as facets of search are applied. [rough draft]
   margin-top: 5px;
   margin-bottom: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000347}}
 .th-reviews__totals {
   border: 1px solid #f3f3f3;
   overflow: hidden;
   padding: 15px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000352}}
 .th-reviews__totals--right {
   margin-top: 10px;
 }
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000355}}
   .th-reviews__totals--left {
     float: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000356}}
   .th-reviews__totals--right {
     float: right;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000362}}
 .th-write-review {
   padding: 10px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000365}}
+.th-write-review ul.rating i {
+  color: goldenrod;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000367}}
 .th-write-review a {
   display: block;
   font-size: 1.4rem;
   padding: 5px 0;
   text-decoration: underline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/th\/_reviews\.scss}line{font-family:\0000373}}
 .th-write-review a:hover {
   text-decoration: none;
 }
@@ -10120,7 +10140,7 @@ a:hover {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000319}}
 label {
   display: inline-block;
   font-family: 'roboto-bold';
@@ -10129,22 +10149,22 @@ label {
   max-width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000338}}
 .btn {
   text-transform: uppercase;
   font-family: "robotocondensed-bold";
   font-weight: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000348}}
 .btn:focus {
   outline: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000357}}
 .btn.btn-lg, .btn-group-lg > .btn {
   font-size: 1.8rem;
   letter-spacing: 1px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000362}}
 .btn.btn-grey-sm {
   background: #f0f0f0;
   color: #333333;
@@ -10153,45 +10173,45 @@ label {
   text-transform: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000371}}
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   opacity: 0.25;
   filter: alpha(opacity=25);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000378}}
 .dropdown-menu > li > a {
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000385}}
 .form-control {
   color: #000;
   font-family: "robotocondensed-regular";
   box-shadow: inset 0 1px 1px transparent;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\0000392}}
 .form-control:focus {
   box-shadow: inset 0 1px 1px transparent, 0 0 8px transparent;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003104}}
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .btn-group {
   border-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003119}}
 .nav .open > a {
   border-color: #d9d9d9;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003122}}
 .nav .open > a:hover, .nav .open > a:focus {
   border-color: #d9d9d9;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003128}}
 ul.nav-tabs {
   clear: both;
   border-bottom: 1px solid #d9d9d9;
@@ -10199,7 +10219,7 @@ ul.nav-tabs {
   margin-bottom: 19px;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003135}}
 ul.nav-tabs > li {
   font-family: "robotocondensed-regular";
   font-size: 1.3rem;
@@ -10207,21 +10227,21 @@ ul.nav-tabs > li {
   margin: 0;
   text-transform: uppercase;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003142}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003143}}
 ul.nav-tabs > li > a {
   border: 0;
   padding: 10px 13px 7px;
   color: #000;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003148}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003149}}
 ul.nav-tabs > li > a:hover {
   margin: 0;
   color: #f63e34;
   border-top: 0;
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003157}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003158}}
 ul.nav-tabs > li.active > a {
   border-top: 0;
   border-bottom: 1px solid white;
@@ -10231,29 +10251,29 @@ ul.nav-tabs > li.active > a {
   border-left: 0;
   border-right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003166}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003167}}
 ul.nav-tabs > li.active > a:hover {
   color: #f63e34;
   border-top: 0;
 }
 
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003177}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003178}}
   ul.nav-tabs {
     text-align: left;
     border-top: 1px solid #d9d9d9;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003182}}
   ul.nav-tabs > li {
     font-size: 1.4rem;
     margin: 0;
     float: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003186}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003187}}
   ul.nav-tabs > li > a {
     padding: 10px 13px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003192}}
   ul.nav-tabs > li.active > a {
     border-left: 1px solid #d9d9d9;
     border-right: 1px solid #d9d9d9;
@@ -10261,52 +10281,46 @@ ul.nav-tabs > li.active > a:hover {
     border-bottom: 1px solid white;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003205}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003206}}
 .page-header {
-  border: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+  border-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003210}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003209}}
 .page-header h1 {
-  padding-left: 15px;
-  font-weight: normal;
   font-family: "antonio-regular";
-  font-size: 2.0rem;
+  font-size: 2.4rem;
+  font-weight: normal;
+  margin-top: 0;
+  text-align: center;
   text-transform: uppercase;
-  border: 0;
 }
-
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003223}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003209}}
   .page-header h1 {
-    text-align: center;
-    padding-left: 0;
     font-size: 3.2rem;
-    padding: 34px 0 29px;
-    margin: 0;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003236}}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003226}}
 .panel-group .panel-default {
   border-left: 0;
   border-right: 0;
   box-shadow: 0 1px 1px transparent;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003243}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003233}}
 .panel-default > .panel-heading {
   color: #333;
   border-left: 0;
   border-right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003248}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003238}}
 .panel-default > .panel-heading .panel-title {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003254}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/method\/app\/styles\/base\/_bootstrap-style\.scss}line{font-family:\00003244}}
 .panel-default > .panel-heading + .panel-collapse .panel-body {
   border-top-color: white;
 }
