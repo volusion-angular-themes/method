@@ -14,14 +14,6 @@ angular.module('methodApp')
             $scope.searchLocal = vnProductParams.getSearchText();
 			$scope.searchTerms = $routeParams.q;
 
-			$scope.checkFacetsAndCategories = function(categories, facets) {
-				if( (categories && categories.length) || (facets && facets.length) ) {
-					$scope.hasFacetsOrCategories = true;
-				} else {
-					$scope.hasFacetsOrCategories = false;
-				}
-			};
-
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParams();
 				vnProductParams.setSort('relevance'); // Is default when
@@ -33,14 +25,6 @@ angular.module('methodApp')
 
 			$scope.dismissMobileFilters = function() {
 				$scope.toggleSearch();
-			};
-
-			$scope.getImagePath = function (imageCollections) {
-				var path = $filter('vnProductImageFilter')(imageCollections);
-				if ('' === path) {
-					return '/images/theme/tcp-no-image.jpg';
-				}
-				return path;
 			};
 
 			$scope.initParams = function() {
