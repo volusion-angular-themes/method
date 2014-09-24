@@ -1,10 +1,8 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnImagePreloader', 'vnAppMessageService', 'snapRemote',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnImagePreloader, vnAppMessageService, snapRemote) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct', 'snapRemote', 'notifications',
+		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct, snapRemote, notifications) {
 
 			'use strict';
-
-			var optionsAndSKU;
 
 			$scope.accordionPanels = {isopen1: true};
 			$scope.buttonWait = false;
@@ -21,168 +19,21 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			function displayErrors(errors) {
-				var vnMsg,
-					messageKey,
-					translateFilter = $filter('translate');
-
-				if (errors && errors.length > 0) {
-					angular.forEach(errors, function (error) {
-						messageKey = 'message.' + error.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? error.Message : vnMsg;
-						vnMsg = vnMsg || translateFilter('message.CART_UNKNOWN');
-						vnAppMessageService.addMessage({ type: 'danger', text: vnMsg });
-					});
-				}
-			}
-
-			function displaySuccess() {
-				var vnMsg = $filter('translate')('message.CART_ADD_SUCCESS');
-				vnAppMessageService.addMessage({ type: 'success', text: vnMsg });
-			}
-
-			function displayWarnings(warningsArray) {
-				var vnMsg, messageKey;
-				var translateFilter = $filter('translate');
-
-				if (warningsArray && warningsArray.length > 0) {
-					angular.forEach(warningsArray, function (warning) {
-						messageKey = 'message.' + warning.Code;
-						vnMsg = translateFilter(messageKey);
-						vnMsg = (!vnMsg || vnMsg === messageKey) ? warning.Message : vnMsg;
-						vnAppMessageService.addMessage({ type: 'warning', text: vnMsg });
-					});
-				}
-			}
-
-			function fetchProductImages() {
-				var imagesToPreload = [];
-
-				angular.forEach($scope.product.imageCollections, function (collection) {
-					angular.forEach(collection.images, function (imageCollection) {
-						//imagesToPreload.push(imageCollection.large);
-						imagesToPreload.push(imageCollection.medium);
-						//imagesToPreload.push(imageCollection.small);
-					});
-				});
-
-				vnImagePreloader.preloadImages(imagesToPreload);
-			}
-
-			function findAvailability() {
-				var available = 0;
-
-				if ($scope.product.options.length > 0 && $scope.product.optionSKUs.length > 0) {
-					for (var idx = 0; idx < $scope.product.optionSKUs.length; idx++) {
-						available |= findOptionAvailability($scope.product.optionSKUs[idx].key);  // jshint ignore:line
-					}
-					$scope.itemSelectionsNotInStock = (available === 0);
-				} else {
-					$scope.itemSelectionsNotInStock = (!$scope.product.availability.allowBackOrders &&
-						$scope.product.availability.quantityInStock !== null &&
-						$scope.product.availability.quantityInStock <= 0);
-				}
-
-			}
-
-			function findOptionAvailability(key) {
-				if (typeof key === 'undefined') {
-					return true;
-				}
-
-				var qty = 0,
-					option,
-					takeOptionInConsideration = (optionsAndSKU === 1);
-
-				option = $scope.product.optionSKUs.filter(function (option) {
-					return option.key === key;
-				});
-
-				if (option.length > 0 && (takeOptionInConsideration || option[0].key.indexOf('|') > -1)) {
-					qty = option[0].quantityInStock;
-				} else {
-					if (option.length === 0) {
-						return ($scope.product.availability.allowBackOrders ||
-							$scope.product.availability.quantityInStock === null ||
-							$scope.product.availability.quantityInStock > 0);
-					}
-					return false;
-				}
-
-				return (qty === null || qty > 0);
-			}
-
-			function findOptionsAndOptionSKU(options) {
-				var optionsToSKU = [];
-
-				if (!options) {
-					return optionsToSKU;
-				}
-
-				for (var i = 0; i < options.length; i++) {
-					var option = options[i];
-
-					if (option.isRequired && option.derivesToSKU) {
-						optionsToSKU.push(option.label);
-					}
-				}
-
-				return optionsToSKU;
-			}
-
-			function findRequiredOptionsAreSelected(options) {
-				var missedOptions = [];
-
-				if (!options) {
-					return missedOptions;
-				}
-
-				for (var i = 0; i < options.length; i++) {
-					var option = options[i];
-
-					if (option.isRequired && !option.hasOwnProperty('selected')) {
-						missedOptions.push(option.label);
-					}
-
-					if (option.options.length > 0) {
-						var subOptions = findRequiredOptionsAreSelected(option.options);
-						for (var j = 0; j < subOptions.length; j++) {
-							missedOptions.push(subOptions[j].label);
-						}
-					}
-				}
-
-				return missedOptions;
-			}
-
 			function modifyQuantity(amount) {
 				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
-
-				if ($scope.product.optionSelection && ($scope.product.optionSelection.quantityInStock - amount) >= 0) {
-					$scope.product.optionSelection.quantityInStock -= amount;
-				}
+				vnProduct.setQuantityInStock(amount);
 			}
 
 			function setDefaults() {
-				var product = $scope.product;
-				product.optionSelection = { option: {selected: 'default'} };
 
-				if (product.imageCollections.length > 0 && product.imageCollections[0].images.length > 0) {
-					product.image = product.imageCollections[0].images[0];
-				} else {
-					product.image = {};
-					product.image.medium = '/images/theme/tcp-no-image.jpg';
-					product.image.large = '/images/theme/tcp-no-image.jpg';
-					product.image.small = '/images/theme/tcp-no-image.jpg';
+				if (vnProduct.getProductImage() === null) {
+					vnProduct.setProductNoImage(['/images/theme/tcp-no-image.jpg','/images/theme/tcp-no-image.jpg','/images/theme/tcp-no-image.jpg']);
 				}
 
 				$scope.cartItem.options = $scope.cartItem.options || [];
+				$scope.itemSelectionsNotInStock = vnProduct.findAvailability();
 
-				optionsAndSKU = findOptionsAndOptionSKU($scope.product.options).length;
-				findAvailability();
 				setPopover();
-				fetchProductImages();
 			}
 
 			function setPopover() {
@@ -191,7 +42,7 @@ angular.module('Volusion.controllers')
 				$scope.popoverText = '';
 				$scope.buttonDisabled = false;
 
-				var missedOptions = findRequiredOptionsAreSelected($scope.product.options);
+				var missedOptions = vnProduct.findRequiredOptionsAreSelected();
 				if (missedOptions.length > 0) {
 					for (var idx = 0; idx < missedOptions.length; idx++) {
 						missedOpt += $filter('uppercase')(missedOptions[idx]);
@@ -211,22 +62,7 @@ angular.module('Volusion.controllers')
 					return;
 				}
 
-				var selectionAvailable = false;
-
-				if (0 === $scope.product.options.length) {
-					selectionAvailable = ($scope.product.availability.allowBackOrders ||
-						$scope.product.availability.quantityInStock === null ||
-						$scope.product.availability.quantityInStock > 0);
-				} else {
-					// For some reason when having only one option 'optionSelection.key' is missing :(
-					var selectedOption = (1 === $scope.product.options.length) ?
-						$scope.product.optionSelection.option.key + ':' + $scope.product.optionSelection.option.selected :
-						$scope.product.optionSelection.key;
-
-					selectionAvailable = findOptionAvailability(selectedOption);
-				}
-
-				if (!selectionAvailable) {
+				if (!vnProduct.isSelectionAvailable()) {
 					$scope.popoverText = $filter('translate')('product.addToCartNotInStock');
 					$scope.buttonDisabled = true;
 
@@ -236,7 +72,9 @@ angular.module('Volusion.controllers')
 
 			vnApi.Product().get({slug: $routeParams.slug }).$promise
 				.then(function (response) {
-					$scope.product = response.data;
+
+					// using vnProduct's setters will reflect $scope.product object
+					$scope.product = vnProduct.set(response.data);
 
 					var fullUrl = encodeURIComponent($location.absUrl()),
 						pageTitle = encodeURIComponent($scope.product.name);
@@ -248,20 +86,14 @@ angular.module('Volusion.controllers')
 					};
 
 					// Sharing
-					$scope.product.sharing = {
-						facebook  : 'http://www.facebook.com/sharer.php?u=' + fullUrl + '&t=' + pageTitle,
-						twitter   : 'http://twitter.com/share?url=' + fullUrl + '&text=' + pageTitle,
-						tumblr    : 'http://www.tumblr.com/share/link?url=' + fullUrl + '&name=' + pageTitle,
-						googlePlus: 'https://plus.google.com/share?url=' + fullUrl
-					};
+					vnProduct.setSocialSharing(fullUrl, pageTitle);
+					vnProduct.setEditable(false);
 
-					$scope.product.isEditable = false;
-
-					$scope.cartItem = $scope.product.cartItem;
+					$scope.cartItem = vnProduct.getProductCart();
 
 					$scope.isInDesktopMode = $rootScope.isInDesktopMode;
 
-					angular.extend($scope.seo, $scope.product.seo);
+					angular.extend($rootScope.seo, vnProduct.getProductSEO());
 
 					setDefaults();
 
@@ -299,8 +131,8 @@ angular.module('Volusion.controllers')
 
 			$scope.addToCart = function() {
 
-				if (findRequiredOptionsAreSelected($scope.product.options).length > 0 ||
-					!findOptionAvailability($scope.product.optionSelection.key)) {
+				if (vnProduct.findRequiredOptionsAreSelected().length > 0 ||
+					!vnProduct.findOptionAvailability($scope.product.optionSelection.key)) {
 
 					return;
 				}
@@ -320,10 +152,10 @@ angular.module('Volusion.controllers')
 						$scope.cartItem.qty = 0;
 
 						if (cart.serviceErrors.length === 0) {
-							displaySuccess();
-							displayWarnings(cart.warnings); // if any
+							notifications.displaySuccessfulAddition();
+							notifications.displayWarnings(cart.warnings); // if any
 						} else {
-							displayErrors(cart.serviceErrors);
+							notifications.displayErrors(cart.serviceErrors);
 						}
 
 					})
@@ -388,34 +220,15 @@ angular.module('Volusion.controllers')
 					currentSelection.quantityInStock -= $scope.cartItem.qty;
 				}
 
-				function setImages() {
-
-					if ($scope.product.imageCollections.length === 0 ||
-						$scope.product.imageCollections[0].images.length === 0) {
-
-						$scope.product.image = {};
-						$scope.product.image.medium = '/images/theme/tcp-no-image.jpg';
-						$scope.product.image.large = '/images/theme/tcp-no-image.jpg';
-						$scope.product.image.small = '/images/theme/tcp-no-image.jpg';
-
-						return;
-					}
-
-					angular.forEach($scope.product.imageCollections, function (collection) {
-						if (collection.key === currentSelection.option.selected) {
-							$scope.currentImageCollection = collection.images;
-							$scope.product.image = $scope.currentImageCollection[0];
-						}
-					});
-				}
-
 				if (currentSelection === undefined) {
 					return;
 				}
 
 				setProductCodeAndId();
 				setQuantity();
-				setImages();
+
+				vnProduct.setProductImage(currentSelection.option.selected);
+
 				setPopover();
 
 				$scope.isAddToCartButtonEnabled = currentSelection.isValid && $scope.cartItem.qty > 0;
