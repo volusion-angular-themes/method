@@ -4,6 +4,11 @@ angular.module('Volusion.controllers')
 
 			'use strict';
 
+<<<<<<< HEAD
+=======
+//			var optionsAndSKU;
+
+>>>>>>> Refactor/Move Product into Toolbox
 			$scope.accordionPanels = {isopen1: true};
 			$scope.buttonWait = false;
 			$scope.carousel = {interval: 4000};
@@ -19,7 +24,6 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			
 			function modifyQuantity(amount) {
 				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
 				vnProduct.setQuantityInStock(amount);
@@ -192,11 +196,11 @@ angular.module('Volusion.controllers')
 				modifyQuantity(1);
 			};
 
-			$scope.$on('$stateChangeSuccess', function () {
-				$location.hash('top');
-				$anchorScroll();
-				$location.hash('');
-			});
+//			$scope.$on('$stateChangeSuccess', function () {
+//				$location.hash('top');
+//				$anchorScroll();
+//				$location.hash('');
+//			});
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {
 
