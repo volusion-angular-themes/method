@@ -4,7 +4,7 @@
 
 	<div class="th-product__image">
 		<a data-ng-href="{{ product.url }}">
-			<img data-ng-src="{{ getImagePath(product.imageCollections) }}" class="img-responsive" alt="{{ product.name }}">
+			<img vn-product-image product="product" default="defaultProductImage">
 		</a>
 	</div>
 	<div class="th-product__name">
