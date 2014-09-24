@@ -21,7 +21,6 @@ angular.module('methodApp', [
 	// Volusion modules
 	'config',
 	'seo',
-	//'services.config', // Todo: Refactor this
 	'angulartics',
 
 	'Volusion.toolboxCommon',
@@ -122,37 +121,28 @@ angular.module('methodApp', [
 			});
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'vnCacheBustFilter', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnModalService',
-	function (snapRemote, $rootScope, $window, vnCacheBustFilter, themeSettings, vnCart, ContentMgr, translate, vnModalService) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnModalService', 'vnViewPortWatch',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, ContentMgr, translate, vnModalService, vnViewPortWatch) {
 
 		'use strict';
 
 		$rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
-		$rootScope.isInDesktopMode = true;
-		$rootScope.overridesCSS = vnCacheBustFilter('/styles/overrides.css');
 
 		vnCart.init();
 
 		translate.addParts('message');
 
-		enquire.register('screen and (max-width: 991px)', {
-			// transitioning to desktop mode
-			unmatch: function () {
-				snapRemote.close();
-				$rootScope.isInDesktopMode = true;
-			},
-			// transitioning to mobile mode
-			match  : function () {
-				$rootScope.isInDesktopMode = false;
-			}
-		});
-
-		$rootScope.$on('$routeChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-			event.preventDefault();
-			if (error.status === 404) {
-				$window.location.replace('/404.html');
-			}
-		});
+        vnViewPortWatch.setBreakpoints([{
+            name: 'Non-Desktop',
+            mediaQuery: 'screen and (max-width: 991px)',
+            onMatch: function() {
+                $rootScope.isInDesktopMode = false;
+            },
+            onUnmatch: function() {
+                snapRemote.close();
+                $rootScope.isInDesktopMode = true;
+            }
+        }]);
 
 		$rootScope.$on('$routeChangeSuccess', function () {
 			snapRemote.close();
