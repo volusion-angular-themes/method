@@ -2,7 +2,7 @@
 
 // TODO : Figure out why this is an issue: ReferenceError: MessageFormat is not defined
 
-describe('Controller: ArticleCtrl', function() {
+describe('Controller: PageCtrl', function() {
 
 	// load the controller's module
 	beforeEach(module('methodApp'));
@@ -34,7 +34,7 @@ describe('Controller: ArticleCtrl', function() {
 		};
 
 		scope = $rootScope.$new();
-		controller = $controller('ArticleCtrl', {
+		controller = $controller('PageCtrl', {
 			$scope: scope,
 			article: article,
 			messageFormat: MessageFormat

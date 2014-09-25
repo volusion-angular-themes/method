@@ -114,7 +114,7 @@ angular.module('methodApp', [
 			// Articles must be last or the prior /search and /theme-settings will never be picked up
 			.when('/:slug', {
 				templateUrl: 'views/article.html',
-				controller : 'ArticleCtrl',
+				controller : 'PageCtrl',
                 resolve: {
                     article: ['vnApi', '$route', function(vnApi, $route) {
                         return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
