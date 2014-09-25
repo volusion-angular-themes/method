@@ -191,12 +191,6 @@ angular.module('Volusion.controllers')
 				modifyQuantity(1);
 			};
 
-			$scope.$on('$stateChangeSuccess', function () {
-				$location.hash('top');
-				$anchorScroll();
-				$location.hash('');
-			});
-
 			$scope.$watch('product.optionSelection', function (currentSelection) {
 
 				function setProductCodeAndId() {

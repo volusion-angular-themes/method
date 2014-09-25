@@ -39,13 +39,13 @@
 
 	<div snap-content data-snap-ignore="true">
 
-		<a id="top"></a>
+		<!--<a id="top"></a>-->
 
 		<!-- Header -->
 		<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
 		<!-- Main Content -->
-		<div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div>
+		<div class="vn-showcase" role="main" autoscroll="" ng-view="" ></div>
 		<!-- Footer -->
 		<div ng-include=" 'views/partials/footer.html' "></div>
 	</div>
@@ -113,6 +113,8 @@
 	<script src="scripts/controllers/theme-settings.js"></script>
 	<script src="scripts/controllers/shopping-cart.js"></script>
 	<script src="scripts/services/notifications.js"></script>
+<script src="scripts/directives/vn-scroll-top.js"></script>
+<script src="scripts/filters/currency.js"></script>
 	<!-- endbuild -->
 
 </body>

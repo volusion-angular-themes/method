@@ -24,9 +24,12 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
-			function updateCart() {
+			function updateCart(callback) {
 				vnCart.updateCart()
 					.then(function (cart) {
+
+						$rootScope.$emit('vnScroll.cart');
+
 						$scope.cart = cart;
 
 						if ($scope.cart.serviceErrors.length === 0) {
@@ -34,6 +37,10 @@ angular.module('Volusion.controllers')
 							notifications.displayWarnings($scope.cart.warnings); // if any
 						} else {
 							notifications.displayErrors($scope.cart.serviceErrors);
+						}
+
+						if (callback !== undefined) {
+							callback();
 						}
 					});
 			}
@@ -45,7 +52,12 @@ angular.module('Volusion.controllers')
 
 				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				updateCart();
+				updateCart(function () {
+					if ($scope.cart.serviceErrors.length === 0) {
+						$scope.coupon.show = false;
+						$scope.coupon.code = '';
+					}
+				});
 			};
 
 			$scope.deleteCoupon = function (id) {
