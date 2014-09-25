@@ -5,7 +5,13 @@
 	position         : fixed;
 	top              : 0;
 	bottom           : 0;
-	padding-bottom   : 120px;
+	padding-bottom   : 20px;
+
+	&__scroll-area {
+		overflow-y  : scroll;
+		height      : 100%;
+		margin-top  : 37px;
+	}
 
 	&__brand {
 
@@ -32,13 +38,16 @@
 	}
 
 	&__nav {
-		border-bottom : 1px solid $hr-border;
+		position         : absolute;
+		border-bottom    : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+		z-index 		 : 999;
 
 		&--button {
 			padding    : 7px 5px;
 			border     : 0 none;
 			background : none;
-			width      : 130px;
+			width      : 132px;
 			margin     : 0;
 			font-size  : 14px;
 			outline    : none;
@@ -105,10 +114,10 @@
 
 		&__add {
 
-			float : right;
+			float : left;
 
 			&--coupon {
-				width  : 100px;
+				width  : 180px;
 				height : 30px;
 				float  : left;
 			}
@@ -183,9 +192,9 @@
 	}
 
 	&__items {
-		padding    : 5px 10px;
-		overflow-y : scroll;
-		height     : 100%;
+		padding : 5px 10px;
+		//		overflow-y : scroll;
+		//		height     : 100%;
 
 		&--label {
 			text-transform : uppercase;
@@ -197,6 +206,11 @@
 			margin-bottom  : 10px;
 			padding-bottom : 10px;
 			border-bottom  : 1px solid $gray-lighter;
+
+			&.-last {
+				// add extra space after last element so dropdown will be accessible
+				margin-bottom : 150px;
+			}
 
 			&--close {
 				position : absolute;
