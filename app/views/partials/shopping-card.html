@@ -103,7 +103,7 @@
 					<div class="th-checkout__items__item--name">
 						<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
 					</div>
-					<div class="th-checkout__items__item--price">{{ item.pricing.unitPrice | vnCurrency }}</div>
+					<div class="th-checkout__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
 					<div class="th-checkout__items__item--option" data-ng-repeat="option in item.options">
 						<span>{{ option.optionText }}</span>
 					</div>
