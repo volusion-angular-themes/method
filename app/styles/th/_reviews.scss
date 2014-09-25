@@ -1,8 +1,8 @@
 .th-reviews {
-	border-top  : 1px solid $hr-border;
-	color       : lighten($text-color, 55);
-	font-size   : 1.3rem;
-	line-height : 22px;
+	font-size  : 1.3rem;
+	margin-top : 15px;
+
+	ul.rating i { color : goldenrod }
 
 	a {
 		color  : lighten($text-color, 55);
@@ -13,26 +13,27 @@
 		font-family    : $font-family-condensed-reg;
 		font-size      : 1.8rem;
 		overflow       : hidden;
-		padding        : 20px 0;
+		margin-bottom  : 10px;
 		text-transform : uppercase;
 	}
 
+	&__description { line-height : 1.5 }
+
 	&__helpful {
+		color   : lighten($text-color, 55);
 		padding : 10px 0 0;
 	}
 
-	&__rating {
-		padding : 10px 0;
-	}
+	&__rating { padding : 10px 0 }
 
 	&__star-group {
 		display      : inline-block;
 		margin-right : 10px;
-	}
 
-	&__star {
-		@extend %inline-block;
-		margin-right : 1px;
+		i { color : goldenrod }
+
+		p { margin : 0 }
+		// TODO fix: 'vn-rating-title' coming from somewhere causing margin issues
 	}
 
 	&__title {
@@ -48,13 +49,11 @@
 		overflow : hidden;
 		padding  : 15px;
 
-		&--right {
-			margin-top : 10px;
-		}
+		&--right { margin-top : 10px }
 
 		@include respond-to(sm-and-up) {
-			&--left {float : left}
-			&--right {float : right}
+			&--left { float : left }
+			&--right { float : right }
 		}
 	}
 
@@ -62,6 +61,8 @@
 
 .th-write-review {
 	padding : 10px 0;
+
+	ul.rating i { color : goldenrod }
 
 	a {
 		display         : block;

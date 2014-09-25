@@ -1,6 +1,7 @@
 .th-cart-summary {
 	position    : relative;
 	right       : 0;
+	text-align: right;
 	top         : 8px;
 	white-space : nowrap;
 
@@ -28,14 +29,6 @@
 		&:after {
 			content : ")";
 		}
-
 	}
 
-	&__text {
-		color : $link-color;
-
-		&:hover {
-			color : $link-hover-color;
-		}
-	}
 }
