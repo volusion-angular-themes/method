@@ -7,13 +7,13 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('FooterCtrl', ['$scope', 'translate', 'themeSettings', 'ContentMgr',
-		function ($scope, translate, themeSettings, ContentMgr) {
+	.controller('FooterCtrl', ['$scope', 'translate', 'themeSettings', 'vnContentManager',
+		function ($scope, translate, themeSettings, vnContentManager) {
 			'use strict';
 
 			$scope.$watch(
 				function () {
-					return ContentMgr.getFooterState();
+					return vnContentManager.getFooterState();
 				},
 				function (state) {
 					$scope.footerState = state;

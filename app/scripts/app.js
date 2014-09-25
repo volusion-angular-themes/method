@@ -126,8 +126,8 @@ angular.module('methodApp', [
 			});
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnModalService', 'vnViewPortWatch',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, ContentMgr, translate, vnModalService, vnViewPortWatch) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
 
 		'use strict';
 
@@ -156,14 +156,4 @@ angular.module('methodApp', [
         $rootScope.$on('VN_HTTP_500_ERROR', function () {
 			vnModalService.showError('views/server-error.html');
 		});
-
-		$rootScope.$watch(
-			// Use a fn in $watch first argument that gets value from service
-			function () {
-				return ContentMgr.getSnapMenuState();
-			},
-			// Use second fn to update the controller menu state when changed.
-			function (state) {
-				$rootScope.snapMenuState = state;
-			}, true);
 	}]);

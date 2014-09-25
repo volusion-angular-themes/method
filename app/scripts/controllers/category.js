@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'ContentMgr',
-		function ($q, $scope, $rootScope, $routeParams, $location, $route, vnApi, vnProductParams, vnAppRoute, ContentMgr) {
+		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'vnContentManager',
+		function ($q, $scope, $rootScope, $routeParams, $location, $route, vnApi, vnProductParams, vnAppRoute, vnContentManager) {
 
 			'use strict';
 
@@ -53,13 +53,13 @@ angular.module('Volusion.controllers')
 					$scope.mobileDisplay = false;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
-					ContentMgr.showAppFooter();
+					vnContentManager.showAppFooter();
 					return;
 				}
 				$scope.mobileDisplay = true;
 				$scope.isMobileAndVisible = true;
 				$scope.isMobileAndHidden = false;
-				ContentMgr.hideAppFooter();
+				vnContentManager.hideAppFooter();
 			};
 
 			$scope.$on('$destroy', function cleanUp() {
