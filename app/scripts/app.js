@@ -114,7 +114,12 @@ angular.module('methodApp', [
 			// Articles must be last or the prior /search and /theme-settings will never be picked up
 			.when('/:slug', {
 				templateUrl: 'views/article.html',
-				controller : 'ArticleCtrl'
+				controller : 'ArticleCtrl',
+                resolve: {
+                    article: ['vnApi', '$route', function(vnApi, $route) {
+                        return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
+                    }]
+                }
 			})
 			.otherwise({
 				redirectTo: '/'
@@ -144,11 +149,11 @@ angular.module('methodApp', [
             }
         }]);
 
-		$rootScope.$on('$routeChangeSuccess', function () {
-			snapRemote.close();
-		});
+        $rootScope.$on('$routeChangeSuccess', function () {
+            snapRemote.close();
+        });
 
-		$rootScope.$on('VN_HTTP_500_ERROR', function () {
+        $rootScope.$on('VN_HTTP_500_ERROR', function () {
 			vnModalService.showError('views/server-error.html');
 		});
 
