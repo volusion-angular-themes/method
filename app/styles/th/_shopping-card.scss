@@ -8,9 +8,38 @@
 	padding-bottom   : 20px;
 
 	&__scroll-area {
-		overflow-y  : scroll;
-		height      : 100%;
-		margin-top  : 37px;
+		overflow-y : scroll;
+		height     : 100%;
+		margin-top : 37px;
+
+		&--overlay {
+			@extend %font-smoothing;
+
+			width            : 100%;
+			height           : 100%;
+			position         : absolute;
+			background-color : $btn-default-bg;
+			z-index          : 9999;
+			text-align       : center;
+
+			@include opacity(0.8);
+
+			&--loader {
+				position: absolute;
+				height: 80px;
+				width: 80px;
+				top: 40%;
+				left: 40%;
+			}
+
+			/*
+			  Set the color of the icon
+			*/
+			svg path,
+			svg rect {
+				fill : $btn-default-color;
+			}
+		}
 	}
 
 	&__brand {
@@ -41,7 +70,8 @@
 		position         : absolute;
 		border-bottom    : 1px solid $hr-border;
 		background-color : $btn-default-bg;
-		z-index 		 : 999;
+		z-index          : 999;
+		width            : 100%;
 
 		&--button {
 			padding    : 7px 5px;
@@ -143,6 +173,7 @@
 			margin-bottom  : 10px;
 			padding-bottom : 10px;
 			border-bottom  : 1px solid $gray-lighter;
+			min-height     : 45px;
 
 			&.-last {
 				border-bottom : none;

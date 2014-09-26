@@ -26,7 +26,14 @@
 	</div>
 
 	<div class="th-checkout__scroll-area" data-vn-scroll-top>
-		<!--<a id="top-cart" style="line-height: 37px;">&nbsp;</a>-->
+
+		<div class="th-checkout__scroll-area--overlay"
+			 data-ng-if="loading"
+			 vn-busy-animation
+			 vn-busy-animation-show="{{ loading }}"
+			 vn-busy-animation-size="80px"
+			 vn-busy-animation-class="th-checkout__scroll-area--overlay--loader"></div>
+
 		<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">
 			<div>
 				<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>

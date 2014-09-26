@@ -21,14 +21,19 @@ angular.module('Volusion.controllers')
 				'show' : false
 			};
 			$scope.couponsEmpty = false;
+			$scope.loading = false;
 
 			translate.addParts('shopping-card');
 
 			function updateCart(callback) {
+
+				$scope.loading = true;
+
 				vnCart.updateCart()
 					.then(function (cart) {
 
 						$scope.cart = cart;
+						$scope.loading = false;
 
 						notifications.displayWarnings($scope.cart.warnings); // if any
 						notifications.displayErrors($scope.cart.serviceErrors);
@@ -37,10 +42,10 @@ angular.module('Volusion.controllers')
 							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
 							// scroll cart item to the top so this msg will be visible
 							$rootScope.$emit('vnScroll.cart');
-						}
-
-						if (callback !== undefined) {
-							callback();
+						} else {
+							if (callback !== undefined) {
+								callback();
+							}
 						}
 					});
 			}
