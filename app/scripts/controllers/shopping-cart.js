@@ -28,15 +28,15 @@ angular.module('Volusion.controllers')
 				vnCart.updateCart()
 					.then(function (cart) {
 
-						$rootScope.$emit('vnScroll.cart');
-
 						$scope.cart = cart;
 
-						if ($scope.cart.serviceErrors.length === 0) {
-							notifications.displaySuccessfulUpdate();
-							notifications.displayWarnings($scope.cart.warnings); // if any
-						} else {
-							notifications.displayErrors($scope.cart.serviceErrors);
+						notifications.displayWarnings($scope.cart.warnings); // if any
+						notifications.displayErrors($scope.cart.serviceErrors);
+
+						if ($scope.cart.warnings && $scope.cart.warnings.length > 0 ||
+							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
+							// scroll cart item to the top so this msg will be visible
+							$rootScope.$emit('vnScroll.cart');
 						}
 
 						if (callback !== undefined) {
