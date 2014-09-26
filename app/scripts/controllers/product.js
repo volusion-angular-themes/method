@@ -151,11 +151,13 @@ angular.module('Volusion.controllers')
 
 						$scope.cartItem.qty = 0;
 
-						if (cart.serviceErrors.length === 0) {
-							notifications.displaySuccessfulAddition();
-							notifications.displayWarnings(cart.warnings); // if any
-						} else {
-							notifications.displayErrors(cart.serviceErrors);
+						notifications.displayWarnings(cart.warnings); // if any
+						notifications.displayErrors(cart.serviceErrors);
+
+						if (cart.warnings && cart.warnings.length > 0 ||
+							cart.serviceErrors && cart.serviceErrors.length > 0) {
+							// scroll cart item to the top so this msg will be visible
+							$rootScope.$emit('vnScroll.cart');
 						}
 
 					})
