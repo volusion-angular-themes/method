@@ -1,6 +1,6 @@
 angular.module('methodApp')
-	.controller('ThemeSettingsCtrl', ['$scope', '$http', '$location', 'ContentMgr',
-		function ($scope, $http, $location, ContentMgr) {
+	.controller('ThemeSettingsCtrl', ['$scope', '$http', '$location', 'vnContentManager',
+		function ($scope, $http, $location, vnContentManager) {
 
 			'use strict';
 
@@ -8,8 +8,8 @@ angular.module('methodApp')
 				environment;
 
 			// Update the UI For this page and hide header and footer when this controller is in use
-			ContentMgr.hideAppHeader();
-			ContentMgr.hideAppFooter();
+			vnContentManager.hideAppHeader();
+			vnContentManager.hideAppFooter();
 
 
 			if ($location.absUrl().indexOf('127.0.0.1') >= 0 || $location.absUrl().indexOf('localhost') >= 0) {
@@ -57,8 +57,8 @@ angular.module('methodApp')
 
 			// Update the ui and show header / footer when this controller is destroyed
 			$scope.$on('$destroy', function cleanUp() {
-				ContentMgr.showAppHeader();
-				ContentMgr.showAppFooter();
+				vnContentManager.showAppHeader();
+				vnContentManager.showAppFooter();
 			});
 
 		}]);
