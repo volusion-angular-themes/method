@@ -42,10 +42,6 @@ angular.module('Volusion.controllers')
 						if (callback !== undefined) {
 							callback();
 						}
-
-						if (callback !== undefined) {
-							callback();
-						}
 					});
 			}
 
