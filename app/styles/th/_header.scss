@@ -1,17 +1,9 @@
 .th-header-top {
 	border-bottom : 1px solid lighten($navbar-default-border, 10);
 
-	&__promo {
+	&__text {
 		padding-top    : 10px;
 		padding-bottom : 10px;
-		text-align     : left;
-		text-transform : uppercase;
-	}
-
-	&__sign-in {
-		padding-top    : 10px;
-		padding-bottom : 10px;
-		text-align     : right;
 	}
 
 }

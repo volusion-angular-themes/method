@@ -1,15 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top th-navbar"
+<nav class="navbar navbar-default navbar-static-top th-navbar"
 	 role="navigation"
 	 data-ng-show="headerState"
 	 data-ng-controller="HeaderCtrl">
 
-	<div class="container hidden-xs hidden-sm th-header-top">
-		<div class="row">
-			<div class="col-md-6 th-header-top__promo">
-				<span data-ng-bind-html="themeSettings.general.header.content.topPromo | vnLegacyLinkify | html"></span>
-			</div>
-			<div class="col-md-6 th-header-top__sign-in">
-				<a data-vn-legacy-link="/login.asp" data-translate="header.signIn">Sign In</a>
+	<div class="container-fluid hidden-xs hidden-sm th-header-top">
+			<div class="container">
+			<div class="row">
+				<div class="col-md-6 text-left text-uppercase th-header-top__text">
+					<span data-ng-bind-html="themeSettings.general.header.content.topPromo | vnLegacyLinkify | html"></span>
+				</div>
+				<div class="col-md-6 text-right th-header-top__text">
+					<a data-vn-legacy-link="/login.asp" data-translate="header.signIn">Sign In</a>
+				</div>
 			</div>
 		</div>
 	</div>
