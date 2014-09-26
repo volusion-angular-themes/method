@@ -8,7 +8,7 @@
  */
 
 angular.module('Volusion.controllers')
-	.filter('vnCurrency', ['$filter', '$locale', '$translate', function ($filter, $locale, $translate) {
+	.filter('vnCurrency', ['$filter', '$locale', function ($filter, $locale) {
 
 		'use strict';
 
