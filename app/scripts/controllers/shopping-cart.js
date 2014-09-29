@@ -22,6 +22,9 @@ angular.module('Volusion.controllers')
 			};
 			$scope.couponsEmpty = false;
 			$scope.loading = false;
+			$scope.showGiftOption = false;
+			$scope.visualCue = false;
+			$scope.msgLength = 0;
 
 			translate.addParts('shopping-card');
 
@@ -49,6 +52,45 @@ angular.module('Volusion.controllers')
 						}
 					});
 			}
+
+			$scope.resetGiftOptions = function () {
+
+				var needUpdate = false;
+
+				// ng-change transcludes the scope of the input so the [changed] model
+				// is available into child scope [this]
+				if (this.showGiftOption) {
+					// Gift options are shown - show vusual cue
+					$scope.visualCue = true;
+
+					$timeout(function () {
+						$scope.visualCue = false;
+					}, 3000)
+
+					return;
+				}
+
+				angular.forEach($scope.cart.items, function (item) {
+					if (item.isGiftWrapAvailable) {
+						if (item.giftWrap.selected) {
+							item.giftWrap.selected = false;
+							needUpdate = true;
+						}
+					}
+				});
+
+				if (needUpdate) {
+					updateCart();
+				}
+			};
+
+			$scope.addGiftWrap = function () {
+				updateCart();
+			};
+
+			$scope.addGiftMsg = function () {
+				updateCart();
+			};
 
 			$scope.applyCoupon = function () {
 				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
@@ -129,6 +171,17 @@ angular.module('Volusion.controllers')
 
 					if ($scope.cart.discounts !== undefined) {
 						$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
+					}
+
+					if ($scope.cart.items !== undefined) {
+						// set gift option if any item has gift wrap selected
+						for (var i = 0; i < $scope.cart.items.length; i++) {
+							if ($scope.cart.items[i].giftWrap.selected) {
+								$scope.showGiftOption = true;
+
+								return;
+							}
+						}
 					}
 				}
 			);

@@ -64,8 +64,8 @@
 		</div>
 
 		<div class="th-checkout__coupons" data-ng-if="!couponsEmpty">
-			<div>
-				<div class="th-checkout__coupons--label" data-translate="shopping-card.lblCoupons">Discounts</div>
+			<div class="th-checkout__coupons--label">
+				<label data-translate="shopping-card.lblCoupons">Discounts</label>
 			</div>
 
 			<div class="th-checkout__coupons__coupon"
@@ -97,54 +97,79 @@
 		</div>
 
 		<div class="th-checkout__items" data-ng-if="!cartEmpty">
-		<div>
-			<div class="th-checkout__items--label" data-translate="shopping-card.lblYourCart">Your cart</div>
-		</div>
-		<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse" data-ng-class="{'-last' : $last}">
-			<div class="th-checkout__items__item--close">
-				<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
+			<div class="th-checkout__items--label">
+				<label data-translate="shopping-card.lblYourCart">Your cart</label>
 			</div>
-			<div>
-				<img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" />
+
+			<div class="th-checkout__items--gift">
+				<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()"><label data-translate="shopping-card.lblGift">This is a gift</label>
+			</div>
+
+			<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse" data-ng-class="{'-last' : $last}">
+				<div class="th-checkout__items__item--close">
+					<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
+				</div>
 				<div>
-					<div class="th-checkout__items__item--name">
-						<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
+					<img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" />
+					<div>
+						<div class="th-checkout__items__item--name">
+							<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
+						</div>
+						<div class="th-checkout__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
+						<div class="th-checkout__items__item--option" data-ng-repeat="option in item.options">
+							<span>{{ option.optionText }}</span>
+						</div>
 					</div>
-					<div class="th-checkout__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
-					<div class="th-checkout__items__item--option" data-ng-repeat="option in item.options">
-						<span>{{ option.optionText }}</span>
+
+					<br style="clear: both;" />
+				</div>
+
+				<div>
+					<div class="th-checkout__items__item--qty">
+						<!--<span class="dropdown" on-toggle="toggled(open)">-->
+							<button class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+
+									{{ item.qty }}<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="choice in getArray(choices) track by $index">
+									<a role="menuitem"
+									   tabindex="-1"
+									   href
+									   data-ng-click="onOptionChanged(item, {{ $index+1 }})">
+
+									   {{ $index+1 }}
+									</a>
+								</li>
+							</ul>
+						<!--</span>-->
 					</div>
+					<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
 				</div>
 
 				<br style="clear: both;" />
-			</div>
 
-			<div>
-				<div class="th-checkout__items__item--qty">
-					<!--<span class="dropdown" on-toggle="toggled(open)">-->
-						<button class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown">
+				<div class="th-checkout__items__item__gift animate-if" data-ng-if="showGiftOption && item.isGiftWrapAvailable">
+					<div class="th-checkout__items__item__gift--option" data-ng-class="{'-visual-cue' : visualCue}">
+						<input type="checkbox" data-ng-model="item.giftWrap.selected" data-ng-change="addGiftWrap()">
+						<span data-translate="shopping-card.lblGiftOption">Add gift wrap for</span>&nbsp;{{ item.giftWrap.price | currency }}
+					</div>
 
-								{{ item.qty }}<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li ng-repeat="choice in getArray(choices) track by $index">
-								<a role="menuitem"
-								   tabindex="-1"
-								   href
-								   data-ng-click="onOptionChanged(item, {{ $index+1 }})">
+					<textarea class="th-checkout__items__item__gift--message animate-if"
+						   	  maxlength="255"
+						   	  data-auto-grow
+						   	  data-ng-trim="false"
+						   	  data-ng-if="item.giftWrap.selected"
+						   	  data-ng-model="item.giftWrap.message"
+						      data-ng-blur="addGiftMsg()"
+						      placeholder="{{ 'shopping-card.lblGiftMessage' | translate }}"></textarea>
 
-								   {{ $index+1 }}
-								</a>
-							</li>
-						</ul>
-					<!--</span>-->
+					<div class="th-checkout__items__item__gift--message-count" data-ng-if="item.giftWrap.selected">
+						<span>{{255 - item.giftWrap.message.length}}</span>
+					</div>
 				</div>
-				<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
 			</div>
-
-			<br style="clear: both;" />
 		</div>
-	</div>
 	</div>
 </div>
