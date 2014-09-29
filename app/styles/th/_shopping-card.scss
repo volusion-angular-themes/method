@@ -3,18 +3,18 @@
 }
 
 .animate-if.ng-enter, .animate-if.ng-leave {
-	-webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-	transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-webkit-transition : all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	transition         : all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
 .animate-if.ng-enter,
 .animate-if.ng-leave.ng-leave-active {
-	opacity:0;
+	opacity : 0;
 }
 
 .animate-if.ng-leave,
 .animate-if.ng-enter.ng-enter-active {
-	opacity:1;
+	opacity : 1;
 }
 
 .th-checkout {
@@ -27,7 +27,7 @@
 	padding-bottom   : 20px;
 
 	.-visual-cue {
-		background-color: yellow;
+		background-color : yellow;
 	}
 
 	&__scroll-area {
@@ -268,7 +268,7 @@
 			border-bottom  : 1px solid $gray-lighter;
 
 			&__gift {
-				margin-top        : 10px;
+				margin-top : 10px;
 
 				&--option {
 					span {
@@ -277,21 +277,21 @@
 				}
 
 				&--message {
-					width : 100%;
-					height: 35px;
-					margin-top: 5px;
-					padding: 10px;
-					resize: none;
-					word-wrap: break-word;
-					transition: 0.05s;
-					-moz-transition: 0.05s;
-					-webkit-transition: 0.05s;
-					-o-transition: 0.05s;
+					width              : 100%;
+					height             : 35px;
+					margin-top         : 5px;
+					padding            : 10px;
+					resize             : none;
+					word-wrap          : break-word;
+					transition         : 0.05s;
+					-moz-transition    : 0.05s;
+					-webkit-transition : 0.05s;
+					-o-transition      : 0.05s;
 				}
 
 				&--message-count {
-					color: $gray-light;
-					text-align: right;
+					color      : $gray-light;
+					text-align : right;
 				}
 			}
 
@@ -336,7 +336,8 @@
 
 			&--qty {
 
-				float : left;
+				float    : left;
+				position : relative;
 
 				button {
 					width      : 80px;
@@ -351,6 +352,7 @@
 				}
 
 				.dropdown-menu {
+					top        : 41px;
 					height     : 100px;
 					overflow-y : scroll;
 					width      : 80px;
