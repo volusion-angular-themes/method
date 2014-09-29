@@ -65,7 +65,7 @@ angular.module('Volusion.controllers')
 
 					$timeout(function () {
 						$scope.visualCue = false;
-					}, 3000)
+					}, 3000);
 
 					return;
 				}
