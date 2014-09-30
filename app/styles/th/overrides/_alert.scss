@@ -8,14 +8,14 @@
 	.alert {
 		position         : relative;
 		//margin                : 0 auto;
-		padding          : 8px 35px 8px 14px;
+		//padding          : 8px 35px 8px 14px;
 		margin-bottom    : 5px;
 		background-color : #FCF8E3;
 		border           : 1px solid #FBEED5;
 		height           : inherit;
 		//width            : 265px;
 
-		text-align       : center;
+		text-align       : left;
 		font-size        : 12px;
 		font-weight      : bold;
 		line-height      : 16px;
@@ -24,6 +24,15 @@
 
 		//@include border-radius(4px);
 		//@include box-shadow($gray-light 0 0 10px);
+
+		.th-alert__button {
+			display          : block;
+			margin           : 10px auto 0;
+			width            : 50%;
+			color            : $btn-default-color;
+			background-color : $btn-default-bg;
+			border-color     : $btn-default-color;
+		}
 
 		&.alert-success {
 			background-color : #DFF0D8;

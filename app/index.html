@@ -39,13 +39,11 @@
 
 	<div snap-content data-snap-ignore="true">
 
-		<a id="top"></a>
-
 		<!-- Header -->
 		<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
 		<!-- Main Content -->
-		<div class="vn-showcase" role="main" autoscroll="false" ng-view=""></div>
+		<div class="vn-showcase" role="main" autoscroll="" ng-view="" ></div>
 		<!-- Footer -->
 		<div ng-include=" 'views/partials/footer.html' "></div>
 	</div>
@@ -101,6 +99,8 @@
 	<!-- build:js({.tmp,app}) /scripts/scripts.js -->
 	<script src="scripts/config.js"></script>
 	<script src="scripts/app.js"></script>
+
+	<script src="scripts/directives/vn-scroll-top.js"></script>
 
 	<script src="scripts/controllers/main.js"></script>
 	<script src="scripts/controllers/header.js"></script>

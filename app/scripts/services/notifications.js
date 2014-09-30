@@ -24,10 +24,11 @@ angular.module('Volusion.services')
 		}
 
 		function displayWarnings(warningsArray) {
-			var vnMsg, messageKey;
-			var translateFilter = $filter('translate');
-
 			if (warningsArray && warningsArray.length > 0) {
+
+				var vnMsg, messageKey,
+					translateFilter = $filter('translate');
+
 				angular.forEach(warningsArray, function (warning) {
 					messageKey = 'message.' + warning.Code;
 					vnMsg = translateFilter(messageKey);
@@ -38,11 +39,12 @@ angular.module('Volusion.services')
 		}
 
 		function displayErrors(errors) {
-			var vnMsg,
-				messageKey,
-				translateFilter = $filter('translate');
-
 			if (errors && errors.length > 0) {
+
+				var vnMsg,
+					messageKey,
+					translateFilter = $filter('translate');
+
 				angular.forEach(errors, function (error) {
 					messageKey = 'message.' + error.Code;
 					vnMsg = translateFilter(messageKey);

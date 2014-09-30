@@ -1,3 +1,22 @@
+.animate-if {
+	background : white;
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+	-webkit-transition : all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	transition         : all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+	opacity : 0;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+	opacity : 1;
+}
+
 .th-checkout {
 	background-color : $body-bg;
 	border-left      : 1px solid $hr-border;
@@ -5,7 +24,46 @@
 	position         : fixed;
 	top              : 0;
 	bottom           : 0;
-	padding-bottom   : 120px;
+	padding-bottom   : 20px;
+
+	.-visual-cue {
+		background-color : yellow;
+	}
+
+	&__scroll-area {
+		overflow-y : scroll;
+		height     : 100%;
+		margin-top : 37px;
+
+		&--overlay {
+			@extend %font-smoothing;
+
+			width            : 100%;
+			height           : 100%;
+			position         : absolute;
+			background-color : $btn-default-bg;
+			z-index          : 9999;
+			text-align       : center;
+
+			@include opacity(0.8);
+
+			&--loader {
+				position : absolute;
+				height   : 80px;
+				width    : 80px;
+				top      : 40%;
+				left     : 40%;
+			}
+
+			/*
+			  Set the color of the icon
+			*/
+			svg path,
+			svg rect {
+				fill : $btn-default-color;
+			}
+		}
+	}
 
 	&__brand {
 
@@ -32,13 +90,17 @@
 	}
 
 	&__nav {
-		border-bottom : 1px solid $hr-border;
+		position         : absolute;
+		border-bottom    : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+		z-index          : 999;
+		width            : 100%;
 
 		&--button {
 			padding    : 7px 5px;
 			border     : 0 none;
 			background : none;
-			width      : 130px;
+			width      : 132px;
 			margin     : 0;
 			font-size  : 14px;
 			outline    : none;
@@ -105,10 +167,10 @@
 
 		&__add {
 
-			float : right;
+			float : left;
 
 			&--coupon {
-				width  : 100px;
+				width  : 180px;
 				height : 30px;
 				float  : left;
 			}
@@ -134,6 +196,7 @@
 			margin-bottom  : 10px;
 			padding-bottom : 10px;
 			border-bottom  : 1px solid $gray-lighter;
+			min-height     : 45px;
 
 			&.-last {
 				border-bottom : none;
@@ -183,12 +246,18 @@
 	}
 
 	&__items {
-		padding    : 5px 10px;
-		overflow-y : scroll;
-		height     : 100%;
+		padding : 5px 10px;
+		//		overflow-y : scroll;
+		//		height     : 100%;
 
 		&--label {
 			text-transform : uppercase;
+			border-bottom  : 1px solid $hr-border;
+		}
+
+		&--gift {
+			margin        : 5px 0 10px;
+			border-bottom : 1px solid $hr-border;
 		}
 
 		&__item {
@@ -197,6 +266,39 @@
 			margin-bottom  : 10px;
 			padding-bottom : 10px;
 			border-bottom  : 1px solid $gray-lighter;
+
+			&__gift {
+				margin-top : 10px;
+
+				&--option {
+					span {
+						margin-left : 10px;
+					}
+				}
+
+				&--message {
+					width              : 100%;
+					height             : 35px;
+					margin-top         : 5px;
+					padding            : 10px;
+					resize             : none;
+					word-wrap          : break-word;
+					transition         : 0.05s;
+					-moz-transition    : 0.05s;
+					-webkit-transition : 0.05s;
+					-o-transition      : 0.05s;
+				}
+
+				&--message-count {
+					color      : $gray-light;
+					text-align : right;
+				}
+			}
+
+			&.-last {
+				// add extra space after last element so dropdown will be accessible
+				margin-bottom : 150px;
+			}
 
 			&--close {
 				position : absolute;
@@ -234,7 +336,8 @@
 
 			&--qty {
 
-				float : left;
+				float    : left;
+				position : relative;
 
 				button {
 					width      : 80px;
@@ -249,6 +352,7 @@
 				}
 
 				.dropdown-menu {
+					top        : 41px;
 					height     : 100px;
 					overflow-y : scroll;
 					width      : 80px;
