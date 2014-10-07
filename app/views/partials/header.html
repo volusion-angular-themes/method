@@ -31,16 +31,20 @@
 
 			<!-- Desktop Logo -->
 			<div class="col-md-2 hidden-xs hidden-sm">
-				<a class="navbar-brand" href="/">
-					<img data-ng-src="{{config.general.logoUrl }}" class="img-responsive" />
-				</a>
+				<div class="th-navbar__logo">
+					<a href="/">
+						<img data-ng-src="{{config.general.logoUrl }}" />
+					</a>
+				</div>
 			</div>
 
 			<!-- Mobile Logo -->
 			<div class="col-xs-6 hidden-md hidden-lg">
-				<a class="th-navbar__logo" data-ng-href="/">
-					<img data-ng-src="{{config.general.mobileLogoUrl }}" class="img-responsive" />
-				</a>
+				<div class="th-navbar__logo">
+					<a data-ng-href="/">
+						<img data-ng-src="{{config.general.mobileLogoUrl }}" />
+					</a>
+				</div>
 			</div>
 
 			<!-- Navbar -->
