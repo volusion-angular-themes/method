@@ -162,18 +162,18 @@ angular.module('Volusion.controllers')
 				function () {
 					$scope.cart = vnCart.getCart();
 
-					if ($scope.cart.totals !== undefined) {
+					if ($scope.cart !== undefined && $scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
 						$scope.calcSubtotal = $scope.cart.totals.items + $scope.cart.totals.discounts;
 
 						$scope.cartEmpty = ($scope.cart.totals.qty > 0) ? false : true;
 					}
 
-					if ($scope.cart.discounts !== undefined) {
+					if ($scope.cart !== undefined && $scope.cart.discounts !== undefined) {
 						$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 					}
 
-					if ($scope.cart.items !== undefined) {
+					if ($scope.cart !== undefined && $scope.cart.items !== undefined) {
 						// set gift option if any item has gift wrap selected
 						for (var i = 0; i < $scope.cart.items.length; i++) {
 							if ($scope.cart.items[i].giftWrap.selected) {
