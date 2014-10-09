@@ -8691,51 +8691,57 @@ If you create a new component stylesheet make sure it gets added to this list
 .th-product-tile {
   margin: 20px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\000038}}
-.th-product-tile__image-link {
-  display: block;
-  padding: 20px 0;
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000320}}
-.th-product-tile__heading h1 {
-  font-weight: 300;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000324}}
-.th-product-tile__heading ul {
-  margin-left: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000328}}
-.th-product-tile__heading li {
-  padding: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000332}}
-.th-product-tile__heading li:nth-of-type(n+2) a {
-  border-left: 1px solid black;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000337}}
-.th-product-tile__heading li a {
-  margin-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 @media only screen and (max-width: 767px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000345}}
-  .th-product-tile__block {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\000031}}
+  .th-product-tile {
     margin: 0 auto 25px;
     max-width: 300px;
     text-align: center;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000314}}
+.th-product-tile__image-link {
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000326}}
+.th-product-tile__heading h1 {
+  font-weight: 300;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000330}}
+.th-product-tile__heading ul {
+  margin-left: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000334}}
+.th-product-tile__heading li {
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000338}}
+.th-product-tile__heading li:nth-of-type(n+2) a {
+  border-left: 1px solid black;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000343}}
+.th-product-tile__heading li a {
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000352}}
-  .th-product-tile__block .col-sm-6:nth-of-type(2n+3) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000353}}
+  .th-product-tile__container > .col-sm-6:nth-of-type(2n+3) {
     clear: both;
   }
 }
-@media only screen and (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000357}}
-  .th-product-tile__block .col-md-4:nth-of-type(3n+4) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000358}}
+  .th-product-tile__container > .col-md-4:nth-of-type(3n+4) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/travis\/build\/volusion-angular-themes\/vanilla\/app\/styles\/th\/_product-tile\.scss}line{font-family:\0000363}}
+  .th-product-tile__container > .col-lg-3:nth-of-type(4n+5) {
     clear: both;
   }
 }
