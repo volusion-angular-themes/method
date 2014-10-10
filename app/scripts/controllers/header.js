@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, ContentMgr, vnAppConfig, vnSearchManager, snapRemote) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, vnContentManager, vnAppConfig, vnSearchManager, snapRemote) {
 
 			'use strict';
 
@@ -39,11 +39,9 @@ angular.module('Volusion.controllers')
 
 			$scope.$watch(
 				function () {
-					return ContentMgr.getHeaderState();
+					return vnContentManager.getHeaderState();
 				},
 				function (state) {
 					$scope.headerState = state;
 				}, true);
-
-
 		}]);
