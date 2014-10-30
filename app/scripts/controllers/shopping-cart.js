@@ -26,8 +26,8 @@ angular.module('Volusion.controllers')
 
 			function updateCart() {
 				vnCart.updateCart()
-					.then(function (cart) {
-						$scope.cart = cart;
+					.then(function () {
+						$scope.cart = vnCart.getCart();
 
 						if ($scope.cart.serviceErrors.length === 0) {
 							notifications.displaySuccessfulUpdate();

@@ -141,7 +141,9 @@ angular.module('Volusion.controllers')
 				$scope.buttonWait = true;
 
 				vnCart.saveCart($scope.cartItem)
-					.then(function (cart) {
+					.then(function () {
+
+						var cart = vnCart.getCart();
 
 						if ($rootScope.isInDesktopMode) {
 							snapRemote.open('right');
