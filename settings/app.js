@@ -20,19 +20,18 @@ angular.module('app', ['ui.bootstrap','ui.tinymce','angular-ladda'])
 				//in local development environment (i.e. grunt serve)
 				environment = 'dev';
 				apiUrl = '/settings/themeSettings.json';
-				cssUrl =  '/styles/8e41c6da.main.css';
+				cssUrl =  '/styles/fcf3d90f.main.css';
 				$scope.debug = true;
 			} else {
 				//in production
 				environment = 'prod';
 				var queryString = $location.search();
 				apiUrl = '/api/v1/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/settings';
-				cssUrl =  '/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/styles/8e41c6da.main.css';
+				cssUrl =  '/themes/' + queryString.themeName + '/versions/' + queryString.themeVersion + '/styles/fcf3d90f.main.css';
 			}
 			$http.get(apiUrl)
 				.success(function(data) {
 					if (environment === 'dev') {
-						console.log(data);
 						$scope.settings = data;
 					} else {
 						$scope.settings = data.data; //API in production has a "data{}" wrapper

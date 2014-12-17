@@ -1,40 +1,59 @@
 {
-	"name": "Vanilla",
-	"version": "0.0.8",
-	"source": "https://github.com/volusion-angular-themes/vanilla/archive/v0.0.8.zip",
+	"name": "Method",
+	"version": "0.0.23",
+	"source": "https://github.com/volusion-angular-themes/method/archive/v0.0.23.zip",
 	"author": {
-		"name": "Tyler Tadej",
+		"name": "John Smith",
 		"email": "test@test.com",
-		"website": ""
+		"website": "http://www.envato.com"
 	},
 	"marketing": {
-		"description": "Vanilla is an awesome theme. Let me tell you all about it. <img src=\"http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg\"> Yes I just mixed in some images too.",
+		"description": "Method is an awesome theme. Let me tell you all about it. <img src=\"http://www.themelexus.com/guides/opencart/shopping/features.jpg\"> Yes I just mixed in some images too.",
 		"images": [
 			{
-				"small": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-small.jpg",
-				"large": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg"
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot1-large.png"
 			},
 			{
-				"small": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-small.jpg",
-				"large": "http://volusion-angular-themes.github.io/assets/theme-thumbnails/vanilla/vanilla-large.jpg"
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot2-large.png"
+			},
+			{
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot3-large.png"
+			},
+			{
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot4-large.png"
+			},
+			{
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot5-large.png"
+			},
+			{
+				"small": "",
+				"large": "http://volusion-angular-themes.github.io/method/images/marketing-assets/screenshot6-large.png"
 			}
 		],
 		"facets": {
-			"color-shade": "light",
+			"colorShade": "light",
 			"colors": ["white","black","red"],
 			"styles": ["modern","sleek","minimalist"]
 		},
-		"isPremium": false
+		"isPremium": true
 	},
+	"matchingLegacyTemplateId": "method",
+	"mobileCheckoutCssOverrides": "",
 	"files": {
 		"cssOverrides": "/styles",
 		"language": "/translations"
 	},
-	"matchingLegacyTemplateId": "method",
-	"mobileCheckoutCssOverrides": "",
 	"features": {
 		"responsive": true,
 		"myRewards": false,
 		"VAT": false
-	}
+	},
+	"apps": [
+        { "name": "Contact Us", "appModuleName": "Volusion.Features.ContactUs", "scriptSrc": "https://dl.dropboxusercontent.com/u/24465416/vnAffiliateApp.js", "styleSrc": "http://hippeelee.com/contact.css"}
+    ]
 }
