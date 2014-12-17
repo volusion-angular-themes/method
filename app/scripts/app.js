@@ -112,7 +112,7 @@ angular.module('methodApp', [
 			})
 			.when('/:slug', { // Articles must be last or the prior /search and /theme-settings will never be picked up
 				templateUrl: 'views/article.html',
-				controller : 'ArticleCtrl',
+				controller : 'PageCtrl',
                 resolve: {
                     article: ['vnApi', '$route', function(vnApi, $route) {
                         return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
@@ -124,8 +124,8 @@ angular.module('methodApp', [
 			});
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'ContentMgr', 'translate', 'vnModalService', 'vnViewPortWatch',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, ContentMgr, translate, vnModalService, vnViewPortWatch) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
 
 		'use strict';
 
@@ -154,14 +154,4 @@ angular.module('methodApp', [
         $rootScope.$on('VN_HTTP_500_ERROR', function () {
 			vnModalService.showError('views/server-error.html');
 		});
-
-		$rootScope.$watch(
-			// Use a fn in $watch first argument that gets value from service
-			function () {
-				return ContentMgr.getSnapMenuState();
-			},
-			// Use second fn to update the controller menu state when changed.
-			function (state) {
-				$rootScope.snapMenuState = state;
-			}, true);
 	}]);

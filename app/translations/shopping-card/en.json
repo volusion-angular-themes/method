@@ -1,12 +1,16 @@
 {
 	"shopping-card": {
+		"priceFree": "Free",
 		"btnKeepShopping": "Keep Shopping",
 		"btnCheckout": "Checkout",
 		"lblSubtotal" : "Subtotal",
-		"lblCoupons" : "Coupons",
-		"lblAddCoupon" : "Add coupon",
+		"lblCoupons" : "Discounts",
+		"lblAddCoupon" : "Add promo code",
 		"btnApply" : "Apply",
 		"lblYourCart" : "Your cart",
-		"lblYourCartIsEmpty" : "Your cart is empty"
+		"lblYourCartIsEmpty" : "Your cart is empty",
+		"lblGift" : "This is a gift",
+		"lblGiftOption" : "Add gift wrap for",
+		"lblGiftMessage" : "Add personal message ... (optional)"
 	}
 }

@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'ContentMgr', 'vnAppConfig', 'vnAppMessageService', 'notifications',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, ContentMgr, vnAppConfig, vnAppMessageService, notifications) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnAppMessageService', 'notifications',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, vnContentManager, vnAppConfig, vnAppMessageService, notifications) {
 
 			'use strict';
 
@@ -21,22 +21,71 @@ angular.module('Volusion.controllers')
 				'show' : false
 			};
 			$scope.couponsEmpty = false;
+			$scope.loading = false;
+			$scope.showGiftOption = false;
+			$scope.visualCue = false;
+			$scope.msgLength = 0;
 
 			translate.addParts('shopping-card');
 
-			function updateCart() {
+			function updateCart(callback) {
+
+				$scope.loading = true;
+
 				vnCart.updateCart()
 					.then(function () {
 						$scope.cart = vnCart.getCart();
 
-						if ($scope.cart.serviceErrors.length === 0) {
-							notifications.displaySuccessfulUpdate();
-							notifications.displayWarnings($scope.cart.warnings); // if any
+						if ($scope.cart.warnings && $scope.cart.warnings.length > 0 ||
+							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
+							// scroll cart item to the top so this msg will be visible
+							$rootScope.$emit('vnScroll.cart');
 						} else {
-							notifications.displayErrors($scope.cart.serviceErrors);
+							if (callback !== undefined) {
+								callback();
+							}
 						}
 					});
 			}
+
+			$scope.resetGiftOptions = function () {
+
+				var needUpdate = false;
+
+				// ng-change transcludes the scope of the input so the [changed] model
+				// is available into child scope [this]
+				if (this.showGiftOption) {
+					// Gift options are shown - show vusual cue
+					$scope.visualCue = true;
+
+					$timeout(function () {
+						$scope.visualCue = false;
+					}, 3000);
+
+					return;
+				}
+
+				angular.forEach($scope.cart.items, function (item) {
+					if (item.isGiftWrapAvailable) {
+						if (item.giftWrap.selected) {
+							item.giftWrap.selected = false;
+							needUpdate = true;
+						}
+					}
+				});
+
+				if (needUpdate) {
+					updateCart();
+				}
+			};
+
+			$scope.addGiftWrap = function () {
+				updateCart();
+			};
+
+			$scope.addGiftMsg = function () {
+				updateCart();
+			};
 
 			$scope.applyCoupon = function () {
 				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
@@ -45,7 +94,12 @@ angular.module('Volusion.controllers')
 
 				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				updateCart();
+				updateCart(function () {
+					if ($scope.cart.serviceErrors.length === 0) {
+						$scope.coupon.show = false;
+						$scope.coupon.code = '';
+					}
+				});
 			};
 
 			$scope.deleteCoupon = function (id) {
@@ -103,15 +157,26 @@ angular.module('Volusion.controllers')
 				function () {
 					$scope.cart = vnCart.getCart();
 
-					if ($scope.cart.totals !== undefined) {
+					if ($scope.cart !== undefined && $scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
 						$scope.calcSubtotal = $scope.cart.totals.items + $scope.cart.totals.discounts;
 
 						$scope.cartEmpty = ($scope.cart.totals.qty > 0) ? false : true;
 					}
 
-					if ($scope.cart.discounts !== undefined) {
+					if ($scope.cart !== undefined && $scope.cart.discounts !== undefined) {
 						$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
+					}
+
+					if ($scope.cart !== undefined && $scope.cart.items !== undefined) {
+						// set gift option if any item has gift wrap selected
+						for (var i = 0; i < $scope.cart.items.length; i++) {
+							if ($scope.cart.items[i].giftWrap.selected) {
+								$scope.showGiftOption = true;
+
+								return;
+							}
+						}
 					}
 				}
 			);

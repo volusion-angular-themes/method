@@ -1,4 +1,5 @@
 .th-navbar {
+	min-height : 44px;
 
 	.th-menu-container {
 		min-height : 44px;
@@ -15,37 +16,25 @@
 			height : 4px;
 		}
 	}
-}
 
-@include respond-to(xs) {
-	.th-navbar {
-		min-height : 44px;
+	&__logo {
+		height: 45px;
+		max-width: 100%;
+		position: relative;
 
-		&__logo {
-			position : relative;
-			top      : 3px;
+		@include respond-to(sm)        { height: 74px }
+		@include respond-to(md-and-up) { height: 92px }
 
-			img {
-				margin     : auto;
-				max-height : 36px;
-			}
+		img {
+			@extend %position-absolute-center;
+			max-height: 100%;
+			max-width: 100%;
+
+			@include respond-to(xs) { padding: 3px }
 		}
 	}
 }
 
-@include respond-to(sm) {
-	.th-navbar {
-		.th-navbar__logo {
-			position : relative;
-			top      : 10px;
-
-			img {
-				margin     : auto;
-				max-height : 48px;
-			}
-		}
-	}
-}
 
 @include respond-to(sm-and-up) {
 	.th-navbar {
@@ -83,10 +72,6 @@
 
 		.th-main {
 			float : left;
-		}
-
-		> .container .navbar-brand {
-			margin-left : 0;
 		}
 
 		.navbar-toggle {

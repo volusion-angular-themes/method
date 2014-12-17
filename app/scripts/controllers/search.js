@@ -6,8 +6,8 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'ContentMgr', 'themeSettings', 'vnAppRoute',
-		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, ContentMgr, themeSettings, vnAppRoute) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'vnContentManager', 'themeSettings', 'vnAppRoute',
+		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, vnContentManager, themeSettings, vnAppRoute) {
 
 			'use strict';
 
@@ -66,13 +66,13 @@ angular.module('methodApp')
 					$scope.mobileDisplay = false;
 					$scope.isMobileAndVisible = false;
 					$scope.isMobileAndHidden = true;
-					ContentMgr.showAppFooter();
+					vnContentManager.showAppFooter();
 					return;
 				}
 				$scope.mobileDisplay = true;
 				$scope.isMobileAndVisible = true;
 				$scope.isMobileAndHidden =
-				ContentMgr.hideAppFooter();
+				vnContentManager.hideAppFooter();
 			};
 
 			$scope.$on('$destroy', function cleanUp() {

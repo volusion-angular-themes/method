@@ -19,7 +19,9 @@
 				<div class="col-sm-10">
 					<div class="page-header">
 						<h1>
-							<span ng-if="products.length <= 0">No r</span><span ng-if="products.length > 0">{{cursor.total}} R</span>esult<span ng-if="products.length !== 1">s</span> for <ins>{{searchTerms}}</ins>
+							<span ng-if="products.length > 1">{{cursor.total}} results for <ins>{{searchTerms}}</ins></span>
+							<span ng-if="products.length < 1">No results for <ins>{{searchTerms}}</ins></span>
+							<span ng-if="products.length === 1">1 result for <ins>{{searchTerms}}</ins></span>
 						</h1>
 					</div>
 				</div>

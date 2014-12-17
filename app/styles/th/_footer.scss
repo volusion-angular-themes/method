@@ -2,6 +2,7 @@
 	background-color : $body-bg;
 	border-top       : 1px solid $hr-border;
 	line-height      : 2em;
+	margin-top       : 20px;
 	text-align       : center;
 
 	&__bottom {
@@ -49,7 +50,7 @@
 	.th-footer {
 		background-color : darken($body-bg, 6);
 		border-top       : 0;
-		min-height       : 350px;
+		min-height       : 310px;
 		text-align       : left;
 
 		&__more-info {
