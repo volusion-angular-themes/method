@@ -7,6 +7,14 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+var modRewrite = require('connect-modrewrite');
+
+// Configurable paths for the application
+var appConfig = {
+	app : require('./bower.json').appPath || 'app',
+	dist: 'dist'
+};
+
 module.exports = function(grunt) {
 
 	// Load grunt tasks automatically
@@ -19,11 +27,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		// Project settings
-		yeoman: {
-			// configurable paths
-			app: require('./bower.json').appPath || 'app',
-			dist: 'dist'
-		},
+		yeoman: appConfig,
 
 		// Environment variables
 		ngconstant: {
@@ -142,24 +146,51 @@ module.exports = function(grunt) {
 						'.tmp',
 						'<%= yeoman.app %>/'
 					],
-					middleware: function(connect, options) {
-						var middlewares = [];
-						var directory = options.directory || options.base[options.base.length - 1];
+					middleware: function (connect, options) {
 						if (!Array.isArray(options.base)) {
 							options.base = [options.base];
 						}
-						// Setup the proxy to the backend for api calls
-						//middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
-						//enable modrewrite for html5mode
-						middlewares.push(require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']));
-						options.base.forEach(function(base) {
-							// Serve static files.
-							middlewares.push(connect.static(base));
-						});
+
+						// Setup the proxy
+						var middlewares = [
+
+							// Redirect anything that's not a file or an API call to /index.html.
+							// This allows HTML5 pushState to work on page reloads.
+							modRewrite(['!/api|/assets|\\..+$ /index.html']),
+
+//							require('grunt-connect-proxy/lib/utils').proxyRequest,
+							connect.static('.tmp'),
+							connect().use(
+							  '/bower_components',
+							  connect.static('./bower_components')
+							),
+							connect.static(appConfig.app)
+						];
+
 						// Make directory browse-able.
+						var directory = options.directory || options.base[options.base.length - 1];
 						middlewares.push(connect.directory(directory));
+
 						return middlewares;
 					}
+					//middleware: function(connect, options) {
+					//	var middlewares = [];
+					//	var directory = options.directory || options.base[options.base.length - 1];
+					//	if (!Array.isArray(options.base)) {
+					//		options.base = [options.base];
+					//	}
+					//	// Setup the proxy to the backend for api calls
+					//	//middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+					//	//enable modrewrite for html5mode
+					//	middlewares.push(require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']));
+					//	options.base.forEach(function(base) {
+					//		// Serve static files.
+					//		middlewares.push(connect.static(base));
+					//	});
+					//	// Make directory browse-able.
+					//	middlewares.push(connect.directory(directory));
+					//	return middlewares;
+					//}
 				}
 			},
 			test: {
@@ -271,8 +302,7 @@ module.exports = function(grunt) {
 				javascriptsDir: '<%= yeoman.app %>/scripts',
 				fontsDir: '<%= yeoman.app %>/fonts',
 				importPath: [
-					'<%= yeoman.app %>/bower_components',
-					'<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/stylesheets'
+					'bower_components/'
 				],
 				httpImagesPath: '/images',
 				httpGeneratedImagesPath: '/images/generated',
@@ -503,11 +533,11 @@ module.exports = function(grunt) {
 		// Test settings
 		karma: {
 			jasmine: {
-				configFile: 'karma.conf.jasmine.js',
+				configFile: 'test/karma.conf.jasmine.js',
 				singleRun: true
 			},
 			mocha: {
-				configFile: 'karma.conf.mocha.js',
+				configFile: 'test/karma.conf.mocha.js',
 				singleRun: true
 			}
 		}

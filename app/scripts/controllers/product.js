@@ -100,8 +100,6 @@ angular.module('Volusion.controllers')
 				})
 				.then(function () {
 
-					//TODO: Fix the html related to no reviews
-					// reviews
 					if ($scope.product.code) {
 						vnApi.Review().get({ code: $scope.product.code }).$promise
 							.then(function (response) {
@@ -163,8 +161,6 @@ angular.module('Volusion.controllers')
 					})
 					.finally(function () {
 						modifyQuantity(1);
-
-						// hide "wait" animation and enable button
 						$scope.buttonWait = false;
 					});
 			};
