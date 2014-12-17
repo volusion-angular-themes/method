@@ -33,13 +33,8 @@ angular.module('Volusion.controllers')
 				$scope.loading = true;
 
 				vnCart.updateCart()
-					.then(function (cart) {
-
-						$scope.cart = cart;
-						$scope.loading = false;
-
-						notifications.displayWarnings($scope.cart.warnings); // if any
-						notifications.displayErrors($scope.cart.serviceErrors);
+					.then(function () {
+						$scope.cart = vnCart.getCart();
 
 						if ($scope.cart.warnings && $scope.cart.warnings.length > 0 ||
 							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
