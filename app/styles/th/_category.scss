@@ -1,8 +1,5 @@
 /*
 Animation for products as facets of search are applied. [rough draft]
-- TODO : Figure out why this breaks animation when nesting it.
-- Determine if this default behavior is theme or toolbox responsibility
-- Add a line to see what happens
 */
 .-product-tile-animation.ng-enter,
 .-product-tile-animation.ng-leave {
@@ -31,9 +28,8 @@ Animation for products as facets of search are applied. [rough draft]
 .-product-tile-animation.ng-leave.ng-leave-active {
 	opacity : 0;
 }
-
 // End animation for products as facets of search are applied. [rough draft]
-// TODO Refactor class name here if used
+
 
 .categories {
 	min-height : 400px;

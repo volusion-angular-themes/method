@@ -76,8 +76,6 @@
 			}
 		}
 
-// TODO Refactor this CSS, names too confusing ie now-price and price--now. Move classes into _product-price.scss file
-
 		.th-price-text {
 			@include inline-block;
 			font-size   : 1.2rem;
@@ -203,7 +201,6 @@
 	}
 }
 
-// TODO Refactor these CSS Classes
 .th-product__container {
 	@include respond-to(sm) {
 		> .col-sm-6:nth-of-type(2n+3) {
