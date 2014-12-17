@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnAppMessageService', 'notifications',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, vnContentManager, vnAppConfig, vnAppMessageService, notifications) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, vnContentManager, vnAppConfig) {
 
 			'use strict';
 
