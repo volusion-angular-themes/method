@@ -6,7 +6,7 @@ deploy_branch=gh-pages
 
 #if no user identity is already set in the current git environment, use this:
 default_username=deploy.sh
-default_email=
+default_email=kevin_sproles@volusion.com
 
 #repository to deploy to. must be readable and writable.
 repo=https://$GITHUB_TOKEN@github.com/volusion-angular-themes/method.git
