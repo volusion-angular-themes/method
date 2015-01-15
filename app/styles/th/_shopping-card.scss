@@ -106,6 +106,9 @@
 			outline    : none;
 			outline    : 0;
 
+			width: 50%;
+			text-align: center;
+
 			&[disabled] {
 				//background-color : $gray-lighter;
 				color : $btn-link-disabled-color;
@@ -166,17 +169,20 @@
 		}
 
 		&__add {
-
+			width: 100%;
 			float : left;
 
 			&--coupon {
-				width  : 180px;
+				width: 75%;
 				height : 30px;
 				float  : left;
 			}
 
 			&--button {
 				height : 30px;
+				width: 25%;
+				padding: 0px;
+				text-align: center;
 			}
 		}
 	}

@@ -110,7 +110,7 @@
 					<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
 				</div>
 				<div>
-					<img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" />
+					<a data-ng-href="{{ item.productUrl }}" ><img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" /></a>
 					<div>
 						<div class="th-checkout__items__item--name">
 							<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
