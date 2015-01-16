@@ -130,17 +130,20 @@
 					font-family : $font-family-glyphs;
 					content     : "\e079";
 					margin      : 0 10px 0 0;
+					font-size: .8em;
 				}
 			}
 
 			&:last-child {
 
 				float : right;
+				border-left: 1px solid $hr-border;
 
 				&:after {
 					font-family : $font-family-glyphs;
 					content     : "\e080";
 					margin      : 0 0 0 10px;
+					font-size: .8em;
 				}
 			}
 		}
