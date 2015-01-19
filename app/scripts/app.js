@@ -59,15 +59,15 @@ angular.module('methodApp', [
 				}
 			})
 			.when('/login', {
-				templateUrl: 'scripts/login/login.html',
+				templateUrl: 'login/login.html',
 				controller : 'LoginCtrl'
 			})
 			.when('/checkout', {
-				templateUrl: 'views/checkout.html',
+				templateUrl: 'checkout/checkout.html',
 				controller : 'CheckoutCtrl'
 			})
 			.when('/thank-you', {
-				templateUrl: 'scripts/thank-you/thank-you.html',
+				templateUrl: 'thank-you/thank-you.html',
 				controller : 'ThankYouCtrl'
 			})
 			.when('/p/:slug', {
