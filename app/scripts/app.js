@@ -27,27 +27,27 @@ angular.module('methodApp', [
 	'Volusion.services'
 ])
 
-.config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
-	function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
+  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
+	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
 
-		'use strict';
+		  'use strict';
 
-		$locationProvider.html5Mode(true);
+		  $locationProvider.html5Mode(true);
 
-		vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
-		vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
+		  vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
+		  vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
 
-		var translateOptions = {
-			urlPrefix          : vnAppConfigProvider.getPrefix(),
-			region             : vnAppConfigProvider.getRegion(),
-			lang               : vnAppConfigProvider.getLang(),
-			country            : vnAppConfigProvider.getCountry(),
-			disableTranslations: vnAppConfigProvider.getTranslations()
-		};
+		  var translateOptions = {
+			  urlPrefix          : vnAppConfigProvider.getPrefix(),
+			  region             : vnAppConfigProvider.getRegion(),
+			  lang               : vnAppConfigProvider.getLang(),
+			  country            : vnAppConfigProvider.getCountry(),
+			  disableTranslations: vnAppConfigProvider.getTranslations()
+		  };
 
-		translateProvider.configure(translateOptions);
+		  translateProvider.configure(translateOptions);
 
-		$routeProvider
+		  $routeProvider
 			.when('/', {
 				templateUrl: 'views/home.html',
 				controller : 'HomeCtrl',
@@ -57,6 +57,18 @@ angular.module('methodApp', [
 						translate.addParts('product');
 					}]
 				}
+			})
+			.when('/login', {
+				templateUrl: 'scripts/login/login.html',
+				controller : 'LoginCtrl'
+			})
+			.when('/checkout', {
+				templateUrl: 'views/checkout.html',
+				controller : 'CheckoutCtrl'
+			})
+			.when('/thank-you', {
+				templateUrl: 'scripts/thank-you/thank-you.html',
+				controller : 'ThankYouCtrl'
 			})
 			.when('/p/:slug', {
 				templateUrl: 'views/product.html',
@@ -72,7 +84,7 @@ angular.module('methodApp', [
 				controller    : 'CategoryCtrl',
 				reloadOnSearch: false,
 				resolve       : {
-					params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
+					params      : ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 						return vnAppRoute.resolveParams($location.search());
 					}],
 					translations: ['translate', function (translate) {
@@ -85,7 +97,7 @@ angular.module('methodApp', [
 				controller    : 'SearchCtrl',
 				reloadOnSearch: false,
 				resolve       : {
-					params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
+					params      : ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 						return vnAppRoute.resolveParams($location.search());
 					}],
 					translations: ['translate', function (translate) {
@@ -98,7 +110,7 @@ angular.module('methodApp', [
 				controller    : 'SearchCtrl',
 				reloadOnSearch: false,
 				resolve       : {
-					params: ['vnAppRoute', '$location', function (vnAppRoute, $location) {
+					params      : ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 						return vnAppRoute.resolveParams($location.search());
 					}],
 					translations: ['translate', function (translate) {
@@ -113,45 +125,45 @@ angular.module('methodApp', [
 			.when('/:slug', { // Articles must be last or the prior /search and /theme-settings will never be picked up
 				templateUrl: 'views/article.html',
 				controller : 'PageCtrl',
-                resolve: {
-                    article: ['vnApi', '$route', function(vnApi, $route) {
-                        return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
-                    }]
-                }
+				resolve    : {
+					article: ['vnApi', '$route', function (vnApi, $route) {
+						return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
+					}]
+				}
 			})
 			.otherwise({
 				redirectTo: '/'
 			});
-	}])
+	  }])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
+  .run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
+	  function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
 
-		'use strict';
+		  'use strict';
 
-		$rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
+		  $rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
 
-		vnCart.init();
+		  vnCart.init();
 
-		translate.addParts('message');
+		  translate.addParts('message');
 
-        vnViewPortWatch.setBreakpoints([{
-            name: 'Non-Desktop',
-            mediaQuery: 'screen and (max-width: 991px)',
-            onMatch: function() {
-                $rootScope.isInDesktopMode = false;
-            },
-            onUnmatch: function() {
-                snapRemote.close();
-                $rootScope.isInDesktopMode = true;
-            }
-        }]);
+		  vnViewPortWatch.setBreakpoints([{
+			  name      : 'Non-Desktop',
+			  mediaQuery: 'screen and (max-width: 991px)',
+			  onMatch   : function () {
+				  $rootScope.isInDesktopMode = false;
+			  },
+			  onUnmatch : function () {
+				  snapRemote.close();
+				  $rootScope.isInDesktopMode = true;
+			  }
+		  }]);
 
-        $rootScope.$on('$routeChangeSuccess', function () {
-            snapRemote.close();
-        });
+		  $rootScope.$on('$routeChangeSuccess', function () {
+			  snapRemote.close();
+		  });
 
-        $rootScope.$on('VN_HTTP_500_ERROR', function () {
-			vnModalService.showError('views/server-error.html');
-		});
-	}]);
+		  $rootScope.$on('VN_HTTP_500_ERROR', function () {
+			  vnModalService.showError('views/server-error.html');
+		  });
+	  }]);
