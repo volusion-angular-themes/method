@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['compass:server', 'autoprefixer']
 			},
 			css: {

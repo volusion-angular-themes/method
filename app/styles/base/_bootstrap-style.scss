@@ -3,6 +3,11 @@
 //
 // ========================================================================
 
+//TODO: This height 100% needs to only apply to checkout most likely
+html, body {
+	height: 100%;
+}
+
 body {
 	font-size: 1.2rem;
 	margin: 0;
@@ -17,7 +22,7 @@ a:hover {
 
 label {
 	display: inline-block;
-	font-family: 'roboto-bold';
+	font-family: 'roboto-light';
 	font-weight: normal;
 	margin: 0 5px 5px;
 	max-width: 100%;
@@ -84,13 +89,15 @@ label {
 .form-control {
 	color: $text-color;
 	font-family: $font-family-condensed-reg;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	border-bottom : 1px solid #DDD;
 }
 
 .form-control:focus {
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(0, 0, 0, 0);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.0), 0 0 8px rgba(0, 0, 0, 0);
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 
@@ -105,6 +112,11 @@ label {
 	border-right: 0;
 }
 
+.input-lg {
+	height: 35px;
+	padding: 0px 3px;
+	margin-bottom: 20px;
+}
 
 // Navbar =================================================================
 
