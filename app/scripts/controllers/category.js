@@ -1,7 +1,7 @@
 angular.module('Volusion.controllers')
 	.controller('CategoryCtrl', [
-		'$q', '$scope', '$rootScope', '$routeParams', '$location', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'vnContentManager',
-		function ($q, $scope, $rootScope, $routeParams, $location, $route, vnApi, vnProductParams, vnAppRoute, vnContentManager) {
+		'$q', '$scope', '$rootScope', '$stateParams', '$location', '$route', 'vnApi', 'vnProductParams', 'vnAppRoute', 'vnContentManager',
+		function ($q, $scope, $rootScope, $stateParams, $location, $route, vnApi, vnProductParams, vnAppRoute, vnContentManager) {
 
 			'use strict';
 
@@ -68,7 +68,7 @@ angular.module('Volusion.controllers')
 
 			$scope.$on('$viewContentLoaded', function () {
 				vnAppRoute.setRouteStrategy('category');
-				$scope.getCategory($routeParams.slug);
+				$scope.getCategory($stateParams.slug);
 			});
 		}
 	]);

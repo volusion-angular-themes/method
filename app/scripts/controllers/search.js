@@ -6,18 +6,18 @@
  * Controller of the methodApp
  */
 angular.module('methodApp')
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$routeParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'vnContentManager', 'themeSettings', 'vnAppRoute',
-		function ($rootScope, $scope, $routeParams, $location, $window, $filter, vnApi, vnProductParams, vnContentManager, themeSettings, vnAppRoute) {
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$stateParams', '$location', '$window', '$filter', 'vnApi', 'vnProductParams', 'vnContentManager', 'themeSettings', 'vnAppRoute',
+		function ($rootScope, $scope, $stateParams, $location, $window, $filter, vnApi, vnProductParams, vnContentManager, themeSettings, vnAppRoute) {
 
 			'use strict';
 
             $scope.searchLocal = vnProductParams.getSearchText();
-			$scope.searchTerms = $routeParams.q;
+			$scope.searchTerms = $stateParams.q;
 
 			$scope.clearAllFilters = function () {
 				vnProductParams.resetParams();
 				vnProductParams.setSort('relevance'); // Is default when
-				vnProductParams.updateSearch($routeParams.q);
+				vnProductParams.updateSearch($stateParams.q);
 				$scope.minPrice = '';
 				$scope.maxPrice = '';
 				$scope.queryProducts();
@@ -29,12 +29,12 @@ angular.module('methodApp')
 
 			$scope.initParams = function() {
 				vnProductParams.setPageSize(themeSettings.getPageSize());
-				if (!$routeParams.q) {
+				if (!$stateParams.q) {
 					$scope.searchTerms = $location.search('q', 'All Products');
 					$scope.queryProducts();
 				} else {
-					vnProductParams.updateSearch($routeParams.q);
-					$scope.searchTerms = $routeParams.q;
+					vnProductParams.updateSearch($stateParams.q);
+					$scope.searchTerms = $stateParams.q;
 					$scope.queryProducts();
 				}
 			};
@@ -82,7 +82,7 @@ angular.module('methodApp')
 			$scope.$on('$viewContentLoaded', function() {
 				$scope.initParams();
 				vnAppRoute.setRouteStrategy('search');
-				vnProductParams.preLoadData($routeParams);
+				vnProductParams.preLoadData($stateParams);
 			});
 
 		}]);

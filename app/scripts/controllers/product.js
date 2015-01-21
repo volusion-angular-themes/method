@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct', 'snapRemote', 'notifications',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct, snapRemote, notifications) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$stateParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct', 'snapRemote', 'notifications',
+		function ($rootScope, $scope, vnApi, $location, $stateParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct, snapRemote, notifications) {
 
 			'use strict';
 
@@ -70,7 +70,7 @@ angular.module('Volusion.controllers')
 				}
 			}
 
-			vnApi.Product().get({slug: $routeParams.slug }).$promise
+			vnApi.Product().get({slug: $stateParams.slug }).$promise
 				.then(function (response) {
 
 					// using vnProduct's setters will reflect $scope.product object
@@ -143,11 +143,7 @@ angular.module('Volusion.controllers')
 
 						var cart = vnCart.getCart();
 
-						if ($rootScope.isInDesktopMode) {
-							snapRemote.open('right');
-						} else {
-							snapRemote.expand('right');
-						}
+						$rootScope.gotoSoftAdd();
 
 						$scope.cartItem.qty = 0;
 
