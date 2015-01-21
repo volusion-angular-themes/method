@@ -27,8 +27,8 @@ angular.module('methodApp', [
 	'Volusion.services'
 ])
 
-  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
-	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
+.config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV', '$stateProvider', '$urlRouterProvider',
+	function ($locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV, $stateProvider, $urlRouterProvider) {
 
 		  'use strict';
 
@@ -168,8 +168,8 @@ angular.module('methodApp', [
 			
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch', '$state',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch, $state) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
 
 		'use strict';
 
@@ -191,13 +191,13 @@ angular.module('methodApp', [
 			}
 		}]);
 
-		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+		$rootScope.$on('$stateChangeStart', function (event, toState) {
 			if(toState.name !== 'category.cart'){
 				snapRemote.close();
 			}
 		});
 
-		$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+		$rootScope.$on('$stateChangeSuccess', function (event, toState) {
 			$rootScope.currentState = toState.name;
 		});
 
