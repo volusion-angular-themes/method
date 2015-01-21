@@ -17,6 +17,7 @@ angular.module('methodApp', [
 	'snap',
 	'textAngular',
 	'ui.router',
+	'ngRoute',
 
 	// Volusion modules
 	'config',
