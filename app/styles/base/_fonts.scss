@@ -1,6 +1,6 @@
 // Declare Custom Fonts Here (update any .svg file's id to 'font'!)
 // Set to font's file name
-@include app-font('Roboto-Regular');
+@include app-font('roboto-regular');
 @include app-font('Roboto-Italic');
 @include app-font('Roboto-Bold');
 @include app-font('Roboto-BoldItalic');
@@ -26,4 +26,4 @@ $font-family-heading-reg:           "antonio-regular";
 
 $font-family-glyphs: 				"Glyphicons Halflings";
 
-// Primary Fonts are assigned to Bootstrap variables. See file '_bootstrap-style.scss'
+// Primary Fonts are assigned to Bootstrap variables. See file '_bootstrap-style.scss'r
