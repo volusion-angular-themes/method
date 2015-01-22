@@ -208,9 +208,10 @@ input.ng-pristine + .input-help {
 	/*border-color:#3a7d34;*/
 }
 
-/* Show red border when stuff has been typed in, but its invalid */
-.ng-dirty.ng-invalid {
+/* Show red border when stuff has been typed in, but its invalid. Only after the first blur. */
+.ng-touched.ng-dirty.ng-invalid {
 	border-color : #EC3F41;
+	border-width : 2px;
 }
 
 /* Show the help box once it has focus */

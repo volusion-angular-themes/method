@@ -30,11 +30,13 @@
 	<![endif]-->
 
 	<div data-snap-drawers>
+
 		<!-- Mobile Menu -->
-		<div data-ng-include=" 'views/partials/mobile-menu.html' "></div>
+		<div id="mobile-menu" data-ng-include=" 'views/partials/mobile-menu.html' "></div>
 
 		<!-- Checkout -->
-		<div data-ng-include=" 'views/partials/shopping-card.html' "></div>
+		<div id="shopping-cart" data-ng-include=" 'views/partials/shopping-card.html' "></div>
+
 	</div>
 
 	<div snap-content data-snap-ignore="true">
@@ -43,9 +45,11 @@
 		<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
 		<!-- Main Content -->
-		<div class="vn-showcase" role="main" autoscroll="" ng-view="" ></div>
+		<div id="main-content-area" role="main" autoscroll="" ng-view="" ></div>
+
 		<!-- Footer -->
-		<div ng-include=" 'views/partials/footer.html' "></div>
+		<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
+
 	</div>
 
 	<!-- build:js scripts/vendor.js -->
