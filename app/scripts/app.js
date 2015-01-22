@@ -27,15 +27,14 @@ angular.module('methodApp', [
 	'Volusion.services'
 ])
 
-  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV',
-	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV) {
+  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV',
+	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, ENV) {
 
 		  'use strict';
 
 		  $locationProvider.html5Mode(true);
 
 		  vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
-		  vnDataEndpointProvider.setApiUrl(vnAppConfigProvider.getApiPath());
 
 		  var translateOptions = {
 			  urlPrefix          : vnAppConfigProvider.getPrefix(),

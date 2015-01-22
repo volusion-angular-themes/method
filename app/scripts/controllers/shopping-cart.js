@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, vnContentManager, vnAppConfig) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart) {
 
 			'use strict';
 
@@ -126,17 +126,6 @@ angular.module('Volusion.controllers')
 
 			$scope.getCartItemsCount = function () {
 				return vnCart.getCartItemsCount();
-			};
-
-			$scope.gotoCheckout = function() {
-
-				var host = vnAppConfig.getApiHost();
-
-				if ($rootScope.isInDesktopMode) {
-					$window.location.assign(host + '/one-page-checkout.asp');
-				} else {
-					$window.location.assign(host + '/checkout.asp#shipping');
-				}
 			};
 
 			$scope.onOptionChanged = function (item, choice) {
