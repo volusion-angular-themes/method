@@ -46,6 +46,14 @@
 	}
 }
 
+.th-checkout-footer {
+	background-color : $body-bg;
+	border-top       : 1px solid $hr-border;
+	line-height      : 2em;
+	margin-top       : 20px;
+	text-align       : center;
+}
+
 @include respond-to(lg) {
 	.th-footer {
 		background-color : darken($body-bg, 6);

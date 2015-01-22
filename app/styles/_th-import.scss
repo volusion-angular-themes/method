@@ -2,27 +2,29 @@
 
 // Volusion ToolBox Components
 @import 'th/overrides/alert';
+@import 'th/overrides/checkout-content';
 @import 'th/overrides/dropzone';
+@import 'th/overrides/faceted-search';
 @import 'th/overrides/labeled-radio';
 @import 'th/overrides/product-option';
-@import 'th/overrides/showcase';
+@import 'th/main-content-area';
 @import 'th/overrides/slider';
 @import 'th/overrides/sort-search';
 @import 'th/overrides/zoom';
-@import 'th/overrides/faceted-search';
 
 // Theme Components
 @import 'th/cart-summary';
 @import 'th/category';
-@import 'th/shopping-card';
 @import 'th/dropdown';
 @import 'th/elist';
 @import 'th/footer';
 @import 'th/header';
 @import 'th/home-content';
+@import 'th/main-content-area';
 @import 'th/mobile-menu';
 @import 'th/mobile-sitemap';
 @import 'th/navbar';
+@import 'th/popover';
 @import 'th/product';
 @import 'th/product-description';
 @import 'th/product-details';
@@ -31,4 +33,5 @@
 @import 'th/reviews';
 @import 'th/search';
 @import 'th/search-popout';
+@import 'th/shopping-card';
 @import 'th/social-icons';

@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['compass:server', 'autoprefixer']
 			},
 			css: {
@@ -332,11 +332,11 @@ module.exports = function(grunt) {
 						'<%= yeoman.dist %>/scripts/{,*/}*.js',
 						'<%= yeoman.dist %>/styles/{,*/}*.css',
 						'!<%= yeoman.dist %>/styles/overrides.css',
-						'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+						//'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'!<%= yeoman.dist %>/images/marketing-assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'!<%= yeoman.dist %>/images/homepage/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'!<%= yeoman.dist %>/images/theme/tcp-no-image.{png,jpg,jpeg,gif,webp,svg}',
-						'<%= yeoman.dist %>/fonts/*'
+						'!<%= yeoman.dist %>/images/theme/tcp-no-image.{png,jpg,jpeg,gif,webp,svg}'//,
+						//'<%= yeoman.dist %>/fonts/*'
 					]
 				}
 			}

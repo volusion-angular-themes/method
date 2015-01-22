@@ -1,58 +1,70 @@
-<footer class="th-footer"
-		data-ng-hide="hideWrapper"
-		data-ng-controller="FooterCtrl"
-		ng-show="footerState">
+<div data-ng-controller="FooterCtrl">
 
-	<div class="hidden-lg th-elist">
-		<div class="hidden-xs th-elist__title">Sign-Up for Our Newsletter</div>
-		<form class="form-inline th-elist__form" role="form" name="MailingList" method="post" action="/MailingList_subscribe.asp">
-			<div class="form-group th-elist__group">
-				<input type="email" name="emailaddress" class="form-control th-elist__input" value="" placeholder="Sign-up for promotions" />
-			</div>
-			<button type="submit" class="btn btn-default th-elist__submit">Go</button>
-		</form>
-	</div>
-	<!-- .v-newsletter -->
+	<!-- Storefront Footer -->
+	<footer class="th-footer"
+			data-ng-show="footerState">
 
-	<div class="container visible-lg-block th-footer__top">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="th-footer__site-links">
-					<div class="col-md-4">
-						<div data-ng-bind-html="themeSettings.general.footer.content.column1 | vnLegacyLinkify | html"></div>
+		<div class="hidden-lg th-elist">
+			<div class="hidden-xs th-elist__title">Sign-Up for Our Newsletter</div>
+			<form class="form-inline th-elist__form" role="form" name="MailingList" method="post" action="/MailingList_subscribe.asp">
+				<div class="form-group th-elist__group">
+					<input type="email" name="emailaddress" class="form-control th-elist__input" value="" placeholder="Sign-up for promotions" />
+				</div>
+				<button type="submit" class="btn btn-default th-elist__submit">Go</button>
+			</form>
+		</div>
+		<!-- .v-newsletter -->
+
+		<div class="container visible-lg-block th-footer__top">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="th-footer__site-links">
+						<div class="col-md-4">
+							<div data-ng-bind-html="themeSettings.general.footer.content.column1 | vnLegacyLinkify | html"></div>
+						</div>
+						<div class="col-md-4">
+							<div data-ng-bind-html="themeSettings.general.footer.content.column2 | vnLegacyLinkify | html"></div>
+						</div>
+						<div class="col-md-4">
+							<div data-ng-bind-html="themeSettings.general.footer.content.column3 | vnLegacyLinkify | html"></div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<div data-ng-bind-html="themeSettings.general.footer.content.column2 | vnLegacyLinkify | html"></div>
-					</div>
-					<div class="col-md-4">
-						<div data-ng-bind-html="themeSettings.general.footer.content.column3 | vnLegacyLinkify | html"></div>
+				</div>
+				<div class="col-md-4">
+					<div class="th-footer__more-info">
+						<div class="th-elist" ng-if="themeSettings.general.footer.newsletterSignup.isEnabled">
+							<div class="th-elist__title">Sign-up for our Newsletter</div>
+							<div class="th-elist__text">Get our latest news and exclusive offers</div>
+							<form class="form-inline th-elist__form" role="form" name="MailingList" method="post" action="/MailingList_subscribe.asp">
+								<div class="form-group th-elist__group">
+									<input type="email" name="emailaddress" class="form-control th-elist__input" value=""
+										   placeholder="Sign-up for promotions">
+								</div>
+								<button type="submit" class="btn btn-default th-elist__submit">GO</button>
+							</form>
+						</div>
+						<div data-ng-bind-html="themeSettings.general.footer.content.column4 | vnLegacyLinkify | html"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="th-footer__more-info">
-					<div class="th-elist" ng-if="themeSettings.general.footer.newsletterSignup.isEnabled">
-						<div class="th-elist__title">Sign-up for our Newsletter</div>
-						<div class="th-elist__text">Get our latest news and exclusive offers</div>
-						<form class="form-inline th-elist__form" role="form" name="MailingList" method="post" action="/MailingList_subscribe.asp">
-							<div class="form-group th-elist__group">
-								<input type="email" name="emailaddress" class="form-control th-elist__input" value=""
-											 placeholder="Sign-up for promotions">
-							</div>
-							<button type="submit" class="btn btn-default th-elist__submit">GO</button>
-						</form>
-					</div>
-					<div data-ng-bind-html="themeSettings.general.footer.content.column4 | vnLegacyLinkify | html"></div>
-				</div>
+			<!-- .row -->
+		</div>
+
+		<div class="container">
+			<div class="row th-footer__bottom">
+				<div data-ng-bind-html="themeSettings.general.footer.content.bottomRow | vnLegacyLinkify | html"></div>
 			</div>
 		</div>
-		<!-- .row -->
-	</div>
+	</footer>
 
-	<div class="container">
-		<div class="row th-footer__bottom">
-			<div data-ng-bind-html="themeSettings.general.footer.content.bottomRow | vnLegacyLinkify | html"></div>
+	<!-- Checkout Footer -->
+	<footer class="th-checkout-footer"
+			data-ng-show="checkoutFooterState">
+		<div class="container">
+			<div class="row th-footer__bottom">
+				<div data-ng-bind-html="themeSettings.general.footer.content.bottomRow | vnLegacyLinkify | html"></div>
+			</div>
 		</div>
-		<!-- .th-footer__bottom -->
-	</div>
-</footer>
+	</footer>
+
+</div>
