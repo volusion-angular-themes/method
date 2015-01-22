@@ -1,15 +1,15 @@
 // Declare Custom Fonts Here (update any .svg file's id to 'font'!)
 // Set to font's file name
 @include app-font('roboto-regular');
-@include app-font('Roboto-Italic');
-@include app-font('Roboto-Bold');
-@include app-font('Roboto-BoldItalic');
-@include app-font('Roboto-Light');
-@include app-font('Roboto-LightItalic');
-@include app-font('Roboto-Thin');
-@include app-font('Roboto-ThinItalic');
-@include app-font('RobotoCondensed-Regular');
-@include app-font('RobotoCondensed-Bold');
+@include app-font('roboto-italic');
+@include app-font('roboto-bold');
+@include app-font('roboto-bolditalic');
+@include app-font('roboto-light');
+@include app-font('roboto-lightitalic');
+@include app-font('roboto-thin');
+@include app-font('roboto-thinitalic');
+@include app-font('robotocondensed-regular');
+@include app-font('robotocondensed-bold');
 
 @include app-font('antonio-regular');
 @include app-font('antonio-bold');
