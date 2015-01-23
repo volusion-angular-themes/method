@@ -28,13 +28,8 @@ angular.module('methodApp', [
 	'Volusion.services'
 ])
 
-<<<<<<< HEAD
-.config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'vnDataEndpointProvider', 'ENV', '$stateProvider', '$urlRouterProvider',
-	function ($locationProvider, translateProvider, vnAppConfigProvider, vnDataEndpointProvider, ENV, $stateProvider, $urlRouterProvider) {
-=======
-  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV',
-	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, ENV) {
->>>>>>> develop
+  .config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV', '$stateProvider', '$urlRouterProvider',
+	  function ($locationProvider, translateProvider, vnAppConfigProvider, ENV, $stateProvider, $urlRouterProvider) {
 
 		  'use strict';
 
