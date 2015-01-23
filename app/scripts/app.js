@@ -68,7 +68,7 @@ angular.module('methodApp', [
 				controller : 'LoginCtrl'
 			})
 			.state('checkout', {
-				url: 'checkout',
+				url: '/checkout',
 				templateUrl: 'checkout/checkout.html',
 				controller : 'CheckoutCtrl'
 			})
@@ -164,7 +164,9 @@ angular.module('methodApp', [
 				.state('search.cart', getCartState())
 				.state('allProducts.cart', getCartState())
 				.state('themeSettings.cart', getCartState())
-				.state('article.cart', getCartState());
+				.state('article.cart', getCartState())
+				.state('login.cart', getCartState())
+				.state('thank-you.cart', getCartState());
 			
 	}])
 
