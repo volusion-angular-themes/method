@@ -19,11 +19,11 @@
 @include app-font('crimsontext-italic');
 
 // Custom Font Variables
-$font-family-condensed-reg:         "robotocondensed-regular";
-$font-family-condensed-bold:        "robotocondensed-bold";
+$font-family-condensed-reg:         "RobotoCondensed-Regular";
+$font-family-condensed-bold:        "RobotoCondensed-Bold";
 $font-family-serif-italic:          "crimsontext-italic", "Times New Roman", Times, serif !default;
 $font-family-heading-reg:           "antonio-regular";
 
 $font-family-glyphs: 				"Glyphicons Halflings";
 
-// Primary Fonts are assigned to Bootstrap variables. See file '_bootstrap-style.scss'
+// Primary Fonts are assigned to Bootstrap variables. See file '_bootstrap-style.scss'r

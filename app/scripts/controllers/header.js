@@ -66,4 +66,13 @@ angular.module('Volusion.controllers')
 				function (state) {
 					$scope.headerState = state;
 				}, true);
+
+			$scope.$watch(
+				function () {
+					return vnContentManager.getCheckoutHeaderState();
+				},
+				function (state) {
+					$scope.checkoutHeaderState = state;
+				}, true);
+
 		}]);

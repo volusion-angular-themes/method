@@ -77,6 +77,11 @@ label {
 	filter  : alpha(opacity=25);
 }
 
+.btn-group {
+	.btn {
+		font-size: 1.6rem;
+	}
+}
 
 // Dropdowns ==============================================================
 .dropdown-menu > li > a {
