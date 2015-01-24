@@ -106,6 +106,10 @@
 			outline    : none;
 			outline    : 0;
 
+			width: 50%;
+			text-align: center;
+			display: inline-block;
+
 			&[disabled] {
 				//background-color : $gray-lighter;
 				color : $btn-link-disabled-color;
@@ -127,17 +131,20 @@
 					font-family : $font-family-glyphs;
 					content     : "\e079";
 					margin      : 0 10px 0 0;
+					font-size: .8em;
 				}
 			}
 
 			&:last-child {
 
 				float : right;
+				border-left: 1px solid $hr-border;
 
 				&:after {
 					font-family : $font-family-glyphs;
 					content     : "\e080";
 					margin      : 0 0 0 10px;
+					font-size: .8em;
 				}
 			}
 		}
@@ -166,17 +173,20 @@
 		}
 
 		&__add {
-
+			width: 100%;
 			float : left;
 
 			&--coupon {
-				width  : 180px;
+				width: 75%;
 				height : 30px;
 				float  : left;
 			}
 
 			&--button {
 				height : 30px;
+				width: 25%;
+				padding: 0px;
+				text-align: center;
 			}
 		}
 	}
