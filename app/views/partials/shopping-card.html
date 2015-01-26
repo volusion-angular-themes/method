@@ -15,14 +15,19 @@
 		<br style="clear: both;" />
 	</div>
 
-	<div class="th-checkout__nav">
-		<a href="javascript:history.back()" class="th-checkout__nav--button" data-snap-close data-translate="shopping-card.btnKeepShopping">Keep Shopping</span></a>
-		<a class="th-checkout__nav--button"
+	<div class="th-checkout__header">
+		
+
+		<a href="javascript:history.back()" class="th-checkout__header-back" data-snap-close></a>
+		
+		<span class="th-checkout__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
+
+		<!--<a class="th-checkout__nav--button"
 				href="/login"
 				data-translate="shopping-card.btnCheckout"
 				data-ng-disabled="cartEmpty">
 			Checkout
-		</a>
+		</a>-->
 	</div>
 
 	<div class="th-checkout__scroll-area" data-vn-scroll-top>
@@ -34,30 +39,7 @@
 			 vn-busy-animation-size="80px"
 			 vn-busy-animation-class="th-checkout__scroll-area--overlay--loader"></div>
 
-		<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">
-			<div>
-				<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>
-				<div class="th-checkout__subtotal--price">{{ calcSubtotal | currency }}</div>
-				<br style="clear: both;" />
-			</div>
-
-			<div class="th-checkout__subtotal__addlabel" data-ng-show="!coupon.show">
-				<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add promo code</a>
-			</div>
-			<div class="th-checkout__subtotal__add" data-ng-show="coupon.show">
-				<input class="form-control th-checkout__subtotal__add--coupon"
-					   data-ng-model="coupon.code"
-					   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
-				<button class="btn btn-primary th-checkout__subtotal__add--button"
-						data-translate="shopping-card.btnApply"
-						data-ng-click="applyCoupon()">
-					Apply
-				</button>
-			</div>
-
-			<br style="clear: both;" />
-
-		</div>
+		
 
 		<div class="th-alert-container">
 			<div data-vn-app-message=""></div>
@@ -97,9 +79,6 @@
 		</div>
 
 		<div class="th-checkout__items" data-ng-if="!cartEmpty">
-			<div class="th-checkout__items--label">
-				<label data-translate="shopping-card.lblYourCart">Your cart</label>
-			</div>
 
 			<div class="th-checkout__items--gift">
 				<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()"><label data-translate="shopping-card.lblGift">This is a gift</label>
@@ -170,6 +149,35 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div class="th-checkout__footer">
+
+		<div class="th-checkout__promo" data-ng-if="!cartEmpty">
+			<div class="th-checkout__promo__addlabel" data-ng-show="!coupon.show">
+				<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add promo code</a>
+			</div>
+			<div class="th-checkout__promo__add" data-ng-show="coupon.show">
+				<input class="form-control th-checkout__promo__add--coupon"
+					   data-ng-model="coupon.code"
+					   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
+				<button class="btn btn-primary th-checkout__promo__add--button"
+						data-translate="shopping-card.btnApply"
+						data-ng-click="applyCoupon()">
+					Add
+				</button>
+			</div>
+		</div>
+
+		<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">
+			<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>
+			<div class="th-checkout__subtotal--price">{{ calcSubtotal | currency }}</div>
+			<br style="clear: both;" />
+		</div>
+
+		<div class="th-checkout__footer__checkout">
+			<a href="/login" class="th-checkout__footer__checkout-button btn btn-primary">Checkout</a>
 		</div>
 	</div>
 </div>

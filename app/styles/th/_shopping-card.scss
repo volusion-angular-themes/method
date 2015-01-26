@@ -33,7 +33,7 @@
 	&__scroll-area {
 		overflow-y : scroll;
 		height     : 100%;
-		margin-top : 37px;
+		margin-top : 40px;
 
 		&--overlay {
 			@extend %font-smoothing;
@@ -150,34 +150,93 @@
 		}
 	}
 
+	&__header{
+		position         : absolute;
+		border-bottom    : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+		z-index          : 999;
+		width            : 100%;
+		line-height      : 40px; 
+		height           : 40px;
+		text-align       : center;
+
+		&:after{
+			clear: both;
+			display: table;
+			content: "";
+		}
+
+		&-back{
+			font-size : 15px;
+			position  : absolute;
+			left      : 10px;
+
+			&:before {
+				font-family : $font-family-glyphs;
+				content     : "\e079";
+				margin      : 0 10px 0 0;
+			}
+		}
+
+		&-title{
+			font-size: 16px;
+		}
+	}
+
+	&__footer{
+		position : absolute;
+		bottom   : 0px;
+		width    : 100%;
+		border-top    : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+
+		&__promo{
+
+		}
+		&__subtotal{
+
+		}
+		&__checkout{
+			padding: 10px;
+			text-align: center;
+
+			&-button{
+				width: 75%;
+				display: inline-block;
+				padding: 10px;
+			}
+		}
+	}
+
 	&__subtotal {
 		padding       : 5px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 94px;
+		background-color: #F1F1F1;
+		line-height: 30px;
 
 		&--label {
 			float          : left;
 			text-transform : uppercase;
-			margin-top     : 15px;
 		}
 
 		&--price {
 			float       : right;
-			font-size   : 3rem;
+			font-size   : 1.5rem;
 			font-family : $font-family-condensed-reg;
 		}
+	}
+
+	&__promo{
+		padding: 10px;
 
 		&__addlabel {
-			float       : left;
-			padding-top : 7px;
+
 		}
 
 		&__add {
 			width: 100%;
-			float : left;
 
 			&--coupon {
-				width: 75%;
+				width: 70%;
 				height : 30px;
 				float  : left;
 			}
