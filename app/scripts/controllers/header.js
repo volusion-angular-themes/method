@@ -16,6 +16,8 @@ angular.module('Volusion.controllers')
             $scope.showSearchDesktop = false;
             $scope.searchLocal = vnSearchManager.getSearchText() || '';
 
+            $rootScope.isCartOpen = false;
+
             translate.addParts('common');
 			translate.addParts('header');
 
@@ -42,20 +44,14 @@ angular.module('Volusion.controllers')
 			};
 
 			$rootScope.openCart = function () {
-				if ($rootScope.isInDesktopMode) {
-					snapRemote.toggle('right');
-				}
-				else{
-					snapRemote.getSnapper().then(function(snapper) {
-						snapper.expand('right');
-					});
-				}
-				
+				$('.th-checkout').addClass('th-checkout--active');
+				$('.th-checkout__overlay').addClass('th-checkout__overlay--active');
+				$rootScope.isCartOpen = true;
 			};
 			$rootScope.closeCart = function () {
-				snapRemote.getSnapper().then(function(snapper) {
-					snapper.close();
-				});
+				$('.th-checkout').removeClass('th-checkout--active');
+				$('.th-checkout__overlay').removeClass('th-checkout__overlay--active');
+				$rootScope.isCartOpen = false;
 			};
 
 
