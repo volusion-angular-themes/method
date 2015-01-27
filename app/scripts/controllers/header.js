@@ -43,6 +43,13 @@ angular.module('Volusion.controllers')
 				}
 			};
 
+			$rootScope.openLeftNav = function(){
+				history.back();
+				snapRemote.getSnapper().then(function(snapper) {
+					snapper.open('left');
+				});
+			};
+
 			$rootScope.openCart = function () {
 				$('.th-checkout').addClass('th-checkout--active');
 				$('.th-checkout__overlay').addClass('th-checkout__overlay--active');

@@ -3,7 +3,7 @@
 	 data-ng-controller="ShoppingCartCtrl">
 
 	<div class="th-checkout__brand" data-ng-if="!isInDesktopMode">
-		<button type="button" class="navbar-toggle th-checkout__brand--search" data-ng-init="navCollapsed = true" snap-toggle="left">
+		<button type="button" class="navbar-toggle th-checkout__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
 			<span class="sr-only" data-translate="header.toggleNavigation">Toggle Navigation</span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
