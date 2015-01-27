@@ -51,13 +51,9 @@ angular.module('Volusion.controllers')
 			};
 
 			$rootScope.openCart = function () {
-				$('.th-checkout').addClass('th-checkout--active');
-				$('.th-checkout__overlay').addClass('th-checkout__overlay--active');
 				$rootScope.isCartOpen = true;
 			};
 			$rootScope.closeCart = function () {
-				$('.th-checkout').removeClass('th-checkout--active');
-				$('.th-checkout__overlay').removeClass('th-checkout__overlay--active');
 				$rootScope.isCartOpen = false;
 			};
 
