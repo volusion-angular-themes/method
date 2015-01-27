@@ -18,13 +18,50 @@
 }
 
 .th-checkout {
-	background-color : $body-bg;
-	border-left      : 1px solid $hr-border;
-	overflow         : hidden;
-	position         : fixed;
-	top              : 0;
-	bottom           : 0;
-	padding-bottom   : 20px;
+	background-color   : $body-bg;
+	border-left        : 1px solid $hr-border;
+	position           : absolute;
+	right              : -300px;
+	z-index            : 10;
+	height             : 100%;
+	width              : 300px;
+	overflow           : hidden;
+	transition         : right .3s;
+	-webkit-transition : right .3s;
+	-moz-transition    : right .3s;
+
+	@include respond-to(xs){
+		width : 100%;
+		right : -100%;
+
+		&__overlay{
+			display : none;
+		}
+	}
+
+	&--active{
+		right : 0px;
+	}
+
+	&__overlay{
+		position           : absolute;
+		top                : 0px;
+		right              : 0px;
+		width              : 100%;
+		height             : 100%;
+		z-index            : -10;
+		background-color   : rgba(0,0,0,.5);
+		opacity            : 0;
+		transition         : opacity .5s;
+		-webkit-transition : opacity .5s;
+		-moz-transition    : opacity .5s;
+		cursor             : default;
+
+		&--active{
+			z-index : 9;
+			opacity : 1;
+		}
+	}
 
 	.-visual-cue {
 		background-color : yellow;
@@ -33,7 +70,10 @@
 	&__scroll-area {
 		overflow-y : scroll;
 		height     : 100%;
-		margin-top : 37px;
+		height     : calc(100% - 190px);
+		height     : -webkit-calc(100% - 190px);
+		height     : -moz-calc(100% - 190px);
+		margin-top : 40px;
 
 		&--overlay {
 			@extend %font-smoothing;
@@ -106,9 +146,9 @@
 			outline    : none;
 			outline    : 0;
 
-			width: 50%;
-			text-align: center;
-			display: inline-block;
+			width      : 50%;
+			text-align : center;
+			display    : inline-block;
 
 			&[disabled] {
 				//background-color : $gray-lighter;
@@ -150,43 +190,103 @@
 		}
 	}
 
+	&__header{
+		position         : absolute;
+		border-bottom    : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+		z-index          : 999;
+		width            : 100%;
+		line-height      : 40px; 
+		height           : 40px;
+		text-align       : center;
+
+		&:after{
+			clear   : both;
+			display : table;
+			content : "";
+		}
+
+		&-back{
+			font-size : 15px;
+			position  : absolute;
+			left      : 10px;
+
+			&:before {
+				font-family : $font-family-glyphs;
+				content     : "\e079";
+				margin      : 0 10px 0 0;
+			}
+		}
+
+		&-title{
+			font-size : 16px;
+		}
+	}
+
+	&__footer{
+		position         : absolute;
+		bottom           : 0px;
+		width            : 100%;
+		border-top       : 1px solid $hr-border;
+		background-color : $btn-default-bg;
+
+		&__promo{
+
+		}
+		&__subtotal{
+
+		}
+		&__checkout{
+			padding    : 10px;
+			text-align : center;
+
+			&-button{
+				width     : 80%;
+				display   : inline-block;
+				padding   : 12px;
+				font-size : 14px;
+			}
+		}
+	}
+
 	&__subtotal {
-		padding       : 5px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 94px;
+		padding          : 5px 10px;
+		background-color : #F1F1F1;
+		line-height      : 30px;
 
 		&--label {
 			float          : left;
 			text-transform : uppercase;
-			margin-top     : 15px;
 		}
 
 		&--price {
 			float       : right;
-			font-size   : 3rem;
+			font-size   : 1.5rem;
 			font-family : $font-family-condensed-reg;
 		}
+	}
+
+	&__promo{
+		padding : 10px;
 
 		&__addlabel {
-			float       : left;
-			padding-top : 7px;
+			line-height : 30px;
 		}
 
 		&__add {
-			width: 100%;
-			float : left;
+			width : 100%;
 
 			&--coupon {
-				width: 75%;
+				width  : 70%;
 				height : 30px;
 				float  : left;
 			}
 
 			&--button {
-				height : 30px;
-				width: 25%;
-				padding: 0px;
-				text-align: center;
+				height     : 30px;
+				width      : 25%;
+				padding    : 0px;
+				text-align : center;
 			}
 		}
 	}
@@ -305,9 +405,9 @@
 				}
 			}
 
-			&.-last {
-				// add extra space after last element so dropdown will be accessible
-				margin-bottom : 150px;
+			&:last-child{
+				margin-bottom : 0px;
+				border-bottom : 0px;
 			}
 
 			&--close {
