@@ -71,10 +71,10 @@
 		<div class="th-checkout__items" data-ng-if="!cartEmpty">
 
 			<div class="th-checkout__items--gift">
-				<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()"><label data-translate="shopping-card.lblGift">This is a gift</label>
+				<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()" id="showGiftOptionInput"><label data-translate="shopping-card.lblGift" for="showGiftOptionInput">This is a gift</label>
 			</div>
 
-			<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse" data-ng-class="{'-last' : $last}">
+			<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse">
 				<div class="th-checkout__items__item--close">
 					<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
 				</div>

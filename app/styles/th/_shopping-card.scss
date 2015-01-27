@@ -70,6 +70,9 @@
 	&__scroll-area {
 		overflow-y : scroll;
 		height     : 100%;
+		height: calc(100% - 190px);
+		height: -webkit-calc(100% - 190px);
+		height: -moz-calc(100% - 190px);
 		margin-top : 40px;
 
 		&--overlay {
@@ -267,7 +270,7 @@
 		padding: 10px;
 
 		&__addlabel {
-
+			line-height: 30px;
 		}
 
 		&__add {
@@ -402,9 +405,9 @@
 				}
 			}
 
-			&.-last {
-				// add extra space after last element so dropdown will be accessible
-				margin-bottom : 165px;
+			&:last-child{
+				margin-bottom: 0px;
+				border-bottom: 0px;
 			}
 
 			&--close {
