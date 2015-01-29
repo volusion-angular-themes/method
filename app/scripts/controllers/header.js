@@ -16,8 +16,6 @@ angular.module('Volusion.controllers')
             $scope.showSearchDesktop = false;
             $scope.searchLocal = vnSearchManager.getSearchText() || '';
 
-            $rootScope.isCartOpen = false;
-
             translate.addParts('common');
 			translate.addParts('header');
 
@@ -49,14 +47,6 @@ angular.module('Volusion.controllers')
 					snapper.open('left');
 				});
 			};
-
-			$rootScope.openCart = function () {
-				$rootScope.isCartOpen = true;
-			};
-			$rootScope.closeCart = function () {
-				$rootScope.isCartOpen = false;
-			};
-
 
 			$scope.$watch(
 				function () {
