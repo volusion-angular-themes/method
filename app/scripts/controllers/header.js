@@ -41,7 +41,6 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-<<<<<<< HEAD
 			$rootScope.openLeftNav = function(){
 				history.back();
 				snapRemote.getSnapper().then(function(snapper) {
@@ -49,26 +48,6 @@ angular.module('Volusion.controllers')
 				});
 			};
 
-=======
-			$rootScope.openCart = function () {
-				if ($rootScope.isInDesktopMode) {
-					snapRemote.toggle('right');
-				}
-				else{
-					snapRemote.getSnapper().then(function(snapper) {
-						snapper.expand('right');
-					});
-				}
-				
-			};
-			$rootScope.closeCart = function () {
-				snapRemote.getSnapper().then(function(snapper) {
-					snapper.close();
-				});
-			};
-
-
->>>>>>> develop
 			$scope.$watch(
 				function () {
 					return vnContentManager.getHeaderState();
