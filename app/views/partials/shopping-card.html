@@ -95,24 +95,26 @@
 
 					<div>
 						<div class="th-checkout__items__item--qty">
-							<!--<span class="dropdown" on-toggle="toggled(open)">-->
-								<button class="btn btn-default dropdown-toggle"
-										data-toggle="dropdown">
-
-										{{ item.qty }}<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li ng-repeat="choice in getArray(choices) track by $index">
-										<a role="menuitem"
-										   tabindex="-1"
-										   href
-										   data-ng-click="onOptionChanged(item, {{ $index+1 }})">
-
-										   {{ $index+1 }}
-										</a>
-									</li>
-								</ul>
-							<!--</span>-->
+							<div data-vn-block="th-qty-counter" class="input-group">
+								<span class="input-group-btn">
+									<button data-vn-element="btn" class="btn btn-default"
+									        data-ng-click="changeQty(item, item.qty - 1)"
+									        data-ng-disabled="item.qty <= 1">
+										<span class="glyphicon glyphicon-minus"></span>
+									</button>
+								</span>
+								<input data-vn-element="input"
+								       class="form-control"
+								       data-ng-model="item.qty"
+								       data-ng-change="changeQty(item, item.qty)">
+								<span class="input-group-btn">
+									<button data-vn-element="btn"
+									        class="btn btn-default"
+									        data-ng-click="changeQty(item, item.qty + 1)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
 						</div>
 						<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
 					</div>

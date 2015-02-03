@@ -446,30 +446,25 @@
 
 			&--qty {
 
-				float    : left;
-				position : relative;
+				.th-qty-counter{
+					width: 100px;
 
-				button {
-					width      : 80px;
-					text-align : center;
-					position   : relative;
+					&__btn{
+						height: 30px;
+						width: 30px;
+						padding: 0px;
 
-					.caret {
-						position : absolute;
-						right    : 10px;
-						top      : 12px;
+						.glyphicon{
+							font-size: 10px;
+						}
+					}
+					&__input{
+						height: 30px;
+						width: 40px;
+						font-size: 12px;
 					}
 				}
 
-				.dropdown-menu {
-					top        : 41px;
-					height     : 100px;
-					overflow-y : scroll;
-					width      : 80px;
-					margin-top : -11px;
-					text-align : center;
-					min-width  : 80px;
-				}
 			}
 
 			&--subtotal {

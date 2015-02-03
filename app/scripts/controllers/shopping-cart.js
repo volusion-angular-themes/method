@@ -30,9 +30,11 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
-			function updateCart(callback) {
+			function updateCart(showSpinner, callback) {
 
-				$scope.loading = true;
+				if(showSpinner === true){
+					$scope.loading = true;
+				}
 
 				vnCart.updateCart()
 					.then(function () {
@@ -78,16 +80,16 @@ angular.module('Volusion.controllers')
 				});
 
 				if (needUpdate) {
-					updateCart();
+					updateCart(true);
 				}
 			};
 
 			$scope.addGiftWrap = function () {
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.addGiftMsg = function () {
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.applyCoupon = function () {
@@ -97,7 +99,7 @@ angular.module('Volusion.controllers')
 
 				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				updateCart(function () {
+				updateCart(true, function () {
 					if ($scope.cart.serviceErrors.length === 0) {
 						$scope.coupon.show = false;
 						$scope.coupon.code = '';
@@ -112,7 +114,7 @@ angular.module('Volusion.controllers')
 
 				$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.deleteItem = function (id) {
@@ -120,7 +122,7 @@ angular.module('Volusion.controllers')
 					return item.id !== id;
 				});
 
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.getArray = function(num) {
@@ -131,11 +133,12 @@ angular.module('Volusion.controllers')
 				return vnCart.getCartItemsCount();
 			};
 
-			$scope.onOptionChanged = function (item, choice) {
-
-				item.qty = choice;
-
-				updateCart();
+			$scope.changeQty = function (item, amount) {
+				item.qty = amount;
+				$timeout.cancel($scope.updateCartTimeout);
+				$scope.updateCartTimeout = $timeout(function(){
+					updateCart(false);
+				}, 500);
 			};
 
 			$scope.toggleShowCoupon = function () {
