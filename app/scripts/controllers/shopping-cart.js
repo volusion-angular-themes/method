@@ -26,6 +26,8 @@ angular.module('Volusion.controllers')
 			$scope.visualCue = false;
 			$scope.msgLength = 0;
 
+			$rootScope.isCartOpen = false;
+
 			translate.addParts('shopping-card');
 
 			function updateCart(callback) {
@@ -45,6 +47,7 @@ angular.module('Volusion.controllers')
 								callback();
 							}
 						}
+						$scope.loading = false;
 					});
 			}
 
@@ -137,6 +140,13 @@ angular.module('Volusion.controllers')
 
 			$scope.toggleShowCoupon = function () {
 				$scope.coupon.show = !$scope.coupon.show;
+			};
+
+			$rootScope.openCart = function () {
+				$rootScope.isCartOpen = true;
+			};
+			$rootScope.closeCart = function () {
+				$rootScope.isCartOpen = false;
 			};
 
 			$scope.$watch(

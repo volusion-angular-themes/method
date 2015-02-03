@@ -193,8 +193,8 @@ angular.module('methodApp', [
 			}
 		}]);
 
-		$rootScope.$on('$stateChangeStart', function (event, toState) {
-			if(toState.name !== 'category.cart'){
+		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+			if(fromState.name.indexOf('.cart') === -1){
 				snapRemote.close();
 			}
 		});

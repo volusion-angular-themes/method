@@ -41,23 +41,12 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			$rootScope.openCart = function () {
-				if ($rootScope.isInDesktopMode) {
-					snapRemote.toggle('right');
-				}
-				else{
-					snapRemote.getSnapper().then(function(snapper) {
-						snapper.expand('right');
-					});
-				}
-				
-			};
-			$rootScope.closeCart = function () {
+			$rootScope.openLeftNav = function(){
+				history.back();
 				snapRemote.getSnapper().then(function(snapper) {
-					snapper.close();
+					snapper.open('left');
 				});
 			};
-
 
 			$scope.$watch(
 				function () {
