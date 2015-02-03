@@ -35,31 +35,7 @@
 				<div data-vn-app-message=""></div>
 			</div>
 
-			<div class="th-checkout__coupons" data-ng-if="!couponsEmpty">
-				<div class="th-checkout__coupons--label">
-					<label data-translate="shopping-card.lblCoupons">Discounts</label>
-				</div>
-
-				<div class="th-checkout__coupons__coupon"
-					 data-ng-repeat="coupon in cart.discounts track by $index"
-					 data-ng-class="{'-last': $last}">
-
-					<div class="th-checkout__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
-						<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
-					</div>
-					<div>
-						<div class="th-checkout__coupons__coupon--name">
-							<span>{{ coupon.name }}</span>
-						</div>
-					</div>
-
-					<div class="th-checkout__coupons__coupon--value">
-						<span>{{ coupon.value | vnCurrency }}</span>
-					</div>
-				</div>
-
-				<br style="clear: both;" />
-			</div>
+			
 
 			<div class="th-checkout__noitems--label"
 				 data-translate="shopping-card.lblYourCartIsEmpty"
@@ -147,6 +123,7 @@
 		<div class="th-checkout__footer">
 
 			<div class="th-checkout__promo" data-ng-if="!cartEmpty">
+
 				<div class="th-checkout__promo__addlabel" data-ng-show="!coupon.show">
 					<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add promo code</a>
 				</div>
@@ -160,6 +137,29 @@
 						Add
 					</button>
 				</div>
+
+				<div class="th-checkout__coupons" data-ng-if="!couponsEmpty">
+
+					<div class="th-checkout__coupons__coupon"
+						 data-ng-repeat="coupon in cart.discounts track by $index"
+						 data-ng-class="{'-last': $last}">
+
+						<div class="th-checkout__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
+							<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
+						</div>
+
+						<div class="th-checkout__coupons__coupon--name">
+							<span>{{ coupon.name }}</span>
+						</div>
+
+						<div class="th-checkout__coupons__coupon--value">
+							<span>{{ coupon.value | vnCurrency }}</span>
+						</div>
+					</div>
+
+					<br style="clear: both;" />
+				</div>
+
 			</div>
 
 			<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">

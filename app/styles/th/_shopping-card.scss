@@ -225,6 +225,7 @@
 
 	&__footer{
 		position         : absolute;
+		z-index          : 2; 
 		bottom           : 0px;
 		width            : 100%;
 		border-top       : 1px solid $hr-border;
@@ -292,8 +293,8 @@
 	}
 
 	&__coupons {
-		padding       : 5px 10px;
-		border-bottom : 1px solid $hr-border;
+		border-top: 1px solid $hr-border;
+		padding: 10px 0px 0px 0px;
 
 		&--label {
 			text-transform : uppercase;
@@ -304,9 +305,9 @@
 
 			position       : relative;
 			margin-bottom  : 10px;
-			padding-bottom : 10px;
+			padding-bottom : 0px;
 			border-bottom  : 1px solid $gray-lighter;
-			min-height     : 45px;
+			
 
 			&.-last {
 				border-bottom : none;
@@ -336,13 +337,17 @@
 			}
 
 			&--name {
-				padding-right : 55px;
+				width: 75%;
+				display: inline-block;
+				vertical-align: top;
 			}
 
 			&--value {
-				position : absolute;
-				right    : 0px;
-				bottom   : 0px;
+				width: 25%;
+				display: inline-block;
+				vertical-align: top;
+				color: green;
+				text-align: right;
 			}
 		}
 	}
