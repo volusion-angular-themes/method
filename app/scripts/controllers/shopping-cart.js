@@ -47,7 +47,6 @@ angular.module('Volusion.controllers')
 								callback();
 							}
 						}
-						$scope.loading = false;
 					});
 			}
 
