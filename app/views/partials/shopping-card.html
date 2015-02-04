@@ -144,7 +144,7 @@
 						 data-ng-repeat="coupon in cart.discounts track by $index"
 						 data-ng-class="{'-last': $last}">
 
-						<div class="th-checkout__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
+						 <div class="th-checkout__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
 							<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
 						</div>
 

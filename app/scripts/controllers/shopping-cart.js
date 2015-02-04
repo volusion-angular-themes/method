@@ -50,6 +50,7 @@ angular.module('Volusion.controllers')
 							}
 						}
 						$scope.loading = false;
+						$scope.setBodyHeight( $scope.getFooterHeight() );
 					});
 			}
 
@@ -93,6 +94,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.applyCoupon = function () {
+
 				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
 					return coupon.couponCode !== $scope.coupon.code;
 				});
@@ -147,9 +149,31 @@ angular.module('Volusion.controllers')
 
 			$rootScope.openCart = function () {
 				$rootScope.isCartOpen = true;
+				$scope.setBodyHeight( $scope.getFooterHeight() );
 			};
 			$rootScope.closeCart = function () {
 				$rootScope.isCartOpen = false;
+			};
+
+			$scope.getHeaderHeight = function () {
+				return document.querySelector('.th-checkout__header').offsetHeight;
+			};
+			$scope.getBrandHeight = function () {
+				var brandDiv = document.querySelector('.th-checkout__brand');
+				if(brandDiv !== undefined && brandDiv !== null){
+					return brandDiv.offsetHeight;
+				}
+				else{
+					return 0;
+				}
+			};
+			$scope.getFooterHeight = function () {
+				return document.querySelector('.th-checkout__footer').offsetHeight;
+			};
+			$scope.setBodyHeight = function (footerHeight) {
+				var scrollArea = document.querySelector('.th-checkout__scroll-area');
+				scrollArea.style.height = 'calc(100% - ' + (footerHeight + $scope.getHeaderHeight() + $scope.getBrandHeight()) + 'px)';
+				scrollArea.style.marginTop = $scope.getHeaderHeight() + 'px';
 			};
 
 			$scope.$watch(
@@ -182,5 +206,13 @@ angular.module('Volusion.controllers')
 					}
 				},
 				true
+			);
+			$scope.$watch(
+				function () {
+					return $scope.getFooterHeight();
+				},
+				function (newValue) {
+					$scope.setBodyHeight(newValue);
+				}
 			);
 		}]);

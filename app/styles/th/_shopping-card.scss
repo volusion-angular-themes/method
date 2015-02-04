@@ -68,7 +68,7 @@
 	}
 
 	&__scroll-area {
-		overflow-y : scroll;
+		overflow-y : auto;
 		height     : 100%;
 		height     : calc(100% - 190px);
 		height     : -webkit-calc(100% - 190px);
@@ -294,7 +294,6 @@
 
 	&__coupons {
 		border-top: 1px solid $hr-border;
-		padding: 10px 0px 0px 0px;
 
 		&--label {
 			text-transform : uppercase;
@@ -304,9 +303,8 @@
 		&__coupon {
 
 			position       : relative;
-			margin-bottom  : 10px;
-			padding-bottom : 0px;
 			border-bottom  : 1px solid $gray-lighter;
+			padding: 10px 0px;
 			
 
 			&.-last {
@@ -315,8 +313,9 @@
 			}
 
 			&--close {
-				position : absolute;
-				right    : 0px;
+				width: 10%;
+				text-align: left;
+				display: inline-block;
 
 				button {
 					border     : 1px solid $gray-lighter;
@@ -337,17 +336,18 @@
 			}
 
 			&--name {
-				width: 75%;
+				width: 60%;
 				display: inline-block;
 				vertical-align: top;
 			}
 
 			&--value {
-				width: 25%;
+				width: 30%;
 				display: inline-block;
 				vertical-align: top;
 				color: green;
 				text-align: right;
+				float: right;
 			}
 		}
 	}
