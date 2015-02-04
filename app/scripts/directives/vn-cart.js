@@ -17,16 +17,20 @@ angular.module('Volusion.controllers')
 				$rootScope.openCart = function () {
 					$rootScope.isCartOpen = true;
 					$scope.setBodyHeight( $scope.getFooterHeight() );
+					$('.th-cart').toggleClass('th-cart--active');
+					$('.th-cart-overlay').toggleClass('th-cart-overlay--active');
 				};
 				$rootScope.closeCart = function () {
 					$rootScope.isCartOpen = false;
+					$('.th-cart').toggleClass('th-cart--active');
+					$('.th-cart-overlay').toggleClass('th-cart-overlay--active');
 				};
 
 				$scope.getHeaderHeight = function () {
-					return document.querySelector('.th-checkout__header').offsetHeight;
+					return document.querySelector('.th-cart__header').offsetHeight;
 				};
 				$scope.getBrandHeight = function () {
-					var brandDiv = document.querySelector('.th-checkout__brand');
+					var brandDiv = document.querySelector('.th-cart__brand');
 					if(brandDiv !== undefined && brandDiv !== null){
 						return brandDiv.offsetHeight;
 					}
@@ -35,10 +39,10 @@ angular.module('Volusion.controllers')
 					}
 				};
 				$scope.getFooterHeight = function () {
-					return document.querySelector('.th-checkout__footer').offsetHeight;
+					return document.querySelector('.th-cart__footer').offsetHeight;
 				};
 				$scope.setBodyHeight = function (footerHeight) {
-					var scrollArea = document.querySelector('.th-checkout__scroll-area');
+					var scrollArea = document.querySelector('.th-cart__scroll-area');
 					scrollArea.style.height = 'calc(100% - ' + (footerHeight + $scope.getHeaderHeight() + $scope.getBrandHeight()) + 'px)';
 					scrollArea.style.marginTop = $scope.getHeaderHeight() + 'px';
 				};

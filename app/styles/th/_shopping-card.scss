@@ -17,7 +17,7 @@
 	opacity : 1;
 }
 
-.th-checkout {
+.th-cart {
 	background-color   : $body-bg;
 	border-left        : 1px solid $hr-border;
 	position           : absolute;
@@ -43,7 +43,7 @@
 		right : 0px;
 	}
 
-	&__overlay{
+	&-overlay{
 		position           : absolute;
 		top                : 0px;
 		right              : 0px;

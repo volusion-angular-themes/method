@@ -1,67 +1,65 @@
 <div data-ng-controller="ShoppingCartCtrl" data-vn-shopping-cart>
-	<a href="javascript:history.back()" class="th-checkout__overlay" data-ng-class="{'th-checkout__overlay--active': isCartOpen == true}"></a>
-	<div class="th-checkout" data-ng-class="{'th-checkout--active': isCartOpen == true}">
+	<a href="javascript:history.back()" class="th-cart-overlay"></a>
+	<div class="th-cart">
 
-		<div class="th-checkout__brand" data-ng-if="!isInDesktopMode">
-			<button type="button" class="navbar-toggle th-checkout__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
+		<div class="th-cart__brand" data-ng-if="!isInDesktopMode">
+			<button type="button" class="navbar-toggle th-cart__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
 				<span class="sr-only" data-translate="header.toggleNavigation">Toggle Navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
 
-			<img class="th-checkout__brand--image" data-ng-src="{{ config.general.logoUrl }}" class="img-responsive" />
+			<img class="th-cart__brand--image" data-ng-src="{{ config.general.logoUrl }}" class="img-responsive" />
 
 			<br style="clear: both;" />
 		</div>
 
-		<div class="th-checkout__header">
+		<div class="th-cart__header">
 
-			<a href="javascript:history.back()" class="th-checkout__header-back" data-snap-close></a>
-			<span class="th-checkout__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
+			<a href="javascript:history.back()" class="th-cart__header-back"></a>
+			<span class="th-cart__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
 
 		</div>
 
-		<div class="th-checkout__scroll-area" data-vn-scroll-top>
+		<div class="th-cart__scroll-area" data-vn-scroll-top>
 
-			<div class="th-checkout__scroll-area--overlay"
+			<div class="th-cart__scroll-area--overlay"
 				 data-ng-if="loading"
 				 vn-busy-animation
 				 vn-busy-animation-show="{{ loading }}"
 				 vn-busy-animation-size="80px"
-				 vn-busy-animation-class="th-checkout__scroll-area--overlay--loader"></div>
+				 vn-busy-animation-class="th-cart__scroll-area--overlay--loader"></div>
 
 			<div class="th-alert-container">
 				<div data-vn-app-message=""></div>
 			</div>
 
-			
-
-			<div class="th-checkout__noitems--label"
+			<div class="th-cart__noitems--label"
 				 data-translate="shopping-card.lblYourCartIsEmpty"
 				 data-ng-if="cartEmpty">
 
 				 Your cart is empty
 			</div>
 
-			<div class="th-checkout__items" data-ng-if="!cartEmpty">
+			<div class="th-cart__items" data-ng-if="!cartEmpty">
 
-				<div class="th-checkout__items--gift">
+				<div class="th-cart__items--gift">
 					<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()" id="showGiftOptionInput"><label data-translate="shopping-card.lblGift" for="showGiftOptionInput">This is a gift</label>
 				</div>
 
-				<div class="th-checkout__items__item" data-ng-repeat="item in cart.items | reverse">
-					<div class="th-checkout__items__item--close">
+				<div class="th-cart__items__item" data-ng-repeat="item in cart.items | reverse">
+					<div class="th-cart__items__item--close">
 						<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
 					</div>
 					<div>
-						<a data-ng-href="{{ item.productUrl }}" ><img class="th-checkout__items__item--image" data-ng-src="{{ item.imgUrl }}" /></a>
+						<a data-ng-href="{{ item.productUrl }}" ><img class="th-cart__items__item--image" data-ng-src="{{ item.imgUrl }}" /></a>
 						<div>
-							<div class="th-checkout__items__item--name">
+							<div class="th-cart__items__item--name">
 								<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
 							</div>
-							<div class="th-checkout__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
-							<div class="th-checkout__items__item--option" data-ng-repeat="option in item.options">
+							<div class="th-cart__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
+							<div class="th-cart__items__item--option" data-ng-repeat="option in item.options">
 								<span>{{ option.optionText }}</span>
 							</div>
 						</div>
@@ -70,7 +68,7 @@
 					</div>
 
 					<div>
-						<div class="th-checkout__items__item--qty">
+						<div class="th-cart__items__item--qty">
 							<div data-vn-block="th-qty-counter" class="input-group">
 								<span class="input-group-btn">
 									<button data-vn-element="btn" class="btn btn-default"
@@ -92,18 +90,18 @@
 								</span>
 							</div>
 						</div>
-						<div class="th-checkout__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
+						<div class="th-cart__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
 					</div>
 
 					<br style="clear: both;" />
 
-					<div class="th-checkout__items__item__gift animate-if" data-ng-if="showGiftOption && item.isGiftWrapAvailable">
-						<div class="th-checkout__items__item__gift--option" data-ng-class="{'-visual-cue' : visualCue}">
+					<div class="th-cart__items__item__gift animate-if" data-ng-if="showGiftOption && item.isGiftWrapAvailable">
+						<div class="th-cart__items__item__gift--option" data-ng-class="{'-visual-cue' : visualCue}">
 							<input type="checkbox" data-ng-model="item.giftWrap.selected" data-ng-change="addGiftWrap()">
 							<span data-translate="shopping-card.lblGiftOption">Add gift wrap for</span>&nbsp;{{ item.giftWrap.price | currency }}
 						</div>
 
-						<textarea class="th-checkout__items__item__gift--message animate-if"
+						<textarea class="th-cart__items__item__gift--message animate-if"
 							   	  maxlength="255"
 							   	  data-vn-auto-grow
 							   	  data-ng-trim="false"
@@ -112,7 +110,7 @@
 							      data-ng-blur="addGiftMsg()"
 							      placeholder="{{ 'shopping-card.lblGiftMessage' | translate }}"></textarea>
 
-						<div class="th-checkout__items__item__gift--message-count" data-ng-if="item.giftWrap.selected">
+						<div class="th-cart__items__item__gift--message-count" data-ng-if="item.giftWrap.selected">
 							<span>{{255 - item.giftWrap.message.length}}</span>
 						</div>
 					</div>
@@ -120,39 +118,39 @@
 			</div>
 		</div>
 
-		<div class="th-checkout__footer">
+		<div class="th-cart__footer">
 
-			<div class="th-checkout__promo" data-ng-if="!cartEmpty">
+			<div class="th-cart__promo" data-ng-if="!cartEmpty">
 
-				<div class="th-checkout__promo__addlabel" data-ng-show="!coupon.show">
+				<div class="th-cart__promo__addlabel" data-ng-show="!coupon.show">
 					<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add promo code</a>
 				</div>
-				<div class="th-checkout__promo__add" data-ng-show="coupon.show">
-					<input class="form-control th-checkout__promo__add--coupon"
+				<div class="th-cart__promo__add" data-ng-show="coupon.show">
+					<input class="form-control th-cart__promo__add--coupon"
 						   data-ng-model="coupon.code"
 						   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
-					<button class="btn btn-primary th-checkout__promo__add--button"
+					<button class="btn btn-primary th-cart__promo__add--button"
 							data-translate="shopping-card.btnApply"
 							data-ng-click="applyCoupon()">
 						Add
 					</button>
 				</div>
 
-				<div class="th-checkout__coupons" data-ng-if="!couponsEmpty">
+				<div class="th-cart__coupons" data-ng-if="!couponsEmpty">
 
-					<div class="th-checkout__coupons__coupon"
+					<div class="th-cart__coupons__coupon"
 						 data-ng-repeat="coupon in cart.discounts track by $index"
 						 data-ng-class="{'-last': $last}">
 
-						 <div class="th-checkout__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
+						 <div class="th-cart__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
 							<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
 						</div>
 
-						<div class="th-checkout__coupons__coupon--name">
+						<div class="th-cart__coupons__coupon--name">
 							<span>{{ coupon.name }}</span>
 						</div>
 
-						<div class="th-checkout__coupons__coupon--value">
+						<div class="th-cart__coupons__coupon--value">
 							<span>{{ coupon.value | vnCurrency }}</span>
 						</div>
 					</div>
@@ -162,15 +160,15 @@
 
 			</div>
 
-			<div class="th-checkout__subtotal" data-ng-if="!cartEmpty">
-				<div class="th-checkout__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>
-				<div class="th-checkout__subtotal--price">{{ calcSubtotal | currency }}</div>
+			<div class="th-cart__subtotal" data-ng-if="!cartEmpty">
+				<div class="th-cart__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>
+				<div class="th-cart__subtotal--price">{{ calcSubtotal | currency }}</div>
 				<br style="clear: both;" />
 			</div>
 
-			<div class="th-checkout__footer__checkout">
+			<div class="th-cart__footer__checkout">
 				<a href="/login"
-				class="th-checkout__footer__checkout-button btn btn-primary"
+				class="th-cart__footer__checkout-button btn btn-primary"
 				data-translate="shopping-card.btnCheckout"
 				data-ng-disabled="cartEmpty">
 				Checkout</a>
