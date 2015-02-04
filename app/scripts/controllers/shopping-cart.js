@@ -180,6 +180,7 @@ angular.module('Volusion.controllers')
 							}
 						}
 					}
-				}
+				},
+				true
 			);
 		}]);
