@@ -1,7 +1,8 @@
 <div data-ng-controller="ShoppingCartCtrl" data-vn-shopping-cart>
 	<a href="javascript:history.back()" class="th-cart-overlay"></a>
 	<div class="th-cart">
-
+		
+		<!-- Brand -->
 		<div class="th-cart__brand" data-ng-if="!isInDesktopMode">
 			<button type="button" class="navbar-toggle th-cart__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
 				<span class="sr-only" data-translate="header.toggleNavigation">Toggle Navigation</span>
@@ -14,14 +15,16 @@
 
 			<br style="clear: both;" />
 		</div>
-
+		<!-- End Brand -->
+		
+		<!-- Cart Header -->
 		<div class="th-cart__header">
-
 			<a href="javascript:history.back()" class="th-cart__header-back"></a>
 			<span class="th-cart__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
-
 		</div>
-
+		<!-- End Header -->
+		
+		<!-- Body/ScrollArea -->
 		<div class="th-cart__scroll-area" data-vn-scroll-top>
 
 			<div class="th-cart__scroll-area--overlay"
@@ -117,7 +120,10 @@
 				</div>
 			</div>
 		</div>
+		<!-- End Body/ScrollArea -->
+		
 
+		<!-- Footer -->
 		<div class="th-cart__footer">
 
 			<div class="th-cart__promo" data-ng-if="!cartEmpty">
@@ -174,5 +180,6 @@
 				Checkout</a>
 			</div>
 		</div>
+		<!-- End Footer -->
 	</div>
 </div>

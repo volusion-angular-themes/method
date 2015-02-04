@@ -27,7 +27,7 @@ angular.module('Volusion.controllers')
 				};
 
 				$scope.getHeaderHeight = function () {
-					return document.querySelector('.th-cart__header').offsetHeight;
+					return $('.th-cart__header').height();
 				};
 				$scope.getBrandHeight = function () {
 					var brandDiv = document.querySelector('.th-cart__brand');
@@ -39,12 +39,13 @@ angular.module('Volusion.controllers')
 					}
 				};
 				$scope.getFooterHeight = function () {
-					return document.querySelector('.th-cart__footer').offsetHeight;
+					return $('.th-cart__footer').height();
 				};
 				$scope.setBodyHeight = function (footerHeight) {
-					var scrollArea = document.querySelector('.th-cart__scroll-area');
-					scrollArea.style.height = 'calc(100% - ' + (footerHeight + $scope.getHeaderHeight() + $scope.getBrandHeight()) + 'px)';
-					scrollArea.style.marginTop = $scope.getHeaderHeight() + 'px';
+					var scrollArea = $('.th-cart__scroll-area');
+					var heightValue = 'calc(100% - ' + (footerHeight + $scope.getHeaderHeight() + $scope.getBrandHeight()) + 'px)';
+					scrollArea.css('height', heightValue);
+					scrollArea.css('margin-top', $scope.getHeaderHeight() + 'px');
 				};
 
 				$scope.$watch(
