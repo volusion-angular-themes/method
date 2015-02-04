@@ -450,6 +450,9 @@
 			}
 
 			&--qty {
+				display: inline-block;
+				vertical-align: middle;
+				width: 75%;
 
 				.th-qty-counter{
 					width: 100px;
@@ -473,9 +476,12 @@
 			}
 
 			&--subtotal {
-				float       : right;
 				font-size   : 1.5rem;
 				font-family : $font-family-condensed-reg;
+				display: inline-block;
+				vertical-align: middle;
+				width: 25%;
+				text-align: right;
 			}
 		}
 

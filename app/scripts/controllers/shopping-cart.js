@@ -138,7 +138,7 @@ angular.module('Volusion.controllers')
 				$timeout.cancel($scope.updateCartTimeout);
 				$scope.updateCartTimeout = $timeout(function(){
 					updateCart(false);
-				}, 500);
+				}, 300);
 			};
 
 			$scope.toggleShowCoupon = function () {
