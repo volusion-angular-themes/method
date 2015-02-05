@@ -1,6 +1,6 @@
-<div data-ng-controller="ShoppingCartCtrl" data-vn-shopping-cart>
-	<a href="javascript:history.back()" class="th-cart-overlay"></a>
-	<div class="th-cart">
+<div data-vn-shopping-cart class="th-cart">
+	<a href="javascript:history.back()" class="th-cart__overlay"></a>
+	<div class="th-cart__panel">
 		
 		<!-- Brand -->
 		<div class="th-cart__brand" data-ng-if="!isInDesktopMode">
@@ -25,14 +25,14 @@
 		<!-- End Header -->
 		
 		<!-- Body/ScrollArea -->
-		<div class="th-cart__scroll-area" data-vn-scroll-top>
+		<div class="th-cart__body" data-vn-scroll-top>
 
-			<div class="th-cart__scroll-area--overlay"
+			<div class="th-cart__body--overlay"
 				 data-ng-if="loading"
 				 vn-busy-animation
 				 vn-busy-animation-show="{{ loading }}"
 				 vn-busy-animation-size="80px"
-				 vn-busy-animation-class="th-cart__scroll-area--overlay--loader"></div>
+				 vn-busy-animation-class="th-cart__body--overlay--loader"></div>
 
 			<div class="th-alert-container">
 				<div data-vn-app-message=""></div>

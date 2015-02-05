@@ -12,51 +12,36 @@ angular.module('Volusion.controllers')
 
 		return {
 			restrict   : 'A',
+			controller: 'ShoppingCartCtrl',
 			link : function postLink($scope) {
+
+				var cart = $('.th-cart'),
+				    cartHeader = $('.th-cart__header'),
+				    cartFooter = $('.th-cart__footer'),
+				    cartBody = $('.th-cart__body');
 
 				$rootScope.openCart = function () {
 					$rootScope.isCartOpen = true;
-					$scope.setBodyHeight( $scope.getFooterHeight() );
-					$('.th-cart').toggleClass('th-cart--active');
-					$('.th-cart-overlay').toggleClass('th-cart-overlay--active');
+					cart.toggleClass('th-cart--active');
+					$scope.setBodyHeight( cartFooter.height() );
 				};
 				$rootScope.closeCart = function () {
 					$rootScope.isCartOpen = false;
-					$('.th-cart').toggleClass('th-cart--active');
-					$('.th-cart-overlay').toggleClass('th-cart-overlay--active');
-				};
-
-				$scope.getHeaderHeight = function () {
-					return $('.th-cart__header').height();
-				};
-				$scope.getBrandHeight = function () {
-					var brandDiv = document.querySelector('.th-cart__brand');
-					if(brandDiv !== undefined && brandDiv !== null){
-						return brandDiv.offsetHeight;
-					}
-					else{
-						return 0;
-					}
-				};
-				$scope.getFooterHeight = function () {
-					return $('.th-cart__footer').height();
+					cart.toggleClass('th-cart--active');
 				};
 				$scope.setBodyHeight = function (footerHeight) {
-					var scrollArea = $('.th-cart__scroll-area');
-					var heightValue = 'calc(100% - ' + (footerHeight + $scope.getHeaderHeight() + $scope.getBrandHeight()) + 'px)';
-					scrollArea.css('height', heightValue);
-					scrollArea.css('margin-top', $scope.getHeaderHeight() + 'px');
+					var heightValue = 'calc(100% - ' + (footerHeight + cartHeader.height() + $('.th-cart__brand').height()) + 'px)';
+					cartBody.css('height', heightValue);
+					cartBody.css('margin-top', cartHeader.height() + 'px');
 				};
-
 				$scope.$watch(
 					function () {
-						return $scope.getFooterHeight();
+						return cartFooter.height();
 					},
 					function (newValue) {
 						$scope.setBodyHeight(newValue);
 					}
 				);
-
 			}
 		};
 	}]
