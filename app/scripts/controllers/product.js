@@ -168,7 +168,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.changeQty = function () {
-				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
+				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1 || $scope.cartItem.qty.indexOf('.') !== -1) {
 					$scope.cartItem.qty = 1;
 				}
 			};
