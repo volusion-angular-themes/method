@@ -39,9 +39,12 @@ angular.module('Volusion.controllers')
 						return cartFooter.height();
 					},
 					function (newValue) {
-						$scope.setBodyHeight(newValue);
+						$scope.setBodyHeight( newValue );
 					}
-				);
+				);	
+				$scope.$on('cartUpdated', function() {
+					$scope.setBodyHeight( cartFooter.height() );
+				});
 			}
 		};
 	}]

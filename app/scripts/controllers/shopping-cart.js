@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'notifications',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, notifications) {
 
 			'use strict';
 
@@ -40,6 +40,9 @@ angular.module('Volusion.controllers')
 					.then(function () {
 						$scope.cart = vnCart.getCart();
 
+						notifications.displayWarnings($scope.cart.warnings);
+						notifications.displayErrors($scope.cart.serviceErrors);
+
 						if ($scope.cart.warnings && $scope.cart.warnings.length > 0 ||
 							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
 							// scroll cart item to the top so this msg will be visible
@@ -50,7 +53,7 @@ angular.module('Volusion.controllers')
 							}
 						}
 						$scope.loading = false;
-						$scope.setBodyHeight( $scope.getFooterHeight() );
+						$scope.$emit('cartUpdated');
 					});
 			}
 
