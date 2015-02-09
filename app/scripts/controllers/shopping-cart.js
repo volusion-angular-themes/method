@@ -146,7 +146,7 @@ angular.module('Volusion.controllers')
 				}, 300);
 			};
 
-			$scope.toggleShowCoupon = function () {
+			$scope.toggleApplyBtn = function () {
 				$scope.coupon.show = !$scope.coupon.show;
 			};
 

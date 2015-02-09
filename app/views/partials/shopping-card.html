@@ -127,17 +127,16 @@
 		<div class="th-cart__footer">
 
 			<div class="th-cart__promo" data-ng-if="!cartEmpty">
-
-				<div class="th-cart__promo__addlabel" data-ng-show="!coupon.show">
-					<a href data-ng-click="toggleShowCoupon()" data-translate="shopping-card.lblAddCoupon">Add promo code</a>
-				</div>
-				<div class="th-cart__promo__add" data-ng-show="coupon.show">
-					<input class="form-control th-cart__promo__add--coupon"
+				<div class="th-cart__promo__add">
+					<input class="form-control th-cart__promo__add-coupon"
 						   data-ng-model="coupon.code"
+						   data-ng-focus="toggleApplyBtn()"
+						   data-ng-blur="toggleApplyBtn()"
 						   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
-					<button class="btn btn-primary th-cart__promo__add--button"
+					<button class="btn btn-primary th-cart__promo__add-button"
 							data-translate="shopping-card.btnApply"
-							data-ng-click="applyCoupon()">
+							data-ng-click="applyCoupon()"
+							data-ng-class="{'th-cart__promo__add-button--active': coupon.show == true}">
 						Add
 					</button>
 				</div>
