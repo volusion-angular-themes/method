@@ -150,7 +150,6 @@
 			font-size  : 14px;
 			outline    : none;
 			outline    : 0;
-
 			width      : 50%;
 			text-align : center;
 			display    : inline-block;
@@ -215,6 +214,7 @@
 			font-size : 15px;
 			position  : absolute;
 			left      : 10px;
+			cursor    : pointer;
 
 			&:before {
 				font-family : $font-family-glyphs;
@@ -273,17 +273,19 @@
 	}
 
 	&__promo{
-		padding : 10px;
+		padding : 0px 10px 0px 10px;
 
 		&__addlabel {
-			line-height : 30px;
+			line-height     : 30px;
+			padding         : 5px 0px;
 		}
 
 		&__add {
-			width : 100%;
+			width   : 100%;
+			padding : 5px 0px;
 
 			&--coupon {
-				width  : 70%;
+				width  : 75%;
 				height : 30px;
 				float  : left;
 			}
@@ -313,8 +315,9 @@
 			
 
 			&.-last {
-				border-bottom : none;
-				margin-bottom : 0;
+				border-bottom  : none;
+				margin-bottom  : 0;
+				padding-bottom : 0;
 			}
 
 			&--close {

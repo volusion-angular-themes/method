@@ -1,5 +1,5 @@
 <div data-vn-shopping-cart class="th-cart">
-	<a href="javascript:history.back()" class="th-cart__overlay"></a>
+	<a data-ng-click="exitCartState()" class="th-cart__overlay"></a>
 	<div class="th-cart__panel">
 		
 		<!-- Brand -->
@@ -19,7 +19,7 @@
 		
 		<!-- Cart Header -->
 		<div class="th-cart__header">
-			<a href="javascript:history.back()" class="th-cart__header-back"></a>
+			<a data-ng-click="exitCartState()" class="th-cart__header-back"></a>
 			<span class="th-cart__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
 		</div>
 		<!-- End Header -->
@@ -145,7 +145,7 @@
 				<div class="th-cart__coupons" data-ng-if="!couponsEmpty">
 
 					<div class="th-cart__coupons__coupon"
-						 data-ng-repeat="coupon in cart.discounts track by $index"
+						 data-ng-repeat="coupon in cart.discounts"
 						 data-ng-class="{'-last': $last}">
 
 						 <div class="th-cart__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">

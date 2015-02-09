@@ -29,10 +29,14 @@ angular.module('Volusion.controllers')
 					$rootScope.isCartOpen = false;
 					cart.toggleClass('th-cart--active');
 				};
+				$scope.exitCartState = function () {
+					history.back();
+				};
 				$scope.setBodyHeight = function (footerHeight) {
-					var heightValue = 'calc(100% - ' + (footerHeight + cartHeader.height() + $('.th-cart__brand').height()) + 'px)';
-					cartBody.css('height', heightValue);
-					cartBody.css('margin-top', cartHeader.height() + 'px');
+					cartBody.css({
+						'height': 'calc(100% - ' + (footerHeight + cartHeader.height() + $('.th-cart__brand').height()) + 'px)',
+						'margin-top': cartHeader.height() + 'px'
+					});
 				};
 				$scope.$watch(
 					function () {
