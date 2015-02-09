@@ -359,6 +359,7 @@
 				width      : 10%;
 				text-align : left;
 				display    : inline-block;
+				vertical-align: middle;
 
 				button {
 					border     : 1px solid $gray-lighter;
@@ -381,13 +382,13 @@
 			&--name {
 				width          : 60%;
 				display        : inline-block;
-				vertical-align : top;
+				vertical-align : middle;
 			}
 
 			&--value {
 				width          : 30%;
 				display        : inline-block;
-				vertical-align : top;
+				vertical-align : middle;
 				color          : green;
 				text-align     : right;
 				float          : right;
