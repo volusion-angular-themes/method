@@ -6,7 +6,7 @@
  */
 
 angular.module('Volusion.controllers')
-	.directive('vnShoppingCart', ['$rootScope', function ($rootScope) {
+	.directive('vnShoppingCart', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
 
 		'use strict';
 
@@ -18,12 +18,13 @@ angular.module('Volusion.controllers')
 				var cart = $('.th-cart'),
 				    cartHeader = $('.th-cart__header'),
 				    cartFooter = $('.th-cart__footer'),
-				    cartBody = $('.th-cart__body');
+				    cartBody = $('.th-cart__body'),
+				    cartBrand = $('.th-cart__brand');
 
 				$rootScope.openCart = function () {
 					$rootScope.isCartOpen = true;
 					cart.toggleClass('th-cart--active');
-					$scope.setBodyHeight( cartFooter.height() );
+					$scope.fixBodyHeight();
 				};
 				$rootScope.closeCart = function () {
 					$rootScope.isCartOpen = false;
@@ -32,22 +33,16 @@ angular.module('Volusion.controllers')
 				$scope.exitCartState = function () {
 					history.back();
 				};
-				$scope.setBodyHeight = function (footerHeight) {
-					cartBody.css({
-						'height': 'calc(100% - ' + (footerHeight + cartHeader.height() + $('.th-cart__brand').height()) + 'px)',
-						'margin-top': cartHeader.height() + 'px'
-					});
+				$scope.fixBodyHeight = function () {
+					$scope.updateCartTimeout = $timeout(function(){
+						cartBody.css({
+							'height': 'calc(100% - ' + (cartFooter.height() + cartHeader.height() + cartBrand.height()) + 'px)',
+							'margin-top': cartHeader.height() + 'px'
+						});
+					}, 0);
 				};
-				$scope.$watch(
-					function () {
-						return cartFooter.height();
-					},
-					function (newValue) {
-						$scope.setBodyHeight( newValue );
-					}
-				);	
 				$scope.$on('cartUpdated', function() {
-					$scope.setBodyHeight( cartFooter.height() );
+					$scope.fixBodyHeight();
 				});
 			}
 		};

@@ -156,6 +156,7 @@ angular.module('Volusion.controllers')
 				},
 				function () {
 					$scope.cart = vnCart.getCart();
+					$scope.$emit('cartUpdated');
 
 					if ($scope.cart !== undefined && $scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
