@@ -18,30 +18,33 @@ angular.module('Volusion.controllers')
 				var cart = $('.th-cart'),
 				    cartHeader = $('.th-cart__header'),
 				    cartFooter = $('.th-cart__footer'),
-				    cartBody = $('.th-cart__body'),
-				    cartBrand = $('.th-cart__brand');
+				    cartBody = $('.th-cart__body');
 
-				$rootScope.openCart = function () {
-					$rootScope.isCartOpen = true;
-					cart.toggleClass('th-cart--active');
-					$scope.fixBodyHeight();
-				};
-				$rootScope.closeCart = function () {
-					$rootScope.isCartOpen = false;
-					cart.toggleClass('th-cart--active');
-				};
 				$scope.exitCartState = function () {
 					history.back();
 				};
 				$scope.fixBodyHeight = function () {
-					$scope.updateCartTimeout = $timeout(function(){
+					$timeout(function(){
 						cartBody.css({
-							'height': 'calc(100% - ' + (cartFooter.height() + cartHeader.height() + cartBrand.height()) + 'px)',
-							'margin-top': cartHeader.height() + 'px'
+							'height': 'calc(100% - ' + (cartFooter.outerHeight() + cartHeader.outerHeight() + $('.th-cart__brand').outerHeight()) + 'px)',
+							'margin-top': cartHeader.outerHeight() + 'px'
 						});
 					}, 0);
 				};
+				
+				$rootScope.$on('enterCartState', function() {
+					cart.toggleClass('th-cart--active');
+				});
+				$rootScope.$on('exitCartState', function() {
+					cart.toggleClass('th-cart--active');
+				});
 				$scope.$on('cartUpdated', function() {
+					$scope.fixBodyHeight();
+				});
+				$rootScope.$on('enterNonDesktop', function() {
+					$scope.fixBodyHeight();
+				});
+				$rootScope.$on('exitNonDesktop', function() {
 					$scope.fixBodyHeight();
 				});
 			}
