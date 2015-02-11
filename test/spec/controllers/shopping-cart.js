@@ -42,16 +42,13 @@ describe('Controller: ShoppingCartCtrl', function () {
     it('should add coupon to cart', function() {
         $scope.coupon.code = '123';
         $scope.applyCoupon();
-        
         expect($scope.cart.discounts.length).toEqual(1);
     });
     it('should delete coupon from cart', function() {
         $scope.coupon.code = '123';
         $scope.applyCoupon();
         $scope.cart.discounts[0].id = 'DSC-5';
-
         $scope.deleteCoupon('DSC-5');
-        
         expect($scope.cart.discounts.length).toEqual(0);
     });
 });
