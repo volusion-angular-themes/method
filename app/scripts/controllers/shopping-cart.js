@@ -142,8 +142,8 @@ angular.module('Volusion.controllers')
 				item.qty = amount;
 				$timeout.cancel($scope.updateCartTimeout);
 				$scope.updateCartTimeout = $timeout(function(){
-					updateCart(false);
-				}, 300);
+					updateCart(true);
+				}, 500);
 			};
 
 			$scope.toggleApplyBtn = function () {
