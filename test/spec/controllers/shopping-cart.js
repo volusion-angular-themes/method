@@ -21,47 +21,35 @@ describe('Controller: ShoppingCartCtrl', function () {
         vnCart = _vnCart_;
         vnCart.init();
 
+        mockCart = {
+            discounts: [],
+            warnings: {},
+            serviceErrors: {}
+        };
+
         spyOn(vnCart, 'updateCart').and.returnValue({
             then: function(cb) {
                 cb();
             }
         });
+        spyOn(vnCart, 'getCart').and.returnValue(mockCart);
+        $scope.cart = vnCart.getCart();
     }));
 
     it('should exist', function() {
         expect(ShoppingCartCtrl).toBeDefined();
     });
     it('should add coupon to cart', function() {
-        mockCart = {
-            discounts: [],
-            warnings: {},
-            serviceErrors: {}
-        };
-        spyOn(vnCart, 'getCart').and.returnValue(mockCart);
-
-        $scope.cart = vnCart.getCart();
-        $scope.coupon.code = 'DSC-3';
+        $scope.coupon.code = '123';
         $scope.applyCoupon();
         
         expect($scope.cart.discounts.length).toEqual(1);
     });
     it('should delete coupon from cart', function() {
-        mockCart = {
-            discounts: [
-                {
-                    couponCode: "123",
-                    discountType: 3,
-                    id: "DSC-5",
-                    name: "August Promotion - $10 off coupon ",
-                    value: -10
-                }
-            ],
-            warnings: {},
-            serviceErrors: {}
-        };
-        spyOn(vnCart, 'getCart').and.returnValue(mockCart);
+        $scope.coupon.code = '123';
+        $scope.applyCoupon();
+        $scope.cart.discounts[0].id = 'DSC-5';
 
-        $scope.cart = vnCart.getCart();
         $scope.deleteCoupon('DSC-5');
         
         expect($scope.cart.discounts.length).toEqual(0);
