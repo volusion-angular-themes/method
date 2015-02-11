@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart',
-		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart) {
+	.controller('ShoppingCartCtrl', ['$rootScope', '$scope', '$timeout', '$filter', '$window', 'translate', 'vnCart', 'notifications',
+		function ($rootScope, $scope, $timeout, $filter, $window, translate, vnCart, notifications) {
 
 			'use strict';
 
@@ -30,13 +30,18 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
-			function updateCart(callback) {
+			function updateCart(showSpinner, callback) {
 
-				$scope.loading = true;
+				if(showSpinner === true){
+					$scope.loading = true;
+				}
 
 				vnCart.updateCart()
 					.then(function () {
 						$scope.cart = vnCart.getCart();
+
+						notifications.displayWarnings($scope.cart.warnings);
+						notifications.displayErrors($scope.cart.serviceErrors);
 
 						if ($scope.cart.warnings && $scope.cart.warnings.length > 0 ||
 							$scope.cart.serviceErrors && $scope.cart.serviceErrors.length > 0) {
@@ -48,6 +53,7 @@ angular.module('Volusion.controllers')
 							}
 						}
 						$scope.loading = false;
+						$scope.$emit('cartUpdated');
 					});
 			}
 
@@ -78,26 +84,27 @@ angular.module('Volusion.controllers')
 				});
 
 				if (needUpdate) {
-					updateCart();
+					updateCart(true);
 				}
 			};
 
 			$scope.addGiftWrap = function () {
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.addGiftMsg = function () {
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.applyCoupon = function () {
+
 				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
 					return coupon.couponCode !== $scope.coupon.code;
 				});
 
 				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				updateCart(function () {
+				updateCart(true, function () {
 					if ($scope.cart.serviceErrors.length === 0) {
 						$scope.coupon.show = false;
 						$scope.coupon.code = '';
@@ -112,7 +119,7 @@ angular.module('Volusion.controllers')
 
 				$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.deleteItem = function (id) {
@@ -120,7 +127,7 @@ angular.module('Volusion.controllers')
 					return item.id !== id;
 				});
 
-				updateCart();
+				updateCart(true);
 			};
 
 			$scope.getArray = function(num) {
@@ -131,22 +138,16 @@ angular.module('Volusion.controllers')
 				return vnCart.getCartItemsCount();
 			};
 
-			$scope.onOptionChanged = function (item, choice) {
-
-				item.qty = choice;
-
-				updateCart();
+			$scope.changeQty = function (item, amount) {
+				item.qty = amount;
+				$timeout.cancel($scope.updateCartTimeout);
+				$scope.updateCartTimeout = $timeout(function(){
+					updateCart(false);
+				}, 300);
 			};
 
-			$scope.toggleShowCoupon = function () {
+			$scope.toggleApplyBtn = function () {
 				$scope.coupon.show = !$scope.coupon.show;
-			};
-
-			$rootScope.openCart = function () {
-				$rootScope.isCartOpen = true;
-			};
-			$rootScope.closeCart = function () {
-				$rootScope.isCartOpen = false;
 			};
 
 			$scope.$watch(
@@ -155,6 +156,7 @@ angular.module('Volusion.controllers')
 				},
 				function () {
 					$scope.cart = vnCart.getCart();
+					$scope.$emit('cartUpdated');
 
 					if ($scope.cart !== undefined && $scope.cart.totals !== undefined) {
 						// "$scope.cart.totals.discounts" format is "-amount" ... hence the addition
@@ -177,6 +179,8 @@ angular.module('Volusion.controllers')
 							}
 						}
 					}
-				}
+				},
+				true
 			);
+			
 		}]);
