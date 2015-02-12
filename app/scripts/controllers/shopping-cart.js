@@ -30,6 +30,10 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
+			$rootScope.exitCartState = function () {
+				history.back();
+			};
+
 			function updateCart(showSpinner, callback) {
 
 				if(showSpinner === true){
@@ -56,6 +60,26 @@ angular.module('Volusion.controllers')
 						$scope.$emit('cartUpdated');
 					});
 			}
+
+			$scope.getCartItemsCount = function () {
+				return vnCart.getCartItemsCount();
+			};
+
+			$scope.deleteItem = function (id) {
+				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
+					return item.id !== id;
+				});
+
+				updateCart(true);
+			};
+
+			$scope.changeQty = function (item, amount) {
+				item.qty = amount;
+				$timeout.cancel($scope.updateCartTimeout);
+				$scope.updateCartTimeout = $timeout(function(){
+					updateCart(true);
+				}, 500);
+			};
 
 			$scope.resetGiftOptions = function () {
 
@@ -122,32 +146,12 @@ angular.module('Volusion.controllers')
 				updateCart(true);
 			};
 
-			$scope.deleteItem = function (id) {
-				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
-					return item.id !== id;
-				});
-
-				updateCart(true);
+			$scope.toggleApplyBtn = function () {
+				$scope.coupon.show = !$scope.coupon.show;
 			};
 
 			$scope.getArray = function(num) {
 				return new Array(num);
-			};
-
-			$scope.getCartItemsCount = function () {
-				return vnCart.getCartItemsCount();
-			};
-
-			$scope.changeQty = function (item, amount) {
-				item.qty = amount;
-				$timeout.cancel($scope.updateCartTimeout);
-				$scope.updateCartTimeout = $timeout(function(){
-					updateCart(true);
-				}, 500);
-			};
-
-			$scope.toggleApplyBtn = function () {
-				$scope.coupon.show = !$scope.coupon.show;
 			};
 
 			$scope.$watch(
