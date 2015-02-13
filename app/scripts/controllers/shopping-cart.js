@@ -74,19 +74,11 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.changeQty = function (item, amount) {
-
-				$timeout.cancel($scope.updateCartTimeout);
-
-				if($scope.isValidQty(amount)){
-					item.qty = amount;
-					$scope.updateCartTimeout = $timeout(function(){
-						updateCart(false);
-					}, 500);
-				}
-				else{
-					item.qty = 1;
+				item.qty = $scope.isValidQty(amount) ? amount : 1;
+				$timeout.cancel($scope.debounceUpdateCart);
+				$scope.debounceUpdateCart = $timeout(function(){
 					updateCart(false);
-				}
+				}, 500);
 			};
 
 			$scope.isValidQty = function (amount) {
