@@ -1,8 +1,8 @@
 /**
  * @ngdoc function
- * @name methodApp.controller:HeaderCtrl
+ * @name methodApp.controller:ShoppingCartCtrl
  * @description
- * # HeaderCtrl
+ * # ShoppingCartCtrl
  * Controller of the methodApp
  */
 
@@ -74,11 +74,23 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.changeQty = function (item, amount) {
-				item.qty = amount;
+
 				$timeout.cancel($scope.updateCartTimeout);
-				$scope.updateCartTimeout = $timeout(function(){
-					updateCart(true);
-				}, 500);
+
+				if($scope.isValidQty(amount)){
+					item.qty = amount;
+					$scope.updateCartTimeout = $timeout(function(){
+						updateCart(false);
+					}, 500);
+				}
+				else{
+					item.qty = 1;
+					updateCart(false);
+				}
+			};
+
+			$scope.isValidQty = function (amount) {
+				return (isNaN(amount) === false && amount.toString().indexOf('.') === -1 && amount <= 9999999 && amount !== '') ? true : false;
 			};
 
 			$scope.resetGiftOptions = function () {
