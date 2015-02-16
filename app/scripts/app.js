@@ -148,10 +148,10 @@ angular.module('methodApp', [
 				return {
 					url: '/cart',
 					onEnter: ['$rootScope', function($rootScope) {
-						$rootScope.openCart();
+						$rootScope.$emit('enterCartState');
 				    }],
 				    onExit: ['$rootScope', function($rootScope) {
-						$rootScope.closeCart();
+				    	$rootScope.$emit('exitCartState');
 				    }]
 				};
 			}
@@ -186,10 +186,12 @@ angular.module('methodApp', [
 			mediaQuery: 'screen and (max-width: 991px)',
 			onMatch   : function () {
 				$rootScope.isInDesktopMode = false;
+				$rootScope.$emit('enterNonDesktop');
 			},
 			onUnmatch : function () {
 				snapRemote.close();
 				$rootScope.isInDesktopMode = true;
+				$rootScope.$emit('exitNonDesktop');
 			}
 		}]);
 
