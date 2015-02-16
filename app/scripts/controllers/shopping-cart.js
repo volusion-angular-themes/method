@@ -31,7 +31,7 @@ angular.module('Volusion.controllers')
 				$scope.loading = showSpinner ? true : false;
 				vnCart.updateCart()
 					.then(function () {
-						if (callback !== undefined) {
+						if (callback !== undefined && typeof callback === 'function') {
 							callback();
 						}
 					});
