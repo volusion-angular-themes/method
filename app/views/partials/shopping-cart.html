@@ -122,17 +122,17 @@
 		</div>
 		<!-- End Body/ScrollArea -->
 		
-
 		<!-- Footer -->
 		<div class="th-cart__footer">
 
 			<div class="th-cart__promo" data-ng-if="!cartEmpty">
 				<div class="th-cart__promo__add">
-					<input class="form-control th-cart__promo__add-coupon"
-						   data-ng-model="coupon.code"
-						   data-ng-focus="toggleApplyBtn()"
-						   data-ng-blur="toggleApplyBtn()"
-						   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
+				<input class="form-control th-cart__promo__add-coupon"
+					maxlength="25" 
+					data-ng-model="coupon.code"
+					data-ng-focus="toggleApplyBtn()"
+					data-ng-blur="toggleApplyBtn()"
+					placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
 					<button class="btn btn-primary th-cart__promo__add-button"
 							data-translate="shopping-card.btnApply"
 							data-ng-click="applyCoupon()"
