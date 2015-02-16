@@ -340,6 +340,8 @@
 
 	&__coupons {
 		border-top : 1px solid $hr-border;
+		max-height: 130px;
+		overflow-y: scroll;
 
 		&--label {
 			text-transform : uppercase;
