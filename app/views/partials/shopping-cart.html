@@ -122,17 +122,18 @@
 		</div>
 		<!-- End Body/ScrollArea -->
 		
-
 		<!-- Footer -->
 		<div class="th-cart__footer">
 
 			<div class="th-cart__promo" data-ng-if="!cartEmpty">
 				<div class="th-cart__promo__add">
-					<input class="form-control th-cart__promo__add-coupon"
-						   data-ng-model="coupon.code"
-						   data-ng-focus="toggleApplyBtn()"
-						   data-ng-blur="toggleApplyBtn()"
-						   placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
+				<input class="form-control th-cart__promo__add-coupon"
+					maxlength="25" 
+					data-ng-model="coupon.code"
+					data-ng-focus="toggleApplyBtn()"
+					data-ng-blur="toggleApplyBtn()"
+					data-ng-keypress="promoInputKeypress($event)"
+					placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
 					<button class="btn btn-primary th-cart__promo__add-button"
 							data-translate="shopping-card.btnApply"
 							data-ng-click="applyCoupon()"
@@ -141,22 +142,26 @@
 					</button>
 				</div>
 
-				<div class="th-cart__coupons" data-ng-if="!couponsEmpty">
+				<div class="th-cart__coupon-wrap" data-ng-if="!couponsEmpty">
 
-					<div class="th-cart__coupons__coupon"
-						 data-ng-repeat="coupon in cart.discounts"
-						 data-ng-class="{'-last': $last}">
+					<div class="th-cart__coupon"
+						data-ng-repeat="coupon in cart.discounts | reverse:orderBy:'couponCode'"
+						data-ng-class="{'-last': $last}">
 
-						 <div class="th-cart__coupons__coupon--close" data-ng-if="coupon.couponCode !== ''">
-							<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
+						<div class="th-cart__coupon--left">
+							<div class="th-cart__coupon-close" data-ng-if="coupon.couponCode !== ''">
+								<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
+							</div>
+
+							<div class="th-cart__coupon-name">
+								<span>{{ coupon.name }}</span>
+							</div>
 						</div>
 
-						<div class="th-cart__coupons__coupon--name">
-							<span>{{ coupon.name }}</span>
-						</div>
-
-						<div class="th-cart__coupons__coupon--value">
-							<span>{{ coupon.value | vnCurrency }}</span>
+						<div class="th-cart__coupon--right">
+							<div class="th-cart__coupon-value">
+								<span>{{ coupon.value | vnCurrency }}</span>
+							</div>
 						</div>
 					</div>
 

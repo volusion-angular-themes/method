@@ -2,9 +2,14 @@
 	background-color: $body-bg; //required to set a background color, otherwise the snap menu will show through content pages
 }
 
+.snapjs-left .th-mobile-menu{
+	visibility: visible;
+}
+
 .th-mobile-menu {
 	background-color : $body-bg;
 	border-right     : 1px solid $hr-border;
+	visibility       : hidden;
 
 	&__list {
 		padding : 20px 15px 0;

@@ -28,6 +28,12 @@ angular.module('Volusion.controllers')
 						});
 					}, 0);
 				};
+				$scope.promoInputKeypress = function (event) {
+					if(event.which === 13){
+						event.currentTarget.blur();
+						$scope.applyCoupon();
+					}
+				};
 				
 				$rootScope.$on('enterCartState', function() {
 					cart.toggleClass('th-cart--active');

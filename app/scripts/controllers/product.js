@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$stateParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct', 'snapRemote', 'notifications',
-		function ($rootScope, $scope, vnApi, $location, $stateParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct, snapRemote, notifications) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$stateParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct',
+		function ($rootScope, $scope, vnApi, $location, $stateParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct) {
 
 			'use strict';
 
@@ -140,22 +140,8 @@ angular.module('Volusion.controllers')
 
 				vnCart.saveCart($scope.cartItem)
 					.then(function () {
-
-						var cart = vnCart.getCart();
-
 						$rootScope.gotoSoftAdd();
-
 						$scope.cartItem.qty = 0;
-
-						notifications.displayWarnings(cart.warnings); // if any
-						notifications.displayErrors(cart.serviceErrors);
-
-						if (cart.warnings && cart.warnings.length > 0 ||
-							cart.serviceErrors && cart.serviceErrors.length > 0) {
-							// scroll cart item to the top so this msg will be visible
-							$rootScope.$emit('vnScroll.cart');
-						}
-
 					})
 					.finally(function () {
 						modifyQuantity(1);
