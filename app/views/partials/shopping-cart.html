@@ -132,6 +132,7 @@
 					data-ng-model="coupon.code"
 					data-ng-focus="toggleApplyBtn()"
 					data-ng-blur="toggleApplyBtn()"
+					data-ng-keypress="promoInputKeypress($event)"
 					placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
 					<button class="btn btn-primary th-cart__promo__add-button"
 							data-translate="shopping-card.btnApply"
