@@ -144,7 +144,7 @@
 				<div class="th-cart__coupon-wrap" data-ng-if="!couponsEmpty">
 
 					<div class="th-cart__coupon"
-						data-ng-repeat="coupon in cart.discounts"
+						data-ng-repeat="coupon in cart.discounts | orderBy:'couponCode'"
 						data-ng-class="{'-last': $last}">
 
 						<div class="th-cart__coupon--left">
