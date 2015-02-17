@@ -5,6 +5,7 @@ $border-dark: #adadad;
 
 	@include respond-to(sm-and-up) {
 		padding-right : 0;
+		padding-left  : 0;
 	}
 }
 
