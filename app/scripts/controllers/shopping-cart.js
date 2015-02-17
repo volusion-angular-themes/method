@@ -131,7 +131,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.toggleApplyBtn = function () {
-				$scope.coupon.show = !$scope.coupon.show;
+				$scope.coupon.showApply = !$scope.coupon.showApply;
 			};
 
 			$rootScope.$on('cartUpdated', function(){
