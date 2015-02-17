@@ -1,8 +1,8 @@
 /**
  * @ngdoc function
- * @name methodApp.controller:HeaderCtrl
+ * @name methodApp.controller:ShoppingCartCtrl
  * @description
- * # HeaderCtrl
+ * # ShoppingCartCtrl
  * Controller of the methodApp
  */
 
@@ -27,6 +27,10 @@ angular.module('Volusion.controllers')
 
 			translate.addParts('shopping-card');
 
+			$rootScope.exitCartState = function () {
+				history.back();
+			};
+
 			function updateCart(showSpinner, callback) {
 				$scope.loading = showSpinner ? true : false;
 				vnCart.updateCart()
@@ -36,6 +40,30 @@ angular.module('Volusion.controllers')
 						}
 					});
 			}
+
+			$scope.getCartItemsCount = function () {
+				return vnCart.getCartItemsCount();
+			};
+
+			$scope.deleteItem = function (id) {
+				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
+					return item.id !== id;
+				});
+
+				updateCart(true);
+			};
+
+			$scope.changeQty = function (item, amount) {
+				item.qty = $scope.isValidQty(amount) ? amount : 1;
+				$timeout.cancel($scope.debounceUpdateCart);
+				$scope.debounceUpdateCart = $timeout(function(){
+					updateCart(false);
+				}, 500);
+			};
+
+			$scope.isValidQty = function (amount) {
+				return (isNaN(amount) === false && amount.toString().indexOf('.') === -1 && amount <= 9999999 && amount !== '') ? true : false;
+			};
 
 			$scope.resetGiftOptions = function () {
 
@@ -102,28 +130,8 @@ angular.module('Volusion.controllers')
 				updateCart(true);
 			};
 
-			$scope.deleteItem = function (id) {
-				$scope.cart.items = $filter('filter')($scope.cart.items, function (item) {
-					return item.id !== id;
-				});
-
-				updateCart(true);
-			};
-
-			$scope.getCartItemsCount = function () {
-				return vnCart.getCartItemsCount();
-			};
-
-			$scope.changeQty = function (item, amount) {
-				item.qty = amount;
-				$timeout.cancel($scope.updateCartTimeout);
-				$scope.updateCartTimeout = $timeout(function(){
-					updateCart(false);
-				}, 300);
-			};
-
 			$scope.toggleApplyBtn = function () {
-				$scope.coupon.showApply = !$scope.coupon.showApply;
+				$scope.coupon.show = !$scope.coupon.show;
 			};
 
 			$rootScope.$on('cartUpdated', function(){

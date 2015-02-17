@@ -42,7 +42,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$rootScope.openLeftNav = function(){
-				history.back();
+				$rootScope.exitCartState();
 				snapRemote.getSnapper().then(function(snapper) {
 					snapper.open('left');
 				});

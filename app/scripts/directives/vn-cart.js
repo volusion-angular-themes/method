@@ -20,9 +20,6 @@ angular.module('Volusion.controllers')
 				    cartFooter = $('.th-cart__footer'),
 				    cartBody = $('.th-cart__body');
 
-				$scope.exitCartState = function () {
-					history.back();
-				};
 				$scope.fixBodyHeight = function () {
 					$timeout(function(){
 						cartBody.css({
