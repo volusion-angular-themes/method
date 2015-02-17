@@ -334,67 +334,76 @@
 		}
 	}
 
-	&__coupons {
+	&__coupon-wrap {
 		border-top : 1px solid $hr-border;
-		max-height: 130px;
-		overflow-y: scroll;
+		max-height : 100px;
+		overflow-y : auto;
+	}
 
-		&--label {
-			text-transform : uppercase;
-			margin         : 15px 0;
+	&__coupon {
+		position       : relative;
+		border-bottom  : 1px solid $gray-lighter;
+		padding        : 10px 10px;
+		
+		&--left{
+			width          : 73%;
+			display        : inline-block;
+			vertical-align : middle;
+		}
+		&--right{
+			width          : 27%;
+			display        : inline-block;
+			vertical-align : middle;
 		}
 
-		&__coupon {
+		&.-last {
+			border-bottom  : none;
+			margin-bottom  : 0;
+			padding-bottom : 0;
+		}
 
-			position       : relative;
-			border-bottom  : 1px solid $gray-lighter;
-			padding        : 10px 10px;
-			
+		&-close {
+			width          : 25px;
+			margin-right   : 5px;
+			text-align     : left;
+			display        : inline-block;
+			vertical-align : middle;
 
-			&.-last {
-				border-bottom  : none;
-				margin-bottom  : 0;
-				padding-bottom : 0;
-			}
+			button {
+				border     : 1px solid $gray-lighter;
+				background : none;
+				padding    : 2px;
+				height     : 22px;
+				width      : 22px;
+				outline    : none;
+				outline    : 0;
 
-			&--close {
-				width      : 10%;
-				text-align : left;
-				display    : inline-block;
-				vertical-align: middle;
-
-				button {
-					border     : 1px solid $gray-lighter;
-					background : none;
-					padding    : 2px;
-					height     : 22px;
-					width      : 22px;
-					outline    : none;
-					outline    : 0;
-
-					span {
-						&:before {
-							font-family : $font-family-glyphs;
-							content     : "\e014";
-						}
+				span {
+					&:before {
+						font-family : $font-family-glyphs;
+						content     : "\e014";
 					}
 				}
 			}
 
-			&--name {
-				width          : 60%;
-				display        : inline-block;
-				vertical-align : middle;
+			~ .th-cart__coupon-name{
+				width : 82%;
 			}
+		}
 
-			&--value {
-				width          : 30%;
-				display        : inline-block;
-				vertical-align : middle;
-				color          : green;
-				text-align     : right;
-				float          : right;
-			}
+		&-name {
+			width          : 100%;
+			display        : inline-block;
+			vertical-align : middle;
+			line-height    : 1.2em;
+		}
+
+		&-value {
+			display        : inline-block;
+			vertical-align : middle;
+			color          : green;
+			text-align     : right;
+			float          : right;
 		}
 	}
 
