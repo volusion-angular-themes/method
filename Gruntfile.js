@@ -543,6 +543,15 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.registerTask('get_toolbox_dependencies', 'Add VN Toolbox Dependencies to bower.json', function () {
+		var fs = require('fs');
+		var _ = require('lodash');
+		var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
+		var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
+		_.extend(origBower.dependencies,  vnBower.dependencies);
+		fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');		
+	});
+
 	grunt.registerTask('configure', function(target) {
 
 		// Add additional targets according to environment variables
@@ -598,6 +607,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', function(target) {
 		grunt.task.run([
+			'get_toolbox_dependencies',
 			'clean:dist',
 			'clean:configure',
 			'newer:jshint:all',
