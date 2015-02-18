@@ -71,9 +71,9 @@ angular.module('Volusion.controllers')
 				};
 
 				//Fix for keyboard on mobile devices
-				cartBody.on('focus', 'input[type="text"], textarea', function(){
+				cartBody.on('focus', 'input.form-control, textarea', function(){
 					$scope.toggleKeyboardFix();
-				}).on('blur', 'input[type="text"], textarea', function(){
+				}).on('blur', 'input.form-control, textarea', function(){
 					$scope.toggleKeyboardFix();
 				});
 				

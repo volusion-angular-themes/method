@@ -115,11 +115,12 @@
 	}
 
 	&__brand {
-
-		padding       : 3px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 46px;
-		position      : relative;
+		padding          : 3px 10px;
+		border-bottom    : 1px solid $hr-border;
+		height           : 46px;
+		position         : relative;
+		z-index          : 3;
+		background-color : white;
 
 		&--image {
 			display : block;
