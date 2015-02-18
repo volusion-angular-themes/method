@@ -113,9 +113,10 @@ angular.module('Volusion.controllers')
 				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
 				updateCart(true, function () {
-					if ($scope.cart.serviceErrors.length === 0) {
-						$scope.coupon.showApply = false;
-						$scope.coupon.code = '';
+					$scope.coupon.showApply = false;
+					$scope.coupon.code = '';
+					if ($scope.cart.serviceErrors.length === 0 && $scope.cart.warnings.length === 0) {
+						$scope.togglePromoList(true);
 					}
 				});
 			};
@@ -128,10 +129,6 @@ angular.module('Volusion.controllers')
 				$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 
 				updateCart(true);
-			};
-
-			$scope.toggleApplyBtn = function () {
-				$scope.coupon.showApply = !$scope.coupon.showApply;
 			};
 
 			$rootScope.$on('cartUpdated', function(){
@@ -159,8 +156,6 @@ angular.module('Volusion.controllers')
 						for (var i = 0; i < $scope.cart.items.length; i++) {
 							if ($scope.cart.items[i].giftWrap.selected) {
 								$scope.showGiftOption = true;
-
-								return;
 							}
 						}
 					}
