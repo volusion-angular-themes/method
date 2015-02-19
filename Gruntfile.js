@@ -600,6 +600,7 @@ module.exports = function(grunt) {
 			'newer:jshint:all',
 			'compass:server',
 			'autoprefixer',
+			'configure',
 			'connect:test',
 			'karma'
 		]);
