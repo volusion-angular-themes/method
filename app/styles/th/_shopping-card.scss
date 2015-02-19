@@ -568,7 +568,7 @@
 			&--qty {
 				display        : inline-block;
 				vertical-align : middle;
-				width          : 75%;
+				width          : 50%;
 
 				.th-qty-counter{
 					width : 90px;
@@ -597,7 +597,7 @@
 				font-family    : $font-family-condensed-reg;
 				display        : inline-block;
 				vertical-align : middle;
-				width          : 25%;
+				width          : 50%;
 				text-align     : right;
 			}
 		}

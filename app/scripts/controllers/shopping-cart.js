@@ -53,16 +53,36 @@ angular.module('Volusion.controllers')
 				updateCart(true);
 			};
 
-			$scope.changeQty = function (item, amount) {
-				item.qty = $scope.isValidQty(amount) ? amount : 1;
+			$scope.changeQty = function (item, amount, timeout) {
+				item.qty = amount;
+				$scope.preValidateQty(item);
+				$scope.postValidateQty(item);
 				$timeout.cancel($scope.debounceUpdateCart);
-				$scope.debounceUpdateCart = $timeout(function(){
+
+				if(timeout === undefined){
 					updateCart(false);
-				}, 500);
+				}
+				else{
+					$scope.debounceUpdateCart = $timeout(function(){
+						updateCart(false);
+					}, timeout);
+				}
 			};
 
-			$scope.isValidQty = function (amount) {
-				return (isNaN(amount) === false && amount.toString().indexOf('.') === -1 && amount <= 9999999 && amount !== '') ? true : false;
+			$scope.preValidateQty = function (item) {
+				var maxQty = 9999999;
+				if(parseInt(item.qty) > maxQty){
+					item.qty = maxQty;
+				}
+				else{
+					item.qty = parseInt(item.qty);
+				}
+			};
+
+			$scope.postValidateQty = function (item) {
+				if(parseInt(item.qty) === 0 || isNaN(item.qty)){
+					item.qty = 1;
+				}
 			};
 
 			$scope.resetGiftOptions = function () {

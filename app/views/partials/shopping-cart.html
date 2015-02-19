@@ -75,7 +75,7 @@
 							<div data-vn-block="th-qty-counter" class="input-group">
 								<span class="input-group-btn">
 									<button data-vn-element="btn" class="btn btn-default"
-									        data-ng-click="changeQty(item, item.qty - 1)"
+									        data-ng-click="changeQty(item, item.qty - 1, 500)"
 									        data-ng-disabled="item.qty <= 1">
 										<span class="glyphicon glyphicon-minus"></span>
 									</button>
@@ -83,11 +83,12 @@
 								<input data-vn-element="input"
 								       class="form-control"
 								       data-ng-model="item.qty"
-								       data-ng-change="changeQty(item, item.qty)">
+								       data-ng-blur="changeQty(item, item.qty)"
+								       data-ng-change="preValidateQty(item, item.qty)">
 								<span class="input-group-btn">
 									<button data-vn-element="btn"
 									        class="btn btn-default"
-									        data-ng-click="changeQty(item, item.qty + 1)">
+									        data-ng-click="changeQty(item, item.qty + 1, 500)">
 										<span class="glyphicon glyphicon-plus"></span>
 									</button>
 								</span>
