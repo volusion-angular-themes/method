@@ -105,20 +105,21 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.applyCoupon = function () {
+				if($scope.coupon.code.length > 0){
+					$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
+						return coupon.couponCode !== $scope.coupon.code;
+					});
 
-				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
-					return coupon.couponCode !== $scope.coupon.code;
-				});
+					$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
-
-				updateCart(true, function () {
-					$scope.coupon.showApply = false;
-					$scope.coupon.code = '';
-					if ($scope.cart.serviceErrors.length === 0 && $scope.cart.warnings.length === 0) {
-						$scope.togglePromoList(true);
-					}
-				});
+					updateCart(true, function () {
+						$scope.coupon.showApply = false;
+						$scope.coupon.code = '';
+						if ($scope.cart.serviceErrors.length === 0 && $scope.cart.warnings.length === 0) {
+							$scope.togglePromoList(true);
+						}
+					});
+				}
 			};
 
 			$scope.deleteCoupon = function (id) {

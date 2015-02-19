@@ -389,13 +389,14 @@
 	&__promo-list {
 		border     : 0px;
 		max-height : 0px;
-		overflow-y : auto;
 		width      : 100%;
+		overflow-y : hidden;
 		@include transition(max-height .3s);
 
 		&--active{
 			max-height : 100px;
 			border-top : 1px solid $hr-border;
+			overflow-y : auto;
 			@include box-shadow(inset rgba(0,0,0,0.08) 0px 1px 3px 0px);
 		}
 	}

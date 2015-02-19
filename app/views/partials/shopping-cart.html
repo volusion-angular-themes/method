@@ -148,13 +148,15 @@
 					data-ng-class="{'th-cart__promo-summary--active': showPromoList == true}">
 					<span class="th-cart__promo-summary__arrow"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
 					<span class="th-cart__promo-summary__count">
-						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length}}</span>&nbsp;promos applied
+						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length}}</span>&nbsp;promo<span data-ng-if="cart.discounts.length > 1">s</span> applied
 					</span>
 					<span class="th-cart__promo-summary__total">{{ cart.totals.discounts | vnCurrency }}</span>
 
 				</div>
 
-				<div class="th-cart__promo-list" data-ng-class="{'th-cart__promo-list--active': showPromoList == true}">
+				<div class="th-cart__promo-list"
+					data-ng-class="{'th-cart__promo-list--active': showPromoList == true}"
+					data-ng-if="!couponsEmpty">
 
 					<div class="th-cart__promo"
 						data-ng-repeat="coupon in cart.discounts | reverse:orderBy:'couponCode'"
