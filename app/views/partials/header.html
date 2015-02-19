@@ -62,7 +62,7 @@
 						<div class="th-my-cart">
 							<a href class="th-my-cart__link" data-ng-click="gotoSoftAdd()"><!--snap-toggle="right"-->
 								<span class="th-my-cart__text" data-translate="header.myCart">My Bag</span>
-								<span class="th-my-cart__number">{{ getCartItemsCount() }}</span>
+								<span class="th-my-cart__number">{{ getCartItemsCount() | number}}</span>
 							</a>
 						</div>
 					</div>

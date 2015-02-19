@@ -82,9 +82,10 @@
 								</span>
 								<input data-vn-element="input"
 								       class="form-control"
+								       data-vn-format-number
 								       data-ng-model="item.qty"
 								       data-ng-blur="changeQty(item, item.qty)"
-								       data-ng-change="preValidateQty(item, item.qty)">
+								       data-ng-change="preValidateQty(item)">
 								<span class="input-group-btn">
 									<button data-vn-element="btn"
 									        class="btn btn-default"
