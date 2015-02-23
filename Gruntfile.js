@@ -29,52 +29,26 @@ module.exports = function(grunt) {
 		// Project settings
 		yeoman: appConfig,
 
-		// Environment variables
-		ngconstant: {
-			// Options for all targets
+		ngconstant:{
 			options: {
 				space: '  ',
 				wrap: '\'use strict\';\n\n {%= __ngModule %}',
 				name: 'config'
+
 			},
-			// Environment targets
-			// see "BUILD" task to add additional targets
-			samplestore: {
-				options: {
+			build:{
+				options:{
 					dest: '<%= yeoman.app %>/scripts/config.js'
 				},
 				constants: {
-					ENV: {
-						name: 'samplestore',
-						host: 'http://www.samplestore.io',
-						apiEndpoint: '/api/v1'
-					}
-				}
-			},
-			mybox: {
-				options: {
-					dest: '<%= yeoman.app %>/scripts/config.js'
-				},
-				constants: {
-					ENV: {
-						name: 'mybox',
-						host: 'http://txlpt374-vm.corp.volusion.com',
-						apiEndpoint: '/api/v1'
-					}
-				}
-			},
-			production: {
-				options: {
-					dest: '<%= yeoman.app %>/scripts/config.js'
-				},
-				constants: {
-					ENV: {
-						name: 'production',
-						host: '',
-						apiEndpoint: '/api/v1'
+          ENV: {
+          	name: '<%= ENVConstant.name %>',
+          	host: '<%= ENVConstant.host %>',
+          	apiEndpoint: '<%= ENVConstant.apiEndpoint %>'
 					}
 				}
 			}
+
 		},
 
 		// Watches files for changes and runs tasks based on the changed files
@@ -288,38 +262,6 @@ module.exports = function(grunt) {
 							css: '<link rel="stylesheet" href="/{{filePath}}" />'
 						}
 					}
-				}
-			}
-		},
-
-		// Compiles Sass to CSS and generates necessary files if requested
-		compass: {
-			options: {
-				sassDir: '<%= yeoman.app %>/styles',
-				cssDir: '.tmp/styles',
-				generatedImagesDir: '.tmp/images/generated',
-				imagesDir: '<%= yeoman.app %>/images',
-				javascriptsDir: '<%= yeoman.app %>/scripts',
-				fontsDir: '<%= yeoman.app %>/fonts',
-				importPath: [
-					'bower_components/'
-				],
-				httpImagesPath: '/images',
-				httpGeneratedImagesPath: '/images/generated',
-				httpFontsPath: '/fonts',
-				relativeAssets: false,
-				assetCacheBuster: false,
-				raw: 'Sass::Script::Number.precision = 10\n'
-			},
-			dist: {
-				options: {
-					generatedImagesDir: '<%= yeoman.dist %>/images/generated',
-					outputStyle: 'compressed'
-				}
-			},
-			server: {
-				options: {
-					debugInfo: true
 				}
 			}
 		},
@@ -540,9 +482,167 @@ module.exports = function(grunt) {
 				configFile: 'test/karma.conf.mocha.js',
 				singleRun: true
 			}
+		},
+
+		sass:{
+			dist:{
+				options:{
+					style: 'expanded' //We will change this to compressed later, just for testing
+				},
+				files:{
+					//all the sass needs to be in one file before we do dis shit
+					'app/styles/main.css': 'app/styles/main.scss'
+				}
+			}
+
+		},
+		sprite:{
+			icons:{
+				src:'app/images/sprites/icons/*.png',
+				dest:'app/images/generated/sprites/icons.png',
+				destCss:'app/styles/base/icons.scss',			//Use CSS format with scss filtype,
+				cssFormat: 'css',													//otherwise outputs only compass SASS
+				cssVarMap: function(sprite){
+					sprite.name = 'th-product__'+sprite.name;
+				}
+			},
+			social:{
+				src:'app/images/sprites/social/*.png',
+				dest:'app/images/generated/sprites/social.png',
+				destCss:'app/styles/base/social.scss',
+				cssFormat: 'css',
+				cssVarMap: function(sprite){
+					sprite.name = 'th-social__icon--'+sprite.name;
+				}
+			},
+			cards:{
+
+			}
 		}
 	});
 
+
+	grunt.registerTask('build:dev', function(server, name, version){
+		//if there is no target, we'll set the target to samplestore
+		if(typeof server === 'undefined'){
+			server = 'http://www.samplestore.io';
+		}
+		if(typeof name === 'undefined'){
+			name = 'samplestore';
+		}
+		if(typeof version === 'undefined'){
+			version = '/api/v1';
+		}
+
+		grunt.config.set('ENVConstant', {
+			name: name,
+			host: server,
+			apiEndpoint: version
+		});
+
+		//generate the config variable
+
+
+//after we build the sprites
+//we must concat them into one file called 'images.css'?
+//then conca
+	//	grunt.task.run([
+	//		'clean:dist',
+	//		'clean:configure',
+	//		'ngconstant:build',
+	//		'wiredep',
+	//		'useminPrepare',
+	//		'sprite:icons',
+	//		'sprite:social',
+	//		'sass',
+	//		'autoprefixer',
+	//		'htmlmin:server',
+	//		'connect:livereload',
+	//		'autoprefixer',
+	//		'html2js',
+	//		'concat:templates',
+	//		'ngAnnotate',
+	//		'copy:dist',
+	//		'connect:livereload'
+	//		]);
+//
+/*
+		grunt.task.run([
+			'clean:dist',
+			'clean:configure',
+			'newer:jshint:all',
+			'configure:' + target,
+			'test',
+			'wiredep',
+			'useminPrepare',
+			'compass:dist',
+			'imagemin',
+			'svgmin',
+			'autoprefixer',
+			'concat:generated',
+			'html2js',
+			'concat:templates',
+			'ngAnnotate',
+			'copy:dist',
+			'cssmin',
+			'uglify',
+			'rev',
+			'usemin',
+			'htmlmin:dist'
+		]);
+*/
+
+grunt.task.run([
+			'clean:dist',				//erase our dist folder
+			'clean:configure',	//erase generated config file
+			'ngconstant:build',	//build generated config file
+			'wiredep',					//include the dependencies
+			'useminPrepare',		//??
+			'sprite:icons',			//Create the icon scss file
+			'sprite:social',		//create the social scss file
+			'sass',							//do SASS compilation
+			'autoprefixer',			//add browser prefixes to css file
+			'cssmin',						//minify the CSS
+			'htmlmin:dist',			//minify the Html by removing spaces and such for dist
+			'html2js',					//Turn the html into JS templates
+			'concat:templates',	//concat the JS and the templates together
+			'ngAnnotate',				//add the proper annotations to the angular js files
+			'copy:dist',				//copy over files to the dist folder
+			'rev',							//prevent caching I think?
+			'usemin',						//not sure if needed
+			'connect:livereload',	//open server
+			'watch'							//watch for files
+		]);
+
+
+
+
+
+
+
+	})
+
+	grunt.registerTask('build:dist', function(target){
+		//there MUST be a target! Can't build for distribution without a target api
+
+	})
+
+	grunt.registerTask('CSS', function(){
+		grunt.task.run(
+			['sprite:icons',
+			'sprite:social',
+			'sass'])
+	})
+
+	grunt.registerTask('test',
+		['clean:server',
+			'newer:jshint:all',
+			'compass:server',
+			'autoprefixer',
+			'connect:test',
+			'karma']);
+
+	/*
 	grunt.registerTask('configure', function(target) {
 
 		// Add additional targets according to environment variables
@@ -601,11 +701,12 @@ module.exports = function(grunt) {
 			'clean:dist',
 			'clean:configure',
 			'newer:jshint:all',
-			'configure:' + target,
 			'test',
 			'wiredep',
 			'useminPrepare',
+
 			'compass:dist',
+
 			'imagemin',
 			'svgmin',
 			'autoprefixer',
@@ -625,4 +726,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [
 		'build:samplestore'		// set your default target
 	]);
+
+	*/
+
 };
