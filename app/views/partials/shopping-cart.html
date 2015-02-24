@@ -75,19 +75,21 @@
 							<div data-vn-block="th-qty-counter" class="input-group">
 								<span class="input-group-btn">
 									<button data-vn-element="btn" class="btn btn-default"
-									        data-ng-click="changeQty(item, item.qty - 1)"
-									        data-ng-disabled="item.qty <= 1">
+									        data-ng-click="changeQty(item, item.qty - 1, 500)"
+									        data-ng-disabled="item.qty <= 1 || item.qty === ''">
 										<span class="glyphicon glyphicon-minus"></span>
 									</button>
 								</span>
 								<input data-vn-element="input"
-								       class="form-control"
-								       data-ng-model="item.qty"
-								       data-ng-change="changeQty(item, item.qty)">
+									class="form-control"
+									data-ng-model="item.qty"
+									data-ng-blur="changeQty(item, item.qty)"
+									data-vn-format-quantity>
 								<span class="input-group-btn">
 									<button data-vn-element="btn"
 									        class="btn btn-default"
-									        data-ng-click="changeQty(item, item.qty + 1)">
+									        data-ng-disabled="item.qty === 9999999 || item.qty === ''"
+									        data-ng-click="changeQty(item, item.qty + 1, 500)">
 										<span class="glyphicon glyphicon-plus"></span>
 									</button>
 								</span>
@@ -125,41 +127,57 @@
 		<!-- Footer -->
 		<div class="th-cart__footer">
 
-			<div class="th-cart__promo" data-ng-if="!cartEmpty">
-				<div class="th-cart__promo__add">
-				<input class="form-control th-cart__promo__add-coupon"
-					maxlength="25" 
-					data-ng-model="coupon.code"
-					data-ng-focus="toggleApplyBtn()"
-					data-ng-blur="toggleApplyBtn()"
-					data-ng-keypress="promoInputKeypress($event)"
-					placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
-					<button class="btn btn-primary th-cart__promo__add-button"
+			<div class="th-cart__promo-wrap" data-ng-if="!cartEmpty">
+				<div class="th-cart__promo-add">
+					<input class="form-control th-cart__promo-add__input"
+						maxlength="25" 
+						data-ng-model="coupon.code"
+						data-ng-focus="toggleApplyBtn(true)"
+						data-ng-blur="toggleApplyBtn(false)"
+						data-ng-keypress="promoInputKeypress($event)"
+						placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
+					<button class="btn btn-primary th-cart__promo-add__apply"
 							data-translate="shopping-card.btnApply"
 							data-ng-click="applyCoupon()"
-							data-ng-class="{'th-cart__promo__add-button--active': coupon.showApply == true}">
-						Add
+							data-ng-class="{'th-cart__promo-add__apply--active': coupon.showApply == true}">
+						Apply
 					</button>
 				</div>
 
-				<div class="th-cart__coupon-wrap" data-ng-if="!couponsEmpty">
+				<div class="th-cart__promo-summary"
+					data-ng-if="!couponsEmpty"
+					data-ng-click="togglePromoList()"
+					data-ng-class="{'th-cart__promo-summary--active': showPromoList == true}">
+					<span class="th-cart__promo-summary__arrow"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+					<span class="th-cart__promo-summary__count">
+						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length | number}}</span>&nbsp;
+						<span data-ng-if="cart.discounts.length === 1" data-translate="shopping-card.lblPromoApplied">promo applied</span>
+						<span data-ng-if="cart.discounts.length > 1" data-translate="shopping-card.lblPromosApplied">promos applied</span>
+					</span>
+					<span class="th-cart__promo-summary__total">{{ cart.totals.discounts | vnCurrency }}</span>
 
-					<div class="th-cart__coupon"
+				</div>
+
+				<div class="th-cart__promo-list"
+					data-ng-class="{'th-cart__promo-list--active': showPromoList == true}"
+					data-ng-if="!couponsEmpty">
+
+					<div class="th-cart__promo"
 						data-ng-repeat="coupon in cart.discounts | reverse:orderBy:'couponCode'"
 						data-ng-class="{'-last': $last}">
 
-						<div class="th-cart__coupon--left">
-							<div class="th-cart__coupon-close" data-ng-if="coupon.couponCode !== ''">
+						<div class="th-cart__promo--left">
+							<div class="th-cart__promo__close" data-ng-if="coupon.couponCode !== ''">
 								<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
 							</div>
 
-							<div class="th-cart__coupon-name">
+							<div class="th-cart__promo__name">
 								<span>{{ coupon.name }}</span>
 							</div>
 						</div>
 
-						<div class="th-cart__coupon--right">
-							<div class="th-cart__coupon-value">
+						<div class="th-cart__promo--right">
+							<div class="th-cart__promo__value">
 								<span>{{ coupon.value | vnCurrency }}</span>
 							</div>
 						</div>
@@ -176,9 +194,9 @@
 				<br style="clear: both;" />
 			</div>
 
-			<div class="th-cart__footer__checkout">
+			<div class="th-cart__checkout">
 				<a href="/login"
-				class="th-cart__footer__checkout-button btn btn-primary"
+				class="th-cart__checkout-button btn btn-primary"
 				data-translate="shopping-card.btnCheckout"
 				data-ng-disabled="cartEmpty">
 				Checkout</a>

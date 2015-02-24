@@ -19,11 +19,6 @@ angular.module('Volusion.controllers')
 				}
 			};
 
-			function modifyQuantity(amount) {
-				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
-				vnProduct.setQuantityInStock(amount);
-			}
-
 			function setDefaults() {
 
 				if (vnProduct.getProductImage() === null) {
@@ -144,17 +139,17 @@ angular.module('Volusion.controllers')
 						$scope.cartItem.qty = 0;
 					})
 					.finally(function () {
-						modifyQuantity(1);
+						$scope.modifyQty(1);
 						$scope.buttonWait = false;
 					});
 			};
 
-			$scope.decrementQty = function () {
-				modifyQuantity(-1);
+			$scope.modifyQty = function(amount) {
+				$scope.cartItem.qty += amount;
+				vnProduct.setQuantityInStock(amount);
 			};
-
-			$scope.changeQty = function () {
-				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1 || $scope.cartItem.qty.indexOf('.') !== -1) {
+			$scope.postValidateQty = function () {
+				if($scope.cartItem.qty === ''){
 					$scope.cartItem.qty = 1;
 				}
 			};
@@ -167,10 +162,6 @@ angular.module('Volusion.controllers')
 				}
 
 				return path;
-			};
-
-			$scope.incrementQty = function () {
-				modifyQuantity(1);
 			};
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {

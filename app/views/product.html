@@ -84,20 +84,23 @@
 						<div class="col-xs-12 col-sm-4 th-qty-wrap">
 							<div data-vn-block="th-qty-counter" class="input-group">
 								<span class="input-group-btn">
-									<button data-vn-element="btn" class="btn btn-default"
-									        data-ng-click="decrementQty()"
-									        data-ng-disabled="cartItem.qty <= 1">
+									<button data-vn-element="btn"
+											class="btn btn-default"
+									        data-ng-click="modifyQty(-1)"
+									        data-ng-disabled="cartItem.qty <= 1 || cartItem.qty === ''">
 										<span class="glyphicon glyphicon-minus"></span>
 									</button>
 								</span>
 								<input data-vn-element="input"
 								       class="form-control"
 								       data-ng-model="cartItem.qty"
-								       data-ng-change="changeQty()">
+								       data-ng-blur="postValidateQty()"
+								       data-vn-format-quantity>
 								<span class="input-group-btn">
 									<button data-vn-element="btn"
 									        class="btn btn-default"
-									        data-ng-click="incrementQty()">
+									        data-ng-click="modifyQty(1)"
+									        data-ng-disabled="cartItem.qty === 9999999 || cartItem.qty === ''">
 										<span class="glyphicon glyphicon-plus"></span>
 									</button>
 								</span>

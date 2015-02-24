@@ -62,21 +62,4 @@ describe('Controller: ShoppingCartCtrl', function () {
         $scope.changeQty(product, 2);
         expect($scope.cart.items[0].qty).toEqual(2);
     });
-    it('should not allow an invalid product quantity change', function() {
-        var product = {
-            code: 'ah-decorpillows',
-            id: 37350,
-            qty: 1
-        };
-        $scope.cart.items.push(product);
-
-        $scope.changeQty(product, 'bla');
-        expect($scope.cart.items[0].qty).toEqual(1);
-
-        $scope.changeQty(product, 1.5);
-        expect($scope.cart.items[0].qty).toEqual(1);
-
-        $scope.changeQty(product, 10000000);
-        expect($scope.cart.items[0].qty).toEqual(1);
-    });
 });

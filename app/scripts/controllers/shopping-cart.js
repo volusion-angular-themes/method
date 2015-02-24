@@ -53,16 +53,19 @@ angular.module('Volusion.controllers')
 				updateCart(true);
 			};
 
-			$scope.changeQty = function (item, amount) {
-				item.qty = $scope.isValidQty(amount) ? amount : 1;
-				$timeout.cancel($scope.debounceUpdateCart);
-				$scope.debounceUpdateCart = $timeout(function(){
-					updateCart(false);
-				}, 500);
-			};
+			$scope.changeQty = function (item, amount, timeout) {
+				item.qty = (item.qty === '') ? 1 : amount;
 
-			$scope.isValidQty = function (amount) {
-				return (isNaN(amount) === false && amount.toString().indexOf('.') === -1 && amount <= 9999999 && amount !== '') ? true : false;
+				$timeout.cancel($scope.debounceUpdateCart);
+
+				if(timeout === undefined){
+					updateCart(false);
+				}
+				else{
+					$scope.debounceUpdateCart = $timeout(function(){
+						updateCart(false);
+					}, timeout);
+				}
 			};
 
 			$scope.resetGiftOptions = function () {
@@ -105,19 +108,21 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.applyCoupon = function () {
+				if($scope.coupon.code.length > 0){
+					$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
+						return coupon.couponCode !== $scope.coupon.code;
+					});
 
-				$scope.cart.discounts = $filter('filter')($scope.cart.discounts, function (coupon) {
-					return coupon.couponCode !== $scope.coupon.code;
-				});
+					$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
 
-				$scope.cart.discounts.push({ 'couponCode': $scope.coupon.code });
-
-				updateCart(true, function () {
-					if ($scope.cart.serviceErrors.length === 0) {
+					updateCart(true, function () {
 						$scope.coupon.showApply = false;
 						$scope.coupon.code = '';
-					}
-				});
+						if ($scope.cart.serviceErrors.length === 0 && $scope.cart.warnings.length === 0) {
+							$scope.togglePromoList(true);
+						}
+					});
+				}
 			};
 
 			$scope.deleteCoupon = function (id) {
@@ -128,10 +133,6 @@ angular.module('Volusion.controllers')
 				$scope.couponsEmpty = ($scope.cart.discounts.length > 0) ? false : true;
 
 				updateCart(true);
-			};
-
-			$scope.toggleApplyBtn = function () {
-				$scope.coupon.showApply = !$scope.coupon.showApply;
 			};
 
 			$rootScope.$on('cartUpdated', function(){
@@ -159,8 +160,6 @@ angular.module('Volusion.controllers')
 						for (var i = 0; i < $scope.cart.items.length; i++) {
 							if ($scope.cart.items[i].giftWrap.selected) {
 								$scope.showGiftOption = true;
-
-								return;
 							}
 						}
 					}

@@ -115,11 +115,12 @@
 	}
 
 	&__brand {
-
-		padding       : 3px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 46px;
-		position      : relative;
+		padding          : 3px 10px;
+		border-bottom    : 1px solid $hr-border;
+		height           : 46px;
+		position         : relative;
+		z-index          : 3;
+		background-color : white;
 
 		&--image {
 			display : block;
@@ -242,22 +243,38 @@
 		background-color   : $btn-default-bg;
 		@include box-shadow(rgba(0,0,0,0.08) 0px -1px 2px 0px);
 
-		&__promo{
-
-		}
-		&__subtotal{
-
-		}
-		&__checkout{
-			padding    : 10px;
-			text-align : center;
-
-			&-button{
-				width     : 80%;
-				display   : inline-block;
-				padding   : 12px;
-				font-size : 14px;
+		&--keyboard-fix{
+			@include respond-to(xs){
+				.th-cart__promo-add,
+				.th-cart__promo-summary,
+				.th-cart__promo-list,
+				.th-cart__subtotal,
+				.th-cart__checkout{
+					display: none;
+				}
 			}
+		}
+		&--promo-keyboard-fix{
+			@include respond-to(xs){
+				.th-cart__promo-summary,
+				.th-cart__promo-list,
+				.th-cart__subtotal,
+				.th-cart__checkout{
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__checkout{
+		padding    : 10px;
+		text-align : center;
+
+		&-button{
+			width     : 80%;
+			display   : inline-block;
+			padding   : 12px;
+			font-size : 14px;
 		}
 	}
 
@@ -278,73 +295,113 @@
 		}
 	}
 
-	&__promo{
+	&__promo-wrap{
 
-		&__add {
-			width   : 100%;
-			padding : 5px 10px;
+	}
 
-			&-coupon {
-				width   : 75%;
-				height  : 30px;
-				float   : left;
-				padding : 10px 5px 6px 0px;
-				cursor  : pointer;
+	&__promo-add {
+		width   : 100%;
+		padding : 5px 10px;
 
-				@include input-placeholder {
-					color        : #000;
-					opacity      : 1;
-					font-weight  : 400;
-					padding-left : 2px;
-					font-family  : $font-family-base;
-					@include transition(opacity .2s, color .2s);
-				}
+		&__input {
+			width   : 75%;
+			height  : 30px;
+			float   : left;
+			padding : 10px 5px 6px 0px;
+			cursor  : pointer;
 
-				&:focus{
-					
-					@include input-placeholder {
-						opacity : .4;
-						color   : #000 !important;
-					}
-				}
+			@include input-placeholder {
+				color        : #000;
+				opacity      : 1;
+				font-weight  : 400;
+				padding-left : 2px;
+				font-family  : $font-family-base;
+				@include transition(opacity .2s, color .2s);
+			}
 
-				&:hover{
-					@include input-placeholder {
-						color : $link-hover-color;
-					}
-				}
+			&:focus{
 				
-				&.form-control{
-					border : 0px; 
+				@include input-placeholder {
+					opacity : .4;
+					color   : #000 !important;
 				}
 			}
 
-			&-button {
-				height             : 30px;
-				width              : 25%;
-				padding            : 0px;
-				text-align         : center;
-				opacity            : 0;
-				visibility         : hidden; 
-				transition         : opacity .2s, visibility .2s;
-				-webkit-transition : opacity .2s, visibility .2s;
-				-moz-transition    : opacity .2s, visibility .2s;
-
-				&--active{
-					opacity    : 1;
-					visibility : visible; 
+			&:hover{
+				@include input-placeholder {
+					color : $link-hover-color;
 				}
+			}
+			
+			&.form-control{
+				border : 0px; 
+			}
+		}
+
+		&__apply {
+			height             : 30px;
+			width              : 25%;
+			padding            : 0px;
+			text-align         : center;
+			opacity            : 0;
+			visibility         : hidden; 
+			transition         : opacity .2s, visibility .2s;
+			-webkit-transition : opacity .2s, visibility .2s;
+			-moz-transition    : opacity .2s, visibility .2s;
+
+			&--active{
+				opacity    : 1;
+				visibility : visible; 
 			}
 		}
 	}
 
-	&__coupon-wrap {
-		border-top : 1px solid $hr-border;
-		max-height : 100px;
-		overflow-y : auto;
+	&__promo-summary{
+		padding       : 0px 10px;
+		border-top    : 1px solid $hr-border;
+		border-bottom : 1px solid transparent;
+		line-height   : 40px;
+		height        : 40px;
+		width         : 100%;
+		cursor        : pointer;
+		@include transition(color .15s);
+
+		&:hover{
+			color : $link-hover-color;
+		}
+
+		&__count{
+
+		}
+		&__count-number{
+
+		}
+		&__total{
+			float : right;
+			color : green;
+		}
+		&__arrow{
+			padding-right : 8px;
+			font-size     : 10px;
+		}
 	}
 
-	&__coupon {
+	&__promo-list {
+		border     : 0px;
+		max-height : 0px;
+		width      : 100%;
+		overflow-y : hidden;
+		@include transition(max-height .3s);
+
+		&--active{
+			max-height : 100px;
+			border-top : 1px solid $hr-border;
+			overflow-y : auto;
+			@include box-shadow(inset rgba(0,0,0,0.08) 0px 1px 3px 0px);
+		}
+	}
+
+	&__promo {
 		position       : relative;
 		border-bottom  : 1px solid $gray-lighter;
 		padding        : 10px 10px;
@@ -366,7 +423,7 @@
 			padding-bottom : 0;
 		}
 
-		&-close {
+		&__close {
 			width          : 25px;
 			margin-right   : 5px;
 			text-align     : left;
@@ -390,19 +447,19 @@
 				}
 			}
 
-			~ .th-cart__coupon-name{
+			~ .th-cart__promo__name{
 				width : 82%;
 			}
 		}
 
-		&-name {
+		&__name {
 			width          : 100%;
 			display        : inline-block;
 			vertical-align : middle;
 			line-height    : 1.2em;
 		}
 
-		&-value {
+		&__value {
 			display        : inline-block;
 			vertical-align : middle;
 			color          : green;
@@ -511,7 +568,7 @@
 			&--qty {
 				display        : inline-block;
 				vertical-align : middle;
-				width          : 75%;
+				width          : 50%;
 
 				.th-qty-counter{
 					width : 90px;
@@ -540,7 +597,7 @@
 				font-family    : $font-family-condensed-reg;
 				display        : inline-block;
 				vertical-align : middle;
-				width          : 25%;
+				width          : 50%;
 				text-align     : right;
 			}
 		}
