@@ -95,4 +95,63 @@ angular.module('Volusion.controllers')
 			}
 		};
 	}]
-);
+)
+
+/**
+ * @ngdoc directive
+ * @name Volusion.method.directive:formatQuantity
+ * @restrict A
+ * @scope
+ *
+ * @description
+ * Directive to format a quantity. Allows empty spaces. Doesn't allow 0's or non-digits.
+ *
+ * @usage
+ <input type="text"
+ data-vn-format-quantity />
+ *
+ * @example
+ */
+
+.directive('vnFormatQuantity', ['$filter', function ($filter) {
+
+	'use strict';
+
+	return {
+		require: '?ngModel',
+		link   : function (scope, elem, attrs, ctrl) {
+			if (!ctrl) {
+				return;
+			}
+
+			ctrl.$formatters.unshift(function () {
+				return $filter('number')(ctrl.$modelValue);
+			});
+
+			ctrl.$parsers.unshift(function (viewValue) {
+				var filteredViewValue = '';
+				//Allow empty string so that user can empty text field
+				if(viewValue !== ''){
+					//Remove non-digits
+					viewValue = parseInt(viewValue.toString().replace(/\D/g, ''));
+					if(isNaN(viewValue) || viewValue === 0){
+						viewValue = '';
+					}
+					//Input cannot be greater than 9,999,999
+					var maxQty = 9999999;
+					if(viewValue > maxQty){
+						viewValue = maxQty;
+					}
+					//Add commas back to number for view
+					filteredViewValue = $filter('number')(viewValue);
+					if(parseInt(filteredViewValue) === 0 || parseInt(filteredViewValue) === undefined){
+						filteredViewValue = '';
+					}
+				}	
+				ctrl.$setViewValue(viewValue);
+				elem.val(filteredViewValue);
+				return viewValue;
+			});
+		}
+	};
+}]);

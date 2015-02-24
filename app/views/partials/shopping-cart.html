@@ -76,19 +76,19 @@
 								<span class="input-group-btn">
 									<button data-vn-element="btn" class="btn btn-default"
 									        data-ng-click="changeQty(item, item.qty - 1, 500)"
-									        data-ng-disabled="item.qty <= 1">
+									        data-ng-disabled="item.qty <= 1 || item.qty === ''">
 										<span class="glyphicon glyphicon-minus"></span>
 									</button>
 								</span>
 								<input data-vn-element="input"
-								       class="form-control"
-								       data-vn-format-number
-								       data-ng-model="item.qty"
-								       data-ng-blur="changeQty(item, item.qty)"
-								       data-ng-change="preValidateQty(item)">
+									class="form-control"
+									data-ng-model="item.qty"
+									data-ng-blur="changeQty(item, item.qty)"
+									data-vn-format-quantity>
 								<span class="input-group-btn">
 									<button data-vn-element="btn"
 									        class="btn btn-default"
+									        data-ng-disabled="item.qty === 9999999 || item.qty === ''"
 									        data-ng-click="changeQty(item, item.qty + 1, 500)">
 										<span class="glyphicon glyphicon-plus"></span>
 									</button>
@@ -140,7 +140,7 @@
 							data-translate="shopping-card.btnApply"
 							data-ng-click="applyCoupon()"
 							data-ng-class="{'th-cart__promo-add__apply--active': coupon.showApply == true}">
-						Add
+						Apply
 					</button>
 				</div>
 
@@ -150,7 +150,9 @@
 					data-ng-class="{'th-cart__promo-summary--active': showPromoList == true}">
 					<span class="th-cart__promo-summary__arrow"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
 					<span class="th-cart__promo-summary__count">
-						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length}}</span>&nbsp;promo<span data-ng-if="cart.discounts.length > 1">s</span> applied
+						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length | number}}</span>&nbsp;
+						<span data-ng-if="cart.discounts.length === 1" data-translate="shopping-card.lblPromoApplied">promo applied</span>
+						<span data-ng-if="cart.discounts.length > 1" data-translate="shopping-card.lblPromosApplied">promos applied</span>
 					</span>
 					<span class="th-cart__promo-summary__total">{{ cart.totals.discounts | vnCurrency }}</span>
 

@@ -54,9 +54,8 @@ angular.module('Volusion.controllers')
 			};
 
 			$scope.changeQty = function (item, amount, timeout) {
-				item.qty = amount;
-				$scope.preValidateQty(item);
-				$scope.postValidateQty(item);
+				item.qty = (item.qty === '') ? 1 : amount;
+
 				$timeout.cancel($scope.debounceUpdateCart);
 
 				if(timeout === undefined){
@@ -66,22 +65,6 @@ angular.module('Volusion.controllers')
 					$scope.debounceUpdateCart = $timeout(function(){
 						updateCart(false);
 					}, timeout);
-				}
-			};
-
-			$scope.preValidateQty = function (item) {
-				var maxQty = 9999999;
-				if(parseInt(item.qty) > maxQty){
-					item.qty = maxQty;
-				}
-				else{
-					item.qty = parseInt(item.qty);
-				}
-			};
-
-			$scope.postValidateQty = function (item) {
-				if(parseInt(item.qty) === 0 || isNaN(item.qty)){
-					item.qty = 1;
 				}
 			};
 
