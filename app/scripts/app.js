@@ -25,7 +25,8 @@ angular.module('methodApp', [
 	'angulartics',
 	'Volusion.toolboxCommon',
 	'Volusion.controllers',
-	'Volusion.services'
+	'Volusion.services',
+	'Volusion.templates'
 ])
 
   .config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV', '$stateProvider', '$urlRouterProvider',
@@ -167,7 +168,7 @@ angular.module('methodApp', [
 				.state('article.cart', getCartState())
 				.state('login.cart', getCartState())
 				.state('thank-you.cart', getCartState());
-			
+
 	}])
 
 .run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
