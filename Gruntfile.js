@@ -597,6 +597,13 @@ grunt.task.run([
 			'karma',
 			'watch:karma']);				//only reload on js file change
 
+	grunt.registerTask('build:travis', ['build:dist:www.samplestore.io'])		//run a test build without watching
+
+	grunt.registerTask('test:travis',		//don't live watch the files on travis build
+		['clean:server',					//may not be needed?
+			'newer:jshint:all',
+			'karma']);
+
 	grunt.registerTask('default', function(){
 		grunt.log.errorlns('No Grunt commands selected! Your options are:');
 		grunt.log.writeln('>grunt test [runs karma tests and jshint]');
