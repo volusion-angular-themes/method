@@ -597,7 +597,7 @@ grunt.task.run([
 			'karma',
 			'watch:karma']);				//only reload on js file change
 
-	grunt.registerTask('build:travis', ['build:dist:www.samplestore.io'])		//run a test build without watching
+	grunt.registerTask('build:travis', ['build:dist:www.samplestore.io']);		//run a test build without watching
 
 	grunt.registerTask('test:travis',		//don't live watch the files on travis build
 		['clean:server',					//may not be needed?
