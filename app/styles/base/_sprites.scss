@@ -1,4 +1,11 @@
-@import "sprites/icons/*.png";
+//@import "images/sprites/icons/*.png";
+//we must import the sprites individually
+@import "/app/images/sprites/icons/cat-bag.png";
+@import "/app/images/sprites/icons/heart.png";
+@import "/app/images/sprites/icons/new.png";
+@import "/app/images/sprites/icons/sale.png";
+@import "/app/images/sprites/icons/zoom.png";
+
 @include all-icons-sprites;
 
 .th-product__new {

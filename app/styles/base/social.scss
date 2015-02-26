@@ -1,0 +1,59 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-th-social__icon--facebook {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: 0px 0px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--google {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: -27px 0px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--instagram {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: 0px -27px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--pinterest {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: -27px -27px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--tumblr {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: -54px 0px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--twitter {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: -54px -27px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--vimeo {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: 0px -54px;
+  width: 27px;
+  height: 27px;
+}
+.icon-th-social__icon--youtube {
+  background-image: url(../../images/generated/sprites/social.png);
+  background-position: -27px -54px;
+  width: 27px;
+  height: 27px;
+}

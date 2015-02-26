@@ -29,112 +29,37 @@ module.exports = function(grunt) {
 		// Project settings
 		yeoman: appConfig,
 
-		// Environment variables
-		ngconstant: {
-			// Options for all targets
+		ngconstant:{
 			options: {
 				space: '  ',
 				wrap: '\'use strict\';\n\n {%= __ngModule %}',
 				name: 'config'
-			},
-			// Environment targets
-			// see "BUILD" task to add additional targets
-			samplestore: {
-				options: {
-					dest: '<%= yeoman.app %>/scripts/config.js'
-				},
-				constants: {
-					ENV: {
-						name: 'samplestore',
-						host: 'http://www.samplestore.io',
-						apiEndpoint: '/api/v1'
-					}
-				}
-			},
-			mybox: {
-				options: {
-					dest: '<%= yeoman.app %>/scripts/config.js'
-				},
-				constants: {
-					ENV: {
-						name: 'mybox',
-						host: 'http://txlpt374-vm.corp.volusion.com',
-						apiEndpoint: '/api/v1'
-					}
-				}
-			},
-			production: {
-				options: {
-					dest: '<%= yeoman.app %>/scripts/config.js'
-				},
-				constants: {
-					ENV: {
-						name: 'production',
-						host: '',
-						apiEndpoint: '/api/v1'
-					}
-				}
-			}
-		},
 
-		// Watches files for changes and runs tasks based on the changed files
-		watch: {
-			bower: {
-				files: ['bower.json'],
-				tasks: ['wiredep']
 			},
-			html: {
-				files: ['<%= yeoman.app %>/*.html', '<%= yeoman.app %>/views/**/*.html'],
-				tasks: ['htmlmin:server'],
-				options: {
-					livereload: true
-				}
-			},
-			js: {
-				files: ['<%= yeoman.app %>/scripts/{,*/}*.js', '<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
-				tasks: ['newer:jshint:all'],
-				options: {
-					livereload: true
-				}
-			},
-			jsTest: {
-				files: ['test/spec/{,*/}*.js'],
-				tasks: ['newer:jshint:test', 'karma']
-			},
-			compass: {
-				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
-				tasks: ['compass:server', 'autoprefixer']
-			},
-			css: {
-				files: ['<%= yeoman.app %>/styles/**/*.css}'],
-				tasks: ['autoprefixer']
-			},
-			gruntfile: {
-				files: ['Gruntfile.js']
-			},
-			livereload: {
-				options: {
-					livereload: '<%= connect.options.livereload %>'
+			build:{
+				options:{
+					dest: '<%= yeoman.app %>/scripts/config.js'
 				},
-				files: [
-						'<%= yeoman.app %>/{,*/}*.html',
-						'.tmp/styles/{,*/}*.css',
-						'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%=  yeoman.app %>/translations/{,*/}*.json',
-						'<%= yeoman.app %>/settings/{,*/}*'
-				]
+				constants: {
+          ENV: {
+          	name: '<%= ENVConstant.name %>',
+          	host: '<%= ENVConstant.host %>',
+          	apiEndpoint: '<%= ENVConstant.apiEndpoint %>'
+					}
+				}
 			}
+
 		},
 
 		// The actual grunt server settings
 		connect: {
 			options: {
 				port: 9000,
-				// Change this to '0.0.0.0' to access the server from outside.
+				// Change this to '0.0.0.0' to access the server from outside. (? still the case?)
 				hostname: 'localhost',
 				livereload: 35729
 			},
-			rules: [
+			rules: [	//   certain /keywords will open the folder instead of redirecting to /
 				{ from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
 				{ from: '^/404.html', to: '/404.html' },
 				{ from: '^/(.*)$', to: '/index.html' }
@@ -147,6 +72,7 @@ module.exports = function(grunt) {
 						'<%= yeoman.app %>/'
 					],
 					middleware: function (connect, options) {
+						//runs automatically, necessary for dev environment
 						if (!Array.isArray(options.base)) {
 							options.base = [options.base];
 						}
@@ -262,14 +188,8 @@ module.exports = function(grunt) {
 				browsers: ['last 1 version']
 			},
 			dist: {
-				files: [
-						{
-							expand: true,
-							cwd: '.tmp/styles/',
-							src: '{,*/}*.css',
-							dest: '.tmp/styles/'
-						}
-				]
+				src: '<%= yeoman.app %>/styles/main.css',
+				dest: '.tmp/styles/main.css'
 			}
 		},
 
@@ -292,38 +212,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Compiles Sass to CSS and generates necessary files if requested
-		compass: {
-			options: {
-				sassDir: '<%= yeoman.app %>/styles',
-				cssDir: '.tmp/styles',
-				generatedImagesDir: '.tmp/images/generated',
-				imagesDir: '<%= yeoman.app %>/images',
-				javascriptsDir: '<%= yeoman.app %>/scripts',
-				fontsDir: '<%= yeoman.app %>/fonts',
-				importPath: [
-					'bower_components/'
-				],
-				httpImagesPath: '/images',
-				httpGeneratedImagesPath: '/images/generated',
-				httpFontsPath: '/fonts',
-				relativeAssets: false,
-				assetCacheBuster: false,
-				raw: 'Sass::Script::Number.precision = 10\n'
-			},
-			dist: {
-				options: {
-					generatedImagesDir: '<%= yeoman.dist %>/images/generated',
-					outputStyle: 'compressed'
-				}
-			},
-			server: {
-				options: {
-					debugInfo: true
-				}
-			}
-		},
-
 		// Renames files for browser caching purposes
 		rev: {
 			dist: {
@@ -342,55 +230,12 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Reads HTML for usemin blocks to enable smart builds that automatically
-		// concat, minify and revision files. Creates configurations in memory so
-		// additional tasks can operate on them
-		useminPrepare: {
-			html: '<%= yeoman.app %>/index.html',
-			options: {
-				dest: '<%= yeoman.dist %>',
-				flow: {
-					html: {
-						steps: {
-							js: ['concat', 'uglifyjs'],
-							css: ['cssmin']
-						},
-						post: {}
-					}
-				}
-			}
-		},
-
-		// Performs rewrites based on rev and the useminPrepare configuration
-		usemin: {
-			html: ['<%= yeoman.dist %>/{,*/}*.html'],
-			css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-			options: {
-				assetsDirs: ['<%= yeoman.dist %>'],
-				patterns: {
-					js: [
-						[/src=([^ >]+)/g, 'Update template js to reference revved images'],
-						[/(styles\/main.css)/gm, 'Update JS to reference our revved main.css'] //used in settings/app.js
-					],
-					css: [
-						[
-							/(?:src=|url\(\s*)['"]?(?:\.\.)?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
-							'Update template CSS to reference revved images, accomodate for ../'
-						]
-					]
-				}
-			},
-			js: [
-				'<%= yeoman.dist %>/scripts/*.scripts.js',
-				'<%= yeoman.dist %>/settings/app.js'
-			]
-		},
-
 		// The following *-min tasks produce minified files in the dist folder
 		cssmin: {
 			options: {
-				root: '<%= yeoman.app %>'
-			}
+
+			},
+
 		},
 
 		imagemin: {
@@ -473,6 +318,10 @@ module.exports = function(grunt) {
 		},
 
 		concat: {
+			js:{
+				dest: '.tmp/concat/scripts/scripts.js',
+				src: '<%= yeoman.app %>/scripts/{,*/}/*.js'
+			},
 			templates: {
 				dest: '.tmp/concat/scripts/scripts.js',
 				src: [
@@ -499,6 +348,27 @@ module.exports = function(grunt) {
 
 		// Copies remaining files to places other tasks can use
 		copy: {
+			build: {
+				files: [
+					{
+						expand: true,
+						dot: true,
+						cwd: '<%= yeoman.app %>',
+						dest: '<%= yeoman.dist %>/scripts',
+						src: [
+							'<%= yeoman.app %>/.tmp/concat/scripts/scripts.js',
+						]
+					},
+					{
+						expand: true,
+						cwd: '<%= yeoman.app %>',
+						dest: '<%= yeoman.dist %>/index.html',
+						src: [
+							'<%= yeoman.app %>/app/index.html'
+						]
+					}
+				]
+			},
 			dist: {
 				files: [
 					{
@@ -511,12 +381,14 @@ module.exports = function(grunt) {
 							'web.config',
 							'.htaccess',
 							'*.html',
-							'views/{,*/}*.html',
-							'images/{,*/}*.{webp}',
-							'fonts/*',
+							//'views/{,*/}*.html',			//not right, we just need top-level html, everything else is in js
+							//'images/{,*/}*.{webp}',		//not specific enough, wasn't finding all images
+							'images/**/*.*',
+							'fonts/**/*.*',							//needed to make sure we grab all fonts
 							'translations/{,*/}*.json',
 							'settings/{,*/}*',
 							'styles/overrides.css',
+							'styles/main.css',
 							'bower_components/angular-i18n/angular-locale_*.js'
 						]
 					},
@@ -540,100 +412,209 @@ module.exports = function(grunt) {
 				configFile: 'test/karma.conf.mocha.js',
 				singleRun: true
 			}
-		}
+		},
+
+		sass:{
+			dist:{
+				options:{
+					style: 'expanded' //We will change this to compressed later, just for testing
+				},
+				files:{
+					//all the sass needs to be in one css file
+					'app/styles/main.css': 'app/styles/main.scss'
+				}
+			}
+
+		},
+		sprite:{
+			icons:{
+				src:'app/images/sprites/icons/*.png',
+				dest:'app/images/generated/sprites/icons.png',
+				destCss:'app/styles/base/icons.scss',			//Use CSS format with scss filtype,
+				cssFormat: 'css',													//otherwise outputs only compass SASS
+				cssVarMap: function(sprite){
+					sprite.name = 'th-product__'+sprite.name;
+				}
+			},
+			social:{
+				src:'app/images/sprites/social/*.png',
+				dest:'app/images/generated/sprites/social.png',
+				destCss:'app/styles/base/social.scss',
+				cssFormat: 'css',
+				cssVarMap: function(sprite){
+					sprite.name = 'th-social__icon--'+sprite.name;
+				}
+			},
+			cards:{
+
+			}
+		},
+
+		// Watches files for changes and runs tasks based on the changed files
+		watch: {
+			karma:{
+				files: ['<%= yeoman.app %>/settings/app.js',
+								'<%= yeoman.app %>/scripts/{,*/}*.js',
+								'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+				tasks: ['clean:server',
+								'newer:jshint:all',
+								'karma']
+			},
+			dev:{
+				files: ['<%= yeoman.app %>/settings/app.js',
+								'<%= yeoman.app %>/scripts/{,*/}*.js',
+								'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+								'<%= yeoman.app %>/*.html',
+								'<%= yeoman.app %>/views/**/*.html',
+								'<%= yeoman.app %>/styles/**/*.{scss,sass}',
+								'/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+				tasks: ['sass',							//do SASS compilation which generates main.css,
+																		//rest of files are being served from app folder
+								]
+			}
+		},
+
+		// Reads HTML for usemin blocks to enable smart builds that automatically
+		// concat, minify and revision files. Creates configurations in memory so
+		// additional tasks can operate on them
+		useminPrepare: {
+			html: '<%= yeoman.app %>/index.html',
+			options:{
+				root: '<%= yeoman.app %>',
+				dest: '<%= yeoman.dist %>',
+			}
+		},
+
+		// Performs rewrites based on rev and the useminPrepare configuration
+		usemin: {
+				html: ['<%= yeoman.dist %>/index.html'],
+				css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+				options: {
+				},
+			js: [
+				'<%= yeoman.dist %>/scripts/*.js',
+				'<%= yeoman.dist %>/settings/app.js'
+			]
+		},
+
 	});
 
-	grunt.registerTask('get_toolbox_dependencies', 'Add VN Toolbox Dependencies to bower.json', function () {
-		var fs = require('fs');
-		var _ = require('lodash');
-		var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
-		var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
-		_.extend(origBower.dependencies,  vnBower.dependencies);
-		fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');		
-	});
 
-	grunt.registerTask('configure', function(target) {
-
-		// Add additional targets according to environment variables
-		if (target === undefined || target === 'undefined' || target === '' || target === 'samplestore') {
-			//default build
-			grunt.task.run(['ngconstant:samplestore']);
-			grunt.log.write('TARGET is set to [SAMPLESTORE]');
-		} else {
-			//specific build
-			grunt.task.run(['ngconstant:' + target ]);
-			grunt.log.write('TARGET is set to [' + target + ']');
+	grunt.registerTask('build:dev', function(server, name, version){
+		//if there is no target, we'll set the target to samplestore
+		if(typeof server === 'undefined'){
+			server = 'http://www.samplestore.io';
+		}else{
+			server = 'http://'+server;
 		}
-	});
-
-	grunt.registerTask('serve', function(target) {
-		if (target === 'dist') {
-			return grunt.task.run(['connect:dist:keepalive']);
+		if(typeof name === 'undefined'){
+			name = 'samplestore';
+		}
+		if(typeof version === 'undefined'){
+			version = '/api/v1';
 		}
 
-		if (!grunt.file.exists('<%= yeoman.dist %>')) {
-			grunt.log.writeln('**********************************************************************');
-			grunt.log.writeln('** DIST folder is missing. Building for default target ...  ');
-			grunt.log.writeln('**********************************************************************');
-			grunt.task.run(['build']);
-		}
+		grunt.config.set('ENVConstant', {
+			name: name,
+			host: server,
+			apiEndpoint: version
+		});
 
-		grunt.task.run([
-			'clean:server',
-			'wiredep',
-			'compass:server',
-			'autoprefixer',
-			'htmlmin:server',
-			'connect:livereload',
-			'watch'
+grunt.task.run([
+			'clean:dist',				//erase our dist folder
+			//no need to clean dist folder; we're serving /app, lets do it anyway
+			'clean:configure',	//erase generated config file
+			'ngconstant:build',	//build generated config file
+
+			'sprite:icons',			//Create the icon scss file
+			'sprite:social',		//create the social scss file
+			'sass',							//do SASS compilation
+			'connect:livereload',	//open server
+			'watch:dev'							//watch for files
 		]);
+
+
 	});
 
-	grunt.registerTask('server', function(target) {
-		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-		grunt.task.run(['serve:' + target]);
+	grunt.registerTask('build:dist', function(server, name, version){
+		//there MUST be a target! Can't build for distribution without a target api
+
+		if(typeof server === 'undefined'){
+			grunt.fail.warn('You must at least include an API server as the first variable (e.g. build:dist:www.samplestore.io:sampleStore:/api/v1)');
+
+		}else{
+				server = 'http://'+server;
+				if(typeof name === 'undefined'){
+					name = 'samplestore';
+				}
+				if(typeof version === 'undefined'){
+					version = '/api/v1';
+				}
+
+				grunt.config.set('ENVConstant', {
+					name: name,
+					host: server,
+					apiEndpoint: version
+				});
+
+				//needs to pass karma and JSHint in order to build properly
+				//should uglify
+
+				grunt.task.run([
+					'clean:dist',				//erase our dist folder
+					'clean:configure',	//erase generated config file
+
+					'ngconstant:build',	//build generated config file
+					'wiredep',					//include the dependencies
+					'karma',						//run tests, must pass
+					'jshint:all',				//run jshint, must pass
+
+
+					'useminPrepare',	  //Prep for creating the html file with the minified files
+
+					'sprite:icons',			//Create the icon scss file
+					'sprite:social',		//create the social scss file
+					'sass',							//do SASS compilation
+					'autoprefixer',			//add browser prefixes to css file (inplace edit .tmp/style/main.css)
+
+					'html2js',						//transforms html to templates.js
+					'concat:generated',		//concats vendor JS files to vendor.js and scripts to scripts.js
+					'concat:templates',		//concats templates.js *after* scripts.js
+					'uglify',							//remove spaces, linebreaks, replace variables
+					'cssmin',							//minifies CSS
+					'copy:dist',					//copy the required files to the dist folder, so they can be overwritten
+					'rev',								//cachebusting
+					'usemin',							//last step! here's where we actually make changes to the index.html file
+																//which is why this step needs to be last, so we don't lose our original
+				]);
+
+		}
 	});
 
-	grunt.registerTask('test', function() {
-		grunt.task.run([
-			'clean:server',
+	grunt.registerTask('test',
+		['clean:server',					//may not be needed?
 			'newer:jshint:all',
-			'compass:server',
-			'autoprefixer',
-			'configure',
-			'connect:test',
-			'karma'
-		]);
-	});
+			'karma',
+			'watch:karma']);				//only reload on js file change
 
-	grunt.registerTask('build', function(target) {
-		grunt.task.run([
-			'get_toolbox_dependencies',
-			'clean:dist',
-			'clean:configure',
+	grunt.registerTask('build:travis', ['build:dist:www.samplestore.io']);		//run a test build without watching
+
+	grunt.registerTask('test:travis',		//don't live watch the files on travis build
+		['clean:server',					//may not be needed?
 			'newer:jshint:all',
-			'configure:' + target,
-			'test',
-			'wiredep',
-			'useminPrepare',
-			'compass:dist',
-			'imagemin',
-			'svgmin',
-			'autoprefixer',
-			'concat:generated',
-			'html2js',
-			'concat:templates',
-			'ngAnnotate',
-			'copy:dist',
-			'cssmin',
-			'uglify',
-			'rev',
-			'usemin',
-			'htmlmin:dist'
-		]);
+			'karma']);
+
+	grunt.registerTask('default', function(){
+		grunt.log.errorlns('No Grunt commands selected! Your options are:');
+		grunt.log.writeln('>grunt test [runs karma tests and jshint]');
+		grunt.log.writeln('');
+		grunt.log.writeln('>grunt build:dev [builds without minification or concatination for http://www.samplestore.io/api/v1]');
+		grunt.log.writeln('>grunt build:dev:yourserver.here [builds without minification or concatination for http://yourserver.here/api/v1]');
+		grunt.log.writeln('>grunt build:dev:yourserver.here:yourserver:/api/vX [builds without minification or concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
+		grunt.log.writeln('');
+		grunt.log.writeln('>grunt build:dist:yourserver.here [builds with minification and concatination for http://yourserver.here/api/v1]');
+		grunt.log.writeln('>grunt build:dist:yourserver.here:yourserver:/api/vX [builds with minification and concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
+
 	});
 
-	grunt.registerTask('default', [
-		'build:samplestore'		// set your default target
-	]);
 };
