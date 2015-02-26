@@ -603,7 +603,7 @@ module.exports = function (grunt) {
 			'karma',
 			'watch:karma']);				//only reload on js file change
 
-	grunt.registerTask('build:travis', ['build:dist:http:www.samplestore.io']);		//run a test build without watching
+	grunt.registerTask('build:travis', ['build:dist']);		//run a test build without watching
 
 	grunt.registerTask('test:travis',		//don't live watch the files on travis build
 		['clean:server',					//may not be needed?
@@ -614,6 +614,7 @@ module.exports = function (grunt) {
 		grunt.log.errorlns('No Grunt commands selected! Your options are:');
 		grunt.log.writeln('>grunt test [runs karma tests and jshint]');
 		grunt.log.writeln('');
+		grunt.log.writeln('>grunt build [builds without minification or concatination for http://www.samplestore.io/api/v1]');
 		grunt.log.writeln('>grunt build:dev [builds without minification or concatination for http://www.samplestore.io/api/v1]');
 		grunt.log.writeln('>grunt build:dev:http:yourserver.here [builds without minification or concatination for http://yourserver.here/api/v1]');
 		grunt.log.writeln('>grunt build:dev:http:yourserver.here:yourserver:/api/vX [builds without minification or concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
