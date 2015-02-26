@@ -15,7 +15,7 @@ var appConfig = {
 	dist: 'dist'
 };
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
 	// Load grunt tasks automatically
 	require('load-grunt-tasks')(grunt);
@@ -29,22 +29,22 @@ module.exports = function(grunt) {
 		// Project settings
 		yeoman: appConfig,
 
-		ngconstant:{
+		ngconstant  : {
 			options: {
 				space: '  ',
-				wrap: '\'use strict\';\n\n {%= __ngModule %}',
-				name: 'config'
+				wrap : '\'use strict\';\n\n {%= __ngModule %}',
+				name : 'config'
 
 			},
-			build:{
-				options:{
+			build  : {
+				options  : {
 					dest: '<%= yeoman.app %>/scripts/config.js'
 				},
 				constants: {
-          ENV: {
-          	name: '<%= ENVConstant.name %>',
-          	host: '<%= ENVConstant.host %>',
-          	apiEndpoint: '<%= ENVConstant.apiEndpoint %>'
+					ENV: {
+						name       : '<%= ENVConstant.name %>',
+						host       : '<%= ENVConstant.host %>',
+						apiEndpoint: '<%= ENVConstant.apiEndpoint %>'
 					}
 				}
 			}
@@ -52,22 +52,22 @@ module.exports = function(grunt) {
 		},
 
 		// The actual grunt server settings
-		connect: {
-			options: {
-				port: 9000,
+		connect     : {
+			options   : {
+				port      : 9000,
 				// Change this to '0.0.0.0' to access the server from outside. (? still the case?)
-				hostname: 'localhost',
+				hostname  : 'localhost',
 				livereload: 35729
 			},
-			rules: [	//   certain /keywords will open the folder instead of redirecting to /
-				{ from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2' },
-				{ from: '^/404.html', to: '/404.html' },
-				{ from: '^/(.*)$', to: '/index.html' }
+			rules     : [	//   certain /keywords will open the folder instead of redirecting to /
+				{from: '^/(bower_components|fonts|images|scripts|styles|translations|views)(/.*)$', to: '/$1$2'},
+				{from: '^/404.html', to: '/404.html'},
+				{from: '^/(.*)$', to: '/index.html'}
 			],
 			livereload: {
 				options: {
-					open: true,
-					base: [
+					open      : true,
+					base      : [
 						'.tmp',
 						'<%= yeoman.app %>/'
 					],
@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 //							require('grunt-connect-proxy/lib/utils').proxyRequest,
 							connect.static('.tmp'),
 							connect().use(
-							  '/bower_components',
-							  connect.static('./bower_components')
+								'/bower_components',
+								connect.static('./bower_components')
 							),
 							connect.static(appConfig.app)
 						];
@@ -119,7 +119,7 @@ module.exports = function(grunt) {
 					//}
 				}
 			},
-			test: {
+			test      : {
 				options: {
 					port: 9001,
 					base: [
@@ -129,7 +129,7 @@ module.exports = function(grunt) {
 					]
 				}
 			},
-			dist: {
+			dist      : {
 				options: {
 					base: '<%= yeoman.dist %>'
 				}
@@ -137,36 +137,36 @@ module.exports = function(grunt) {
 		},
 
 		// Make sure code styles are up to par and there are no obvious mistakes
-		jshint: {
+		jshint      : {
 			options: {
 				jshintrc: '.jshintrc',
 				reporter: require('jshint-stylish')
 			},
-			all: [
+			all    : [
 				'Gruntfile.js',
 				'<%= yeoman.app %>/scripts/{,*/}*.js'
 			],
-			test: {
+			test   : {
 				options: {
 					jshintrc: 'test/.jshintrc'
 				},
-				src: ['test/spec/{,*/}*.js']
+				src    : ['test/spec/{,*/}*.js']
 			}
 		},
 
 		// Empties folders to start fresh
-		clean: {
-			dist: {
+		clean       : {
+			dist     : {
 				files: [
-						{
-							dot: true,
-							src: [
-								'.tmp',
-								'<%= yeoman.dist %>/*',
-								'!<%= yeoman.dist %>/.git*'//,
+					{
+						dot: true,
+						src: [
+							'.tmp',
+							'<%= yeoman.dist %>/*',
+							'!<%= yeoman.dist %>/.git*'//,
 //								'<%= yeoman.app %>/scripts/config.js'
-							]
-						}
+						]
+					}
 				]
 			},
 			configure: {
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
 					}
 				]
 			},
-			server: '.tmp'
+			server   : '.tmp'
 		},
 
 		// Add vendor prefixed styles
@@ -187,24 +187,24 @@ module.exports = function(grunt) {
 			options: {
 				browsers: ['last 1 version']
 			},
-			dist: {
-				src: '<%= yeoman.app %>/styles/main.css',
+			dist   : {
+				src : '<%= yeoman.app %>/styles/main.css',
 				dest: '.tmp/styles/main.css'
 			}
 		},
 
 		// Automatically inject Bower components into the app
-		wiredep: {
+		wiredep     : {
 			target: {
-				dependencies: true,
+				dependencies   : true,
 				devDependencies: false,
-				src: ['<%= yeoman.app %>/index.html'],
-				ignorePath: '<%= yeoman.app %>',
-				exclude: ['bootstrap.js'],
-				fileTypes: {
+				src            : ['<%= yeoman.app %>/index.html'],
+				ignorePath     : '<%= yeoman.app %>',
+				exclude        : ['bootstrap.js'],
+				fileTypes      : {
 					html: {
 						replace: {
-							js: '<script src="/{{filePath}}"></script>',
+							js : '<script src="/{{filePath}}"></script>',
 							css: '<link rel="stylesheet" href="/{{filePath}}" />'
 						}
 					}
@@ -213,7 +213,7 @@ module.exports = function(grunt) {
 		},
 
 		// Renames files for browser caching purposes
-		rev: {
+		rev         : {
 			dist: {
 				files: {
 					src: [
@@ -231,10 +231,8 @@ module.exports = function(grunt) {
 		},
 
 		// The following *-min tasks produce minified files in the dist folder
-		cssmin: {
-			options: {
-
-			},
+		cssmin      : {
+			options: {},
 
 		},
 
@@ -243,9 +241,9 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: '<%= yeoman.app %>/images',
-						src: '{,*/}*.{png,jpg,jpeg,gif}',
-						dest: '<%= yeoman.dist %>/images'
+						cwd   : '<%= yeoman.app %>/images',
+						src   : '{,*/}*.{png,jpg,jpeg,gif}',
+						dest  : '<%= yeoman.dist %>/images'
 					}
 				]
 			}
@@ -256,9 +254,9 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: '<%= yeoman.app %>/images',
-						src: '{,*/}*.svg',
-						dest: '<%= yeoman.dist %>/images'
+						cwd   : '<%= yeoman.app %>/images',
+						src   : '{,*/}*.svg',
+						dest  : '<%= yeoman.dist %>/images'
 					}
 				]
 			}
@@ -266,65 +264,65 @@ module.exports = function(grunt) {
 
 		htmlmin: {
 			options: {
-				collapseWhitespace: true,
+				collapseWhitespace       : true,
 				collapseBooleanAttributes: true,
-				removeCommentsFromCDATA: true
+				removeCommentsFromCDATA  : true
 //				removeOptionalTags: true // This option breaks livereload when used.
 			},
-			server: {
+			server : {
 				files: [
 					{
 						expand: true,
-						cwd: '<%= yeoman.app %>',
-						src: ['*.html', 'views/{,*/}*.html'],
-						dest: '.tmp'
+						cwd   : '<%= yeoman.app %>',
+						src   : ['*.html', 'views/{,*/}*.html'],
+						dest  : '.tmp'
 					}
 				]
 			},
-			dist: {
+			dist   : {
 				files: [
 					{
 						expand: true,
-						cwd: '<%= yeoman.dist %>',
-						src: ['*.html', 'views/{,*/}*.html'],
-						dest: '<%= yeoman.dist %>'
+						cwd   : '<%= yeoman.dist %>',
+						src   : ['*.html', 'views/{,*/}*.html'],
+						dest  : '<%= yeoman.dist %>'
 					}
 				]
 			}
 		},
 
 		html2js: {
-			options: {
+			options  : {
 				singleModule: true,
-				module: 'Volusion.templates',
-				rename: function(moduleName) {
+				module      : 'Volusion.templates',
+				rename      : function (moduleName) {
 					return moduleName.replace('../app/', '');
 				},
-				htmlmin: {
-					collapseBooleanAttributes: true,
-					collapseWhitespace: true,
-					removeAttributeQuotes: true,
-					removeComments: true,
-					removeEmptyAttributes: true,
-					removeRedundantAttributes: true,
-					removeScriptTypeAttributes: true,
+				htmlmin     : {
+					collapseBooleanAttributes    : true,
+					collapseWhitespace           : true,
+					removeAttributeQuotes        : true,
+					removeComments               : true,
+					removeEmptyAttributes        : true,
+					removeRedundantAttributes    : true,
+					removeScriptTypeAttributes   : true,
 					removeStyleLinkTypeAttributes: true
 				}
 			},
 			templates: {
-				src: ['<%= yeoman.app %>/views/{,*/}*.html'],
+				src : ['<%= yeoman.app %>/views/{,*/}*.html'],
 				dest: '.tmp/templates.js'
 			}
 		},
 
-		concat: {
-			js:{
+		concat    : {
+			js       : {
 				dest: '.tmp/concat/scripts/scripts.js',
-				src: '<%= yeoman.app %>/scripts/{,*/}/*.js'
+				src : '<%= yeoman.app %>/scripts/{,*/}/*.js'
 			},
 			templates: {
 				dest: '.tmp/concat/scripts/scripts.js',
-				src: [
+				src : [
 					'.tmp/concat/scripts/scripts.js',
 					'.tmp/templates.js'
 				]
@@ -338,45 +336,45 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: '.tmp/concat/scripts',
-						src: '*.js',
-						dest: '.tmp/concat/scripts'
+						cwd   : '.tmp/concat/scripts',
+						src   : '*.js',
+						dest  : '.tmp/concat/scripts'
 					}
 				]
 			}
 		},
 
 		// Copies remaining files to places other tasks can use
-		copy: {
+		copy      : {
 			build: {
 				files: [
 					{
 						expand: true,
-						dot: true,
-						cwd: '<%= yeoman.app %>',
-						dest: '<%= yeoman.dist %>/scripts',
-						src: [
+						dot   : true,
+						cwd   : '<%= yeoman.app %>',
+						dest  : '<%= yeoman.dist %>/scripts',
+						src   : [
 							'<%= yeoman.app %>/.tmp/concat/scripts/scripts.js',
 						]
 					},
 					{
 						expand: true,
-						cwd: '<%= yeoman.app %>',
-						dest: '<%= yeoman.dist %>/index.html',
-						src: [
+						cwd   : '<%= yeoman.app %>',
+						dest  : '<%= yeoman.dist %>/index.html',
+						src   : [
 							'<%= yeoman.app %>/app/index.html'
 						]
 					}
 				]
 			},
-			dist: {
+			dist : {
 				files: [
 					{
 						expand: true,
-						dot: true,
-						cwd: '<%= yeoman.app %>',
-						dest: '<%= yeoman.dist %>',
-						src: [
+						dot   : true,
+						cwd   : '<%= yeoman.app %>',
+						dest  : '<%= yeoman.dist %>',
+						src   : [
 							'*.{ico,png,txt}',
 							'web.config',
 							'.htaccess',
@@ -394,83 +392,81 @@ module.exports = function(grunt) {
 					},
 					{
 						expand: true,
-						cwd: '.tmp',
-						dest: '<%= yeoman.dist %>',
-						src: ['styles/main.css', 'images/generated/{,*/}*.*']
+						cwd   : '.tmp',
+						dest  : '<%= yeoman.dist %>',
+						src   : ['styles/main.css', 'images/generated/{,*/}*.*']
 					}
 				]
 			}
 		},
 
 		// Test settings
-		karma: {
+		karma     : {
 			jasmine: {
 				configFile: 'test/karma.conf.jasmine.js',
-				singleRun: true
+				singleRun : true
 			},
-			mocha: {
+			mocha  : {
 				configFile: 'test/karma.conf.mocha.js',
-				singleRun: true
+				singleRun : true
 			}
 		},
 
-		sass:{
-			dist:{
-				options:{
+		sass         : {
+			dist: {
+				options: {
 					style: 'expanded' //We will change this to compressed later, just for testing
 				},
-				files:{
+				files  : {
 					//all the sass needs to be in one css file
 					'app/styles/main.css': 'app/styles/main.scss'
 				}
 			}
 
 		},
-		sprite:{
-			icons:{
-				src:'app/images/sprites/icons/*.png',
-				dest:'app/images/generated/sprites/icons.png',
-				destCss:'app/styles/base/icons.scss',			//Use CSS format with scss filtype,
+		sprite       : {
+			icons : {
+				src      : 'app/images/sprites/icons/*.png',
+				dest     : 'app/images/generated/sprites/icons.png',
+				destCss  : 'app/styles/base/icons.scss',			//Use CSS format with scss filtype,
 				cssFormat: 'css',													//otherwise outputs only compass SASS
-				cssVarMap: function(sprite){
-					sprite.name = 'th-product__'+sprite.name;
+				cssVarMap: function (sprite) {
+					sprite.name = 'th-product__' + sprite.name;
 				}
 			},
-			social:{
-				src:'app/images/sprites/social/*.png',
-				dest:'app/images/generated/sprites/social.png',
-				destCss:'app/styles/base/social.scss',
+			social: {
+				src      : 'app/images/sprites/social/*.png',
+				dest     : 'app/images/generated/sprites/social.png',
+				destCss  : 'app/styles/base/social.scss',
 				cssFormat: 'css',
-				cssVarMap: function(sprite){
-					sprite.name = 'th-social__icon--'+sprite.name;
+				cssVarMap: function (sprite) {
+					sprite.name = 'th-social__icon--' + sprite.name;
 				}
 			},
-			cards:{
-
-			}
+			cards : {}
 		},
 
 		// Watches files for changes and runs tasks based on the changed files
-		watch: {
-			karma:{
+		watch        : {
+			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
-								'<%= yeoman.app %>/scripts/{,*/}*.js',
-								'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+					'<%= yeoman.app %>/scripts/{,*/}*.js',
+					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
 				tasks: ['clean:server',
-								'newer:jshint:all',
-								'karma']
+					'newer:jshint:all',
+					'karma']
 			},
-			dev:{
+			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
-								'<%= yeoman.app %>/scripts/{,*/}*.js',
-								'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
-								'<%= yeoman.app %>/*.html',
-								'<%= yeoman.app %>/views/**/*.html',
-								'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-								'/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+					'<%= yeoman.app %>/scripts/{,*/}*.js',
+					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+					'<%= yeoman.app %>/*.html',
+					'<%= yeoman.app %>/views/**/*.html',
+					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
+					'/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
-																		//rest of files are being served from app folder
-								]
+					//rest of files are being served from app folder
+				]
 			}
 		},
 
@@ -478,20 +474,19 @@ module.exports = function(grunt) {
 		// concat, minify and revision files. Creates configurations in memory so
 		// additional tasks can operate on them
 		useminPrepare: {
-			html: '<%= yeoman.app %>/index.html',
-			options:{
+			html   : '<%= yeoman.app %>/index.html',
+			options: {
 				root: '<%= yeoman.app %>',
 				dest: '<%= yeoman.dist %>',
 			}
 		},
 
 		// Performs rewrites based on rev and the useminPrepare configuration
-		usemin: {
-				html: ['<%= yeoman.dist %>/index.html'],
-				css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-				options: {
-				},
-			js: [
+		usemin       : {
+			html   : ['<%= yeoman.dist %>/index.html'],
+			css    : ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+			options: {},
+			js     : [
 				'<%= yeoman.dist %>/scripts/*.js',
 				'<%= yeoman.dist %>/settings/app.js'
 			]
@@ -499,28 +494,34 @@ module.exports = function(grunt) {
 
 	});
 
+	grunt.registerTask('build', ['build:dev']);
 
-	grunt.registerTask('build:dev', function(server, name, version){
+	grunt.registerTask('build:dev', function (protocol, server, name, version) {
 		//if there is no target, we'll set the target to samplestore
-		if(typeof server === 'undefined'){
-			server = 'http://www.samplestore.io';
-		}else{
-			server = 'http://'+server;
+
+		if (typeof server === 'undefined') {
+			server = (protocol || 'http') + '://' + 'www.samplestore.io';
+		} else {
+			server = (protocol || 'http') + '://' + server;
 		}
-		if(typeof name === 'undefined'){
+
+		if (typeof name === 'undefined') {
 			name = 'samplestore';
 		}
-		if(typeof version === 'undefined'){
+
+		if (typeof version === 'undefined') {
 			version = '/api/v1';
 		}
 
+		grunt.log.writeln('API URL set for the environment "' + name + '" - ' + server + version);
+
 		grunt.config.set('ENVConstant', {
-			name: name,
-			host: server,
+			name       : name,
+			host       : server,
 			apiEndpoint: version
 		});
 
-grunt.task.run([
+		grunt.task.run([
 			'clean:dist',				//erase our dist folder
 			//no need to clean dist folder; we're serving /app, lets do it anyway
 			'clean:configure',	//erase generated config file
@@ -536,59 +537,64 @@ grunt.task.run([
 
 	});
 
-	grunt.registerTask('build:dist', function(server, name, version){
+	grunt.registerTask('build:dist', function (protocol, server, name, version) {
 		//there MUST be a target! Can't build for distribution without a target api
 
-		if(typeof server === 'undefined'){
-			grunt.fail.warn('You must at least include an API server as the first variable (e.g. build:dist:www.samplestore.io:sampleStore:/api/v1)');
+		if (typeof server !== 'undefined' && server.trim() !== '') {
+			grunt.fail.warn('WARNING: You are using different server for the API cconfiguration. ' +
+			'You need to have CORS enabled on the API endpoint for the theme to work.');
 
-		}else{
-				server = 'http://'+server;
-				if(typeof name === 'undefined'){
-					name = 'samplestore';
-				}
-				if(typeof version === 'undefined'){
-					version = '/api/v1';
-				}
+			server = (protocol || 'http') + '://' + server;
 
-				grunt.config.set('ENVConstant', {
-					name: name,
-					host: server,
-					apiEndpoint: version
-				});
-
-				//needs to pass karma and JSHint in order to build properly
-				//should uglify
-
-				grunt.task.run([
-					'clean:dist',				//erase our dist folder
-					'clean:configure',	//erase generated config file
-
-					'ngconstant:build',	//build generated config file
-					'wiredep',					//include the dependencies
-					'karma',						//run tests, must pass
-					'jshint:all',				//run jshint, must pass
-
-
-					'useminPrepare',	  //Prep for creating the html file with the minified files
-
-					'sprite:icons',			//Create the icon scss file
-					'sprite:social',		//create the social scss file
-					'sass',							//do SASS compilation
-					'autoprefixer',			//add browser prefixes to css file (inplace edit .tmp/style/main.css)
-
-					'html2js',						//transforms html to templates.js
-					'concat:generated',		//concats vendor JS files to vendor.js and scripts to scripts.js
-					'concat:templates',		//concats templates.js *after* scripts.js
-					'uglify',							//remove spaces, linebreaks, replace variables
-					'cssmin',							//minifies CSS
-					'copy:dist',					//copy the required files to the dist folder, so they can be overwritten
-					'rev',								//cachebusting
-					'usemin',							//last step! here's where we actually make changes to the index.html file
-																//which is why this step needs to be last, so we don't lose our original
-				]);
-
+		} else {
+			server = '';
 		}
+
+		if (typeof name === 'undefined') {
+			name = 'samplestore';
+		}
+		if (typeof version === 'undefined') {
+			version = '/api/v1';
+		}
+
+		grunt.config.set('ENVConstant', {
+			name       : name,
+			host       : server,
+			apiEndpoint: version
+		});
+
+		//needs to pass karma and JSHint in order to build properly
+		//should uglify
+
+		grunt.task.run([
+			'clean:dist',				//erase our dist folder
+			'clean:configure',	//erase generated config file
+
+			'ngconstant:build',	//build generated config file
+			'wiredep',					//include the dependencies
+			'karma',						//run tests, must pass
+			'jshint:all',				//run jshint, must pass
+
+
+			'useminPrepare',	  //Prep for creating the html file with the minified files
+
+			'sprite:icons',			//Create the icon scss file
+			'sprite:social',		//create the social scss file
+			'sass',							//do SASS compilation
+			'autoprefixer',			//add browser prefixes to css file (inplace edit .tmp/style/main.css)
+
+			'html2js',						//transforms html to templates.js
+			'concat:generated',		//concats vendor JS files to vendor.js and scripts to scripts.js
+			'concat:templates',		//concats templates.js *after* scripts.js
+			'uglify',							//remove spaces, linebreaks, replace variables
+			'cssmin',							//minifies CSS
+			'copy:dist',					//copy the required files to the dist folder, so they can be overwritten
+			'rev',								//cachebusting
+			'usemin',							//last step! here's where we actually make changes to the index.html file
+			//which is why this step needs to be last, so we don't lose our original
+		]);
+
+
 	});
 
 	grunt.registerTask('test',
@@ -597,23 +603,23 @@ grunt.task.run([
 			'karma',
 			'watch:karma']);				//only reload on js file change
 
-	grunt.registerTask('build:travis', ['build:dist:www.samplestore.io']);		//run a test build without watching
+	grunt.registerTask('build:travis', ['build:dist:http:www.samplestore.io']);		//run a test build without watching
 
 	grunt.registerTask('test:travis',		//don't live watch the files on travis build
 		['clean:server',					//may not be needed?
 			'newer:jshint:all',
 			'karma']);
 
-	grunt.registerTask('default', function(){
+	grunt.registerTask('default', function () {
 		grunt.log.errorlns('No Grunt commands selected! Your options are:');
 		grunt.log.writeln('>grunt test [runs karma tests and jshint]');
 		grunt.log.writeln('');
 		grunt.log.writeln('>grunt build:dev [builds without minification or concatination for http://www.samplestore.io/api/v1]');
-		grunt.log.writeln('>grunt build:dev:yourserver.here [builds without minification or concatination for http://yourserver.here/api/v1]');
-		grunt.log.writeln('>grunt build:dev:yourserver.here:yourserver:/api/vX [builds without minification or concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
+		grunt.log.writeln('>grunt build:dev:http:yourserver.here [builds without minification or concatination for http://yourserver.here/api/v1]');
+		grunt.log.writeln('>grunt build:dev:http:yourserver.here:yourserver:/api/vX [builds without minification or concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
 		grunt.log.writeln('');
-		grunt.log.writeln('>grunt build:dist:yourserver.here [builds with minification and concatination for http://yourserver.here/api/v1]');
-		grunt.log.writeln('>grunt build:dist:yourserver.here:yourserver:/api/vX [builds with minification and concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
+		grunt.log.writeln('>grunt build:dist:http:yourserver.here [builds with minification and concatination for http://yourserver.here/api/v1]');
+		grunt.log.writeln('>grunt build:dist:http:yourserver.here:yourserver:/api/vX [builds with minification and concatination for a server named yourserver, located at http://yourserver.here/api/vX]');
 
 	});
 
