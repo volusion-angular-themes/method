@@ -66,12 +66,22 @@ angular.module('methodApp', [
 			.state('login', {
 				url: '/login',
 				templateUrl: 'login/login.html',
-				controller : 'LoginCtrl'
+				controller : 'LoginCtrl',
+				resolve : {
+					emptyCart : ['vnAppRoute', function (vnAppRoute) {
+						return vnAppRoute.checkEmptyCart();
+					}]
+				}
 			})
 			.state('checkout', {
 				url: '/checkout',
 				templateUrl: 'checkout/checkout.html',
-				controller : 'CheckoutCtrl'
+				controller : 'CheckoutCtrl',
+				resolve : {
+					emptyCart : ['vnAppRoute', function (vnAppRoute) {
+						return vnAppRoute.checkEmptyCart();
+					}]
+				}
 			})
 			.state('thank-you', {
 				url: '/thank-you',
