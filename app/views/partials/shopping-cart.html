@@ -70,7 +70,7 @@
 						<br style="clear: both;" />
 					</div>
 
-					<div>
+					<div class="inline-block-wrap">
 						<div class="th-cart__items__item--qty">
 							<div data-vn-block="th-qty-counter" class="input-group">
 								<span class="input-group-btn">
@@ -162,7 +162,7 @@
 					data-ng-class="{'th-cart__promo-list--active': showPromoList == true}"
 					data-ng-if="!couponsEmpty">
 
-					<div class="th-cart__promo"
+					<div class="th-cart__promo inline-block-wrap"
 						data-ng-repeat="coupon in cart.discounts | reverse:orderBy:'couponCode'"
 						data-ng-class="{'-last': $last}">
 

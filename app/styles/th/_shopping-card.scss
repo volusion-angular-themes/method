@@ -21,6 +21,14 @@
 	overflow: hidden;
 }
 
+.inline-block-wrap{
+	font-size: 0px;
+
+	> *{
+		font-size: 12px;
+	}
+}
+
 .th-cart {
 
 	&__panel{
@@ -363,6 +371,7 @@
 		line-height   : 40px;
 		height        : 40px;
 		width         : 100%;
+		outline: none;
 		cursor        : pointer;
 		@include transition(color .15s);
 
