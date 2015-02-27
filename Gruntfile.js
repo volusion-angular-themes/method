@@ -495,6 +495,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('build', ['build:dev']);
+	grunt.registerTask('serve', ['build:dev']);
 
 	grunt.registerTask('build:dev', function (protocol, server, name, version) {
 		//if there is no target, we'll set the target to samplestore
@@ -614,6 +615,7 @@ module.exports = function (grunt) {
 		grunt.log.errorlns('No Grunt commands selected! Your options are:');
 		grunt.log.writeln('>grunt test [runs karma tests and jshint]');
 		grunt.log.writeln('');
+		grunt.log.writeln('>grunt serve [builds without minification or concatination for http://www.samplestore.io/api/v1]');
 		grunt.log.writeln('>grunt build [builds without minification or concatination for http://www.samplestore.io/api/v1]');
 		grunt.log.writeln('>grunt build:dev [builds without minification or concatination for http://www.samplestore.io/api/v1]');
 		grunt.log.writeln('>grunt build:dev:http:yourserver.here [builds without minification or concatination for http://yourserver.here/api/v1]');
