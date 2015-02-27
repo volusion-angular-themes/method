@@ -43,7 +43,8 @@
 		}
 
 		.navbar-toggle {
-			margin : 19px 10px;
+			margin  : 19px 10px;
+			display : block;
 		}
 
 		.navbar-nav {
@@ -128,6 +129,10 @@
 					padding-left : 0.7em;
 				}
 			}
+		}
+
+		.navbar-toggle {
+			display: none;
 		}
 	}
 }

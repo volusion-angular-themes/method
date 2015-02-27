@@ -207,6 +207,8 @@ angular.module('methodApp', [
 		}]);
 
 		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+			$window.scrollTo(0, 0);
+			
 			if(fromState.name.indexOf('.cart') === -1){
 				snapRemote.close();
 			}

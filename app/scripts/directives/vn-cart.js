@@ -79,9 +79,11 @@ angular.module('Volusion.controllers')
 				
 				$rootScope.$on('enterCartState', function() {
 					cart.toggleClass('th-cart--active');
+					$('body').toggleClass('cart-active');
 				});
 				$rootScope.$on('exitCartState', function() {
 					cart.toggleClass('th-cart--active');
+					$('body').toggleClass('cart-active');
 				});
 				$rootScope.$on('cartUpdated', function() {
 					$scope.fixBodyHeight();

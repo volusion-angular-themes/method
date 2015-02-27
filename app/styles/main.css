@@ -16,7 +16,7 @@
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden; }
 
-.vn-labeled-radio--tiles, .th-home-content .th-p2 .th-link, .th-product-view__alts img, .th-search-popout, .th-search-popout__trigger, .th-search-popout__input, .th-search-popout__submit, .th-social__icon, ul.nav-tabs > li {
+.vn-labeled-radio--tiles, .th-home-content .th-p2 .th-link, .th-product-view__alts img, .th-search-popout, .th-search-popout__trigger, .th-search-popout--input, .th-search-popout--submit, .th-social__icon, ul.nav-tabs > li {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -5363,7 +5363,7 @@ button.close {
   width: 35px;
   height: auto;
   margin: 0;
-  margin-top: -90px;
+  margin-top: -60px;
   font-size: 110px;
   font-family: Arial, Helvetica, sans-serif; }
   @media only screen and (max-width: 767px) {
@@ -5731,8 +5731,18 @@ Animation for products as facets of search are applied. [rough draft]
 .snap-content {
   background-color: #fff; }
 
-.snapjs-left .th-mobile-menu {
-  visibility: visible; }
+html, body {
+  overflow: auto; }
+
+.snap-content {
+  overflow: initial; }
+
+.snapjs-left, .cart-active {
+  overflow: hidden; }
+  .snapjs-left .snap-content, .cart-active .snap-content {
+    overflow: auto; }
+  .snapjs-left .th-mobile-menu, .cart-active .th-mobile-menu {
+    visibility: visible; }
 
 .th-mobile-menu {
   background-color: #fff;
@@ -5748,10 +5758,13 @@ Animation for products as facets of search are applied. [rough draft]
 .th-mobile-list {
   list-style: none;
   margin: 0 0 10px;
-  padding: 0; }
-  .th-mobile-list > li > a {
-    display: block;
-    padding-left: 0; }
+  padding: 0;
+  width: 100%; }
+  .th-mobile-list > li {
+    float: none; }
+    .th-mobile-list > li > a {
+      display: block;
+      padding-left: 0; }
   .th-mobile-list__item--header {
     font-family: "RobotoCondensed-Bold";
     font-size: 1.4rem;
@@ -5818,7 +5831,8 @@ Animation for products as facets of search are applied. [rough draft]
   .th-navbar .th-menu-container {
     min-height: 74px; }
   .th-navbar .navbar-toggle {
-    margin: 19px 10px; }
+    margin: 19px 10px;
+    display: block; }
   .th-navbar .navbar-nav > li > a {
     display: inline-block;
     padding: 10px 15px;
@@ -5859,7 +5873,9 @@ Animation for products as facets of search are applied. [rough draft]
 
 @media only screen and (min-width: 1200px) {
   .th-navbar .navbar-nav > li > a {
-    padding-left: 0.7em; } }
+    padding-left: 0.7em; }
+  .th-navbar .navbar-toggle {
+    display: none; } }
 
 /* */
 /*! POPOVER
@@ -6409,11 +6425,11 @@ input.ng-pristine + .input-help {
       text-decoration: none; }
 
 .th-search {
-  height: 48px;
   margin-top: 15px;
   min-width: 48px;
   padding: 0 10px;
-  position: relative; }
+  position: relative;
+  line-height: normal; }
   @media only screen and (min-width: 992px) {
     .th-search {
       display: -moz-inline-stack;
@@ -6423,7 +6439,6 @@ input.ng-pristine + .input-help {
       zoom: 1;
       *display: inline;
       border: 0;
-      height: 46px;
       margin: 0;
       padding: 0; } }
   .th-search__input {
@@ -6465,6 +6480,14 @@ input.ng-pristine + .input-help {
       .th-search__submit {
         right: 13px;
         top: 15px; } }
+  .th-search__popout {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px; }
+    .th-search__popout--input {
+      vertical-align: middle; }
+    .th-search__popout--button {
+      vertical-align: middle; }
 
 .th-search-popout__trigger {
   color: #000000;
@@ -6476,12 +6499,12 @@ input.ng-pristine + .input-help {
   .th-search-popout__trigger.-position {
     left: auto;
     right: 70px; }
-.th-search-popout__input {
+.th-search-popout--input {
   border: 1px solid #d9d9d9;
   height: 28px;
   outline: 0;
   text-indent: 21px; }
-.th-search-popout__submit {
+.th-search-popout--submit {
   height: 28px;
   letter-spacing: 1.2px; }
 
@@ -6500,6 +6523,11 @@ input.ng-pristine + .input-help {
 
 .snap-drawers {
   overflow: hidden; }
+
+.inline-block-wrap {
+  font-size: 0px; }
+  .inline-block-wrap > * {
+    font-size: 12px; }
 
 .th-cart__panel {
   background-color: #fff;
@@ -6783,6 +6811,7 @@ input.ng-pristine + .input-help {
   line-height: 40px;
   height: 40px;
   width: 100%;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color .15s;
   -o-transition: color .15s;
