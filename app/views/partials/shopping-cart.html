@@ -1,7 +1,7 @@
 <div data-vn-shopping-cart class="th-cart">
 	<a data-ng-click="exitCartState()" class="th-cart__overlay"></a>
 	<div class="th-cart__panel">
-		
+
 		<!-- Brand -->
 		<div class="th-cart__brand" data-ng-if="!isInDesktopMode">
 			<button type="button" class="navbar-toggle th-cart__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
@@ -16,14 +16,14 @@
 			<br style="clear: both;" />
 		</div>
 		<!-- End Brand -->
-		
+
 		<!-- Cart Header -->
 		<div class="th-cart__header">
 			<a data-ng-click="exitCartState()" class="th-cart__header-back"></a>
 			<span class="th-cart__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
 		</div>
 		<!-- End Header -->
-		
+
 		<!-- Body/ScrollArea -->
 		<div class="th-cart__body" data-vn-scroll-top>
 
@@ -53,7 +53,7 @@
 
 				<div class="th-cart__items__item" data-ng-repeat="item in cart.items | reverse">
 					<div class="th-cart__items__item--close">
-						<button data-ng-click="deleteItem({{ item.id }})"><span></span></button>
+						<button data-ng-click="deleteItem(item.id)"><span></span></button>
 					</div>
 					<div>
 						<a data-ng-href="{{ item.productUrl }}" ><img class="th-cart__items__item--image" data-ng-src="{{ item.imgUrl }}" /></a>
@@ -123,14 +123,14 @@
 			</div>
 		</div>
 		<!-- End Body/ScrollArea -->
-		
+
 		<!-- Footer -->
 		<div class="th-cart__footer">
 
 			<div class="th-cart__promo-wrap" data-ng-if="!cartEmpty">
 				<div class="th-cart__promo-add">
 					<input class="form-control th-cart__promo-add__input"
-						maxlength="25" 
+						maxlength="25"
 						data-ng-model="coupon.code"
 						data-ng-focus="toggleApplyBtn(true)"
 						data-ng-blur="toggleApplyBtn(false)"

@@ -37,10 +37,31 @@
 		}
 	}
 }
+//Must use custom font-face
+@mixin font-face(
+  $name,
+  $font-files,
+  $weight: false,
+  $style: false
+) {
+  @font-face {
+    font-family: quote($name);
+    src: url("/fonts/#{$name}.eot");
+    src: url("/fonts/#{$name}.eot?#iefix") format('embedded-opentype'),
+    		 url("/fonts/#{$name}.woff") format('woff'),
+    		 url("/fonts/#{$name}.tff") format('truetype'),
+    		 url("/fonts/#{$name}.svg#font") format('svg');
+    @if $weight {
+      font-weight: $weight;
+    }
+    @if $style {
+      font-style: $style;
+    }
+  }
+}
 
 @mixin app-font($name, $weight: normal, $style: normal) {
-	$font-files: inline-font-files( '#{$name}.woff', woff ), font-files( '#{$name}.ttf', truetype, '#{$name}.svg#font', svg );
-	@include font-face($name, $font-files, '#{$name}.eot', $weight, $style);
+	@include font-face($name, url("/fonts/#{$name}.woff"), $weight, $style);
 }
 
 @mixin input-placeholder {

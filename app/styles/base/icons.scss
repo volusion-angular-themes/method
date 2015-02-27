@@ -1,0 +1,41 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-th-product__cart-bag {
+  background-image: url(../../images/generated/sprites/icons.png);
+  background-position: -150px -57px;
+  width: 13px;
+  height: 17px;
+}
+.icon-th-product__heart {
+  background-image: url(../../images/generated/sprites/icons.png);
+  background-position: -132px -57px;
+  width: 18px;
+  height: 18px;
+}
+.icon-th-product__new {
+  background-image: url(../../images/generated/sprites/icons.png);
+  background-position: -77px 0px;
+  width: 55px;
+  height: 59px;
+}
+.icon-th-product__sale {
+  background-image: url(../../images/generated/sprites/icons.png);
+  background-position: -132px 0px;
+  width: 53px;
+  height: 57px;
+}
+.icon-th-product__zoom {
+  background-image: url(../../images/generated/sprites/icons.png);
+  background-position: 0px 0px;
+  width: 77px;
+  height: 77px;
+}
