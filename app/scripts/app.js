@@ -69,7 +69,7 @@ angular.module('methodApp', [
 				controller : 'LoginCtrl',
 				resolve : {
 					emptyCart : ['vnAppRoute', function (vnAppRoute) {
-						return vnAppRoute.checkEmptyCart('login');
+						return vnAppRoute.checkEmptyCart(this.url.source);
 					}]
 				}
 			})
@@ -79,7 +79,7 @@ angular.module('methodApp', [
 				controller : 'CheckoutCtrl',
 				resolve : {
 					emptyCart : ['vnAppRoute', function (vnAppRoute) {
-						return vnAppRoute.checkEmptyCart('checkout');
+						return vnAppRoute.checkEmptyCart(this.url.source);
 					}]
 				}
 			})
