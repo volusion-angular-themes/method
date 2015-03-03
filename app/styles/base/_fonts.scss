@@ -1,5 +1,8 @@
 // Declare Custom Fonts Here (update any .svg file's id to 'font'!)
 // Set to font's file name
+
+//app-font doesn't work without compass!
+
 @include app-font('roboto-regular');
 @include app-font('roboto-italic');
 @include app-font('roboto-bold');
@@ -10,15 +13,15 @@
 @include app-font('roboto-thinitalic');
 @include app-font('robotocondensed-regular');
 @include app-font('robotocondensed-bold');
-
+//
 @include app-font('antonio-regular');
 @include app-font('antonio-bold');
 @include app-font('antonio-light');
-
+//
 @include app-font('crimsontext');
 @include app-font('crimsontext-italic');
-
-// Custom Font Variables
+//
+//// Custom Font Variables
 $font-family-condensed-reg:         "RobotoCondensed-Regular";
 $font-family-condensed-bold:        "RobotoCondensed-Bold";
 $font-family-serif-italic:          "crimsontext-italic", "Times New Roman", Times, serif !default;
@@ -27,3 +30,4 @@ $font-family-heading-reg:           "antonio-regular";
 $font-family-glyphs: 				"Glyphicons Halflings";
 
 // Primary Fonts are assigned to Bootstrap variables. See file '_bootstrap-style.scss'r
+

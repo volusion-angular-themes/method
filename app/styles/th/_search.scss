@@ -1,14 +1,13 @@
 .th-search {
-	height     : 48px;
 	margin-top : 15px;
 	min-width  : 48px;
 	padding    : 0 10px;
 	position   : relative;
+	line-height: normal;
 
 	@include respond-to(md-and-up) {
 		@include inline-block;
 		border  : 0;
-		height  : 46px;
 		margin  : 0;
 		padding : 0;
 	}
@@ -56,6 +55,19 @@
 		@include respond-to(md-and-up) {
 			right : 13px;
 			top   : 15px;
+		}
+	}
+
+	&__popout{
+		vertical-align : middle;
+		display        : inline-block;
+		margin-right   : 5px;
+
+		&--input{
+			vertical-align: middle;
+		}
+		&--button{
+			vertical-align: middle;
 		}
 	}
 

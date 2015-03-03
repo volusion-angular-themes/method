@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$routeParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct', 'snapRemote', 'notifications',
-		function ($rootScope, $scope, vnApi, $location, $routeParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct, snapRemote, notifications) {
+	.controller('ProductCtrl', ['$rootScope', '$scope', 'vnApi', '$location', '$stateParams', '$filter', '$anchorScroll', '$translate', 'vnCart', 'vnAppMessageService', 'vnProduct',
+		function ($rootScope, $scope, vnApi, $location, $stateParams, $filter, $anchorScroll, $translate, vnCart, vnAppMessageService, vnProduct) {
 
 			'use strict';
 
@@ -18,11 +18,6 @@ angular.module('Volusion.controllers')
 					active: false
 				}
 			};
-
-			function modifyQuantity(amount) {
-				$scope.cartItem.qty = parseInt($scope.cartItem.qty) + amount; // manual change in input stringify model
-				vnProduct.setQuantityInStock(amount);
-			}
 
 			function setDefaults() {
 
@@ -70,7 +65,7 @@ angular.module('Volusion.controllers')
 				}
 			}
 
-			vnApi.Product().get({slug: $routeParams.slug }).$promise
+			vnApi.Product().get({slug: $stateParams.slug }).$promise
 				.then(function (response) {
 
 					// using vnProduct's setters will reflect $scope.product object
@@ -140,39 +135,21 @@ angular.module('Volusion.controllers')
 
 				vnCart.saveCart($scope.cartItem)
 					.then(function () {
-
-						var cart = vnCart.getCart();
-
-						if ($rootScope.isInDesktopMode) {
-							snapRemote.open('right');
-						} else {
-							snapRemote.expand('right');
-						}
-
+						$rootScope.gotoSoftAdd();
 						$scope.cartItem.qty = 0;
-
-						notifications.displayWarnings(cart.warnings); // if any
-						notifications.displayErrors(cart.serviceErrors);
-
-						if (cart.warnings && cart.warnings.length > 0 ||
-							cart.serviceErrors && cart.serviceErrors.length > 0) {
-							// scroll cart item to the top so this msg will be visible
-							$rootScope.$emit('vnScroll.cart');
-						}
-
 					})
 					.finally(function () {
-						modifyQuantity(1);
+						$scope.modifyQty(1);
 						$scope.buttonWait = false;
 					});
 			};
 
-			$scope.decrementQty = function () {
-				modifyQuantity(-1);
+			$scope.modifyQty = function(amount) {
+				$scope.cartItem.qty += amount;
+				vnProduct.setQuantityInStock(amount);
 			};
-
-			$scope.changeQty = function () {
-				if (isNaN($scope.cartItem.qty) || parseInt($scope.cartItem.qty) < 1) {
+			$scope.postValidateQty = function () {
+				if($scope.cartItem.qty === ''){
 					$scope.cartItem.qty = 1;
 				}
 			};
@@ -185,10 +162,6 @@ angular.module('Volusion.controllers')
 				}
 
 				return path;
-			};
-
-			$scope.incrementQty = function () {
-				modifyQuantity(1);
 			};
 
 			$scope.$watch('product.optionSelection', function (currentSelection) {

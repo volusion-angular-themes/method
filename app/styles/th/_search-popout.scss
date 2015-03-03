@@ -16,7 +16,7 @@
 		}
 	}
 
-	&__input {
+	&--input {
 		@extend %inline-block;
 		border      : 1px solid $hr-border;
 		height      : 28px;
@@ -24,7 +24,7 @@
 		text-indent : 21px;
 	}
 
-	&__submit {
+	&--submit {
 		@extend %inline-block;
 		height         : 28px;
 		letter-spacing : 1.2px;

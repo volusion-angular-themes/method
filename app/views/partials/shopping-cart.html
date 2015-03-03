@@ -1,0 +1,207 @@
+<div data-vn-shopping-cart class="th-cart">
+	<a data-ng-click="exitCartState()" class="th-cart__overlay"></a>
+	<div class="th-cart__panel">
+
+		<!-- Brand -->
+		<div class="th-cart__brand" data-ng-if="!isInDesktopMode">
+			<button type="button" class="navbar-toggle th-cart__brand--search" data-ng-init="navCollapsed = true" data-ng-click="openLeftNav()">
+				<span class="sr-only" data-translate="header.toggleNavigation">Toggle Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<img class="th-cart__brand--image" data-ng-src="{{ config.general.logoUrl }}" class="img-responsive" />
+
+			<br style="clear: both;" />
+		</div>
+		<!-- End Brand -->
+
+		<!-- Cart Header -->
+		<div class="th-cart__header">
+			<a data-ng-click="exitCartState()" class="th-cart__header-back"></a>
+			<span class="th-cart__header-title" data-translate="shopping-card.lblYourCart">Your Cart</span>
+		</div>
+		<!-- End Header -->
+
+		<!-- Body/ScrollArea -->
+		<div class="th-cart__body" data-vn-scroll-top>
+
+			<div class="th-cart__body--overlay"
+				 data-ng-if="loading"
+				 vn-busy-animation
+				 vn-busy-animation-show="{{ loading }}"
+				 vn-busy-animation-size="80px"
+				 vn-busy-animation-class="th-cart__body--overlay--loader"></div>
+
+			<div class="th-alert-container">
+				<div data-vn-app-message=""></div>
+			</div>
+
+			<div class="th-cart__noitems--label"
+				 data-translate="shopping-card.lblYourCartIsEmpty"
+				 data-ng-if="cartEmpty">
+
+				 Your cart is empty
+			</div>
+
+			<div class="th-cart__items" data-ng-if="!cartEmpty">
+
+				<div class="th-cart__items--gift">
+					<input type="checkbox" data-ng-model="showGiftOption" data-ng-change="resetGiftOptions()" id="showGiftOptionInput"><label data-translate="shopping-card.lblGift" for="showGiftOptionInput">This is a gift</label>
+				</div>
+
+				<div class="th-cart__items__item" data-ng-repeat="item in cart.items | reverse">
+					<div class="th-cart__items__item--close">
+						<button data-ng-click="deleteItem(item.id)"><span></span></button>
+					</div>
+					<div>
+						<a data-ng-href="{{ item.productUrl }}" ><img class="th-cart__items__item--image" data-ng-src="{{ item.imgUrl }}" /></a>
+						<div>
+							<div class="th-cart__items__item--name">
+								<a data-ng-href="{{ item.productUrl }}" >{{ item.name }}</a>
+							</div>
+							<div class="th-cart__items__item--price">{{ item.pricing.unitPrice | currency }}</div>
+							<div class="th-cart__items__item--option" data-ng-repeat="option in item.options">
+								<span>{{ option.optionText }}</span>
+							</div>
+						</div>
+
+						<br style="clear: both;" />
+					</div>
+
+					<div class="inline-block-wrap">
+						<div class="th-cart__items__item--qty">
+							<div data-vn-block="th-qty-counter" class="input-group">
+								<span class="input-group-btn">
+									<button data-vn-element="btn" class="btn btn-default"
+									        data-ng-click="changeQty(item, item.qty - 1, 500)"
+									        data-ng-disabled="item.qty <= 1 || item.qty === ''">
+										<span class="glyphicon glyphicon-minus"></span>
+									</button>
+								</span>
+								<input data-vn-element="input"
+									class="form-control"
+									data-ng-model="item.qty"
+									data-ng-blur="changeQty(item, item.qty)"
+									data-vn-format-quantity>
+								<span class="input-group-btn">
+									<button data-vn-element="btn"
+									        class="btn btn-default"
+									        data-ng-disabled="item.qty === 9999999 || item.qty === ''"
+									        data-ng-click="changeQty(item, item.qty + 1, 500)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
+						</div>
+						<div class="th-cart__items__item--subtotal">{{ item.pricing.subtotal | vnCurrency }}</div>
+					</div>
+
+					<br style="clear: both;" />
+
+					<div class="th-cart__items__item__gift animate-if" data-ng-if="showGiftOption && item.isGiftWrapAvailable">
+						<div class="th-cart__items__item__gift--option" data-ng-class="{'-visual-cue' : visualCue}">
+							<input type="checkbox" data-ng-model="item.giftWrap.selected" data-ng-change="addGiftWrap()">
+							<span data-translate="shopping-card.lblGiftOption">Add gift wrap for</span>&nbsp;{{ item.giftWrap.price | currency }}
+						</div>
+
+						<textarea class="th-cart__items__item__gift--message animate-if"
+							   	  maxlength="255"
+							   	  data-vn-auto-grow
+							   	  data-ng-trim="false"
+							   	  data-ng-if="item.giftWrap.selected"
+							   	  data-ng-model="item.giftWrap.message"
+							      data-ng-blur="addGiftMsg()"
+							      placeholder="{{ 'shopping-card.lblGiftMessage' | translate }}"></textarea>
+
+						<div class="th-cart__items__item__gift--message-count" data-ng-if="item.giftWrap.selected">
+							<span>{{255 - item.giftWrap.message.length}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Body/ScrollArea -->
+
+		<!-- Footer -->
+		<div class="th-cart__footer">
+
+			<div class="th-cart__promo-wrap" data-ng-if="!cartEmpty">
+				<div class="th-cart__promo-add">
+					<input class="form-control th-cart__promo-add__input"
+						maxlength="25"
+						data-ng-model="coupon.code"
+						data-ng-focus="toggleApplyBtn(true)"
+						data-ng-blur="toggleApplyBtn(false)"
+						data-ng-keypress="promoInputKeypress($event)"
+						placeholder="{{ 'shopping-card.lblAddCoupon' | translate }}">
+					<button class="btn btn-primary th-cart__promo-add__apply"
+							data-translate="shopping-card.btnApply"
+							data-ng-click="applyCoupon()"
+							data-ng-class="{'th-cart__promo-add__apply--active': coupon.showApply == true}">
+						Apply
+					</button>
+				</div>
+
+				<div class="th-cart__promo-summary"
+					data-ng-if="!couponsEmpty"
+					data-ng-click="togglePromoList()"
+					data-ng-class="{'th-cart__promo-summary--active': showPromoList == true}">
+					<span class="th-cart__promo-summary__arrow"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+					<span class="th-cart__promo-summary__count">
+						<span class="th-cart__promo-summary__count-number">{{cart.discounts.length | number}}</span>&nbsp;
+						<span data-ng-if="cart.discounts.length === 1" data-translate="shopping-card.lblPromoApplied">promo applied</span>
+						<span data-ng-if="cart.discounts.length > 1" data-translate="shopping-card.lblPromosApplied">promos applied</span>
+					</span>
+					<span class="th-cart__promo-summary__total">{{ cart.totals.discounts | vnCurrency }}</span>
+
+				</div>
+
+				<div class="th-cart__promo-list"
+					data-ng-class="{'th-cart__promo-list--active': showPromoList == true}"
+					data-ng-if="!couponsEmpty">
+
+					<div class="th-cart__promo inline-block-wrap"
+						data-ng-repeat="coupon in cart.discounts | reverse:orderBy:'couponCode'"
+						data-ng-class="{'-last': $last}">
+
+						<div class="th-cart__promo--left">
+							<div class="th-cart__promo__close" data-ng-if="coupon.couponCode !== ''">
+								<button data-ng-click="deleteCoupon('{{coupon.id}}')"><span></span></button>
+							</div>
+
+							<div class="th-cart__promo__name">
+								<span>{{ coupon.name }}</span>
+							</div>
+						</div>
+
+						<div class="th-cart__promo--right">
+							<div class="th-cart__promo__value">
+								<span>{{ coupon.value | vnCurrency }}</span>
+							</div>
+						</div>
+					</div>
+
+					<br style="clear: both;" />
+				</div>
+
+			</div>
+
+			<div class="th-cart__subtotal" data-ng-if="!cartEmpty">
+				<div class="th-cart__subtotal--label" data-translate="shopping-card.lblSubtotal">Subtotal</div>
+				<div class="th-cart__subtotal--price">{{ calcSubtotal | currency }}</div>
+				<br style="clear: both;" />
+			</div>
+
+			<div class="th-cart__checkout">
+				<a href="/login"
+				class="th-cart__checkout-button btn btn-primary"
+				data-translate="shopping-card.btnCheckout"
+				data-ng-disabled="cartEmpty">
+				Checkout</a>
+			</div>
+		</div>
+		<!-- End Footer -->
+	</div>
+</div>

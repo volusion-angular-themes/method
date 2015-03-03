@@ -1,12 +1,16 @@
+$border-dark: #adadad;
+
 .th-qty-wrap {
 	padding : 4px 15px;
 
 	@include respond-to(sm-and-up) {
 		padding-right : 0;
+		padding-left  : 0;
 	}
 }
 
 .th-qty-counter {
+
 	&__btn {
 		border-color : $hr-border;
 		height       : 45px;
@@ -17,12 +21,43 @@
 			min-width : 25px;
 			padding   : 13px 0px;
 		}
+
+		&.btn.btn-default[disabled]{
+			opacity : 1;
+			filter  : alpha(opacity=1);
+			color   : lighten($btn-default-color, 60%);
+			border-color : $hr-border;
+		}
 	}
 
-	&__input {
+	&__input.form-control {
 		height     : 45px;
 		font-size  : 1.6rem;
-		padding    : 10px 5px;
+		padding    : 5px;
 		text-align : center;
+
+		&:focus{
+			border-color : $border-dark;
+		}
+	}
+
+	/* Bootstrap overrides */
+	.input-group-btn{
+
+		&:first-child{
+
+			> .th-qty-counter__btn{
+				margin-right : 0px;
+				border-right : 1px solid transparent;
+
+				&:hover,
+				&:focus{
+					border-color : $border-dark;
+				}
+			}
+		}
+	}
+	&__input.form-control{
+		border-top : 1px solid $hr-border;
 	}
 }

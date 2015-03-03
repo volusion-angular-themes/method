@@ -9,7 +9,6 @@ angular.module('methodApp', [
 	'ngCookies',
 	'ngResource',
 	'ngSanitize',
-	'ngRoute',
 	'ngTouch',
 
 	// Third party modules
@@ -17,6 +16,8 @@ angular.module('methodApp', [
 	'pascalprecht.translate',
 	'snap',
 	'textAngular',
+	'ui.router',
+	'ngRoute',
 
 	// Volusion modules
 	'config',
@@ -24,11 +25,12 @@ angular.module('methodApp', [
 	'angulartics',
 	'Volusion.toolboxCommon',
 	'Volusion.controllers',
-	'Volusion.services'
+	'Volusion.services',
+	'Volusion.templates'
 ])
 
-  .config(['$routeProvider', '$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV',
-	  function ($routeProvider, $locationProvider, translateProvider, vnAppConfigProvider, ENV) {
+  .config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV', '$stateProvider', '$urlRouterProvider',
+	  function ($locationProvider, translateProvider, vnAppConfigProvider, ENV, $stateProvider, $urlRouterProvider) {
 
 		  'use strict';
 
@@ -46,8 +48,12 @@ angular.module('methodApp', [
 
 		  translateProvider.configure(translateOptions);
 
-		  $routeProvider
-			.when('/', {
+
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+			.state('home', {
+				url: '/',
 				templateUrl: 'views/home.html',
 				controller : 'HomeCtrl',
 				resolve    : {
@@ -57,19 +63,33 @@ angular.module('methodApp', [
 					}]
 				}
 			})
-			.when('/login', {
+			.state('login', {
+				url: '/login',
 				templateUrl: 'login/login.html',
-				controller : 'LoginCtrl'
+				controller : 'LoginCtrl',
+				resolve : {
+					emptyCart : ['vnAppRoute', function (vnAppRoute) {
+						return vnAppRoute.checkEmptyCart();
+					}]
+				}
 			})
-			.when('/checkout', {
+			.state('checkout', {
+				url: '/checkout',
 				templateUrl: 'checkout/checkout.html',
-				controller : 'CheckoutCtrl'
+				controller : 'CheckoutCtrl',
+				resolve : {
+					emptyCart : ['vnAppRoute', function (vnAppRoute) {
+						return vnAppRoute.checkEmptyCart();
+					}]
+				}
 			})
-			.when('/thank-you', {
+			.state('thank-you', {
+				url: '/thank-you',
 				templateUrl: 'thank-you/thank-you.html',
 				controller : 'ThankYouCtrl'
 			})
-			.when('/p/:slug', {
+			.state('product', {
+				url: '/p/:slug',
 				templateUrl: 'views/product.html',
 				controller : 'ProductCtrl',
 				resolve    : {
@@ -78,10 +98,10 @@ angular.module('methodApp', [
 					}]
 				}
 			})
-			.when('/c/:slug', {
+			.state('category', {
+				url: '/c/:slug',
 				templateUrl   : 'views/category.html',
 				controller    : 'CategoryCtrl',
-				reloadOnSearch: false,
 				resolve       : {
 					params      : ['vnAppRoute', '$location', function (vnAppRoute, $location) {
 						return vnAppRoute.resolveParams($location.search());
@@ -91,7 +111,8 @@ angular.module('methodApp', [
 					}]
 				}
 			})
-			.when('/search', {
+			.state('search', {
+				url: '/search',
 				templateUrl   : 'views/search.html',
 				controller    : 'SearchCtrl',
 				reloadOnSearch: false,
@@ -104,7 +125,8 @@ angular.module('methodApp', [
 					}]
 				}
 			})
-			.when('/all-products', {
+			.state('allProducts', {
+				url: '/all-products',
 				templateUrl   : 'views/search.html',
 				controller    : 'SearchCtrl',
 				reloadOnSearch: false,
@@ -117,52 +139,86 @@ angular.module('methodApp', [
 					}]
 				}
 			})
-			.when('/theme-settings', {
+			.state('themeSettings', {
+				url: '/theme-settings',
 				templateUrl: 'views/theme-settings.html',
 				controller : 'ThemeSettingsCtrl'
 			})
-			.when('/:slug', { // Articles must be last or the prior /search and /theme-settings will never be picked up
+			.state('article', { // Articles must be last or the prior /search and /theme-settings will never be picked up
+				url: '/:slug',
 				templateUrl: 'views/article.html',
 				controller : 'PageCtrl',
-				resolve    : {
-					article: ['vnApi', '$route', function (vnApi, $route) {
-						return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
-					}]
-				}
-			})
-			.otherwise({
-				redirectTo: '/'
+                resolve: {
+                    article: ['vnApi', '$route', function (vnApi, $route) {
+                        return vnApi.Article().get({slug: $route.current.params.slug}).$promise;
+                    }]
+                }
 			});
-	  }])
 
-  .run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
-	  function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
+			function getCartState(){
+				return {
+					url: '/cart',
+					onEnter: ['$rootScope', function($rootScope) {
+						$rootScope.$emit('enterCartState');
+				    }],
+				    onExit: ['$rootScope', function($rootScope) {
+				    	$rootScope.$emit('exitCartState');
+				    }]
+				};
+			}
 
-		  'use strict';
+			//Register cart states for all pages
+			$stateProvider
+				.state('home.cart', getCartState())
+				.state('product.cart', getCartState())
+				.state('category.cart', getCartState())
+				.state('search.cart', getCartState())
+				.state('allProducts.cart', getCartState())
+				.state('themeSettings.cart', getCartState())
+				.state('article.cart', getCartState())
+				.state('login.cart', getCartState())
+				.state('thank-you.cart', getCartState());
 
-		  $rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
+	}])
 
-		  vnCart.init();
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
 
-		  translate.addParts('message');
+		'use strict';
 
-		  vnViewPortWatch.setBreakpoints([{
-			  name      : 'Non-Desktop',
-			  mediaQuery: 'screen and (max-width: 991px)',
-			  onMatch   : function () {
-				  $rootScope.isInDesktopMode = false;
-			  },
-			  onUnmatch : function () {
-				  snapRemote.close();
-				  $rootScope.isInDesktopMode = true;
-			  }
-		  }]);
+		$rootScope.defaultProductImage = '/images/theme/tcp-no-image.jpg';
 
-		  $rootScope.$on('$routeChangeSuccess', function () {
-			  snapRemote.close();
-		  });
+		vnCart.init();
 
-		  $rootScope.$on('VN_HTTP_500_ERROR', function () {
-			  vnModalService.showError('views/server-error.html');
-		  });
-	  }]);
+		translate.addParts('message');
+
+		vnViewPortWatch.setBreakpoints([{
+			name      : 'Non-Desktop',
+			mediaQuery: 'screen and (max-width: 991px)',
+			onMatch   : function () {
+				$rootScope.isInDesktopMode = false;
+				$rootScope.$emit('enterNonDesktop');
+			},
+			onUnmatch : function () {
+				snapRemote.close();
+				$rootScope.isInDesktopMode = true;
+				$rootScope.$emit('exitNonDesktop');
+			}
+		}]);
+
+		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+			$window.scrollTo(0, 0);
+			
+			if(fromState.name.indexOf('.cart') === -1){
+				snapRemote.close();
+			}
+		});
+
+		$rootScope.$on('$stateChangeSuccess', function (event, toState) {
+			$rootScope.currentState = toState.name;
+		});
+
+		$rootScope.$on('VN_HTTP_500_ERROR', function () {
+			vnModalService.showError('views/server-error.html');
+		});
+}]);

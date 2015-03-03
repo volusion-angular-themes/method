@@ -17,23 +17,80 @@
 	opacity : 1;
 }
 
-.th-checkout {
-	background-color : $body-bg;
-	border-left      : 1px solid $hr-border;
-	overflow         : hidden;
-	position         : fixed;
-	top              : 0;
-	bottom           : 0;
-	padding-bottom   : 20px;
+.snap-drawers{
+	overflow: hidden;
+}
+
+.inline-block-wrap{
+	font-size: 0px;
+
+	> *{
+		font-size: 12px;
+	}
+}
+
+.th-cart {
+
+	&__panel{
+		background-color   : $body-bg;
+		border-left        : 1px solid $hr-border;
+		position           : absolute;
+		right              : -300px;
+		z-index            : 10;
+		height             : 100%;
+		width              : 300px;
+		overflow           : hidden;
+		transition         : right .3s;
+		-webkit-transition : right .3s;
+		-moz-transition    : right .3s;
+
+		@include respond-to(xs){
+			width : 100%;
+			right : -100%;
+
+			&__overlay{
+				display : none;
+			}
+		}
+	}
+
+	&__overlay{
+		position           : absolute;
+		top                : 0px;
+		right              : 0px;
+		width              : 100%;
+		height             : 100%;
+		z-index            : -10;
+		background-color   : rgba(0,0,0,.5);
+		opacity            : 0;
+		transition         : opacity .5s;
+		-webkit-transition : opacity .5s;
+		-moz-transition    : opacity .5s;
+		cursor             : default;
+	}
+
+	&--active{
+		
+		.th-cart__panel{
+			right : 0px;
+		}
+		.th-cart__overlay{
+			z-index : 9;
+			opacity : 1;
+		}
+	}
 
 	.-visual-cue {
 		background-color : yellow;
 	}
 
-	&__scroll-area {
-		overflow-y : scroll;
+	&__body {
+		overflow-y : auto;
 		height     : 100%;
-		margin-top : 37px;
+		height     : calc(100% - 190px);
+		height     : -webkit-calc(100% - 190px);
+		height     : -moz-calc(100% - 190px);
+		margin-top : 40px;
 
 		&--overlay {
 			@extend %font-smoothing;
@@ -66,11 +123,12 @@
 	}
 
 	&__brand {
-
-		padding       : 3px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 46px;
-		position      : relative;
+		padding          : 3px 10px;
+		border-bottom    : 1px solid $hr-border;
+		height           : 46px;
+		position         : relative;
+		z-index          : 3;
+		background-color : white;
 
 		&--image {
 			display : block;
@@ -105,6 +163,9 @@
 			font-size  : 14px;
 			outline    : none;
 			outline    : 0;
+			width      : 50%;
+			text-align : center;
+			display    : inline-block;
 
 			&[disabled] {
 				//background-color : $gray-lighter;
@@ -127,113 +188,292 @@
 					font-family : $font-family-glyphs;
 					content     : "\e079";
 					margin      : 0 10px 0 0;
+					font-size: .8em;
 				}
 			}
 
 			&:last-child {
 
 				float : right;
+				border-left: 1px solid $hr-border;
 
 				&:after {
 					font-family : $font-family-glyphs;
 					content     : "\e080";
 					margin      : 0 0 0 10px;
+					font-size: .8em;
 				}
 			}
+		}
+	}
+
+	&__header{
+		position           : absolute;
+		border-bottom      : 1px solid $hr-border;
+		background-color   : $btn-default-bg;
+		z-index            : 999;
+		width              : 100%;
+		line-height        : 40px; 
+		height             : 40px;
+		text-align         : center;
+		@include box-shadow(rgba(0,0,0,0.08) 0px 1px 2px 0px);
+
+		&:after{
+			clear   : both;
+			display : table;
+			content : "";
+		}
+
+		&-back{
+			font-size : 15px;
+			position  : absolute;
+			left      : 10px;
+			cursor    : pointer;
+
+			&:before {
+				font-family : $font-family-glyphs;
+				content     : "\e079";
+				margin      : 0 10px 0 0;
+			}
+		}
+
+		&-title{
+			font-size : 16px;
+		}
+	}
+
+	&__footer{
+		position           : absolute;
+		z-index            : 2; 
+		bottom             : 0px;
+		width              : 100%;
+		border-top         : 1px solid $hr-border;
+		background-color   : $btn-default-bg;
+		@include box-shadow(rgba(0,0,0,0.08) 0px -1px 2px 0px);
+
+		&--keyboard-fix{
+			@include respond-to(xs){
+				.th-cart__promo-add,
+				.th-cart__promo-summary,
+				.th-cart__promo-list,
+				.th-cart__subtotal,
+				.th-cart__checkout{
+					display: none;
+				}
+			}
+		}
+		&--promo-keyboard-fix{
+			@include respond-to(xs){
+				.th-cart__promo-summary,
+				.th-cart__promo-list,
+				.th-cart__subtotal,
+				.th-cart__checkout{
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__checkout{
+		padding    : 10px;
+		text-align : center;
+
+		&-button{
+			width     : 80%;
+			display   : inline-block;
+			padding   : 12px;
+			font-size : 14px;
 		}
 	}
 
 	&__subtotal {
-		padding       : 5px 10px;
-		border-bottom : 1px solid $hr-border;
-		height        : 94px;
+		padding          : 5px 10px;
+		background-color : #F1F1F1;
+		line-height      : 30px;
 
 		&--label {
 			float          : left;
 			text-transform : uppercase;
-			margin-top     : 15px;
 		}
 
 		&--price {
 			float       : right;
-			font-size   : 3rem;
+			font-size   : 1.5rem;
 			font-family : $font-family-condensed-reg;
 		}
+	}
 
-		&__addlabel {
-			float       : left;
-			padding-top : 7px;
-		}
+	&__promo-wrap{
 
-		&__add {
+	}
 
-			float : left;
+	&__promo-add {
+		width   : 100%;
+		padding : 5px 10px;
 
-			&--coupon {
-				width  : 180px;
-				height : 30px;
-				float  : left;
+		&__input {
+			width   : 75%;
+			height  : 30px;
+			float   : left;
+			padding : 10px 5px 6px 0px;
+			cursor  : pointer;
+
+			@include input-placeholder {
+				color        : #000;
+				opacity      : 1;
+				font-weight  : 400;
+				padding-left : 2px;
+				font-family  : $font-family-base;
+				@include transition(opacity .2s, color .2s);
 			}
 
-			&--button {
-				height : 30px;
+			&:focus{
+				
+				@include input-placeholder {
+					opacity : .4;
+					color   : #000 !important;
+				}
+			}
+
+			&:hover{
+				@include input-placeholder {
+					color : $link-hover-color;
+				}
+			}
+			
+			&.form-control{
+				border : 0px; 
+			}
+		}
+
+		&__apply {
+			height             : 30px;
+			width              : 25%;
+			padding            : 0px;
+			text-align         : center;
+			opacity            : 0;
+			visibility         : hidden; 
+			transition         : opacity .2s, visibility .2s;
+			-webkit-transition : opacity .2s, visibility .2s;
+			-moz-transition    : opacity .2s, visibility .2s;
+
+			&--active{
+				opacity    : 1;
+				visibility : visible; 
 			}
 		}
 	}
 
-	&__coupons {
-		padding       : 5px 10px;
-		border-bottom : 1px solid $hr-border;
+	&__promo-summary{
+		padding       : 0px 10px;
+		border-top    : 1px solid $hr-border;
+		border-bottom : 1px solid transparent;
+		line-height   : 40px;
+		height        : 40px;
+		width         : 100%;
+		outline: none;
+		cursor        : pointer;
+		@include transition(color .15s);
 
-		&--label {
-			text-transform : uppercase;
-			margin         : 15px 0;
+		&:hover{
+			color : $link-hover-color;
 		}
 
-		&__coupon {
+		&__count{
 
-			position       : relative;
-			margin-bottom  : 10px;
-			padding-bottom : 10px;
-			border-bottom  : 1px solid $gray-lighter;
-			min-height     : 45px;
+		}
+		&__count-number{
 
-			&.-last {
-				border-bottom : none;
-				margin-bottom : 0;
-			}
+		}
+		&__total{
+			float : right;
+			color : green;
+		}
+		&__arrow{
+			padding-right : 8px;
+			font-size     : 10px;
+		}
+	}
 
-			&--close {
-				position : absolute;
-				right    : 0px;
+	&__promo-list {
+		border     : 0px;
+		max-height : 0px;
+		width      : 100%;
+		overflow-y : hidden;
+		@include transition(max-height .3s);
 
-				button {
-					border     : 1px solid $gray-lighter;
-					background : none;
-					padding    : 2px;
-					height     : 22px;
-					width      : 22px;
-					outline    : none;
-					outline    : 0;
+		&--active{
+			max-height : 100px;
+			border-top : 1px solid $hr-border;
+			overflow-y : auto;
+			@include box-shadow(inset rgba(0,0,0,0.08) 0px 1px 3px 0px);
+		}
+	}
 
-					span {
-						&:before {
-							font-family : $font-family-glyphs;
-							content     : "\e014";
-						}
+	&__promo {
+		position       : relative;
+		border-bottom  : 1px solid $gray-lighter;
+		padding        : 10px 10px;
+		
+		&--left{
+			width          : 73%;
+			display        : inline-block;
+			vertical-align : middle;
+		}
+		&--right{
+			width          : 27%;
+			display        : inline-block;
+			vertical-align : middle;
+		}
+
+		&.-last {
+			border-bottom  : none;
+			margin-bottom  : 0;
+			padding-bottom : 0;
+		}
+
+		&__close {
+			width          : 25px;
+			margin-right   : 5px;
+			text-align     : left;
+			display        : inline-block;
+			vertical-align : middle;
+
+			button {
+				border     : 1px solid $gray-lighter;
+				background : none;
+				padding    : 2px;
+				height     : 22px;
+				width      : 22px;
+				outline    : none;
+				outline    : 0;
+
+				span {
+					&:before {
+						font-family : $font-family-glyphs;
+						content     : "\e014";
 					}
 				}
 			}
 
-			&--name {
-				padding-right : 55px;
+			~ .th-cart__promo__name{
+				width : 82%;
 			}
+		}
 
-			&--value {
-				position : absolute;
-				right    : 0px;
-				bottom   : 0px;
-			}
+		&__name {
+			width          : 100%;
+			display        : inline-block;
+			vertical-align : middle;
+			line-height    : 1.2em;
+		}
+
+		&__value {
+			display        : inline-block;
+			vertical-align : middle;
+			color          : green;
+			text-align     : right;
+			float          : right;
 		}
 	}
 
@@ -246,7 +486,7 @@
 	}
 
 	&__items {
-		padding : 5px 10px;
+		padding : 5px 0px;
 		//		overflow-y : scroll;
 		//		height     : 100%;
 
@@ -256,7 +496,7 @@
 		}
 
 		&--gift {
-			margin        : 5px 0 10px;
+			padding       : 5px 10px;
 			border-bottom : 1px solid $hr-border;
 		}
 
@@ -264,7 +504,7 @@
 
 			position       : relative;
 			margin-bottom  : 10px;
-			padding-bottom : 10px;
+			padding        : 10px;
 			border-bottom  : 1px solid $gray-lighter;
 
 			&__gift {
@@ -295,14 +535,14 @@
 				}
 			}
 
-			&.-last {
-				// add extra space after last element so dropdown will be accessible
-				margin-bottom : 150px;
+			&:last-child{
+				margin-bottom : 0px;
+				border-bottom : 0px;
 			}
 
 			&--close {
 				position : absolute;
-				right    : 0px;
+				right    : 10px;
 
 				button {
 					border     : 1px solid $gray-lighter;
@@ -335,37 +575,39 @@
 			}
 
 			&--qty {
+				display        : inline-block;
+				vertical-align : middle;
+				width          : 50%;
 
-				float    : left;
-				position : relative;
+				.th-qty-counter{
+					width : 90px;
 
-				button {
-					width      : 80px;
-					text-align : center;
-					position   : relative;
+					&__btn{
+						height    : 30px;
+						width     : 30px;
+						min-width : 30px;
+						padding   : 0px;
 
-					.caret {
-						position : absolute;
-						right    : 10px;
-						top      : 12px;
+						.glyphicon{
+							font-size : 10px;
+						}
+					}
+					&__input{
+						height    : 30px;
+						width     : 40px;
+						font-size : 12px;
 					}
 				}
 
-				.dropdown-menu {
-					top        : 41px;
-					height     : 100px;
-					overflow-y : scroll;
-					width      : 80px;
-					margin-top : -11px;
-					text-align : center;
-					min-width  : 80px;
-				}
 			}
 
 			&--subtotal {
-				float       : right;
-				font-size   : 1.5rem;
-				font-family : $font-family-condensed-reg;
+				font-size      : 1.5rem;
+				font-family    : $font-family-condensed-reg;
+				display        : inline-block;
+				vertical-align : middle;
+				width          : 50%;
+				text-align     : right;
 			}
 		}
 

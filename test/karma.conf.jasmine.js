@@ -36,7 +36,10 @@ module.exports = function(config) {
 			'../bower_components/enquire/dist/enquire.js',
 			'../bower_components/textAngular/dist/textAngular.min.js',
 			'../bower_components/angular-ui-bootstrap-bower/ui-bootstrap.js',
+			'../bower_components/angular-ui-router/release/angular-ui-router.js',
+			'../bower_components/ng-lodash/build/ng-lodash.min.js',
 			'../bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+			'../bower_components/angular-aria/angular-aria.js',
 			'../app/scripts/**/*.js',
 			'mock/**/*.js',
 			'spec/**/*.js'
