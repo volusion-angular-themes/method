@@ -1,14 +1,15 @@
 {
 	"name": "Method",
-	"version": "1.0.7",
-	"source": "https://github.com/volusion-angular-themes/method/archive/v1.0.7.zip",
+	"version": "1.0.8",
+	"source": "https://github.com/volusion-angular-themes/method/archive/v1.0.8.zip",
 	"author": {
 		"name": "John Smith",
 		"email": "test@test.com",
 		"website": "http://www.envato.com"
 	},
-	"marketing": {
-		"description": "Method is an awesome theme. Let me tell you all about it. <img src=\"http://www.themelexus.com/guides/opencart/shopping/features.jpg\"> Yes I just mixed in some images too.",
+	"marketing": {   app/index.html
+
+	  "description": "Method is an awesome theme. Let me tell you all about it. <img src=\"http://www.themelexus.com/guides/opencart/shopping/features.jpg\"> Yes I just mixed in some images too.",
 		"images": [
 			{
 				"small": "",
