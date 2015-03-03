@@ -6,6 +6,8 @@
 		"lblSubtotal" : "Subtotal",
 		"lblCoupons" : "Discounts",
 		"lblAddCoupon" : "Add promo code",
+		"lblPromoApplied" : "promo applied",
+		"lblPromosApplied" : "promos applied",
 		"btnApply" : "Apply",
 		"lblYourCart" : "Your cart",
 		"lblYourCartIsEmpty" : "Your cart is empty",
