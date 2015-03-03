@@ -1,13 +1,13 @@
 {
 	"name": "Method",
-	"version": "1.0.8",
-	"source": "https://github.com/volusion-angular-themes/method/archive/v1.0.8.zip",
+	"version": "1.0.9",
+	"source": "https://github.com/volusion-angular-themes/method/archive/v1.0.9.zip",
 	"author": {
 		"name": "John Smith",
 		"email": "test@test.com",
 		"website": "http://www.envato.com"
 	},
-	"marketing": {   app/index.html
+	"marketing": {
 
 	  "description": "Method is an awesome theme. Let me tell you all about it. <img src=\"http://www.themelexus.com/guides/opencart/shopping/features.jpg\"> Yes I just mixed in some images too.",
 		"images": [
