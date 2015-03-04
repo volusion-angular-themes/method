@@ -451,7 +451,7 @@ module.exports = function (grunt) {
 			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
 				tasks: ['clean:server',
 					'newer:jshint:all',
 					'karma']
@@ -459,11 +459,11 @@ module.exports = function (grunt) {
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-					'/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
 				]
