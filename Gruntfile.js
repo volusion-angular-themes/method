@@ -466,7 +466,10 @@ module.exports = function (grunt) {
 					'bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
-				]
+				],
+				options:{
+					livereload: true
+				}
 			}
 		},
 
