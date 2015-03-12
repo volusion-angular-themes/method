@@ -451,7 +451,7 @@ module.exports = function (grunt) {
 			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
 				tasks: ['clean:server',
 					'newer:jshint:all',
 					'karma']
@@ -459,14 +459,17 @@ module.exports = function (grunt) {
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'<%= yeoman.app %>/bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-					'/bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
-				]
+				],
+				options:{
+					livereload: true
+				}
 			}
 		},
 
@@ -526,8 +529,9 @@ module.exports = function (grunt) {
 			'clean:dist',				//erase our dist folder
 			//no need to clean dist folder; we're serving /app, lets do it anyway
 			'clean:configure',	//erase generated config file
+			'get_toolbox_dependencies',
 			'ngconstant:build',	//build generated config file
-
+			'wiredep',					//include the dependencies
 			'sprite:icons',			//Create the icon scss file
 			'sprite:social',		//create the social scss file
 			'sass',							//do SASS compilation
@@ -570,6 +574,7 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:dist',				//erase our dist folder
 			'clean:configure',	//erase generated config file
+			'get_toolbox_dependencies',
 
 			'ngconstant:build',	//build generated config file
 			'wiredep',					//include the dependencies
@@ -610,6 +615,15 @@ module.exports = function (grunt) {
 		['clean:server',					//may not be needed?
 			'newer:jshint:all',
 			'karma']);
+
+	grunt.registerTask('get_toolbox_dependencies', 'Add VN Toolbox Dependencies to bower.json', function () {
+		var fs = require('fs');
+		var _ = require('lodash');
+		var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
+		var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
+		_.extend(origBower.dependencies,  vnBower.dependencies);
+		fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');
+	});
 
 	grunt.registerTask('default', function () {
 		grunt.log.errorlns('No Grunt commands selected! Your options are:');
