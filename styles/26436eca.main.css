@@ -6857,7 +6857,8 @@ input.ng-pristine + .input-help {
         .th-cart__items__item--qty .th-qty-counter__input {
           height: 30px;
           width: 40px;
-          font-size: 12px; }
+          font-size: 12px;
+          padding: 2px; }
     .th-cart__items__item--subtotal {
       font-size: 1.5rem;
       font-family: "RobotoCondensed-Regular";
