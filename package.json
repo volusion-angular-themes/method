@@ -1,6 +1,6 @@
 {
   "name": "method",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "devDependencies": {
     "compass-mixins": "^0.12.3",
     "connect-modrewrite": "~0.7.0",
