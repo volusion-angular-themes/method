@@ -25,7 +25,7 @@ angular.module('Volusion.controllers')
 			$scope.visualCue = false;
 			$rootScope.isCartOpen = false;
 
-			translate.addParts('shopping-card');
+			translate.addParts('cart');
 
 			$rootScope.exitCartState = function () {
 				history.back();
