@@ -1,0 +1,213 @@
+// Default Toolbox Responsive Optimizations
+// Overwrite Bootstrap auto generated elements ***********
+
+// TODO is this needed in both _facet-search.scss and _category-search.scss?
+
+.-faceted-search {
+
+	.panel-body {
+		padding : 0 !important;
+	}
+
+	.panel-group .panel {
+		border-bottom : none;
+	}
+
+	.panel-default > .panel-heading .panel-title {
+		font-size      : 1.6rem;
+		letter-spacing : 1px;
+	}
+}
+
+// *******************************************************
+
+.vn-faceted-search-header {
+	text-align : center;
+
+	.__cancel-action, .__clear-action {
+		width   : 96%;
+		margin  : 15px auto;
+		display : inline-block;
+
+		@media(max-width : 767px) {
+			width          : 44%;
+		}
+	}
+}
+
+.vn-faceted-search-footer {
+
+	.__clear-action {
+		display : block;
+		margin  : 0 auto;
+		width   : 80%;
+	}
+}
+
+.vn-facet-search-control {
+	border-bottom : 1px solid #333333;
+}
+
+.vn-faceted-search {
+
+	label {
+		display  : block;
+		padding  : 2px 0;
+		position : relative;
+
+		&.-last {
+			margin-bottom : 15px;
+		}
+
+		.name {
+			display : inline-block;
+		}
+
+		.count {
+			position                : absolute;
+			top                     : 4px;
+			right                   : 0;
+			margin-left             : 2px;
+			padding                 : 0 5px;
+			background-color        : #999999;
+			color                   : white;
+			display                 : block;
+			border-radius           : 2px;
+			-moz-osx-font-smoothing : grayscale;
+			-webkit-font-smoothing  : antialiased;
+		}
+	}
+
+	input {
+		width : 35px;
+
+		&:focus {
+			outline : 0;
+		}
+	}
+
+	@media(max-width : 767px) {
+
+		//Todo: move property into the directive and out of theme
+		&.isMobileAndVisible {
+			position         : relative;
+			left             : 0;
+			right            : 0;
+			top              : 0;
+			bottom           : 0;
+			z-index          : 1001;
+			background-color : #FFFFFF;
+		}
+	}
+}
+
+.mobile-filters {
+	align      : center;
+	text-align : center;
+	margin-top : 10px;
+}
+
+.vn-category-product-tiles {
+	// Note: This is also a variable name in the controller
+	// Not sure how to make that work with bem syntax though.
+	// Todo: move property into the directive and out of theme
+	&.isMobileAndHidden {
+		display : none;
+	}
+}
+
+.facet-properties {
+	margin : 10px;
+}
+
+.facet-property {
+	label {
+		display  : block;
+		position : relative;
+
+		.count {
+			position         : absolute;
+			top              : 2px;
+			right            : 0;
+			margin-left      : 2px;
+			padding          : 0 5px;
+			background-color : #999999;
+			color            : white;
+			display          : block;
+			border-radius    : 2px;
+		}
+	}
+
+	input[type="checkbox"] {
+		display : none;
+	}
+
+	input[type="checkbox"] + span:before {
+		margin         : 0;
+		padding        : 0;
+		font-family    : 'Glyphicons Halflings' !important;
+		padding-right  : 3px !important;
+		margin-top     : 3px !important;
+		font-size      : 12px !important;
+		vertical-align : text-top;
+	}
+
+	input[type="checkbox"] + span:before {
+		content : "\e157" !important; /* check-empty */
+	}
+
+	input[type="checkbox"]:checked + span:before {
+		content : "\e067" !important; /* check */
+	}
+
+	@media(max-width : 767px) {
+
+		&.isMobileAndVisible {
+			position         : relative;
+			left             : 0;
+			right            : 0;
+			top              : 0;
+			bottom           : 0;
+			z-index          : 1001;
+			background-color : #FFFFFF;
+		}
+	}
+}
+
+.facet-item__by-price {
+	border-top : none !important;
+}
+
+// Animation style for the list management
+.facet-item {
+	.ng-enter,
+	.ng-leave {
+		-webkit-transition : 100ms ease-out all;
+		-moz-transition    : 100ms ease-out all;
+		-ms-transition     : 100ms ease-out all;
+		-o-transition      : 100ms ease-out all;
+		transition         : 100ms ease-out all;
+	}
+
+	.ng-leave.ng-leave-active,
+	.ng-enter {
+		opacity : 0;
+	}
+
+	.ng-enter.ng-enter-active,
+	.ng-leave {
+		opacity : 1;
+	}
+
+	&__by-price {
+		&__inputs {
+			text-align : left;
+			margin     : 0;
+			padding    : 5px 15px;
+		}
+		&__button {
+			float   : right;
+			padding : 2px 5px !important;
+		}
+	}
+}

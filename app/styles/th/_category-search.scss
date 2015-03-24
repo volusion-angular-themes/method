@@ -1,0 +1,72 @@
+// Default Toolbox Responsive Optimizations
+// Overwrite Bootstrap auto generated elements ***********
+
+// TODO is this needed in both _facet-search.scss and _category-search.scss?
+
+.-faceted-search {
+	.panel-body {
+		padding : 0 !important;
+	}
+
+	.panel-group .panel {
+		border-bottom : none;
+	}
+
+	.panel-default > .panel-heading .panel-title {
+		font-size      : 1.6rem;
+		letter-spacing : 1px;
+	}
+}
+
+// *******************************************************
+.vn-category-search {
+	padding       : 5px 0;
+	border-top    : 1px solid #E6E6E6;
+	border-bottom : 1px solid #E6E6E6;
+
+	&__category-title, &__category-items {
+		text-align : left;
+
+		&__category-item {
+			padding : 3px 5px 3px 20px !important;
+		}
+
+		@media(max-width : 767px) {
+
+		}
+	}
+
+	&__category-items {
+		text-align : left;
+		word-wrap  : break-word;
+
+		&.-last {
+			margin-bottom : 15px;
+		}
+
+		&__category-title {
+			display       : block;
+			font-size     : 1.3rem;
+			padding       : 3px 5px 3px 15px;
+			border-bottom : 1px solid #E6E6E6;
+		}
+
+		&__category-item {
+			border-bottom : 1px solid #E6E6E6;
+		}
+
+		&__category-title, &__category-item {
+			&.-noborder {
+				border : none;
+			}
+		}
+
+		@media(max-width : 767px) {
+
+		}
+	}
+}
+
+.facet-item__by-category {
+	border-bottom : none !important;
+}
