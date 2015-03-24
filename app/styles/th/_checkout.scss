@@ -1,0 +1,296 @@
+.th-checkout {
+	background-color : #fafafa;
+	height           : inherit;
+	margin-top       : -20px;
+	margin-bottom    : -20px;
+	margin-left      : 15px;
+	margin-right     : 15px;
+	font-size        : 1.5rem;
+
+	&__place-order-fixed{
+		position         : absolute;
+		top              : 99px;
+		right            : 0px;
+		width            : 33.3333%;
+		z-index          : 100;
+		padding          : 10px 30px 10px 15px;
+		background-color : #FFFFFF;
+		@include box-shadow(3px 2px 8px 0px rgba(0,0,0,0.3));
+		display          : none;
+
+		&--active{
+
+			@media (min-width: $screen-md){
+				display : block;
+			}
+		}
+
+		&__btn{
+			 margin : 0px;
+		}
+	}
+
+	&__loading{
+		display          : none;
+		position         : absolute;
+		z-index          : 200;
+		top              : 99px;
+		width            : 33.3333333%;
+		height           : calc(100% - 161px);
+		height           : -webkit-calc(100% - 161px);
+		height           : -moz-calc(100% - 161px);
+		background-color : rgba(255,255,255,.8);
+
+		@media (max-width: $screen-md){
+			width: 100%;
+		}
+
+		&[vn-busy-animation-show="true"]{
+			display: block;
+		}
+
+		&--ship-to{
+			left: 0%;
+		}
+		&--pay-with{
+			left: 33.3333%;
+		}
+		&--review{
+			left: 66.6666%;
+		}
+
+		&-inner{
+			height         : 20px;
+			width          : 20px;
+			text-align     : center;
+			margin         : 0 auto;
+			display        : inline-block;
+			vertical-align : top;
+		}
+
+		svg{
+			position    : absolute;
+			left        : 50%;
+			top         : 50%;
+			margin-top  : -40px;
+			margin-left : -40px;
+
+			@media (max-width: $screen-md){
+				top        : 20%;
+				margin-top : 0px;
+			}
+		}
+
+		svg path,
+		svg rect {
+			fill : #333;
+		}
+	}
+
+	&__section-heading{
+		text-align     : center;
+		margin         : 40px 0 20px 0;
+		font-size      : 2.4rem;
+		font-weight    : bold;
+		text-transform : uppercase;
+	}
+
+	&__step {
+		color      : #333;
+		padding    : 20px 20px;
+		height     : 100%;
+		border-top : 1px solid #ccc;
+		position   : relative;
+
+		&__ship-to{
+
+		}
+		&__pay-with{
+
+		}
+		&__review{
+
+		}
+
+		&__btn-continue {
+			margin-top : 20px;
+		}
+
+		&__cancel {
+			line-height: 2.6em;
+		}
+
+		&.-active {
+			overflow-y 		 : auto;
+			border           : none;
+			border-top       : 1px solid orange;
+			background-color : #eee;
+		  	height           : 840px;
+
+			.th-checkout__step__overlay {
+				display : none;
+			}
+
+			.th-checkout__step__edit {
+				display : none;
+			}
+
+			&.-no-scroll {
+				overflow-y: hidden;
+			}
+		}
+
+		&__overlay {
+			z-index          : 999;
+			position         : absolute;
+			height           : 100%;
+			width            : 100%;
+			background-color : #fafafa;
+			top              : 0px;
+			bottom           : 0px;
+			left             : 0px;
+			right            : 0px;
+			cursor           : default;
+			opacity: 0.8;
+  			filter: alpha(opacity=80);
+			@include transition(opacity .15s);
+
+			&.-complete {
+				opacity: 0.6;
+  				filter: alpha(opacity=60);
+
+				&:hover {
+					opacity: 0.3;
+  					filter: alpha(opacity=30);
+				}
+			}
+
+			&:hover{
+				cursor: default;
+			}
+
+			&.-complete {
+				cursor : pointer;
+			}
+		}
+
+		&__drawer {
+			z-index          : 888;
+			position         : absolute;
+			height           : 100%;
+			width            : 0;
+			background-color : #eee;
+			top              : 0;
+			bottom           : 0;
+			left             : 0;
+			right            : 0;
+			padding          : 0;
+			border           : none;
+
+			@include single-transition(width, 500ms, ease);
+
+			&.-left {
+				left  : 0;
+				right : auto;
+			}
+
+			&.-right {
+				right : 0;
+				left  : auto;
+			}
+
+			&.-open {
+				width   : 100%;
+
+				.th-checkout__step__drawer__body {
+					@include single-transition(opacity, 1000ms, ease);
+					opacity : 1;
+				}
+			}
+
+			&__close {
+				position : absolute;
+				top      : 10px;
+				right    : 15px;
+			}
+
+			&__body {
+				opacity    : 0;
+				overflow-y : scroll;
+				height     : 100%;
+				overflow-x : hidden;
+				padding    : 20px;
+			}
+
+			&__title {
+				font-weight    : bold;
+				text-transform : uppercase;
+				margin-top     : 10px;
+				margin-bottom  : 20px;
+			}
+
+			&__form-wrapper {
+				padding : 40px;
+			}
+		}
+
+		&__edit {
+			z-index     : 999;
+			position    : absolute;
+			bottom      : 50%;
+			left        : 50%;
+			margin-left : -20px;
+
+			.fa-pencil {
+				display : none;
+			}
+		}
+
+		&__title {
+			text-align    : center;
+			font-size     : 2.4rem;
+			margin-bottom : 20px;
+
+			&__stepNumber span {
+				border-radius    : 50%;
+				width            : 41px;
+				height           : 41px;
+				padding          : 8px 0 0 2px;
+				background-color : $gray-dark;
+				color            : white;
+				@include inline-block;
+			}
+
+			&__stepName {
+				font-weight    : bold;
+				text-transform : uppercase;
+				margin-top     : 10px;
+			}
+
+			.fa-check-circle-o {
+				height : 41px;
+			}
+		}
+
+		&__backButton {
+			margin-top : 20px;
+			font-size  : 1.6rem;
+		}
+
+	}
+
+	.img-responsive {
+		margin : 0 auto;
+
+		& > .row {
+			background-color : white;
+			height           : 100%;
+			overflow         : auto;
+			margin           : 0px;
+		}
+	}
+
+	.row {
+		height  : inherit;
+	}
+}

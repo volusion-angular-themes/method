@@ -1,0 +1,96 @@
+.styled-optionbox-option{
+
+	.displayAddress .row div{
+		margin-bottom : 0px;
+	}
+}
+
+.displayAddress {
+
+	.row{
+		margin : 0 0 0 0;
+	}
+	.row div{
+		margin-bottom : 10px;
+		margin-left   : 0px;
+		margin-right  : 0px;
+
+		&:last{
+			margin-bottom : 0px;
+		}
+
+	}
+}
+
+.th-checkout__ship-method {
+	margin     : 10px 0px 10px 0px;
+	background : #fafafa; /* was $gray-lighter */
+	border     : 1px solid #ebebeb;
+	box-shadow : rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+
+	&__method {
+		position : relative;
+		margin: 0px;
+		width: 100%;
+		cursor: pointer;
+
+		.styled-optionbox-option {
+
+			label {
+
+				div {
+					margin-right: 70px;
+				}
+			}
+		}
+	}
+
+	&__method:last-child {
+
+		.styled-optionbox-option {
+			border-bottom: 0;
+		}
+	}
+
+	&__price {
+		position  : absolute;
+		top       : 50%;
+		transform : translateY(-50%);
+		right     : 20px;
+	}
+
+	&__name{
+		margin: 0px 80px 0px 25px !important;
+	}
+
+	&__display {
+		position : relative;
+		overflow : auto;
+
+		&__name {
+			float         : left;
+			padding       : 20px;
+			padding-right : 90px;
+		}
+
+		&__price {
+			position   : absolute;
+			top        : 22px;
+			right      : 20px;
+			text-align : right;
+		}
+	}
+
+	.styled-checkbox-option {
+		input {
+			+ label {
+				padding-right : 55px;
+				margin-left   : 30px;
+
+				&:before {
+					margin-left : -30px;
+				}
+			}
+		}
+	}
+}

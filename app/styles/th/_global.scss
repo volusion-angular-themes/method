@@ -1,0 +1,55 @@
+.th{
+	
+}
+
+.th-my-account,
+.th-checkout{
+	
+	.form-group{
+
+		.form-control{
+			background-color : transparent;
+			height           : 35px;
+			padding          : 0px 3px;
+			font-size        : 1.8rem;
+
+			&.btn-lg {
+				/* This is the dropdown input control */
+				height  : 35px;
+				padding : 0px 3px;
+			}
+		}
+
+		.th-dropdown .dropdown-toggle .caret {
+			position : absolute;
+			right    : 4px;
+			top      : 18px;
+		}
+
+		.dropdown-menu {
+			font-size : 15px;
+		}
+
+		.vn-placeholder{
+			left: 6px;
+
+			&.-selected{
+				left: 6px;
+			}
+		}
+
+		.th-dropdown .vn-placeholder{
+			left: 0px;
+			margin-left: 0px;
+		}
+	}
+}
+
+//Fix for aria css outline
+div[data-ng-click]:focus{
+	outline: none;
+}
+
+.clickable {
+	cursor: pointer;
+}
