@@ -6204,62 +6204,6 @@ div[data-ng-click]:focus {
 .th-modal .modal-body {
   padding: 25px 25px 10px 25px; }
 
-.th-my-account {
-  font-family: 'roboto-light';
-  font-weight: normal;
-  font-size: 16px; }
-  .th-my-account__title {
-    font-size: 2rem;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #EEE; }
-  .th-my-account__group {
-    margin-bottom: 30px; }
-    .th-my-account__group__links {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      .th-my-account__group__links li {
-        margin-bottom: 10px; }
-    .th-my-account__group--header__title {
-      font-size: 25px; }
-  .th-my-account__overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #fff;
-    z-index: 9999;
-    text-align: center;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    /*
-      Set the color of the icon
-    */ }
-    .th-my-account__overlay--loader {
-      position: absolute;
-      height: 80px;
-      width: 80px;
-      top: 40%;
-      left: 40%; }
-    .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
-      fill: #333333; }
-  .th-my-account .animate-show {
-    opacity: 1; }
-  .th-my-account .animate-show.ng-hide-add.ng-hide-add-active, .th-my-account .animate-show.ng-hide-remove.ng-hide-remove-active {
-    -webkit-transition: all linear 0.3s;
-    transition: all linear 0.3s; }
-  .th-my-account .animate-show.ng-hide {
-    opacity: 0; }
-  .th-my-account .th-address__display__actions {
-    cursor: default; }
-  .th-my-account .th-address__choose__options__new-option {
-    border-bottom: 1px solid #ccc; }
-  .th-my-account .th-address__choose__options__option {
-    cursor: default; }
-    .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
-      border-bottom: 0px; }
-
 .styled-optionbox-option {
   text-align: left;
   border-bottom: 1px solid #ccc;
@@ -6894,6 +6838,79 @@ ul.rating {
     position: absolute;
     right: 20px;
     text-align: right; }
+
+.th-my-account {
+  font-family: 'roboto-light';
+  font-weight: normal;
+  font-size: 16px; }
+  .th-my-account__title {
+    font-size: 2rem;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #EEE; }
+  .th-my-account__group {
+    margin-bottom: 30px; }
+    .th-my-account__group__links {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .th-my-account__group__links li {
+        margin-bottom: 10px; }
+    .th-my-account__group--header__title {
+      font-size: 25px; }
+  .th-my-account__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    z-index: 9999;
+    text-align: center;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /*
+      Set the color of the icon
+    */ }
+    .th-my-account__overlay--loader {
+      position: absolute;
+      height: 80px;
+      width: 80px;
+      top: 40%;
+      left: 40%; }
+    .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
+      fill: #333333; }
+  .th-my-account .animate-show {
+    opacity: 1; }
+  .th-my-account .animate-show.ng-hide-add.ng-hide-add-active, .th-my-account .animate-show.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s; }
+  .th-my-account .animate-show.ng-hide {
+    opacity: 0; }
+  .th-my-account .th-address__display__actions {
+    cursor: default; }
+  .th-my-account .th-address__choose__options__new-option {
+    border-bottom: 1px solid #ccc; }
+  .th-my-account .th-address__choose__options__option {
+    cursor: default; }
+    .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
+      border-bottom: 0px; }
+
+.th-order-list {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px; }
+  .th-order-list__item {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 0px !important;
+    padding-right: 0px !important; }
+    .th-order-list__item-right {
+      text-align: right; }
+    .th-order-list__item__status {
+      font-style: italic; }
+    @media (max-width: 420px) {
+      .th-order-list__item {
+        font-size: 12px; } }
 
 .th-cart-summary {
   position: relative;

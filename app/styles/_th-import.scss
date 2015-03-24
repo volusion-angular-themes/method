@@ -23,7 +23,6 @@
 @import "th/link";
 @import "th/list";
 @import "th/modal";
-@import "th/my-account";
 @import "th/optionbox";
 @import "th/placeholder";
 @import "th/popover";
@@ -35,6 +34,9 @@
 @import "th/login";
 @import "th/review";
 @import "th/thank-you";
+@import "th/my-account/my-account";
+@import "th/my-account/order-list";
+@import "th/my-account/order-table";
 
 // Theme Components
 @import "th/cart-summary";
