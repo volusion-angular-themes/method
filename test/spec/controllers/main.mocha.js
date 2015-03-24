@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function() {
 
 	// load the controller's module
-	beforeEach(module('Volusion.controllers', 'ngResource', 'ngSanitize', 'config', 'Volusion.toolboxCommon', 'Volusion.services'));
+	beforeEach(module('Volusion.controllers', 'ngResource', 'ui.router', 'ngSanitize', 'config', 'Volusion.toolboxCommon', 'Volusion.services'));
 
 	var MainCtrl;
 	var scope;
