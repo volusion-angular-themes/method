@@ -5499,6 +5499,9 @@ button.close {
       .th-address__form-wrapper div[class^="col-"] {
         padding-left: 5px;
         padding-right: 5px; } }
+  .th-address__form-wrapper [name="type"] + label {
+    color: #999;
+    font-size: 14px; }
 .th-address__change {
   text-align: center;
   margin-bottom: 40px; }
@@ -5636,8 +5639,6 @@ button.close {
     position: relative; }
     .th-checkout__step__btn-continue {
       margin-top: 20px; }
-    .th-checkout__step__cancel {
-      line-height: 2.6em; }
     .th-checkout__step.-active {
       overflow-y: auto;
       border: none;
@@ -5965,7 +5966,7 @@ button.close {
       .credit-card__exp-year .dropdown-menu a {
         padding: 3px 15px; }
   .credit-card .th-credit-card {
-    margin-left: 40px; }
+    float: right; }
 
 .th-credit-card {
   height: 30px;
@@ -6192,21 +6193,24 @@ div[data-ng-click]:focus {
       top: 50%;
       transform: translateY(-50%);
       right: 20px; }
+    .th-list__item:last-child .styled-optionbox-option {
+      border-bottom: 0px; }
   .th-list__header__item {
     padding: 20px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
     display: block; }
   .th-list .styled-optionbox-option {
     width: 100%; }
 
-.th-modal__button--primary {
-  font-size: 12px !important; }
-.th-modal__button--secondary {
-  font-size: 14px;
-  margin-right: 20px; }
+.th-modal__button {
+  font-size: 12px !important;
+  width: 100%;
+  margin: 5px 0px; }
 .th-modal__message {
   font-size: 14px;
   margin-bottom: 5px; }
+.th-modal__body {
+  padding-top: 10px; }
 .th-modal .styled-optionbox-option {
   border-bottom: 0px; }
 .th-modal .modal-header {
@@ -6216,7 +6220,7 @@ div[data-ng-click]:focus {
 
 .styled-optionbox-option {
   text-align: left;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   padding: 20px 20px 20px 20px; }
   .styled-optionbox-option:hover {
     background-color: #fff; }
@@ -6666,7 +6670,7 @@ ul.rating {
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   .th-checkout__review__totals {
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #ddd;
     padding: 0px 0px 14px 0px; }
     .th-checkout__review__totals__expand {
       float: left;
@@ -6698,19 +6702,19 @@ ul.rating {
       .th-checkout__review__discounts__discount-info {
         text-align: left; }
   .th-checkout__review__store-credit {
-    border-bottom: 1px solid #CCC; }
+    border-bottom: 1px solid #ddd; }
     .th-checkout__review__store-credit .store-credit-info-row {
       position: relative;
       margin: 14px 0;
       text-align: left; }
   .th-checkout__review__shipping-method {
-    border-bottom: 1px solid #CCC; }
+    border-bottom: 1px solid #ddd; }
     .th-checkout__review__shipping-method .shipping-method-info-row {
       position: relative;
       margin: 14px 0;
       text-align: left; }
   .th-checkout__review__tax {
-    border-bottom: 1px solid #CCC; }
+    border-bottom: 1px solid #ddd; }
     .th-checkout__review__tax .tax-info-row {
       position: relative;
       margin: 14px 0;
@@ -6898,7 +6902,7 @@ ul.rating {
   .th-my-account .th-address__display__actions {
     cursor: default; }
   .th-my-account .th-address__choose__options__new-option {
-    border-bottom: 1px solid #ccc; }
+    border-bottom: 1px solid #ddd; }
   .th-my-account .th-address__choose__options__option {
     cursor: default; }
     .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
@@ -6934,13 +6938,17 @@ ul.rating {
   line-height: 1.3;
   font-size: 14px; }
   .th-order-detail__title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 10px;
     margin-bottom: 10px; }
   .th-order-detail__header__title {
     font-size: 2.5rem; }
-  .th-order-detail__header__order-details__order-status {
-    font-style: italic; }
+  .th-order-detail__header__order-details {
+    font-size: 16px; }
+    .th-order-detail__header__order-details__order-status {
+      font-style: italic; }
+  .th-order-detail__header__order-date {
+    font-size: 16px; }
   .th-order-detail .panel-footer > .row {
     margin-bottom: 5px; }
   .th-order-detail__items {
