@@ -5992,9 +5992,10 @@ button.close {
   .th-credit-card--amex-flipped {
     background: url('/images/sprites/creditcards-b.png') -333px 0; }
   .th-credit-card--visa {
-    background: url('/images/sprites/creditcards-b.png') -41px 0; }
+    border: 1px solid #ddd;
+    background: url('/images/sprites/creditcards-b.png') -42px 0; }
   .th-credit-card--mastercard {
-    background: url('/images/sprites/creditcards-b.png') -83px 0; }
+    background: url('/images/sprites/creditcards-b.png') -81px 0; }
   .th-credit-card--discover {
     background: url('/images/sprites/creditcards-b.png') -208px 0; }
 
@@ -6128,6 +6129,15 @@ button.close {
 .facet-item__by-price__button {
   float: right;
   padding: 2px 5px !important; }
+
+.align-right {
+  text-align: right; }
+
+.align-left {
+  text-align: left; }
+
+.currency {
+  color: green; }
 
 .th-my-account .form-group .form-control, .th-checkout .form-group .form-control {
   background-color: transparent;
@@ -6863,19 +6873,18 @@ ul.rating {
     width: 100%;
     height: 100%;
     position: absolute;
+    top: 0px;
     background-color: #fff;
     z-index: 9999;
     text-align: center;
     opacity: 0.8;
-    filter: alpha(opacity=80);
-    /*
-      Set the color of the icon
-    */ }
+    filter: alpha(opacity=80); }
     .th-my-account__overlay--loader {
       position: absolute;
       height: 80px;
       width: 80px;
-      top: 40%;
+      margin-top: -40px;
+      top: 50%;
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
@@ -6895,22 +6904,74 @@ ul.rating {
     .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
       border-bottom: 0px; }
 
-.th-order-list {
+.th-orders-list {
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative; }
+  .th-orders-list__page-size {
+    margin-bottom: 10px; }
+  .th-orders-list__pagination .pagination {
+    margin-top: 0px; }
+
+.th-order-list-view {
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 20px; }
-  .th-order-list__item {
+  .th-order-list-view__item {
     font-size: 14px;
     line-height: 1.5;
     padding-left: 0px !important;
     padding-right: 0px !important; }
-    .th-order-list__item-right {
+    .th-order-list-view__item-right {
       text-align: right; }
-    .th-order-list__item__status {
+    .th-order-list-view__item__status {
       font-style: italic; }
     @media (max-width: 420px) {
-      .th-order-list__item {
+      .th-order-list-view__item {
         font-size: 12px; } }
+
+.th-order-detail {
+  line-height: 1.3;
+  font-size: 14px; }
+  .th-order-detail__title {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .th-order-detail__header__title {
+    font-size: 2.5rem; }
+  .th-order-detail__header__order-details__order-status {
+    font-style: italic; }
+  .th-order-detail .panel-footer > .row {
+    margin-bottom: 5px; }
+  .th-order-detail__items {
+    margin-top: 20px; }
+    .th-order-detail__items__product {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0px; }
+      .th-order-detail__items__product:first-child {
+        padding-top: 0px; }
+      .th-order-detail__items__product:last-child {
+        padding-bottom: 0px;
+        border-bottom: 0px; }
+      @media (max-width: 480px) {
+        .th-order-detail__items__product__name {
+          font-size: 12px; } }
+      .th-order-detail__items__product__qty {
+        font-size: 12px; }
+      .th-order-detail__items__product__options {
+        font-size: 12px; }
+    .th-order-detail__items__discount:last-child {
+      margin-bottom: 10px; }
+  .th-order-detail__paid-with__card-number {
+    padding-left: 20px; }
+  .th-order-detail__shipping__tracking-detail {
+    margin-bottom: 10px; }
+
+.breadcrumb {
+  padding: 0px;
+  font-size: 12px; }
+  .breadcrumb > li + li:before {
+    padding: 0 0px 0px 5px; }
 
 .th-cart-summary {
   position: relative;
