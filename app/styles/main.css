@@ -6905,21 +6905,29 @@ ul.rating {
     .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
       border-bottom: 0px; }
 
-.th-order-list {
+.th-orders-list {
+  font-size: 14px;
+  line-height: 1.5; }
+  .th-orders-list__page-size {
+    margin-bottom: 10px; }
+  .th-orders-list__pagination .pagination {
+    margin-top: 0px; }
+
+.th-order-list-view {
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 20px; }
-  .th-order-list__item {
+  .th-order-list-view__item {
     font-size: 14px;
     line-height: 1.5;
     padding-left: 0px !important;
     padding-right: 0px !important; }
-    .th-order-list__item-right {
+    .th-order-list-view__item-right {
       text-align: right; }
-    .th-order-list__item__status {
+    .th-order-list-view__item__status {
       font-style: italic; }
     @media (max-width: 420px) {
-      .th-order-list__item {
+      .th-order-list-view__item {
         font-size: 12px; } }
 
 .th-order-detail {
