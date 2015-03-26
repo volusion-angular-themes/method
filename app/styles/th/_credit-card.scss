@@ -310,11 +310,12 @@
   }
 
   &--visa {
-	background : url('/images/sprites/creditcards-b.png') -41px 0;
+  	border: 1px solid #ddd;
+	background : url('/images/sprites/creditcards-b.png') -42px 0;
   }
 
   &--mastercard {
-	background : url('/images/sprites/creditcards-b.png') -83px 0;
+	background : url('/images/sprites/creditcards-b.png') -81px 0;
   }
 
   &--discover {

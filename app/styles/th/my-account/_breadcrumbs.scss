@@ -1,0 +1,8 @@
+.breadcrumb{
+	padding: 0px;
+	font-size: 12px;
+
+	> li + li:before{
+		padding: 0 0px 0px 5px;
+	}
+}
