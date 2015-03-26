@@ -120,6 +120,11 @@
 				padding-right : 5px;
 			}
 		}
+
+		[name="type"] + label{
+			color: #999;
+			font-size: 14px;
+		}
 	}
 
 	&__change {

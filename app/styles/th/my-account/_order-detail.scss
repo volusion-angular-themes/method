@@ -3,7 +3,7 @@
 	font-size: 14px;
 
 	&__title{
-		font-size      : 2rem;
+		font-size      : 1.8rem;
 		margin-top     : 10px;
 		margin-bottom  : 10px;
 	}
@@ -15,10 +15,14 @@
 		}
 
 		&__order-details{
+			font-size: 16px;
 
 			&__order-status{
 				font-style: italic;
 			}
+		}
+		&__order-date{
+			font-size: 16px;
 		}
 	}
 
