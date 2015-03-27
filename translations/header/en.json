@@ -3,6 +3,7 @@
 		"toggleNavigation"      : "Toggle Navigation",
 		"myCart"                : "My Bag",
 		"signIn"                : "Sign In",
+	  	"signOut"               : "Sign Out",
 		"smartNavMoreLinkText"  : "More"
 	}
 }
