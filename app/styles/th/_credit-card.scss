@@ -40,18 +40,6 @@
   to { margin-left : auto; }
 }
 
-.styled-optionbox-option {
-  .th-checkout {
-	&__credit-card {
-	  &__display {
-		&__image {
-		  margin: 0 0 0 40px;
-		}
-	  }
-	}
-  }
-}
-
 .th-checkout__credit-card {
 
   &__display {
@@ -176,6 +164,17 @@
   }
 }
 
+.styled-optionbox-option{
+	.th-credit-card {
+		margin-left: 32px;
+	}
+}
+
+.th-payment-profiles{
+	.th-credit-card {
+		margin-left: 0px;
+	}
+}
 
 .credit-card {
   @include border-radius(10px);
@@ -267,10 +266,6 @@
 		padding : 3px 15px;
 	  }
 	}
-  }
-
-  .th-credit-card {
-	float: right;
   }
 }
 

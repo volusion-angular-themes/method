@@ -5421,14 +5421,14 @@ button.close {
 /* Toolbox Imports */
 .th-address__enterAddress {
   margin: 10px 0px 10px 0px;
-  padding: 20px;
+  padding: 20px 5px;
   background: #fafafa;
   /* was $gray-lighter */
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   @media (max-width: 480px) {
     .th-address__enterAddress {
-      padding: 10px; } }
+      padding: 10px 0px; } }
   .th-address__enterAddress__title {
     text-align: center;
     padding-bottom: 13px;
@@ -5463,7 +5463,8 @@ button.close {
   .th-address__display__actions {
     padding-top: 15px; }
     .th-address__display__actions__preferred {
-      color: #5cb85c; }
+      color: #5cb85c;
+      line-height: 26px; }
 .th-address__choose__options {
   margin: 10px 0px 10px 0px;
   padding: 0;
@@ -5491,7 +5492,7 @@ button.close {
     transform: translateY(-50%);
     right: 20px; }
 .th-address__form-wrapper {
-  padding: 20px; }
+  padding: 20px 10px 0px 10px; }
   .th-address__form-wrapper div[class^="col-"] {
     padding-left: 8px;
     padding-right: 8px; }
@@ -5822,9 +5823,6 @@ button.close {
   to {
     margin-left: auto; } }
 
-.styled-optionbox-option .th-checkout__credit-card__display__image {
-  margin: 0 0 0 40px; }
-
 .th-checkout__credit-card__display {
   margin: 10px 0px 10px 0px;
   padding: 20px 20px 20px 20px;
@@ -5901,6 +5899,12 @@ button.close {
   .th-checkout__credit-card .credit-card-error.-aligned {
     margin: 0 auto 5px auto; }
 
+.styled-optionbox-option .th-credit-card {
+  margin-left: 32px; }
+
+.th-payment-profiles .th-credit-card {
+  margin-left: 0px; }
+
 .credit-card {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -5965,8 +5969,6 @@ button.close {
       overflow-y: auto; }
       .credit-card__exp-year .dropdown-menu a {
         padding: 3px 15px; }
-  .credit-card .th-credit-card {
-    float: right; }
 
 .th-credit-card {
   height: 30px;
@@ -6202,21 +6204,31 @@ div[data-ng-click]:focus {
   .th-list .styled-optionbox-option {
     width: 100%; }
 
-.th-modal__button {
-  font-size: 12px !important;
-  width: 100%;
-  margin: 5px 0px; }
-.th-modal__message {
-  font-size: 14px;
-  margin-bottom: 5px; }
-.th-modal__body {
-  padding-top: 10px; }
-.th-modal .styled-optionbox-option {
-  border-bottom: 0px; }
-.th-modal .modal-header {
-  padding: 0px; }
-.th-modal .modal-body {
-  padding: 25px 25px 10px 25px; }
+.th-modal {
+  position: relative; }
+  .th-modal__button {
+    font-size: 12px !important;
+    width: 100%;
+    margin: 5px 0px; }
+  .th-modal__message {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  .th-modal__body {
+    padding-top: 10px; }
+  .th-modal__close {
+    position: absolute;
+    z-index: 1;
+    top: 7px;
+    right: 10px;
+    font-size: 22px; }
+  .th-modal .styled-optionbox-option {
+    border-bottom: 0px; }
+  .th-modal .modal-header {
+    padding: 0px; }
+  .th-modal .modal-body {
+    padding: 25px 25px 10px 25px; }
+  .th-modal .modal-footer {
+    padding: 10px 20px; }
 
 .styled-optionbox-option {
   text-align: left;
@@ -8588,7 +8600,7 @@ label {
   .btn:focus {
     outline: 0; }
   .btn.btn-lg, .btn-group-lg > .btn {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     letter-spacing: 1px; }
   .btn.btn-grey-sm {
     background: #f0f0f0;
