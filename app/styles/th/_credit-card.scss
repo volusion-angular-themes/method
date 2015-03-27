@@ -1,0 +1,320 @@
+
+@keyframes cardSlideLeft {
+  from { margin-left : auto; }
+  to { margin-left : 0; }
+}
+
+@-webkit-keyframes cardSlideLeft {
+  from { margin-left : auto; }
+  to { margin-left : 0; }
+}
+
+@-moz-keyframes cardSlideLeft {
+  from { margin-left : auto; }
+  to { margin-left : 0; }
+}
+
+@-o-keyframes cardSlideLeft {
+  from { margin-left : auto; }
+  to { margin-left : 0; }
+}
+// ------------------------------------------------------------
+
+@keyframes cardSlideRight {
+  from { margin-left : 0; }
+  to { margin-left : auto; }
+}
+
+@-webkit-keyframes cardSlideRight {
+  from { margin-left : 0; }
+  to { margin-left : auto; }
+}
+
+@-moz-keyframes cardSlideRight {
+  from { margin-left : 0; }
+  to { margin-left : auto; }
+}
+
+@-o-keyframes cardSlideRight {
+  from { margin-left : 0; }
+  to { margin-left : auto; }
+}
+
+.th-checkout__credit-card {
+
+  &__display {
+	margin     : 10px 0px 10px 0px;
+	padding    : 20px 20px 20px 20px;
+	background : #fafafa; /* was $gray-lighter */
+	border     : 1px solid #ebebeb;
+	box-shadow : rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+
+	&:hover {
+	  background : #fff;
+	}
+
+	&__last4 {
+	  display: inline-block;
+	  font-weight: bold;
+	  margin-left: 5px;
+	}
+
+	&__exp {
+	  margin-right: 10px;
+	  display: inline-block;
+	  margin-left: 15px;
+	}
+
+	&.-verify-CVV {
+
+	  .form-group {
+		margin-bottom: 0px;
+	  }
+	}
+
+	&__verifyCVV {
+	  line-height: 40px;
+	  height: 40px;
+	  display: inline-block;
+
+	  &__label{
+		line-height: normal;
+		width: 100%;
+		text-align: right;
+	  }
+
+		&__label {
+			margin-top: 10px;
+		}
+	}
+
+  }
+
+  &__heading {
+	text-align: center;
+	margin: 0 0 20px 0;
+	font-size     : 2.4rem;
+	font-weight    : bold;
+	text-transform : uppercase;
+  }
+
+  &__change {
+	text-align : center;
+	margin-bottom : 20px;
+	margin-top: 10px;
+  }
+
+  &__tile {
+	position    : relative;
+
+	&.-first {
+
+	}
+  }
+
+  &__choose {
+
+	&__options {
+	  margin: 10px 0px 10px 0px;
+	  padding: 0;
+	  background: #fafafa;
+	  border: 1px solid #ebebeb;
+	  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+
+	  &__option {
+		position: relative;
+		width: 100%;
+		margin: 0px;
+		cursor: pointer;
+	  }
+
+	  &__new-option {
+		padding       : 20px;
+		display       : inline-block;
+		width         : 100%;
+		cursor        : pointer;
+	  }
+
+	  .styled-optionbox-option {
+		width: 100%;
+	  }
+
+	  &__editBtn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 20px;
+	  }
+
+	}
+  }
+  .credit-card-error {
+	border-radius: $alert-border-radius;
+	color:		 		$alert-danger-text;
+	background-color: 	$alert-danger-bg;
+	width:			 	300px;
+	border: 			1px solid #ebebeb;
+	box-shadow: 		rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+	margin-bottom: 		10px;
+	padding: 			$alert-padding;
+
+	&.-aligned {
+	  margin : 0 auto 5px auto;
+	}
+  }
+}
+
+.styled-optionbox-option{
+	.th-credit-card {
+		margin-left: 32px;
+	}
+}
+
+.th-payment-profiles{
+	.th-credit-card {
+		margin-left: 0px;
+	}
+}
+
+.credit-card {
+  @include border-radius(10px);
+
+  background-color : $body-bg;
+  height           : 200px;
+  max-width        : 300px;
+  margin           : 0px 0px 20px;
+  cursor           : pointer;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+
+
+  &.-aligned {
+	margin : 0px auto 20px;
+  }
+
+  &.-inactive {
+	color       : $gray-light;
+	margin-left : 0px;
+
+	&-add-active {
+	  -webkit-animation :0.5s cardSlideLeft;
+	  -moz-animation    :0.5s cardSlideLeft;
+	  -o-animation      :0.5s cardSlideLeft;
+	  animation         :0.5s cardSlideLeft;
+	}
+
+	.credit-card__display__image {
+	  @include opacity(.6);
+	}
+  }
+
+  &.-selected {
+	border       : 1px solid $gray-light;
+	color        : $gray-darker;
+	text-shadow  : -2px 2px 3px #aaa;
+	margin-left  : auto;
+
+	&-add-active {
+	  //@include single-transition(margin, 2000ms, ease);
+	  -webkit-animation:0.5s cardSlideRight;
+	  -moz-animation:0.5s cardSlideRight;
+	  -o-animation:0.5s cardSlideRight;
+	  animation:0.5s cardSlideRight;
+	}
+
+	.credit-card__display__image {
+	  @include opacity(1);
+	}
+  }
+
+  #frmCreditCard {
+	margin: 30px 0px 0px 0px;
+  }
+
+  .row {
+	padding : 0;
+	margin  : 0;
+  }
+
+  &__strip {
+	margin           : 15px 0;
+	height           : 30px;
+	background-color : #ccc;
+  }
+
+  &__exp-month {
+	position : relative;
+
+	.dropdown-menu {
+	  min-width : 150px;
+	  width     : 150px;
+	  max-height : 150px;
+	  overflow-y : auto;
+	}
+  }
+
+  &__exp-year {
+	position : relative;
+
+	.dropdown-menu {
+	  min-width  : 80px;
+	  width      : 100%;
+	  max-height : 150px;
+	  overflow-y : auto;
+
+	  a {
+		padding : 3px 15px;
+	  }
+	}
+  }
+}
+
+.th-credit-card {
+  height                  : 30px;
+  width                   : 44px;
+  background              : url('/images/sprites/creditcards-b.png') -166px 0;
+  -webkit-transform-style : preserve-3d;
+  -webkit-transition      : -webkit-transform 0.3s;
+  -moz-transition         : -moz-transform 0.3s;
+  /* transform-style:preserve-3d; */
+  transition              : transform .3s;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+
+  &--notvalid {
+	-webkit-filter : grayscale(100%);
+	-moz-filter    : grayscale(100%);
+	filter         : grayscale(100%);
+  }
+
+  &--flipped {
+	background : url('/images/sprites/creditcards-b.png') -291px 0;
+  }
+
+  &--unknown {
+	background : url('/images/sprites/creditcards-b.png') -166px 0;
+  }
+
+  &--amex {
+	background : url('/images/sprites/creditcards-b.png') 1px 0;
+  }
+
+  &--amex-flipped {
+	background : url('/images/sprites/creditcards-b.png') -333px 0;
+  }
+
+  &--visa {
+  	border: 1px solid #ddd;
+	background : url('/images/sprites/creditcards-b.png') -42px 0;
+  }
+
+  &--mastercard {
+	background : url('/images/sprites/creditcards-b.png') -81px 0;
+  }
+
+  &--discover {
+	background : url('/images/sprites/creditcards-b.png') -208px 0;
+  }
+}
+

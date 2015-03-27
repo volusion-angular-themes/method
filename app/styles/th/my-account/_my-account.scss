@@ -1,0 +1,121 @@
+.th-my-account {
+  font-family : 'roboto-light';
+  font-weight : normal;
+  font-size   : 16px;
+
+  &__title {
+	font-size      : 2rem;
+	padding-bottom : 10px;
+	margin-top     : 10px;
+	margin-bottom  : 10px;
+	border-bottom  : 1px solid #EEE;
+  }
+
+  &__group {
+	margin-bottom : 30px;
+
+	&__links {
+	  list-style : none;
+	  margin     : 0;
+	  padding    : 0;
+
+	  li {
+		margin-bottom : 10px;
+	  }
+	}
+
+	&--header {
+
+	  &__title {
+		font-size : 25px;
+	  }
+
+	  &__welcome {
+
+	  }
+	}
+
+	&--orders {
+
+	}
+
+	&--addresses {
+
+	}
+
+	&--email {
+
+	}
+  }
+
+  &__overlay {
+	@extend %font-smoothing;
+
+	width            : 100%;
+	height           : 100%;
+	position         : absolute;
+	top              : 0px;
+	background-color : $btn-default-bg;
+	z-index          : 9999;
+	text-align       : center;
+
+	@include opacity(0.8);
+
+	&--loader {
+	  position   : absolute;
+	  height     : 80px;
+	  width      : 80px;
+	  margin-top : -40px;
+	  top        : 50%;
+	  left       : 40%;
+	}
+
+	svg path,
+	svg rect {
+	  fill : $btn-default-color;
+	}
+  }
+
+  .animate-show {
+	opacity : 1;
+  }
+  .animate-show.ng-hide-add.ng-hide-add-active,
+  .animate-show.ng-hide-remove.ng-hide-remove-active {
+	-webkit-transition : all linear 0.3s;
+	transition         : all linear 0.3s;
+  }
+  .animate-show.ng-hide {
+	opacity : 0;
+  }
+
+  .th-address {
+
+	&__display {
+
+	  &__actions {
+		cursor : default;
+	  }
+	}
+
+	&__choose {
+
+	  &__options {
+
+		&__new-option {
+		  border-bottom : 1px solid #ddd;
+		}
+
+		&__option {
+		  cursor : default;
+
+		  &:last-child {
+
+			.styled-optionbox-option {
+			  border-bottom : 0px;
+			}
+		  }
+		}
+	  }
+	}
+  }
+}

@@ -1,0 +1,15 @@
+.th-orders-list{
+	font-size: 14px;
+	line-height: 1.5;
+	position: relative;
+	
+	&__page-size{
+		margin-bottom: 10px;
+	}
+	&__pagination{
+
+		.pagination{
+			margin-top: 0px;
+		}
+	}
+}
