@@ -39,6 +39,7 @@ module.exports = function(config) {
 			'../bower_components/ng-lodash/build/ng-lodash.min.js',
 			'../bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 			'../bower_components/angular-aria/angular-aria.js',
+			'../bower_components/angular-breadcrumb/release/angular-breadcrumb.js',
 			'../app/scripts/**/*.js',
 			'mock/**/*.js',
 			'spec/**/*.mocha.js',
