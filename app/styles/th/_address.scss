@@ -64,6 +64,7 @@
 
 			&__preferred {
 				color: $brand-success;
+			  	line-height: 26px;
 			}
 		}
 	}
@@ -92,7 +93,7 @@
 				padding       : 20px;
 				display       : inline-block;
 				width         : 100%;
-				cursor        : pointer; 
+				cursor        : pointer;
 			}
 
 			.styled-optionbox-option {
