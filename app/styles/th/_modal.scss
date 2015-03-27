@@ -1,19 +1,25 @@
 .th-modal{
 	
 	&__button{
+		font-size: 12px !important;
+		width: 100%;
+		margin: 5px 0px;
 
 		&--primary{
-			font-size: 12px !important;
+
 		}
 		&--secondary{
-			font-size: 14px;
-			margin-right: 20px;
+
 		}
 	}
 
 	&__message{
 		font-size: 14px;
 		margin-bottom: 5px;
+	}
+
+	&__body{
+		padding-top: 10px;
 	}
 
 	.styled-optionbox-option{
