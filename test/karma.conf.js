@@ -22,6 +22,7 @@ module.exports = function (config) {
 			'app/bower_components/angular-route/angular-route.js',
 			'app/bower_components/angular-animate/angular-animate.js',
 			'app/bower_components/ng-lodash/build/ng-lodash.min.js',
+			'app/bower_components/angular-breadcrumb/release/angular-breadcrumb.js',
 			'app/scripts/*.js',
 			'app/scripts/**/*.js',
 			'test/mock/**/*.js',
