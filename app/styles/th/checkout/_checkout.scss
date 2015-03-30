@@ -1,22 +1,19 @@
 .th-checkout {
 	background-color : #fafafa;
 	height           : inherit;
-	margin-top       : -20px;
-	margin-bottom    : -20px;
-	margin-left      : 15px;
-	margin-right     : 15px;
+  	margin           : -20px 15px;
 	font-size        : 1.5rem;
 
 	&__place-order-fixed{
 		position         : absolute;
 		top              : 99px;
-		right            : 0px;
+		right            : 0;
 		width            : 33.3333%;
 		z-index          : 100;
 		padding          : 10px 30px 10px 15px;
 		background-color : #FFFFFF;
+	  	display          : none;
 		@include box-shadow(3px 2px 8px 0px rgba(0,0,0,0.3));
-		display          : none;
 
 		&--active{
 
@@ -26,7 +23,7 @@
 		}
 
 		&__btn{
-			 margin : 0px;
+			 margin : 0;
 		}
 	}
 
@@ -77,7 +74,7 @@
 
 			@media (max-width: $screen-md){
 				top        : 20%;
-				margin-top : 0px;
+				margin-top : 0;
 			}
 		}
 
@@ -123,12 +120,14 @@
 			background-color : #eee;
 		  	height           : 840px;
 
-			.th-checkout__step__overlay {
-				display : none;
-			}
+		  	.th-checkout{
 
-			.th-checkout__step__edit {
-				display : none;
+			  &__step{
+
+				&__overlay{
+				 display: none;
+				}
+			  }
 			}
 
 			&.-no-scroll {
@@ -139,13 +138,13 @@
 		&__overlay {
 			z-index          : 999;
 			position         : absolute;
+			top              : 0;
+			bottom           : 0;
+			left             : 0;
+			right            : 0;
 			height           : 100%;
 			width            : 100%;
 			background-color : #fafafa;
-			top              : 0px;
-			bottom           : 0px;
-			left             : 0px;
-			right            : 0px;
 			cursor           : default;
 			opacity: 0.8;
   			filter: alpha(opacity=80);
@@ -230,18 +229,6 @@
 			}
 		}
 
-		&__edit {
-			z-index     : 999;
-			position    : absolute;
-			bottom      : 50%;
-			left        : 50%;
-			margin-left : -20px;
-
-			.fa-pencil {
-				display : none;
-			}
-		}
-
 		&__title {
 			text-align    : center;
 			font-size     : 2.4rem;
@@ -273,17 +260,6 @@
 			font-size  : 1.6rem;
 		}
 
-	}
-
-	.img-responsive {
-		margin : 0 auto;
-
-		& > .row {
-			background-color : white;
-			height           : 100%;
-			overflow         : auto;
-			margin           : 0px;
-		}
 	}
 
 	.row {
