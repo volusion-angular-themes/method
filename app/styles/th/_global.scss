@@ -1,5 +1,8 @@
 .th{
-	
+  &__back-button {
+	margin-top : 20px;
+	font-size  : 1.6rem;
+  }
 }
 
 .align-right{
@@ -16,7 +19,7 @@
 
 .th-my-account,
 .th-checkout{
-	
+
 	.form-group{
 
 		.form-control{
