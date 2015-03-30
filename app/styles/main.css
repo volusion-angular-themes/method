@@ -7264,61 +7264,20 @@ input.ng-pristine + .input-help {
 .th-checkout__thanks__header {
   text-align: center;
   font-size: 15px;
-  margin: 20px 0px; }
+  margin: 20px 0; }
   @media (max-width: 768px) {
     .th-checkout__thanks__header {
-      margin-bottom: 0px; } }
+      margin-bottom: 0; } }
   .th-checkout__thanks__header .title {
     font-weight: bold;
     font-size: 21px; }
   .th-checkout__thanks__header .action-info {
     margin-top: 10px;
     font-size: 12px; }
-.th-checkout__thanks__column {
-  width: 50%;
-  float: left;
-  padding: 20px; }
-  @media (max-width: 768px) {
-    .th-checkout__thanks__column {
-      padding-top: 0px;
-      padding-bottom: 0px; } }
-  .th-checkout__thanks__column.-next {
-    border-left: 1px solid #ddd; }
-  .th-checkout__thanks__column .title {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 15px; }
-.th-checkout__thanks__display .row {
-  margin: 0;
-  padding: 0; }
-.th-checkout__thanks__display .credit-card__number {
-  font-weight: bold; }
-.th-checkout__thanks__display .credit-card__image {
-  border: none;
-  height: 30px;
-  width: 44px;
-  position: absolute;
-  top: 10px;
-  left: 170px;
-  background: url('/images/sprites/creditcards-b.png') -166px 0; }
-  .th-checkout__thanks__display .credit-card__image--notvalid {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    filter: grayscale(100%); }
-  .th-checkout__thanks__display .credit-card__image--flipped {
-    background: url('/images/sprites/creditcards-b.png') -291px 0; }
-  .th-checkout__thanks__display .credit-card__image--unknown {
-    background: url('/images/sprites/creditcards-b.png') -166px 0; }
-  .th-checkout__thanks__display .credit-card__image--amex {
-    background: url('/images/sprites/creditcards-b.png') 1px 0; }
-  .th-checkout__thanks__display .credit-card__image--amex-flipped {
-    background: url('/images/sprites/creditcards-b.png') -333px 0; }
-  .th-checkout__thanks__display .credit-card__image--visa {
-    background: url('/images/sprites/creditcards-b.png') -41px 0; }
-  .th-checkout__thanks__display .credit-card__image--mastercard {
-    background: url('/images/sprites/creditcards-b.png') -83px 0; }
-  .th-checkout__thanks__display .credit-card__image--discover {
-    background: url('/images/sprites/creditcards-b.png') -208px 0; }
+.th-checkout__thanks__column .title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 15px; }
 .th-checkout__thanks__title {
   font-weight: bold;
   text-transform: uppercase;
@@ -7326,8 +7285,8 @@ input.ng-pristine + .input-help {
   font-size: 2rem;
   margin-top: 20px; }
 .th-checkout__thanks__display {
-  margin: 10px;
-  padding: 20px 20px 10px 20px;
+  margin: 10px 0;
+  padding: 20px;
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
@@ -7341,6 +7300,11 @@ input.ng-pristine + .input-help {
     position: absolute;
     right: 20px;
     text-align: right; }
+  .th-checkout__thanks__display .row {
+    margin: 0;
+    padding: 0; }
+  .th-checkout__thanks__display .th-credit-card__number {
+    font-weight: bold; }
 
 .th-checkout__login {
   text-align: center;
