@@ -7279,7 +7279,7 @@ input.ng-pristine + .input-help {
   font-size: 2rem;
   margin-top: 20px; }
 .th-checkout__thanks__display {
-  margin: 10px 0;
+  margin: 15px 0 30px 0;
   padding: 20px;
   background: #fafafa;
   border: 1px solid #ebebeb;
@@ -7360,7 +7360,7 @@ input.ng-pristine + .input-help {
 
 .th-checkout__review {
   padding: 17px;
-  margin-top: 20px;
+  margin-top: 15px;
   background: #fafafa;
   /* was $gray-lighter */
   border: 1px solid #ebebeb;
