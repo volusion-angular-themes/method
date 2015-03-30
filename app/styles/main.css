@@ -10,12 +10,6 @@
  * A partial implementation of the Ruby display functions from Compass:
  * https://github.com/Compass/compass/blob/stable/core/lib/compass/core/sass_extensions/functions/display.rb
  */
-#th-main-content-area {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden; }
-
 .vn-labeled-radio--tiles, .th-search-popout, .th-search-popout__trigger, .th-search-popout--input, .th-search-popout--submit, .th-product-view__alts img, .th-home-content .th-p2 .th-link, .th-social__icon, ul.nav-tabs > li {
   display: -moz-inline-stack;
   display: inline-block;
@@ -7655,14 +7649,8 @@ input.ng-pristine + .input-help {
 .th-payment-profiles .th-credit-card__img {
   margin-left: 0; }
 
-#th-main-content-area {
-  position: relative;
-  z-index: 2;
-  background-color: #fff; }
-  @media only screen and (min-width: 992px) {
-    #th-main-content-area {
-      margin-top: 20px;
-      margin-bottom: 20px; } }
+#main-content-area > div {
+  height: 100%; }
 
 .th-footer {
   background-color: #fff;
