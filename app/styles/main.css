@@ -6994,88 +6994,24 @@ input.ng-pristine + .input-help {
   .th-checkout .row {
     height: inherit; }
 
-@keyframes cardSlideLeft {
-  from {
-    margin-left: auto; }
-
-  to {
-    margin-left: 0; } }
-
-@-webkit-keyframes cardSlideLeft {
-  from {
-    margin-left: auto; }
-
-  to {
-    margin-left: 0; } }
-
-@-moz-keyframes cardSlideLeft {
-  from {
-    margin-left: auto; }
-
-  to {
-    margin-left: 0; } }
-
-@-o-keyframes cardSlideLeft {
-  from {
-    margin-left: auto; }
-
-  to {
-    margin-left: 0; } }
-
-@keyframes cardSlideRight {
-  from {
-    margin-left: 0; }
-
-  to {
-    margin-left: auto; } }
-
-@-webkit-keyframes cardSlideRight {
-  from {
-    margin-left: 0; }
-
-  to {
-    margin-left: auto; } }
-
-@-moz-keyframes cardSlideRight {
-  from {
-    margin-left: 0; }
-
-  to {
-    margin-left: auto; } }
-
-@-o-keyframes cardSlideRight {
-  from {
-    margin-left: 0; }
-
-  to {
-    margin-left: auto; } }
-
-.styled-optionbox-option .th-credit-card__img {
-  margin-left: 32px; }
-
 .th-credit-card {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
   background-color: #fff;
   height: 200px;
   max-width: 300px;
   margin: 0 0 20px;
   border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px; }
   .th-credit-card.-aligned {
     margin: 0 auto 20px; }
   .th-credit-card.-inactive {
     color: #777777;
     margin-left: 0; }
-    .th-credit-card.-inactive-add-active {
-      -webkit-animation: 0.5s cardSlideLeft;
-      -moz-animation: 0.5s cardSlideLeft;
-      -o-animation: 0.5s cardSlideLeft;
-      animation: 0.5s cardSlideLeft; }
-    .th-credit-card.-inactive .credit-card__display__image {
+    .th-credit-card.-inactive .th-credit-card__img {
       opacity: 0.6;
       filter: alpha(opacity=60); }
   .th-credit-card.-selected {
@@ -7083,11 +7019,6 @@ input.ng-pristine + .input-help {
     color: #222222;
     text-shadow: -2px 2px 3px #aaa;
     margin-left: auto; }
-    .th-credit-card.-selected-add-active {
-      -webkit-animation: 0.5s cardSlideRight;
-      -moz-animation: 0.5s cardSlideRight;
-      -o-animation: 0.5s cardSlideRight;
-      animation: 0.5s cardSlideRight; }
     .th-credit-card.-selected .th-credit-card__display__image {
       opacity: 1;
       filter: alpha(opacity=100); }
@@ -7220,6 +7151,9 @@ input.ng-pristine + .input-help {
       background: url('/images/sprites/creditcards-b.png') -81px 0; }
     .th-credit-card__img--discover {
       background: url('/images/sprites/creditcards-b.png') -208px 0; }
+
+.styled-optionbox-option .th-credit-card__img {
+  margin-left: 32px; }
 
 .th-address__enterAddress {
   margin: 10px 0px 10px 0px;

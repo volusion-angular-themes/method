@@ -1,61 +1,11 @@
-
-@keyframes cardSlideLeft {
-  from { margin-left : auto; }
-  to { margin-left : 0; }
-}
-
-@-webkit-keyframes cardSlideLeft {
-  from { margin-left : auto; }
-  to { margin-left : 0; }
-}
-
-@-moz-keyframes cardSlideLeft {
-  from { margin-left : auto; }
-  to { margin-left : 0; }
-}
-
-@-o-keyframes cardSlideLeft {
-  from { margin-left : auto; }
-  to { margin-left : 0; }
-}
-// ------------------------------------------------------------
-
-@keyframes cardSlideRight {
-  from { margin-left : 0; }
-  to { margin-left : auto; }
-}
-
-@-webkit-keyframes cardSlideRight {
-  from { margin-left : 0; }
-  to { margin-left : auto; }
-}
-
-@-moz-keyframes cardSlideRight {
-  from { margin-left : 0; }
-  to { margin-left : auto; }
-}
-
-@-o-keyframes cardSlideRight {
-  from { margin-left : 0; }
-  to { margin-left : auto; }
-}
-
-.styled-optionbox-option{
-	.th-credit-card__img {
-		margin-left: 32px;
-	}
-}
-
 .th-credit-card {
-  @include border-radius(10px);
-
   background-color : $body-bg;
   height           : 200px;
   max-width        : 300px;
   margin           : 0 0 20px;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
-
+  border           : 1px solid #ebebeb;
+  box-shadow       : rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+  @include border-radius(10px);
 
   &.-aligned {
 	margin : 0 auto 20px;
@@ -65,14 +15,7 @@
 	color       : $gray-light;
 	margin-left : 0;
 
-	&-add-active {
-	  -webkit-animation :0.5s cardSlideLeft;
-	  -moz-animation    :0.5s cardSlideLeft;
-	  -o-animation      :0.5s cardSlideLeft;
-	  animation         :0.5s cardSlideLeft;
-	}
-
-	.credit-card__display__image {
+	.th-credit-card__img {
 	  @include opacity(.6);
 	}
   }
@@ -82,14 +25,6 @@
 	color        : $gray-darker;
 	text-shadow  : -2px 2px 3px #aaa;
 	margin-left  : auto;
-
-	&-add-active {
-	  //@include single-transition(margin, 2000ms, ease);
-	  -webkit-animation:0.5s cardSlideRight;
-	  -moz-animation:0.5s cardSlideRight;
-	  -o-animation:0.5s cardSlideRight;
-	  animation:0.5s cardSlideRight;
-	}
 
 	.th-credit-card__display__image {
 	  @include opacity(1);
@@ -306,6 +241,12 @@
 	&--discover {
 	  background : url('/images/sprites/creditcards-b.png') -208px 0;
 	}
+  }
+}
+
+.styled-optionbox-option{
+  .th-credit-card__img {
+	margin-left: 32px;
   }
 }
 
