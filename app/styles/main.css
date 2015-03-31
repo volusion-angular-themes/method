@@ -7309,7 +7309,7 @@ input.ng-pristine + .input-help {
     margin: 20px; }
     @media (max-width: 480px) {
       .th-checkout__login__form {
-        margin: 0px; } }
+        margin: 0 0 20px 0; } }
     .th-checkout__login__form .form-control {
       font-size: 1.8rem; }
   .th-checkout__login__error {
@@ -7639,6 +7639,10 @@ input.ng-pristine + .input-help {
     padding-left: 20px; }
   .th-order-detail__shipping__tracking-detail {
     margin-bottom: 10px; }
+    .th-order-detail__shipping__tracking-detail a {
+      color: #f63e34; }
+      .th-order-detail__shipping__tracking-detail a:hover {
+        text-decoration: underline; }
 
 .breadcrumb {
   padding: 0px;

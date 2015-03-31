@@ -35,7 +35,7 @@
 
 	&__items{
 		margin-top: 20px;
-		
+
 		&__product{
 			border-bottom: 1px solid #ddd;
   			padding: 15px 0px;
@@ -49,7 +49,7 @@
   			}
 
   			&__name{
-				
+
 				@media (max-width: $screen-xs){
 					font-size: 12px;
 				}
@@ -63,7 +63,7 @@
 		}
 
 		&__discount{
-			
+
 			&:last-child{
 				margin-bottom: 10px;
 			}
@@ -71,16 +71,24 @@
 	}
 
 	&__paid-with{
-		
+
 		&__card-number{
 			padding-left: 20px;
 		}
 	}
 
 	&__shipping{
-		
+
 		&__tracking-detail{
 			margin-bottom: 10px;
+
+		  	a{
+			  color: $link-hover-color;
+
+			  &:hover{
+				text-decoration: underline;
+			  }
+			}
 		}
 	}
 }
