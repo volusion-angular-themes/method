@@ -242,6 +242,11 @@
 	  background : url('/images/sprites/creditcards-b.png') -208px 0;
 	}
   }
+
+  //Only float the cc image that exists inside card. we use the image in other places too
+  .th-credit-card__img{
+	float: right;
+  }
 }
 
 .styled-optionbox-option{

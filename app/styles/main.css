@@ -7150,6 +7150,8 @@ input.ng-pristine + .input-help {
       background: url('/images/sprites/creditcards-b.png') -81px 0; }
     .th-credit-card__img--discover {
       background: url('/images/sprites/creditcards-b.png') -208px 0; }
+  .th-credit-card .th-credit-card__img {
+    float: right; }
 
 .styled-optionbox-option .th-credit-card__img {
   margin-left: 32px; }
