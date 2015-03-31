@@ -76,18 +76,6 @@
 	}
   }
 
-  .animate-show {
-	opacity : 1;
-  }
-  .animate-show.ng-hide-add.ng-hide-add-active,
-  .animate-show.ng-hide-remove.ng-hide-remove-active {
-	-webkit-transition : all linear 0.3s;
-	transition         : all linear 0.3s;
-  }
-  .animate-show.ng-hide {
-	opacity : 0;
-  }
-
   .th-address {
 
 	&__display {

@@ -5577,6 +5577,9 @@ button.close {
 .align-left {
   text-align: left; }
 
+.no-padding {
+  padding: 0px; }
+
 .currency {
   color: green; }
 
@@ -7557,13 +7560,6 @@ input.ng-pristine + .input-help {
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
-  .th-my-account .animate-show {
-    opacity: 1; }
-  .th-my-account .animate-show.ng-hide-add.ng-hide-add-active, .th-my-account .animate-show.ng-hide-remove.ng-hide-remove-active {
-    -webkit-transition: all linear 0.3s;
-    transition: all linear 0.3s; }
-  .th-my-account .animate-show.ng-hide {
-    opacity: 0; }
   .th-my-account .th-address__display__actions {
     cursor: default; }
   .th-my-account .th-address__choose__options__new-option {
