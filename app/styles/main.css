@@ -7055,13 +7055,10 @@ input.ng-pristine + .input-help {
     .th-credit-card__display:hover {
       background: #fff; }
     .th-credit-card__display__last4 {
-      display: inline-block;
-      font-weight: bold;
+      line-height: 30px;
       margin-left: 5px; }
     .th-credit-card__display__exp {
-      margin-right: 10px;
-      display: inline-block;
-      margin-left: 15px; }
+      line-height: 30px; }
     .th-credit-card__display.-verify-CVV .form-group {
       margin-bottom: 0; }
     .th-credit-card__display__verifyCVV {
@@ -7294,13 +7291,6 @@ input.ng-pristine + .input-help {
   font-family: roboto-regular, Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 20px; }
-  .th-checkout__thanks__display__name {
-    float: left;
-    padding-right: 90px; }
-  .th-checkout__thanks__display__price {
-    position: absolute;
-    right: 20px;
-    text-align: right; }
   .th-checkout__thanks__display .row {
     margin: 0;
     padding: 0; }
