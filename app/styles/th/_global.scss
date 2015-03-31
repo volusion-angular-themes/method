@@ -50,17 +50,25 @@
 		}
 
 		.vn-placeholder{
-			left: 6px;
+			left: 5px;
 
 			&.-selected{
-				left: 6px;
+				left: 5px;
 			}
 		}
 
-		.th-dropdown .vn-placeholder{
-			left: 0px;
+		.th-dropdown{
+		  .vn-placeholder{
+			left: 5px;
 			margin-left: 0px;
+		  }
+		  &.th-address__state{
+			.vn-placeholder{
+			  left: 2px;
+			}
+		  }
 		}
+
 	}
 }
 

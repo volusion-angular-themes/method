@@ -5599,12 +5599,14 @@ button.close {
 .th-my-account .form-group .dropdown-menu, .th-checkout .form-group .dropdown-menu {
   font-size: 15px; }
 .th-my-account .form-group .vn-placeholder, .th-checkout .form-group .vn-placeholder {
-  left: 6px; }
+  left: 5px; }
   .th-my-account .form-group .vn-placeholder.-selected, .th-checkout .form-group .vn-placeholder.-selected {
-    left: 6px; }
+    left: 5px; }
 .th-my-account .form-group .th-dropdown .vn-placeholder, .th-checkout .form-group .th-dropdown .vn-placeholder {
-  left: 0px;
+  left: 5px;
   margin-left: 0px; }
+.th-my-account .form-group .th-dropdown.th-address__state .vn-placeholder, .th-checkout .form-group .th-dropdown.th-address__state .vn-placeholder {
+  left: 2px; }
 
 div[data-ng-click]:focus {
   outline: none; }
