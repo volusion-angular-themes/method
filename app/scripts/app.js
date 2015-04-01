@@ -75,7 +75,7 @@ angular.module('methodApp', [
 			}
 		}]);
 
-		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+		$rootScope.$on('$stateChangeStart', function (event) {
 
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
