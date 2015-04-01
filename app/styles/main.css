@@ -6811,6 +6811,22 @@ input.ng-pristine + .input-help {
   color: #3A7D34;
   background-position: 2px 6px; }
 
+.vn-app-message {
+  position: fixed;
+  top: 100px;
+  z-index: 9999;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
+  .vn-app-message__text {
+    line-height: 26px; }
+  @media (max-width: 480px) {
+    .vn-app-message {
+      left: 0;
+      margin-left: 6%;
+      width: 90%; } }
+
 .th-checkout {
   background-color: #fafafa;
   height: inherit;
@@ -7055,13 +7071,10 @@ input.ng-pristine + .input-help {
     .th-credit-card__display:hover {
       background: #fff; }
     .th-credit-card__display__last4 {
-      display: inline-block;
-      font-weight: bold;
+      line-height: 30px;
       margin-left: 5px; }
     .th-credit-card__display__exp {
-      margin-right: 10px;
-      display: inline-block;
-      margin-left: 15px; }
+      line-height: 30px; }
     .th-credit-card__display.-verify-CVV .form-group {
       margin-bottom: 0; }
     .th-credit-card__display__verifyCVV {
@@ -7150,6 +7163,8 @@ input.ng-pristine + .input-help {
       background: url('/images/sprites/creditcards-b.png') -81px 0; }
     .th-credit-card__img--discover {
       background: url('/images/sprites/creditcards-b.png') -208px 0; }
+  .th-credit-card .th-credit-card__img {
+    float: right; }
 
 .styled-optionbox-option .th-credit-card__img {
   margin-left: 32px; }
@@ -7292,13 +7307,6 @@ input.ng-pristine + .input-help {
   font-family: roboto-regular, Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 20px; }
-  .th-checkout__thanks__display__name {
-    float: left;
-    padding-right: 90px; }
-  .th-checkout__thanks__display__price {
-    position: absolute;
-    right: 20px;
-    text-align: right; }
   .th-checkout__thanks__display .row {
     margin: 0;
     padding: 0; }

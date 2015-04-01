@@ -84,15 +84,12 @@
 	}
 
 	&__last4 {
-	  display: inline-block;
-	  font-weight: bold;
+	  line-height: 30px;
 	  margin-left: 5px;
 	}
 
 	&__exp {
-	  margin-right: 10px;
-	  display: inline-block;
-	  margin-left: 15px;
+	  line-height: 30px;
 	}
 
 	&.-verify-CVV {
@@ -241,6 +238,11 @@
 	&--discover {
 	  background : url('/images/sprites/creditcards-b.png') -208px 0;
 	}
+  }
+
+  //Only float the cc image that exists inside card. we use the image in other places too
+  .th-credit-card__img{
+	float: right;
   }
 }
 
