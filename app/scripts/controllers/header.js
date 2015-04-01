@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnSearchManager', 'snapRemote', '$state',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, vnContentManager, vnAppConfig, vnSearchManager, snapRemote, $state) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, vnContentManager, vnAppConfig, vnSearchManager, snapRemote) {
 
 			'use strict';
 
@@ -21,10 +21,6 @@ angular.module('Volusion.controllers')
 
 			$scope.getCartItemsCount = function () {
 				return vnCart.getCartItemsCount();
-			};
-
-			$rootScope.gotoSoftAdd = function(){
-				$state.go($rootScope.currentState + '.cart');
 			};
 
 			$rootScope.snapToggle = function (side) {
