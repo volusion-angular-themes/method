@@ -23,10 +23,6 @@ angular.module('Volusion.controllers')
 				return vnCart.getCartItemsCount();
 			};
 
-			$rootScope.gotoSoftAdd = function(){
-				$state.go($rootScope.currentState + '.cart');
-			};
-
 			$rootScope.snapToggle = function (side) {
 				if ($rootScope.isInDesktopMode) {
 					snapRemote.toggle(side);
