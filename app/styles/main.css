@@ -7659,6 +7659,12 @@ input.ng-pristine + .input-help {
 .th-payment-profiles .th-credit-card__img {
   margin-left: 0; }
 
+.th-change-email .th-my-account__title {
+  margin-bottom: 20px; }
+
+.th-change-password .th-my-account__title {
+  margin-bottom: 20px; }
+
 #main-content-area > div {
   height: 100%; }
 
