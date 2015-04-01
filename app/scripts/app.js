@@ -75,11 +75,13 @@ angular.module('methodApp', [
 			}
 		}]);
 
-		$rootScope.$on('$stateChangeStart', function (event) {
+		$rootScope.$on('$stateChangeStart', function (event, toState) {
 
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
-				event.preventDefault();
+				if(toState.name !== 'checkout'){
+					event.preventDefault();
+				}
 			}
 			else{
 				$window.scrollTo(0, 0);
