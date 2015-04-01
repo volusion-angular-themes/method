@@ -1,5 +1,8 @@
 .th{
-	
+  &__back-button {
+	margin-top : 20px;
+	font-size  : 1.6rem;
+  }
 }
 
 .align-right{
@@ -10,13 +13,17 @@
 	text-align: left;
 }
 
+.no-padding{
+  padding: 0px;
+}
+
 .currency{
 	color: green;
 }
 
 .th-my-account,
 .th-checkout{
-	
+
 	.form-group{
 
 		.form-control{
@@ -43,17 +50,25 @@
 		}
 
 		.vn-placeholder{
-			left: 6px;
+			left: 5px;
 
 			&.-selected{
-				left: 6px;
+				left: 5px;
 			}
 		}
 
-		.th-dropdown .vn-placeholder{
-			left: 0px;
+		.th-dropdown{
+		  .vn-placeholder{
+			left: 5px;
 			margin-left: 0px;
+		  }
+		  &.th-address__state{
+			.vn-placeholder{
+			  left: 2px;
+			}
+		  }
 		}
+
 	}
 }
 
