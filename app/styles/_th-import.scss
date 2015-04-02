@@ -47,8 +47,10 @@
 @import "th/my-account/order-list-view";
 @import "th/my-account/order-table";
 @import "th/my-account/order-detail";
-@import "th/my-account/breadcrumbs.scss";
-@import "th/my-account/payment-profiles.scss";
+@import "th/my-account/breadcrumbs";
+@import "th/my-account/payment-profiles";
+@import "th/my-account/change-email";
+@import "th/my-account/change-password";
 
 //Page
 @import "th/page/main-content-area";
