@@ -7671,6 +7671,10 @@ input.ng-pristine + .input-help {
 .th-change-email__current {
   line-height: 1.4;
   margin: 0 0 25px 0; }
+  .th-change-email__current__title {
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #999; }
 
 .th-change-password .th-my-account__title {
   margin-bottom: 20px; }
