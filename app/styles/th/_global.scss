@@ -3,6 +3,19 @@
 	margin-top : 20px;
 	font-size  : 1.6rem;
   }
+
+  &__title{
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 2.4rem;
+	margin-bottom: 20px;
+  }
+  &__subtitle{
+	margin-bottom: 20px;
+	text-align: center;
+  }
 }
 
 .align-right{
