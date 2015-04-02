@@ -7313,19 +7313,19 @@ input.ng-pristine + .input-help {
   .th-checkout__thanks__display .th-credit-card__number {
     font-weight: bold; }
 
-.th-checkout__login {
+.th-login {
   text-align: center;
   background-color: white;
   height: 100%;
   margin: 50px 0px; }
-  .th-checkout__login__form {
+  .th-login__form {
     margin: 20px; }
     @media (max-width: 480px) {
-      .th-checkout__login__form {
+      .th-login__form {
         margin: 0 0 20px 0; } }
-    .th-checkout__login__form .form-control {
+    .th-login__form .form-control {
       font-size: 1.8rem; }
-  .th-checkout__login__error {
+  .th-login__error {
     border-radius: 0;
     color: #a94442;
     background-color: #f2dede;
@@ -7334,20 +7334,27 @@ input.ng-pristine + .input-help {
     margin-bottom: 10px;
     padding: 15px; }
     @media (max-width: 480px) {
-      .th-checkout__login__error {
-        margin: 0px; } }
-  .th-checkout__login__user-type {
+      .th-login__error {
+        margin-bottom: 20px; } }
+  .th-login__user-type {
     text-align: center;
     padding: 0px 0px 20px 0px; }
-    .th-checkout__login__user-type .btn-group {
+    .th-login__user-type .btn-group {
       width: 100%; }
-      .th-checkout__login__user-type .btn-group button {
+      .th-login__user-type .btn-group button {
         width: 50%; }
         @media (max-width: 480px) {
-          .th-checkout__login__user-type .btn-group button {
+          .th-login__user-type .btn-group button {
             font-size: 14px; } }
-  .th-checkout__login__continue {
+  .th-login__continue {
     margin-top: 20px; }
+  .th-login__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 20px; }
 
 .th-checkout__review__discounts__discount-info--subtotal, .th-checkout__review__store-credit-info--subtotal, .th-checkout__review__shipping-method-info--subtotal, .th-checkout__review__tax-info--subtotal, .th-checkout__review__grand-total-info--subtotal, .th-checkout__review__items__item-info--subtotal {
   font-size: 1.5rem;
@@ -7661,6 +7668,9 @@ input.ng-pristine + .input-help {
 
 .th-change-email .th-my-account__title {
   margin-bottom: 20px; }
+.th-change-email__current {
+  line-height: 1.4;
+  margin: 0 0 25px 0; }
 
 .th-change-password .th-my-account__title {
   margin-bottom: 20px; }
