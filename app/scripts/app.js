@@ -75,12 +75,19 @@ angular.module('methodApp', [
 			}
 		}]);
 
-		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
-			$window.scrollTo(0, 0);
-			
-			if(fromState.name.indexOf('.cart') === -1){
+		$rootScope.$on('$stateChangeStart', function (event, toState) {
+
+			if($rootScope.isCartOpen){
+				$rootScope.closeCart();
+				if(toState.name !== 'checkout'){
+					event.preventDefault();
+				}
+			}
+			else{
+				$window.scrollTo(0, 0);
 				snapRemote.close();
 			}
+
 		});
 
 		$rootScope.$on('$stateChangeSuccess', function (event, toState) {
