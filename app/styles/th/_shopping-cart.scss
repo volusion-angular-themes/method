@@ -28,21 +28,243 @@
 		font-size: 12px;
 	}
 }
+@-webkit-keyframes animateCartIn {
+  0% {
+	right: -300px;
+	z-index: 9;
+  }
+  99%{
+	right: 0px;
+  }
+  100% {
+	right: 0px;
+	z-index: 9;
+  }
+}
+@-moz-keyframes animateCartIn {
+  0% {
+	right: -300px;
+	z-index: 9;
+  }
+  99%{
+	right: 0px;
+  }
+  100% {
+	right: 0px;
+	z-index: 9;
+  }
+}
+@-o-keyframes animateCartIn {
+  0% {
+	right: -300px;
+	z-index: 9;
+  }
+  99%{
+	right: 0px;
+  }
+  100% {
+	right: 0px;
+	z-index: 9;
+  }
+}
+@keyframes animateCartIn {
+  0% {
+	right: -300px;
+	z-index: 9;
+  }
+  99%{
+	right: 0px;
+  }
+  100% {
+	right: 0px;
+	z-index: 9;
+  }
+}
+
+@-webkit-keyframes animateCartOut {
+  0% {
+	right: 0px;
+	z-index: 9;
+  }
+  99%{
+	right: -300px;
+  }
+  100% {
+	right: -300px;
+	z-index: -1;
+  }
+}
+@-moz-keyframes animateCartOut {
+  0% {
+	right: 0px;
+	z-index: 9;
+  }
+  99%{
+	right: -300px;
+  }
+  100% {
+	right: -300px;
+	z-index: -1;
+  }
+}
+@-o-keyframes animateCartOut {
+  0% {
+	right: 0px;
+	z-index: 9;
+  }
+  99%{
+	right: -300px;
+  }
+  100% {
+	right: -300px;
+	z-index: -1;
+  }
+}
+@keyframes animateCartOut {
+  0% {
+	right: 0px;
+	z-index: 9;
+  }
+  99%{
+	right: -300px;
+  }
+  100% {
+	right: -300px;
+	z-index: -1;
+  }
+}
+
+@-webkit-keyframes animateOverlayIn {
+  0% {
+	opacity: 0;
+	z-index: -1;
+  }
+  1%{
+	z-index: 8;
+  }
+  99%{
+	opacity: 1;
+  }
+  100% {
+	opacity: 1;
+	z-index: 8;
+  }
+}
+@-moz-keyframes animateOverlayIn {
+  0% {
+	opacity: 0;
+	z-index: -1;
+  }
+  1%{
+	z-index: 8;
+  }
+  99%{
+	opacity: 1;
+  }
+  100% {
+	opacity: 1;
+	z-index: 8;
+  }
+}
+@-o-keyframes animateOverlayIn {
+  0% {
+	opacity: 0;
+	z-index: -1;
+  }
+  1%{
+	z-index: 8;
+  }
+  99%{
+	opacity: 1;
+  }
+  100% {
+	opacity: 1;
+	z-index: 8;
+  }
+}
+@keyframes animateOverlayIn {
+  0% {
+	opacity: 0;
+	z-index: -1;
+  }
+  1%{
+	z-index: 8;
+  }
+  99%{
+	opacity: 1;
+  }
+  100% {
+	opacity: 1;
+	z-index: 8;
+  }
+}
+
+
+@-webkit-keyframes animateOverlayOut {
+  0% {
+	opacity: 1;
+	z-index: 8;
+  }
+  99%{
+	opacity: 0;
+  }
+  100% {
+	opacity: 0;
+	z-index: -1;
+  }
+}
+@-moz-keyframes animateOverlayOut {
+  0% {
+	opacity: 1;
+	z-index: 8;
+  }
+  99%{
+	opacity: 0;
+  }
+  100% {
+	opacity: 0;
+	z-index: -1;
+  }
+}
+@-o-keyframes animateOverlayOut {
+  0% {
+	opacity: 1;
+	z-index: 8;
+  }
+  99%{
+	opacity: 0;
+  }
+  100% {
+	opacity: 0;
+	z-index: -1;
+  }
+}
+@keyframes animateOverlayOut {
+  0% {
+	opacity: 1;
+	z-index: 8;
+  }
+  99%{
+	opacity: 0;
+  }
+  100% {
+	opacity: 0;
+	z-index: -1;
+  }
+}
 
 .th-cart {
 
 	&__panel{
-		background-color   : $body-bg;
-		border-left        : 1px solid $hr-border;
-		position           : absolute;
-		right              : -300px;
-		z-index            : 10;
-		height             : 100%;
-		width              : 300px;
-		overflow           : hidden;
-		transition         : right .3s;
-		-webkit-transition : right .3s;
-		-moz-transition    : right .3s;
+		background-color : $body-bg;
+		border-left      : 1px solid $hr-border;
+		position         : absolute;
+		height           : 100%;
+		width            : 300px;
+		right            : -300px;
+		z-index          : -1;
+		overflow         : hidden;
+		box-shadow       : 0px 0px 5px 2px rgba(0,0,0,.1);
 
 		@include respond-to(xs){
 			width : 100%;
@@ -60,24 +282,59 @@
 		right              : 0px;
 		width              : 100%;
 		height             : 100%;
-		z-index            : -10;
 		background-color   : rgba(0,0,0,.5);
-		opacity            : 0;
-		transition         : opacity .5s;
-		-webkit-transition : opacity .5s;
-		-moz-transition    : opacity .5s;
 		cursor             : default;
 	}
 
-	&--active{
-		
+	&--open{
+
 		.th-cart__panel{
-			right : 0px;
+		  -webkit-animation-name      : animateCartIn;
+		  -webkit-animation-duration  : .4s;
+		  -webkit-animation-fill-mode : forwards; /* Chrome, Safari, Opera */
+		  -moz-animation-name         : animateCartIn;
+		  -moz-animation-duration     : .4s;
+		  -moz-animation-fill-mode    : forwards;
+		  animation-name              : animateCartIn;
+		  animation-duration          : .4s;
+		  animation-fill-mode         : forwards;
 		}
+
+		@media (min-width: $screen-sm){
+		  .th-cart__overlay{
+			-webkit-animation-name      : animateOverlayIn;
+			-webkit-animation-duration  : .4s;
+			-webkit-animation-fill-mode : forwards; /* Chrome, Safari, Opera */
+			-moz-animation-name         : animateOverlayIn;
+			-moz-animation-duration     : .4s;
+			-moz-animation-fill-mode    : forwards;
+			animation-name              : animateOverlayIn;
+			animation-duration          : .4s;
+			animation-fill-mode         : forwards;
+		  }
+		}
+	}
+
+	&--closed{
+
+	  .th-cart__panel{
+		-webkit-animation-name     : animateCartOut;
+		-webkit-animation-duration : .4s;
+		-moz-animation-name         : animateCartOut;
+		-moz-animation-duration     : .4s;
+		animation-name             : animateCartOut;
+		animation-duration         : .4s;
+	  }
+	  @media (min-width: $screen-sm){
 		.th-cart__overlay{
-			z-index : 9;
-			opacity : 1;
+		  -webkit-animation-name      : animateOverlayOut;
+		  -webkit-animation-duration  : .4s;
+		  -moz-animation-name         : animateOverlayOut;
+		  -moz-animation-duration     : .4s;
+		  animation-name              : animateOverlayOut;
+		  animation-duration          : .4s;
 		}
+	  }
 	}
 
 	.-visual-cue {
@@ -213,7 +470,7 @@
 		background-color   : $btn-default-bg;
 		z-index            : 999;
 		width              : 100%;
-		line-height        : 40px; 
+		line-height        : 40px;
 		height             : 40px;
 		text-align         : center;
 		@include box-shadow(rgba(0,0,0,0.08) 0px 1px 2px 0px);
@@ -244,7 +501,7 @@
 
 	&__footer{
 		position           : absolute;
-		z-index            : 2; 
+		z-index            : 2;
 		bottom             : 0px;
 		width              : 100%;
 		border-top         : 1px solid $hr-border;
@@ -328,7 +585,7 @@
 			}
 
 			&:focus{
-				
+
 				@include input-placeholder {
 					opacity : .4;
 					color   : #000 !important;
@@ -340,9 +597,9 @@
 					color : $link-hover-color;
 				}
 			}
-			
+
 			&.form-control{
-				border : 0px; 
+				border : 0px;
 			}
 		}
 
@@ -352,14 +609,14 @@
 			padding            : 0px;
 			text-align         : center;
 			opacity            : 0;
-			visibility         : hidden; 
+			visibility         : hidden;
 			transition         : opacity .2s, visibility .2s;
 			-webkit-transition : opacity .2s, visibility .2s;
 			-moz-transition    : opacity .2s, visibility .2s;
 
 			&--active{
 				opacity    : 1;
-				visibility : visible; 
+				visibility : visible;
 			}
 		}
 	}
@@ -414,7 +671,7 @@
 		position       : relative;
 		border-bottom  : 1px solid $gray-lighter;
 		padding        : 10px 10px;
-		
+
 		&--left{
 			width          : 73%;
 			display        : inline-block;
