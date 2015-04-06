@@ -284,6 +284,7 @@
 		height             : 100%;
 		background-color   : rgba(0,0,0,.5);
 		cursor             : default;
+	  	opacity            : 0;
 	}
 
 	&--open{
@@ -394,7 +395,7 @@
 		}
 
 		&--search {
-			float  : left;
+		  	position: absolute;
 			margin : 0;
 
 			span {
@@ -911,4 +912,32 @@
 		}
 
 	}
+}
+
+
+@media (max-width: $screen-sm){
+
+  .th-cart{
+
+	&__brand{
+	  position: fixed;
+	  width: 100%;
+	}
+	&__header{
+	  position: fixed;
+	  top: 46px;
+	}
+	&__body{
+	  height: auto !important;
+	  overflow-y: auto !important;
+	  margin-top: 85px !important;
+	}
+	&__panel{
+	  overflow: auto;
+	}
+	&__footer{
+	  position: static;
+	  z-index: auto;
+	}
+  }
 }
