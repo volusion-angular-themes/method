@@ -13,7 +13,7 @@
     "angular-seo": "*",
     "angulartics": "https://github.com/prabinv/angulartics.git#0db9605833cd809f5336c0f981f5164d5aed66d4",
     "angular-ui-bootstrap-bower": "~0.12.0",
-    "vn-toolbox-common": "git@github.com:volusion-angular/vn-toolbox-common.git#~1.0.11",
+    "vn-toolbox-public": "~1.0.11",
     "textAngular": "~1.2.1",
     "angular-ui-router": "~0.2.13",
     "angular-cookies": "~1.3.0",
