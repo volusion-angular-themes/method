@@ -5567,6 +5567,9 @@ button.close {
   float: right;
   padding: 2px 5px !important; }
 
+html, body {
+  overflow-x: hidden !important; }
+
 .th__back-button {
   margin-top: 20px;
   font-size: 1.6rem; }
