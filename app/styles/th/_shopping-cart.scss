@@ -752,9 +752,49 @@
 			border-bottom  : 1px solid $hr-border;
 		}
 
-		&--gift {
-			padding       : 5px 10px;
-			border-bottom : 1px solid $hr-border;
+		&__gift {
+		  padding       : 5px 10px;
+		  border-bottom : 1px solid $hr-border;
+
+		  &__label{
+
+		  }
+		  &__message{
+			  width              : 100%;
+			  height             : 30px;
+			  margin-top         : 5px;
+			  padding            : 5px;
+			  resize             : none;
+			  word-wrap          : break-word;
+			  transition         : 0.05s;
+			  -moz-transition    : 0.05s;
+			  -webkit-transition : 0.05s;
+			  -o-transition      : 0.05s;
+			  overflow           : hidden;
+			  line-height        : 1.2em;
+			  border             : 0;
+			  border-bottom      : 1px solid $hr-border;
+			  color              : #333;
+			  background-color   : transparent;
+
+			  @include input-placeholder {
+				  color       : #000;
+				  font-weight : 300;
+				  font-family : 'roboto-light';
+			  }
+
+			  &:focus{
+				  outline      : none;
+				  border-color : #000;
+				  @include input-placeholder {
+					  opacity : .5;
+				  }
+			  }
+		  }
+		  &__message-count {
+			  color      : $gray-light;
+			  text-align : right;
+		  }
 		}
 
 		&__item {
@@ -773,17 +813,18 @@
 					}
 				}
 
-				&--message {
+				&__message {
 					width              : 100%;
-					height             : 35px;
+					height             : 30px;
 					margin-top         : 5px;
-					padding            : 10px;
+					padding            : 5px;
 					resize             : none;
 					word-wrap          : break-word;
 					transition         : 0.05s;
 					-moz-transition    : 0.05s;
 					-webkit-transition : 0.05s;
 					-o-transition      : 0.05s;
+				  	border             : 1px solid #ddd;
 				}
 
 				&--message-count {
