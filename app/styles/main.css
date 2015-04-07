@@ -5567,6 +5567,9 @@ button.close {
   float: right;
   padding: 2px 5px !important; }
 
+html, body {
+  overflow-x: hidden !important; }
+
 .th__back-button {
   margin-top: 20px;
   font-size: 1.6rem; }
@@ -6378,7 +6381,8 @@ ul.rating {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  cursor: default; }
+  cursor: default;
+  opacity: 0; }
 .th-cart--open .th-cart__panel {
   -webkit-animation-name: animateCartIn;
   -webkit-animation-duration: .4s;
@@ -6458,7 +6462,7 @@ ul.rating {
     margin: auto;
     height: 36px; }
   .th-cart__brand--search {
-    float: left;
+    position: absolute;
     margin: 0; }
     .th-cart__brand--search span {
       background-color: black;
@@ -6745,9 +6749,62 @@ ul.rating {
   .th-cart__items--label {
     text-transform: uppercase;
     border-bottom: 1px solid #d9d9d9; }
-  .th-cart__items--gift {
+  .th-cart__items__gift {
     padding: 5px 10px;
     border-bottom: 1px solid #d9d9d9; }
+    .th-cart__items__gift__message {
+      width: 100%;
+      height: 30px;
+      margin-top: 5px;
+      padding: 5px;
+      resize: none;
+      word-wrap: break-word;
+      transition: 0.05s;
+      -moz-transition: 0.05s;
+      -webkit-transition: 0.05s;
+      -o-transition: 0.05s;
+      overflow: hidden;
+      line-height: 1.2em;
+      border: 0;
+      border-bottom: 1px solid #d9d9d9;
+      color: #333;
+      background-color: transparent; }
+      .th-cart__items__gift__message.placeholder {
+        color: #000;
+        font-weight: 300;
+        font-family: 'roboto-light'; }
+      .th-cart__items__gift__message:-moz-placeholder {
+        color: #000;
+        font-weight: 300;
+        font-family: 'roboto-light'; }
+      .th-cart__items__gift__message::-moz-placeholder {
+        color: #000;
+        font-weight: 300;
+        font-family: 'roboto-light'; }
+      .th-cart__items__gift__message:-ms-input-placeholder {
+        color: #000;
+        font-weight: 300;
+        font-family: 'roboto-light'; }
+      .th-cart__items__gift__message::-webkit-input-placeholder {
+        color: #000;
+        font-weight: 300;
+        font-family: 'roboto-light'; }
+      .th-cart__items__gift__message:focus {
+        outline: none;
+        border-color: #000; }
+        .th-cart__items__gift__message:focus.placeholder {
+          opacity: .5; }
+        .th-cart__items__gift__message:focus:-moz-placeholder {
+          opacity: .5; }
+        .th-cart__items__gift__message:focus::-moz-placeholder {
+          opacity: .5; }
+        .th-cart__items__gift__message:focus:-ms-input-placeholder {
+          opacity: .5; }
+        .th-cart__items__gift__message:focus::-webkit-input-placeholder {
+          opacity: .5; }
+    .th-cart__items__gift__message-count {
+      color: #777777;
+      text-align: right; }
   .th-cart__items__item {
     position: relative;
     margin-bottom: 10px;
@@ -6757,17 +6814,18 @@ ul.rating {
       margin-top: 10px; }
       .th-cart__items__item__gift--option span {
         margin-left: 10px; }
-      .th-cart__items__item__gift--message {
+      .th-cart__items__item__gift__message {
         width: 100%;
-        height: 35px;
+        height: 30px;
         margin-top: 5px;
-        padding: 10px;
+        padding: 5px;
         resize: none;
         word-wrap: break-word;
         transition: 0.05s;
         -moz-transition: 0.05s;
         -webkit-transition: 0.05s;
-        -o-transition: 0.05s; }
+        -o-transition: 0.05s;
+        border: 1px solid #ddd; }
       .th-cart__items__item__gift--message-count {
         color: #777777;
         text-align: right; }
@@ -6825,6 +6883,23 @@ ul.rating {
       vertical-align: middle;
       width: 50%;
       text-align: right; }
+
+@media (max-width: 768px) {
+  .th-cart__brand {
+    position: fixed;
+    width: 100%; }
+  .th-cart__header {
+    position: fixed;
+    top: 46px; }
+  .th-cart__body {
+    height: auto !important;
+    overflow-y: auto !important;
+    margin-top: 85px !important; }
+  .th-cart__panel {
+    overflow: auto; }
+  .th-cart__footer {
+    position: static;
+    z-index: auto; } }
 
 .input-help.bottom, .input-help.bottom-right {
   top: 35px; }
