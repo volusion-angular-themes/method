@@ -29,13 +29,8 @@ console.log('bower.json has been updated');
 fs.writeFileSync('./app/settings/themeInfo.json', JSON.stringify(themeInfoJson, null, 4));
 console.log('themeInfo.json has been updated');
 
-exec('git commit -am "bumped version from ' + oldVersion + ' to ' + version + '"')
-exec('git hf release finish ' + version);
-exec('git tag -a ' + version + ' -m "Version ' + version + '" -f ');
-console.log('Hubflow: Finish Release');
+exec('git commit -am "bumped version from ' + oldVersion + ' to ' + version + '"');
+console.log('Git: Commit Changes');
 
-//exec('git commit -am "Bumping version from ' + oldVersion + ' to ' + version + '"', {cwd: './public'});
-//exec('git tag -a ' + version + ' -m "Version ' + version + '" -f ', {cwd: './public'});
-//console.log('Run the following command in the public directory');
-//console.log('to make the package available in Bower:');
-//console.log("git push origin master --tags");
+console.log('Run the following command to finish the release');
+console.log('git hf release finish -m v' + version + ' ' + version);
