@@ -6894,7 +6894,8 @@ ul.rating {
   .th-cart__body {
     height: auto !important;
     overflow-y: auto !important;
-    margin-top: 85px !important; }
+    margin-top: 85px !important;
+    min-height: 200px; }
   .th-cart__panel {
     overflow: auto; }
   .th-cart__footer {
@@ -7141,6 +7142,14 @@ input.ng-pristine + .input-help {
       left: 0;
       margin-left: 6%;
       width: 90%; } }
+
+.paypal-button-hidden {
+  visibility: hidden; }
+
+.vn-paypal-button {
+  background-color: transparent;
+  border: 0;
+  margin-top: 10px; }
 
 .th-checkout {
   background-color: #fafafa;
