@@ -7149,7 +7149,8 @@ input.ng-pristine + .input-help {
 .vn-paypal-button {
   background-color: transparent;
   border: 0;
-  margin-top: 10px; }
+  margin-top: 10px;
+  text-align: center; }
 
 .th-checkout {
   background-color: #fafafa;
