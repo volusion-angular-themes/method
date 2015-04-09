@@ -7152,10 +7152,6 @@ input.ng-pristine + .input-help {
   margin-top: 10px;
   text-align: center; }
 
-.vn-paypal-radio {
-  width: 300px;
-  margin: 0 auto; }
-
 .th-checkout {
   background-color: #fafafa;
   height: inherit;
@@ -7866,6 +7862,10 @@ input.ng-pristine + .input-help {
     margin-left: 30px; }
     .th-checkout__ship-method .styled-checkbox-option input + label:before {
       margin-left: -30px; }
+
+.vn-payment-radio {
+  width: 300px;
+  margin: 0 auto; }
 
 .th-my-account {
   font-family: 'roboto-light';
