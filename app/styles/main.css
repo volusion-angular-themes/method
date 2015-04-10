@@ -7127,7 +7127,7 @@ input.ng-pristine + .input-help {
   color: #3A7D34;
   background-position: 2px 6px; }
 
-.vn-app-message {
+.vn-app-message--fixed {
   position: fixed;
   top: 100px;
   z-index: 9999;
@@ -7135,13 +7135,15 @@ input.ng-pristine + .input-help {
   margin-left: -200px;
   width: 400px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
-  .vn-app-message__text {
-    line-height: 26px; }
-  @media (max-width: 480px) {
-    .vn-app-message {
-      left: 0;
-      margin-left: 6%;
-      width: 90%; } }
+.vn-app-message--static {
+  position: static; }
+.vn-app-message__text {
+  line-height: 26px; }
+@media (max-width: 480px) {
+  .vn-app-message {
+    left: 0;
+    margin-left: 6%;
+    width: 90%; } }
 
 .paypal-button-hidden {
   visibility: hidden; }
