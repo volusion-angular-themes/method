@@ -7154,8 +7154,19 @@ input.ng-pristine + .input-help {
   margin-top: 10px;
   text-align: center; }
 
-.th-checkout--paypal .th-checkout__step__overlay {
-  opacity: 0.6; }
+.th-checkout.th-checkout--paypal {
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid #ccc; }
+  .th-checkout.th-checkout--paypal .th-checkout__step {
+    border: 0; }
+    .th-checkout.th-checkout--paypal .th-checkout__step__overlay {
+      opacity: 0.6; }
+    .th-checkout.th-checkout--paypal .th-checkout__step__ship-to .th-checkout__ship-method__heading {
+      display: none; }
+  .th-checkout.th-checkout--paypal .th-checkout__loading {
+    width: 50%; }
 
 .th-checkout {
   background-color: #fafafa;
@@ -7523,13 +7534,14 @@ input.ng-pristine + .input-help {
   .th-address__display.-readonly {
     cursor: default; }
     .th-address__display.-readonly:hover {
-      cursor: default; }
+      cursor: default;
+      color: #333; }
       .th-address__display.-readonly:hover > .row:hover {
         cursor: default; }
   .th-address__display .row {
     display: flex;
     align-items: center; }
-  .th-address__display:hover {
+  .th-address__display:hover:not(.-readonly) {
     background: #fff;
     color: #777; }
   .th-address__display__addressPart {
@@ -7692,20 +7704,20 @@ input.ng-pristine + .input-help {
   right: 0;
   top: 0; }
 
-.vn-page-checkout #main-content-area {
+.vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
   height: calc(100% - 160px);
   height: -webkit-calc(100% - 160px);
   overflow: hidden; }
   @media (max-width: 992px) {
-    .vn-page-checkout #main-content-area {
+    .vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
       height: auto; } }
-.vn-page-checkout .th-checkout {
+.vn-page-checkout .th-checkout, .vn-page-paypal-checkout .th-checkout {
   height: 100%;
   margin-top: 0px;
   margin-bottom: 0px; }
-  .vn-page-checkout .th-checkout__step {
+  .vn-page-checkout .th-checkout__step, .vn-page-paypal-checkout .th-checkout__step {
     height: 100%; }
-.vn-page-checkout .th-checkout-footer {
+.vn-page-checkout .th-checkout-footer, .vn-page-paypal-checkout .th-checkout-footer {
   margin-top: 0px; }
 
 .th-checkout__review {

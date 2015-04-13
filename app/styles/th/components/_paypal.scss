@@ -9,12 +9,30 @@
   text-align: center;
 }
 
-.th-checkout--paypal{
+.th-checkout.th-checkout--paypal{
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top : 1px solid #ccc;
 
   .th-checkout{
 
-	&__step__overlay{
-	  opacity: 0.6;
+	&__step{
+	  border: 0;
+
+	  &__overlay{
+		opacity: 0.6;
+	  }
+
+	  &__ship-to{
+
+		.th-checkout__ship-method__heading{
+		  display: none;
+		}
+	  }
+	}
+	&__loading{
+	  width: 50%;
 	}
   }
 }
