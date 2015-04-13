@@ -7154,6 +7154,9 @@ input.ng-pristine + .input-help {
   margin-top: 10px;
   text-align: center; }
 
+.th-checkout--paypal .th-checkout__step__overlay {
+  opacity: 0.6; }
+
 .th-checkout {
   background-color: #fafafa;
   height: inherit;

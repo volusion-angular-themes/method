@@ -8,3 +8,13 @@
   margin-top: 10px;
   text-align: center;
 }
+
+.th-checkout--paypal{
+
+  .th-checkout{
+
+	&__step__overlay{
+	  opacity: 0.6;
+	}
+  }
+}
