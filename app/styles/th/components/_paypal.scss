@@ -14,11 +14,29 @@
   margin-left: auto;
   margin-right: auto;
   border-top : 1px solid #ccc;
+  background-color: #eee;
 
   .th-checkout{
 
 	&__step{
 	  border: 0;
+
+	  &__inner{
+		margin: 0 auto;
+
+		@media (min-width: $screen-xs){
+		  width: 100%;
+		}
+		@media (min-width: $screen-sm){
+		  
+		}
+		@media (min-width: $screen-md){
+		  width: 80%;
+		}
+		@media (min-width: $screen-lg){
+
+		}
+	  }
 
 	  &__overlay{
 		opacity: 0.6;
