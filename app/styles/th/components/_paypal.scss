@@ -28,7 +28,7 @@
 		  width: 100%;
 		}
 		@media (min-width: $screen-sm){
-		  
+
 		}
 		@media (min-width: $screen-md){
 		  width: 80%;
@@ -52,5 +52,9 @@
 	&__loading{
 	  width: 50%;
 	}
+  }
+
+  .th-credit-card__display *{
+	cursor: default;
   }
 }

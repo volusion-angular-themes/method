@@ -7176,6 +7176,8 @@ input.ng-pristine + .input-help {
       display: none; }
   .th-checkout.th-checkout--paypal .th-checkout__loading {
     width: 50%; }
+  .th-checkout.th-checkout--paypal .th-credit-card__display * {
+    cursor: default; }
 
 .th-checkout {
   background-color: #fafafa;
@@ -7717,9 +7719,6 @@ input.ng-pristine + .input-help {
   height: calc(100% - 160px);
   height: -webkit-calc(100% - 160px);
   overflow: hidden; }
-  @media (max-width: 992px) {
-    .vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
-      height: auto; } }
 .vn-page-checkout .th-checkout, .vn-page-paypal-checkout .th-checkout {
   height: 100%;
   margin-top: 0px;
@@ -7728,6 +7727,14 @@ input.ng-pristine + .input-help {
     height: 100%; }
 .vn-page-checkout .th-checkout-footer, .vn-page-paypal-checkout .th-checkout-footer {
   margin-top: 0px; }
+
+@media (max-width: 768px) {
+  .vn-page-paypal-checkout #main-content-area {
+    height: auto; } }
+
+@media (max-width: 992px) {
+  .vn-page-checkout #main-content-area {
+    height: auto; } }
 
 .th-checkout__review {
   padding: 17px;
