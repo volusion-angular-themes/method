@@ -73,6 +73,33 @@ angular.module('methodApp', [
 			}
 		}]);
 
+		vnViewPortWatch.setBreakpoints([{
+			name: 'Phone',
+			mediaQuery: 'screen and (max-width: 768px)',
+			onMatch  : function () {
+				$rootScope.deviceType = 'phone';
+				$rootScope.$emit('deviceType.phone');
+			}
+		}]);
+
+		vnViewPortWatch.setBreakpoints([{
+			name: 'Tablet',
+			mediaQuery: 'screen and (min-width: 769px) and (max-width: 991px)',
+			onMatch  : function () {
+				$rootScope.deviceType = 'tablet';
+				$rootScope.$emit('deviceType.tablet');
+			}
+		}]);
+
+		vnViewPortWatch.setBreakpoints([{
+			name: 'Desktop',
+			mediaQuery: 'screen and (min-width:992px)',
+			onMatch  : function () {
+				$rootScope.deviceType = 'desktop';
+				$rootScope.$emit('deviceType.desktop');
+			}
+		}]);
+
 		$rootScope.$on('$stateChangeStart', function (event, toState) {
 
 			if($rootScope.isCartOpen){
