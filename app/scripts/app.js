@@ -29,12 +29,10 @@ angular.module('methodApp', [
 	'Volusion.templates'
 ])
 
-  .config(['$locationProvider', 'translateProvider', 'vnAppConfigProvider', 'ENV',
-	  function ($locationProvider, translateProvider, vnAppConfigProvider, ENV) {
+  .config(['translateProvider', 'vnAppConfigProvider', 'ENV',
+	  function (translateProvider, vnAppConfigProvider, ENV) {
 
 		  'use strict';
-
-		  $locationProvider.html5Mode(true);
 
 		  vnAppConfigProvider.setApiPath(ENV.host, ENV.apiEndpoint);
 

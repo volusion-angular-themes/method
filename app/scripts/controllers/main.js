@@ -10,7 +10,7 @@ angular.module('Volusion.controllers')
 				$rootScope.config = response.data;
 				$rootScope.config.paypal = {
 					url: 'http://166.78.8.98/cgi-bin/aries.cgi?sandbox=1',
-					merchantId: '3UHKEPRBVDNBE'
+					merchantId: 'Paypal has very poor documentation'
 				};
 			});
 
