@@ -3,12 +3,12 @@
 	<span class="hidden-xs icon-th-product__new" data-ng-show="product.isNew"></span>
 
 	<div class="th-product__image">
-		<a data-ng-href="{{ product.url }}">
+		<a data-ui-sref="product({slug: product.slug})">
 			<img vn-product-image product="product" default-image="defaultProductImage">
 		</a>
 	</div>
 	<div class="th-product__name">
-		<a data-ng-href="{{product.url}}">{{product.name}}</a>
+		<a data-ui-sref="product({slug: product.slug})"">{{product.name}}</a>
 	</div>
 	<div class="th-product__price">
 		<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
@@ -19,5 +19,5 @@
 			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
 			<span class="th-price-text" data-translate="product.nowPriceLabel"></span></span>
 	</div>
-	
+
 </div>
