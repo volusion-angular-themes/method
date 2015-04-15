@@ -18,6 +18,13 @@
 
   .th-checkout{
 
+	&__ship-method{
+
+	  &:hover{
+		background-color: #fff;
+	  }
+	}
+
 	&__step{
 	  border: 0;
 
@@ -51,10 +58,20 @@
 	}
 	&__loading{
 	  width: 50%;
+
+	  &--review{
+		left: 50%;
+	  }
 	}
   }
 
-  .th-credit-card__display *{
-	cursor: default;
+  .th-credit-card__display{
+
+	*{
+	  cursor: default;
+	}
+	&:hover{
+	  background: #fafafa;
+	}
   }
 }

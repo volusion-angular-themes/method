@@ -7160,6 +7160,8 @@ input.ng-pristine + .input-help {
   margin-right: auto;
   border-top: 1px solid #ccc;
   background-color: #eee; }
+  .th-checkout.th-checkout--paypal .th-checkout__ship-method:hover {
+    background-color: #fff; }
   .th-checkout.th-checkout--paypal .th-checkout__step {
     border: 0; }
     .th-checkout.th-checkout--paypal .th-checkout__step__inner {
@@ -7176,8 +7178,12 @@ input.ng-pristine + .input-help {
       display: none; }
   .th-checkout.th-checkout--paypal .th-checkout__loading {
     width: 50%; }
+    .th-checkout.th-checkout--paypal .th-checkout__loading--review {
+      left: 50%; }
   .th-checkout.th-checkout--paypal .th-credit-card__display * {
     cursor: default; }
+  .th-checkout.th-checkout--paypal .th-credit-card__display:hover {
+    background: #fafafa; }
 
 .th-checkout {
   background-color: #fafafa;
