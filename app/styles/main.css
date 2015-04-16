@@ -7218,6 +7218,8 @@ input.ng-pristine + .input-help {
     width: 200px;
     margin: 0 auto;
     position: relative; }
+    .th-checkout__payment-type .dropdown-menu {
+      width: 100%; }
   .th-checkout__loading {
     display: none;
     position: absolute;
