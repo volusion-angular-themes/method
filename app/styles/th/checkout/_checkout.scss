@@ -27,6 +27,12 @@
 		}
 	}
 
+  	&__payment-type{
+	  width: 200px;
+	  margin: 0 auto;
+	  position: relative;
+	}
+
 	&__loading{
 		display          : none;
 		position         : absolute;
