@@ -27,6 +27,16 @@
 		}
 	}
 
+  	&__payment-type{
+	  width: 200px;
+	  margin: 0 auto;
+	  position: relative;
+
+	  .dropdown-menu{
+		width: 100%;
+	  }
+	}
+
 	&__loading{
 		display          : none;
 		position         : absolute;
