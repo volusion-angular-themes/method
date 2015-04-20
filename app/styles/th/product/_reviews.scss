@@ -62,8 +62,6 @@
 .th-write-review {
 	padding : 10px 0;
 
-	ul.rating i { color : goldenrod }
-
 	a {
 		display         : block;
 		font-size       : 1.4rem;
@@ -74,4 +72,37 @@
 			text-decoration : none;
 		}
 	}
+}
+
+.th-product-rating{
+  font-size: 14px;
+
+  &__stars{
+	display: inline-block;
+  }
+  &__count{
+	display: inline-block;
+	margin: 0 3px;
+  }
+
+  @media (max-width: $screen-sm){
+	text-align: center;
+	margin: 0 0 10px 0;
+  }
+}
+
+.vn-rating{
+
+  .star{
+
+	&--empty{
+	  color: #ccc;
+	}
+	&--filled{
+	  color: #000;
+	}
+	&--half-filled{
+	  color: #000;
+	}
+  }
 }

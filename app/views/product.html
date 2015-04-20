@@ -60,11 +60,13 @@
 							<span class="th-price"><span itemprop="price" data-ng-bind="product.pricing.salePrice | currency"></span></span>
 								<span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
 					</div>
-						<div class="hidden-xs th-write-review" data-ng-if="product.avgRating">
+						<div data-ng-click="goToReviews()" class="th-product-rating" data-ng-if="product.avgRating">
 							<div data-vn-rating
+								 class="th-product-rating__stars"
 							     rating-value="product.avgRating"
-							     title="" editable="isEditable">
+							     title="" editable="false">
 							</div>
+							<span class="th-product-rating__count">(41)</span>
 						</div>
 					<div class="th-product__availability" data-ng-if="itemSelectionsNotInStock" data-ng-cloak>
 						Not in stock
@@ -72,7 +74,7 @@
 				</div>
 				<!-- end left product column -->
 				<div class="col-xs-12 col-md-6">
-					<div class="th-product-details__options">
+					<div class="th-product-details__options" data-ng-if="product.options.length > 0">
 						<div data-vn-product-option
 						     data-ng-repeat="option in product.options"
 						     data-option="option"
@@ -192,7 +194,7 @@
 				<div class="th-reviews__avg">
 					<div data-vn-rating rating-value="ratingsAndReviews.data.avgRating"
 					     maximum="ratingsAndReviews.data.maxRating"
-					     editable="isEditable" title=""></div>
+					     editable="false" title=""></div>
 				</div>
 			</div>
 			<div class="th-reviews__totals--right">
@@ -202,7 +204,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row th-reviews" data-ng-if="config.general.enableCustomerReviews">
+	<div class="row th-reviews" id="product-reviews" data-ng-if="config.general.enableCustomerReviews">
 		<div data-ng-if="ratingsAndReviews.data.reviews.length > 0" class="col-md-6 th-reviews" itemprop="review" itemscope
 		     itemtype="http://schema.org/Review" data-ng-repeat="review in ratingsAndReviews.data.reviews">
 			<div class="th-reviews__helpful"><span data-ng-bind="review.helpful"></span> people found the following review
@@ -212,7 +214,7 @@
 				<div class="th-reviews__star-group"
 				     data-vn-rating rating-value="review.rating"
 				     maximum="ratingsAndReviews.data.maxRating"
-				     title="" editable="isEditable"></div>
+				     title="" editable="false"></div>
 				<span class="th-rating-text" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 					<meta itemprop="worstRating" content="1">
 					<span itemprop="ratingValue" data-ng-bind="review.rating"></span> out of

@@ -8579,8 +8579,6 @@ html, body {
 
 .th-write-review {
   padding: 10px 0; }
-  .th-write-review ul.rating i {
-    color: goldenrod; }
   .th-write-review a {
     display: block;
     font-size: 1.4rem;
@@ -8588,6 +8586,25 @@ html, body {
     text-decoration: underline; }
     .th-write-review a:hover {
       text-decoration: none; }
+
+.th-product-rating {
+  font-size: 14px; }
+  .th-product-rating__stars {
+    display: inline-block; }
+  .th-product-rating__count {
+    display: inline-block;
+    margin: 0 3px; }
+  @media (max-width: 768px) {
+    .th-product-rating {
+      text-align: center;
+      margin: 0 0 10px 0; } }
+
+.vn-rating .star--empty {
+  color: #ccc; }
+.vn-rating .star--filled {
+  color: #000; }
+.vn-rating .star--half-filled {
+  color: #000; }
 
 .th-cart-summary {
   position: relative;
