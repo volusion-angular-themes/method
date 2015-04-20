@@ -8606,6 +8606,48 @@ html, body {
 .vn-rating .star--half-filled {
   color: #000; }
 
+.th-rating-bar__line {
+  padding: 3px; }
+  .th-rating-bar__line__stars {
+    padding-right: 0px;
+    text-align: right; }
+  .th-rating-bar__line__bar {
+    height: 10px; }
+    .th-rating-bar__line__bar-bg {
+      background-color: #ddd;
+      height: 10px; }
+    .th-rating-bar__line__bar-inner {
+      height: 10px;
+      font: 10px sans-serif;
+      background-color: black;
+      text-align: right;
+      color: white; }
+  .th-rating-bar__line__count {
+    padding-left: 0px;
+    text-align: left; }
+
+.th-rating-summary {
+  padding-top: 10px;
+  margin: 5px;
+  width: 100%;
+  text-align: center; }
+  .th-rating-summary__rating {
+    font-size: 2rem; }
+  .th-rating-summary__stars {
+    margin: 8px 0 5px 0; }
+  .th-rating-summary__average {
+    font-size: 1rem; }
+    .th-rating-summary__average strong {
+      font-family: roboto-bold, Helvetica, Arial, sans-serif; }
+
+.th-rating-button {
+  margin-top: 20px;
+  text-align: center;
+  float: right;
+  background-color: black;
+  color: white;
+  padding: 5px 5px; }
+
 .th-cart-summary {
   position: relative;
   right: 0;

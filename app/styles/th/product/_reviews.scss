@@ -74,6 +74,7 @@
 	}
 }
 
+
 .th-product-rating{
   font-size: 14px;
 
@@ -106,3 +107,62 @@
 	}
   }
 }
+
+.th-rating-bar {
+  &__line {
+	padding: 3px;
+	&__stars {
+	  padding-right: 0px;
+	  text-align: right;
+	}
+	&__bar {
+	  height: 10px;
+	  &-bg {
+		background-color: #ddd;
+		height: 10px;
+	  }
+	  &-inner {
+		height: 10px;
+		font: 10px sans-serif;
+		background-color: black;
+		text-align: right;
+		color: white;
+	  }
+	}
+	&__count{
+	  padding-left: 0px;
+	  text-align: left;
+	}
+  }
+}
+
+.th-rating-summary {
+  padding-top: 10px;
+  margin: 5px;
+  width: 100%;
+  text-align: center;
+  &__rating {
+	font-size: 2rem;
+  }
+
+  &__stars {
+	margin: 8px 0 5px 0;
+  }
+
+  &__average {
+	font-size: 1rem;
+	strong {
+	  font-family: roboto-bold, Helvetica, Arial, sans-serif;;
+	}
+  }
+}
+
+.th-rating-button {
+  	margin-top: 20px;
+  	text-align: center;
+  	float: right;
+	background-color: black;
+  	color: white;
+  	padding: 5px 5px;
+}
+
