@@ -8533,7 +8533,9 @@ html, body {
 
 .th-reviews {
   font-size: 1.3rem;
-  margin-top: 15px; }
+  margin-top: 15px;
+  border: 1px solid #EDEDED;
+  padding: 20px 10px; }
   .th-reviews ul.rating i {
     color: goldenrod; }
   .th-reviews a {
@@ -8545,37 +8547,10 @@ html, body {
     overflow: hidden;
     margin-bottom: 10px;
     text-transform: uppercase; }
-  .th-reviews__description {
-    line-height: 1.5; }
-  .th-reviews__helpful {
-    color: #8c8c8c;
-    padding: 10px 0 0; }
-  .th-reviews__rating {
-    padding: 10px 0; }
-  .th-reviews__star-group {
-    display: inline-block;
-    margin-right: 10px; }
-    .th-reviews__star-group i {
-      color: goldenrod; }
-    .th-reviews__star-group p {
-      margin: 0; }
-  .th-reviews__title {
-    font-family: 'roboto-bold';
-    font-size: 1.4rem;
-    font-weight: normal;
-    margin-top: 5px;
-    margin-bottom: 5px; }
-  .th-reviews__totals {
-    border: 1px solid #f3f3f3;
-    overflow: hidden;
-    padding: 15px; }
-    .th-reviews__totals--right {
-      margin-top: 10px; }
-    @media only screen and (min-width: 768px) {
-      .th-reviews__totals--left {
-        float: left; }
-      .th-reviews__totals--right {
-        float: right; } }
+  @media (max-width: 768px) {
+    .th-reviews {
+      padding-left: 0;
+      padding-right: 0; } }
 
 .th-write-review {
   padding: 10px 0; }
@@ -8605,6 +8580,8 @@ html, body {
   color: #000; }
 .vn-rating .star--half-filled {
   color: #000; }
+.vn-rating-title {
+  margin: 0px; }
 
 .th-rating-bar__line {
   padding: 3px; }
@@ -8636,7 +8613,7 @@ html, body {
   .th-rating-summary__stars {
     margin: 8px 0 5px 0; }
   .th-rating-summary__average {
-    font-size: 1rem; }
+    font-size: 1.2rem; }
     .th-rating-summary__average strong {
       font-family: roboto-bold, Helvetica, Arial, sans-serif; }
 
@@ -8647,6 +8624,50 @@ html, body {
   background-color: black;
   color: white;
   padding: 5px 5px; }
+
+.th-review-list {
+  line-height: 1.3; }
+  .th-review-list__item {
+    margin: 30px 0px; }
+    @media (max-width: 768px) {
+      .th-review-list__item__stars .th-product-rating__stars {
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        margin: 5px 0; }
+      .th-review-list__item__stars .th-review-list__item__title {
+        display: block; } }
+    .th-review-list__item__title {
+      font-family: roboto-bold, Helvetica, Arial, sans-serif;
+      font-size: 14px; }
+      @media (min-width: 768px) {
+        .th-review-list__item__title {
+          margin-left: 10px; } }
+    .th-review-list__item__note {
+      color: #555;
+      margin-bottom: 10px; }
+    .th-review-list__item__date {
+      text-align: right; }
+    @media (max-width: 768px) {
+      .th-review-list__item__found-helpful {
+        display: block;
+        text-align: center;
+        margin: 10px 0; } }
+    .th-review-list__item__helpful {
+      text-align: right; }
+      @media (min-width: 768px) {
+        .th-review-list__item__helpful {
+          margin-top: 10px; } }
+    .th-review-list__item__helpful-buttons .btn-group .btn {
+      font-size: 1.3rem;
+      text-transform: none; }
+    @media (max-width: 768px) {
+      .th-review-list__item__helpful-buttons {
+        display: block;
+        text-align: center; } }
+    @media (min-width: 768px) {
+      .th-review-list__item__helpful-buttons {
+        margin-left: 20px; } }
 
 .th-cart-summary {
   position: relative;
