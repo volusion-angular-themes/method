@@ -451,7 +451,7 @@ module.exports = function (grunt) {
 			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js'],
 				tasks: ['clean:server',
 					'newer:jshint:all',
 					'karma']
@@ -459,11 +459,11 @@ module.exports = function (grunt) {
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-public-styles.css'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
 				],
@@ -618,11 +618,16 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('get_toolbox_dependencies', 'Add VN Toolbox Dependencies to bower.json', function () {
 		var fs = require('fs');
-		var _ = require('lodash');
-		var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
-		var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
-		_.extend(origBower.dependencies,  vnBower.dependencies);
-		fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');
+		fs.exists('bower_components/vn-toolbox-common/bower.json', function (exists) {
+			if(exists){
+				var _ = require('lodash');
+				var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
+				var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
+				_.extend(origBower.dependencies,  vnBower.dependencies);
+				fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');
+			}
+		});
+
 	});
 
 	grunt.registerTask('default', function () {
