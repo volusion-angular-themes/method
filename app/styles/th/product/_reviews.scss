@@ -19,6 +19,12 @@
 		text-transform : uppercase;
 	}
 
+  &__show-rating-bar{
+	text-align: center;
+	padding: 5px 0;
+	text-decoration: underline;
+  }
+
 
   @media (max-width: $screen-sm){
 	padding-left: 0;
@@ -64,21 +70,23 @@
   @media (max-width: $screen-sm){
 	text-align: center;
 	margin: 0 0 10px 0;
+	font-size: 16px;
   }
 }
 
 .vn-rating{
 
   .star{
+	color: goldenrod;
 
 	&--empty{
-	  color: #ccc;
+
 	}
 	&--filled{
-	  color: #000;
+
 	}
 	&--half-filled{
-	  color: #000;
+
 	}
   }
   &-title{
@@ -134,11 +142,12 @@
   width: 100%;
   text-align: center;
   &__rating {
-	font-size: 2rem;
+	font-size: 2.4rem;
   }
 
   &__stars {
 	margin: 8px 0 5px 0;
+	font-size: 18px;
   }
 
   &__average {

@@ -187,9 +187,13 @@
 			<div data-vn-rating-summary class="th-reviews__rating-summary"></div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<div data-vn-rating-bar class="th-reviews__rating-bar"></div>
+			<div data-ng-show="showRatingBar" data-vn-rating-bar class="th-reviews__rating-bar"></div>
+			<div class="visible-xs th-reviews__show-rating-bar" data-ng-click="toggleRatingBar()">
+				<span data-ng-if="!showRatingBar">View details</span>
+				<span data-ng-if="showRatingBar">Hide details</span>
+			</div>
 		</div>
-		<div class="col-xs-12 col-sm-3">
+		<div class="col-sm-3 hidden-xs">
 			<div data-vn-rating-button class="th-reviews__rating-button"></div>
 		</div>
 
@@ -237,5 +241,10 @@
 			</div>
 
 		</div>
+
+		<div class="col-xs-12 visible-xs">
+			<div data-vn-rating-button class="th-reviews__rating-button"></div>
+		</div>
+
 	</div>
 </div><!--/container -->
