@@ -19,9 +19,18 @@
 		text-transform : uppercase;
 	}
 
+
   @media (max-width: $screen-sm){
 	padding-left: 0;
 	padding-right: 0;
+
+	&__rating-button{
+		text-align: center;
+
+	  .th-rating-button{
+		float: none;
+	  }
+	}
   }
 }
 

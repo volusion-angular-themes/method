@@ -184,13 +184,13 @@
 		<div class="col-xs-12 th-reviews__heading">Reviews</div>
 
 		<div class="col-xs-12 col-sm-3">
-			<div data-vn-rating-summary></div>
+			<div data-vn-rating-summary class="th-reviews__rating-summary"></div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<div data-vn-rating-bar></div>
+			<div data-vn-rating-bar class="th-reviews__rating-bar"></div>
 		</div>
 		<div class="col-xs-12 col-sm-3">
-			<div data-vn-rating-button></div>
+			<div data-vn-rating-button class="th-reviews__rating-button"></div>
 		</div>
 
 		<div class="col-xs-12 th-review-list">
@@ -204,29 +204,29 @@
 				</div>
 			</div>
 
-			<div class="th-review-list__item row" data-ng-repeat="review in mockData.reviews">
+			<div class="th-review-list__item row" data-ng-repeat="review in reviews.items">
 				<div class="th-review-list__item__stars col-xs-12">
 					<div data-vn-rating
 						 class="th-product-rating__stars"
-						 rating-value="review.rating"
+						 rating-value="review.rate"
 						 title="" editable="false">
 					</div>
-					<span class="th-review-list__item__title">{{review.title}}</span>
+					<span class="th-review-list__item__title">{{review.reviewTitle}}</span>
 				</div>
 
 				<div class="th-review-list__item__note col-xs-12">
-					{{review.note}}
+					{{review.reviewDescription}}
 				</div>
 				<div class="th-review-list__item__reviewer col-xs-6">
-					<span class="th-review-list__item__reviewer-name">{{review.reviewerName}}</span>
-					<span class="th-review-list__item__reviewer-location" data-ng-if="review.reviewerLocation != ''">, {{review.reviewerLocation}}</span>
+					<span class="th-review-list__item__reviewer-name">{{review.name}}</span>
+					<span class="th-review-list__item__reviewer-location" data-ng-if="review.location">, {{review.location}}</span>
 				</div>
 				<div class="th-review-list__item__date col-xs-6">
 					{{review.date}}
 				</div>
 
 				<div class="th-review-list__item__helpful col-xs-12">
-					<span class="th-review-list__item__found-helpful"><strong>{{review.foundHelpful}}</strong> found this review helpful</span>
+					<span class="th-review-list__item__found-helpful"><strong>{{review.numberFoundHelpful}}</strong> found this review helpful</span>
 					<span class="th-review-list__item__helpful-buttons">
 						<div class="btn-group" role="group" aria-label="">
 							<button type="button" class="btn btn-default"><i class="fa fa-thumbs-up"></i> Helpful</button>
