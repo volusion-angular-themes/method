@@ -219,7 +219,7 @@
 				</div>
 
 				<div class="th-review-list__item__note col-xs-12">
-					{{review.reviewDescription}}
+					<span ng-text-truncate="review.reviewDescription" ng-tt-chars-threshold="150"></span>
 				</div>
 				<div class="th-review-list__item__reviewer col-xs-6">
 					<span class="th-review-list__item__reviewer-name">{{review.name}}</span>
