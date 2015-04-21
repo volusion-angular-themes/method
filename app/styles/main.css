@@ -8602,6 +8602,13 @@ html, body {
   .th-rating-bar__line__count {
     padding-left: 0px;
     text-align: left; }
+@media (max-width: 768px) {
+  .th-rating-bar__line__stars {
+    font-size: 10px; }
+  .th-rating-bar__line__bar {
+    padding: 0 5px; }
+  .th-rating-bar__line__count {
+    font-size: 10px; } }
 
 .th-rating-summary {
   padding-top: 10px;

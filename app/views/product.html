@@ -195,59 +195,29 @@
 
 		<div class="col-xs-12 th-review-list">
 
-			<div class="th-review-list__item row">
+			<div class="th-review-list__item row" data-ng-repeat="review in mockData.reviews">
 				<div class="th-review-list__item__stars col-xs-12">
 					<div data-vn-rating
 						 class="th-product-rating__stars"
-						 rating-value="product.avgRating"
+						 rating-value="review.rating"
 						 title="" editable="false">
 					</div>
-					<span class="th-review-list__item__title">This is an awesome review title</span>
+					<span class="th-review-list__item__title">{{review.title}}</span>
 				</div>
 
 				<div class="th-review-list__item__note col-xs-12">
-					Accentuate your dining table with this stylishly chic chair, made of 100% pure bamboo. Perfect for any decor, this seat's rustically modern stain will serve as a fashionable addition to any room. Its stainless steel legs provide the perfect foundation for long-lasting memories over delicious meals with family and friends. Better yet, this chair's ergonomic design offers the comfort needed to help keep your loved ones connected by food, fun and conversation.
+					{{review.note}}
 				</div>
 				<div class="th-review-list__item__reviewer col-xs-6">
-					Bradley Sobie, Austin TX
+					<span class="th-review-list__item__reviewer-name">{{review.reviewerName}}</span>
+					<span class="th-review-list__item__reviewer-location" data-ng-if="review.reviewerLocation != ''">, {{review.reviewerLocation}}</span>
 				</div>
 				<div class="th-review-list__item__date col-xs-6">
-					2 weeks ago
+					{{review.date}}
 				</div>
 
 				<div class="th-review-list__item__helpful col-xs-12">
-					<span class="th-review-list__item__found-helpful"><strong>4</strong> found this review helpful</span>
-					<span class="th-review-list__item__helpful-buttons">
-						<div class="btn-group" role="group" aria-label="">
-							<button type="button" class="btn btn-default"><i class="fa fa-thumbs-up"></i> Helpful</button>
-							<button type="button" class="btn btn-default"><i class="fa fa-thumbs-down"></i> Not Helpful</button>
-						</div>
-					</span>
-				</div>
-			</div>
-
-			<div class="th-review-list__item row">
-				<div class="th-review-list__item__stars col-xs-12">
-					<div data-vn-rating
-						 class="th-product-rating__stars"
-						 rating-value="product.avgRating"
-						 title="" editable="false">
-					</div>
-					<span class="th-review-list__item__title">This is an awesome review title</span>
-				</div>
-
-				<div class="th-review-list__item__note col-xs-12">
-					Accentuate your dining table with this stylishly chic chair, made of 100% pure bamboo. Perfect for any decor, this seat's rustically modern stain will serve as a fashionable addition to any room. Its stainless steel legs provide the perfect foundation for long-lasting memories over delicious meals with family and friends. Better yet, this chair's ergonomic design offers the comfort needed to help keep your loved ones connected by food, fun and conversation.
-				</div>
-				<div class="th-review-list__item__reviewer col-xs-6">
-					Bradley Sobie, Austin TX
-				</div>
-				<div class="th-review-list__item__date col-xs-6">
-					2 weeks ago
-				</div>
-
-				<div class="th-review-list__item__helpful col-xs-12">
-					<span class="th-review-list__item__found-helpful"><strong>4</strong> found this review helpful</span>
+					<span class="th-review-list__item__found-helpful"><strong>{{review.foundHelpful}}</strong> found this review helpful</span>
 					<span class="th-review-list__item__helpful-buttons">
 						<div class="btn-group" role="group" aria-label="">
 							<button type="button" class="btn btn-default"><i class="fa fa-thumbs-up"></i> Helpful</button>

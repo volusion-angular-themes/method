@@ -103,6 +103,20 @@
 	  text-align: left;
 	}
   }
+  @media (max-width: $screen-sm){
+	&__line {
+
+	  &__stars {
+		font-size: 10px;
+	  }
+	  &__bar {
+		padding: 0 5px;
+	  }
+	  &__count{
+		font-size: 10px;
+	  }
+	}
+  }
 }
 
 .th-rating-summary {
