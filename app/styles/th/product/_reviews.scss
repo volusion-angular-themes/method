@@ -214,6 +214,10 @@
 	&__note{
 	  color: #555;
 	  margin-bottom: 10px;
+
+	  .btn-link{
+		color: $brand-info;
+	  }
 	}
 	&__reviewer{
 

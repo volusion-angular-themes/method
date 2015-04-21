@@ -8665,6 +8665,8 @@ html, body {
     .th-review-list__item__note {
       color: #555;
       margin-bottom: 10px; }
+      .th-review-list__item__note .btn-link {
+        color: #f63e34; }
     .th-review-list__item__date {
       text-align: right; }
     @media (max-width: 768px) {
