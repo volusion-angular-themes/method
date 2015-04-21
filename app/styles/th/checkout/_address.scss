@@ -32,6 +32,7 @@
 
 			&:hover{
 				cursor: default;
+			  	color: #333;
 
 				> .row:hover{
 					cursor: default;
@@ -44,7 +45,7 @@
 			align-items : center;
 		}
 
-		&:hover {
+		&:hover:not(.-readonly) {
 			background : #fff;
 			color      : #777;
 		}

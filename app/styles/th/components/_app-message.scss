@@ -1,11 +1,17 @@
 .vn-app-message{
-  position: fixed;
-  top: 100px;
-  z-index: 9999;
-  left: 50%;
-  margin-left: -200px;
-  width: 400px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+
+  &--fixed{
+	position: fixed;
+	top: 100px;
+	z-index: 9999;
+	left: 50%;
+	margin-left: -200px;
+	width: 400px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+  }
+  &--static{
+	position: static;
+  }
 
   &__text{
 	line-height: 26px;
