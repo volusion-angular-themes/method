@@ -8563,16 +8563,6 @@ html, body {
         .th-reviews__rating-button .th-rating-button {
           float: none; } }
 
-.th-write-review {
-  padding: 10px 0; }
-  .th-write-review a {
-    display: block;
-    font-size: 1.4rem;
-    padding: 5px 0;
-    text-decoration: underline; }
-    .th-write-review a:hover {
-      text-decoration: none; }
-
 .th-product-rating {
   font-size: 14px; }
   .th-product-rating__stars {
@@ -8648,14 +8638,6 @@ html, body {
       font-size: 12px; }
   .th-review-list__item {
     margin: 30px 0px; }
-    @media (max-width: 768px) {
-      .th-review-list__item__stars .th-product-rating__stars {
-        display: block;
-        text-align: center;
-        font-size: 18px;
-        margin: 5px 0; }
-      .th-review-list__item__stars .th-review-list__item__title {
-        display: block; } }
     .th-review-list__item__title {
       font-family: roboto-bold, Helvetica, Arial, sans-serif;
       font-size: 14px; }
@@ -8669,11 +8651,6 @@ html, body {
         color: #f63e34; }
     .th-review-list__item__date {
       text-align: right; }
-    @media (max-width: 768px) {
-      .th-review-list__item__found-helpful {
-        display: block;
-        text-align: center;
-        margin: 10px 0; } }
     .th-review-list__item__helpful {
       text-align: right; }
       @media (min-width: 768px) {
@@ -8682,13 +8659,24 @@ html, body {
     .th-review-list__item__helpful-buttons .btn-group .btn {
       font-size: 1.3rem;
       text-transform: none; }
-    @media (max-width: 768px) {
-      .th-review-list__item__helpful-buttons {
-        display: block;
-        text-align: center; } }
     @media (min-width: 768px) {
       .th-review-list__item__helpful-buttons {
         margin-left: 20px; } }
+  @media (max-width: 768px) {
+    .th-review-list__item__stars .th-product-rating__stars {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      margin: 5px 0; }
+    .th-review-list__item__stars .th-review-list__item__title {
+      display: block; }
+    .th-review-list__item__found-helpful {
+      display: block;
+      text-align: center;
+      margin: 10px 0; }
+    .th-review-list__item__helpful-buttons {
+      display: block;
+      text-align: center; } }
 
 .th-cart-summary {
   position: relative;
