@@ -5639,12 +5639,12 @@ div[data-ng-click]:focus {
   margin: 10px 0px 10px 0px;
   padding: 0;
   background: #fafafa;
-  /* was $gray-lighter */
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   .th-list__item {
     position: relative;
-    cursor: default; }
+    cursor: default;
+    border-top: 1px solid #ddd; }
     .th-list__item [data-vn-address-display] {
       cursor: default; }
     .th-list__item__editBtn {
@@ -5652,14 +5652,12 @@ div[data-ng-click]:focus {
       top: 50%;
       transform: translateY(-50%);
       right: 20px; }
-    .th-list__item:last-child .styled-optionbox-option {
-      border-bottom: 0px; }
   .th-list__header {
     padding: 20px;
-    border-bottom: 1px solid #ddd;
     display: block; }
   .th-list .styled-optionbox-option {
-    width: 100%; }
+    width: 100%;
+    border: 0px; }
 
 .input-help.bottom, .input-help.bottom-right {
   top: 35px; }
