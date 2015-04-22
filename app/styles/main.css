@@ -5643,8 +5643,9 @@ div[data-ng-click]:focus {
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   .th-list__item {
-    position: relative; }
-    .th-list__item [vn-address-display] {
+    position: relative;
+    cursor: default; }
+    .th-list__item [data-vn-address-display] {
       cursor: default; }
     .th-list__item__editBtn {
       position: absolute;
@@ -5653,7 +5654,7 @@ div[data-ng-click]:focus {
       right: 20px; }
     .th-list__item:last-child .styled-optionbox-option {
       border-bottom: 0px; }
-  .th-list__header__item {
+  .th-list__header {
     padding: 20px;
     border-bottom: 1px solid #ddd;
     display: block; }
@@ -7956,14 +7957,6 @@ input.ng-pristine + .input-help {
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
-  .th-my-account .th-address__display__actions {
-    cursor: default; }
-  .th-my-account .th-address__choose__options__new-option {
-    border-bottom: 1px solid #ddd; }
-  .th-my-account .th-address__choose__options__option {
-    cursor: default; }
-    .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
-      border-bottom: 0px; }
 
 .th-orders-list {
   font-size: 14px;

@@ -7,8 +7,9 @@
 
   &__item {
 	position : relative;
+	cursor : default;
 
-	[vn-address-display]{
+	[data-vn-address-display]{
 	  cursor: default;
 	}
 
@@ -28,12 +29,9 @@
   }
 
   &__header {
-
-	&__item{
-	  padding       : 20px;
-	  border-bottom : 1px solid #ddd;
-	  display: block;
-	}
+	padding       : 20px;
+	border-bottom : 1px solid #ddd;
+	display: block;
 
   }
 
