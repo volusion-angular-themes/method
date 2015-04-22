@@ -115,6 +115,14 @@
 	  }
 	}
 
+	.form-group .vn-placeholder{
+	  left: 10px;
+
+	  &.-selected{
+		top: -7px;
+		left: 10px;
+	  }
+	}
   }
 
   &__heading {

@@ -34,18 +34,6 @@
 
 	  }
 	}
-
-	&--orders {
-
-	}
-
-	&--addresses {
-
-	}
-
-	&--email {
-
-	}
   }
 
   &__overlay {
@@ -73,37 +61,6 @@
 	svg path,
 	svg rect {
 	  fill : $btn-default-color;
-	}
-  }
-
-  .th-address {
-
-	&__display {
-
-	  &__actions {
-		cursor : default;
-	  }
-	}
-
-	&__choose {
-
-	  &__options {
-
-		&__new-option {
-		  border-bottom : 1px solid #ddd;
-		}
-
-		&__option {
-		  cursor : default;
-
-		  &:last-child {
-
-			.styled-optionbox-option {
-			  border-bottom : 0px;
-			}
-		  }
-		}
-	  }
 	}
   }
 }
