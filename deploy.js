@@ -17,6 +17,7 @@ var themeInfoJson = require('./app/settings/themeInfo.json');
 var oldVersion = packageJson.version;
 packageJson.version = version;
 bowerJson.version = version;
+delete bowerJson.dependencies['vn-toolbox-common'];
 bowerJson.dependencies['vn-toolbox-public'] = '~' + toolboxVersion;
 themeInfoJson.version = version;
 themeInfoJson.source = 'https://github.com/volusion-angular-themes/method/archive/v' + version + '.zip';
