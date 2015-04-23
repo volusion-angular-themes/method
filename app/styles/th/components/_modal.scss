@@ -1,6 +1,6 @@
 .th-modal{
 	position: relative;
-	
+
 	&__button{
 		font-size : 12px !important;
 		width     : 100%;
@@ -44,4 +44,74 @@
 	.modal-footer{
 		padding: 10px 20px;
 	}
+}
+
+.login-modal{
+  .modal-header{
+	text-align: center;
+
+	.close{
+	  font-size: 30px;
+	}
+  }
+  .modal-dialog{
+	@media (min-width: $screen-sm){
+	  width: 400px;
+	}
+  }
+  .modal-title{
+	font-size: 28px;
+	text-transform: uppercase;
+  }
+  .modal-content{
+	-moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  }
+  .th-login{
+	margin: 0px 15px 50px 15px;
+  }
+}
+
+.sign-up-modal{
+
+}
+
+.write-review-modal{
+  .modal-header{
+	text-align: center;
+
+	.close{
+	  font-size: 30px;
+	}
+  }
+  .modal-dialog{
+	@media (min-width: $screen-sm){
+	  width: 500px;
+	}
+  }
+  .modal-title{
+	font-size: 28px;
+	text-transform: uppercase;
+  }
+  .modal-content{
+	-moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  }
+  .modal-footer{
+	margin: 0;
+	padding: 15px 20px;
+
+	&-left{
+	  margin: 0px;
+	}
+  }
+  .form-group{
+	position: relative;
+  }
+  .vn-rating{
+	line-height: 1.3;
+	font-size: 16px;
+  }
 }

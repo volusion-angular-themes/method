@@ -5954,6 +5954,48 @@ ul.rating {
   .th-modal .modal-footer {
     padding: 10px 20px; }
 
+.login-modal .modal-header {
+  text-align: center; }
+  .login-modal .modal-header .close {
+    font-size: 30px; }
+@media (min-width: 768px) {
+  .login-modal .modal-dialog {
+    width: 400px; } }
+.login-modal .modal-title {
+  font-size: 28px;
+  text-transform: uppercase; }
+.login-modal .modal-content {
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2); }
+.login-modal .th-login {
+  margin: 0px 15px 50px 15px; }
+
+.write-review-modal .modal-header {
+  text-align: center; }
+  .write-review-modal .modal-header .close {
+    font-size: 30px; }
+@media (min-width: 768px) {
+  .write-review-modal .modal-dialog {
+    width: 500px; } }
+.write-review-modal .modal-title {
+  font-size: 28px;
+  text-transform: uppercase; }
+.write-review-modal .modal-content {
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2); }
+.write-review-modal .modal-footer {
+  margin: 0;
+  padding: 15px 20px; }
+  .write-review-modal .modal-footer-left {
+    margin: 0px; }
+.write-review-modal .form-group {
+  position: relative; }
+.write-review-modal .vn-rating {
+  line-height: 1.3;
+  font-size: 16px; }
+
 .styled-optionbox-option {
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -7695,6 +7737,12 @@ input.ng-pristine + .input-help {
         margin: 0 0 20px 0; } }
     .th-login__form .form-control {
       font-size: 1.8rem; }
+  .th-login__footer {
+    line-height: 1.8; }
+    .th-login__footer a {
+      text-decoration: underline; }
+      .th-login__footer a:hover {
+        text-decoration: underline; }
   .th-login__error {
     border-radius: 0;
     color: #a94442;
@@ -8563,16 +8611,6 @@ html, body {
         .th-reviews__rating-button .th-rating-button {
           float: none; } }
 
-.th-write-review {
-  padding: 10px 0; }
-  .th-write-review a {
-    display: block;
-    font-size: 1.4rem;
-    padding: 5px 0;
-    text-decoration: underline; }
-    .th-write-review a:hover {
-      text-decoration: none; }
-
 .th-product-rating {
   font-size: 14px; }
   .th-product-rating__stars {
@@ -8648,14 +8686,6 @@ html, body {
       font-size: 12px; }
   .th-review-list__item {
     margin: 30px 0px; }
-    @media (max-width: 768px) {
-      .th-review-list__item__stars .th-product-rating__stars {
-        display: block;
-        text-align: center;
-        font-size: 18px;
-        margin: 5px 0; }
-      .th-review-list__item__stars .th-review-list__item__title {
-        display: block; } }
     .th-review-list__item__title {
       font-family: roboto-bold, Helvetica, Arial, sans-serif;
       font-size: 14px; }
@@ -8669,11 +8699,6 @@ html, body {
         color: #f63e34; }
     .th-review-list__item__date {
       text-align: right; }
-    @media (max-width: 768px) {
-      .th-review-list__item__found-helpful {
-        display: block;
-        text-align: center;
-        margin: 10px 0; } }
     .th-review-list__item__helpful {
       text-align: right; }
       @media (min-width: 768px) {
@@ -8682,13 +8707,24 @@ html, body {
     .th-review-list__item__helpful-buttons .btn-group .btn {
       font-size: 1.3rem;
       text-transform: none; }
-    @media (max-width: 768px) {
-      .th-review-list__item__helpful-buttons {
-        display: block;
-        text-align: center; } }
     @media (min-width: 768px) {
       .th-review-list__item__helpful-buttons {
         margin-left: 20px; } }
+  @media (max-width: 768px) {
+    .th-review-list__item__stars .th-product-rating__stars {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      margin: 5px 0; }
+    .th-review-list__item__stars .th-review-list__item__title {
+      display: block; }
+    .th-review-list__item__found-helpful {
+      display: block;
+      text-align: center;
+      margin: 10px 0; }
+    .th-review-list__item__helpful-buttons {
+      display: block;
+      text-align: center; } }
 
 .th-cart-summary {
   position: relative;
