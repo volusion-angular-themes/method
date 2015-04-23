@@ -136,7 +136,7 @@
 		&.-active {
 			overflow-y 		 : auto;
 			border           : none;
-			border-top       : 1px solid orange;
+			border-top       : 1px solid $brand-info;
 			background-color : #eee;
 		  	height           : 840px;
 
@@ -259,7 +259,7 @@
 				width            : 41px;
 				height           : 41px;
 				padding          : 8px 0 0 2px;
-				background-color : $gray-dark;
+				background-color : $brand-primary;
 				color            : white;
 				@include inline-block;
 			}

@@ -100,7 +100,7 @@
 	  &-inner {
 		height: 10px;
 		font: 10px sans-serif;
-		background-color: black;
+		background-color: $brand-primary;
 		text-align: right;
 		color: white;
 	  }
@@ -152,7 +152,6 @@
   margin-top: 20px;
   text-align: center;
   float: right;
-  background-color: black;
   color: white;
 }
 
@@ -185,7 +184,7 @@
 	  }
 	}
 	&__note {
-	  color: #555;
+	  color: lighten($text-color, 5%);
 	  margin-bottom: 10px;
 
 	  .btn-link {
