@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="col-sm-12 visible-sm-block th-product-details__title">
 			<span itemprop="name" data-ng-bind="product.name"></span>
+			<span itemprop="sku">{{product.cartItem.sku}}</span>
 		</div>
 	</div>
 
@@ -232,7 +233,7 @@
 					<span class="th-review-list__item__reviewer-location" data-ng-if="review.location">, {{review.location}}</span>
 				</div>
 				<div class="th-review-list__item__date col-xs-6">
-					{{review.date}}
+					<meta itemprop="datePublished" content="{{review.date}}">{{review.date}}
 				</div>
 
 				<div class="th-review-list__item__helpful col-xs-12">
