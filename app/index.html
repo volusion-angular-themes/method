@@ -52,7 +52,7 @@
 
 	</div>
 
-	<script src="//www.paypalobjects.com/api/checkout.js" async></script>
+	<script data-ng-if="isPaypalExpressAvailable" src="//www.paypalobjects.com/api/checkout.js" async></script>
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
