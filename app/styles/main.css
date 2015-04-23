@@ -5639,26 +5639,25 @@ div[data-ng-click]:focus {
   margin: 10px 0px 10px 0px;
   padding: 0;
   background: #fafafa;
-  /* was $gray-lighter */
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   .th-list__item {
-    position: relative; }
-    .th-list__item [vn-address-display] {
+    position: relative;
+    cursor: default;
+    border-top: 1px solid #ddd; }
+    .th-list__item [data-vn-address-display] {
       cursor: default; }
     .th-list__item__editBtn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       right: 20px; }
-    .th-list__item:last-child .styled-optionbox-option {
-      border-bottom: 0px; }
-  .th-list__header__item {
+  .th-list__header {
     padding: 20px;
-    border-bottom: 1px solid #ddd;
     display: block; }
   .th-list .styled-optionbox-option {
-    width: 100%; }
+    width: 100%;
+    border: 0px; }
 
 .input-help.bottom, .input-help.bottom-right {
   top: 35px; }
@@ -6084,7 +6083,7 @@ ul.rating {
   line-height: 14px;
   cursor: text; }
   .vn-placeholder.-selected {
-    top: -10px;
+    top: -7px;
     left: 12px;
     font-size: 11px;
     color: #999; }
@@ -7319,6 +7318,11 @@ input.ng-pristine + .input-help {
       left: 33.3333%; }
     .th-checkout__loading--review {
       left: 66.6666%; }
+    @media (max-width: 768px) {
+      .th-checkout__loading--ship-to, .th-checkout__loading--pay-with, .th-checkout__loading--review {
+        left: 0%;
+        width: 100%;
+        height: 100%; } }
     .th-checkout__loading-inner {
       height: 20px;
       width: 20px;
@@ -7355,7 +7359,7 @@ input.ng-pristine + .input-help {
     .th-checkout__step.-active {
       overflow-y: auto;
       border: none;
-      border-top: 1px solid orange;
+      border-top: 1px solid #f63e34;
       background-color: #eee;
       height: 840px; }
       .th-checkout__step.-active .th-checkout__step__overlay {
@@ -7442,7 +7446,7 @@ input.ng-pristine + .input-help {
         width: 41px;
         height: 41px;
         padding: 8px 0 0 2px;
-        background-color: #333333;
+        background-color: #000000;
         color: white;
         display: -moz-inline-stack;
         display: inline-block;
@@ -7537,6 +7541,11 @@ input.ng-pristine + .input-help {
         text-align: right; }
       .th-credit-card__display__verifyCVV__label {
         margin-top: 10px; }
+    .th-credit-card__display .form-group .vn-placeholder {
+      left: 10px; }
+      .th-credit-card__display .form-group .vn-placeholder.-selected {
+        top: -7px;
+        left: 10px; }
   .th-credit-card__heading {
     text-align: center;
     margin: 0 0 20px 0;
@@ -8043,14 +8052,6 @@ input.ng-pristine + .input-help {
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
-  .th-my-account .th-address__display__actions {
-    cursor: default; }
-  .th-my-account .th-address__choose__options__new-option {
-    border-bottom: 1px solid #ddd; }
-  .th-my-account .th-address__choose__options__option {
-    cursor: default; }
-    .th-my-account .th-address__choose__options__option:last-child .styled-optionbox-option {
-      border-bottom: 0px; }
 
 .th-orders-list {
   font-size: 14px;
@@ -8681,7 +8682,7 @@ html, body {
     .th-rating-bar__line__bar-inner {
       height: 10px;
       font: 10px sans-serif;
-      background-color: black;
+      background-color: #000000;
       text-align: right;
       color: white; }
   .th-rating-bar__line__count {
@@ -8714,7 +8715,6 @@ html, body {
   margin-top: 20px;
   text-align: center;
   float: right;
-  background-color: black;
   color: white; }
 
 .th-review-list {
@@ -8732,7 +8732,7 @@ html, body {
         .th-review-list__item__title {
           margin-left: 10px; } }
     .th-review-list__item__note {
-      color: #555;
+      color: #0d0d0d;
       margin-bottom: 10px; }
       .th-review-list__item__note .btn-link {
         color: #f63e34; }
