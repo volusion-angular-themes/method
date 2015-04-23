@@ -5971,6 +5971,40 @@ ul.rating {
 .login-modal .th-login {
   margin: 0px 15px 50px 15px; }
 
+.sign-up-modal .modal-header {
+  text-align: center; }
+  .sign-up-modal .modal-header .close {
+    font-size: 30px; }
+@media (min-width: 768px) {
+  .sign-up-modal .modal-dialog {
+    width: 500px; } }
+.sign-up-modal .modal-title {
+  font-size: 25px;
+  text-transform: uppercase; }
+.sign-up-modal .modal-content {
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2); }
+.sign-up-modal .modal-footer {
+  margin: 0;
+  padding: 15px 20px; }
+  .sign-up-modal .modal-footer .btn {
+    font-size: 14px; }
+  .sign-up-modal .modal-footer-left {
+    margin: 0px; }
+.sign-up-modal .form-group {
+  position: relative; }
+  .sign-up-modal .form-group label {
+    left: 0; }
+.sign-up-modal .vn-rating {
+  line-height: 1.3;
+  font-size: 16px;
+  margin-bottom: 20px; }
+.sign-up-modal .th-login {
+  margin: 25px 40px 50px 40px; }
+  .sign-up-modal .th-login__form {
+    margin: 0px; }
+
 .write-review-modal .modal-header {
   text-align: center; }
   .write-review-modal .modal-header .close {
