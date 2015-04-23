@@ -24,7 +24,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$rootScope.snapToggle = function (side) {
-				if ($rootScope.isInDesktopMode) {
+				if ($rootScope.device.info.shortname = 'desktop') {
 					snapRemote.toggle(side);
 				} else {
 					snapRemote.getSnapper().then(function(snapper) {
