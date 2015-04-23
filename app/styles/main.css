@@ -5979,7 +5979,7 @@ ul.rating {
   .write-review-modal .modal-dialog {
     width: 500px; } }
 .write-review-modal .modal-title {
-  font-size: 28px;
+  font-size: 25px;
   text-transform: uppercase; }
 .write-review-modal .modal-content {
   -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
@@ -5988,13 +5988,18 @@ ul.rating {
 .write-review-modal .modal-footer {
   margin: 0;
   padding: 15px 20px; }
+  .write-review-modal .modal-footer .btn {
+    font-size: 14px; }
   .write-review-modal .modal-footer-left {
     margin: 0px; }
 .write-review-modal .form-group {
   position: relative; }
+  .write-review-modal .form-group label {
+    left: 0; }
 .write-review-modal .vn-rating {
   line-height: 1.3;
-  font-size: 16px; }
+  font-size: 16px;
+  margin-bottom: 20px; }
 
 .styled-optionbox-option {
   text-align: left;
