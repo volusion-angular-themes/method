@@ -203,7 +203,7 @@
   &__img {
 	height                  : 30px;
 	width                   : 44px;
-	background              : url('/images/sprites/creditcards-b.png') -166px 0;
+	background              : url('/images/sprites/creditcards.png') -166px 0;
 	-webkit-transform-style : preserve-3d;
 	-webkit-transition      : -webkit-transform 0.3s;
 	-moz-transition         : -moz-transform 0.3s;
@@ -219,32 +219,32 @@
 	}
 
 	&--flipped {
-	  background : url('/images/sprites/creditcards-b.png') -291px 0;
+	  background : url('/images/sprites/creditcards.png') -291px 0;
 	}
 
 	&--unknown {
-	  background : url('/images/sprites/creditcards-b.png') -166px 0;
+	  background : url('/images/sprites/creditcards.png') -166px 0;
 	}
 
 	&--amex {
-	  background : url('/images/sprites/creditcards-b.png') 1px 0;
+	  background : url('/images/sprites/creditcards.png') 1px 0;
 	}
 
 	&--amex-flipped {
-	  background : url('/images/sprites/creditcards-b.png') -333px 0;
+	  background : url('/images/sprites/creditcards.png') -333px 0;
 	}
 
 	&--visa {
 	  border: 1px solid #ddd;
-	  background : url('/images/sprites/creditcards-b.png') -42px 0;
+	  background : url('/images/sprites/creditcards.png') -42px 0;
 	}
 
 	&--mastercard {
-	  background : url('/images/sprites/creditcards-b.png') -81px 0;
+	  background : url('/images/sprites/creditcards.png') -81px 0;
 	}
 
 	&--discover {
-	  background : url('/images/sprites/creditcards-b.png') -208px 0;
+	  background : url('/images/sprites/creditcards.png') -208px 0;
 	}
   }
 

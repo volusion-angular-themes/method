@@ -7595,7 +7595,7 @@ input.ng-pristine + .input-help {
   .th-credit-card__img {
     height: 30px;
     width: 44px;
-    background: url('/images/sprites/creditcards-b.png') -166px 0;
+    background: url('/images/sprites/creditcards.png') -166px 0;
     -webkit-transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
@@ -7608,20 +7608,20 @@ input.ng-pristine + .input-help {
       -moz-filter: grayscale(100%);
       filter: grayscale(100%); }
     .th-credit-card__img--flipped {
-      background: url('/images/sprites/creditcards-b.png') -291px 0; }
+      background: url('/images/sprites/creditcards.png') -291px 0; }
     .th-credit-card__img--unknown {
-      background: url('/images/sprites/creditcards-b.png') -166px 0; }
+      background: url('/images/sprites/creditcards.png') -166px 0; }
     .th-credit-card__img--amex {
-      background: url('/images/sprites/creditcards-b.png') 1px 0; }
+      background: url('/images/sprites/creditcards.png') 1px 0; }
     .th-credit-card__img--amex-flipped {
-      background: url('/images/sprites/creditcards-b.png') -333px 0; }
+      background: url('/images/sprites/creditcards.png') -333px 0; }
     .th-credit-card__img--visa {
       border: 1px solid #ddd;
-      background: url('/images/sprites/creditcards-b.png') -42px 0; }
+      background: url('/images/sprites/creditcards.png') -42px 0; }
     .th-credit-card__img--mastercard {
-      background: url('/images/sprites/creditcards-b.png') -81px 0; }
+      background: url('/images/sprites/creditcards.png') -81px 0; }
     .th-credit-card__img--discover {
-      background: url('/images/sprites/creditcards-b.png') -208px 0; }
+      background: url('/images/sprites/creditcards.png') -208px 0; }
   .th-credit-card .th-credit-card__img {
     float: right; }
 
