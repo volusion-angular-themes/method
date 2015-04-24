@@ -4,7 +4,7 @@
 	@include transition-timing-function(ease);
 
 	position    : absolute;
-	font-family : 'roboto-light';
+	font-weight : 300;
 	font-size   : 14px;
 	color       : #999;
 	top         : 14px;
@@ -21,7 +21,7 @@
 
 	&.-focus {
 		color: #000;
-		font-family: 'roboto-bold';
+		font-weight: bold;
 	}
 
 }

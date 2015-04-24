@@ -1,3 +1,4 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700,700italic,300italic,100,100italic|Roboto+Condensed:400,700');
 /*
  * A partial implementation of the Ruby list functions from Compass:
  * https://github.com/Compass/compass/blob/stable/lib/compass/sass_extensions/functions/lists.rb
@@ -40,76 +41,16 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; }
 
-@font-face {
-  font-family: 'roboto-regular';
-  src: url("/fonts/roboto-regular.eot");
-  src: url("/fonts/roboto-regular.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-regular.woff") format('woff'), url("/fonts/roboto-regular.tff") format('truetype'), url("/fonts/roboto-regular.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-italic';
-  src: url("/fonts/roboto-italic.eot");
-  src: url("/fonts/roboto-italic.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-italic.woff") format('woff'), url("/fonts/roboto-italic.tff") format('truetype'), url("/fonts/roboto-italic.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-bold';
-  src: url("/fonts/roboto-bold.eot");
-  src: url("/fonts/roboto-bold.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-bold.woff") format('woff'), url("/fonts/roboto-bold.tff") format('truetype'), url("/fonts/roboto-bold.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-bolditalic';
-  src: url("/fonts/roboto-bolditalic.eot");
-  src: url("/fonts/roboto-bolditalic.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-bolditalic.woff") format('woff'), url("/fonts/roboto-bolditalic.tff") format('truetype'), url("/fonts/roboto-bolditalic.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-light';
-  src: url("/fonts/roboto-light.eot");
-  src: url("/fonts/roboto-light.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-light.woff") format('woff'), url("/fonts/roboto-light.tff") format('truetype'), url("/fonts/roboto-light.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-lightitalic';
-  src: url("/fonts/roboto-lightitalic.eot");
-  src: url("/fonts/roboto-lightitalic.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-lightitalic.woff") format('woff'), url("/fonts/roboto-lightitalic.tff") format('truetype'), url("/fonts/roboto-lightitalic.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-thin';
-  src: url("/fonts/roboto-thin.eot");
-  src: url("/fonts/roboto-thin.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-thin.woff") format('woff'), url("/fonts/roboto-thin.tff") format('truetype'), url("/fonts/roboto-thin.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'roboto-thinitalic';
-  src: url("/fonts/roboto-thinitalic.eot");
-  src: url("/fonts/roboto-thinitalic.eot?#iefix") format('embedded-opentype'), url("/fonts/roboto-thinitalic.woff") format('woff'), url("/fonts/roboto-thinitalic.tff") format('truetype'), url("/fonts/roboto-thinitalic.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'robotocondensed-regular';
-  src: url("/fonts/robotocondensed-regular.eot");
-  src: url("/fonts/robotocondensed-regular.eot?#iefix") format('embedded-opentype'), url("/fonts/robotocondensed-regular.woff") format('woff'), url("/fonts/robotocondensed-regular.tff") format('truetype'), url("/fonts/robotocondensed-regular.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'robotocondensed-bold';
-  src: url("/fonts/robotocondensed-bold.eot");
-  src: url("/fonts/robotocondensed-bold.eot?#iefix") format('embedded-opentype'), url("/fonts/robotocondensed-bold.woff") format('woff'), url("/fonts/robotocondensed-bold.tff") format('truetype'), url("/fonts/robotocondensed-bold.svg#font") format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
+/*@include app-font('roboto-regular');
+@include app-font('roboto-italic');
+@include app-font('roboto-bold');
+@include app-font('roboto-bolditalic');
+@include app-font('roboto-light');
+@include app-font('roboto-lightitalic');
+@include app-font('roboto-thin');
+@include app-font('roboto-thinitalic');
+@include app-font('robotocondensed-regular');
+@include app-font('robotocondensed-bold');*/
 @font-face {
   font-family: 'antonio-regular';
   src: url("/fonts/antonio-regular.eot");
@@ -1251,7 +1192,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1;
   color: #000;
@@ -4585,7 +4526,7 @@ button.close {
   position: absolute;
   z-index: 1030;
   display: block;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: normal;
   line-height: 1.4;
@@ -4680,7 +4621,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
@@ -5227,9 +5168,6 @@ button.close {
   .th-alert-container.ng-hide-remove.ng-hide-remove-active {
     opacity: 1; }
 
-.vn-dropzone {
-  position: relative; }
-
 .vn-faceted-search .facet-property__swatch {
   float: left;
   margin: 2px;
@@ -5290,7 +5228,8 @@ button.close {
     .vn-labeled-radio--tiles__text {
       position: relative;
       padding: 5px 10px;
-      font-family: "RobotoCondensed-Bold";
+      font-family: "Roboto Condensed";
+      font-weight: bold;
       text-transform: uppercase;
       color: #444444; }
       .vn-labeled-radio--tiles__text.-disabled {
@@ -5327,7 +5266,8 @@ button.close {
   display: block;
   margin-top: 10px;
   color: #050505;
-  font-family: "RobotoCondensed-Bold";
+  font-family: "Roboto Condensed";
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   text-align: center; }
@@ -5627,38 +5567,6 @@ div[data-ng-click]:focus {
 .clickable {
   cursor: pointer; }
 
-/* */
-/*! IMAGE */
-/*!***************************************************************************/
-/*!***************************************************************************/
-/* */
-/*! LINK */
-/*!***************************************************************************/
-/*!***************************************************************************/
-.th-list {
-  margin: 10px 0px 10px 0px;
-  padding: 0;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  .th-list__item {
-    position: relative;
-    cursor: default;
-    border-top: 1px solid #ddd; }
-    .th-list__item [data-vn-address-display] {
-      cursor: default; }
-    .th-list__item__editBtn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 20px; }
-  .th-list__header {
-    padding: 20px;
-    display: block; }
-  .th-list .styled-optionbox-option {
-    width: 100%;
-    border: 0px; }
-
 .input-help.bottom, .input-help.bottom-right {
   top: 35px; }
 
@@ -5678,50 +5586,7 @@ div[data-ng-click]:focus {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
   -webkit-box-shadow: white 0 0 2px 2px;
-  box-shadow: white 0 0 2px 2px;
-  /* */
-  /*&.right {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        //top: 50%;
-	        top: 17px;
-	        left: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-left-width: 0;
-	        border-right-color: #999;
-	        // IE8 fallback
-	        border-right-color: $popover-arrow-outer-color;
-	        &:after {
-	            left: 1px;
-	            bottom: -$popover-arrow-width;
-	            border-left-width: 0;
-	            border-right-color: $popover-arrow-color;
-	        }
-	    }
-	}*/
-  /* */
-  /*&.left {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        top: 50%;
-	        right: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-right-width: 0;
-	        border-left-color: #999;
-	        // IE8 fallback
-	        border-left-color: $popover-arrow-outer-color;
-	        &:after {
-	            right: 1px;
-	            border-right-width: 0;
-	            border-left-color: $popover-arrow-color;
-	            bottom: -$popover-arrow-width;
-	        }
-	    }
-	}*/ }
+  box-shadow: white 0 0 2px 2px; }
   .input-help ul {
     margin: 5px;
     padding: 0; }
@@ -5801,7 +5666,7 @@ div[data-ng-click]:focus {
 .input-help h4 {
   margin: 0;
   padding: 0;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 11px;
   text-align: left; }
@@ -5810,20 +5675,6 @@ div[data-ng-click]:focus {
 input.ng-pristine + .input-help {
   display: none !important; }
 
-/* Hide the invalid box while the input has focus */
-/*.ng-invalid:focus + .input-help {
-  display: none;
-}*/
-/* */
-/* Show a blue border while an input has focus, make sure it overrides everything else */
-/* Overriding Twitter Bootstrap cuz I don't agree we need to alarm the user while they're typing */
-/*input:focus {
-  color: black !important;
-  border-color: rgba(82, 168, 236, 0.8) !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-}*/
 /* Show green border when stuff has been typed in, and its valid */
 .ng-dirty.ng-valid {
   /*border-color:#3a7d34;*/ }
@@ -5874,7 +5725,7 @@ input.ng-pristine + .input-help {
   line-height: 24px;
   color: #EC3F41;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat 2px -34px;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 11px;
   text-align: left; }
@@ -5884,29 +5735,6 @@ input.ng-pristine + .input-help {
   color: #3A7D34;
   background-position: 2px 6px; }
 
-/* */
-/*! RATING */
-/*!***************************************************************************/
-.tick:before {
-  content: '\2605'; }
-
-.rating {
-  margin: 0;
-  padding: 0; }
-
-ul.rating {
-  display: inline-block; }
-
-.rating li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 1px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-  color: #000; }
-
-/*!***************************************************************************/
 .vn-dropdown {
   position: relative; }
   .vn-dropdown__menu.dropdown-menu {
@@ -6075,7 +5903,7 @@ ul.rating {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   position: absolute;
-  font-family: 'roboto-light';
+  font-weight: 300;
   font-size: 14px;
   color: #999;
   top: 14px;
@@ -6089,7 +5917,7 @@ ul.rating {
     color: #999; }
   .vn-placeholder.-focus {
     color: #000;
-    font-family: 'roboto-bold'; }
+    font-weight: bold; }
 
 .th-search {
   margin-top: 15px;
@@ -6212,6 +6040,237 @@ ul.rating {
       border-color: #adadad; }
   .th-qty-counter__input.form-control {
     border-top: 1px solid #d9d9d9; }
+
+.input-help.bottom, .input-help.bottom-right {
+  top: 35px; }
+
+.input-help.top, .input-help.top-left {
+  bottom: 70px; }
+
+/* */
+/*! POPOVER
+/*!---------------------------------------------------*/
+.input-help {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  width: 240px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  -webkit-box-shadow: white 0 0 2px 2px;
+  box-shadow: white 0 0 2px 2px; }
+  .input-help ul {
+    margin: 5px;
+    padding: 0; }
+    .input-help ul li {
+      font-size: 11px; }
+  .input-help .arrow, .input-help .arrow:after {
+    position: absolute;
+    display: block;
+    width: 0 !important;
+    height: 0 !important;
+    border-color: transparent;
+    border-style: solid; }
+  .input-help .arrow {
+    border-width: 11px; }
+  .input-help .arrow:after {
+    border-width: 10px;
+    content: ""; }
+  .input-help.top {
+    bottom: 60px;
+    right: 5px; }
+    .input-help.top .arrow {
+      right: 20px;
+      border-bottom-width: 0;
+      border-top-color: #999999;
+      border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+      bottom: -11px; }
+      .input-help.top .arrow:after {
+        bottom: 1px;
+        margin-left: -10px;
+        border-bottom-width: 0;
+        border-top-color: #fff; }
+  .input-help.top-left {
+    bottom: 60px;
+    left: 5px; }
+    .input-help.top-left.-dropdown {
+      bottom: 42px;
+      left: 0; }
+    .input-help.top-left .arrow {
+      left: 20px;
+      border-bottom-width: 0;
+      border-top-color: #999999;
+      border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+      bottom: -11px; }
+      .input-help.top-left .arrow:after {
+        bottom: 1px;
+        margin-left: -10px;
+        border-bottom-width: 0;
+        border-top-color: #fff; }
+  .input-help.bottom {
+    top: 42px; }
+    .input-help.bottom .arrow {
+      left: 20px;
+      border-top-width: 0;
+      border-bottom-color: #999999;
+      border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+      top: -11px; }
+      .input-help.bottom .arrow:after {
+        top: 1px;
+        margin-left: -10px;
+        border-top-width: 0;
+        border-bottom-color: #fff; }
+  .input-help.bottom-right {
+    top: 42px;
+    right: 5px; }
+    .input-help.bottom-right .arrow {
+      right: 20px;
+      border-top-width: 0;
+      border-bottom-color: #999999;
+      border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+      top: -11px; }
+      .input-help.bottom-right .arrow:after {
+        top: 1px;
+        margin-left: -10px;
+        border-top-width: 0;
+        border-bottom-color: #fff; }
+
+.input-help h4 {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: left; }
+
+/* Always hide the input help when it's pristine */
+input.ng-pristine + .input-help {
+  display: none !important; }
+
+/* Show green border when stuff has been typed in, and its valid */
+.ng-dirty.ng-valid {
+  /*border-color:#3a7d34;*/ }
+
+/* Show red border when stuff has been typed in, but its invalid. Only after the first blur. */
+.ng-touched.ng-dirty.ng-invalid {
+  border-color: #EC3F41;
+  border-width: 2px; }
+
+/* Show the help box once it has focus */
+.immediate-help:focus + .input-help {
+  display: block; }
+
+.immediate-help.ng-valid:focus + .input-help {
+  display: none; }
+
+/* Immediate help should be red when pristine */
+.immediate-help.ng-pristine:focus + .input-help {
+  /*border-color:#ec3f41;*/ }
+
+.immediate-help.ng-pristine:focus + .input-help::before {
+  /*color:#ec3f41;*/ }
+
+/* Help hould be green when input is valid */
+.ng-valid + .input-help {
+  /*border-color:#3a7d34;*/ }
+
+.ng-valid + .input-help::before {
+  /*color:#3a7d34;*/ }
+
+/* Help should show and be red when invalid */
+.ng-invalid + .input-help {
+  /*border-color: #ec3f41;*/
+  /*Change following row block for debugging input-help element*/
+  display: none; }
+
+.ng-invalid + .input-help::before {
+  /*color: #ec3f41;*/ }
+
+/* Style input help requirement bullets */
+.input-help ul {
+  list-style: none;
+  margin: 10px 0 0 0; }
+
+/* Default each bullet to be invalid with a red cross and text */
+.input-help li {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #EC3F41;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat 2px -34px;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 11px;
+  text-align: left; }
+
+/* Set to green check and text when valid */
+.input-help li.valid {
+  color: #3A7D34;
+  background-position: 2px 6px; }
+
+.vn-app-message--fixed {
+  position: fixed;
+  top: 100px;
+  z-index: 9999;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
+.vn-app-message--static {
+  position: static; }
+.vn-app-message__text {
+  line-height: 26px; }
+@media (max-width: 480px) {
+  .vn-app-message {
+    left: 0;
+    margin-left: 6%;
+    width: 90%; } }
+
+.paypal-button-hidden {
+  display: none; }
+
+.vn-paypal-button {
+  background-color: transparent;
+  border: 0;
+  margin-top: 10px;
+  text-align: center; }
+
+.th-checkout.th-checkout--paypal {
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #eee; }
+  .th-checkout.th-checkout--paypal .vn-app-message--fixed {
+    top: 115px; }
+  .th-checkout.th-checkout--paypal .th-checkout__ship-method:hover {
+    background-color: #fff; }
+  .th-checkout.th-checkout--paypal .th-checkout__step__inner {
+    margin: 0 auto; }
+    @media (min-width: 480px) {
+      .th-checkout.th-checkout--paypal .th-checkout__step__inner {
+        width: 100%; } }
+    @media (min-width: 992px) {
+      .th-checkout.th-checkout--paypal .th-checkout__step__inner {
+        width: 80%; } }
+  .th-checkout.th-checkout--paypal .th-checkout__step__overlay {
+    opacity: 0.6; }
+  .th-checkout.th-checkout--paypal .th-checkout__step__ship-to .th-checkout__ship-method__heading {
+    display: none; }
+  .th-checkout.th-checkout--paypal .th-checkout__loading {
+    width: 50%; }
+    .th-checkout.th-checkout--paypal .th-checkout__loading--review {
+      left: 50%; }
+    @media (max-width: 768px) {
+      .th-checkout.th-checkout--paypal .th-checkout__loading {
+        width: 100%;
+        height: 100%; }
+        .th-checkout.th-checkout--paypal .th-checkout__loading--review {
+          left: 0%; } }
+  .th-checkout.th-checkout--paypal .th-credit-card__display * {
+    cursor: default; }
+  .th-checkout.th-checkout--paypal .th-credit-card__display:hover {
+    background: #fafafa; }
 
 .animate-if {
   background: white; }
@@ -6645,7 +6704,8 @@ ul.rating {
   .th-cart__subtotal--price {
     float: right;
     font-size: 1.5rem;
-    font-family: "RobotoCondensed-Regular"; }
+    font-family: "Roboto Condensed";
+    font-family: 400; }
 .th-cart__promo-add {
   width: 100%;
   padding: 5px 10px; }
@@ -6660,7 +6720,7 @@ ul.rating {
       opacity: 1;
       font-weight: 400;
       padding-left: 2px;
-      font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       -webkit-transition: opacity .2s, color .2s;
       -o-transition: opacity .2s, color .2s;
       transition: opacity .2s, color .2s; }
@@ -6669,7 +6729,7 @@ ul.rating {
       opacity: 1;
       font-weight: 400;
       padding-left: 2px;
-      font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       -webkit-transition: opacity .2s, color .2s;
       -o-transition: opacity .2s, color .2s;
       transition: opacity .2s, color .2s; }
@@ -6678,7 +6738,7 @@ ul.rating {
       opacity: 1;
       font-weight: 400;
       padding-left: 2px;
-      font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       -webkit-transition: opacity .2s, color .2s;
       -o-transition: opacity .2s, color .2s;
       transition: opacity .2s, color .2s; }
@@ -6687,7 +6747,7 @@ ul.rating {
       opacity: 1;
       font-weight: 400;
       padding-left: 2px;
-      font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       -webkit-transition: opacity .2s, color .2s;
       -o-transition: opacity .2s, color .2s;
       transition: opacity .2s, color .2s; }
@@ -6696,7 +6756,7 @@ ul.rating {
       opacity: 1;
       font-weight: 400;
       padding-left: 2px;
-      font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       -webkit-transition: opacity .2s, color .2s;
       -o-transition: opacity .2s, color .2s;
       transition: opacity .2s, color .2s; }
@@ -6851,24 +6911,19 @@ ul.rating {
       background-color: transparent; }
       .th-cart__items__gift__message.placeholder {
         color: #000;
-        font-weight: 300;
-        font-family: 'roboto-light'; }
+        font-weight: 300; }
       .th-cart__items__gift__message:-moz-placeholder {
         color: #000;
-        font-weight: 300;
-        font-family: 'roboto-light'; }
+        font-weight: 300; }
       .th-cart__items__gift__message::-moz-placeholder {
         color: #000;
-        font-weight: 300;
-        font-family: 'roboto-light'; }
+        font-weight: 300; }
       .th-cart__items__gift__message:-ms-input-placeholder {
         color: #000;
-        font-weight: 300;
-        font-family: 'roboto-light'; }
+        font-weight: 300; }
       .th-cart__items__gift__message::-webkit-input-placeholder {
         color: #000;
-        font-weight: 300;
-        font-family: 'roboto-light'; }
+        font-weight: 300; }
       .th-cart__items__gift__message:focus {
         outline: none;
         border-color: #000; }
@@ -6958,7 +7013,8 @@ ul.rating {
           padding: 2px; }
     .th-cart__items__item--subtotal {
       font-size: 1.5rem;
-      font-family: "RobotoCondensed-Regular";
+      font-family: "Roboto Condensed";
+      font-weight: 300;
       display: inline-block;
       vertical-align: middle;
       width: 50%;
@@ -6981,294 +7037,6 @@ ul.rating {
   .th-cart__footer {
     position: static;
     z-index: auto; } }
-
-.input-help.bottom, .input-help.bottom-right {
-  top: 35px; }
-
-.input-help.top, .input-help.top-left {
-  bottom: 70px; }
-
-/* */
-/*! POPOVER
-/*!---------------------------------------------------*/
-.input-help {
-  display: none;
-  position: absolute;
-  z-index: 999;
-  width: 240px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0;
-  -webkit-box-shadow: white 0 0 2px 2px;
-  box-shadow: white 0 0 2px 2px;
-  /* */
-  /*&.right {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        //top: 50%;
-	        top: 17px;
-	        left: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-left-width: 0;
-	        border-right-color: #999;
-	        // IE8 fallback
-	        border-right-color: $popover-arrow-outer-color;
-	        &:after {
-	            left: 1px;
-	            bottom: -$popover-arrow-width;
-	            border-left-width: 0;
-	            border-right-color: $popover-arrow-color;
-	        }
-	    }
-	}*/
-  /* */
-  /*&.left {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        top: 50%;
-	        right: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-right-width: 0;
-	        border-left-color: #999;
-	        // IE8 fallback
-	        border-left-color: $popover-arrow-outer-color;
-	        &:after {
-	            right: 1px;
-	            border-right-width: 0;
-	            border-left-color: $popover-arrow-color;
-	            bottom: -$popover-arrow-width;
-	        }
-	    }
-	}*/ }
-  .input-help ul {
-    margin: 5px;
-    padding: 0; }
-    .input-help ul li {
-      font-size: 11px; }
-  .input-help .arrow, .input-help .arrow:after {
-    position: absolute;
-    display: block;
-    width: 0 !important;
-    height: 0 !important;
-    border-color: transparent;
-    border-style: solid; }
-  .input-help .arrow {
-    border-width: 11px; }
-  .input-help .arrow:after {
-    border-width: 10px;
-    content: ""; }
-  .input-help.top {
-    bottom: 60px;
-    right: 5px; }
-    .input-help.top .arrow {
-      right: 20px;
-      border-bottom-width: 0;
-      border-top-color: #999999;
-      border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);
-      bottom: -11px; }
-      .input-help.top .arrow:after {
-        bottom: 1px;
-        margin-left: -10px;
-        border-bottom-width: 0;
-        border-top-color: #fff; }
-  .input-help.top-left {
-    bottom: 60px;
-    left: 5px; }
-    .input-help.top-left.-dropdown {
-      bottom: 42px;
-      left: 0; }
-    .input-help.top-left .arrow {
-      left: 20px;
-      border-bottom-width: 0;
-      border-top-color: #999999;
-      border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);
-      bottom: -11px; }
-      .input-help.top-left .arrow:after {
-        bottom: 1px;
-        margin-left: -10px;
-        border-bottom-width: 0;
-        border-top-color: #fff; }
-  .input-help.bottom {
-    top: 42px; }
-    .input-help.bottom .arrow {
-      left: 20px;
-      border-top-width: 0;
-      border-bottom-color: #999999;
-      border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);
-      top: -11px; }
-      .input-help.bottom .arrow:after {
-        top: 1px;
-        margin-left: -10px;
-        border-top-width: 0;
-        border-bottom-color: #fff; }
-  .input-help.bottom-right {
-    top: 42px;
-    right: 5px; }
-    .input-help.bottom-right .arrow {
-      right: 20px;
-      border-top-width: 0;
-      border-bottom-color: #999999;
-      border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);
-      top: -11px; }
-      .input-help.bottom-right .arrow:after {
-        top: 1px;
-        margin-left: -10px;
-        border-top-width: 0;
-        border-bottom-color: #fff; }
-
-.input-help h4 {
-  margin: 0;
-  padding: 0;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 11px;
-  text-align: left; }
-
-/* Always hide the input help when it's pristine */
-input.ng-pristine + .input-help {
-  display: none !important; }
-
-/* Hide the invalid box while the input has focus */
-/*.ng-invalid:focus + .input-help {
-  display: none;
-}*/
-/* */
-/* Show a blue border while an input has focus, make sure it overrides everything else */
-/* Overriding Twitter Bootstrap cuz I don't agree we need to alarm the user while they're typing */
-/*input:focus {
-  color: black !important;
-  border-color: rgba(82, 168, 236, 0.8) !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-}*/
-/* Show green border when stuff has been typed in, and its valid */
-.ng-dirty.ng-valid {
-  /*border-color:#3a7d34;*/ }
-
-/* Show red border when stuff has been typed in, but its invalid. Only after the first blur. */
-.ng-touched.ng-dirty.ng-invalid {
-  border-color: #EC3F41;
-  border-width: 2px; }
-
-/* Show the help box once it has focus */
-.immediate-help:focus + .input-help {
-  display: block; }
-
-.immediate-help.ng-valid:focus + .input-help {
-  display: none; }
-
-/* Immediate help should be red when pristine */
-.immediate-help.ng-pristine:focus + .input-help {
-  /*border-color:#ec3f41;*/ }
-
-.immediate-help.ng-pristine:focus + .input-help::before {
-  /*color:#ec3f41;*/ }
-
-/* Help hould be green when input is valid */
-.ng-valid + .input-help {
-  /*border-color:#3a7d34;*/ }
-
-.ng-valid + .input-help::before {
-  /*color:#3a7d34;*/ }
-
-/* Help should show and be red when invalid */
-.ng-invalid + .input-help {
-  /*border-color: #ec3f41;*/
-  /*Change following row block for debugging input-help element*/
-  display: none; }
-
-.ng-invalid + .input-help::before {
-  /*color: #ec3f41;*/ }
-
-/* Style input help requirement bullets */
-.input-help ul {
-  list-style: none;
-  margin: 10px 0 0 0; }
-
-/* Default each bullet to be invalid with a red cross and text */
-.input-help li {
-  padding-left: 22px;
-  line-height: 24px;
-  color: #EC3F41;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat 2px -34px;
-  font-family: "roboto-regular", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 11px;
-  text-align: left; }
-
-/* Set to green check and text when valid */
-.input-help li.valid {
-  color: #3A7D34;
-  background-position: 2px 6px; }
-
-.vn-app-message--fixed {
-  position: fixed;
-  top: 100px;
-  z-index: 9999;
-  left: 50%;
-  margin-left: -200px;
-  width: 400px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
-.vn-app-message--static {
-  position: static; }
-.vn-app-message__text {
-  line-height: 26px; }
-@media (max-width: 480px) {
-  .vn-app-message {
-    left: 0;
-    margin-left: 6%;
-    width: 90%; } }
-
-.paypal-button-hidden {
-  display: none; }
-
-.vn-paypal-button {
-  background-color: transparent;
-  border: 0;
-  margin-top: 10px;
-  text-align: center; }
-
-.th-checkout.th-checkout--paypal {
-  margin-top: -20px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #eee; }
-  .th-checkout.th-checkout--paypal .vn-app-message--fixed {
-    top: 115px; }
-  .th-checkout.th-checkout--paypal .th-checkout__ship-method:hover {
-    background-color: #fff; }
-  .th-checkout.th-checkout--paypal .th-checkout__step__inner {
-    margin: 0 auto; }
-    @media (min-width: 480px) {
-      .th-checkout.th-checkout--paypal .th-checkout__step__inner {
-        width: 100%; } }
-    @media (min-width: 992px) {
-      .th-checkout.th-checkout--paypal .th-checkout__step__inner {
-        width: 80%; } }
-  .th-checkout.th-checkout--paypal .th-checkout__step__overlay {
-    opacity: 0.6; }
-  .th-checkout.th-checkout--paypal .th-checkout__step__ship-to .th-checkout__ship-method__heading {
-    display: none; }
-  .th-checkout.th-checkout--paypal .th-checkout__loading {
-    width: 50%; }
-    .th-checkout.th-checkout--paypal .th-checkout__loading--review {
-      left: 50%; }
-    @media (max-width: 768px) {
-      .th-checkout.th-checkout--paypal .th-checkout__loading {
-        width: 100%;
-        height: 100%; }
-        .th-checkout.th-checkout--paypal .th-checkout__loading--review {
-          left: 0%; } }
-  .th-checkout.th-checkout--paypal .th-credit-card__display * {
-    cursor: default; }
-  .th-checkout.th-checkout--paypal .th-credit-card__display:hover {
-    background: #fafafa; }
 
 .th-checkout {
   background-color: #fafafa;
@@ -7346,7 +7114,7 @@ input.ng-pristine + .input-help {
     text-align: center;
     margin: 40px 0 20px 0;
     font-size: 2.4rem;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: uppercase; }
   .th-checkout__step {
     color: #333;
@@ -7431,7 +7199,7 @@ input.ng-pristine + .input-help {
         overflow-x: hidden;
         padding: 20px; }
       .th-checkout__step__drawer__title {
-        font-weight: bold;
+        font-weight: 500;
         text-transform: uppercase;
         margin-top: 10px;
         margin-bottom: 20px; }
@@ -7455,7 +7223,7 @@ input.ng-pristine + .input-help {
         zoom: 1;
         *display: inline; }
       .th-checkout__step__title__stepName {
-        font-weight: bold;
+        font-weight: 500;
         text-transform: uppercase;
         margin-top: 10px; }
       .th-checkout__step__title .fa-check-circle-o {
@@ -7753,7 +7521,7 @@ input.ng-pristine + .input-help {
   font-weight: bold;
   font-size: 15px; }
 .th-checkout__thanks__title {
-  font-weight: bold;
+  font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   font-size: 2rem;
@@ -7764,7 +7532,7 @@ input.ng-pristine + .input-help {
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
-  font-family: roboto-regular, Helvetica, Arial, sans-serif;
+  font-weight: regular;
   font-size: 15px;
   line-height: 20px; }
   .th-checkout__thanks__display .row {
@@ -8013,9 +7781,32 @@ input.ng-pristine + .input-help {
   width: 300px;
   margin: 20px auto; }
 
+.th-list {
+  margin: 10px 0px 10px 0px;
+  padding: 0;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  .th-list__item {
+    position: relative;
+    cursor: default;
+    border-top: 1px solid #ddd; }
+    .th-list__item [data-vn-address-display] {
+      cursor: default; }
+    .th-list__item__editBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px; }
+  .th-list__header {
+    padding: 20px;
+    display: block; }
+  .th-list .styled-optionbox-option {
+    width: 100%;
+    border: 0px; }
+
 .th-my-account {
-  font-family: 'roboto-light';
-  font-weight: normal;
+  font-weight: 300;
   font-size: 16px; }
   .th-my-account__title {
     font-size: 2rem;
@@ -8182,7 +7973,8 @@ input.ng-pristine + .input-help {
     .th-footer__copyright {
       text-align: left; } }
   .th-footer__title {
-    font-family: "RobotoCondensed-Bold";
+    font-family: "Roboto Condensed";
+    font-weight: bold;
     font-size: 1.4rem;
     margin-top: 10px;
     text-transform: uppercase; }
@@ -8294,7 +8086,8 @@ input.ng-pristine + .input-help {
       .th-navbar .navbar-nav > li > a {
         border-left: 1px solid #d9d9d9;
         display: inline-block;
-        font-family: "RobotoCondensed-Regular";
+        font-family: "Roboto Condensed";
+        font-weight: 400;
         font-size: 1.6rem;
         padding-left: 0.9em;
         padding-right: 0.9em;
@@ -8346,7 +8139,8 @@ html, body {
       display: block;
       padding-left: 0; }
   .th-mobile-list__item--header {
-    font-family: "RobotoCondensed-Bold";
+    font-family: "Roboto Condensed";
+    font-weight: bold;
     font-size: 1.4rem;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -8369,7 +8163,8 @@ html, body {
   .th-mobile-sitemap__item--header {
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-family: "RobotoCondensed-Bold";
+    font-family: "Roboto Condensed";
+    font-weight: bold;
     font-size: 1.2rem; }
   .th-mobile-sitemap__link {
     padding: 10px 10px 10px 0;
@@ -8393,7 +8188,8 @@ html, body {
       margin: 0 auto;
       display: block; }
   .th-product__name {
-    font-family: "RobotoCondensed-Regular";
+    font-family: "Roboto Condensed";
+    font-weight: 400;
     text-transform: uppercase;
     font-size: 1.4rem;
     padding: 2px 0;
@@ -8409,7 +8205,8 @@ html, body {
     padding: 5px 0;
     margin: 0 auto;
     line-height: 22px;
-    font-family: "RobotoCondensed-Regular";
+    font-family: "Roboto Condensed";
+    font-weight: 400;
     text-transform: uppercase;
     color: #000; }
     .th-product__price .th-price, .th-product__price--large .th-price {
@@ -8422,7 +8219,7 @@ html, body {
       margin-right: 1px;
       font-size: 1.6rem;
       padding: 0 4px 0 0;
-      font-weight: bold; }
+      font-weight: 500; }
       .th-product__price .th-price--reg, .th-product__price--large .th-price--reg {
         display: -moz-inline-stack;
         display: inline-block;
@@ -8571,7 +8368,8 @@ html, body {
   padding: 10px;
   text-align: center; }
 .th-product-details__title {
-  font-family: "RobotoCondensed-Regular";
+  font-family: "Roboto Condensed";
+  font-weight: 400;
   font-size: 3rem;
   text-align: center;
   text-transform: uppercase; }
@@ -8619,6 +8417,25 @@ html, body {
   left: 71px;
   text-align: center; }
 
+.tick:before {
+  content: '\2605'; }
+
+.rating {
+  margin: 0;
+  padding: 0; }
+
+ul.rating {
+  display: inline-block; }
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000; }
+
 .th-reviews {
   font-size: 1.3rem;
   margin-top: 15px;
@@ -8630,7 +8447,8 @@ html, body {
     color: #8c8c8c;
     margin: 0 4px; }
   .th-reviews__heading {
-    font-family: "RobotoCondensed-Regular";
+    font-family: "Roboto Condensed";
+    font-weight: 400;
     font-size: 1.8rem;
     overflow: hidden;
     margin-bottom: 10px;
@@ -8709,7 +8527,7 @@ html, body {
   .th-rating-summary__average {
     font-size: 1.2rem; }
     .th-rating-summary__average strong {
-      font-family: roboto-bold, Helvetica, Arial, sans-serif; }
+      font-weight: bold; }
 
 .th-rating-button {
   margin-top: 20px;
@@ -8726,7 +8544,7 @@ html, body {
   .th-review-list__item {
     margin: 30px 0px; }
     .th-review-list__item__title {
-      font-family: roboto-bold, Helvetica, Arial, sans-serif;
+      font-weight: bold;
       font-size: 14px; }
       @media (min-width: 768px) {
         .th-review-list__item__title {
@@ -8888,7 +8706,8 @@ Animation for products as facets of search are applied. [rough draft]
     *vertical-align: auto;
     zoom: 1;
     *display: inline;
-    font-family: "RobotoCondensed-Regular";
+    font-family: "Roboto Condensed";
+    font-weight: 400;
     font-size: 1.4rem;
     font-weight: normal;
     margin-right: 13px;
@@ -8908,7 +8727,8 @@ Animation for products as facets of search are applied. [rough draft]
       padding: 3px 0; }
     .th-elist__title {
       display: block;
-      font-family: "RobotoCondensed-Bold";
+      font-family: "Roboto Condensed";
+      font-weight: bold;
       margin: 10px 0 0; } }
 
 .th-home-content .img-responsive {
@@ -9019,15 +8839,18 @@ a:active, a:hover {
 
 label {
   display: inline-block;
-  font-family: 'roboto-light';
-  font-weight: normal;
+  font-family: 'Roboto';
+  font-weight: 300;
   margin: 0 5px 5px;
   max-width: 100%; }
 
+table th {
+  font-weight: 500; }
+
 .btn {
   text-transform: uppercase;
-  font-family: "RobotoCondensed-Bold";
-  font-weight: normal; }
+  font-family: "Roboto Condensed";
+  font-weight: 500; }
   .btn:focus {
     outline: 0; }
   .btn.btn-lg, .btn-group-lg > .btn {
@@ -9036,7 +8859,7 @@ label {
   .btn.btn-grey-sm {
     background: #f0f0f0;
     color: #333333;
-    font-family: "roboto-regular", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     border: 0;
     text-transform: none; }
 
@@ -9052,7 +8875,8 @@ label {
 
 .form-control {
   color: #000;
-  font-family: "RobotoCondensed-Regular";
+  font-family: "Roboto Condensed";
+  font-weight: 400;
   -webkit-box-shadow: none;
   box-shadow: none;
   border: none;
@@ -9082,7 +8906,8 @@ ul.nav-tabs {
   margin-bottom: 19px;
   text-align: center; }
   ul.nav-tabs > li {
-    font-family: "RobotoCondensed-Regular";
+    font-family: "Roboto Condensed";
+    font-weight: 400;
     font-size: 1.3rem;
     float: none;
     margin: 0;

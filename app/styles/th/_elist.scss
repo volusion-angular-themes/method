@@ -41,7 +41,8 @@
 
 	&__title {
 		@include inline-block;
-		font-family    : $font-family-condensed-reg;
+		font-family    : $font-family-condensed;
+	  	font-weight    : 400;
 		font-size      : 1.4rem;
 		font-weight    : normal;
 		margin-right   : 13px;
@@ -70,7 +71,8 @@
 
 		&__title {
 			display     : block;
-			font-family : $font-family-condensed-bold;
+			font-family : $font-family-condensed;
+		  	font-weight : bold;
 			margin      : 10px 0 0;
 		}
 	}

@@ -52,7 +52,8 @@
 		&__text {
 			position: relative;
 			padding: 5px 10px;
-			font-family: $font-family-condensed-bold;
+			font-family: $font-family-condensed;
+		  	font-weight: bold;
 			text-transform: uppercase;
 			color: #444444;
 
