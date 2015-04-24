@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="col-sm-12 visible-sm-block th-product-details__title">
 			<span itemprop="name" data-ng-bind="product.name"></span>
+			<span itemprop="sku">{{product.cartItem.sku}}</span>
 		</div>
 	</div>
 
@@ -59,6 +60,7 @@
 						<span class="th-price--now" itemscope itemtype="http://schema.org/Offer" data-ng-show="product.pricing.salePrice > 0">
 							<span class="th-price"><span itemprop="price" data-ng-bind="product.pricing.salePrice | currency"></span></span>
 								<span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
+						<span data-ng-cloak data-ng-if="product.pricing.salePrice > 0">Save {{((product.pricing.regularPrice - product.pricing.salePrice) * 100 / product.pricing.regularPrice ).toFixed(0)}}%</span>
 					</div>
 						<div data-ng-click="goToReviews()" class="th-product-rating" data-ng-if="product.avgRating">
 							<div data-vn-rating
@@ -195,7 +197,7 @@
 
 		</div>
 		<div class="col-xs-12 col-sm-3">
-			<div data-vn-rating-button class="th-reviews__rating-button"></div>
+			<div data-vn-rating-button data-product="product" class="th-reviews__rating-button"></div>
 		</div>
 
 		<div class="col-xs-12 th-review-list">
@@ -210,25 +212,28 @@
 				</div>
 			</div>
 
-			<div class="th-review-list__item row" data-ng-repeat="review in reviews.items">
+			<div class="th-review-list__item row" data-ng-repeat="review in reviews.items" itemscope itemtype="http://schema.org/Review">
 				<div class="th-review-list__item__stars col-xs-12">
 					<div data-vn-rating
 						 class="th-product-rating__stars"
 						 rating-value="review.rate"
 						 title="" editable="false">
 					</div>
-					<span class="th-review-list__item__title">{{review.reviewTitle}}</span>
+					<span class="th-review-list__item__title" itemprop="name">{{review.reviewTitle}}</span>
+					<div itemprop="itemReviewed" data-ng-hide="true">
+						<span itemprop="name">{{product.name}}</span>
+					</div>
 				</div>
 
 				<div class="th-review-list__item__note col-xs-12">
-					<span ng-text-truncate="review.reviewDescription" ng-tt-chars-threshold="reviewDescMax"></span>
+					<span itemprop="reviewBody" ng-text-truncate="review.reviewDescription" ng-tt-chars-threshold="reviewDescMax"></span>
 				</div>
 				<div class="th-review-list__item__reviewer col-xs-6">
-					<span class="th-review-list__item__reviewer-name">{{review.name}}</span>
+					<span class="th-review-list__item__reviewer-name" itemprop="author" itemscope itemtype="http://schema.org/Person"> <span itemprop="name">{{review.name}}</span></span>
 					<span class="th-review-list__item__reviewer-location" data-ng-if="review.location">, {{review.location}}</span>
 				</div>
 				<div class="th-review-list__item__date col-xs-6">
-					{{review.date}}
+					<meta itemprop="datePublished" content="{{review.date}}">{{review.date}}
 				</div>
 
 				<div class="th-review-list__item__helpful col-xs-12">
@@ -240,6 +245,7 @@
 						</div>
 					</span>
 				</div>
+
 			</div>
 
 		</div>

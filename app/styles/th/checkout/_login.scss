@@ -16,6 +16,18 @@
 	}
   }
 
+  &__footer{
+	line-height: 1.8;
+
+	a{
+	  text-decoration: underline;
+	  
+	  &:hover{
+		text-decoration: underline;
+	  }
+	}
+  }
+
 
   &__error {
 	border-radius: $alert-border-radius;
