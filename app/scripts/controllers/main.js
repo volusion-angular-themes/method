@@ -1,6 +1,6 @@
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader', 'vnDevice',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader, vnDevice) {
 
 			'use strict';
 
@@ -26,6 +26,19 @@ angular.module('Volusion.controllers')
 				});
 
 				vnImagePreloader.preloadImages(imagesToPreload);
+			});
+
+			vnDevice.init({
+				breakpoints: {
+					phone: 768,
+					tablet: 991
+				},
+				listeners: {
+					location: false,
+					orientation: true,
+					network: false,
+					resize: false
+				}
 			});
 
 		}]);
