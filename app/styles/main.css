@@ -7226,7 +7226,7 @@ input.ng-pristine + .input-help {
     width: 90%; } }
 
 .paypal-button-hidden {
-  visibility: hidden; }
+  display: none; }
 
 .vn-paypal-button {
   background-color: transparent;
