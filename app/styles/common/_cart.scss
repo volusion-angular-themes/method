@@ -253,7 +253,7 @@
   }
 }
 
-.th-cart {
+#shopping-cart .th-cart {
 
 	&__panel{
 		background-color : $body-bg;
@@ -918,7 +918,7 @@
 
 @media (max-width: $screen-sm){
 
-  .th-cart{
+  #shopping-cart .th-cart{
 
 	&__brand{
 	  position: fixed;
@@ -940,6 +940,7 @@
 	&__footer{
 	  position: static;
 	  z-index: auto;
+	  @include box-shadow(0 0 0 0);
 	}
   }
 }
