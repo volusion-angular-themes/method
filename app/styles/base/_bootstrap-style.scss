@@ -22,12 +22,15 @@ a:hover {
 
 label {
 	display: inline-block;
-	font-family: 'roboto-light';
-	font-weight: normal;
+	font-family: 'Roboto';
+	font-weight: 300;
 	margin: 0 5px 5px;
 	max-width: 100%;
 }
 
+table th{
+  font-weight: 500;
+}
 
 // Alerts =================================================================
 
@@ -41,8 +44,8 @@ label {
 
 .btn {
 	text-transform: uppercase;
-	font-family: $font-family-condensed-bold;
-	font-weight: normal;
+	font-family: $font-family-condensed;
+	font-weight: 500;
 
 	&:hover {
 		@extend %animate-all-default;
@@ -93,7 +96,8 @@ label {
 
 .form-control {
 	color: $text-color;
-	font-family: $font-family-condensed-reg;
+	font-family: $font-family-condensed;
+  	font-weight: 400;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border: none;
@@ -150,7 +154,8 @@ ul.nav-tabs {
 
 	> li {
 		@extend %inline-block;
-		font-family: $font-family-condensed-reg;
+		font-family: $font-family-condensed;
+	  	font-weight: 400;
 		font-size: 1.3rem;
 		float: none;
 		margin: 0;

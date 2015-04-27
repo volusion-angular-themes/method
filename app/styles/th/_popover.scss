@@ -100,28 +100,6 @@
 		}
 	}
 
-	/* */
-	/*&.right {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        //top: 50%;
-	        top: 17px;
-	        left: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-left-width: 0;
-	        border-right-color: #999;
-	        // IE8 fallback
-	        border-right-color: $popover-arrow-outer-color;
-	        &:after {
-	            left: 1px;
-	            bottom: -$popover-arrow-width;
-	            border-left-width: 0;
-	            border-right-color: $popover-arrow-color;
-	        }
-	    }
-	}*/
 	&.bottom {
 		top : 42px;
 
@@ -162,28 +140,6 @@
 			}
 		}
 	}
-
-	/* */
-	/*&.left {
-	    bottom: 50px;
-	    right: 0px;
-
-	    .arrow {
-	        top: 50%;
-	        right: -$popover-arrow-outer-width;
-	        margin-top: -$popover-arrow-outer-width;
-	        border-right-width: 0;
-	        border-left-color: #999;
-	        // IE8 fallback
-	        border-left-color: $popover-arrow-outer-color;
-	        &:after {
-	            right: 1px;
-	            border-right-width: 0;
-	            border-left-color: $popover-arrow-color;
-	            bottom: -$popover-arrow-width;
-	        }
-	    }
-	}*/
 }
 
 .input-help h4 {
@@ -199,21 +155,6 @@
 input.ng-pristine + .input-help {
 	display : none !important;
 }
-
-/* Hide the invalid box while the input has focus */
-/*.ng-invalid:focus + .input-help {
-  display: none;
-}*/
-/* */
-/* Show a blue border while an input has focus, make sure it overrides everything else */
-/* Overriding Twitter Bootstrap cuz I don't agree we need to alarm the user while they're typing */
-/*input:focus {
-  color: black !important;
-  border-color: rgba(82, 168, 236, 0.8) !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
-}*/
 
 /* Show green border when stuff has been typed in, and its valid */
 .ng-dirty.ng-valid {

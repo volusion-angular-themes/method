@@ -48,8 +48,8 @@ angular.module('methodApp', [
 
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnViewPortWatch',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnViewPortWatch) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService) {
 
 		'use strict';
 
@@ -58,47 +58,6 @@ angular.module('methodApp', [
 		vnCart.init();
 
 		translate.addParts('message');
-
-		vnViewPortWatch.setBreakpoints([{
-			name      : 'Non-Desktop',
-			mediaQuery: 'screen and (max-width: 991px)',
-			onMatch   : function () {
-				$rootScope.isInDesktopMode = false;
-				$rootScope.$emit('enterNonDesktop');
-			},
-			onUnmatch : function () {
-				snapRemote.close();
-				$rootScope.isInDesktopMode = true;
-				$rootScope.$emit('exitNonDesktop');
-			}
-		}]);
-
-		vnViewPortWatch.setBreakpoints([{
-			name: 'Phone',
-			mediaQuery: 'screen and (max-width: 768px)',
-			onMatch  : function () {
-				$rootScope.deviceType = 'phone';
-				$rootScope.$emit('deviceType.phone');
-			}
-		}]);
-
-		vnViewPortWatch.setBreakpoints([{
-			name: 'Tablet',
-			mediaQuery: 'screen and (min-width: 769px) and (max-width: 991px)',
-			onMatch  : function () {
-				$rootScope.deviceType = 'tablet';
-				$rootScope.$emit('deviceType.tablet');
-			}
-		}]);
-
-		vnViewPortWatch.setBreakpoints([{
-			name: 'Desktop',
-			mediaQuery: 'screen and (min-width:992px)',
-			onMatch  : function () {
-				$rootScope.deviceType = 'desktop';
-				$rootScope.$emit('deviceType.desktop');
-			}
-		}]);
 
 		$rootScope.$on('$stateChangeStart', function (event, toState) {
 

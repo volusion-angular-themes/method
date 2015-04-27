@@ -144,7 +144,7 @@ module.exports = function (grunt) {
 			},
 			all    : [
 				'Gruntfile.js',
-				'<%= yeoman.app %>/scripts/{,*/}*.js'
+				'<%= yeoman.app %>/scripts/**/*.js'
 			],
 			test   : {
 				options: {
@@ -217,7 +217,7 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					src: [
-						'<%= yeoman.dist %>/scripts/{,*/}*.js',
+						'<%= yeoman.dist %>/scripts/**/*.js',
 						'<%= yeoman.dist %>/styles/{,*/}*.css',
 						'!<%= yeoman.dist %>/styles/overrides.css',
 						//'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
@@ -318,7 +318,7 @@ module.exports = function (grunt) {
 		concat    : {
 			js       : {
 				dest: '.tmp/concat/scripts/scripts.js',
-				src : '<%= yeoman.app %>/scripts/{,*/}/*.js'
+				src : '<%= yeoman.app %>/scripts/**/*.js'
 			},
 			templates: {
 				dest: '.tmp/concat/scripts/scripts.js',
@@ -450,7 +450,7 @@ module.exports = function (grunt) {
 		watch        : {
 			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
-					'<%= yeoman.app %>/scripts/{,*/}*.js',
+					'<%= yeoman.app %>/scripts/**/*.js',
 					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js'],
 				tasks: ['clean:server',
 					'newer:jshint:all',
@@ -458,7 +458,7 @@ module.exports = function (grunt) {
 			},
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
-					'<%= yeoman.app %>/scripts/{,*/}*.js',
+					'<%= yeoman.app %>/scripts/**/*.js',
 					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',

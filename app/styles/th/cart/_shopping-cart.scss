@@ -557,7 +557,8 @@
 		&--price {
 			float       : right;
 			font-size   : 1.5rem;
-			font-family : $font-family-condensed-reg;
+			font-family : $font-family-condensed;
+		  	font-family : 400;
 		}
 	}
 
@@ -781,7 +782,6 @@
 			  @include input-placeholder {
 				  color       : #000;
 				  font-weight : 300;
-				  font-family : 'roboto-light';
 			  }
 
 			  &:focus{
@@ -903,7 +903,8 @@
 
 			&--subtotal {
 				font-size      : 1.5rem;
-				font-family    : $font-family-condensed-reg;
+				font-family    : $font-family-condensed;
+			  	font-weight    : 300;
 				display        : inline-block;
 				vertical-align : middle;
 				width          : 50%;

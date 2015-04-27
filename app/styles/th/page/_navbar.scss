@@ -107,7 +107,8 @@
 				> a {
 					border-left    : 1px solid $navbar-default-border;
 					display        : inline-block;
-					font-family    : $font-family-condensed-reg;
+					font-family    : $font-family-condensed;
+				  	font-weight    : 400;
 					font-size      : 1.6rem;
 					padding-left   : 0.9em;
 					padding-right  : 0.9em;

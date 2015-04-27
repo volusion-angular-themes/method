@@ -24,7 +24,8 @@
 	}
 
 	&__name {
-		font-family    : $font-family-condensed-reg;
+		font-family    : $font-family-condensed;
+	  	font-weight    : 400;
 		text-transform : uppercase;
 		font-size      : 1.4rem;
 		padding        : 2px 0;
@@ -50,7 +51,8 @@
 		padding        : 5px 0;
 		margin         : 0 auto;
 		line-height    : 22px;
-		font-family    : $font-family-condensed-reg;
+		font-family    : $font-family-condensed;
+	  	font-weight    : 400;
 		text-transform : uppercase;
 		color          : $text-color;
 
@@ -59,7 +61,7 @@
 			margin-right : 1px;
 			font-size    : 1.6rem;
 			padding      : 0 4px 0 0;
-			font-weight  : bold;
+			font-weight  : 500;
 
 			&--reg {
 				@include inline-block;

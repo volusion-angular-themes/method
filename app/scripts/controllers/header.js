@@ -16,6 +16,8 @@ angular.module('Volusion.controllers')
             $scope.showSearchDesktop = false;
             $scope.searchLocal = vnSearchManager.getSearchText() || '';
 
+			$scope.device = $rootScope.device;
+
             translate.addParts('common');
 			translate.addParts('header');
 
@@ -24,7 +26,7 @@ angular.module('Volusion.controllers')
 			};
 
 			$rootScope.snapToggle = function (side) {
-				if ($rootScope.isInDesktopMode) {
+				if ($scope.device.info.shortname === 'desktop') {
 					snapRemote.toggle(side);
 				} else {
 					snapRemote.getSnapper().then(function(snapper) {
