@@ -8307,6 +8307,8 @@ ul.rating {
   .th-reviews__divider {
     border-color: #EDEDED;
     margin: 30px 0; }
+  .th-reviews__rating-button {
+    margin-top: 40px; }
   @media (max-width: 768px) {
     .th-reviews {
       padding-left: 0;
