@@ -1,3 +1,28 @@
+.tick {
+  &:before {
+	content: '\2605'
+  }
+}
+
+.rating {
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+
 .th-reviews {
   font-size: 1.3rem;
   margin-top: 15px;
@@ -14,7 +39,8 @@
   }
 
   &__heading {
-	font-family: $font-family-condensed-reg;
+	font-family: $font-family-condensed;
+	font-weight: 400;
 	font-size: 1.8rem;
 	overflow: hidden;
 	margin-bottom: 10px;
@@ -143,7 +169,7 @@
   &__average {
 	font-size: 1.2rem;
 	strong {
-	  font-family: roboto-bold, Helvetica, Arial, sans-serif;
+	  font-weight: bold;
 	}
   }
 }
@@ -176,7 +202,7 @@
 
 	}
 	&__title {
-	  font-family: roboto-bold, Helvetica, Arial, sans-serif;
+	  font-weight: bold;
 	  font-size: 14px;
 
 	  @media (min-width: $screen-sm) {

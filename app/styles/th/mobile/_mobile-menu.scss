@@ -56,7 +56,8 @@ html, body{
 
 	&__item {
 		&--header {
-			font-family    : $font-family-condensed-bold;
+			font-family    : $font-family-condensed;
+		  	font-weight    : bold;
 			font-size      : 1.4rem;
 			letter-spacing : 1px;
 			margin-bottom  : 15px;

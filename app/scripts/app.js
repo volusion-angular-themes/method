@@ -48,8 +48,8 @@ angular.module('methodApp', [
 
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService', 'vnDevice',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService, vnDevice) {
+.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService',
+	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService) {
 
 		'use strict';
 
@@ -58,19 +58,6 @@ angular.module('methodApp', [
 		vnCart.init();
 
 		translate.addParts('message');
-
-		vnDevice.init({
-			breakpoints: {
-				phone: 768,
-				tablet: 991
-			},
-			listeners: {
-				location: false,
-				orientation: true,
-				network: false,
-				resize: false
-			}
-		});
 
 		$rootScope.$on('$stateChangeStart', function (event, toState) {
 

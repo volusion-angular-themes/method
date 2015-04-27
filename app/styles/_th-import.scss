@@ -1,6 +1,5 @@
 //Overrides - might not need this section anymore
 @import "th/overrides/alert";
-@import "th/overrides/dropzone";
 @import "th/overrides/faceted-search";
 @import "th/overrides/labeled-radio";
 @import "th/overrides/product-option";
@@ -9,16 +8,10 @@
 @import "th/overrides/zoom";
 
 //Misc
-@import "th/carousel";
 @import "th/category-search";
 @import "th/facet-search";
 @import "th/global";
-@import "th/image";
-@import "th/link";
-@import "th/list";
 @import "th/popover";
-@import "th/rating";
-@import "th/sort-search";
 
 //Components
 @import "th/components/vn-dropdown";
@@ -28,10 +21,12 @@
 @import "th/components/search";
 @import "th/components/search-popout";
 @import "th/components/quantity-counter";
-@import "th/shopping-cart";
 @import "th/popover";
 @import "th/components/app-message";
 @import "th/components/paypal";
+
+//Cart
+@import "th/cart/shopping-cart";
 
 //Checkout
 @import "th/checkout/checkout";
@@ -44,6 +39,7 @@
 @import "th/checkout/pay-with";
 
 //My Account
+@import "th/my-account/list";
 @import "th/my-account/my-account";
 @import "th/my-account/orders-list";
 @import "th/my-account/order-list-view";

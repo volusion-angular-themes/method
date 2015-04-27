@@ -3,7 +3,7 @@
 
 //app-font doesn't work without compass!
 
-@include app-font('roboto-regular');
+/*@include app-font('roboto-regular');
 @include app-font('roboto-italic');
 @include app-font('roboto-bold');
 @include app-font('roboto-bolditalic');
@@ -12,8 +12,10 @@
 @include app-font('roboto-thin');
 @include app-font('roboto-thinitalic');
 @include app-font('robotocondensed-regular');
-@include app-font('robotocondensed-bold');
-//
+@include app-font('robotocondensed-bold');*/
+
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700,700italic,300italic,100,100italic|Roboto+Condensed:400,700');
+
 @include app-font('antonio-regular');
 @include app-font('antonio-bold');
 @include app-font('antonio-light');
@@ -22,8 +24,7 @@
 @include app-font('crimsontext-italic');
 //
 //// Custom Font Variables
-$font-family-condensed-reg:         "RobotoCondensed-Regular";
-$font-family-condensed-bold:        "RobotoCondensed-Bold";
+$font-family-condensed:         "Roboto Condensed";
 $font-family-serif-italic:          "crimsontext-italic", "Times New Roman", Times, serif !default;
 $font-family-heading-reg:           "antonio-regular";
 

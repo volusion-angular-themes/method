@@ -37,7 +37,8 @@
 	}
 
 	&__title {
-		font-family    : $font-family-condensed-reg;
+		font-family    : $font-family-condensed;
+	  	font-weight    : 400;
 		font-size      : 3.0rem;
 		text-align     : center;
 		text-transform : uppercase;
