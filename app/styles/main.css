@@ -6130,36 +6130,30 @@ button.close {
       overflow-y: auto; }
       .th-credit-card__exp-year .dropdown-menu a {
         padding: 3px 15px; }
-  .th-credit-card__display {
-    margin: 10px 0 10px 0;
-    padding: 20px 20px 20px 20px;
-    background: #fafafa;
-    border: 1px solid #ebebeb;
-    box-shadow: rgba(0, 0, 0, 0.14902) 0 1px 1px 0, rgba(0, 0, 0, 0.09804) 0 1px 2px 0; }
-    .th-credit-card__display:hover {
-      background: #fff; }
-    .th-credit-card__display__last4 {
-      line-height: 30px;
-      margin-left: 5px; }
-    .th-credit-card__display__exp {
-      line-height: 30px; }
-    .th-credit-card__display.-verify-CVV .form-group {
-      margin-bottom: 0; }
-    .th-credit-card__display__verifyCVV {
-      line-height: 40px;
-      height: 40px;
-      display: inline-block; }
-      .th-credit-card__display__verifyCVV__label {
-        line-height: normal;
-        width: 100%;
-        text-align: right; }
-      .th-credit-card__display__verifyCVV__label {
-        margin-top: 10px; }
-    .th-credit-card__display .form-group .vn-placeholder {
+  .th-credit-card__display:hover {
+    background: #fff; }
+  .th-credit-card__display__last4 {
+    line-height: 30px;
+    margin-left: 5px; }
+  .th-credit-card__display__exp {
+    line-height: 30px; }
+  .th-credit-card__display.-verify-CVV .form-group {
+    margin-bottom: 0; }
+  .th-credit-card__display__verifyCVV {
+    line-height: 40px;
+    height: 40px;
+    display: inline-block; }
+    .th-credit-card__display__verifyCVV__label {
+      line-height: normal;
+      width: 100%;
+      text-align: right; }
+    .th-credit-card__display__verifyCVV__label {
+      margin-top: 10px; }
+  .th-credit-card__display .form-group .vn-placeholder {
+    left: 10px; }
+    .th-credit-card__display .form-group .vn-placeholder.-selected {
+      top: -7px;
       left: 10px; }
-      .th-credit-card__display .form-group .vn-placeholder.-selected {
-        top: -7px;
-        left: 10px; }
   .th-credit-card__heading {
     text-align: center;
     margin: 0 0 20px 0;
@@ -6219,27 +6213,8 @@ button.close {
 .list-group-item .th-credit-card__img {
   margin-left: 32px; }
 
-.th-address__enterAddress {
-  margin: 10px 0px 10px 0px;
-  padding: 20px 5px;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  @media (max-width: 480px) {
-    .th-address__enterAddress {
-      padding: 10px 0px; } }
-  .th-address__enterAddress__title {
-    text-align: center;
-    padding-bottom: 13px;
-    font-weight: bold;
-    font-size: 1.3em; }
 .th-address__display {
   cursor: pointer;
-  margin: 10px 0px 10px 0px;
-  padding: 20px;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
   line-height: 20px; }
   .th-address__display.-readonly {
     cursor: default; }
@@ -6322,11 +6297,6 @@ button.close {
   font-size: 2rem;
   margin-top: 20px; }
 .th-checkout__thanks__display {
-  margin: 15px 0 30px 0;
-  padding: 20px;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
   font-weight: 400;
   font-size: 15px;
   line-height: 20px; }
@@ -6386,113 +6356,96 @@ button.close {
   right: 0;
   top: 0; }
 
-.th-checkout__review {
-  padding: 17px;
-  margin-top: 15px;
-  background: #fafafa;
-  /* was $gray-lighter */
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  .th-checkout__review__totals {
-    border-bottom: 1px solid #ddd;
-    padding: 0px 0px 14px 0px; }
-    .th-checkout__review__totals__expand {
-      float: left;
-      margin-top: -4px; }
-      .th-checkout__review__totals__expand button {
-        border: none;
-        background-color: transparent;
-        outline: 0;
-        outline: none; }
-      .th-checkout__review__totals__expand span:after {
-        font-family: 'FontAwesome';
-        content: '\f078';
-        margin: 0 5px; }
-    .th-checkout__review__totals__expand.expanded span:after {
+.th-checkout__review__totals {
+  border-bottom: 1px solid #ddd;
+  padding: 0px 0px 14px 0px; }
+  .th-checkout__review__totals__expand {
+    float: left;
+    margin-top: -4px; }
+    .th-checkout__review__totals__expand button {
+      border: none;
+      background-color: transparent;
+      outline: 0;
+      outline: none; }
+    .th-checkout__review__totals__expand span:after {
       font-family: 'FontAwesome';
-      content: '\f077';
+      content: '\f078';
       margin: 0 5px; }
-    .th-checkout__review__totals__count {
-      float: left; }
-    .th-checkout__review__totals__amount {
-      float: right;
-      font-size: 1.5rem; }
-  .th-checkout__review__discounts {
-    border-bottom: 1px solid #CCC; }
-    .th-checkout__review__discounts__discount {
-      margin: 14px 0; }
-      .th-checkout__review__discounts__discount .discount-info-row {
-        position: relative; }
-      .th-checkout__review__discounts__discount-info {
-        text-align: left; }
-  .th-checkout__review__store-credit {
-    border-bottom: 1px solid #ddd; }
-    .th-checkout__review__store-credit .store-credit-info-row {
-      position: relative;
-      margin: 14px 0;
+  .th-checkout__review__totals__expand.expanded span:after {
+    font-family: 'FontAwesome';
+    content: '\f077';
+    margin: 0 5px; }
+  .th-checkout__review__totals__count {
+    float: left; }
+  .th-checkout__review__totals__amount {
+    float: right;
+    font-size: 1.5rem; }
+.th-checkout__review__discounts {
+  border-bottom: 1px solid #CCC; }
+  .th-checkout__review__discounts__discount {
+    margin: 14px 0; }
+    .th-checkout__review__discounts__discount .discount-info-row {
+      position: relative; }
+    .th-checkout__review__discounts__discount-info {
       text-align: left; }
-  .th-checkout__review__shipping-method {
-    border-bottom: 1px solid #ddd; }
-    .th-checkout__review__shipping-method .shipping-method-info-row {
-      position: relative;
-      margin: 14px 0;
-      text-align: left; }
-  .th-checkout__review__tax {
-    border-bottom: 1px solid #ddd; }
-    .th-checkout__review__tax .tax-info-row {
-      position: relative;
-      margin: 14px 0;
-      text-align: left; }
-  .th-checkout__review__grand-total .grand-total-info-row {
+.th-checkout__review__store-credit {
+  border-bottom: 1px solid #ddd; }
+  .th-checkout__review__store-credit .store-credit-info-row {
     position: relative;
-    margin-top: 14px;
-    text-align: left;
-    font-size: 20px;
-    font-weight: 500; }
-  .th-checkout__review__grand-total-info--subtotal {
-    font-size: 20px;
-    font-weight: 500; }
-  .th-checkout__review__items {
-    padding: 10px 0;
-    overflow-y: auto;
-    height: 100%;
-    /*-webkit-transition : all linear 0.5s;
-		transition         : all linear 0.5s;*/
-    /*&.ng-hide-add {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}
-		&.ng-hide-remove {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}*/ }
-    .th-checkout__review__items--label {
-      text-transform: uppercase; }
-    .th-checkout__review__items__item {
-      position: relative;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #CCC; }
-      .th-checkout__review__items__item.-last {
-        margin-bottom: 0;
-        border-bottom: 1px solid transparent; }
-      .th-checkout__review__items__item-image {
-        float: left;
-        margin-right: 10px; }
-        .th-checkout__review__items__item-image img {
-          max-height: 80px;
-          max-width: 80px; }
-      .th-checkout__review__items__item-info {
-        line-height: 1.2;
-        text-align: left;
-        margin-bottom: 5px; }
-        .th-checkout__review__items__item-info .item-info-row {
-          position: relative; }
-        .th-checkout__review__items__item-info--name {
-          white-space: nowrap;
-          overflow: hidden;
-          -ms-text-overflow: ellipsis;
-          -o-text-overflow: ellipsis;
-          text-overflow: ellipsis; }
+    margin: 14px 0;
+    text-align: left; }
+.th-checkout__review__shipping-method {
+  border-bottom: 1px solid #ddd; }
+  .th-checkout__review__shipping-method .shipping-method-info-row {
+    position: relative;
+    margin: 14px 0;
+    text-align: left; }
+.th-checkout__review__tax {
+  border-bottom: 1px solid #ddd; }
+  .th-checkout__review__tax .tax-info-row {
+    position: relative;
+    margin: 14px 0;
+    text-align: left; }
+.th-checkout__review__grand-total .grand-total-info-row {
+  position: relative;
+  margin-top: 14px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500; }
+.th-checkout__review__grand-total-info--subtotal {
+  font-size: 20px;
+  font-weight: 500; }
+.th-checkout__review__items {
+  padding: 10px 0;
+  overflow-y: auto;
+  height: 100%; }
+  .th-checkout__review__items--label {
+    text-transform: uppercase; }
+  .th-checkout__review__items__item {
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #CCC; }
+    .th-checkout__review__items__item.-last {
+      margin-bottom: 0;
+      border-bottom: 1px solid transparent; }
+    .th-checkout__review__items__item-image {
+      float: left;
+      margin-right: 10px; }
+      .th-checkout__review__items__item-image img {
+        max-height: 80px;
+        max-width: 80px; }
+    .th-checkout__review__items__item-info {
+      line-height: 1.2;
+      text-align: left;
+      margin-bottom: 5px; }
+      .th-checkout__review__items__item-info .item-info-row {
+        position: relative; }
+      .th-checkout__review__items__item-info--name {
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
 
 .displayAddress .row {
   margin: 0 0 0 0; }
@@ -6513,10 +6466,6 @@ button.close {
 .th-checkout__ship-method__display {
   position: relative;
   overflow: auto; }
-  .th-checkout__ship-method__display__name {
-    float: left;
-    padding: 20px;
-    padding-right: 90px; }
   .th-checkout__ship-method__display__price {
     position: absolute;
     top: 22px;
@@ -7122,6 +7071,14 @@ input.ng-pristine + .input-help {
     position: absolute;
     top: 50%;
     margin-top: -9px; }
+
+.th-my-account .panel, .th-checkout .panel, .th-checkout__thanks .panel {
+  margin: 10px 0;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  .th-my-account .panel-body, .th-checkout .panel-body, .th-checkout__thanks .panel-body {
+    padding: 20px; }
 
 html, body {
   overflow-x: hidden !important; }

@@ -6,11 +6,6 @@
 }
 
 .th-checkout__review {
-	padding : 17px;
-	margin-top: 15px;
-	background: #fafafa; /* was $gray-lighter */
-	border: 1px solid #ebebeb;
-	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px, rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 
 	&__totals {
 		border-bottom : 1px solid #ddd;
@@ -149,23 +144,9 @@
 	}
 
 	&__items {
-
 		padding    : 10px 0;
 		overflow-y : auto;
 		height     : 100%;
-
-		// Add animation
-		/*-webkit-transition : all linear 0.5s;
-		transition         : all linear 0.5s;*/
-
-		/*&.ng-hide-add {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}
-		&.ng-hide-remove {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}*/
 
 		&--label {
 			text-transform : uppercase;

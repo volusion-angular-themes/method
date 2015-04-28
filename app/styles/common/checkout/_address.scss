@@ -2,32 +2,8 @@
 
 .th-address {
 
-	&__enterAddress {
-		margin     : 10px 0px 10px 0px;
-		padding    : 20px 5px;
-		background : #fafafa;
-		border     : 1px solid #ebebeb;
-		box-shadow : rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
-
-		@media (max-width : $screen-xs) {
-			padding : 10px 0px;
-		}
-
-		&__title{
-			text-align     : center;
-			padding-bottom : 13px;
-			font-weight    : bold;
-			font-size      : 1.3em;
-		}
-	}
-
 	&__display {
 		cursor      : pointer;
-		margin      : 10px 0px 10px 0px;
-		padding     : 20px;
-		background  : #fafafa;
-		border      : 1px solid #ebebeb;
-		box-shadow  : rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
 	  	line-height : 20px;
 
 	  	&.-readonly {
