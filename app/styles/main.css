@@ -6236,10 +6236,11 @@ button.close {
 .th-address__display {
   cursor: pointer;
   margin: 10px 0px 10px 0px;
-  padding: 20px 20px 10px 20px;
+  padding: 20px;
   background: #fafafa;
   border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+  line-height: 20px; }
   .th-address__display.-readonly {
     cursor: default; }
     .th-address__display.-readonly:hover {
@@ -6254,7 +6255,6 @@ button.close {
     background: #fff;
     color: #777; }
   .th-address__display__addressPart {
-    margin-bottom: 5px;
     font-size: 14px; }
   .th-address__display .styled-optionbox-option {
     border-bottom: 1px solid #CCC;
@@ -6355,14 +6355,9 @@ button.close {
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
-  font-weight: regular;
+  font-weight: 400;
   font-size: 15px;
   line-height: 20px; }
-  .th-checkout__thanks__display .row {
-    margin: 0;
-    padding: 0; }
-  .th-checkout__thanks__display .th-credit-card__number {
-    font-weight: 500; }
 
 .th-login {
   text-align: center;
