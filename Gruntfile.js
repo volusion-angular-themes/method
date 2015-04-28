@@ -405,10 +405,6 @@ module.exports = function (grunt) {
 			jasmine: {
 				configFile: 'test/karma.conf.jasmine.js',
 				singleRun : true
-			},
-			mocha  : {
-				configFile: 'test/karma.conf.mocha.js',
-				singleRun : true
 			}
 		},
 
