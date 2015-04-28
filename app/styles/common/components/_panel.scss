@@ -1,6 +1,7 @@
 .th-my-account,
 .th-checkout,
-.th-checkout__thanks{
+.th-checkout__thanks,
+.th-order-detail{
 
   .panel{
 	margin     : 10px 0;
@@ -10,10 +11,6 @@
 
 	&-body{
 	  padding: 20px;
-	}
-
-	&-default{
-
 	}
   }
 }
