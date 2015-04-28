@@ -1,6 +1,5 @@
 .th-list {
   margin     : 10px 0px 10px 0px;
-  padding    : 0;
   background : #fafafa;
   border     : 1px solid #ebebeb;
   box-shadow : rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
@@ -9,6 +8,7 @@
 	position : relative;
 	cursor : default;
 	border-top : 1px solid #ddd;
+	padding    : 20px;
 
 	[data-vn-address-display]{
 	  cursor: default;
@@ -25,10 +25,5 @@
   &__header {
 	padding       : 20px;
 	display: block;
-  }
-
-  .styled-optionbox-option {
-	width : 100%;
-	border: 0px;
   }
 }

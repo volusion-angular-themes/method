@@ -6276,7 +6276,8 @@ button.close {
     background: #fff;
     color: #777; }
   .th-address__display__addressPart {
-    font-size: 14px; }
+    font-size: 14px;
+    line-height: 1.4; }
   .th-address__display .styled-optionbox-option {
     border-bottom: 1px solid #CCC;
     margin-bottom: 10px; }
@@ -6641,14 +6642,14 @@ button.close {
 
 .th-list {
   margin: 10px 0px 10px 0px;
-  padding: 0;
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
   .th-list__item {
     position: relative;
     cursor: default;
-    border-top: 1px solid #ddd; }
+    border-top: 1px solid #ddd;
+    padding: 20px; }
     .th-list__item [data-vn-address-display] {
       cursor: default; }
     .th-list__item__editBtn {
@@ -6659,9 +6660,6 @@ button.close {
   .th-list__header {
     padding: 20px;
     display: block; }
-  .th-list .styled-optionbox-option {
-    width: 100%;
-    border: 0px; }
 
 .th-my-account {
   font-weight: 300;
