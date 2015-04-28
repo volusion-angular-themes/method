@@ -58,6 +58,10 @@ ul.rating {
 	margin: 30px 0;
   }
 
+  &__rating-button{
+	margin-top: 40px;
+  }
+
   @media (max-width: $screen-sm) {
 	padding-left: 0;
 	padding-right: 0;

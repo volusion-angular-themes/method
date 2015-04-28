@@ -29,8 +29,8 @@ angular.module('methodApp', [
 	'Volusion.templates'
 ])
 
-  .config(['translateProvider', 'vnAppConfigProvider', 'ENV',
-	  function (translateProvider, vnAppConfigProvider, ENV) {
+  .config(['translateProvider', 'vnAppConfigProvider', 'ENV', '$stateProvider',
+	  function (translateProvider, vnAppConfigProvider, ENV, $stateProvider) {
 
 		  'use strict';
 
@@ -46,6 +46,24 @@ angular.module('methodApp', [
 
 		  translateProvider.configure(translateOptions);
 
+		  $stateProvider
+			  /* Sample custom route
+			  .state('about', {
+			   	  parent: 'root',
+				  url: '/about',
+				  template: '<div class="container"><h1>About</h1></div>'
+			  })*/
+			  .state('article', { // Articles must be last or the prior /search and /theme-settings will never be picked up
+				  parent: 'root',
+				  url: '/:slug',
+				  templateUrl: 'views/article.html',
+				  controller: 'PageCtrl',
+				  resolve: {
+					  article: ['vnApi', '$stateParams', function (vnApi, $stateParams) {
+						  return vnApi.Article().get({slug: $stateParams.slug}).$promise;
+					  }]
+				  }
+			  });
 	}])
 
 .run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService',
@@ -59,23 +77,12 @@ angular.module('methodApp', [
 
 		translate.addParts('message');
 
-		$rootScope.$on('$stateChangeStart', function (event, toState) {
-
+		$rootScope.$on('$stateChangeStart', function () {
+			$window.scrollTo(0, 0);
+			snapRemote.close();
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
-				if(toState.name !== 'checkout'){
-					event.preventDefault();
-				}
 			}
-			else{
-				$window.scrollTo(0, 0);
-				snapRemote.close();
-			}
-
-		});
-
-		$rootScope.$on('$stateChangeSuccess', function (event, toState) {
-			$rootScope.currentState = toState.name;
 		});
 
 		$rootScope.$on('VN_HTTP_500_ERROR', function () {

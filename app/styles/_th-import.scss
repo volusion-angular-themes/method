@@ -1,3 +1,41 @@
+/********************************************/
+/** Do not modify these files. Use them for reference and create overrides if needed. **/
+//Cart
+@import "common/cart";
+
+//Checkout
+@import "common/checkout/checkout";
+@import "common/checkout/credit-card";
+@import "common/checkout/address";
+@import "common/checkout/thank-you";
+@import "common/checkout/login";
+@import "common/checkout/review";
+@import "common/checkout/shipping-method";
+@import "common/checkout/pay-with";
+@import "common/checkout/paypal";
+
+//My Account
+@import "common/my-account/list";
+@import "common/my-account/my-account";
+@import "common/my-account/orders-list";
+@import "common/my-account/order-list-view";
+@import "common/my-account/order-table";
+@import "common/my-account/order-detail";
+@import "common/my-account/breadcrumbs";
+@import "common/my-account/payment-profiles";
+@import "common/my-account/change-email";
+@import "common/my-account/change-password";
+
+@import "common/components/quantity-counter";
+@import "common/components/vn-dropdown";
+@import "common/components/dropdown";
+@import "common/components/modal";
+@import "common/components/placeholder";
+@import "common/components/optionbox";
+@import "common/components/popover";
+/********************************************/
+
+
 //Overrides - might not need this section anymore
 @import "th/overrides/alert";
 @import "th/overrides/faceted-search";
@@ -11,44 +49,11 @@
 @import "th/category-search";
 @import "th/facet-search";
 @import "th/global";
-@import "th/popover";
 
 //Components
-@import "th/components/vn-dropdown";
-@import "th/components/modal";
-@import "th/components/optionbox";
-@import "th/components/placeholder";
 @import "th/components/search";
 @import "th/components/search-popout";
-@import "th/components/quantity-counter";
-@import "th/popover";
 @import "th/components/app-message";
-@import "th/components/paypal";
-
-//Cart
-@import "th/cart/shopping-cart";
-
-//Checkout
-@import "th/checkout/checkout";
-@import "th/checkout/credit-card";
-@import "th/checkout/address";
-@import "th/checkout/thank-you";
-@import "th/checkout/login";
-@import "th/checkout/review";
-@import "th/checkout/shipping-method";
-@import "th/checkout/pay-with";
-
-//My Account
-@import "th/my-account/list";
-@import "th/my-account/my-account";
-@import "th/my-account/orders-list";
-@import "th/my-account/order-list-view";
-@import "th/my-account/order-table";
-@import "th/my-account/order-detail";
-@import "th/my-account/breadcrumbs";
-@import "th/my-account/payment-profiles";
-@import "th/my-account/change-email";
-@import "th/my-account/change-password";
 
 //Page
 @import "th/page/main-content-area";
@@ -71,7 +76,6 @@
 //Theme Components
 @import "th/cart-summary";
 @import "th/category";
-@import "th/dropdown";
 @import "th/elist";
 @import "th/home-content";
 @import "th/social-icons";
