@@ -7200,6 +7200,66 @@ input.ng-pristine + .input-help {
   color: #3A7D34;
   background-position: 2px 6px; }
 
+html, body {
+  overflow-x: hidden !important; }
+
+.th__back-button {
+  margin-top: 20px;
+  font-size: 1.6rem; }
+.th__title {
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 20px; }
+.th__subtitle {
+  margin-bottom: 20px;
+  text-align: center; }
+
+.align-right {
+  text-align: right; }
+
+.align-left {
+  text-align: left; }
+
+.no-padding {
+  padding: 0px; }
+
+.currency {
+  color: green; }
+
+.th-my-account .form-group .form-control, .th-checkout .form-group .form-control {
+  background-color: transparent;
+  height: 35px;
+  padding: 0px 3px;
+  font-size: 1.8rem; }
+  .th-my-account .form-group .form-control.btn-lg, .th-my-account .form-group .btn-group-lg > .form-control.btn, .th-checkout .form-group .form-control.btn-lg, .th-checkout .form-group .btn-group-lg > .form-control.btn {
+    /* This is the dropdown input control */
+    height: 35px;
+    padding: 0px 3px; }
+.th-my-account .form-group .th-dropdown .dropdown-toggle .caret, .th-checkout .form-group .th-dropdown .dropdown-toggle .caret {
+  position: absolute;
+  right: 4px;
+  top: 18px; }
+.th-my-account .form-group .dropdown-menu, .th-checkout .form-group .dropdown-menu {
+  font-size: 15px; }
+.th-my-account .form-group .vn-placeholder, .th-checkout .form-group .vn-placeholder {
+  left: 5px; }
+  .th-my-account .form-group .vn-placeholder.-selected, .th-checkout .form-group .vn-placeholder.-selected {
+    left: 5px; }
+.th-my-account .form-group .th-dropdown .vn-placeholder, .th-checkout .form-group .th-dropdown .vn-placeholder {
+  left: 5px;
+  margin-left: 0px; }
+.th-my-account .form-group .th-dropdown.th-address__state .vn-placeholder, .th-checkout .form-group .th-dropdown.th-address__state .vn-placeholder {
+  left: 2px; }
+
+div[data-ng-click]:focus {
+  outline: none; }
+
+.clickable {
+  cursor: pointer; }
+
 /********************************************/
 .th-alert-container {
   z-index: 9999;
@@ -7452,14 +7512,6 @@ input.ng-pristine + .input-help {
 .vn-zoom__image {
   display: block; }
 
-.-faceted-search .panel-body {
-  padding: 0 !important; }
-.-faceted-search .panel-group .panel {
-  border-bottom: none; }
-.-faceted-search .panel-default > .panel-heading .panel-title {
-  font-size: 1.6rem;
-  letter-spacing: 1px; }
-
 .vn-category-search {
   padding: 5px 0;
   border-top: 1px solid #E6E6E6;
@@ -7616,66 +7668,6 @@ input.ng-pristine + .input-help {
 .facet-item__by-price__button {
   float: right;
   padding: 2px 5px !important; }
-
-html, body {
-  overflow-x: hidden !important; }
-
-.th__back-button {
-  margin-top: 20px;
-  font-size: 1.6rem; }
-.th__title {
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-top: 10px;
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 20px; }
-.th__subtitle {
-  margin-bottom: 20px;
-  text-align: center; }
-
-.align-right {
-  text-align: right; }
-
-.align-left {
-  text-align: left; }
-
-.no-padding {
-  padding: 0px; }
-
-.currency {
-  color: green; }
-
-.th-my-account .form-group .form-control, .th-checkout .form-group .form-control {
-  background-color: transparent;
-  height: 35px;
-  padding: 0px 3px;
-  font-size: 1.8rem; }
-  .th-my-account .form-group .form-control.btn-lg, .th-my-account .form-group .btn-group-lg > .form-control.btn, .th-checkout .form-group .form-control.btn-lg, .th-checkout .form-group .btn-group-lg > .form-control.btn {
-    /* This is the dropdown input control */
-    height: 35px;
-    padding: 0px 3px; }
-.th-my-account .form-group .th-dropdown .dropdown-toggle .caret, .th-checkout .form-group .th-dropdown .dropdown-toggle .caret {
-  position: absolute;
-  right: 4px;
-  top: 18px; }
-.th-my-account .form-group .dropdown-menu, .th-checkout .form-group .dropdown-menu {
-  font-size: 15px; }
-.th-my-account .form-group .vn-placeholder, .th-checkout .form-group .vn-placeholder {
-  left: 5px; }
-  .th-my-account .form-group .vn-placeholder.-selected, .th-checkout .form-group .vn-placeholder.-selected {
-    left: 5px; }
-.th-my-account .form-group .th-dropdown .vn-placeholder, .th-checkout .form-group .th-dropdown .vn-placeholder {
-  left: 5px;
-  margin-left: 0px; }
-.th-my-account .form-group .th-dropdown.th-address__state .vn-placeholder, .th-checkout .form-group .th-dropdown.th-address__state .vn-placeholder {
-  left: 2px; }
-
-div[data-ng-click]:focus {
-  outline: none; }
-
-.clickable {
-  cursor: pointer; }
 
 .th-search {
   margin-top: 15px;
