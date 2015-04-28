@@ -6640,27 +6640,6 @@ button.close {
   .th-checkout.th-checkout--paypal .th-credit-card__display:hover {
     background: #fafafa; }
 
-.th-list {
-  margin: 10px 0px 10px 0px;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  .th-list__item {
-    position: relative;
-    cursor: default;
-    border-top: 1px solid #ddd;
-    padding: 20px; }
-    .th-list__item [data-vn-address-display] {
-      cursor: default; }
-    .th-list__item__editBtn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 20px; }
-  .th-list__header {
-    padding: 20px;
-    display: block; }
-
 .th-my-account {
   font-weight: 300;
   font-size: 16px; }
@@ -6699,6 +6678,17 @@ button.close {
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
+  .th-my-account .list-group {
+    margin: 10px 0px 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+    .th-my-account .list-group .list-group-item {
+      padding: 20px;
+      background: #fafafa; }
+      .th-my-account .list-group .list-group-item [data-vn-address-display] {
+        cursor: default; }
+      .th-my-account .list-group .list-group-item.-clickable:hover {
+        cursor: pointer;
+        background-color: #F1F1F1; }
 
 .th-orders-list {
   font-size: 14px;
