@@ -143,48 +143,8 @@
 
   &__tile {
 	position    : relative;
-
-	&.-first {
-
-	}
   }
 
-  &__choose {
-
-	&__options {
-	  margin: 10px 0px 10px 0px;
-	  padding: 0;
-	  background: #fafafa;
-	  border: 1px solid #ebebeb;
-	  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
-
-	  &__option {
-		position: relative;
-		width: 100%;
-		margin: 0px;
-		cursor: pointer;
-	  }
-
-	  &__new-option {
-		padding       : 20px;
-		display       : inline-block;
-		width         : 100%;
-		cursor        : pointer;
-	  }
-
-	  .styled-optionbox-option {
-		width: 100%;
-	  }
-
-	  &__editBtn {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 20px;
-	  }
-
-	}
-  }
   .credit-card-error {
 	border-radius: $alert-border-radius;
 	color:		 		$alert-danger-text;
@@ -199,8 +159,6 @@
 	  margin : 0 auto 5px auto;
 	}
   }
-
-
 
   &__img {
 	height                  : 30px;
@@ -256,7 +214,7 @@
   }
 }
 
-.styled-optionbox-option{
+.list-group-item{
   .th-credit-card__img {
 	margin-left: 32px;
   }

@@ -227,8 +227,10 @@
 
 			&__close {
 				position : absolute;
-				top      : 10px;
-				right    : 15px;
+				top      : 5px;
+				right    : 20px;
+			  	z-index  : 1;
+			  	font-size: 12px;
 			}
 
 			&__body {

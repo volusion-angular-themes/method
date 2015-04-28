@@ -6013,8 +6013,10 @@ button.close {
           opacity: 1; }
       .th-checkout__step__drawer__close {
         position: absolute;
-        top: 10px;
-        right: 15px; }
+        top: 5px;
+        right: 20px;
+        z-index: 1;
+        font-size: 12px; }
       .th-checkout__step__drawer__body {
         opacity: 0;
         overflow-y: scroll;
@@ -6170,29 +6172,6 @@ button.close {
     margin-top: 10px; }
   .th-credit-card__tile {
     position: relative; }
-  .th-credit-card__choose__options {
-    margin: 10px 0px 10px 0px;
-    padding: 0;
-    background: #fafafa;
-    border: 1px solid #ebebeb;
-    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-    .th-credit-card__choose__options__option {
-      position: relative;
-      width: 100%;
-      margin: 0px;
-      cursor: pointer; }
-    .th-credit-card__choose__options__new-option {
-      padding: 20px;
-      display: inline-block;
-      width: 100%;
-      cursor: pointer; }
-    .th-credit-card__choose__options .styled-optionbox-option {
-      width: 100%; }
-    .th-credit-card__choose__options__editBtn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 20px; }
   .th-credit-card .credit-card-error {
     border-radius: 0;
     color: #a94442;
@@ -6237,7 +6216,7 @@ button.close {
   .th-credit-card .th-credit-card__img {
     float: right; }
 
-.styled-optionbox-option .th-credit-card__img {
+.list-group-item .th-credit-card__img {
   margin-left: 32px; }
 
 .th-address__enterAddress {
@@ -6278,39 +6257,11 @@ button.close {
   .th-address__display__addressPart {
     font-size: 14px;
     line-height: 1.4; }
-  .th-address__display .styled-optionbox-option {
-    border-bottom: 1px solid #CCC;
-    margin-bottom: 10px; }
   .th-address__display__actions {
     padding-top: 15px; }
     .th-address__display__actions__preferred {
       color: #5cb85c;
       line-height: 26px; }
-.th-address__choose__options {
-  margin: 10px 0px 10px 0px;
-  padding: 0;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  .th-address__choose__options__option {
-    position: relative;
-    margin: 0px;
-    width: 100%;
-    cursor: pointer; }
-    .th-address__choose__options__option [vn-address-display] {
-      cursor: default; }
-  .th-address__choose__options__new-option {
-    padding: 20px;
-    display: inline-block;
-    width: 100%;
-    cursor: pointer; }
-  .th-address__choose__options .styled-optionbox-option {
-    width: 100%; }
-  .th-address__choose__options__editBtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px; }
 .th-address__form-wrapper {
   padding: 20px 10px 0px 10px; }
   .th-address__form-wrapper div[class^="col-"] {
@@ -6329,9 +6280,8 @@ button.close {
 .th-address__location {
   text-align: center;
   padding: 0 0 10px 0; }
-  @media (max-width: 350px) {
-    .th-address__location button.btn {
-      font-size: 14px; } }
+  .th-address__location button.btn {
+    font-size: 14px; }
 .th-address__country {
   position: relative; }
   .th-address__country .dropdown-menu {
@@ -6544,9 +6494,6 @@ button.close {
           -o-text-overflow: ellipsis;
           text-overflow: ellipsis; }
 
-.styled-optionbox-option .displayAddress .row div {
-  margin-bottom: 0px; }
-
 .displayAddress .row {
   margin: 0 0 0 0; }
 .displayAddress .row div {
@@ -6556,45 +6503,25 @@ button.close {
   .displayAddress .row div:last {
     margin-bottom: 0px; }
 
-.th-checkout__ship-method {
-  margin: 10px 0px 10px 0px;
-  background: #fafafa;
-  /* was $gray-lighter */
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-  .th-checkout__ship-method__method {
-    position: relative;
-    margin: 0px;
-    width: 100%;
-    cursor: pointer; }
-    .th-checkout__ship-method__method .styled-optionbox-option label div {
-      margin-right: 70px; }
-  .th-checkout__ship-method__method:last-child .styled-optionbox-option {
-    border-bottom: 0; }
-  .th-checkout__ship-method__price {
+.th-checkout__ship-method__price {
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  right: 20px; }
+.th-checkout__ship-method__name {
+  margin: 0px 80px 0px 25px !important; }
+.th-checkout__ship-method__display {
+  position: relative;
+  overflow: auto; }
+  .th-checkout__ship-method__display__name {
+    float: left;
+    padding: 20px;
+    padding-right: 90px; }
+  .th-checkout__ship-method__display__price {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px; }
-  .th-checkout__ship-method__name {
-    margin: 0px 80px 0px 25px !important; }
-  .th-checkout__ship-method__display {
-    position: relative;
-    overflow: auto; }
-    .th-checkout__ship-method__display__name {
-      float: left;
-      padding: 20px;
-      padding-right: 90px; }
-    .th-checkout__ship-method__display__price {
-      position: absolute;
-      top: 22px;
-      right: 20px;
-      text-align: right; }
-  .th-checkout__ship-method .styled-checkbox-option input + label {
-    padding-right: 55px;
-    margin-left: 30px; }
-    .th-checkout__ship-method .styled-checkbox-option input + label:before {
-      margin-left: -30px; }
+    top: 22px;
+    right: 20px;
+    text-align: right; }
 
 .paypal-button-hidden {
   display: none; }
@@ -6678,17 +6605,6 @@ button.close {
       left: 40%; }
     .th-my-account__overlay svg path, .th-my-account__overlay svg rect {
       fill: #333333; }
-  .th-my-account .list-group {
-    margin: 10px 0px 10px 0px;
-    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
-    .th-my-account .list-group .list-group-item {
-      padding: 20px;
-      background: #fafafa; }
-      .th-my-account .list-group .list-group-item [data-vn-address-display] {
-        cursor: default; }
-      .th-my-account .list-group .list-group-item.-clickable:hover {
-        cursor: pointer;
-        background-color: #F1F1F1; }
 
 .th-orders-list {
   font-size: 14px;
@@ -6983,39 +6899,6 @@ button.close {
     color: #000;
     font-weight: bold; }
 
-.styled-optionbox-option {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  padding: 20px 20px 20px 20px; }
-  .styled-optionbox-option:hover {
-    background-color: #fff; }
-  .styled-optionbox-option input {
-    display: none !important; }
-    .styled-optionbox-option input + div {
-      cursor: pointer;
-      margin: 0;
-      position: relative;
-      width: 100%; }
-      .styled-optionbox-option input + div > div {
-        margin: 0 0 0 20px; }
-      .styled-optionbox-option input + div:before {
-        content: '\f10c';
-        font-family: 'FontAwesome';
-        font-size: 16px;
-        display: inline-block;
-        line-height: 18px;
-        vertical-align: middle;
-        text-align: center;
-        color: #000;
-        margin-right: 5px;
-        font-weight: normal;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%); }
-    .styled-optionbox-option input:checked + div:before {
-      content: '\f192';
-      font-family: 'FontAwesome'; }
-
 .input-help.bottom, .input-help.bottom-right {
   top: 35px; }
 
@@ -7201,6 +7084,44 @@ input.ng-pristine + .input-help {
     left: 0;
     margin-left: 6%;
     width: 90%; } }
+
+.th-my-account .list-group, .th-checkout .list-group {
+  margin: 10px 0px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  .th-my-account .list-group .list-group-item, .th-checkout .list-group .list-group-item {
+    padding: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    background: #fafafa; }
+    .th-my-account .list-group .list-group-item [data-vn-address-display], .th-checkout .list-group .list-group-item [data-vn-address-display] {
+      cursor: default; }
+    .th-my-account .list-group .list-group-item.-clickable:hover, .th-checkout .list-group .list-group-item.-clickable:hover {
+      cursor: pointer;
+      background-color: #F1F1F1; }
+  .th-my-account .list-group .list-group-item.-radio:hover, .th-checkout .list-group .list-group-item.-radio:hover {
+    cursor: pointer;
+    background-color: #F1F1F1; }
+  .th-my-account .list-group .list-group-item.-radio .row, .th-checkout .list-group .list-group-item.-radio .row {
+    padding-left: 30px; }
+  .th-my-account .list-group .list-group-item.-radio input, .th-checkout .list-group .list-group-item.-radio input {
+    display: none !important; }
+    .th-my-account .list-group .list-group-item.-radio input:checked + div:before, .th-checkout .list-group .list-group-item.-radio input:checked + div:before {
+      content: '\f192';
+      font-family: 'FontAwesome'; }
+  .th-my-account .list-group .list-group-item.-radio > div:before, .th-checkout .list-group .list-group-item.-radio > div:before {
+    content: '\f10c';
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    display: inline-block;
+    line-height: 18px;
+    vertical-align: middle;
+    text-align: center;
+    color: #000;
+    margin-right: 5px;
+    font-weight: normal;
+    position: absolute;
+    top: 50%;
+    margin-top: -9px; }
 
 html, body {
   overflow-x: hidden !important; }
