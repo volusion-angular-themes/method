@@ -5,43 +5,6 @@
 	top         : 0;
 }
 
-.vn-page-checkout,
-.vn-page-paypal-checkout{
-
-	#main-content-area{
-		height: calc(100% - 160px);
-		height: -webkit-calc(100% - 160px);
-		overflow: hidden;
-	}
-	.th-checkout{
-		height: 100%;
-		margin-top: 0px;
-		margin-bottom: 0px;
-
-		&__step{
-			height: 100%;
-		}
-	}
-	.th-checkout-footer{
-		margin-top: 0px;
-	}
-}
-.vn-page-paypal-checkout{
-  #main-content-area{
-	@media (max-width: $screen-sm){
-	  height: auto;
-	}
-  }
-}
-.vn-page-checkout{
-  #main-content-area{
-
-	@media (max-width: $screen-md){
-	  height: auto;
-	}
-  }
-}
-
 .th-checkout__review {
 	padding : 17px;
 	margin-top: 15px;

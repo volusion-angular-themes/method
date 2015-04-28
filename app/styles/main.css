@@ -6054,6 +6054,27 @@ button.close {
   .th-checkout .row {
     height: inherit; }
 
+.vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
+  height: calc(100% - 160px);
+  height: -webkit-calc(100% - 160px);
+  overflow: hidden; }
+.vn-page-checkout .th-checkout, .vn-page-paypal-checkout .th-checkout {
+  height: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px; }
+  .vn-page-checkout .th-checkout__step, .vn-page-paypal-checkout .th-checkout__step {
+    height: 100%; }
+.vn-page-checkout .th-checkout-footer, .vn-page-paypal-checkout .th-checkout-footer {
+  margin-top: 0px; }
+
+@media (max-width: 768px) {
+  .vn-page-paypal-checkout #main-content-area {
+    height: auto; } }
+
+@media (max-width: 992px) {
+  .vn-page-checkout #main-content-area {
+    height: auto; } }
+
 .th-credit-card {
   background-color: #fff;
   height: 200px;
@@ -6414,27 +6435,6 @@ button.close {
   right: 0;
   top: 0; }
 
-.vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
-  height: calc(100% - 160px);
-  height: -webkit-calc(100% - 160px);
-  overflow: hidden; }
-.vn-page-checkout .th-checkout, .vn-page-paypal-checkout .th-checkout {
-  height: 100%;
-  margin-top: 0px;
-  margin-bottom: 0px; }
-  .vn-page-checkout .th-checkout__step, .vn-page-paypal-checkout .th-checkout__step {
-    height: 100%; }
-.vn-page-checkout .th-checkout-footer, .vn-page-paypal-checkout .th-checkout-footer {
-  margin-top: 0px; }
-
-@media (max-width: 768px) {
-  .vn-page-paypal-checkout #main-content-area {
-    height: auto; } }
-
-@media (max-width: 992px) {
-  .vn-page-checkout #main-content-area {
-    height: auto; } }
-
 .th-checkout__review {
   padding: 17px;
   margin-top: 15px;
@@ -6594,10 +6594,6 @@ button.close {
     margin-left: 30px; }
     .th-checkout__ship-method .styled-checkbox-option input + label:before {
       margin-left: -30px; }
-
-.vn-payment-radio {
-  width: 300px;
-  margin: 20px auto; }
 
 .paypal-button-hidden {
   display: none; }
@@ -7200,6 +7196,24 @@ input.ng-pristine + .input-help {
   color: #3A7D34;
   background-position: 2px 6px; }
 
+.vn-app-message--fixed {
+  position: fixed;
+  top: 100px;
+  z-index: 9999;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
+.vn-app-message--static {
+  position: static; }
+.vn-app-message__text {
+  line-height: 26px; }
+@media (max-width: 480px) {
+  .vn-app-message {
+    left: 0;
+    margin-left: 6%;
+    width: 90%; } }
+
 html, body {
   overflow-x: hidden !important; }
 
@@ -7752,24 +7766,6 @@ div[data-ng-click]:focus {
 .th-search-popout--submit {
   height: 28px;
   letter-spacing: 1.2px; }
-
-.vn-app-message--fixed {
-  position: fixed;
-  top: 100px;
-  z-index: 9999;
-  left: 50%;
-  margin-left: -200px;
-  width: 400px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
-.vn-app-message--static {
-  position: static; }
-.vn-app-message__text {
-  line-height: 26px; }
-@media (max-width: 480px) {
-  .vn-app-message {
-    left: 0;
-    margin-left: 6%;
-    width: 90%; } }
 
 #main-content-area > div {
   height: 100%; }

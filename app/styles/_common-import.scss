@@ -11,7 +11,6 @@
 @import "common/checkout/login";
 @import "common/checkout/review";
 @import "common/checkout/shipping-method";
-@import "common/checkout/pay-with";
 @import "common/checkout/paypal";
 
 //My Account
@@ -26,6 +25,7 @@
 @import "common/my-account/change-email";
 @import "common/my-account/change-password";
 
+//Components
 @import "common/components/quantity-counter";
 @import "common/components/vn-dropdown";
 @import "common/components/dropdown";
@@ -33,6 +33,7 @@
 @import "common/components/placeholder";
 @import "common/components/optionbox";
 @import "common/components/popover";
+@import "common/components/app-message";
 
 @import "common/global";
 /********************************************/
