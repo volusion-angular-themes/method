@@ -7,7 +7,7 @@
 		},
 		"footer": {
 			"content"         : {
-				"column1"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus.asp\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
+				"column1"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
 				"column2"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">SHOP WITH US</li>&#10;&#10;<li><a href=\"/shoppingcart.asp\">View Cart</a></li>&#10;&#10;<li><a href=\"/my-account\">Your Account</a></li>&#10;&#10;<li><a href=\"/my-acount/orders/list\">Order Tracking</a></li>&#10;&#10;<li><a href=\"/cindex.asp\">Site Map</a></li>&#10;&#10;<li><a href=\"/pindex.asp\">Product Index</a></li>&#10;</ul>",
 				"column3"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">HELP &amp; SUPPORT</li>&#10;&#10;<li><a href=\"/features/contact-us\">Contact Us</a></li>&#10;&#10;<li><a href=\"/help.asp\">Help / FAQ</a></li>&#10;&#10;<li><a href=\"/aboutus.asp\">Toll Free 123-123-1234</a></li>&#10;</ul>",
 				"column4"  : "<div class=\"th-info-box\">&#10;<div class=\"th-footer__title\"><br/></div>&#10;</div>",

@@ -172,7 +172,7 @@
 			margin-top : 14px;
 			text-align : left;
 			font-size: 20px;
-			font-weight: bold;
+			font-weight: 500;
 		}
 
 		&-info {
@@ -180,7 +180,7 @@
 			&--subtotal {
 				@extend %subtotal;
 				font-size: 20px;
-				font-weight: bold;
+				font-weight: 500;
 			}
 		}
 	}

@@ -189,7 +189,7 @@
 			<div data-vn-rating-summary class="th-reviews__rating-summary" data-rating-value="reviews.rating"></div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<div data-ng-show="showRatingBar" data-vn-rating-bar class="th-reviews__rating-bar" data-rating-data="reviews.reviewCounts"></div>
+			<div data-ng-show="showRatingBar || device.info.shortname != 'phone'" data-vn-rating-bar class="th-reviews__rating-bar" data-rating-data="reviews.reviewCounts"></div>
 			<div class="visible-xs th-reviews__show-rating-bar" data-ng-click="toggleRatingBar()">
 				<span data-ng-if="!showRatingBar">View details</span>
 				<span data-ng-if="showRatingBar">Hide details</span>
