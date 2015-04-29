@@ -5895,11 +5895,11 @@ button.close {
     display: none;
     position: absolute;
     z-index: 200;
-    top: 99px;
+    top: 79px;
     width: 33.3333333%;
-    height: calc(100% - 161px);
-    height: -webkit-calc(100% - 161px);
-    height: -moz-calc(100% - 161px);
+    height: calc(100% - 141px);
+    height: -webkit-calc(100% - 141px);
+    height: -moz-calc(100% - 141px);
     background-color: rgba(255, 255, 255, 0.8); }
     @media (max-width: 992px) {
       .th-checkout__loading {
