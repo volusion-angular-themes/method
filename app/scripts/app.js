@@ -63,7 +63,7 @@ angular.module('methodApp', [
 
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
-				if(toState.name !== 'checkout'){
+				if(toState.name !== 'checkout.ship-method'){
 					event.preventDefault();
 				}
 			}
