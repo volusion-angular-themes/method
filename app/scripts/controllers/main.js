@@ -12,6 +12,7 @@ angular.module('Volusion.controllers')
 					url: 'http://166.78.8.98/cgi-bin/aries.cgi?sandbox=1',
 					merchantId: 'Paypal has very poor documentation'
 				};
+				$rootScope.seo = response.data.seo;
 				$scope.isPaypalExpressAvailable = $rootScope.config.checkout.isPaypalExpressAvailable;
 				$rootScope.$emit('config.updated');
 			});
