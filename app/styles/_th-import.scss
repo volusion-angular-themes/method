@@ -1,41 +1,3 @@
-/********************************************/
-/** Do not modify these files. Use them for reference and create overrides if needed. **/
-//Cart
-@import "common/cart";
-
-//Checkout
-@import "common/checkout/checkout";
-@import "common/checkout/credit-card";
-@import "common/checkout/address";
-@import "common/checkout/thank-you";
-@import "common/checkout/login";
-@import "common/checkout/review";
-@import "common/checkout/shipping-method";
-@import "common/checkout/pay-with";
-@import "common/checkout/paypal";
-
-//My Account
-@import "common/my-account/list";
-@import "common/my-account/my-account";
-@import "common/my-account/orders-list";
-@import "common/my-account/order-list-view";
-@import "common/my-account/order-table";
-@import "common/my-account/order-detail";
-@import "common/my-account/breadcrumbs";
-@import "common/my-account/payment-profiles";
-@import "common/my-account/change-email";
-@import "common/my-account/change-password";
-
-@import "common/components/quantity-counter";
-@import "common/components/vn-dropdown";
-@import "common/components/dropdown";
-@import "common/components/modal";
-@import "common/components/placeholder";
-@import "common/components/optionbox";
-@import "common/components/popover";
-/********************************************/
-
-
 //Overrides - might not need this section anymore
 @import "th/overrides/alert";
 @import "th/overrides/faceted-search";
@@ -48,12 +10,10 @@
 //Misc
 @import "th/category-search";
 @import "th/facet-search";
-@import "th/global";
 
 //Components
 @import "th/components/search";
 @import "th/components/search-popout";
-@import "th/components/app-message";
 
 //Page
 @import "th/page/main-content-area";

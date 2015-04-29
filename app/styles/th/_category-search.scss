@@ -1,23 +1,6 @@
 // Default Toolbox Responsive Optimizations
 // Overwrite Bootstrap auto generated elements ***********
 
-// TODO is this needed in both _facet-search.scss and _category-search.scss?
-
-.-faceted-search {
-	.panel-body {
-		padding : 0 !important;
-	}
-
-	.panel-group .panel {
-		border-bottom : none;
-	}
-
-	.panel-default > .panel-heading .panel-title {
-		font-size      : 1.6rem;
-		letter-spacing : 1px;
-	}
-}
-
 // *******************************************************
 .vn-category-search {
 	padding       : 5px 0;

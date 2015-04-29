@@ -1,3 +1,5 @@
+//Used for high level and layout styles on the checkout page
+
 .th-checkout {
 	background-color : #fafafa;
 	height           : inherit;
@@ -225,8 +227,10 @@
 
 			&__close {
 				position : absolute;
-				top      : 10px;
-				right    : 15px;
+				top      : 5px;
+				right    : 20px;
+			  	z-index  : 1;
+			  	font-size: 12px;
 			}
 
 			&__body {
@@ -280,4 +284,41 @@
 	.row {
 		height  : inherit;
 	}
+}
+
+.vn-page-checkout,
+.vn-page-paypal-checkout{
+
+  #main-content-area{
+	height: calc(100% - 160px);
+	height: -webkit-calc(100% - 160px);
+	overflow: hidden;
+  }
+  .th-checkout{
+	height: 100%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	&__step{
+	  height: 100%;
+	}
+  }
+  .th-checkout-footer{
+	margin-top: 0px;
+  }
+}
+.vn-page-paypal-checkout{
+  #main-content-area{
+	@media (max-width: $screen-sm){
+	  height: auto;
+	}
+  }
+}
+.vn-page-checkout{
+  #main-content-area{
+
+	@media (max-width: $screen-md){
+	  height: auto;
+	}
+  }
 }

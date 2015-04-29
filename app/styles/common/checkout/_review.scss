@@ -5,49 +5,7 @@
 	top         : 0;
 }
 
-.vn-page-checkout,
-.vn-page-paypal-checkout{
-
-	#main-content-area{
-		height: calc(100% - 160px);
-		height: -webkit-calc(100% - 160px);
-		overflow: hidden;
-	}
-	.th-checkout{
-		height: 100%;
-		margin-top: 0px;
-		margin-bottom: 0px;
-
-		&__step{
-			height: 100%;
-		}
-	}
-	.th-checkout-footer{
-		margin-top: 0px;
-	}
-}
-.vn-page-paypal-checkout{
-  #main-content-area{
-	@media (max-width: $screen-sm){
-	  height: auto;
-	}
-  }
-}
-.vn-page-checkout{
-  #main-content-area{
-
-	@media (max-width: $screen-md){
-	  height: auto;
-	}
-  }
-}
-
 .th-checkout__review {
-	padding : 17px;
-	margin-top: 15px;
-	background: #fafafa; /* was $gray-lighter */
-	border: 1px solid #ebebeb;
-	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px, rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 
 	&__totals {
 		border-bottom : 1px solid #ddd;
@@ -186,23 +144,9 @@
 	}
 
 	&__items {
-
 		padding    : 10px 0;
 		overflow-y : auto;
 		height     : 100%;
-
-		// Add animation
-		/*-webkit-transition : all linear 0.5s;
-		transition         : all linear 0.5s;*/
-
-		/*&.ng-hide-add {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}
-		&.ng-hide-remove {
-			-webkit-transition : all linear 0.5s;
-			transition         : all linear 0.5s;
-		}*/
 
 		&--label {
 			text-transform : uppercase;
