@@ -6,6 +6,11 @@
   	margin           : -20px 15px;
 	font-size        : 1.5rem;
 
+  	&__header{
+	  text-align: center;
+	  padding: 10px;
+	}
+
 	&__place-order-fixed{
 		position         : absolute;
 		top              : 99px;
@@ -290,8 +295,8 @@
 .vn-page-paypal-checkout{
 
   #main-content-area{
-	height: calc(100% - 160px);
-	height: -webkit-calc(100% - 160px);
+	height: calc(100% - 140px);
+	height: -webkit-calc(100% - 140px);
 	overflow: hidden;
   }
   .th-checkout{

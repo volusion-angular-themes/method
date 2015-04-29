@@ -5866,6 +5866,9 @@ button.close {
   height: inherit;
   margin: -20px 15px;
   font-size: 1.5rem; }
+  .th-checkout__header {
+    text-align: center;
+    padding: 10px; }
   .th-checkout__place-order-fixed {
     position: absolute;
     top: 99px;
@@ -6057,8 +6060,8 @@ button.close {
     height: inherit; }
 
 .vn-page-checkout #main-content-area, .vn-page-paypal-checkout #main-content-area {
-  height: calc(100% - 160px);
-  height: -webkit-calc(100% - 160px);
+  height: calc(100% - 140px);
+  height: -webkit-calc(100% - 140px);
   overflow: hidden; }
 .vn-page-checkout .th-checkout, .vn-page-paypal-checkout .th-checkout {
   height: 100%;
@@ -7711,11 +7714,6 @@ div[data-ng-click]:focus {
   .th-header-top__text {
     padding-top: 10px;
     padding-bottom: 10px; }
-
-.th-checkout-header {
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 20px; }
 
 .th-navbar {
   min-height: 44px; }
