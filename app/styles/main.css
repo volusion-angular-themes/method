@@ -5871,7 +5871,7 @@ button.close {
     padding: 10px; }
   .th-checkout__place-order-fixed {
     position: absolute;
-    top: 99px;
+    top: 79px;
     right: 0;
     width: 33.3333%;
     z-index: 100;
