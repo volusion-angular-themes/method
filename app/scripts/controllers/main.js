@@ -1,19 +1,22 @@
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader', 'vnDevice',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader, vnDevice) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader', 'vnDevice', 'paypalConfig',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader, vnDevice, paypalConfig) {
 
 			'use strict';
 
 			$rootScope.seo = {};
 
 			vnSiteConfig.getConfig().then(function (response) {
+
 				$rootScope.config = response.data;
-				$rootScope.config.paypal = {
-					url: 'http://166.78.8.98/cgi-bin/aries.cgi?sandbox=1',
-					merchantId: 'Paypal has very poor documentation'
-				};
+				$rootScope.config.paypal = paypalConfig;
+
 				$rootScope.seo = response.data.seo;
-				$scope.isPaypalExpressAvailable = $rootScope.config.checkout.isPaypalExpressAvailable;
+
+				if($rootScope.config.checkout.isPaypalExpressAvailable){
+					angular.element('body').append('<script src="' + $rootScope.config.paypal.checkoutUrl + '" async></script>');
+				}
+
 				$rootScope.$emit('config.updated');
 			});
 
