@@ -7882,6 +7882,7 @@ html, body {
       position: absolute;
       font-size: 50px;
       top: 70px;
+      left: 10px;
       opacity: .5;
       z-index: 999; }
     .th-product__image .img-responsive {
