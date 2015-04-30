@@ -7903,6 +7903,8 @@ html, body {
     font-weight: 400;
     text-transform: uppercase;
     color: #000; }
+    .th-product__price--sold-out, .th-product__price--large--sold-out {
+      color: gray; }
     .th-product__price .th-price, .th-product__price--large .th-price {
       display: -moz-inline-stack;
       display: inline-block;
