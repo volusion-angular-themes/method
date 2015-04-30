@@ -126,6 +126,10 @@
 		border-top : 1px solid #ccc;
 		position   : relative;
 
+	  	&-inner{
+		  height: 100%;
+		}
+
 		&__ship-to{
 
 		}
@@ -312,17 +316,17 @@
 	margin-top: 0px;
   }
 }
+$checkout-breakpoint: $screen-md - 1px;
 .vn-page-paypal-checkout{
   #main-content-area{
-	@media (max-width: $screen-sm){
+	@media (max-width: $checkout-breakpoint){
 	  height: auto;
 	}
   }
 }
 .vn-page-checkout{
   #main-content-area{
-
-	@media (max-width: $screen-md){
+	@media (max-width: $checkout-breakpoint){
 	  height: auto;
 	}
   }

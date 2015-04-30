@@ -5948,6 +5948,8 @@ button.close {
     height: 100%;
     border-top: 1px solid #ccc;
     position: relative; }
+    .th-checkout__step-inner {
+      height: 100%; }
     .th-checkout__step__btn-continue {
       margin-top: 20px; }
     .th-checkout__step.-active {
@@ -6072,11 +6074,11 @@ button.close {
 .vn-page-checkout .th-checkout-footer, .vn-page-paypal-checkout .th-checkout-footer {
   margin-top: 0px; }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .vn-page-paypal-checkout #main-content-area {
     height: auto; } }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .vn-page-checkout #main-content-area {
     height: auto; } }
 
