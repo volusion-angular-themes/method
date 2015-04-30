@@ -35,7 +35,7 @@ angular.module('Volusion.controllers')
 			vnDevice.init({
 				breakpoints: {
 					phone: 768,
-					tablet: 991
+					tablet: 992
 				},
 				listeners: {
 					location: false,
