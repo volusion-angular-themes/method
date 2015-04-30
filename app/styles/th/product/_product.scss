@@ -56,7 +56,12 @@
 		text-transform : uppercase;
 		color          : $text-color;
 
-		.th-price {
+	  &--sold-out {
+		color: lighten($text-color, 50%);
+	  }
+
+
+	  .th-price {
 			@include inline-block;
 			margin-right : 1px;
 			font-size    : 1.6rem;
