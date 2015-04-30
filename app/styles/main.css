@@ -7878,6 +7878,12 @@ html, body {
   .th-product__image {
     position: relative;
     padding: 7px 0; }
+    .th-product__image--sold-out {
+      position: absolute;
+      font-size: 50px;
+      top: 70px;
+      opacity: .5;
+      z-index: 999; }
     .th-product__image .img-responsive {
       margin: 0 auto;
       display: block; }
@@ -8087,6 +8093,13 @@ html, body {
   text-align: center; }
   .th-product-view__image {
     position: relative; }
+    .th-product-view__image--sold-out {
+      position: absolute;
+      font-size: 100px;
+      top: 150px;
+      left: 50px;
+      opacity: .5;
+      z-index: 999; }
     .th-product-view__image img {
       display: block;
       margin: 0 auto; }

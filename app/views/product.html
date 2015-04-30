@@ -23,6 +23,7 @@
 			</div>
 			<div class="hidden-xs">
 				<div class="clearfix th-product-view vn-zoom">
+					<div class="th-product-view__image--sold-out" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">Sold Out</div>
 					<img vn-easy-zoom
 					     ng-src="product.image.medium"
 					     ez-zoom-src="product.image.large"
