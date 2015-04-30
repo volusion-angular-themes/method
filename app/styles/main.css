@@ -5868,10 +5868,31 @@ button.close {
   font-size: 1.5rem; }
   .th-checkout__header {
     text-align: center;
-    padding: 10px; }
+    padding: 15px;
+    position: relative;
+    height: 75px;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+    z-index: 1000; }
+    @media (max-width: 768px) {
+      .th-checkout__header {
+        height: 60px;
+        padding: 12px; } }
+    .th-checkout__header__logo {
+      height: 100%; }
+      .th-checkout__header__logo img {
+        height: 100%; }
+    .th-checkout__header__back-button {
+      position: absolute;
+      top: 50%;
+      margin-top: -17px;
+      left: 10px;
+      z-index: 9999;
+      font-size: 12px;
+      padding: 10px;
+      color: #333; }
   .th-checkout__place-order-fixed {
     position: absolute;
-    top: 79px;
+    top: 75px;
     right: 0;
     width: 33.3333%;
     z-index: 100;
@@ -5895,15 +5916,18 @@ button.close {
     display: none;
     position: absolute;
     z-index: 200;
-    top: 79px;
+    top: 76px;
     width: 33.3333333%;
-    height: calc(100% - 141px);
-    height: -webkit-calc(100% - 141px);
-    height: -moz-calc(100% - 141px);
+    height: calc(100% - 144px);
+    height: -webkit-calc(100% - 144px);
+    height: -moz-calc(100% - 144px);
     background-color: rgba(255, 255, 255, 0.8); }
     @media (max-width: 992px) {
       .th-checkout__loading {
         width: 100%; } }
+    @media (max-width: 768px) {
+      .th-checkout__loading {
+        top: 61px; } }
     .th-checkout__loading[vn-busy-animation-show="true"] {
       display: block; }
     .th-checkout__loading--ship-to {
@@ -5944,18 +5968,18 @@ button.close {
     text-transform: uppercase; }
   .th-checkout__step {
     color: #333;
-    padding: 20px 20px;
+    padding: 20px 20px 15px 20px;
     height: 100%;
-    border-top: 1px solid #ccc;
     position: relative; }
     .th-checkout__step-inner {
-      height: 100%; }
+      padding: 0; }
     .th-checkout__step__btn-continue {
       margin-top: 20px; }
+      .th-checkout__step__btn-continue span {
+        vertical-align: middle; }
     .th-checkout__step.-active {
       overflow-y: auto;
       border: none;
-      border-top: 1px solid #f63e34;
       background-color: #eee;
       height: 840px; }
       .th-checkout__step.-active .th-checkout__step__overlay {
@@ -5989,50 +6013,27 @@ button.close {
       .th-checkout__step__overlay.-complete {
         cursor: pointer; }
     .th-checkout__step__drawer {
-      z-index: 888;
-      position: absolute;
-      height: 100%;
-      width: 0;
-      background-color: #eee;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 0;
-      border: none;
-      -webkit-transition: width 500ms ease;
-      -o-transition: width 500ms ease;
-      transition: width 500ms ease; }
-      .th-checkout__step__drawer.-left {
-        left: 0;
-        right: auto; }
-      .th-checkout__step__drawer.-right {
-        right: 0;
-        left: auto; }
+      position: relative; }
       .th-checkout__step__drawer.-open {
         width: 100%; }
         .th-checkout__step__drawer.-open .th-checkout__step__drawer__body {
-          -webkit-transition: opacity 1000ms ease;
-          -o-transition: opacity 1000ms ease;
-          transition: opacity 1000ms ease;
           opacity: 1; }
       .th-checkout__step__drawer__close {
         position: absolute;
-        top: 5px;
-        right: 20px;
+        top: -4px;
+        right: 0;
         z-index: 1;
-        font-size: 12px; }
+        font-size: 10px; }
       .th-checkout__step__drawer__body {
         opacity: 0;
-        overflow-y: scroll;
-        height: 100%;
-        overflow-x: hidden;
-        padding: 20px; }
+        height: 100%; }
       .th-checkout__step__drawer__title {
         font-weight: 500;
+        font-size: 16px;
         text-transform: uppercase;
         margin-top: 10px;
-        margin-bottom: 20px; }
+        margin-bottom: 10px;
+        text-align: center; }
       .th-checkout__step__drawer__form-wrapper {
         padding: 40px; }
     .th-checkout__step__title {
@@ -6145,15 +6146,27 @@ button.close {
   .th-credit-card__display.-verify-CVV .form-group {
     margin-bottom: 0; }
   .th-credit-card__display__verifyCVV {
-    line-height: 40px;
-    height: 40px;
-    display: inline-block; }
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 20px; }
     .th-credit-card__display__verifyCVV__label {
-      line-height: normal;
-      width: 100%;
-      text-align: right; }
-    .th-credit-card__display__verifyCVV__label {
-      margin-top: 10px; }
+      vertical-align: middle;
+      margin: 0 10px 0 0; }
+      @media (max-width: 480px) {
+        .th-credit-card__display__verifyCVV__label {
+          font-size: 14px; } }
+    .th-credit-card__display__verifyCVV__input {
+      width: 60px;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle; }
+      .th-credit-card__display__verifyCVV__input input {
+        margin: 0; }
+      .th-credit-card__display__verifyCVV__input label {
+        left: 0;
+        top: 10px;
+        margin: 0; }
   .th-credit-card__display .form-group .vn-placeholder {
     left: 10px; }
     .th-credit-card__display .form-group .vn-placeholder.-selected {
@@ -6476,6 +6489,9 @@ button.close {
     top: 22px;
     right: 20px;
     text-align: right; }
+  .th-checkout__ship-method__display__name {
+    padding-right: 60px;
+    line-height: 1.3; }
 
 .paypal-button-hidden {
   display: none; }
