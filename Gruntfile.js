@@ -515,12 +515,12 @@ module.exports = function (grunt) {
 
 		grunt.log.writeln('API URL set for the environment "' + name + '" - ' + server + version);
 
-		grunt.log.writeln('Switching vn-toolbox-public to vn-toolbox-common');
-		var bowerJson = require('./bower.json');
-		delete bowerJson.dependencies['vn-toolbox-public'];
-		bowerJson.dependencies['vn-toolbox-common'] = '*';
-		var fs = require('fs');
-		fs.writeFileSync('./bower.json', JSON.stringify(bowerJson, null, 2));
+		// grunt.log.writeln('Switching vn-toolbox-public to vn-toolbox-common');
+		// var bowerJson = require('./bower.json');
+		// delete bowerJson.dependencies['vn-toolbox-public'];
+		// bowerJson.dependencies['vn-toolbox-common'] = '*';
+		// var fs = require('fs');
+		// fs.writeFileSync('./bower.json', JSON.stringify(bowerJson, null, 2));
 
 		grunt.config.set('ENVConstant', {
 			name       : name,
