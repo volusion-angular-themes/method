@@ -3,6 +3,7 @@
 	<span class="hidden-xs icon-th-product__new" data-ng-show="product.isNew"></span>
 
 	<div class="th-product__image">
+		<div class="th-product__image--sold-out" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">Sold Out</div>
 		<a data-ng-href="{{ product.url }}">
 			<img vn-product-image product="product" default-image="defaultProductImage">
 		</a>
@@ -19,5 +20,5 @@
 			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
 			<span class="th-price-text" data-translate="product.nowPriceLabel"></span></span>
 	</div>
-	
+
 </div>

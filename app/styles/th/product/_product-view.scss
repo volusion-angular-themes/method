@@ -4,7 +4,17 @@
 	&__image {
 		position : relative;
 
-		img {
+		&--sold-out {
+		  position: absolute;
+		  font-size: 100px;
+		  top: 150px;
+		  left: 50px;
+		  opacity: .5;
+		  z-index: 999;
+		}
+
+
+	  img {
 			display : block;
 			margin  : 0 auto;
 		}
