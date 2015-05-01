@@ -529,7 +529,6 @@ module.exports = function (grunt) {
 			'clean:dist',				//erase our dist folder
 			//no need to clean dist folder; we're serving /app, lets do it anyway
 			'clean:configure',	//erase generated config file
-			'get_toolbox_dependencies',
 			'ngconstant:build',	//build generated config file
 			'wiredep',					//include the dependencies
 			'sprite:icons',			//Create the icon scss file
@@ -574,7 +573,6 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:dist',				//erase our dist folder
 			'clean:configure',	//erase generated config file
-			'get_toolbox_dependencies',
 
 			'ngconstant:build',	//build generated config file
 			'wiredep',					//include the dependencies
