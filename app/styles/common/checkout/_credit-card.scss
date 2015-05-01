@@ -97,18 +97,34 @@
 	}
 
 	&__verifyCVV {
-	  line-height: 40px;
-	  height: 40px;
-	  display: inline-block;
+	  text-align: center;
+	  border-top: 1px solid #ddd;
+	  margin-top: 20px;
+	  padding-top: 20px;
 
 	  &__label{
-		line-height: normal;
-		width: 100%;
-		text-align: right;
+		vertical-align: middle;
+		margin: 0 10px 0 0;
+
+		@media(max-width: $screen-xs){
+		  font-size: 14px;
+		}
 	  }
 
-	  &__label {
-		margin-top: 10px;
+	  &__input{
+		width: 60px;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+
+		input{
+		  margin: 0;
+		}
+		label{
+		  left: 0;
+		  top: 10px;
+		  margin: 0;
+		}
 	  }
 	}
 

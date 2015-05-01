@@ -77,8 +77,13 @@
 		 role="navigation"
 		 data-ng-show="checkoutHeaderState">
 
+		<a data-ui-sref="home" class="th-checkout__header__back-button">
+			<i class="fa fa-arrow-left"></i>
+			<span>Shop</span>
+		</a>
+
 		<!-- Mobile Logo -->
-		<a data-ng-href="/">
+		<a data-ui-sref="home" class="th-checkout__header__logo">
 			<img data-ng-src="{{config.general.mobileLogoUrl }}" />
 		</a>
 
