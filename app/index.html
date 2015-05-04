@@ -1,10 +1,21 @@
 <!doctype html>
 <html class="no-js" ng-app="methodApp" data-ng-strict-di>
-<head data-vn-meta-tags data-title="seo.metaTagTitle"
-	data-description="seo.metaTagDescription" data-keywords="seo.metaTagKeywords"
-	data-robots="seo.enableRobotsMetatags" data-to-append="seo.globallyAppendedMetatags"
-	data-social-page-title="social.pageTitle" data-social-page-url="social.pageUrl"
-	data-social-image-url="social.imageUrl">
+<head prefix="og: http://ogp.me/ns#
+     	fb: http://ogp.me/ns/fb#
+     	product: http://ogp.me/ns/product#"
+	  data-vn-meta-tags
+	  data-title="seo.metaTagTitle"
+	  data-description="seo.metaTagDescription"
+	  data-keywords="seo.metaTagKeywords"
+	  data-robots="seo.enableRobotsMetatags"
+	  data-to-append="seo.globallyAppendedMetatags"
+	  data-social-page-type="social.pageType"
+	  data-social-page-title="social.pageTitle"
+	  data-social-page-description="social.pageDescription"
+	  data-social-page-url="social.pageUrl"
+	  data-social-image-url="social.imageUrl"
+	  data-social-product-price="social.productPrice"
+	  data-social-product-currency="social.productCurrency">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="fragment" content="!" />
