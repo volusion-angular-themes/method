@@ -410,7 +410,7 @@ module.exports = function (grunt) {
 		sass         : {
 			dist: {
 				options: {
-					style: 'compressed' //We will change this to compressed later, just for testing
+					outputStyle: 'compressed' //We will change this to compressed later, just for testing
 				},
 				files  : {
 					//all the sass needs to be in one css file
