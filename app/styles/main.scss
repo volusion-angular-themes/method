@@ -15,7 +15,7 @@
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 
 // Import all toolbox styles
-@import 'common-import';
+@import "bower_components/vn-toolbox-common/app/styles/main.scss";
 
 // Import all 'th' (theme) stylesheets
 @import 'th-import';

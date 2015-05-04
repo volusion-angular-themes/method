@@ -232,8 +232,7 @@ module.exports = function (grunt) {
 
 		// The following *-min tasks produce minified files in the dist folder
 		cssmin      : {
-			options: {},
-
+			options: {}
 		},
 
 		imagemin: {
@@ -411,7 +410,7 @@ module.exports = function (grunt) {
 		sass         : {
 			dist: {
 				options: {
-					style: 'expanded' //We will change this to compressed later, just for testing
+					style: 'compressed' //We will change this to compressed later, just for testing
 				},
 				files  : {
 					//all the sass needs to be in one css file
@@ -455,11 +454,11 @@ module.exports = function (grunt) {
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
 					'<%= yeoman.app %>/scripts/**/*.js',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js',
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-public-styles.css'],
+					'bower_components/vn-toolbox-common/app/styles/**/*.{scss,sass}'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
 				],
