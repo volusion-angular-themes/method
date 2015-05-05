@@ -7,6 +7,7 @@
 	&__availability {
 		font-size : 1.8rem;
 		color     : $brand-danger;
+	  	font-family: "Roboto Condensed";
 	}
 
 	&__image {
@@ -14,12 +15,7 @@
 		padding  : 7px 0;
 
 	  	&--sold-out {
-		  position: absolute;
-		  font-size: 50px;
-		  top: 70px;
-		  left: 10px;
-		  opacity: .5;
-		  z-index: 999;
+		  opacity: 0.5;
 		}
 
 		.img-responsive {
