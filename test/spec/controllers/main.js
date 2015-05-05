@@ -1,5 +1,3 @@
-//Disabling until we can get vnDevice to work in this test
-
 describe('Controller: MainCtrl', function () {
 
 	'use strict';
