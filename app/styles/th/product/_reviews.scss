@@ -59,7 +59,7 @@ ul.rating {
   }
 
   &__rating-button{
-	margin-top: 40px;
+	margin-top: 35px;
   }
 
   @media (max-width: $screen-sm) {
@@ -179,7 +179,6 @@ ul.rating {
 }
 
 .th-rating-button {
-  margin-top: 20px;
   text-align: center;
   float: right;
   color: white;
