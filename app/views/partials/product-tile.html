@@ -1,15 +1,14 @@
 <div class="th-product">
-	<span class="hidden-xs icon-th-product__sale" data-ng-show="product.isOnSale"></span>
-	<span class="hidden-xs icon-th-product__new" data-ng-show="product.isNew"></span>
-
-	<div class="th-product__image">
-		<div class="th-product__image--sold-out" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">Sold Out</div>
+	<div class="th-product__image" data-ng-class="{'th-product__image--sold-out': product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders}">
 		<a data-ng-href="{{ product.url }}">
 			<img vn-product-image product="product" default-image="defaultProductImage">
 		</a>
 	</div>
 	<div class="th-product__name">
 		<a data-ng-href="{{product.url}}">{{product.name}}</a>
+	</div>
+	<div class="th-product__availability" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">
+		Not in stock
 	</div>
 	<div class="th-product__price">
 		<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
@@ -20,5 +19,4 @@
 			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
 			<span class="th-price-text" data-translate="product.nowPriceLabel"></span></span>
 	</div>
-
 </div>
