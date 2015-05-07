@@ -5,9 +5,10 @@
 	padding-bottom : 25px;
 
 	&__availability {
-		font-size : 1.8rem;
-		color     : $brand-danger;
-	  	font-family: "Roboto Condensed";
+		font-size   : 1.8rem;
+		line-height : 1.5;
+		color       : $brand-danger;
+	  	font-family : "Roboto Condensed";
 	}
 
 	&__image {
@@ -33,10 +34,9 @@
 	  	font-weight    : 400;
 		text-transform : uppercase;
 		font-size      : 1.4rem;
-		padding        : 2px 0;
 		line-height    : 1.22em;
 		text-align     : center;
-		line-height    : 1.3;
+		line-height    : 1.5;
 
 		a:hover {
 			@extend %animate-all-default;
@@ -53,9 +53,8 @@
 
 	&__price,
 	&__price--large {
-		padding        : 5px 0;
 		margin         : 0 auto;
-		line-height    : 22px;
+		line-height    : 1.5;
 		font-family    : $font-family-condensed;
 	  	font-weight    : 400;
 		text-transform : uppercase;
@@ -97,10 +96,6 @@
 		.strike {
 			text-decoration : line-through;
 		}
-	}
-
-	&__price {
-		height : 35px;
 	}
 
 	&__price--large {
