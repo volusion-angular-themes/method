@@ -22,10 +22,7 @@
 		.img-responsive {
 			margin  : 0 auto;
 			display : block;
-
-			&:hover {
-				@extend %animate-all-default;
-			}
+			@extend %animate-all-default;
 		}
 	}
 
