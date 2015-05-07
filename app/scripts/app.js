@@ -77,14 +77,11 @@ angular.module('methodApp', [
 
 		translate.addParts('message');
 
-		$rootScope.$on('$stateChangeStart', function (event, toState) {
+		$rootScope.$on('$stateChangeStart', function () {
 			$window.scrollTo(0, 0);
 			snapRemote.close();
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
-				if(toState.name !== 'checkout.ship-method'){
-					event.preventDefault();
-				}
 			}
 			else{
 				$window.scrollTo(0, 0);
