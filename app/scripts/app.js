@@ -82,9 +82,6 @@ angular.module('methodApp', [
 			snapRemote.close();
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
-				if(toState.name !== 'checkout.ship-method'){
-					event.preventDefault();
-				}
 			}
 			else{
 				$window.scrollTo(0, 0);
