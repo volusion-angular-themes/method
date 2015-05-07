@@ -77,7 +77,7 @@ angular.module('methodApp', [
 
 		translate.addParts('message');
 
-		$rootScope.$on('$stateChangeStart', function (event, toState) {
+		$rootScope.$on('$stateChangeStart', function () {
 			$window.scrollTo(0, 0);
 			snapRemote.close();
 			if($rootScope.isCartOpen){
