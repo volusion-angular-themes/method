@@ -1,12 +1,3 @@
-//Overrides - might not need this section anymore
-@import "th/overrides/alert";
-@import "th/overrides/faceted-search";
-@import "th/overrides/labeled-radio";
-@import "th/overrides/product-option";
-@import "th/overrides/slider";
-@import "th/overrides/sort-search";
-@import "th/overrides/zoom";
-
 //Misc
 @import "th/category-search";
 @import "th/facet-search";
@@ -39,3 +30,12 @@
 @import "th/elist";
 @import "th/home-content";
 @import "th/social-icons";
+
+//Overrides - might not need this section anymore
+@import "th/overrides/alert";
+@import "th/overrides/faceted-search";
+@import "th/overrides/labeled-radio";
+@import "th/overrides/product-option";
+@import "th/overrides/slider";
+@import "th/overrides/sort-search";
+@import "th/overrides/zoom";
