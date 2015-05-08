@@ -13,10 +13,13 @@
 	<div class="th-product__price">
 		<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
 			<span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">
-				{{product.pricing.regularPrice | currency}}</span>
-			<span class="th-price-text th-text-left" data-translate="product.regularPriceLabel"></span></span>
+				{{product.pricing.regularPrice | currency}}
+			</span>
+			<span class="th-price-text th-text-left" data-translate="product.regularPriceLabel"></span>
+		</span>
 		<span class="th-price--now" data-ng-show="product.pricing.salePrice > 0">
 			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
-			<span class="th-price-text" data-translate="product.nowPriceLabel"></span></span>
+			<span class="th-price-text" data-translate="product.nowPriceLabel"></span>
+		</span>
 	</div>
 </div>
