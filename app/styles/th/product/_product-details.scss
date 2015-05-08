@@ -25,9 +25,11 @@
 		}
 	}
 
-	&__availability {
-		background-color : cornsilk;
-		padding          : 7px 15px;
+	.th-product__availability {
+
+		@include respond-to(sm-and-up) {
+			text-align : left;
+		}
 	}
 
 	&__options {
