@@ -12,6 +12,12 @@
 		text-align: center;
 	}
 
+	&__free-shipping{
+		font-size: 14px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
 	&__image {
 		position : relative;
 		padding  : 7px 0;
@@ -25,13 +31,19 @@
 			display : block;
 			@extend %animate-all-default;
 		}
+
+		img{
+
+			@media (max-width: $screen-xs){
+				max-width: 200px;
+			}
+		}
 	}
 
 	&__name {
 		font-family    : $font-family-condensed;
 	  	font-weight    : 400;
-		text-transform : uppercase;
-		font-size      : 1.4rem;
+		font-size      : 1.6rem;
 		line-height    : 1.22em;
 		text-align     : center;
 		line-height    : 1.5;
@@ -55,7 +67,6 @@
 		line-height    : 1.5;
 		font-family    : $font-family-condensed;
 	  	font-weight    : 400;
-		text-transform : uppercase;
 		color          : $text-color;
 
 	  &--sold-out {
@@ -135,21 +146,18 @@
 	}
 
 	.th-product__image {
-		float         : left;
-		padding-right : 15px;
 
 		img {
-			max-width : 90px;
+			max-width: 150px;
 		}
-	}
-
-	.th-product__name,
-	.th-product__price {
-		text-align : left;
 	}
 
 	.th-product__name {
 		margin-top : 12px;
+	}
+	.th-product__name,
+	.th-product__price {
+		text-align : center;
 	}
 }
 
@@ -184,20 +192,13 @@
 		.th-product {
 			padding-top    : 15px;
 			padding-bottom : 25px;
-		}
 
-		.th-product__image {
-			float         : none;
-			padding-right : 0;
+			&__image{
 
-			img {
-				max-width : 100%;
+				img{
+					max-width : 80%;
+				}
 			}
-		}
-
-		.th-product__name,
-		.th-product__price {
-			text-align : center;
 		}
 
 		.th-product__name {

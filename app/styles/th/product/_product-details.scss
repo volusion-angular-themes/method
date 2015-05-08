@@ -25,7 +25,8 @@
 		}
 	}
 
-	.th-product__availability {
+	.th-product__availability,
+	.th-product__free-shipping{
 
 		@include respond-to(sm-and-up) {
 			text-align : left;
@@ -43,7 +44,6 @@
 	  	font-weight    : 400;
 		font-size      : 3.0rem;
 		text-align     : center;
-		text-transform : uppercase;
 
 		@include respond-to(xs) {
 			line-height : 30px;

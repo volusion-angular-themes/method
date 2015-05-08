@@ -62,14 +62,17 @@
 								<span class="th-price-text" data-translate="product.nowPriceLabel">Now</span></span>
 						<span data-ng-cloak data-ng-if="product.pricing.salePrice > 0">Save {{((product.pricing.regularPrice - product.pricing.salePrice) * 100 / product.pricing.regularPrice ).toFixed(0)}}%</span>
 					</div>
-						<div data-ng-click="goToReviews()" class="th-product-rating" data-ng-if="product.avgRating">
-							<div data-vn-rating
-								 class="th-product-rating__stars"
-							     rating-value="product.avgRating"
-							     title="" editable="false">
-							</div>
-							<span class="th-product-rating__count">(41)</span>
+					<div data-ng-click="goToReviews()" class="th-product-rating" data-ng-if="product.avgRating">
+						<div data-vn-rating
+							 class="th-product-rating__stars"
+							 rating-value="product.avgRating"
+							 title="" editable="false">
 						</div>
+						<span class="th-product-rating__count">(41)</span>
+					</div>
+					<div class="th-product__free-shipping">
+						<i class="fa fa-truck"></i> Free Shipping
+					</div>
 					<div class="th-product__availability" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders" data-ng-cloak>
 						Not in stock
 					</div>
