@@ -9,6 +9,11 @@
 		line-height : 1.5;
 		color       : $brand-danger;
 	  	font-family : "Roboto Condensed";
+		text-align: center;
+
+		@include respond-to(sm-and-up) {
+			text-align : left;
+		}
 	}
 
 	&__image {
