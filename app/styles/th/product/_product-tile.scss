@@ -13,7 +13,7 @@
 	}
 
 	&__free-shipping{
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 1.5;
 		text-align: center;
 	}
@@ -90,7 +90,7 @@
 			&--sale {
 				color : $brand-info;
 				font-size: 18px;
-				
+
 				+ .th-price--reg{
 					font-size: 14px;;
 				}

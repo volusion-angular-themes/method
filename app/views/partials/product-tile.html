@@ -7,9 +7,6 @@
 	<div class="th-product-tile__name">
 		<a data-ng-href="{{product.url}}">{{product.name}}</a>
 	</div>
-	<div class="th-product-tile__free-shipping">
-		<i class="fa fa-truck"></i> Free Shipping
-	</div>
 	<div class="th-product-tile__availability" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">
 		Not in stock
 	</div>
@@ -26,5 +23,8 @@
 				Save {{ 100 - (product.pricing.salePrice / product.pricing.regularPrice) * 100 | number:0}}%
 			</span>
 		</div>
+	</div>
+	<div class="th-product-tile__free-shipping">
+		<i class="fa fa-truck"></i> Free Shipping
 	</div>
 </div>
