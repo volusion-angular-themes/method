@@ -1,28 +1,30 @@
-<div class="th-product">
-	<div class="th-product__image" data-ng-class="{'th-product__image--sold-out': product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders}">
+<div class="th-product-tile">
+	<div class="th-product-tile__image" data-ng-class="{'th-product-tile__image--sold-out': product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders}">
 		<a data-ng-href="{{ product.url }}">
 			<img vn-product-image product="product" default-image="defaultProductImage">
 		</a>
 	</div>
-	<div class="th-product__name">
+	<div class="th-product-tile__name">
 		<a data-ng-href="{{product.url}}">{{product.name}}</a>
 	</div>
-	<div class="th-product__free-shipping">
+	<div class="th-product-tile__free-shipping">
 		<i class="fa fa-truck"></i> Free Shipping
 	</div>
-	<div class="th-product__availability" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">
+	<div class="th-product-tile__availability" data-ng-if="product.availability.quantityInStock <= 0 && !product.availability.allowBackOrders ">
 		Not in stock
 	</div>
-	<div class="th-product__price">
-		<span class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
+	<div class="th-product-tile__price">
+		<div class="th-price--sale" data-ng-if="product.pricing.salePrice > 0">
+			<span class="th-price-text" data-translate="product.salePriceLabel"></span>
+			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
+		</div>
+		<div class="th-price--reg" data-ng-show="product.pricing.regularPrice > 0">
 			<span class="th-price" data-ng-class="{strike: product.pricing.salePrice > 0}">
 				{{product.pricing.regularPrice | currency}}
 			</span>
-			<span class="th-price-text th-text-left" data-translate="product.regularPriceLabel"></span>
-		</span>
-		<span class="th-price--now" data-ng-show="product.pricing.salePrice > 0">
-			<span class="th-price">{{product.pricing.salePrice | currency}}</span>
-			<span class="th-price-text" data-translate="product.nowPriceLabel"></span>
-		</span>
+			<span class="th-price--percent-off" data-ng-show="product.pricing.salePrice > 0">
+				Save {{ 100 - (product.pricing.salePrice / product.pricing.regularPrice) * 100 | number:0}}%
+			</span>
+		</div>
 	</div>
 </div>
