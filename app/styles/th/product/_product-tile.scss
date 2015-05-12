@@ -1,0 +1,117 @@
+.th-product-tile {
+	position       : relative;
+	text-align     : center;
+	padding-top    : 15px;
+	padding-bottom : 25px;
+
+	&__availability {
+		font-size   : 1.8rem;
+		line-height : 1.5;
+		color       : $brand-danger;
+		font-family : "Roboto Condensed";
+		text-align: center;
+	}
+
+	&__free-shipping{
+		font-size: 12px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	&__image {
+		position : relative;
+		padding  : 7px 0;
+
+		&--sold-out {
+			opacity: 0.5;
+		}
+
+		.img-responsive {
+			margin  : 0 auto;
+			display : block;
+			@extend %animate-all-default;
+		}
+
+		img{
+
+			@media (max-width: $screen-xs){
+				max-width: 200px;
+			}
+		}
+	}
+
+	&__name {
+		font-family    : $font-family-condensed;
+		font-weight    : 400;
+		font-size      : 1.6rem;
+		line-height    : 1.22em;
+		text-align     : center;
+		line-height    : 1.5;
+
+		a:hover {
+			@extend %animate-all-default;
+		}
+	}
+
+	&__new,
+	&__sale {
+		position : absolute;
+		top      : 15px;
+		right    : 15px;
+		z-index  : 1;
+	}
+
+	&__price,
+	&__price--large {
+		margin         : 0 auto;
+		line-height    : 1.5;
+		font-family    : $font-family-condensed;
+		font-weight    : 400;
+		color          : $text-color;
+
+		&--sold-out {
+			color: lighten($text-color, 50%);
+		}
+
+
+		.th-price {
+			@include inline-block;
+			font-size    : inherit;
+			font-weight  : 500;
+			margin: 0;
+			padding: 0;
+
+			&--reg {
+				@include inline-block;
+				white-space : nowrap;
+				font-size: 18px;
+			}
+
+			&--sale {
+				color : $brand-info;
+				font-size: 18px;
+
+				+ .th-price--reg{
+					font-size: 14px;;
+				}
+			}
+		}
+
+		.th-price-text {
+			font-size: inherit;
+			vertical-align: middle;
+		}
+
+		.strike {
+			text-decoration : line-through;
+		}
+	}
+
+
+}
+
+
+
+
+
+
