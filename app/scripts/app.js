@@ -18,6 +18,7 @@ angular.module('methodApp', [
 	'textAngular',
 	'ui.router',
 	'ngRoute',
+	'slick',
 
 	// Volusion modules
 	'config',

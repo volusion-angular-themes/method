@@ -1,0 +1,36 @@
+.th-content-slider{
+
+	.slick-slider{
+
+		.slick-list{
+
+		}
+		.slick-prev{
+			left: 0;
+		}
+		.slick-next{
+			right: 0;
+		}
+		.slick-prev, .slick-next{
+			top: 0;
+			width: 100px;
+			height: 100%;
+			margin-top: 0;
+
+			&:before{
+				font-size: 30px;
+				opacity: 0.5;
+				transition: opacity .15s;
+				-webkit-transition: opacity .15s;
+				-moz-transition: opacity .15s;
+			}
+			&:hover:before{
+				opacity: 0.75;
+			}
+		}
+		.slick-dots{
+
+		}
+
+	}
+}

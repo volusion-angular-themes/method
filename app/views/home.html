@@ -1,15 +1,14 @@
 <!-- SLIDER -->
 <div class="container th-content-slider" data-ng-if="themeSettings.pages.home.slider.isEnabled">
-	<div class="vn-slider">
-		<carousel data-interval="themeSettings.pages.home.slider.interval">
-			<slide data-ng-repeat="slide in themeSettings.pages.home.slider.slides" data-active="slide.active">
-				<a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}">
-					<div class="vn-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }"></div>
-				</a>
-			</slide>
-		</carousel>
-	</div>
-</div><!-- /.container carousel -->
+	<slick dots="true" infinite="true" speed="300" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" class="vn-slider">
+		<div data-ng-repeat="slide in themeSettings.pages.home.slider.slides" data-active="slide.active">
+			<a href="{{slide.linksTo}}" title="{{slide.headline}} - {{slide.subHeadline}}">
+				<div class="vn-slider__slide" data-ng-style="{'background-image':'url({{slide.imageUrl}})' }"></div>
+			</a>
+		</div>
+	</slick>
+</div>
+
 
 <div class="container th-home-content">
 
