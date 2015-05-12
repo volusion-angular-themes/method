@@ -1,10 +1,21 @@
-.th-content-slider{
+.th-slider{
+
+	&__slide{
+		height              : 237px;
+		background-size     : cover;
+		background-position : center center;
+
+		@include respond-to(sm) {
+			height : 405px;
+		}
+		@include respond-to(md-and-up) {
+			height : 400px;
+		}
+	}
 
 	.slick-slider{
+		margin-bottom: 50px;
 
-		.slick-list{
-
-		}
 		.slick-prev{
 			left: 0;
 		}
@@ -29,8 +40,20 @@
 			}
 		}
 		.slick-dots{
-
+			bottom: -40px;
 		}
+	}
 
+	@media(max-width: $screen-xs){
+
+		.slick-slider{
+			.slick-prev, .slick-next{
+				width: 60px;
+
+				&:before{
+					font-size: 25px;
+				}
+			}
+		}
 	}
 }
