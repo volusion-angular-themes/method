@@ -1,32 +1,18 @@
-.snap-content {
-	background-color: $body-bg; //required to set a background color, otherwise the snap menu will show through content pages
-}
-
-//Reverses snap styles, so that we can use window.scrollTo
-html, body{
-	overflow: auto;
-}
-.snap-content{
-	overflow: initial;
-}
-//Restores snap styles when the side panels are open
-.snapjs-left,
-.cart-active{
-	overflow: hidden;
-
-	.snap-content{
-		overflow: hidden;
-	}
-
-	.th-mobile-menu{
-		visibility: visible;
-	}
-}
-
 .th-mobile-menu {
 	background-color : $body-bg;
 	border-right     : 1px solid $hr-border;
-	visibility       : hidden;
+	height           : 100%;
+	width            : 250px;
+	overflow         : auto;
+	position: fixed;
+	top: 0;
+	left: -250px;
+	z-index: 1001;
+	transition: all .4s;
+
+	&--open{
+		left: 0;
+	}
 
 	&__list {
 		padding : 20px 15px 0;
@@ -37,6 +23,23 @@ html, body{
 			li > a { padding-bottom: 2px }
 		}
 	}
+}
+
+.th-mobile-menu-overlay{
+	position         : fixed;
+	top              : 0;
+	left             : 0;
+	background-color : rgba(0,0,0,.5);
+	cursor           : default;
+	opacity          : 0;
+	transition       : opacity .4s;
+}
+
+.mobile-menu-active .th-mobile-menu-overlay{
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+	opacity: 1;
 }
 
 .th-mobile-list {

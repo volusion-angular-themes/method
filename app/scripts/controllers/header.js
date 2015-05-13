@@ -7,8 +7,8 @@
  */
 
 angular.module('Volusion.controllers')
-	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnSearchManager', 'snapRemote',
-		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, vnContentManager, vnAppConfig, vnSearchManager, snapRemote) {
+	.controller('HeaderCtrl', ['$rootScope', '$scope', '$timeout', '$filter', 'translate', 'vnCart', 'vnContentManager', 'vnAppConfig', 'vnSearchManager',
+		function ($rootScope, $scope, $timeout, $filter, translate, vnCart, vnContentManager, vnAppConfig, vnSearchManager) {
 
 			'use strict';
 
@@ -23,27 +23,6 @@ angular.module('Volusion.controllers')
 
 			$scope.getCartItemsCount = function () {
 				return vnCart.getCartItemsCount();
-			};
-
-			$rootScope.snapToggle = function (side) {
-				if ($scope.device.info.shortname === 'desktop') {
-					snapRemote.toggle(side);
-				} else {
-					snapRemote.getSnapper().then(function(snapper) {
-						if(side === snapper.state().state) {
-							snapper.close();
-						} else {
-							snapper.expand(side);
-						}
-					});
-				}
-			};
-
-			$rootScope.openLeftNav = function(){
-				$rootScope.closeCart();
-				snapRemote.getSnapper().then(function(snapper) {
-					snapper.open('left');
-				});
 			};
 
 			$scope.$watch(

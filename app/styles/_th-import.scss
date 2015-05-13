@@ -5,6 +5,7 @@
 //Components
 @import "th/components/search";
 @import "th/components/search-popout";
+@import "th/components/carousel";
 
 //Page
 @import "th/page/main-content-area";
@@ -32,11 +33,10 @@
 @import "th/home-content";
 @import "th/social-icons";
 
-//Overrides - might not need this section anymore
+//Overrides
 @import "th/overrides/alert";
 @import "th/overrides/faceted-search";
 @import "th/overrides/labeled-radio";
 @import "th/overrides/product-option";
-@import "th/overrides/slider";
 @import "th/overrides/sort-search";
 @import "th/overrides/zoom";

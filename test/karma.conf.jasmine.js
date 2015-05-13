@@ -41,6 +41,8 @@ module.exports = function(config) {
 			'../bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 			'../bower_components/angular-aria/angular-aria.js',
 			'../bower_components/angular-breadcrumb/release/angular-breadcrumb.js',
+			'../bower_components/slick-carousel/slick/slick.min.js',
+			'../bower_components/angular-slick/dist/slick.js',
 			'../app/scripts/**/*.js',
 			'mock/**/*.js',
 			'spec/**/*.js'
