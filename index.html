@@ -1,18 +1,36 @@
 <!doctype html>
 <html class="no-js" ng-app="methodApp" data-ng-strict-di>
-<head data-vn-meta-tags data-title="seo.metaTagTitle"
-	data-description="seo.metaTagDescription" data-keywords="seo.metaTagKeywords"
-	data-robots="seo.enableRobotsMetatags" data-to-append="seo.globallyAppendedMetatags"
-	data-social-page-title="social.pageTitle" data-social-page-url="social.pageUrl"
-	data-social-image-url="social.imageUrl">
+<head prefix="og: http://ogp.me/ns#
+     	fb: http://ogp.me/ns/fb#
+     	product: http://ogp.me/ns/product#"
+	  data-vn-meta-tags
+	  data-title="seo.metaTagTitle"
+	  data-description="seo.metaTagDescription"
+	  data-keywords="seo.metaTagKeywords"
+	  data-robots="seo.enableRobotsMetatags"
+	  data-to-append="seo.globallyAppendedMetatags"
+
+	  data-social-twitter-card-type="social.twitterCardType"
+	  data-social-twitter-site="social.twitterName"
+	  data-social-twitter-creator="social.twitterName"
+	  data-social-twitter-title="social.pageTitle"
+	  data-social-twitter-image="social.imageUrl"
+
+	  data-social-page-type="social.pageType"
+	  data-social-page-title="social.pageTitle"
+	  data-social-page-description="social.pageDescription"
+	  data-social-page-url="social.pageUrl"
+	  data-social-image-url="social.imageUrl"
+	  data-social-product-price="social.productPrice"
+	  data-social-product-currency="social.productCurrency">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="fragment" content="!" />
 	<title>Volusion AngularJS Method Theme</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-	<link rel="stylesheet" href="/styles/b15531da.vendor.css">
-	<link rel="stylesheet" href="/styles/220adf71.main.css">
+	<link rel="stylesheet" href="/styles/c5d3b6a6.vendor.css">
+	<link rel="stylesheet" href="/styles/c0966bc8.main.css">
 	<link rel="stylesheet" ng-href="{{ overridesCSS }}">
 	<base href="/">
 </head>
@@ -22,32 +40,24 @@
 	to improve your experience.</p>
 	<![endif]-->
 
-	<div data-snap-drawers>
+	<!-- Header -->
+	<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
-		<!-- Mobile Menu -->
-		<div id="mobile-menu" data-ng-include=" 'views/partials/mobile-menu.html' "></div>
+	<!-- Main Content -->
+	<div id="main-content-area" role="main" ui-view="" ></div>
 
-		<!-- Checkout -->
-		<div id="shopping-cart" data-ng-include=" 'views/partials/shopping-cart.html' "></div>
+	<!-- Footer -->
+	<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
 
-	</div>
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" data-vn-mobile-menu></div>
 
-	<div snap-content data-snap-ignore="true">
+	<!-- Cart -->
+	<div id="shopping-cart" data-vn-cart></div>
 
-		<!-- Header -->
-		<div id="header" ng-include=" 'views/partials/header.html' "></div>
+	<script src="scripts/9059b6f9.vendor.js"></script>
 
-		<!-- Main Content -->
-		<div id="main-content-area" role="main" ui-view="" ></div>
-
-		<!-- Footer -->
-		<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
-
-	</div>
-
-	<script src="scripts/8db43d90.vendor.js"></script>
-
-	<script src="/scripts/869a06bf.scripts.js"></script>
+	<script src="/scripts/a8503ca8.scripts.js"></script>
 
 </body>
 </html>

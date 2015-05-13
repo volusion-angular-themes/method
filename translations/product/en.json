@@ -1,7 +1,7 @@
 {
 	"product": {
 		"regularPriceLabel": "Reg",
-		"nowPriceLabel": "Now",
+		"salePriceLabel": "Sale",
 		"addToCart": "Add to Cart",
 		"addToCartMissing": "Please select {missingOptions} to add this to your cart",
 		"addToCartNotInStock": "Sorry, this product is not in stock",
