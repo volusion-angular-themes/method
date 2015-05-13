@@ -61,7 +61,7 @@ angular.module('Volusion.toolboxCommon')
 		'use strict';
 
 		return {
-			templateUrl: 'scripts/directives/nav-menu/vn-nav.tpl.html',
+			templateUrl: 'views/partials/vn-nav.tpl.html',
 			restrict   : 'EA',
 			replace    : true,
 			scope      : {
