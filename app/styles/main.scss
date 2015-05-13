@@ -14,8 +14,11 @@
 // Import Bootstrap-Sass from Bower - we don't edit these
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 
-// Import all 'th' (theme) stylesheets
-@import 'th-import';
-
 // Customize Bootstrap default styling
 @import 'base/bootstrap-style';
+
+// Import all toolbox styles
+@import "bower_components/vn-toolbox-common/app/styles/main.scss";
+
+// Import all 'th' (theme) stylesheets
+@import 'th-import';

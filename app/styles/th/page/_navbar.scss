@@ -1,5 +1,10 @@
 .th-navbar {
 	min-height : 44px;
+	position: fixed;
+	width: 100%;
+	box-shadow: 0px 0px 20px -3px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 20px -3px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0px 0px 20px -3px rgba(0,0,0,.3);
 
 	.th-menu-container {
 		min-height : 44px;
@@ -38,6 +43,7 @@
 
 @include respond-to(sm-and-up) {
 	.th-navbar {
+
 		.th-menu-container {
 			min-height : 74px;
 		}
@@ -67,6 +73,11 @@
 
 @include respond-to(md-and-up) {
 	.th-navbar {
+		position: static;
+		box-shadow: none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+
 		.th-menu-container {
 			min-height : 92px;
 		}
@@ -107,7 +118,8 @@
 				> a {
 					border-left    : 1px solid $navbar-default-border;
 					display        : inline-block;
-					font-family    : $font-family-condensed-reg;
+					font-family    : $font-family-condensed;
+				  	font-weight    : 400;
 					font-size      : 1.6rem;
 					padding-left   : 0.9em;
 					padding-right  : 0.9em;

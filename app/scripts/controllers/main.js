@@ -1,13 +1,23 @@
 angular.module('Volusion.controllers')
-	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader',
-		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader) {
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$window', '$timeout', 'vnApi', 'themeSettings', 'vnSiteConfig', 'vnImagePreloader', 'vnDevice', 'paypalConfig',
+		function ($scope, $rootScope, $location, $window, $timeout, vnApi, themeSettings, vnSiteConfig, vnImagePreloader, vnDevice, paypalConfig) {
 
 			'use strict';
 
 			$rootScope.seo = {};
 
 			vnSiteConfig.getConfig().then(function (response) {
-				$scope.config = response.data;
+
+				$rootScope.config = response.data;
+				$rootScope.config.paypal = paypalConfig;
+
+				$rootScope.seo = response.data.seo;
+
+				if($rootScope.config.checkout.isPaypalExpressAvailable){
+					angular.element('body').append('<script src="' + $rootScope.config.paypal.checkoutUrl + '" async></script>');
+				}
+
+				$rootScope.$emit('config.updated');
 			});
 
 			themeSettings.getThemeSettings().then(function(response) {
@@ -20,6 +30,19 @@ angular.module('Volusion.controllers')
 				});
 
 				vnImagePreloader.preloadImages(imagesToPreload);
+			});
+
+			vnDevice.init({
+				breakpoints: {
+					phone: 768,
+					tablet: 991
+				},
+				listeners: {
+					location: false,
+					orientation: true,
+					network: false,
+					resize: false
+				}
 			});
 
 		}]);

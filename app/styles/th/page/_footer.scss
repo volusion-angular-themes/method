@@ -39,7 +39,8 @@
 	}
 
 	&__title {
-		font-family    : $font-family-condensed-bold;
+		font-family    : $font-family-condensed;
+	  	font-weight    : bold;
 		font-size      : 1.4rem;
 		margin-top     : 10px;
 		text-transform : uppercase;

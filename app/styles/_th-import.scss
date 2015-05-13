@@ -1,56 +1,11 @@
-//Overrides - might not need this section anymore
-@import "th/overrides/alert";
-@import "th/overrides/dropzone";
-@import "th/overrides/faceted-search";
-@import "th/overrides/labeled-radio";
-@import "th/overrides/product-option";
-@import "th/overrides/slider";
-@import "th/overrides/sort-search";
-@import "th/overrides/zoom";
-
 //Misc
-@import "th/carousel";
 @import "th/category-search";
 @import "th/facet-search";
-@import "th/global";
-@import "th/image";
-@import "th/link";
-@import "th/list";
-@import "th/popover";
-@import "th/rating";
-@import "th/sort-search";
 
 //Components
-@import "th/components/vn-dropdown";
-@import "th/components/modal";
-@import "th/components/optionbox";
-@import "th/components/placeholder";
 @import "th/components/search";
 @import "th/components/search-popout";
-@import "th/components/quantity-counter";
-@import "th/shopping-cart";
-@import "th/popover";
-@import "th/components/app-message";
-
-//Checkout
-@import "th/checkout/checkout";
-@import "th/checkout/credit-card";
-@import "th/checkout/address";
-@import "th/checkout/thank-you";
-@import "th/checkout/login";
-@import "th/checkout/review";
-@import "th/checkout/shipping-method";
-
-//My Account
-@import "th/my-account/my-account";
-@import "th/my-account/orders-list";
-@import "th/my-account/order-list-view";
-@import "th/my-account/order-table";
-@import "th/my-account/order-detail";
-@import "th/my-account/breadcrumbs";
-@import "th/my-account/payment-profiles";
-@import "th/my-account/change-email";
-@import "th/my-account/change-password";
+@import "th/components/carousel";
 
 //Page
 @import "th/page/main-content-area";
@@ -64,6 +19,7 @@
 
 //Product
 @import "th/product/product";
+@import "th/product/product-tile";
 @import "th/product/product-description";
 @import "th/product/product-details";
 @import "th/product/product-view";
@@ -73,7 +29,14 @@
 //Theme Components
 @import "th/cart-summary";
 @import "th/category";
-@import "th/dropdown";
 @import "th/elist";
 @import "th/home-content";
 @import "th/social-icons";
+
+//Overrides
+@import "th/overrides/alert";
+@import "th/overrides/faceted-search";
+@import "th/overrides/labeled-radio";
+@import "th/overrides/product-option";
+@import "th/overrides/sort-search";
+@import "th/overrides/zoom";

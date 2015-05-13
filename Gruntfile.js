@@ -144,7 +144,7 @@ module.exports = function (grunt) {
 			},
 			all    : [
 				'Gruntfile.js',
-				'<%= yeoman.app %>/scripts/{,*/}*.js'
+				'<%= yeoman.app %>/scripts/**/*.js'
 			],
 			test   : {
 				options: {
@@ -217,7 +217,7 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					src: [
-						'<%= yeoman.dist %>/scripts/{,*/}*.js',
+						'<%= yeoman.dist %>/scripts/**/*.js',
 						'<%= yeoman.dist %>/styles/{,*/}*.css',
 						'!<%= yeoman.dist %>/styles/overrides.css',
 						//'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
@@ -232,8 +232,7 @@ module.exports = function (grunt) {
 
 		// The following *-min tasks produce minified files in the dist folder
 		cssmin      : {
-			options: {},
-
+			options: {}
 		},
 
 		imagemin: {
@@ -318,7 +317,7 @@ module.exports = function (grunt) {
 		concat    : {
 			js       : {
 				dest: '.tmp/concat/scripts/scripts.js',
-				src : '<%= yeoman.app %>/scripts/{,*/}/*.js'
+				src : '<%= yeoman.app %>/scripts/**/*.js'
 			},
 			templates: {
 				dest: '.tmp/concat/scripts/scripts.js',
@@ -405,17 +404,13 @@ module.exports = function (grunt) {
 			jasmine: {
 				configFile: 'test/karma.conf.jasmine.js',
 				singleRun : true
-			},
-			mocha  : {
-				configFile: 'test/karma.conf.mocha.js',
-				singleRun : true
 			}
 		},
 
 		sass         : {
 			dist: {
 				options: {
-					style: 'expanded' //We will change this to compressed later, just for testing
+					outputStyle: 'compressed' //We will change this to compressed later, just for testing
 				},
 				files  : {
 					//all the sass needs to be in one css file
@@ -450,20 +445,20 @@ module.exports = function (grunt) {
 		watch        : {
 			karma: {
 				files: ['<%= yeoman.app %>/settings/app.js',
-					'<%= yeoman.app %>/scripts/{,*/}*.js',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js'],
+					'<%= yeoman.app %>/scripts/**/*.js',
+					'bower_components/vn-toolbox-common/dist/vn-toolbox-public.js'],
 				tasks: ['clean:server',
 					'newer:jshint:all',
 					'karma']
 			},
 			dev  : {
 				files: ['<%= yeoman.app %>/settings/app.js',
-					'<%= yeoman.app %>/scripts/{,*/}*.js',
+					'<%= yeoman.app %>/scripts/**/*.js',
 					'bower_components/vn-toolbox-common/dist/vn-toolbox-common.js',
 					'<%= yeoman.app %>/*.html',
 					'<%= yeoman.app %>/views/**/*.html',
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
-					'bower_components/vn-toolbox-common/dist/vn-toolbox-common-styles.css'],
+					'bower_components/vn-toolbox-common/app/styles/**/*.{scss,sass}'],
 				tasks: ['sass',							//do SASS compilation which generates main.css,
 					//rest of files are being served from app folder
 				],
@@ -518,6 +513,13 @@ module.exports = function (grunt) {
 		}
 
 		grunt.log.writeln('API URL set for the environment "' + name + '" - ' + server + version);
+
+		// grunt.log.writeln('Switching vn-toolbox-public to vn-toolbox-common');
+		// var bowerJson = require('./bower.json');
+		// delete bowerJson.dependencies['vn-toolbox-public'];
+		// bowerJson.dependencies['vn-toolbox-common'] = '*';
+		// var fs = require('fs');
+		// fs.writeFileSync('./bower.json', JSON.stringify(bowerJson, null, 2));
 
 		grunt.config.set('ENVConstant', {
 			name       : name,
@@ -618,11 +620,16 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('get_toolbox_dependencies', 'Add VN Toolbox Dependencies to bower.json', function () {
 		var fs = require('fs');
-		var _ = require('lodash');
-		var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
-		var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
-		_.extend(origBower.dependencies,  vnBower.dependencies);
-		fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');
+		fs.exists('bower_components/vn-toolbox-common/bower.json', function (exists) {
+			if(exists){
+				var _ = require('lodash');
+				var vnBower = JSON.parse(fs.readFileSync('bower_components/vn-toolbox-common/bower.json', 'utf8'));
+				var origBower = JSON.parse(fs.readFileSync('bower.json', 'utf8'));
+				_.extend(origBower.dependencies,  vnBower.dependencies);
+				fs.writeFileSync('bower.json', JSON.stringify(origBower, undefined, 2), 'utf8');
+			}
+		});
+
 	});
 
 	grunt.registerTask('default', function () {
