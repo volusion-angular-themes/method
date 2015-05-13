@@ -14,10 +14,10 @@ angular.module('methodApp', [
 	// Third party modules
 	'ui.bootstrap',
 	'pascalprecht.translate',
-	'snap',
 	'textAngular',
 	'ui.router',
 	'ngRoute',
+	'slick',
 
 	// Volusion modules
 	'config',
@@ -66,8 +66,8 @@ angular.module('methodApp', [
 			  });
 	}])
 
-.run(['snapRemote', '$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService',
-	function (snapRemote, $rootScope, $window, themeSettings, vnCart, translate, vnModalService) {
+.run(['$rootScope', '$window', 'themeSettings', 'vnCart', 'translate', 'vnModalService',
+	function ($rootScope, $window, themeSettings, vnCart, translate, vnModalService) {
 
 		'use strict';
 
@@ -79,14 +79,18 @@ angular.module('methodApp', [
 
 		$rootScope.$on('$stateChangeStart', function () {
 			$window.scrollTo(0, 0);
-			snapRemote.close();
+
 			if($rootScope.isCartOpen){
 				$rootScope.closeCart();
 			}
 			else{
 				$window.scrollTo(0, 0);
-				snapRemote.close();
 			}
+
+			if($rootScope.isMobileMenuOpen){
+				$rootScope.closeMobileMenu();
+			}
+
 		});
 
 		$rootScope.$on('VN_HTTP_500_ERROR', function () {

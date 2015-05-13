@@ -1,6 +1,19 @@
 #main-content-area{
 
-  > div{
-	height: 100%;
-  }
+	> div{
+		height: 100%;
+	}
+
+	@media(max-width: $screen-md){
+		padding-top: 75px;
+	}
+	@media(max-width: $screen-sm){
+		padding-top: 46px;
+	}
+
+}
+
+body.cart-active,
+body.mobile-menu-active{
+	overflow: hidden;
 }
