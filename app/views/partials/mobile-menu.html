@@ -1,7 +1,8 @@
 <a data-ng-click="closeMobileMenu()" class="th-mobile-menu-overlay"></a>
 
 <div class="th-mobile-menu"
-	 data-ng-controller="HeaderCtrl">
+	 data-ng-controller="HeaderCtrl"
+	 data-ng-class="{'th-mobile-menu--open' : isMobileMenuOpen, 'th-mobile-menu--closed' : !isMobileMenuOpen}">
 
 	<div class="hidden-md hidden-lg th-search">
         <div vn-search-form search-term="searchLocal" allow-collapse="false" show-search="showSearchMobile"></div>

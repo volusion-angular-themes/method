@@ -15,20 +15,16 @@ angular.module('Volusion.controllers')
 			templateUrl: '../views/partials/mobile-menu.html',
 			link : function postLink() {
 
-				var menu = $('.th-mobile-menu');
-
 				$rootScope.openMobileMenu = function(){
-					menu.removeClass('th-mobile-menu--closed');
-					menu.addClass('th-mobile-menu--open');
-					$('body').addClass('mobile-menu-active');
+					if($rootScope.isCartOpen){
+						$rootScope.closeCart();
+					}
+					angular.element('body').addClass('mobile-menu-active');
 					$rootScope.isMobileMenuOpen = true;
 					$rootScope.$emit('mobile-menu-open');
-					$rootScope.closeCart();
 				};
 				$rootScope.closeMobileMenu = function(){
-					menu.removeClass('th-mobile-menu--open');
-					menu.addClass('th-mobile-menu--closed');
-					$('body').removeClass('mobile-menu-active');
+					angular.element('body').removeClass('mobile-menu-active');
 					$rootScope.isMobileMenuOpen = false;
 					$rootScope.$emit('mobile-menu-closed');
 				};
