@@ -15,7 +15,6 @@ body {
 
 a:active,
 a:hover {
-	@extend %animate-all-default;
 	outline: none;
 	text-decoration: none;
 }
@@ -43,12 +42,11 @@ table th{
 // Buttons ================================================================
 
 .btn {
-	text-transform: uppercase;
 	font-family: $font-family-condensed;
 	font-weight: 500;
+	@extend %animate-all-default;
 
 	&:hover {
-		@extend %animate-all-default;
 		@extend %opacity-80;
 	}
 
@@ -63,7 +61,6 @@ table th{
 
 	&.btn-lg {
 		font-size: 1.6rem;
-		letter-spacing: 1px;
 	}
 
 	&.btn-grey-sm {

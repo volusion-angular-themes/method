@@ -31,8 +31,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 	<!-- build:css /styles/vendor.css -->
 	<!-- bower:css -->
-	<link rel="stylesheet" href="/../bower_components/angular-snap/angular-snap.css" />
 	<link rel="stylesheet" href="/../bower_components/fontawesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="/../bower_components/slick-carousel/slick/slick.css" />
+	<link rel="stylesheet" href="/../bower_components/slick-carousel/slick/slick-theme.css" />
 	<!-- endbower -->
 	<link rel="stylesheet" href="/bower_components/easyzoom/css/easyzoom.css" />
 	<!-- endbuild -->
@@ -46,28 +47,20 @@
 	to improve your experience.</p>
 	<![endif]-->
 
-	<div data-snap-drawers>
+	<!-- Header -->
+	<div id="header" ng-include=" 'views/partials/header.html' "></div>
 
-		<!-- Mobile Menu -->
-		<div id="mobile-menu" data-ng-include=" 'views/partials/mobile-menu.html' "></div>
+	<!-- Main Content -->
+	<div id="main-content-area" role="main" ui-view="" ></div>
 
-		<!-- Checkout -->
-		<div id="shopping-cart" data-vn-cart></div>
+	<!-- Footer -->
+	<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
 
-	</div>
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" data-vn-mobile-menu></div>
 
-	<div snap-content data-snap-ignore="true">
-
-		<!-- Header -->
-		<div id="header" ng-include=" 'views/partials/header.html' "></div>
-
-		<!-- Main Content -->
-		<div id="main-content-area" role="main" ui-view="" ></div>
-
-		<!-- Footer -->
-		<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
-
-	</div>
+	<!-- Cart -->
+	<div id="shopping-cart" data-vn-cart></div>
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
@@ -77,8 +70,6 @@
 	<script src="/../bower_components/angular-route/angular-route.js"></script>
 	<script src="/../bower_components/angular-animate/angular-animate.js"></script>
 	<script src="/../bower_components/angular-touch/angular-touch.js"></script>
-	<script src="/../bower_components/snapjs/snap.js"></script>
-	<script src="/../bower_components/angular-snap/angular-snap.js"></script>
 	<script src="/../bower_components/angular-seo/angular-seo.js"></script>
 	<script src="/../bower_components/jquery-waypoints/waypoints.js"></script>
 	<script src="/../bower_components/angulartics/src/angulartics.js"></script>
@@ -100,7 +91,10 @@
 	<script src="/../bower_components/angular-aria/angular-aria.js"></script>
 	<script src="/../bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
 	<script src="/../bower_components/d3/d3.js"></script>
+	<script src="/../bower_components/angular-messages/angular-messages.js"></script>
 	<script src="/../bower_components/vn-toolbox-common/dist/vn-toolbox-common.js"></script>
+	<script src="/../bower_components/slick-carousel/slick/slick.min.js"></script>
+	<script src="/../bower_components/angular-slick/dist/slick.js"></script>
 	<!-- endbower -->
 	<script src="/../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
 	<!-- endbuild -->
@@ -108,6 +102,7 @@
 	<!-- build:js({.tmp,app}) /scripts/scripts.js -->
 	<script src="scripts/config.js"></script>
 	<script src="scripts/app.js"></script>
+	<script src="scripts/directives/vn-mobile-menu.js"></script>
 	<script src="scripts/controllers/main.js"></script>
 	<script src="scripts/controllers/home.js"></script>
 	<script src="scripts/controllers/page.js"></script>

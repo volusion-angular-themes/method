@@ -1,5 +1,5 @@
 .th-product-details {
-	a:hover {
+	a {
 		@extend %animate-all-default;
 	}
 
@@ -25,9 +25,12 @@
 		}
 	}
 
-	&__availability {
-		background-color : cornsilk;
-		padding          : 7px 15px;
+	.th-product__availability,
+	.th-product__free-shipping{
+
+		@include respond-to(sm-and-up) {
+			text-align : left;
+		}
 	}
 
 	&__options {
@@ -41,7 +44,6 @@
 	  	font-weight    : 400;
 		font-size      : 3.0rem;
 		text-align     : center;
-		text-transform : uppercase;
 
 		@include respond-to(xs) {
 			line-height : 30px;
