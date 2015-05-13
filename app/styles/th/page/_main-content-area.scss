@@ -17,3 +17,43 @@ body.cart-active,
 body.mobile-menu-active{
 	overflow: hidden;
 }
+
+@-webkit-keyframes fadeIn {
+  0% {
+	opacity: 0;
+  }
+  100% {
+	opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+	opacity: 0;
+  }
+  100% {
+	opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+	opacity: 0;
+  }
+  100% {
+	opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+	opacity: 0;
+  }
+  100% {
+	opacity: 1;
+  }
+}
+.fade-in {
+  -webkit-animation: fadeIn .5s;
+  animation: fadeIn .5s;
+}
+[ui-view].ng-enter {
+  animation: fadeIn 0.5s;
+}
