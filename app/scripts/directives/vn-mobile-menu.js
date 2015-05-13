@@ -12,7 +12,7 @@ angular.module('Volusion.controllers')
 
 		return {
 			restrict   : 'A',
-			templateUrl: '../views/partials/mobile-menu.html',
+			templateUrl: 'views/partials/mobile-menu.html',
 			link : function postLink() {
 
 				$rootScope.openMobileMenu = function(){
