@@ -1,9 +1,11 @@
 {
-	"header": {
-		"toggleNavigation"      : "Toggle Navigation",
-		"myCart"                : "My Bag",
-		"signIn"                : "Sign In",
-	  	"signOut"               : "Sign Out",
-		"smartNavMoreLinkText"  : "More"
-	}
+  "header": {
+	"toggleNavigation": "Toggle Navigation",
+	"myCart": "My Bag",
+	"signIn": "Sign In",
+	"signOut": "Sign Out",
+	"signUp": "Sign Up",
+	"smartNavMoreLinkText": "More",
+	"searchPlaceHolder": "Search our store"
+  }
 }

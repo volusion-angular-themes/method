@@ -1,6 +1,6 @@
 {
 	"product": {
-		"regularPriceLabel": "Reg",
+		"regularPriceLabel": "Price",
 		"salePriceLabel": "Sale",
 		"addToCart": "Add to Cart",
 		"addToCartMissing": "Please select {missingOptions} to add this to your cart",

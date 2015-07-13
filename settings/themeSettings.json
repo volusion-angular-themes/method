@@ -1,91 +1,331 @@
 {
-	"general": {
-		"header": {
-			"content": {
-				"topPromo": "<a href=\"#\" class=\"top-promo\">Free shipping on all orders over $25!</a>"
-			}
-		},
-		"footer": {
-			"content"         : {
-				"column1"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
-				"column2"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">SHOP WITH US</li>&#10;&#10;<li><a href=\"/shoppingcart.asp\">View Cart</a></li>&#10;&#10;<li><a href=\"/my-account\">Your Account</a></li>&#10;&#10;<li><a href=\"/orders/list\">Order Tracking</a></li>&#10;&#10;<li><a href=\"/cindex.asp\">Site Map</a></li>&#10;&#10;<li><a href=\"/pindex.asp\">Product Index</a></li>&#10;</ul>",
-				"column3"  : "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title\">HELP &amp; SUPPORT</li>&#10;&#10;<li><a href=\"/features/contact-us\">Contact Us</a></li>&#10;&#10;<li><a href=\"/help.asp\">Help / FAQ</a></li>&#10;&#10;<li><a href=\"/aboutus.asp\">Toll Free 123-123-1234</a></li>&#10;</ul>",
-				"column4"  : "<div class=\"th-info-box\">&#10;<div class=\"th-footer__title\"><br/></div>&#10;</div>",
-				"bottomRow": "<div class=\"col-sm-12 col-md-7 col-md-push-5\">\n<ul class=\"th-footer__contact\">\n<li>1-800-555-5432</li>\n<li>24 hours a day 7 days a week</li>\n<li><a href=\"terms.asp\">Terms of Use</a></li>\n<li><a href=\"terms_privacy.asp\">Privacy Policy</a></li>\n</ul>\n</div>\n<div class=\"col-sm-12 col-md-5 col-md-pull-7\">\n<div class=\"th-footer__copyright\">&#169; Copyright 2015. All Rights Reserved. Built with <a href=\"http://www.volusion.com\" rel=\"nofollow\" target=\"_blank\">Volusion</a>.\n</div>\n</div>"
-			},
-			"newsletterSignup": {
-				"isEnabled": true
-			}
-		}
-	},
-	"pages"  : {
-		"home": {
-			"content1"        : "",
-			"content2"        : "",
-			"content3"        : "",
-			"featuredProducts": {
-				"isEnabled": true
-			},
-			"slider"          : {
-				"isEnabled": true,
-				"interval" : 4000,
-				"slides"   : [
-					{
-						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
-						"headline"   : "NewYearSaleathon",
-						"subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
-						"linksTo"    : "/all-products"
-					},
-					{
-						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
-						"headline"   : "NewSunriseCollection",
-						"subHeadline": "Wakeuptosomethinggood",
-						"linksTo"    : "/all-products"
-					},
-					{
-						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
-						"headline"   : "MiamiFashion",
-						"subHeadline": null,
-						"linksTo"    : "/all-products"
-					},
-					{
-						"imageUrl"   : "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
-						"headline"   : "MiamiFashion",
-						"subHeadline": null,
-						"linksTo"    : "/all-products"
-					}
-				]
-			},
-			"tiles"           : {
-				"isEnabled": true,
-				"tiles"    : {
-					"tile1": {
-						"imageUrl": "/images/homepage/tile1.jpg",
-						"linkTo"  : "/all-products"
-					},
-					"tile2": {
-						"imageUrl": "/images/homepage/tile2.jpg",
-						"linkTo"  : "/all-products"
-					},
-					"tile3": {
-						"imageUrl": "/images/homepage/tile3.jpg",
-						"linkTo"  : "/all-products"
-					},
-					"tile4": {
-						"imageUrl": "/images/homepage/tile4.jpg",
-						"linkTo"  : "/all-products"
-					},
-					"tile5": {
-						"imageUrl": "/images/homepage/tile5.jpg",
-						"linkTo"  : "/all-products"
-					},
-					"tile6": {
-						"imageUrl": "/images/homepage/tile6.jpg",
-						"linkTo"  : "/all-products"
-					}
-				}
-			}
-		}
-	},
-	"itemsPerPage" : 24
+  "general": {
+    "header": {
+      "content": {
+        "topPromo": "<a href=\"#\" class=\"top-promo merch-link\">Free shipping on all orders over $25!</a>"
+      }
+    },
+    "footer": {
+      "content": {
+        "column1": "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title h4\">COMPANY INFO</li>&#10;&#10;<li><a href=\"/aboutus\">About Us</a></li>&#10;&#10;<li><a href=\"/terms_privacy.asp\">Privacy Policy</a></li>&#10;&#10;<li><a href=\"/terms.asp\">Terms &amp; Conditions</a></li>&#10;&#10;<li><a href=\"/articles.asp?ID=57\">Shipping &amp; Deliveries</a></li>&#10;</ul>",
+        "column2": "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title h4\">SHOP WITH US</li>&#10;&#10;<li><a href=\"/shoppingcart.asp\">View Cart</a></li>&#10;&#10;<li><a href=\"/my-account\">Your Account</a></li>&#10;&#10;<li><a href=\"/orders/list\">Order Tracking</a></li>&#10;&#10;<li><a href=\"/cindex.asp\">Site Map</a></li>&#10;&#10;<li><a href=\"/pindex.asp\">Product Index</a></li>&#10;</ul>",
+        "column3": "<ul class=\"nav\">&#10;&#10;<li class=\"th-footer__title h4\">HELP &amp; SUPPORT</li>&#10;&#10;<li><a href=\"/features/contact-us\">Contact Us</a></li>&#10;&#10;<li><a href=\"/help.asp\">Help / FAQ</a></li>&#10;&#10;<li><a href=\"/aboutus.asp\">Toll Free 123-123-1234</a></li>&#10;</ul>",
+        "column4": "<div class=\"th-info-box\">&#10;<div class=\"th-footer__title h4\"><br/></div>&#10;</div>",
+        "bottomRow": "<div class=\"col-sm-12 col-md-7 col-md-push-5\">\n<ul class=\"th-footer__contact\">\n<li>1-800-555-5432</li>\n<li>24 hours a day 7 days a week</li>\n<li><a href=\"terms.asp\">Terms of Use</a></li>\n<li><a href=\"terms_privacy.asp\">Privacy Policy</a></li>\n</ul>\n</div>\n<div class=\"col-sm-12 col-md-5 col-md-pull-7\">\n<div class=\"th-footer__copyright\">&#169; Copyright 2015. All Rights Reserved. Built with <a href=\"http://www.volusion.com\" rel=\"nofollow\" target=\"_blank\">Volusion</a>.\n</div>\n</div>"
+      },
+      "newsletterSignup": {
+        "isEnabled": true
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "content1": "",
+      "content2": "",
+      "content3": "",
+      "featuredProducts": {
+        "isEnabled": true
+      },
+      "slider": {
+        "isEnabled": true,
+        "interval": 4000,
+        "slides": [
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide1.jpg",
+            "headline": "NewYearSaleathon",
+            "subHeadline": "Save20%offstorewidewithcouponcodeNEWYEAR",
+            "linksTo": "/all-products"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide2.jpg",
+            "headline": "NewSunriseCollection",
+            "subHeadline": "Wakeuptosomethinggood",
+            "linksTo": "/all-products"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide3.jpg",
+            "headline": "MiamiFashion",
+            "subHeadline": null,
+            "linksTo": "/all-products"
+          },
+          {
+            "imageUrl": "http://design16.volusion.com/v/theme-engine/method/slide4.jpg",
+            "headline": "MiamiFashion",
+            "subHeadline": null,
+            "linksTo": "/all-products"
+          }
+        ]
+      },
+      "tiles": {
+        "isEnabled": true,
+        "tiles": {
+          "tile1": {
+            "imageUrl": "/images/homepage/tile1.jpg",
+            "linkTo": "/all-products"
+          },
+          "tile2": {
+            "imageUrl": "/images/homepage/tile2.jpg",
+            "linkTo": "/all-products"
+          },
+          "tile3": {
+            "imageUrl": "/images/homepage/tile3.jpg",
+            "linkTo": "/all-products"
+          },
+          "tile4": {
+            "imageUrl": "/images/homepage/tile4.jpg",
+            "linkTo": "/all-products"
+          },
+          "tile5": {
+            "imageUrl": "/images/homepage/tile5.jpg",
+            "linkTo": "/all-products"
+          },
+          "tile6": {
+            "imageUrl": "/images/homepage/tile6.jpg",
+            "linkTo": "/all-products"
+          }
+        }
+      }
+    }
+  },
+  "itemsPerPage": 24,
+  "styleEditor": {
+    "selectedScheme": 0,
+    "colorSchemes": [
+      {
+        "name": "Standard",
+        "values": [
+          {
+            "key": "@body-bg",
+            "value": "#fff"
+          },
+          {
+            "key": "@text-color",
+            "value": "#000"
+          },
+          {
+            "key": "@brand-primary",
+            "value": "#00799b"
+          },
+          {
+            "key": "@brand-info",
+            "value": "#00799b"
+          },
+          {
+            "key": "@hr-border",
+            "value": "#fff"
+          },
+          {
+            "key": "@headings-color",
+            "value": "rgb(99, 99, 99)"
+          },
+          {
+            "key": "@link-color",
+            "value": "#000"
+          }
+        ]
+      },
+      {
+        "name": "Princess",
+        "values": [
+          {
+            "key": "@body-bg",
+            "value": "#fff"
+          },
+          {
+            "key": "@text-color",
+            "value": "rgb(46, 46, 46)"
+          },
+          {
+            "key": "@brand-primary",
+            "value": "rgb(202, 64, 156)"
+          },
+          {
+            "key": "@brand-info",
+            "value": "rgb(227, 118, 191)"
+          },
+          {
+            "key": "@hr-border",
+            "value": "rgb(250, 218, 239)"
+          },
+          {
+            "key": "@headings-color",
+            "value": "rgb(99, 99, 99)"
+          },
+          {
+            "key": "@link-color",
+            "value": "#000"
+          }
+        ]
+      },
+      {
+        "name": "Clouds",
+        "values": [
+          {
+            "key": "@body-bg",
+            "value": "rgb(231, 246, 251)"
+          },
+          {
+            "key": "@text-color",
+            "value": "rgb(96, 96, 96)"
+          },
+          {
+            "key": "@brand-primary",
+            "value": "rgb(71, 169, 202)"
+          },
+          {
+            "key": "@brand-info",
+            "value": "rgb(71, 169, 202)"
+          },
+          {
+            "key": "@hr-border",
+            "value": "rgb(198, 218, 225)"
+          },
+          {
+            "key": "@headings-color",
+            "value": "rgb(0, 255, 234)"
+          },
+          {
+            "key": "@link-color",
+            "value": "#000"
+          }
+        ]
+      }
+    ],
+    "fontSchemes": [
+      {
+        "values": [
+          {
+            "name": "Consolas",
+            "key": "@font-family-sans-serif",
+            "value": "'Consolas', 'Lucida Console', Monaco, monospace, 'websafe'"
+          },
+          {
+            "name": "Consolas",
+            "key": "@headings-font-family",
+            "value": "'Consolas', 'Lucida Console', Monaco, monospace, 'websafe'"
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "name": "Quicksand",
+            "key": "@font-family-sans-serif",
+            "value": "'Quicksand', sans-serif, 'google'"
+          },
+          {
+            "name": "Quicksand",
+            "key": "@headings-font-family",
+            "value": "'Quicksand', sans-serif, 'google'"
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "name": "Lato",
+            "key": "@font-family-sans-serif",
+            "value": "'Lato', sans-serif, 'google'"
+          },
+          {
+            "name": "Pacifico",
+            "key": "@headings-font-family",
+            "value": "'Pacifico', cursive, 'google'"
+          }
+        ]
+      }
+    ],
+    "editables": [
+      {
+        "type": "color",
+        "title": "Body Background Color",
+        "category": "General",
+        "key": "@body-bg",
+        "value": "#fff"
+      },
+      {
+        "type": "color",
+        "title": "Text Color",
+        "category": "General",
+        "key": "@text-color",
+        "value": "#000"
+      },
+      {
+        "type": "color",
+        "title": "Brand Primary",
+        "category": "General",
+        "key": "@brand-primary",
+        "value": "#00799b"
+      },
+      {
+        "type": "color",
+        "title": "Brand Secondary",
+        "category": "General",
+        "key": "@brand-info",
+        "value": "#00799b"
+      },
+      {
+        "type": "color",
+        "title": "Border Color",
+        "category": "General",
+        "key": "@hr-border",
+        "value": "#fff"
+      },
+      {
+        "type": "font-family",
+        "title": "Font",
+        "category": "General",
+        "key": "@font-family-sans-serif",
+        "value": "\"Quicksand\", sans-serif, \"google\"",
+        "name": "Quicksand"
+      },
+      {
+        "type": "color",
+        "title": "Text Color",
+        "category": "Headings",
+        "key": "@headings-color",
+        "value": "rgb(99, 99, 99)"
+      },
+      {
+        "type": "rtf",
+        "title": "Font Style",
+        "category": "Headings",
+        "value": "@headings-text-transform: uppercase;\n@headings-text-decoration: underline;\n@headings-font-weight: bold;\n@headings-font-style: normal;\n",
+        "text-transform": "@headings-text-transform",
+        "text-decoration": "@headings-text-decoration",
+        "font-weight": "@headings-font-weight",
+        "font-style": "@headings-font-style",
+        "text-transform-default": "lowercase",
+        "text-decoration-default": "underline",
+        "font-weight-default": "bold",
+        "font-style-default": "normal"
+      },
+      {
+        "type": "font-size",
+        "title": "Font Size",
+        "category": "Headings",
+        "key": "@font-size-base",
+        "font-size-default": "medium",
+        "font-size-small": "10px",
+        "font-size-medium": "14px",
+        "font-size-large": "18px",
+        "value": "14px"
+      },
+      {
+        "type": "font-family",
+        "title": "Font",
+        "category": "Headings",
+        "key": "@headings-font-family",
+        "value": "\"Abril Fatface\", fantasy, \"google\"",
+        "name": "Abril Fatface"
+      },
+      {
+        "type": "color",
+        "title": "Color",
+        "category": "Links",
+        "key": "@link-color",
+        "value": "rgb(216, 21, 21)"
+      }
+    ]
+  }
 }

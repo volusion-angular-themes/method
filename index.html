@@ -1,63 +1,107 @@
 <!doctype html>
-<html class="no-js" ng-app="methodApp" data-ng-strict-di>
-<head prefix="og: http://ogp.me/ns#
-     	fb: http://ogp.me/ns/fb#
-     	product: http://ogp.me/ns/product#"
-	  data-vn-meta-tags
-	  data-title="seo.metaTagTitle"
-	  data-description="seo.metaTagDescription"
-	  data-keywords="seo.metaTagKeywords"
-	  data-robots="seo.enableRobotsMetatags"
-	  data-to-append="seo.globallyAppendedMetatags"
+<html class="no-js" lang="" ng-app="vn-glass">
+    <head
+		prefix="og: http://ogp.me/ns#
+			fb: http://ogp.me/ns/fb#
+			product: http://ogp.me/ns/product#"
+		data-vn-meta-tags
+		data-title="seo.metaTagTitle"
+		data-description="seo.metaTagDescription"
+		data-keywords="seo.metaTagKeywords"
+		data-robots="seo.enableRobotsMetatags"
+		data-to-append="seo.globallyAppendedMetatags"
 
-	  data-social-twitter-card-type="social.twitterCardType"
-	  data-social-twitter-site="social.twitterName"
-	  data-social-twitter-creator="social.twitterName"
-	  data-social-twitter-title="social.pageTitle"
-	  data-social-twitter-image="social.imageUrl"
+		data-social-twitter-card-type="social.twitterCardType"
+		data-social-twitter-site="social.twitterName"
+		data-social-twitter-creator="social.twitterName"
+		data-social-twitter-title="social.pageTitle"
+		data-social-twitter-image="social.imageUrl"
 
-	  data-social-page-type="social.pageType"
-	  data-social-page-title="social.pageTitle"
-	  data-social-page-description="social.pageDescription"
-	  data-social-page-url="social.pageUrl"
-	  data-social-image-url="social.imageUrl"
-	  data-social-product-price="social.productPrice"
-	  data-social-product-currency="social.productCurrency">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="fragment" content="!" />
-	<title>Volusion AngularJS Method Theme</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-	<link rel="stylesheet" href="/styles/c5d3b6a6.vendor.css">
-	<link rel="stylesheet" href="/styles/ea0bc3d6.main.css">
-	<link rel="stylesheet" ng-href="{{ overridesCSS }}">
-	<base href="/">
-</head>
-<body role="document" data-ng-controller="MainCtrl" data-vn-page-name>
-	<!--[if lt IE 9]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>
-	to improve your experience.</p>
-	<![endif]-->
+		data-social-page-type="social.pageType"
+		data-social-page-title="social.pageTitle"
+		data-social-page-description="social.pageDescription"
+		data-social-page-url="social.pageUrl"
+		data-social-image-url="social.imageUrl"
+		data-social-product-price="social.productPrice"
+		data-social-product-currency="social.productCurrency">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/4c3afe24.vendor.css">
+        <link rel="stylesheet" href="/styles/60fcfa84.main.css">
+        <link rel="stylesheet" ng-href="{{ overridesCSS }}">
+        <!-- endbuild -->
+        <base href="/">
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.</p>
+        <![endif]-->
+        <!-- Header -->
+         <div id="header" ng-include=" 'views/partials/header.html' "></div>
 
-	<!-- Header -->
-	<div id="header" ng-include=" 'views/partials/header.html' "></div>
+		<!-- Main Content -->
+		<div id="main-content-area" role="main" ui-view="" ></div>
 
-	<!-- Main Content -->
-	<div id="main-content-area" role="main" ui-view="" ></div>
 
-	<!-- Footer -->
-	<div id="footer" ng-include=" 'views/partials/footer.html' "></div>
+        <!-- Footer -->
+         <div id="footer" ng-include=" 'views/partials/footer.html' "></div>
 
-	<!-- Mobile Menu -->
-	<div id="mobile-menu" data-vn-mobile-menu></div>
 
-	<!-- Cart -->
-	<div id="shopping-cart" data-vn-cart></div>
+		<!-- Cart -->
+		<div id="shopping-cart" data-vn-cart></div>
 
-	<script src="scripts/f82e14e3.vendor.js"></script>
+        <style id="compiled-css"></style>
 
-	<script src="/scripts/c9465144.scripts.js"></script>
+        <script>
+        //Listens to parent window. Injects and removes style tags for style editor
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
-</body>
+        var firstPass = true;
+
+        eventer(messageEvent, function(e) {
+            var key = e.message ? "message" : "data";
+            var data = e[key];
+            if(data[0]=='{'){
+
+                data = JSON.parse(data);
+
+                if(data.css){
+                    $('style[id="compiled-css"]').html(data.css);
+                }
+
+                if(data.less){
+
+                    $("<style id='compiled-styles'>" + data.less + "</style>").appendTo("head");
+
+                    if(firstPass === true){
+                        $('link[href="/styles/main.css"]').remove();
+                        firstPass = false;
+                    }
+                    else{
+                        $('style[id="compiled-styles"]').first().remove();
+                    }
+
+                }
+            }
+        }, false);
+        </script>
+
+        <script src="scripts/7c0cbb99.vendor.js"></script>
+
+        <script src="/scripts/ebc13cd3.scripts.js"></script>
+        <script>
+            /*var menuButton = document.getElementById('menuButton');
+            menuButton.addEventListener('click', function (e) {
+                menuButton.classList.toggle('is-active');
+                e.preventDefault();
+            });*/
+        </script>
+    </body>
 </html>
+
+
